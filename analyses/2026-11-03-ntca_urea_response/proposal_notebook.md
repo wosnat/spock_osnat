@@ -13,3 +13,4 @@
 - Slug `2026-11-03-ntca_urea_response` approved.
 - Critical review: 3 concerns + 1 note, all fixed — see proposal_critical_review.md
 - Design review: control bar (≥2 sig up or median ≥0.5 & ≥75% positive) and 75th-percentile suggestive cutoff confirmed as written; no change → no delta critic pass. Plan approved.
+- Design review round 2: researcher added N-deprivation (ntcA detectability control; MED4 12h+24h, MIT9313 12h) and cyanate/nitrite (alt-N comparison, cyanate gated on identity check vs urea — identical sig counts 14/5 observed).
