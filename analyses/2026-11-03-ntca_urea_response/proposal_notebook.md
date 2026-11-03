@@ -11,3 +11,4 @@
 ## Decisions
 - Readout = ntcA transcript only (researcher choice). Regulon-level readout rejected for this exercise.
 - Slug `2026-11-03-ntca_urea_response` approved.
+- Critical review: 3 concerns + 1 note, all fixed — see proposal_critical_review.md

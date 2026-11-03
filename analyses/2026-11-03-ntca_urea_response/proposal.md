@@ -48,14 +48,30 @@ urea response at all):
   glnB (PMM1463 / PMT1481), pipX (PMM0393 / PMT0205).
 
 **Falsifiability check.**
-- *Nothing real*: if the ure/urt genes show no shift up in a strain (median log2FC ≤ 0 and
-  none significant), that experiment can't detect the urea response, and a flat ntcA there
-  is **uninterpretable**, not a negative.
-- *Pre-registered expected-negative*: ribosomal-protein genes (rpl/rps, selected by the
-  product name "ribosomal protein") should be flat (median |log2FC| near the genome median,
-  none significant). If they move as much as ntcA, ntcA's change is not specific.
-- A valid negative: ure/urt up, ribosomal genes flat, ntcA not significant and below the
-  ~75th percentile of |log2FC| → "ntcA transcript not detectably changed on urea".
+- *Positive-control pass criterion (per strain)*: the ure/urt set (11 genes per strain)
+  **passes** if ≥ 2 genes are `significant_up`, **or** its median log2FC ≥ 0.5 with ≥ 75% of
+  the genes log2FC > 0. Anything weaker = **control failed** → that strain's ntcA result is
+  **uninterpretable**, not a negative.
+- *Pre-registered expected-negative / growth-rate check*: ribosomal-protein genes (product
+  contains "ribosomal protein"). Expected: median log2FC within ±0.3 of the genome-wide
+  median and ≤ 10% of them significant. Because ribosomal transcripts track growth rate, a
+  failure here is read as a **possible growth-rate difference between arms** (a caveat on
+  every gene, ntcA included), not as evidence that ntcA's change is non-specific.
+- *Decision rule for ntcA (per strain, applied only if the control passed)*:
+
+  | Outcome | Rule |
+  |---|---|
+  | ntcA up | paper call `significant_up` |
+  | ntcA down (against hypothesis) | paper call `significant_down` |
+  | suggestive only | not significant, but |log2FC| ≥ 75th percentile of the experiment; direction reported |
+  | not detectably changed | not significant and |log2FC| < 75th percentile |
+
+  Strains are read separately; agreement across strains is reported, disagreement is
+  reported as such (no pooling).
+
+**Scope of the claim.** Both arms are acclimated, log-phase, N-replete cultures (urea at a
+replete concentration [interpretation]). The result answers "is the ntcA transcript level
+different at steady state on urea vs ammonium", not "does ntcA respond to N stress".
 
 **Design comparability.**
 
