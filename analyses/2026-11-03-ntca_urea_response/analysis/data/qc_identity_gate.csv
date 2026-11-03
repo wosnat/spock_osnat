@@ -1,0 +1,2 @@
+experiment_a,experiment_b,n_shared_genes,n_identical_log2fc,n_identical_status,pearson_r_log2fc,n_up_urea,n_up_cyanate,n_up_overlap,n_down_urea,n_down_cyanate,n_down_overlap,gate_fired
+10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,1696,0,1678,0.5536348804027066,14,14,10,5,5,0,False

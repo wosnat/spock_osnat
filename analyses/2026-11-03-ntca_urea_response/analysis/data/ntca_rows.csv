@@ -1,0 +1,12 @@
+experiment_key,experiment_id,timepoint,locus_tag,gene_name,log2fc,padj,expression_status,abs_rank_pct
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,6h,PMM0246,ntcA,4.45086478182776,0.01,significant_up,99.64622641509435
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,12h,PMM0246,ntcA,3.01927772296539,0.01,significant_up,98.29009433962264
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,24h,PMM0246,ntcA,1.67965300850396,0.01,significant_up,92.39386792452831
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,48h,PMM0246,ntcA,1.22622802,1.0,not_significant,79.24528301886792
+med4_urea,10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,steady state,PMM0246,ntcA,-2.271141941,1.0,not_significant,99.70518867924528
+med4_cyanate,10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,steady state,PMM0246,ntcA,0.032980289,1.0,not_significant,6.898584905660378
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,12h,PMT1831,ntcA,3.5581014323859,0.01,significant_up,99.68763944667559
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,6h,PMT1831,ntcA,3.03245309533301,0.01,significant_up,99.68763944667559
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,48h,PMT1831,ntcA,2.91416175012933,0.01,significant_up,96.5640339134315
+mit9313_urea,10.1038/msb4100087_growth_medium_growth_on_urea_as_mit9313_microarray,steady state,PMT1831,ntcA,0.863125559,1.0,not_significant,91.61088799643017
+mit9313_nitrite,10.1038/msb4100087_growth_medium_growth_on_nitrite_as_mit9313_microarray,steady state,PMT1831,ntcA,1.43016711339692,0.01,significant_up,99.10754127621597
