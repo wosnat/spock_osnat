@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Proposal overview — ntcA on urea</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#ffffff;--panel:#f6f8fa;
+        --up:#d9711c;--down:#2f6fb5;--ok:#2e7d4f;--warn:#9a6700;--bad:#b42318;}
+  @media (prefers-color-scheme: dark){:root{--ink:#e6edf3;--muted:#9198a1;--line:#3d444d;--bg:#0d1117;--panel:#161b22;
+        --up:#f0883e;--down:#58a6ff;--ok:#3fb950;--warn:#d29922;--bad:#f85149;}}
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
+  main{max-width:1100px;margin:0 auto;padding:28px 24px 48px}
+  h1{font-size:24px;margin:0 0 4px}
+  h2{font-size:16px;margin:32px 0 10px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .sub{color:var(--muted);margin:0 0 6px}
+  .draft{display:inline-block;font-size:12px;border:1px solid var(--warn);color:var(--warn);border-radius:10px;padding:1px 8px;margin-left:8px;vertical-align:middle}
+  .q{border-left:4px solid var(--up);background:var(--panel);padding:12px 16px;border-radius:4px;font-size:17px}
+  .q small{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+  /* experiment grid */
+  .grid{display:grid;grid-template-columns:150px 1fr 1fr;gap:8px}
+  .grid .h{font-weight:600;color:var(--muted);font-size:13px;padding:4px 8px}
+  .grid .role{font-weight:600;padding:10px 8px;font-size:14px}
+  .grid .role span{display:block;font-weight:400;color:var(--muted);font-size:12px}
+  .cell{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:13px}
+  .cell b{font-size:14px}
+  .cell.primary{border:2px solid var(--up)}
+  .cell .flag{color:var(--warn);font-weight:600}
+  .ref{margin-top:8px;font-size:13px;color:var(--muted)}
+  /* flow */
+  .flow{display:flex;flex-direction:column;gap:0;align-items:stretch}
+  .step{display:grid;grid-template-columns:34px 1fr 260px;gap:12px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+  .num{width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+  .step h3{margin:0 0 4px;font-size:15px}
+  .step p{margin:0;font-size:13px}
+  .fail{font-size:13px;border-left:3px solid var(--bad);padding-left:10px}
+  .fail.caveat{border-color:var(--warn)}
+  .fail b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+  .arrow{text-align:center;color:var(--muted);font-size:16px;line-height:18px;margin:2px 0}
+  /* outcome table */
+  .out{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:2px}
+  .o{border-radius:6px;padding:12px;border:1px solid var(--line);font-size:13px;background:var(--panel)}
+  .o h4{margin:0 0 4px;font-size:15px}
+  .o.up{border-top:5px solid var(--up)} .o.down{border-top:5px solid var(--down)}
+  .o.sug{border-top:5px dashed var(--up)} .o.flat{border-top:5px solid var(--muted)}
+  /* genes */
+  table{border-collapse:collapse;width:100%;font-size:13px}
+  th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  code{font:12px ui-monospace,Consolas,monospace}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  ul{margin:4px 0 0 18px;padding:0} li{margin:2px 0}
+  footer{margin-top:36px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Does the <i>ntcA</i> transcript change on urea? <span class="draft">Both critic passes done — awaiting your approval</span></h1>
+  <p class="sub">Proposal overview · analysis <code>2026-11-03-ntca_urea_response</code> · source: <code>proposal.md</code></p>
+
+  <div class="q">
+    Is the <i>ntcA</i> transcript level different when <i>Prochlorococcus</i> is acclimated to <b>urea</b> as its sole nitrogen source instead of <b>ammonium</b>?
+    <small>Readout: the ntcA transcript only (not NtcA activity on its targets). Scope: steady-state, N-replete cultures; not a test of an N-stress response.
+    Hypothesis: ntcA is up on urea. Null: no change.</small>
+  </div>
+
+  <h2>Data — Tolonen et al. 2006, Mol Syst Biol (all microarrays, all detected genes)</h2>
+  <div class="grid">
+    <div></div><div class="h">MED4 (high-light) · ntcA = <code>PMM0246</code></div><div class="h">MIT9313 (low-light) · ntcA = <code>PMT1831</code></div>
+
+    <div class="role">Primary<span>the question</span></div>
+    <div class="cell primary"><b>Urea vs ammonium</b><br>1,696 genes · 14 up / 5 down<br>steady state, log phase</div>
+    <div class="cell primary"><b>Urea vs ammonium</b><br>2,241 genes · 28 up / 41 down<br>steady state, log phase</div>
+
+    <div class="role">Detectability control<span>can ntcA move on this array?</span></div>
+    <div class="cell"><b>N deprivation</b>: use <b>6, 12, 24, 48 h</b><br>controls matched in time</div>
+    <div class="cell"><b>N deprivation</b>: use <b>6, 12, 48 h</b><br>24 h excluded: its control is a 12 h ammonium sample</div>
+
+    <div class="role">Alternative-N comparison<span>context only; may share the ammonium reference</span></div>
+    <div class="cell"><b>Cyanate vs ammonium</b><br>1,696 genes · 14 up / 5 down<br><span class="flag">⚠ same counts as urea, so an identity check comes first</span></div>
+    <div class="cell"><b>Nitrite vs ammonium</b><br>2,241 genes · 9 up / 5 down</div>
+  </div>
+  <p class="ref">Every experiment is compared with log-phase cultures on N-replete Pro99 (ammonium). The strains are read separately; fold-change sizes are never compared across strains. Within a strain, the values are shown side by side for context, with no test between them.</p>
+
+  <h2>Checks, in order (per strain)</h2>
+  <div class="flow">
+    <div class="step">
+      <div class="num">0</div>
+      <div><h3>Cyanate identity gate (MED4)</h3><p>Compare the cyanate and urea tables row by row. Same counts alone are not proof of a copy.</p></div>
+      <div class="fail"><b>If identical</b>set aside <b>both</b> tables (urea too); log as a knowledge-graph data gap</div>
+    </div>
+    <div class="arrow">▼</div>
+    <div class="step">
+      <div class="num">1</div>
+      <div><h3>Positive control: urea-use genes respond</h3><p>Urease (ureA–G) and urea transporter (urtA–E), 11 genes. Pass: <b>≥ 2 significantly up</b>, or <b>median log2FC ≥ 0.5 with ≥ 75 % positive</b>.</p></div>
+      <div class="fail"><b>If fails</b>that strain's ntcA result is <b>uninterpretable</b></div>
+    </div>
+    <div class="arrow">▼</div>
+    <div class="step">
+      <div class="num">2</div>
+      <div><h3>Detectability: ntcA moves under N deprivation</h3><p>Pass: at ≥ 1 time point used, ntcA is <b>significantly up</b>, <b>or</b> has log2FC &gt; 0 in the <b>top 25 %</b> of genes by size of change. The paper's significance call is a list and does not follow fold-change size, which is why the size option is there. A pass means the probe responds, not that the array can pick up a small urea-sized change.</p></div>
+      <div class="fail"><b>If fails</b>a "not changed" urea result becomes <b>uninterpretable</b></div>
+    </div>
+    <div class="arrow">▼</div>
+    <div class="step">
+      <div class="num">3</div>
+      <div><h3>Expected negative: ribosomal proteins stay flat</h3><p>Median log2FC within <b>±0.3</b> of the genome median, and <b>≤ 10 %</b> significant.</p></div>
+      <div class="fail caveat"><b>If fails</b>caveat: the two cultures may differ in growth rate (applies to every gene)</div>
+    </div>
+    <div class="arrow">▼</div>
+    <div class="step" style="grid-template-columns:34px 1fr">
+      <div class="num">4</div>
+      <div><h3>Read ntcA: urea, then cyanate / nitrite with the same rules</h3><p>Significance is the paper's own call (no new test). The percentile is ntcA's rank by |log2FC| among all genes in that experiment.</p>
+        <div class="out">
+          <div class="o up"><h4>Up</h4>paper calls it significantly up</div>
+          <div class="o down"><h4>Down</h4>paper calls it significantly down (against the hypothesis)</div>
+          <div class="o sug"><h4>Suggestive only</h4>not significant, but in the top 25 % of genes by |log2FC|; direction reported</div>
+          <div class="o flat"><h4>Not detectably changed</h4>not significant and below the top 25 %</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Genes</h2>
+  <table>
+    <tr><th>Set</th><th>Role</th><th>MED4</th><th>MIT9313</th></tr>
+    <tr><td><b>ntcA</b></td><td>target</td><td><code>PMM0246</code></td><td><code>PMT1831</code></td></tr>
+    <tr><td>ureA–G (urease)</td><td>positive control</td><td><code>PMM0963–PMM0969</code></td><td><code>PMT2230–PMT2236</code></td></tr>
+    <tr><td>urtA, urtC–E (urea transporter)</td><td>positive control</td><td><code>PMM0970, PMM0972–PMM0974</code></td><td><code>PMT2229, PMT2225–PMT2227</code></td></tr>
+    <tr><td>ribosomal proteins</td><td>expected negative / growth-rate check</td><td colspan="2">selected by product name containing "ribosomal protein"</td></tr>
+    <tr><td>amt1 · glnA · glnB · pipX</td><td>reported for context, no fixed expectation</td><td><code>PMM0263 · PMM0920 · PMM1463 · PMM0393</code></td><td><code>PMT1853 · PMT0601 · PMT1481 · PMT0205</code></td></tr>
+  </table>
+
+  <h2>What happens next</h2>
+  <div class="two">
+    <div class="cell"><b>Methods</b><ul><li>a small module to pull the expression tables and apply the rules above</li><li>a toy test with made-up data covering each outcome</li><li>the cyanate identity check</li></ul></div>
+    <div class="cell"><b>Analysis → Evaluation</b><ul><li>one table and one figure: ntcA against all genes in each experiment</li><li>a summary report</li><li>results read against the rules above, then a short paper</li></ul></div>
+  </div>
+
+  <footer>All locus tags and experiment numbers come from KG 0.1.0-alpha.9 (explorer 0.1.0-alpha.6). The first critic pass found 3 concerns and 1 note, all fixed (see <code>proposal_critical_review.md</code>). A second critic pass on the added controls found 3 concerns and 1 note, all fixed. Disclosure: during that pass one result was seen early (MED4 ntcA on urea: log2FC −2.27, not significant). The rules for reading ntcA were committed before that and are unchanged.</footer>
+</main>
+</body>
+</html>

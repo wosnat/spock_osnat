@@ -19,8 +19,8 @@ nitrogen source instead of ammonium?**
 | Publication | Tolonen et al. 2006, *Mol Syst Biol*, doi 10.1038/msb4100087 |
 | Experiment (MED4) | `10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray` — 1,696 genes; 14 sig. up, 5 sig. down |
 | Experiment (MIT9313) | `10.1038/msb4100087_growth_medium_growth_on_urea_as_mit9313_microarray` — 2,241 genes; 28 sig. up, 41 sig. down |
-| Control (MED4) | `10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray` — N-deprivation time course; use 12h and 24h (matched controls) |
-| Control (MIT9313) | `10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray` — use 12h only (matched); 24h excluded (−N 24h vs +NH4 12h) |
+| Control (MED4) | `10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray` — N-deprivation time course; use 6h, 12h, 24h, 48h (matched controls) |
+| Control (MIT9313) | `10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray` — use 6h, 12h, 48h (matched); 24h excluded (−N 24h vs +NH4 12h) |
 | Comparison (MED4) | `10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray` — 1,696 genes; 14 up, 5 down (**same counts as MED4 urea — identity check required**) |
 | Comparison (MIT9313) | `10.1038/msb4100087_growth_medium_growth_on_nitrite_as_mit9313_microarray` — 2,241 genes; 9 up, 5 down |
 | Organisms | *Prochlorococcus* MED4 (high-light), MIT9313 (low-light) |
@@ -74,16 +74,26 @@ urea response at all):
   reported as such (no pooling).
 
 - *ntcA detectability control (N deprivation, same paper, same platform per strain)*:
-  passes if ntcA is `significant_up` at ≥ 1 of the used time points (MED4 12h, 24h;
-  MIT9313 12h). If it fails, a "not detectably changed" urea result in that strain is
-  downgraded to **uninterpretable** (ntcA not shown to move on this array), and the
-  N-deprivation ntcA values are reported as-is. This also gives the reference magnitude:
-  urea ntcA log2FC is reported next to the N-deprivation value from the same strain's array.
+  time points used = **every time point with a matched control from 6h on** — MED4 6h, 12h,
+  24h, 48h; MIT9313 6h, 12h, 48h (MIT9313 24h excluded: −N 24h vs +NH4 12h; 0h and 3h
+  excluded in both strains because they come before the starvation response develops,
+  ≤ 6 significant genes per strain at those points [KG]). **Passes** if at ≥ 1 used time point
+  ntcA is `significant_up`, **or** log2FC > 0 with |log2FC| ≥ 75th percentile of that time
+  point. A magnitude arm is needed because in this paper the significance call is a list
+  (padj takes only the values 0.01 or 1) and does not track fold-change size [KG, critic
+  spot-check]. A pass means "the ntcA probe responds under strong N stress". It does
+  **not** mean the array can detect a change as small as one urea might cause. If the
+  control fails, a "not detectably changed" urea result in that strain is downgraded to
+  **uninterpretable**. N-deprivation ntcA values are reported as-is, next to the urea
+  value from the same strain's array.
 - *Alternative-N comparison (cyanate MED4, nitrite MIT9313)*: the same decision table is
-  applied to ntcA in each, descriptive only (one experiment each). It shows whether any urea
-  result is specific to urea or shared with another non-ammonium source.
-  **Identity gate:** before use, compare MED4 cyanate and MED4 urea row by row; if log2FC and
-  status are identical for all shared genes, drop cyanate and log a `[kg-gap]`.
+  applied to ntcA in each, descriptive only (one experiment each). It is reported next to
+  the urea result as context. If they agree, that may reflect a shared ammonium reference
+  rather than a shared biology of growth on non-ammonium nitrogen.
+  **Identity gate:** before use, compare MED4 cyanate and MED4 urea row by row. If log2FC
+  and status are identical for all shared genes, **quarantine both tables** (urea included)
+  and log a `[kg-gap]`. If the gate passes, record in the notebook why the significance
+  counts match (14 up / 5 down in both), e.g. a fixed-length list in the paper.
 
 **Scope of the claim.** Both arms are acclimated, log-phase, N-replete cultures (urea at a
 replete concentration [interpretation]). The result answers "is the ntcA transcript level
@@ -96,8 +106,8 @@ different at steady state on urea vs ammonium", not "does ntcA respond to N stre
 | MED4 urea | primary | urea-acclimated log phase vs Pro99 ammonium log phase | exponential, N-replete; matched by growth state (same-day harvest not stated) [KG design_notes] | none with MIT9313 | can: steady-state ntcA transcript level; cannot: transient response, protein/activity |
 | MIT9313 urea | replication in a second ecotype | same design | same | none | same; differs in strain, so agreement across strains is supportive, not required |
 
-| MED4 N deprivation | ntcA detectability control | −N vs +NH4, sampled in parallel after resuspension; 12h/24h | matched time points; 12h acute stress, 24h N-limited [KG] | same strain and platform as urea; urea and −N arms are **different cultures**, the +NH4 reference may or may not be shared (unknown) | can: ntcA moves under real N stress on this array; cannot: a transient vs steady-state comparison of equal footing |
-| MIT9313 N deprivation | same | same; 12h only | 12h matched; 24h control is a 12h +NH4 sample → excluded [KG design_notes] | same | same |
+| MED4 N deprivation | ntcA detectability control | −N vs +NH4; 6h–48h. Parallel sampling after resuspension is stated only for MIT9313 — **unverified for MED4** (no design_notes) | control_timing matched [KG]; 6h/12h acute stress, 24h/48h N-limited [KG] | same strain and platform as urea; urea and −N arms are **different cultures**, the +NH4 reference may or may not be shared (unknown) | can: ntcA moves under real N stress on this array; cannot: a transient vs steady-state comparison of equal footing |
+| MIT9313 N deprivation | same | −N vs +NH4, sampled in parallel after resuspension [KG design_notes]; 6h, 12h, 48h | matched at 6h, 12h, 48h; 24h control is a 12h +NH4 sample → excluded [KG design_notes] | same | same |
 | MED4 cyanate / MIT9313 nitrite | alternative-N comparison | acclimated log phase on cyanate / nitrite vs Pro99 ammonium | same as urea [KG design_notes] | possibly the same ammonium reference arrays as urea (not stated) → not independent of urea | can: whether ntcA differs on another non-ammonium source; cannot: a statistical urea-vs-cyanate contrast |
 
 Fold-change magnitudes are never compared across strains (different arrays). Within a strain,
@@ -108,3 +118,13 @@ urea, N-deprivation and cyanate/nitrite values for ntcA are shown side by side a
 
 Not a discovery milestone — the gene sets are fixed above. Methods = one small extraction
 function with a toy test.
+
+## Known before the plan was locked (disclosure)
+
+During the second critic pass, the critic spot-checked one primary data value: **MED4 ntcA
+(PMM0246) on urea: log2FC −2.27, |log2FC| rank 6 of 1,696, `not_significant`
+(padj = 1)** [KG, verified by the author]. The ntcA decision table (up / down / suggestive /
+not changed) was committed in 792866c, before this value was seen, and is **left unchanged**.
+The changes made after the peek concern only the controls (detectability time points and
+magnitude arm, identity-gate handling, comparison wording). No MIT9313 ntcA value has been
+seen.
