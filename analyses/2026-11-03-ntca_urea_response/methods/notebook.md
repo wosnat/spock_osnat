@@ -48,4 +48,4 @@ seen. The decision rules were not run on real ntcA data.
 - [x] Toy tests cover every outcome; tests written before code
 - [x] Live-KG API check passes; paging verified against `total_matching`
 - [x] No primary ntcA result seen beyond the disclosed MED4 urea value
-- [ ] Researcher approval
+- [x] Researcher approval (2026-11-03)
