@@ -1,0 +1,17 @@
+experiment_key,experiment_id,timepoint,n_rows,n_genes,n_sig_up,n_sig_down,frac_log2fc_neg,frac_log2fc_zero,n_log2fc_null
+med4_urea,10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,steady state,1696,1696,14,5,0.5224056603773585,0.0,0
+mit9313_urea,10.1038/msb4100087_growth_medium_growth_on_urea_as_mit9313_microarray,steady state,2241,2241,28,41,0.4921909861668898,0.0,0
+med4_cyanate,10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,steady state,1696,1696,14,5,0.44516509433962265,0.0,0
+mit9313_nitrite,10.1038/msb4100087_growth_medium_growth_on_nitrite_as_mit9313_microarray,steady state,2241,2241,9,5,0.5261044176706827,0.0,0
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,6h,1696,1696,81,95,0.5200471698113207,0.0,0
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,3h,1696,1696,6,0,0.6391509433962265,0.0,0
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,12h,1696,1696,92,129,0.5595518867924528,0.0,0
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,48h,1696,1696,35,32,0.6320754716981132,0.0,0
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,24h,1696,1696,39,108,0.6279481132075472,0.0,0
+med4_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,0h,1696,1696,0,2,0.7606132075471698,0.0,0
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,24h,2241,2241,77,100,0.5943775100401606,0.0,0
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,12h,2241,2241,19,27,0.5850066934404283,0.0,0
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,48h,2241,2241,82,240,0.6171352074966533,0.0,0
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,6h,2241,2241,18,21,0.5087014725568942,0.0,0
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,3h,2241,2241,1,0,0.44489067380633646,0.0,0
+mit9313_ndep,10.1038/msb4100087_nitrogen_nitrogen_deprivation_mit9313_mit9313_microarray,0h,2241,2241,0,0,0.5082552431950023,0.0,0
