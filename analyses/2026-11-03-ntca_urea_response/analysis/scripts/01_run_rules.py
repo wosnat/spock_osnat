@@ -72,6 +72,7 @@ for strain, s in STRAIN.items():
                              ntca_abs_rank_pct=r["abs_rank_pct"], passed=tp_pass))
     controls.append(dict(strain=strain, check="detectability_overall", experiment_key=s["ndep"],
                          timepoint="|".join(s["ndep_tps"]), passed=det["passed"],
+                         used_for_gating=True,
                          detail="passing timepoints: " + ("|".join(det["passing_timepoints"]) or "none")))
     ntca_rows.append(nd[(nd["locus_tag"] == s["ntca"]) & nd["timepoint"].isin(s["ndep_tps"])][COLS])
     genes.append(nd[nd["locus_tag"].isin([s["ntca"]] + s["ure"] + s["other"])
@@ -92,14 +93,25 @@ for strain, s in STRAIN.items():
         row = d[d["locus_tag"] == s["ntca"]].iloc[0]
         ntca_rows.append(d[d["locus_tag"] == s["ntca"]][COLS])
         genes.append(d[d["locus_tag"].isin([s["ntca"]] + s["ure"] + s["other"])][COLS])
+        is_urea = key == s["urea"]
+        controls[-2]["used_for_gating"] = is_urea      # the ure/urt row just appended
         skipped = key == "med4_cyanate" and gate_fired
+        direction = "up" if row["log2fc"] > 0 else "down"
         cls = "not_applied_identity_gate" if skipped else m.classify_ntca(row)
+        if skipped:
+            final = cls
+        elif is_urea:   # pre-registered: gated by ure/urt control + detectability
+            final = m.final_reading(cls, pc["passed"], det["passed"])
+        else:           # researcher decision: alternative-N rows are descriptive, ungated
+            final = cls
+        def sfx(c): return f"suggestive_{direction}" if c == "suggestive" else c
         readings.append(dict(strain=strain, experiment_key=key, experiment_id=EXP[key],
-                             role="primary" if key == s["urea"] else "alternative_N_comparison",
-                             ntca_locus_tag=s["ntca"], classification=cls,
+                             role="primary" if is_urea else "alternative_N_comparison",
+                             gating="pre-registered" if is_urea else "descriptive_ungated",
+                             ntca_locus_tag=s["ntca"], ntca_log2fc=row["log2fc"], direction=direction,
+                             classification=sfx(cls),
                              control_passed=pc["passed"], detectability_passed=det["passed"],
-                             growth_rate_flag=gr["flag"],
-                             final_reading=cls if skipped else m.final_reading(cls, pc["passed"], det["passed"])))
+                             growth_rate_flag=gr["flag"], final_reading=sfx(final)))
 
 pd.DataFrame(controls).to_csv(DATA / "controls.csv", index=False, encoding="utf-8")
 pd.concat(ntca_rows).to_csv(DATA / "ntca_rows.csv", index=False, encoding="utf-8")

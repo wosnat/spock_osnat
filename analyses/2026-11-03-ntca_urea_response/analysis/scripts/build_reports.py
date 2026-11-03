@@ -76,10 +76,13 @@ page = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="description" content="Decision rules applied to ntcA (PMM0246, PMT1831): readings, controls, identity gate, gene table, per-strain figures.">
 <style>{CSS}</style></head><body>
 <h1>ntcA on urea — analysis milestone</h1>
-<p class="cap">What this milestone asked: filled in by the main thread from notebook.md.</p>
-<h2>Readings (data/readings.csv)</h2>{table(rd.drop(columns=["experiment_id"]))}
+<p>What this milestone asked: Apply the pre-registered rules in proposal.md to ntcA on urea vs ammonium (MED4, MIT9313), with N deprivation as a detectability control and cyanate / nitrite as descriptive context.</p>
+<h2>Readings (data/readings.csv)</h2>{table(rd.drop(columns=["experiment_id"]), fc_col="ntca_log2fc")}
+<p>Only one urea reading is interpretable: MIT9313, suggestive up (not significant). MED4 is uninterpretable because its urea-gene control failed. No agreement between the strains can be claimed.</p>
+<p class="cap">Cyanate (MED4) and nitrite (MIT9313) rows are descriptive and not gated by any control (gating = descriptive_ungated).</p>
 <h2>ntcA rows used (data/ntca_rows.csv)</h2>{table(nt.drop(columns=["experiment_id"]), fc_col="log2fc")}
 <h2>Controls (data/controls.csv)</h2>{table(ct)}
+<p>MIT9313 urea-gene control: passes on the urea transporter genes (urtA, urtC, urtD significant up); the urease genes ureA–G are all below +0.39.</p>
 <h2>Identity gate: MED4 urea vs MED4 cyanate (data/qc_identity_gate.csv)</h2>
 {table(gate.drop(columns=["experiment_a", "experiment_b"]))}
 <h2>Figures</h2>
