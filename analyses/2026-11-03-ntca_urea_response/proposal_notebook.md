@@ -12,3 +12,4 @@
 - Readout = ntcA transcript only (researcher choice). Regulon-level readout rejected for this exercise.
 - Slug `2026-11-03-ntca_urea_response` approved.
 - Critical review: 3 concerns + 1 note, all fixed — see proposal_critical_review.md
+- Design review: control bar (≥2 sig up or median ≥0.5 & ≥75% positive) and 75th-percentile suggestive cutoff confirmed as written; no change → no delta critic pass. Plan approved.
