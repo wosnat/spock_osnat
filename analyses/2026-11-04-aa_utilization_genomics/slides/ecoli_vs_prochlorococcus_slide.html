@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="One-slide comparison of amino-acid utilization machinery: a generalist heterotroph (E. coli, background knowledge) vs Prochlorococcus MED4 (KG pilot).">
+<title>Using amino acids: E. coli vs Prochlorococcus MED4</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;
+        --ec:#1f7a8c;--ec2:#e3f1f4;--pro:#6250d6;--pro2:#efedfb;--shared:#8f8e89;--warn:#9a6700;}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e9eaec}
+  .slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         padding:40px 60px 28px;display:grid;grid-template-rows:auto auto 1fr auto;gap:18px;overflow:hidden}
+  h1{margin:0;font-size:44px;line-height:1.1}
+  .sub{margin:8px 0 0;font-size:22px;color:var(--muted)}
+  /* flow lanes */
+  .lanes{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .lane{border-radius:12px;padding:16px 22px}
+  .lane.ec{background:var(--ec2)} .lane.pro{background:var(--pro2)}
+  .lane h2{margin:0 0 10px;font-size:26px}
+  .lane.ec h2{color:var(--ec)} .lane.pro h2{color:var(--pro)}
+  .lane h2 small{font-size:16px;font-weight:600;color:var(--muted);margin-left:8px}
+  .flow{display:flex;align-items:center;gap:10px}
+  .box{flex:1;background:#fff;border-radius:8px;padding:10px 12px;text-align:center;font-size:19px;border:2px solid}
+  .box b{display:block;font-size:20px}
+  .lane.ec .box{border-color:var(--ec)} .lane.pro .box{border-color:var(--pro)}
+  .box.weak{border-style:dashed;color:var(--muted)}
+  .arr{font-size:30px;color:var(--muted)}
+  /* comparison table */
+  table{width:100%;border-collapse:separate;border-spacing:0 8px;font-size:21px}
+  th{text-align:left;font-size:17px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:0 16px}
+  th.ec{color:var(--ec)} th.pro{color:var(--pro)}
+  td{background:var(--panel);padding:11px 16px;vertical-align:top;line-height:1.32}
+  td:first-child{border-radius:8px 0 0 8px;font-weight:700;width:15%}
+  td:last-child{border-radius:0 8px 8px 0}
+  td.ec{border-left:5px solid var(--ec);width:40%} td.pro{border-left:5px solid var(--pro);width:45%}
+  .n{font-weight:800}
+  .lt{font-family:ui-monospace,Consolas,monospace;font-size:18px}
+  .tag{display:inline-block;font-size:14px;font-weight:700;border-radius:10px;padding:1px 9px;margin-left:6px;vertical-align:2px}
+  .tag.bg{border:1.5px solid var(--ec);color:var(--ec)}
+  .tag.kg{border:1.5px solid var(--pro);color:var(--pro)}
+  .tag.int{border:1.5px solid var(--warn);color:var(--warn)}
+  .foot{display:flex;justify-content:space-between;gap:30px;font-size:16px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div>
+    <h1>Using amino acids: a "regular" bacterium vs <i>Prochlorococcus</i></h1>
+    <p class="sub">A generalist heterotroph keeps the full package to take amino acids in and break them down. Our MED4 pilot finds almost none of it.</p>
+  </div>
+
+  <div class="lanes">
+    <div class="lane ec">
+      <h2><i>E. coli</i> <small>heterotroph · general knowledge</small></h2>
+      <div class="flow">
+        <div class="box"><b>Take up</b>many specific transporters</div><div class="arr">→</div>
+        <div class="box"><b>Break down</b>dedicated operons</div><div class="arr">→</div>
+        <div class="box"><b>NH₄⁺ / glutamate</b>N for growth</div>
+      </div>
+    </div>
+    <div class="lane pro">
+      <h2><i>Prochlorococcus</i> MED4 <small>autotroph · our database pilot</small></h2>
+      <div class="flow">
+        <div class="box weak"><b>Take up?</b>no specific system found</div><div class="arr">→</div>
+        <div class="box weak"><b>Break down?</b>1 of 34 enzymes</div><div class="arr">→</div>
+        <div class="box"><b>Use directly?</b>protein synthesis</div>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th></th><th class="ec"><i>E. coli</i> <span class="tag bg">background</span></th><th class="pro"><i>Prochlorococcus</i> MED4 <span class="tag kg">database pilot</span></th></tr>
+    <tr><td>Genome</td><td class="ec">~4,300 genes; a generalist</td><td class="pro"><span class="n">1,973</span> genes; one of the smallest free-living photosynthetic genomes</td></tr>
+    <tr><td>Uptake</td><td class="ec">Separate systems for branched-chain, Arg/Lys, His, Gln, aromatic, Pro, Ser/Thr amino acids</td><td class="pro"><span class="n">0</span> amino-acid systems matched in the transporter database; <span class="n">1</span> gene-function label (gltS, glutamate)</td></tr>
+    <tr><td>Breakdown-only enzymes</td><td class="ec">Proline DH (put), tryptophanase (tna), serine deaminase (sda), arginine succinyl pathway (ast), asparaginase, glutaminase…</td><td class="pro"><span class="n">1 of 34</span> searched: asparaginase <span class="lt">PMM0821</span>. No Pro DH, Ala DH, Glu DH, glutaminase, arginase or hut.</td></tr>
+    <tr><td>Packages (operons)</td><td class="ec">Uptake + breakdown side by side: <i>putP + putA</i> (proline), <i>tnaB + tnaA</i> (tryptophan)</td><td class="pro">Asparaginase sits <b>alone</b>. The package Prochlorococcus does keep is for <b>urea</b>: <i>ureABC + ureDEFG + urtA–E</i> (<span class="lt">PMM0963–0974</span>)</td></tr>
+    <tr><td>Switched on by</td><td class="ec">Nitrogen limitation (Ntr system) and the amino acid itself</td><td class="pro">Not examined here <span class="tag int">possible next step: N-starvation expression</span></td></tr>
+    <tr><td>Likely role of amino acids</td><td class="ec">Carbon and nitrogen source</td><td class="pro">If taken up, probably built straight into protein, saving biosynthesis <span class="tag int">interpretation</span></td></tr>
+  </table>
+
+  <div class="foot">
+    <span><i>E. coli</i> column: general textbook knowledge, not from our database and not yet cited. MED4: pilot with a draft enzyme list (not approved); annotation ≠ proven function. Alteromonas HOT1A3 (marine heterotroph) pilot in progress.</span>
+    <span style="white-space:nowrap">KG 0.1.0-alpha.9 · 2026-11-04 · D. Aharonovich</span>
+  </div>
+</div>
+</body>
+</html>
