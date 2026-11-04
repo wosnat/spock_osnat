@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MED4 pilot — amino-acid breakdown enzymes (slide)</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;
+        --ded:#6250d6;--shared:#8f8e89;--flag:#eda100;--broad:#52514e;}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e9eaec}
+  .slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         padding:46px 64px 34px;display:grid;grid-template-rows:auto auto 1fr auto;gap:22px;overflow:hidden}
+  h1{margin:0;font-size:44px;line-height:1.1;letter-spacing:-.01em}
+  h1 i{font-style:italic}
+  .sub{margin:8px 0 0;font-size:21px;color:var(--muted)}
+  .tag{display:inline-block;font-size:15px;font-weight:600;border:1.5px solid var(--flag);color:#9a6700;border-radius:14px;padding:2px 12px;margin-left:12px;vertical-align:6px}
+  /* strip */
+  .strip{display:grid;grid-template-columns:repeat(20,1fr);gap:6px}
+  .aa{height:74px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:23px;position:relative}
+  .aa.d{background:var(--ded);color:#fff}
+  .aa.s{background:var(--shared);color:#fff}
+  .aa.n{background:#fff;border:2px solid var(--shared);color:var(--ink)}
+  .aa.f::after{content:"";position:absolute;top:0;right:0;border-top:18px solid var(--flag);border-left:18px solid transparent;border-top-right-radius:6px}
+  .legend{display:flex;gap:34px;font-size:20px;color:var(--muted);margin-top:10px}
+  .sw{display:inline-block;width:18px;height:18px;border-radius:4px;vertical-align:-3px;margin-right:8px}
+  /* body */
+  .cols{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:26px;min-height:0}
+  .card{background:var(--panel);border-radius:10px;padding:28px 30px;min-height:0}
+  .card h2{margin:0 0 20px;font-size:24px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .card p,.card li{font-size:25px;line-height:1.42}
+  .card ul{margin:0;padding-left:22px}
+  .card li{margin:0 0 18px}
+  .big{display:flex;flex-direction:column;gap:16px;margin-bottom:24px}
+  .num{flex:1;background:#fff;border-radius:8px;padding:14px 16px;border:1px solid var(--line)}
+  .num b{display:block;font-size:64px;line-height:1}
+  .num span{font-size:20px;color:var(--muted)}
+  .num.d b{color:var(--ded)} .num.s b{color:#6b6a66}
+  .bar{height:20px;border-radius:4px;background:#fff;border:1.5px solid;margin-top:8px;overflow:hidden}
+  .bar div{height:100%}
+  .hit{background:#fff;border:2px solid var(--ded);border-radius:8px;padding:18px 20px;margin-bottom:24px}
+  .hit b{color:var(--ded);font-size:26px}
+  .hit .route{font-size:24px;margin-top:8px}
+  .missing{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .chip{border:2px solid var(--ded);background:#fff;border-radius:6px;padding:6px 14px;font-size:21px}
+  .k{font-weight:700}
+  .foot{display:flex;justify-content:space-between;gap:30px;font-size:16px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div>
+    <h1>Can <i>Prochlorococcus</i> MED4 break down amino acids for nitrogen? <span class="tag">pilot · draft enzyme list</span></h1>
+    <p class="sub" style="font-size:23px">One genome (MED4, high-light clade HLI) · 20 amino acids · every gene matched by KEGG enzyme ID against a draft list of breakdown and shared enzymes</p>
+  </div>
+
+  <div>
+    <div class="strip">
+      <div class="aa d">Asn</div>
+      <div class="aa s">Arg</div><div class="aa s">Asp</div><div class="aa s">Cys</div><div class="aa s">Gln</div><div class="aa s">Gly</div><div class="aa s">His</div>
+      <div class="aa s">Ile</div><div class="aa s">Leu</div><div class="aa s">Lys</div><div class="aa s">Ser</div><div class="aa s f">Thr</div><div class="aa s">Val</div>
+      <div class="aa n">Ala</div><div class="aa n">Glu</div><div class="aa n">Met</div><div class="aa n">Phe</div><div class="aa n">Pro</div><div class="aa n">Trp</div><div class="aa n">Tyr</div>
+    </div>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--ded)"></span><b style="color:var(--ink)">1</b> breakdown-only enzyme found</span>
+      <span><span class="sw" style="background:var(--shared)"></span><b style="color:var(--ink)">12</b> only shared enzymes (also build amino acids: not counted)</span>
+      <span><span class="sw" style="background:#fff;border:2px solid var(--shared)"></span><b style="color:var(--ink)">7</b> nothing found</span>
+      <span><span class="sw" style="background:var(--flag)"></span>flagged: likely mislabelled gene</span>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div class="card">
+      <h2>What was searched</h2>
+      <div class="big">
+        <div class="num d"><b>1 / 34</b><span>breakdown-only enzymes found</span>
+          <div class="bar" style="border-color:var(--ded)"><div style="width:2.9%;background:var(--ded)"></div></div></div>
+        <div class="num s"><b>19 / 34</b><span>shared enzymes found</span>
+          <div class="bar" style="border-color:var(--shared)"><div style="width:55.9%;background:var(--shared)"></div></div></div>
+      </div>
+      <ul>
+        <li>MED4 carries many enzymes that <b>build</b> amino acids, but almost none that <b>only break them down</b>.</li>
+        <li>Shared enzymes don't count: every strain needs them, so they say nothing about utilization.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>What was found, and what wasn't</h2>
+      <div class="hit"><b>Asparagine: the one breakdown-only hit</b>
+        <div class="route">asparagine → aspartate + <b>NH₄⁺</b> &nbsp;·&nbsp; asparaginase, <span class="k">PMM0821</span> (ansA)</div></div>
+      <p style="margin:0 0 6px"><b>Searched, not found in MED4</b> (classic breakdown enzymes):</p>
+      <div class="missing">
+        <span class="chip">arginase</span><span class="chip">Arg deiminase</span><span class="chip">hut (His)</span><span class="chip">glutaminase</span>
+        <span class="chip">Ala dehydrogenase</span><span class="chip">Pro dehydrogenase / putA</span><span class="chip">Leu dehydrogenase</span><span class="chip">Met γ-lyase</span>
+      </div>
+      <p style="margin:22px 0 0;color:var(--muted);font-size:21px">Glutamate dehydrogenase was also absent; it counts as shared under the approved rule.</p>
+    </div>
+
+    <div class="card">
+      <h2>What the pilot changed</h2>
+      <ul>
+        <li><b>Transporters set aside:</b> MED4 had no amino-acid-specific uptake system in the database (0 transporter-database matches; 1 gene-function label, gltS).</li>
+        <li><b>Score whole pathways on breakdown-only steps</b>, and require the step that frees the nitrogen.</li>
+        <li><b>Match by enzyme ID, never gene name:</b> e.g. a gene named aspA is an aspartoacylase; PMM1468 (bioF) carries a threonine enzyme ID, so it's flagged.</li>
+        <li><b>13 enzyme IDs not in the database</b> (mostly Phe, Tyr, Trp) are to be checked against KEGG.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Enzyme-level preview: a draft list, not yet approved. Annotation ≠ proven function. "Nothing found" = no gene annotated in this genome. Next: approved pathway list → 45 <i>Prochlorococcus</i> + marine <i>Synechococcus</i>.</span>
+    <span style="white-space:nowrap">KG 0.1.0-alpha.9 · 2026-11-04 · D. Aharonovich</span>
+  </div>
+</div>
+</body>
+</html>
