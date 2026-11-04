@@ -1,0 +1,15 @@
+locus_tag,gene_name,product,2025-Nstarv-RNA-axenic,2025-Nstarv-RNA-coculture,2025-Nstarv-protein-axenic,2025-Nstarv-protein-coculture,Cocult2016,Cocult2025,Read-Ndep,Tolonen-Ndep,Tolonen-cyanate,Tolonen-urea
+PMM0186,hisC,aminotransferase class I and II family protein,UP (+0.9) 1/1,ns 0/5,UP (+0.6) 1/3,UP (+0.8) 2/5,ns 0/1,DOWN (-1.1) 1/2,not in experiment,ns 0/6,ns 0/1,ns 0/1
+PMM0628,gltS,putative Na+/glutamate symporter,ns 0/1,DOWN (-0.8) 1/5,ns 0/3,ns 0/5,ns 0/1,ns 0/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1
+PMM0674,aspC,aspartate aminotransferase,DOWN (-1.7) 1/1,DOWN (-1.1) 3/5,ns 0/3,DOWN (-0.6) 2/5,DOWN (-11.3) 1/1,UP (+1.9) 1/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1
+PMM0821,ansA,L-asparaginase II family protein,ns 0/1,ns 0/5,UP (+0.8) 1/3,ns 0/5,DOWN (-3.1) 1/1,ns 0/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1
+PMM0878,ilvE,branched-chain amino acid aminotransferase,ns 0/1,ns 0/5,UP (+1.2) 3/3,UP (+1.4) 5/5,ns 0/1,ns 0/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1
+PMM0908,ilvA,threonine ammonia-lyase,UP (+1.0) 1/1,DOWN (-0.8) 1/5,UP (+0.9) 1/3,UP (+0.7) 1/5,ns 0/1,ns 0/2,not in experiment,UP (+1.7) 1/6,ns 0/1,ns 0/1
+PMM0919,spt,alanine--glyoxylate aminotransferase,DOWN (-1.1) 1/1,DOWN (-0.8) 2/5,DOWN (-1.5) 3/3,DOWN (-1.6) 5/5,ns 0/1,ns 0/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1
+PMM0920,glnA,"glutamine synthetase, type I",UP (+3.4) 1/1,DOWN (-2.2) 2/5,UP (+2.5) 3/3,UP (+2.9) 5/5,DOWN (-2.8) 1/1,UP (+2.4) 1/2,UP (+2.9) 2/3,UP (+5.1) 5/6,UP (+1.4) 1/1,ns 0/1
+PMM0963,ureC,urease alpha subunit,UP (+1.4) 1/1,UP (+0.7) 1/5,UP (+1.9) 3/3,UP (+2.7) 5/5,DOWN (-4.6) 1/1,ns 0/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1
+PMM0970,urtA,"ABC-type urea transporter, substrate binding component",UP (+2.7) 1/1,DOWN (-2.0) 1/5,MIX (+0.8) 3/3,UP (+2.5) 5/5,DOWN (-2.4) 1/1,UP (+2.5) 1/2,UP (+4.1) 2/3,UP (+5.4) 5/6,ns 0/1,ns 0/1
+PMM1049,dppA,peptide/nickel transport system substrate-binding protein,UP (+2.2) 1/1,ns 0/5,MIX (+0.4) 3/3,UP (+2.0) 5/5,DOWN (-10.7) 1/1,DOWN (-1.2) 1/2,not in experiment,ns 0/6,ns 0/1,ns 0/1
+PMM1084,cadA,lysine decarboxylase,ns 0/1,ns 0/5,ns 0/3,ns 0/5,ns 0/1,ns 0/2,not in experiment,ns 0/6,ns 0/1,ns 0/1
+PMM1512,glsF,ferredoxin-dependent glutamate synthase,UP (+2.5) 1/1,ns 0/5,ns 0/3,UP (+0.9) 4/5,ns 0/1,DOWN (-1.9) 1/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1
+PMM1703,,possible D-amino-acid dehydrogenase,UP (+2.0) 1/1,ns 0/5,ns 0/3,ns 0/5,ns 0/1,DOWN (-1.0) 1/2,ns 0/3,ns 0/6,ns 0/1,ns 0/1

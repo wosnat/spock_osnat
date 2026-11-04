@@ -70,3 +70,17 @@ The researcher chose **MIT9303** (LLIV) to replace MIT9313 as the blind low-ligh
 3. Re-run MED4 / MIT9313 / HOT1A3 and diff against the pilot tables.
 4. Delta critic pass over the changes.
 5. Show a random sample from each bin (verification layer 4), then the researcher decides.
+
+## Exploration: MED4 expression view of amino-acid use (2026-11-04)
+
+The researcher asked for a different view: what MED4's experiments say about amino-acid use. `gene_response_profile` (group_by=experiment) was run on 14 MED4 genes over the 10 nitrogen and coculture experiments: Tolonen 2006, Read 2017, Weissberg/Aharonovich/Sher 2025, and Aharonovich & Sher 2016. Frozen to `spike/med4_expression/data/med4_aa_gene_responses.csv` (script `e01_condense.py`).
+
+[KG] summary:
+- **Controls:** glnA (PMM0920) and urtA (PMM0970) are up in short-term N deprivation (Tolonen +5.1 / +5.4; Read +2.9 / +4.1). The N response is detectable.
+- **Amino-acid genes in short-term N deprivation (Tolonen, Read):** no response for gltS, ansA, aspC, ilvE, hisC, dppA, spt.
+- **Long-term N starvation (2025):** up are dppA PMM1049 (peptide-binding; RNA +2.2; protein +2.0 at 5/5 coculture timepoints), ilvE (protein +1.2 to +1.4 at all timepoints), ureC (protein +1.9 to +2.7), Fd-GOGAT, and PMM1703 (RNA +2.0). spt PMM0919 is down throughout.
+- **gltS PMM0628 (the only amino-acid uptake candidate):** never up.
+- **Design caveats:**
+  - The 2025 starvation contrasts are against each series' own exponential sample (baseline), late death or N-limited phase.
+  - Cocult2016 shows extreme values (aspC −11.3; dppA −10.7) to check before use.
+  - "ns" ≠ not expressed.
