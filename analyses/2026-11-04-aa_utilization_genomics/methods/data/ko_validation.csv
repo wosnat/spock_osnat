@@ -1,0 +1,125 @@
+ko,used_in,kegg_valid,kegg_name,in_kg,kg_name,kg_name_matches_kegg,kg_search_for_symbol
+K00060,catalogue,True,tdh; threonine 3-dehydrogenase [EC:1.1.1.103],True,tdh; threonine 3-dehydrogenase [EC:1.1.1.103],True,
+K00259,catalogue,True,ald; alanine dehydrogenase [EC:1.4.1.1],True,ald; alanine dehydrogenase [EC:1.4.1.1],True,
+K00260,catalogue,True,"gudB, rocG; glutamate dehydrogenase [EC:1.4.1.2]",False,,,search_ontology total_matching=0: 
+K00261,catalogue,True,"GLUD1_2, gdhA; glutamate dehydrogenase (NAD(P)+) [EC:1.4.1.3]",True,"GLUD1_2, gdhA; glutamate dehydrogenase (NAD(P)+) [EC:1.4.1.3]",True,
+K00262,catalogue,True,"E1.4.1.4, gdhA; glutamate dehydrogenase (NADP+) [EC:1.4.1.4]",True,"E1.4.1.4, gdhA; glutamate dehydrogenase (NADP+) [EC:1.4.1.4]",True,
+K00263,catalogue,True,E1.4.1.9; leucine dehydrogenase [EC:1.4.1.9],True,E1.4.1.9; leucine dehydrogenase [EC:1.4.1.9],True,
+K00264,catalogue,True,GLT1; glutamate synthase (NADH) [EC:1.4.1.14],False,,,search_ontology total_matching=0: 
+K00265,catalogue,True,gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13],True,gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13],True,
+K00266,catalogue,True,gltD; glutamate synthase (NADPH) small chain [EC:1.4.1.13],True,gltD; glutamate synthase (NADPH) small chain [EC:1.4.1.13],True,
+K00270,catalogue,True,pdh; phenylalanine dehydrogenase [EC:1.4.1.20],False,,,search_ontology total_matching=0: 
+K00273,broad,True,"DAO, aao; D-amino-acid oxidase [EC:1.4.3.3]",True,"DAO, aao; D-amino-acid oxidase [EC:1.4.3.3]",True,
+K00281,catalogue,True,"GLDC, gcvP; glycine cleavage system P protein (glycine dehydrogenase) [EC:1.4.4.2]",True,"GLDC, gcvP; glycine cleavage system P protein (glycine dehydrogenase) [EC:1.4.4.2]",True,
+K00282,catalogue,True,gcvPA; glycine cleavage system P protein (glycine dehydrogenase) subunit 1 [EC:1.4.4.2],False,,,search_ontology total_matching=0: 
+K00283,catalogue,True,gcvPB; glycine cleavage system P protein (glycine dehydrogenase) subunit 2 [EC:1.4.4.2],True,gcvPB; glycine cleavage system P protein (glycine dehydrogenase) subunit 2 [EC:1.4.4.2],True,
+K00284,catalogue,True,"GLU, gltS; glutamate synthase (ferredoxin) [EC:1.4.7.1]",True,"GLU, gltS; glutamate synthase (ferredoxin) [EC:1.4.7.1]",True,
+K00285,broad,True,dadA; D-amino-acid dehydrogenase [EC:1.4.5.1],True,dadA; D-amino-acid dehydrogenase [EC:1.4.5.1],True,
+K00294,catalogue,True,E1.2.1.88; 1-pyrroline-5-carboxylate dehydrogenase [EC:1.2.1.88],True,E1.2.1.88; 1-pyrroline-5-carboxylate dehydrogenase [EC:1.2.1.88],True,
+K00318,catalogue,True,"PRODH, fadM, putB; proline dehydrogenase [EC:1.5.5.2]",True,"PRODH, fadM, putB; proline dehydrogenase [EC:1.5.5.2]",True,
+K00453,catalogue,True,"TDO2, kynA; tryptophan 2,3-dioxygenase [EC:1.13.11.11]",True,"TDO2, kynA; tryptophan 2,3-dioxygenase [EC:1.13.11.11]",True,
+K00456,catalogue,True,CDO1; cysteine dioxygenase [EC:1.13.11.20],False,,,search_ontology total_matching=0: 
+K00463,catalogue,True,"IDO, INDO; indoleamine 2,3-dioxygenase [EC:1.13.11.52]",False,,,search_ontology total_matching=0: 
+K00466,catalogue,True,iaaM; tryptophan 2-monooxygenase [EC:1.13.12.3],True,iaaM; tryptophan 2-monooxygenase [EC:1.13.12.3],True,
+K00468,catalogue,True,davB; lysine 2-monooxygenase [EC:1.13.12.2],False,,,search_ontology total_matching=0: 
+K00500,catalogue,True,"phhA, PAH; phenylalanine-4-hydroxylase [EC:1.14.16.1]",True,"phhA, PAH; phenylalanine-4-hydroxylase [EC:1.14.16.1]",True,
+K00600,catalogue,True,"glyA, SHMT; glycine hydroxymethyltransferase [EC:2.1.2.1]",True,"glyA, SHMT; glycine hydroxymethyltransferase [EC:2.1.2.1]",True,
+K00605,catalogue,True,"gcvT, AMT; glycine cleavage system T protein (aminomethyltransferase) [EC:2.1.2.10]",True,"gcvT, AMT; glycine cleavage system T protein (aminomethyltransferase) [EC:2.1.2.10]",True,
+K00639,catalogue,True,"kbl, GCAT; glycine C-acetyltransferase [EC:2.3.1.29]",True,"kbl, GCAT; glycine C-acetyltransferase [EC:2.3.1.29]",True,
+K00673,catalogue,True,astA; arginine N-succinyltransferase [EC:2.3.1.109],True,astA; arginine N-succinyltransferase [EC:2.3.1.109],True,
+K00789,catalogue,True,"metK, MAT; S-adenosylmethionine synthetase [EC:2.5.1.6]",True,"metK, MAT; S-adenosylmethionine synthetase [EC:2.5.1.6]",True,
+K00811,catalogue;control,True,"ASP5; aspartate aminotransferase, chloroplastic [EC:2.6.1.1]",False,,,search_ontology total_matching=0: 
+K00812,catalogue;control,True,aspB; aspartate aminotransferase [EC:2.6.1.1],True,aspB; aspartate aminotransferase [EC:2.6.1.1],True,
+K00813,catalogue;control,True,aspC; aspartate aminotransferase [EC:2.6.1.1],True,aspC; aspartate aminotransferase [EC:2.6.1.1],True,
+K00814,catalogue,True,"GPT, ALT; alanine transaminase [EC:2.6.1.2]",False,,,search_ontology total_matching=1: kegg.orthology:K00769|gpt; xanthine phosphoribosyltransferase [EC:2.4.2.22]
+K00815,catalogue,True,TAT; tyrosine aminotransferase [EC:2.6.1.5],False,,,search_ontology total_matching=0: 
+K00816,catalogue,True,CCBL; kynurenine---oxoglutarate transaminase / cysteine-S-conjugate beta-lyase / glutamine---phenylpyruvate transaminase [EC:2.6.1.7 4.4.1.13 2.6.1.64],False,,,search_ontology total_matching=0: 
+K00817,control,True,hisC; histidinol-phosphate aminotransferase [EC:2.6.1.9],True,hisC; histidinol-phosphate aminotransferase [EC:2.6.1.9],True,
+K00823,catalogue,True,puuE; 4-aminobutyrate aminotransferase [EC:2.6.1.19],True,puuE; 4-aminobutyrate aminotransferase [EC:2.6.1.19],True,
+K00824,broad,True,dat; D-alanine transaminase [EC:2.6.1.21],True,dat; D-alanine transaminase [EC:2.6.1.21],True,
+K00825,catalogue,True,"AADAT, KAT2; kynurenine/2-aminoadipate aminotransferase [EC:2.6.1.7 2.6.1.39]",False,,,search_ontology total_matching=0: 
+K00826,catalogue;control,True,"E2.6.1.42, ilvE; branched-chain amino acid aminotransferase [EC:2.6.1.42]",True,"E2.6.1.42, ilvE; branched-chain amino acid aminotransferase [EC:2.6.1.42]",True,
+K00827,catalogue,True,AGXT2; alanine-glyoxylate transaminase / (R)-3-amino-2-methylpropionate-pyruvate transaminase [EC:2.6.1.44 2.6.1.40],False,,,search_ontology total_matching=0: 
+K00830,catalogue,True,AGXT; alanine-glyoxylate transaminase / serine-glyoxylate transaminase / serine-pyruvate transaminase [EC:2.6.1.44 2.6.1.45 2.6.1.51],True,AGXT; alanine-glyoxylate transaminase / serine-glyoxylate transaminase / serine-pyruvate transaminase [EC:2.6.1.44 2.6.1.45 2.6.1.51],True,
+K00832,catalogue,True,tyrB; aromatic-amino-acid transaminase [EC:2.6.1.57],True,tyrB; aromatic-amino-acid transaminase [EC:2.6.1.57],True,
+K00835,catalogue,True,avtA; valine--pyruvate aminotransferase [EC:2.6.1.66],True,avtA; valine--pyruvate aminotransferase [EC:2.6.1.66],True,
+K00837,broad,True,"ISS1, VAS1; aromatic aminotransferase [EC:2.6.1.-]",False,,,search_ontology total_matching=0: 
+K00838,catalogue,True,ARO8; aromatic amino acid aminotransferase I / 2-aminoadipate transaminase [EC:2.6.1.57 2.6.1.39 2.6.1.27 2.6.1.5],False,,,search_ontology total_matching=0: 
+K01251,catalogue,True,"AHCY, ahcY; adenosylhomocysteinase [EC:3.13.2.1]",True,"AHCY, ahcY; adenosylhomocysteinase [EC:3.13.2.1]",True,
+K01424,catalogue,True,"E3.5.1.1, ansA, ansB; L-asparaginase [EC:3.5.1.1]",True,"E3.5.1.1, ansA, ansB; L-asparaginase [EC:3.5.1.1]",True,
+K01425,catalogue,True,"glsA, GLS; glutaminase [EC:3.5.1.2]",True,"glsA, GLS; glutaminase [EC:3.5.1.2]",True,
+K01432,catalogue,True,AFMID; arylformamidase [EC:3.5.1.9],True,AFMID; arylformamidase [EC:3.5.1.9],True,
+K01476,catalogue,True,"rocF, arg; arginase [EC:3.5.3.1]",True,"rocF, arg; arginase [EC:3.5.3.1]",True,
+K01478,catalogue,True,arcA; arginine deiminase [EC:3.5.3.6],True,arcA; arginine deiminase [EC:3.5.3.6],True,
+K01480,catalogue,True,speB; agmatinase [EC:3.5.3.11],True,speB; agmatinase [EC:3.5.3.11],True,
+K01484,catalogue;control,True,astB; succinylarginine dihydrolase [EC:3.5.3.23],True,astB; succinylarginine dihydrolase [EC:3.5.3.23],True,
+K01506,catalogue,True,davA; 5-aminopentanamidase [EC:3.5.1.30],False,,,search_ontology total_matching=0: 
+K01556,catalogue,True,"KYNU, kynU; kynureninase [EC:3.7.1.3]",True,"KYNU, kynU; kynureninase [EC:3.7.1.3]",True,
+K01580,catalogue,True,"E4.1.1.15, gadB, gadA, GAD; glutamate decarboxylase [EC:4.1.1.15]",True,"E4.1.1.15, gadB, gadA, GAD; glutamate decarboxylase [EC:4.1.1.15]",True,
+K01582,catalogue,True,"E4.1.1.18, ldcC, cadA; lysine decarboxylase [EC:4.1.1.18]",True,"E4.1.1.18, ldcC, cadA; lysine decarboxylase [EC:4.1.1.18]",True,
+K01583,catalogue,True,E4.1.1.19; arginine decarboxylase [EC:4.1.1.19],False,,,search_ontology total_matching=0: 
+K01584,catalogue,True,adiA; arginine decarboxylase [EC:4.1.1.19],True,adiA; arginine decarboxylase [EC:4.1.1.19],True,
+K01585,catalogue,True,speA; arginine decarboxylase [EC:4.1.1.19],True,speA; arginine decarboxylase [EC:4.1.1.19],True,
+K01620,catalogue,True,"ltaE, THA; threonine aldolase [EC:4.1.2.48]",True,"ltaE, THA; threonine aldolase [EC:4.1.2.48]",True,
+K01667,catalogue;control,True,tnaA; tryptophanase [EC:4.1.99.1],False,,,search_ontology total_matching=0: 
+K01668,catalogue;control,True,E4.1.99.2; tyrosine phenol-lyase [EC:4.1.99.2],False,,,search_ontology total_matching=0: 
+K01697,catalogue,True,CBS; cystathionine beta-synthase [EC:4.2.1.22],False,,,search_ontology total_matching=2: kegg.orthology:K07182|K07182; CBS domain-containing protein || kegg.orthology:K07168|K07168; CBS domain-containing membrane protein
+K01744,catalogue,True,aspA; aspartate ammonia-lyase [EC:4.3.1.1],True,aspA; aspartate ammonia-lyase [EC:4.3.1.1],True,
+K01745,catalogue,True,"hutH, HAL; histidine ammonia-lyase [EC:4.3.1.3]",True,"hutH, HAL; histidine ammonia-lyase [EC:4.3.1.3]",True,
+K01752,catalogue,True,"E4.3.1.17, sdaA, sdaB, tdcG; L-serine dehydratase [EC:4.3.1.17]",True,"E4.3.1.17, sdaA, sdaB, tdcG; L-serine dehydratase [EC:4.3.1.17]",True,
+K01753,broad,True,dsdA; D-serine dehydratase [EC:4.3.1.18],False,,,search_ontology total_matching=0: 
+K01754,broad;catalogue,True,"E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]",True,"E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]",True,
+K01758,catalogue,True,CTH; cystathionine gamma-lyase [EC:4.4.1.1],True,CTH; cystathionine gamma-lyase [EC:4.4.1.1],True,
+K01760,broad,True,metC; cysteine-S-conjugate beta-lyase [EC:4.4.1.13],True,metC; cysteine-S-conjugate beta-lyase [EC:4.4.1.13],True,
+K01761,catalogue,True,E4.4.1.11; methionine-gamma-lyase [EC:4.4.1.11],True,E4.4.1.11; methionine-gamma-lyase [EC:4.4.1.11],True,
+K01915,control,True,"glnA, GLUL; glutamine synthetase [EC:6.3.1.2]",True,"glnA, GLUL; glutamine synthetase [EC:6.3.1.2]",True,
+K02626,catalogue,True,pdaD; arginine decarboxylase [EC:4.1.1.19],False,,,search_ontology total_matching=0: 
+K03153,catalogue,True,thiO; glycine oxidase [EC:1.4.3.19],True,thiO; glycine oxidase [EC:1.4.3.19],True,
+K03334,broad,True,IL4I1; L-amino-acid oxidase [EC:1.4.3.2],False,,,search_ontology total_matching=0: 
+K03918,catalogue,True,lat; L-lysine 6-transaminase [EC:2.6.1.36],False,,,search_ontology total_matching=0: 
+K05396,broad,True,dcyD; D-cysteine desulfhydrase [EC:4.4.1.15],True,dcyD; D-cysteine desulfhydrase [EC:4.4.1.15],True,
+K07130,catalogue,True,kynB; arylformamidase [EC:3.5.1.9],True,kynB; arylformamidase [EC:3.5.1.9],True,
+K07250,catalogue,True,gabT; 4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase / 5-aminovalerate transaminase [EC:2.6.1.19 2.6.1.22 2.6.1.48],True,gabT; 4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase / 5-aminovalerate transaminase [EC:2.6.1.19 2.6.1.22 2.6.1.48],True,
+K09251,catalogue,True,patA; putrescine aminotransferase [EC:2.6.1.82],True,patA; putrescine aminotransferase [EC:2.6.1.82],True,
+K10536,catalogue,True,aguA; agmatine deiminase [EC:3.5.3.12],True,aguA; agmatine deiminase [EC:3.5.3.12],True,
+K10774,catalogue,True,E4.3.1.23; tyrosine ammonia-lyase [EC:4.3.1.23],False,,,search_ontology total_matching=0: 
+K10775,catalogue,True,PAL; phenylalanine ammonia-lyase [EC:4.3.1.24],False,,,search_ontology total_matching=1: kegg.orthology:K03640|pal; peptidoglycan-associated lipoprotein
+K10907,broad,True,K10907; aminotransferase [EC:2.6.1.-],True,K10907; aminotransferase [EC:2.6.1.-],True,
+K11358,catalogue;control,True,yhdR; aspartate aminotransferase [EC:2.6.1.1],False,,,search_ontology total_matching=0: 
+K12252,catalogue,True,aruH; arginine:pyruvate transaminase [EC:2.6.1.84],True,aruH; arginine:pyruvate transaminase [EC:2.6.1.84],True,
+K13051,catalogue,True,"ASRGL1, iaaA; L-asparaginase / beta-aspartyl-peptidase [EC:3.5.1.1 3.4.19.5]",True,"ASRGL1, iaaA; L-asparaginase / beta-aspartyl-peptidase [EC:3.5.1.1 3.4.19.5]",True,
+K13064,catalogue,True,PTAL; phenylalanine/tyrosine ammonia-lyase [EC:4.3.1.25],False,,,search_ontology total_matching=0: 
+K13278,catalogue,True,ASPG; 60kDa lysophospholipase [EC:3.1.1.5 3.1.1.47 3.5.1.1],False,,,"search_ontology total_matching=1: kegg.orthology:K01444|AGA, aspG; N4-(beta-N-acetylglucosaminyl)-L-asparaginase [EC:3.5.1.26]"
+K13290,catalogue,True,K13290; serine---pyruvate transaminase [EC:2.6.1.51],False,,,search_ontology total_matching=0: 
+K13524,catalogue,True,ABAT; 4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase [EC:2.6.1.19 2.6.1.22],False,,,search_ontology total_matching=0: 
+K13821,catalogue,True,"putA; RHH-type transcriptional regulator, proline utilization regulon repressor / proline dehydrogenase / delta 1-pyrroline-5-carboxylate dehydrogenase [EC:1.5.5.2 1.2.1.88]",True,"putA; RHH-type transcriptional regulator, proline utilization regulon repressor / proline dehydrogenase / delta 1-pyrroline-5-carboxylate dehydrogenase [EC:1.5.5.2 1.2.1.88]",True,
+K14155,broad,True,"patB, malY; cysteine-S-conjugate beta-lyase [EC:4.4.1.13]",True,"patB, malY; cysteine-S-conjugate beta-lyase [EC:4.4.1.13]",True,
+K14157,catalogue,True,AASS; alpha-aminoadipic semialdehyde synthase [EC:1.5.1.8 1.5.1.9],False,,,search_ontology total_matching=0: 
+K14260,catalogue,True,alaA; alanine-synthesizing transaminase [EC:2.6.1.66 2.6.1.2],True,alaA; alanine-synthesizing transaminase [EC:2.6.1.66 2.6.1.2],True,
+K14263,catalogue,True,BNA7; kynurenine formamidase [EC:3.5.1.9],False,,,search_ontology total_matching=0: 
+K14264,catalogue,True,BNA3; kynurenine aminotransferase [EC:2.6.1.7],False,,,search_ontology total_matching=0: 
+K14265,catalogue,True,Tam1; tryptophan aminotransferase [EC:2.6.1.27],False,,,search_ontology total_matching=0: 
+K14267,broad,True,dapC; N-succinyldiaminopimelate aminotransferase [EC:2.6.1.17],True,dapC; N-succinyldiaminopimelate aminotransferase [EC:2.6.1.17],True,
+K14268,catalogue,True,"davT, gabT; 5-aminovalerate/4-aminobutyrate aminotransferase [EC:2.6.1.48 2.6.1.19]",True,"davT, gabT; 5-aminovalerate/4-aminobutyrate aminotransferase [EC:2.6.1.48 2.6.1.19]",True,
+K14272,catalogue,True,GGAT; glutamate--glyoxylate aminotransferase [EC:2.6.1.4 2.6.1.2 2.6.1.44],False,,,search_ontology total_matching=0: 
+K14287,catalogue,True,ybdL; methionine transaminase [EC:2.6.1.88],True,ybdL; methionine transaminase [EC:2.6.1.88],True,
+K14454,catalogue;control,True,"GOT1, AAT2; aspartate aminotransferase, cytoplasmic [EC:2.6.1.1]",False,,,search_ontology total_matching=0: 
+K14455,catalogue;control,True,"GOT2; aspartate aminotransferase, mitochondrial [EC:2.6.1.1]",False,,,search_ontology total_matching=0: 
+K15371,catalogue,True,GDH2; glutamate dehydrogenase [EC:1.4.1.2],True,GDH2; glutamate dehydrogenase [EC:1.4.1.2],True,
+K15789,catalogue,True,TDH; threonine 3-dehydrogenase [EC:1.1.1.103],False,,,search_ontology total_matching=1: kegg.orthology:K00060|tdh; threonine 3-dehydrogenase [EC:1.1.1.103]
+K15849,catalogue;control,True,"PAT, AAT; bifunctional aspartate aminotransferase and glutamate/aspartate-prephenate aminotransferase [EC:2.6.1.1 2.6.1.78 2.6.1.79]",False,,,"search_ontology total_matching=2: kegg.orthology:K03823|pat, bar; phosphinothricin acetyltransferase [EC:2.3.1.183] || kegg.orthology:K08218|ampG; MFS transporter, PAT family, beta-lactamase induction signal transducer AmpG"
+K16871,catalogue,True,POP2; 4-aminobutyrate---pyruvate transaminase [EC:2.6.1.96],True,POP2; 4-aminobutyrate---pyruvate transaminase [EC:2.6.1.96],True,
+K17217,catalogue,True,mccB; cystathionine gamma-lyase / homocysteine desulfhydrase [EC:4.4.1.1 4.4.1.2],False,,,search_ontology total_matching=0: 
+K17989,catalogue,True,"SDS, SDH, CHA1; L-serine/L-threonine ammonia-lyase [EC:4.3.1.17 4.3.1.19]",True,"SDS, SDH, CHA1; L-serine/L-threonine ammonia-lyase [EC:4.3.1.17 4.3.1.19]",True,
+K19064,catalogue,True,lysDH; lysine 6-dehydrogenase [EC:1.4.1.18],True,lysDH; lysine 6-dehydrogenase [EC:1.4.1.18],True,
+K19244,catalogue,True,ala; alanine dehydrogenase [EC:1.4.1.1],True,ala; alanine dehydrogenase [EC:1.4.1.1],True,
+K20021,catalogue,True,E4.4.1.28; L-cysteine desulfidase [EC:4.4.1.28],False,,,search_ontology total_matching=0: 
+K20498,broad,True,DSD1; D-serine ammonia-lyase [EC:4.3.1.18],False,,,search_ontology total_matching=0: 
+K21346,catalogue,True,BCAT4; methionine transaminase [EC:2.6.1.88],False,,,search_ontology total_matching=0: 
+K21801,catalogue,True,iaaH; indoleacetamide hydrolase [EC:3.5.1.-],True,iaaH; indoleacetamide hydrolase [EC:3.5.1.-],True,
+K22207,catalogue,True,LCD; L-cysteine desulfhydrase [EC:4.4.1.28],False,,,search_ontology total_matching=0: 
+K22457,catalogue,True,E2.6.1.14; asparagine---oxo-acid transaminase [EC:2.6.1.14],False,,,search_ontology total_matching=0: 
+K27542,catalogue,True,argZ; arginine dihydrolase / ornithine cyclodeaminase [EC:3.5.3.27 4.3.1.12],False,,,search_ontology total_matching=0: 
+K27545,catalogue,True,argZ; arginine dihydrolase [EC:3.5.3.27],False,,,search_ontology total_matching=0: 
+K28682,catalogue,True,"desA, bibA; lysine decarboxylase [EC:4.1.1.18]",False,,,"search_ontology total_matching=1: kegg.orthology:K10255|FAD6, desA; acyl-lipid omega-6 desaturase (Delta-12 desaturase) [EC:1.14.19.23 1.14.19.45]"
+K28981,catalogue,True,cds1; L-cysteine desulfidase [EC:4.4.1.28],False,,,"search_ontology total_matching=1: kegg.orthology:K00981|E2.7.7.41, CDS1, CDS2, cdsA; phosphatidate cytidylyltransferase [EC:2.7.7.41]"

@@ -1,0 +1,14 @@
+ko,label,ec,category,description,pilot_note,credited
+K03334,LAAO,1.4.3.2,broad L,"L-amino-acid oxidase, many L-amino acids -> 2-oxo acid + NH4+",M00044 step 1 alternative,False
+K00273,DAO,1.4.3.3,D-amino acid,D-amino-acid oxidase,,False
+K00285,dadA,1.4.5.1,D-amino acid,D-amino-acid dehydrogenase (D-Ala and others),pilot listed under Ala,False
+K00824,dat,2.6.1.21,D-amino acid,D-alanine transaminase,,False
+K05396,dcyD,4.4.1.15,D-amino acid,D-cysteine desulfhydrase,pilot listed under Cys,False
+K01753,dsdA,4.3.1.18,D-amino acid,D-serine ammonia-lyase,pilot listed under Ser,False
+K20498,DSD1,4.3.1.18,D-amino acid,D-serine ammonia-lyase (eukaryotic type),,False
+K14267,dapC,2.6.1.17,broad aminotransferase,N-succinyldiaminopimelate aminotransferase; class I AT used in lysine biosynthesis (M00016),pilot ALL row,False
+K10907,K10907,2.6.1.-,broad aminotransferase,"aminotransferase, substrate unspecified",pilot ALL row,False
+K00837,ISS1/VAS1,2.6.1.-,broad aminotransferase,"aromatic aminotransferase, substrate unspecified",pilot ALL row,False
+K01754,ilvA,4.3.1.19,side activity,threonine dehydratase also deaminates L-serine; credited only as Thr_dehydratase (shared),,False
+K01760,metC,4.4.1.13,side activity,cystathionine beta-lyase (Met biosynthesis); cysteine desulfhydrase side activity,pilot listed under Cys,False
+K14155,patB/malY,4.4.1.13,side activity,cystathionine beta-lyase family; cysteine desulfhydrase side activity,,False

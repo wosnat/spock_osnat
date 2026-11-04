@@ -1,0 +1,21 @@
+amino_acid,pathways,steps,dedicated_steps,shared_steps,all_shared_pathways,n_freeing_step_ids
+Ala,2,2,1,1,1,Ala_dehydrogenase.1; Ala_transamination.1
+Arg,7,10,6,4,2,Arg_arginase.1; Arg_argZ.1; Arg_ADI.1; Arg_AST.2; Arg_transaminase.1; Arg_agmatinase.2; Arg_agmatine_deiminase.2
+Asn,2,2,2,0,0,Asn_asparaginase.1; Asn_transaminase.1
+Asp,2,2,1,1,1,Asp_aspartase.1; Asp_transamination.1
+Cys,3,4,3,1,0,Cys_desulfidase.1; Cys_CTH.1; Cys_CDO.2
+Gln,2,2,1,1,1,Gln_glutaminase.1; Gln_GOGAT.1
+Glu,2,3,2,1,1,Glu_GDH.1; Glu_GABA_shunt.2
+Gly,3,4,0,4,3,Gly_cleavage.2; Gly_oxidase.1; Gly_transamination.1
+His,1,1,1,0,0,His_hut.1
+Ile,2,2,1,1,1,Ile_BCAT.1; Ile_LeuDH.1
+Leu,2,2,1,1,1,Leu_BCAT.1; Leu_LeuDH.1
+Lys,5,8,7,1,0,Lys_cadaverine.2; Lys_davBA.2; Lys_6AT.1; Lys_6DH.1; Lys_saccharopine.2
+Met,3,6,3,3,1,Met_gamma_lyase.1; Met_transamination.1; Met_transsulfuration.4
+Phe,4,5,3,2,1,Phe_PAL.1; Phe_PheDH.1; Phe_transamination.1; Phe_hydroxylase_Tyr.2
+Pro,1,2,2,0,0,Pro_PutA.2
+Ser,3,5,1,4,2,Ser_dehydratase.1; Ser_SHMT_GCS.3; Ser_transamination.1
+Thr,3,8,3,5,1,Thr_dehydratase.1; Thr_aldolase.3; Thr_TDH_kbl.4
+Trp,5,11,9,2,1,Trp_tryptophanase.1; Trp_kynurenine_Ala.4; Trp_kynurenine_KAT.3; Trp_IAM.2; Trp_transamination.1
+Tyr,3,3,2,1,1,Tyr_TAL.1; Tyr_phenol_lyase.1; Tyr_transamination.1
+Val,2,2,1,1,1,Val_BCAT.1; Val_LeuDH.1
