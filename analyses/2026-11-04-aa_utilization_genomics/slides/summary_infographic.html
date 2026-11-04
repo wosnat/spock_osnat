@@ -26,23 +26,28 @@
   .ico{flex:0 0 42px;height:42px;border-radius:8px;background:var(--pro2);color:var(--pro);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
   .ico.h{background:var(--het2);color:var(--het)}
   /* bar chart */
-  .bars{display:flex;flex-direction:column;gap:16px;margin:6px 0 10px}
+  .bars{display:flex;flex-direction:column;gap:10px;margin:4px 0 8px}
   .bar{display:grid;grid-template-columns:190px 1fr 64px;align-items:center;gap:12px;font-size:21px}
-  .bar .t{height:40px;border-radius:6px;background:#eef0f2;position:relative;overflow:hidden}
+  .bar .t{height:34px;border-radius:6px;background:#eef0f2;position:relative;overflow:hidden}
   .bar .t i{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
   .bar .v{font-weight:800;font-size:28px}
   .pro .t i{background:var(--pro)} .alt .t i{background:var(--het)} .eco .t i{background:repeating-linear-gradient(135deg,var(--het) 0 7px,#5b8fd0 7px 14px)}
   .pro .v{color:var(--pro)} .alt .v,.eco .v{color:var(--het)}
   .lab small{display:block;font-size:15px;color:var(--muted)}
   .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
-  .fact{border-radius:10px;padding:14px 16px;font-size:18px;line-height:1.32}
-  .fact b{display:block;font-size:32px}
+  .fact{border-radius:10px;padding:10px 14px;font-size:17px;line-height:1.28}
+  .fact b{display:block;font-size:28px}
   .fact.p{background:var(--pro2)} .fact.p b{color:var(--pro)}
   .fact.h{background:var(--het2)} .fact.h b{color:var(--het)}
   .why{display:flex;gap:12px;align-items:flex-start;font-size:21px;line-height:1.33;margin-bottom:10px}
   .why span{flex:0 0 26px;height:26px;border-radius:50%;border:2px solid var(--warn);color:var(--warn);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:1px}
   .next{margin-top:auto;background:#fff;border:2px solid var(--pro);border-radius:10px;padding:14px 16px;font-size:20px;line-height:1.32}
   .next b{color:var(--pro)}
+  .expr{margin-top:10px;border-radius:10px;padding:12px 16px;background:#fdf1e6;border:2px solid #e8b48a}
+  .expr .et{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#b35d14;margin-bottom:6px}
+  .expr .er{font-size:18px;line-height:1.32;margin:4px 0}
+  .pill{display:inline-block;font-size:14px;font-weight:700;border-radius:10px;padding:1px 9px;margin-right:6px;vertical-align:2px}
+  .pill.up{background:#d9711c;color:#fff}
   .foot{display:flex;justify-content:space-between;gap:30px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
 </style>
 </head>
@@ -60,6 +65,7 @@
       <div class="step"><div class="ico">3</div><div><b>Ran pilots</b>MED4 (high-light), MIT9313 (low-light), Alteromonas HOT1A3</div></div>
       <div class="step"><div class="ico h">vs</div><div><b>Compared with heterotrophs</b>uptake and breakdown vs <i>E. coli</i> (textbook) and Alteromonas</div></div>
       <div class="step"><div class="ico">⇄</div><div><b>Checked gene neighbours</b>breakdown gene next to a transporter?</div></div>
+      <div class="step"><div class="ico" style="background:#fdf1e6;color:#b35d14">↑↓</div><div><b>Checked MED4 experiments</b>do amino-acid genes switch on under nitrogen stress?</div></div>
     </div>
 
     <div class="col got">
@@ -76,6 +82,10 @@
         <div class="fact h"><b>~25–30</b>uptake systems in <i>E. coli</i> (textbook)</div>
         <div class="fact p"><b>lone</b>every <i>Prochlorococcus</i> breakdown gene; no uptake + breakdown package</div>
         <div class="fact p"><b>urea</b>MED4 keeps a full uptake + breakdown package for urea, not for amino acids</div>
+      </div>
+      <div class="expr"><div class="et">Expression · MED4, 10 experiments</div>
+        <div class="er"><span class="pill up">N alarm on</span> short-term N deprivation: glnA, urea genes up; <b>no amino-acid gene responds</b></div>
+        <div class="er"><span class="pill up">long-term</span> starvation: peptide-binding <b>dppA</b>, <b>ilvE</b>, <b>urease</b> up → recycling own proteins / peptides?</div>
       </div>
     </div>
 
