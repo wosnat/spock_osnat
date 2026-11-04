@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Explanatory illustration for Figure 2: the logic of testing MED4 amino-acid use with nitrogen-stress expression data.">
+<title>Figure 2 explained: does MED4 reach for amino acids when nitrogen is short?</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;
+        --pro:#1f8a4c;--pro2:#e5f4ea;--up:#d9711c;--up2:#fdf1e6;--down:#2f6fb5;--grey:#9aa1a9;--warn:#9a6700;--warn2:#fdf3dc}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e9eaec}
+  .slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         padding:36px 56px 22px;display:grid;grid-template-rows:auto 1fr auto auto;gap:16px;overflow:hidden}
+  h1{margin:0;font-size:40px} h1 i{font-style:italic}
+  .sub{margin:6px 0 0;font-size:21px;color:var(--muted)}
+  .row{display:grid;grid-template-columns:400px 1fr 420px;gap:24px;min-height:0}
+  .card{border-radius:14px;padding:20px 22px}
+  .logic{background:var(--panel);display:flex;flex-direction:column;gap:14px}
+  .logic h2,.mean h2{margin:0;font-size:24px}
+  .st{display:flex;gap:12px;align-items:flex-start;font-size:19px;line-height:1.32}
+  .st .n{flex:0 0 34px;height:34px;border-radius:50%;background:var(--pro);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+  .st b{display:block;font-size:20px}
+  .expect{background:#fff;border:2px dashed var(--up);border-radius:10px;padding:10px 12px;font-size:18px}
+  .cells{display:grid;grid-template-rows:1fr 1fr;gap:16px;min-height:0}
+  .panel{background:#fff;border:2px solid var(--line);border-radius:14px;padding:12px 18px;display:grid;grid-template-rows:auto 1fr;gap:4px;min-height:0}
+  .panel svg{min-height:0}
+  .panel .tag{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .panel .tag b{display:inline;font-size:24px;color:var(--ink);text-transform:none;letter-spacing:0;margin:0 10px}
+  .panel .tag small{display:inline;font-size:16px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)}
+  svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+  .mean{background:var(--warn2);display:flex;flex-direction:column;gap:12px}
+  .mean h2{color:var(--warn)}
+  .m{font-size:19px;line-height:1.35;background:#fff;border-radius:10px;padding:10px 14px}
+  .m b{color:var(--ink)}
+  .lim{background:#fff;border:2px solid #e8d3a3;border-radius:10px;padding:10px 14px;font-size:16px;line-height:1.35;color:var(--muted)}
+  .legend{display:flex;gap:26px;font-size:16px;color:var(--muted);align-items:center}
+  .sw{display:inline-block;width:16px;height:16px;border-radius:4px;vertical-align:-3px;margin-right:6px}
+  .foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:6px}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div>
+    <h1>Figure 2 explained: does MED4 reach for amino acids when nitrogen is short?</h1>
+    <p class="sub">Using MED4's nitrogen-stress experiments as a test of whether amino acids are part of its nitrogen strategy</p>
+  </div>
+
+  <div class="row">
+    <!-- the logic -->
+    <div class="card logic">
+      <h2>The test</h2>
+      <div class="st"><span class="n">1</span><div><b>Bacteria switch on what they use</b>When nitrogen runs short, cells turn on genes for the N sources they rely on</div></div>
+      <div class="expect"><b>If MED4 used amino acids for N:</b><br>the amino-acid uptake gene (gltS) and breakdown gene (asparaginase) should go <b style="color:var(--up)">up</b> under N stress</div>
+      <div class="st"><span class="n">2</span><div><b>Check the test works</b>Known N genes (glnA, urea transporter) must go up: the controls</div></div>
+      <div class="st"><span class="n">3</span><div><b>Look at the amino-acid genes</b>in the same experiments</div></div>
+    </div>
+
+    <!-- two cell cartoons -->
+    <div class="cells">
+      <div class="panel">
+        <div class="tag">Hours<b>Short-term N deprivation</b><small>Tolonen 2006 · Read 2017</small></div>
+        <svg viewBox="0 0 900 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+          <ellipse cx="450" cy="150" rx="420" ry="132" fill="#e5f4ea" stroke="#1f8a4c" stroke-width="5"/>
+          <text x="450" y="262" text-anchor="middle" font-size="20" fill="#1f8a4c" font-weight="700">MED4 cell</text>
+          <!-- N alarm -->
+          <rect x="370" y="118" width="160" height="62" rx="31" fill="#d9711c"/>
+          <text x="450" y="145" text-anchor="middle" font-size="19" fill="#fff" font-weight="800">N alarm</text>
+          <text x="450" y="168" text-anchor="middle" font-size="15" fill="#fff">nitrogen short</text>
+          <!-- ON genes -->
+          <g>
+            <rect x="80" y="70" width="230" height="64" rx="10" fill="#d9711c"/>
+            <text x="195" y="98" text-anchor="middle" font-size="22" fill="#fff" font-weight="800">glnA ↑ +5.1</text>
+            <text x="195" y="122" text-anchor="middle" font-size="15" fill="#fff">ammonium assimilation</text>
+            <rect x="80" y="160" width="230" height="64" rx="10" fill="#d9711c"/>
+            <text x="195" y="188" text-anchor="middle" font-size="22" fill="#fff" font-weight="800">urtA ↑ +5.4</text>
+            <text x="195" y="212" text-anchor="middle" font-size="15" fill="#fff">urea transporter</text>
+            <path d="M370 140 L315 108" stroke="#d9711c" stroke-width="5" marker-end="url(#ao)"/>
+            <path d="M370 160 L315 190" stroke="#d9711c" stroke-width="5" marker-end="url(#ao)"/>
+          </g>
+          <!-- OFF genes -->
+          <g>
+            <rect x="590" y="70" width="230" height="64" rx="10" fill="#fff" stroke="#9aa1a9" stroke-width="3" stroke-dasharray="8 6"/>
+            <text x="705" y="98" text-anchor="middle" font-size="22" fill="#59636e" font-weight="800">gltS — ns</text>
+            <text x="705" y="122" text-anchor="middle" font-size="15" fill="#59636e">amino-acid uptake</text>
+            <rect x="590" y="160" width="230" height="64" rx="10" fill="#fff" stroke="#9aa1a9" stroke-width="3" stroke-dasharray="8 6"/>
+            <text x="705" y="188" text-anchor="middle" font-size="22" fill="#59636e" font-weight="800">ansA — ns</text>
+            <text x="705" y="212" text-anchor="middle" font-size="15" fill="#59636e">asparaginase (breakdown)</text>
+            <path d="M530 140 L585 108" stroke="#9aa1a9" stroke-width="4" stroke-dasharray="6 6"/>
+            <path d="M530 160 L585 190" stroke="#9aa1a9" stroke-width="4" stroke-dasharray="6 6"/>
+            <text x="557" y="150" text-anchor="middle" font-size="30" fill="#b42318" font-weight="800">✕</text>
+          </g>
+          <defs><marker id="ao" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d9711c"/></marker></defs>
+        </svg>
+      </div>
+      <div class="panel">
+        <div class="tag">Weeks<b>Long-term N starvation</b><small>Weissberg, Aharonovich &amp; Sher 2025 · RNA + protein</small></div>
+        <svg viewBox="0 -10 900 310" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+          <ellipse cx="450" cy="150" rx="420" ry="132" fill="#e5f4ea" stroke="#1f8a4c" stroke-width="5"/>
+          <!-- own proteins recycling -->
+          <g>
+            <circle cx="215" cy="150" r="78" fill="#fff" stroke="#1f8a4c" stroke-width="3"/>
+            <text x="215" y="132" text-anchor="middle" font-size="18" fill="#1f2328" font-weight="700">own proteins</text>
+            <text x="215" y="158" text-anchor="middle" font-size="26">♻</text>
+            <text x="215" y="185" text-anchor="middle" font-size="15" fill="#59636e">broken down</text>
+          </g>
+          <path d="M295 150 L370 150" stroke="#d9711c" stroke-width="5" marker-end="url(#ao2)"/>
+          <rect x="375" y="70" width="190" height="56" rx="10" fill="#d9711c"/>
+          <text x="470" y="97" text-anchor="middle" font-size="20" fill="#fff" font-weight="800">ilvE ↑ +1.4</text>
+          <text x="470" y="117" text-anchor="middle" font-size="14" fill="#fff">aminotransferase</text>
+          <rect x="375" y="174" width="190" height="56" rx="10" fill="#d9711c"/>
+          <text x="470" y="201" text-anchor="middle" font-size="20" fill="#fff" font-weight="800">urease ↑ +2.7</text>
+          <text x="470" y="221" text-anchor="middle" font-size="14" fill="#fff">N released as NH₄⁺</text>
+          <!-- peptides from outside -->
+          <rect x="635" y="110" width="200" height="80" rx="12" fill="#d9711c"/>
+          <text x="735" y="142" text-anchor="middle" font-size="20" fill="#fff" font-weight="800">dppA ↑ +2.0</text>
+          <text x="735" y="168" text-anchor="middle" font-size="15" fill="#fff">peptide-binding</text>
+          <text x="735" y="14" text-anchor="middle" font-size="17" fill="#1f2328">peptides from outside?</text>
+          <path d="M735 22 L735 104" stroke="#d9711c" stroke-width="4" stroke-dasharray="6 5" marker-end="url(#ao2)"/>
+          <defs><marker id="ao2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#d9711c"/></marker></defs>
+        </svg>
+      </div>
+    </div>
+
+    <!-- meaning -->
+    <div class="card mean">
+      <h2>What it means for the question</h2>
+      <div class="m"><b>The test works:</b> MED4 senses N shortage and switches on glnA and urea genes strongly.</div>
+      <div class="m"><b>Amino-acid genes stay off.</b> MED4 doesn't seem to reach for free amino acids when it needs nitrogen.</div>
+      <div class="m"><b>Over weeks,</b> it switches on recycling and peptide genes: organic N from its own proteins, or peptides, not free amino acids.</div>
+      <div class="lim"><b>Can't tell yet:</b> no amino acids were added (genes may switch on only when their substrate is present) · MED4 only, so no strain comparison · gene on ≠ uptake proven</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span><span class="sw" style="background:var(--up)"></span>gene switched on (log₂ fold change)</span>
+    <span><span class="sw" style="background:#fff;border:2px dashed var(--grey)"></span>no significant change (ns)</span>
+    <span>Values = largest change in that experiment set; full data in Figure 2</span>
+  </div>
+  <div class="foot">Data: KG 0.1.0-alpha.9 (Tolonen et al. 2006; Read et al. 2017; Weissberg, Aharonovich &amp; Sher 2025). Interpretation, not proof; exploration not yet independently reviewed.</div>
+</div>
+</body>
+</html>

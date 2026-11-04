@@ -193,6 +193,13 @@ s.notes_slide.notes_text_frame.text = ("10 MED4 nitrogen/coculture experiments i
     "Long-term N starvation (Weissberg, Aharonovich & Sher 2025): dppA (peptide-binding, PMM1049), ilvE (PMM0878) and urease up; consistent with recycling own proteins and/or peptide uptake. "
     "Caveats: 2025 contrasts are vs each culture's own exponential sample; extreme 2016 coculture values unchecked; exploration not yet independently reviewed.")
 
+# Figure 2 explained: illustration
+s = prs.slides.add_slide(blank)
+pic = s.shapes.add_picture(str(FIG / "fig2_illustration.png"), 0, 0, width=W, height=H); pic.name = "Figure 2 illustration"
+s.notes_slide.notes_text_frame.text = ("Logic of Figure 2: bacteria switch on genes for the N sources they use when N is short. Controls (glnA, urea transporter) go strongly up in short-term N deprivation, "
+    "so the test works; the amino-acid uptake (gltS) and breakdown (asparaginase) genes do not respond. Over weeks of starvation, recycling and peptide genes (ilvE, urease, dppA) rise. "
+    "Limits: no amino acids were added; MED4 only; gene on is not proof of uptake.")
+
 # Figure 2: uptake by group
 s = prs.slides.add_slide(blank)
 fig_title(s, 3, "Amino-acid uptake systems by group: E. coli vs MED4")
