@@ -36,3 +36,7 @@ The draft catalogue was scored at pathway level (v5 rule) for HOT1A3 (4,028 gene
   - product keywords miss synonyms. The glnA control is flagged in HOT1A3 (product "glutamate--ammonia ligase"); phhA "phenylalanine 4-monooxygenase" fails "hydroxylase"; gdhA ACZ81_20180 has product "hypothetical protein".
   - The GOGAT AND group fails because gltD has a generic product.
   - astB, the expected-negative for cyanobacteria, is detected in HOT1A3, so the KO is detectable in the KG (good for the control).
+
+## MIT9313 pilot requested — blindness disclosure (2026-11-04)
+
+The researcher asked for the same pilot on MIT9313 before catalogue approval. **MIT9313 was one of the two blind answer-key strains; it is now unblinded by researcher decision.** Consequence: the verification-layer-2 answer key needs a replacement blind LL strain (candidates: MIT9303, MIT0701, chosen before catalogue approval and not looked at). Any catalogue change made after seeing MIT9313 is logged as "shaped by MIT9313 pilot".
