@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Conceptual one-slide comparison: why amino acids mean something different to a heterotroph (e.g. E. coli) than to Prochlorococcus. Mostly background knowledge; genus-wide counts from the KG.">
+<title>Amino acids: heterotrophs vs Prochlorococcus (in general)</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;
+        --ec:#1f7a8c;--ec2:#e3f1f4;--pro:#6250d6;--pro2:#efedfb;--warn:#9a6700;--q:#1baf7a;}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e9eaec}
+  .slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         padding:40px 60px 26px;display:grid;grid-template-rows:auto auto 1fr auto auto;gap:16px;overflow:hidden}
+  h1{margin:0;font-size:44px;line-height:1.1}
+  .sub{margin:8px 0 0;font-size:22px;color:var(--muted)}
+  /* the core idea */
+  .core{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .cell{border-radius:12px;padding:16px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+  .cell.ec{background:var(--ec2)} .cell.pro{background:var(--pro2)}
+  .icon{width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff;text-align:center;line-height:1.1}
+  .cell.ec .icon{background:var(--ec)} .cell.pro .icon{background:var(--pro)}
+  .cell h2{margin:0 0 4px;font-size:27px}
+  .cell.ec h2{color:var(--ec)} .cell.pro h2{color:var(--pro)}
+  .cell p{margin:0;font-size:21px;line-height:1.35}
+  .pills{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .pill{font-size:17px;font-weight:700;border-radius:14px;padding:3px 12px;background:#fff;border:2px solid}
+  .cell.ec .pill{border-color:var(--ec);color:var(--ec)} .cell.pro .pill{border-color:var(--pro);color:var(--pro)}
+  .pill.off{opacity:.45;text-decoration:line-through}
+  /* table */
+  table{width:100%;border-collapse:separate;border-spacing:0 7px;font-size:20px}
+  th{text-align:left;font-size:16px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:0 14px}
+  th.ec{color:var(--ec)} th.pro{color:var(--pro)}
+  td{background:var(--panel);padding:10px 14px;vertical-align:top;line-height:1.3}
+  td:first-child{border-radius:8px 0 0 8px;font-weight:700;width:15%}
+  td:last-child{border-radius:0 8px 8px 0}
+  td.ec{border-left:5px solid var(--ec);width:40%} td.pro{border-left:5px solid var(--pro);width:45%}
+  .n{font-weight:800}
+  .tag{display:inline-block;font-size:13px;font-weight:700;border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:2px}
+  .tag.kg{border:1.5px solid var(--pro);color:var(--pro)}
+  .tag.bg{border:1.5px solid var(--ec);color:var(--ec)}
+  .tag.int{border:1.5px solid var(--warn);color:var(--warn)}
+  /* question */
+  .q{background:#fff;border:3px solid var(--q);border-radius:12px;padding:12px 22px;font-size:23px}
+  .q b{color:#0d7a54}
+  .foot{display:flex;justify-content:space-between;gap:30px;font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div>
+    <h1>Why amino acids mean something different to <i>Prochlorococcus</i></h1>
+    <p class="sub">"Regular" bacteria like <i>E. coli</i> eat organic matter; <i>Prochlorococcus</i> makes its own from light and CO₂. That changes what an amino acid is good for.</p>
+  </div>
+
+  <div class="core">
+    <div class="cell ec">
+      <div class="icon">eats<br>food</div>
+      <div><h2>Heterotroph (e.g. <i>E. coli</i>)</h2>
+        <p>An amino acid is <b>food</b>: worth taking apart completely.</p>
+        <div class="pills"><span class="pill">carbon</span><span class="pill">energy</span><span class="pill">nitrogen</span><span class="pill">building block</span></div></div>
+    </div>
+    <div class="cell pro">
+      <div class="icon" style="font-size:16px">makes<br>food<br>from<br>light</div>
+      <div><h2><i>Prochlorococcus</i> (photoautotroph)</h2>
+        <p>Carbon and energy come from photosynthesis, so an amino acid can only offer <b>nitrogen</b> or a <b>ready-made building block</b>.</p>
+        <div class="pills"><span class="pill off">carbon</span><span class="pill off">energy</span><span class="pill">nitrogen?</span><span class="pill">building block?</span></div></div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th></th><th class="ec">Heterotroph, e.g. <i>E. coli</i> <span class="tag bg">background</span></th><th class="pro"><i>Prochlorococcus</i>, the genus <span class="tag bg">background</span> <span class="tag kg">database</span></th></tr>
+    <tr><td>Where it lives</td><td class="ec">Variable, nutrient-rich settings (gut, soil, water); feast and famine</td><td class="pro">Sunlit open ocean, very low nutrients; stable but poor</td></tr>
+    <tr><td>Genome</td><td class="ec">~4,300 genes; keeps many "just in case" pathways</td><td class="pro"><span class="n">1,870–3,203</span> genes across 45 strains <span class="tag kg">database</span>; streamlined, low-light strains larger</td></tr>
+    <tr><td>Transport capacity</td><td class="ec">Hundreds of transporters; many amino-acid-specific</td><td class="pro"><span class="n">32–81</span> compounds annotated as transported per strain <span class="tag kg">database</span>; low-light LLIV strains about twice the high-light ones</td></tr>
+    <tr><td>Gene regulation</td><td class="ec">Many sensors and switches; breakdown pathways switched on when needed</td><td class="pro">Few regulators; nitrogen genes under a small global control system</td></tr>
+    <tr><td>Nitrogen sources</td><td class="ec">Ammonium, nitrate and many organic N compounds, incl. amino acids</td><td class="pro">Ammonium for all; urea, cyanate, nitrite or nitrate in some strains; amino-acid uptake reported in some studies</td></tr>
+    <tr><td>Expected strategy</td><td class="ec">Break amino acids down fully: dedicated pathways in uptake + breakdown packages</td><td class="pro">Save nitrogen and genome space: use amino acids directly, little dedicated breakdown? <span class="tag int">hypothesis to test</span></td></tr>
+  </table>
+
+  <div class="q"><b>Our question:</b> do <i>Prochlorococcus</i> strains carry dedicated amino-acid breakdown pathways, and do some clades (e.g. the larger low-light genomes) carry more? Answered with the approved pathway list across 45 strains + marine <i>Synechococcus</i>.</div>
+
+  <div class="foot">
+    <span>"Background" = general knowledge, not from our database and not yet cited (to be verified before any write-up). "Database" = genus-wide counts from KG organism records, seen during planning; no strain-level pathway results shown.</span>
+    <span style="white-space:nowrap">KG 0.1.0-alpha.9 · 2026-11-04 · D. Aharonovich</span>
+  </div>
+</div>
+</body>
+</html>
