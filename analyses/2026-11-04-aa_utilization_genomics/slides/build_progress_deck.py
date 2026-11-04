@@ -94,6 +94,42 @@ s.notes_slide.notes_text_frame.text = (
     "Standalone comparative-genomics question; no hypothesis going in. My own amino-acid growth experiments are not in the database and are not part of this analysis. "
     "Transporters (uptake) were set aside after the MED4 pilot. Data: multi-omics KG release 0.1.0-alpha.9.")
 
+# ---------- Slide 2: how the question evolved ----------
+s = prs.slides.add_slide(blank)
+text(s, Inches(0.7), Inches(0.5), Inches(12), Inches(0.8), "From the original question to today", size=36, font=HEAD, bold=True, name="Title")
+# original question card (prominent)
+card(s, Inches(0.7), Inches(1.4), Inches(11.93), Inches(1.4), fill=VIOLET_L, line=VIOLET, name="Original question card")
+text(s, Inches(1.0), Inches(1.55), Inches(11.4), Inches(1.6),
+     [[("THE ORIGINAL QUESTION", {"size": 13, "bold": True, "color": VIOLET})],
+      [("Can ", {}), ("Prochlorococcus", {"italic": True}), (" use amino acids as a nitrogen source, and do strains differ in this ability?", {"size": 21})],
+      [("Starting point: my growth experiments with several strains on amino acids as the N source (not in the database; kept outside this analysis).", {"size": 14, "color": MUTED})]],
+     size=22, color=INK, name="Original question text")
+evo = [
+    ("v1", "Genome map", "Which amino-acid transporters and breakdown pathways does each of 45 strains carry?"),
+    ("v2", "Nitrogen focus", "Enzymes that free nitrogen from each amino acid. Transporters set aside after the MED4 pilot."),
+    ("v5", "Approved plan", "Whole breakdown pathways, scored only on breakdown-only steps; the N-freeing step required."),
+    ("now", "Under discussion", "Report by amino-acid groups (branched-chain, aromatic, basic, acidic + amides, small); bring uptake back; add expression data?"),
+]
+x0, y0, cw, ch, gap = Inches(0.7), Inches(3.15), Inches(2.84), Inches(3.5), Inches(0.19)
+for i, (tag, h, d) in enumerate(evo):
+    x = x0 + i * (cw + gap)
+    last = tag == "now"
+    card(s, x, y0, cw, ch, fill=(WHITE if not last else RGBColor(0xE8, 0xF5, 0xEE)), line=(RGBColor(0xD0, 0xD7, 0xDE) if not last else GREEN), name=f"Stage {tag} card")
+    pill = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, x + Inches(0.25), y0 + Inches(0.25), Inches(0.9), Inches(0.42))
+    pill.fill.solid(); pill.fill.fore_color.rgb = (GREEN if last else VIOLET); pill.line.fill.background(); pill.name = f"Stage {tag} tag"
+    pill.text_frame.text = tag; pp_ = pill.text_frame.paragraphs[0]; pp_.alignment = PP_ALIGN.CENTER
+    rr = pp_.runs[0]; rr.font.size = Pt(15); rr.font.bold = True; rr.font.color.rgb = WHITE; rr.font.name = BODY
+    pill.text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
+    text(s, x + Inches(0.25), y0 + Inches(0.85), cw - Inches(0.5), Inches(0.5), h, size=19, bold=True, font=HEAD, color=(GREEN if last else INK), name=f"Stage {tag} title")
+    text(s, x + Inches(0.25), y0 + Inches(1.4), cw - Inches(0.5), ch - Inches(1.6), d, size=15, color=MUTED, name=f"Stage {tag} text")
+    if i < len(evo) - 1:
+        a = s.shapes.add_shape(MSO_SHAPE.RIGHT_ARROW, x + cw + Inches(0.01), y0 + ch/2 - Inches(0.12), gap - Inches(0.02), Inches(0.24))
+        a.fill.solid(); a.fill.fore_color.rgb = RGBColor(0x9A, 0xA1, 0xA9); a.line.fill.background(); a.name = f"Arrow {i+1}"
+text(s, Inches(0.7), Inches(6.95), Inches(12), Inches(0.35),
+     "The genome analysis answers the capacity part of the original question; whether strains actually use amino acids needs uptake, expression or growth data.", size=12, color=MUTED, name="Footnote")
+s.notes_slide.notes_text_frame.text = ("Original motivation: my own growth experiments on amino acids as sole N source across strains. The database has no such experiments, so the analysis asks what the genomes allow. "
+    "Each change in the question was a researcher decision, recorded in proposal_notebook.md, with independent reviews after each change.")
+
 # ---------- Slides 2-4: infographics ----------
 image_slide(root / "slides/heterotroph_vs_prochlorococcus_general_slide.png",
     "Framing. For a heterotroph an amino acid is food (carbon, energy, nitrogen); for a photoautotroph it can only offer nitrogen or a ready-made building block. "
