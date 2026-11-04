@@ -27,3 +27,19 @@ Fresh-context critic over `methods/` (commit 4fc9d3d). Lens: **data-integrity + 
 | 11 | Note | Spot-checked rejects: direction calls correct. His decarboxylase rejected vs Lys cadA catalogued (asymmetry). | **No change.** The asymmetry stays visible to the researcher. |
 
 Dispositions are marked "being fixed" until the re-run lands. They will be updated with before/after counts, and a delta pass is run if the fixes change claims materially.
+
+# Methods critical review — pass 2 (delta over the fixes, commit a5ae08b), 2026-11-04
+
+Lens: data-integrity + interpretation. MED4-only. **2 Blockers, 3 Concerns, 4 Notes.** The pass-1 dispositions were verified implemented, except #2 (implemented mechanically; source of Blocker 2 here) and #5 (implemented in the opposite sense; Blocker 1 here). All HTML counts were recomputed and match the CSVs.
+
+| # | Severity | Finding (summary) | Disposition |
+|---|---|---|---|
+| 1 | Blocker | PHE_AT/TYR_AT were flipped shared → dedicated on an "arogenate route" premise. The KG products contradict it: PMM1504 is pheA (prephenate dehydratase, K04518) and PMM1565 is tyrA (prephenate dehydrogenase), which is the phenylpyruvate route, whose last step is this transamination. | **Being fixed.** Revert to shared (debatable). Reasons rewritten; PHHA reconciled. |
+| 2 | Blocker | Multi-substrate biosynthetic ATs credit dedicated steps: hisC (PMM0186, K00817) and aspC (PMM0674, K00812) credit Phe/Tyr transamination while also serving as the positive controls. Tyr went from "not assessable" to a false "present". Extent: the 7 EC 2.6.1.1 KOs + K00817 (dedicated × shared/control); K00832/K00838 (Phe/Tyr/Trp). | **Being fixed.** Rule: a KO on any shared step or positive control never credits a dedicated step ("shared-enzyme hit"). An enzyme-level override list is added to the broad table. Dedicated × dedicated overlaps are marked `credits_multiple_aa`. |
+| 3 | Concern | Product keywords on transamination steps check only the enzyme class ("aminotransferase"), so a generic "aminotransferase class I and II family protein" passes. Also loose: "ammonia-lyase", "amidase". | **Being fixed.** Dedicated steps require substrate-naming keywords; class-generic products are flagged. |
+| 4 | Concern | Glu_GABA_shunt: status_rule "scored" although n_neutral = True (02 never tests n_neutral). | **Being fixed.** status_rule = "excluded (N-neutral)". |
+| 5 | Concern | Phe/Tyr assessability depends on Blocker 1; the headline 10/8/2 will change. | **Being fixed.** Re-run and update the headline. |
+| 6 | Note | ec changes not logged; PHE/TYR ec lacks 2.6.1.9. | **Being fixed.** |
+| 7 | Note | Gln_glutaminase.1 includes R00485 via EC 3.5.1.38, which makes asparaginase KOs look "missing". | **Being fixed.** |
+| 8 | Note | AND-group logic is correct but not used by 04; ARGZ subunit structure unverified. | **Being fixed / checked.** |
+| 9 | Note | The 32 new cross-check rows and the HTML counts are clean. | No change. |
