@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Which genes should we check to judge amino-acid utilization?</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;
+        --ded:#6250d6;--shared:#8f8e89;--rec:#1baf7a;--warn:#9a6700;}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e9eaec}
+  .slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         padding:46px 64px 34px;display:grid;grid-template-rows:auto auto 1fr auto;gap:24px;overflow:hidden}
+  h1{margin:0;font-size:46px;line-height:1.1;letter-spacing:-.01em}
+  .sub{margin:10px 0 0;font-size:24px;color:var(--muted)}
+  /* the chain */
+  .chain{display:flex;align-items:stretch;gap:0}
+  .stage{flex:1;border-radius:10px;padding:16px 18px;text-align:center;font-size:21px;border:2px solid var(--line);background:#fff;position:relative}
+  .stage b{display:block;font-size:24px;margin-bottom:4px}
+  .stage small{display:block;color:var(--muted);font-size:17px;margin-top:4px}
+  .stage.now{border-color:var(--ded);background:#f1effc}
+  .arr{display:flex;align-items:center;font-size:34px;color:var(--muted);padding:0 10px}
+  .lab{position:absolute;top:-14px;left:14px;font-size:15px;font-weight:700;padding:1px 10px;border-radius:10px;color:#fff}
+  .lab.a{background:var(--ded)} .lab.b{background:var(--ink)} .lab.c{background:var(--shared)} .lab.d{background:var(--warn)}
+  /* options */
+  .opts{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;min-height:0}
+  .opt{background:var(--panel);border-radius:12px;padding:24px 24px 20px;display:flex;flex-direction:column;border-top:8px solid var(--line)}
+  .opt.rec{border-top-color:var(--rec)}
+  .opt .L{font-size:52px;font-weight:800;line-height:1}
+  .opt h2{font-size:26px;margin:8px 0 14px;line-height:1.2}
+  .opt p{margin:0 0 12px;font-size:21px;line-height:1.38}
+  .opt .k{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:4px}
+  .verdict{margin-top:auto;font-size:20px;font-weight:600;padding:10px 14px;border-radius:8px;background:#fff}
+  .verdict.rec{color:#0d7a54;border:2px solid var(--rec)}
+  .verdict.meh{color:var(--muted);border:2px solid var(--line)}
+  .verdict.int{color:var(--warn);border:2px solid #e3c27a}
+  .ask{display:flex;justify-content:space-between;align-items:center;font-size:24px;border-top:1px solid var(--line);padding-top:16px}
+  .ask b{color:#0d7a54}
+  .ask span.m{font-size:16px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div>
+    <h1>To judge whether a strain can use amino acids, which genes should we check?</h1>
+    <p class="sub">MED4 pilot: only <b>1 of 34</b> breakdown-only enzymes found (asparaginase). Is that the whole story, or are we looking at too few genes?</p>
+  </div>
+
+  <div class="chain">
+    <div class="stage"><span class="lab b">B</span><b>Take it up</b>transporters<small>set aside after the pilot</small></div>
+    <div class="arr">→</div>
+    <div class="stage now"><span class="lab a">A</span><b>Break it down</b>breakdown-only enzymes<small>current analysis</small></div>
+    <div class="arr">→</div>
+    <div class="stage"><span class="lab c">C</span><b>…or shared enzymes</b>reversible, also build amino acids<small>not counted now</small></div>
+    <div class="arr">→</div>
+    <div class="stage"><span class="lab d">D</span><b>Is it switched on?</b>expression under N starvation<small>data already in the database</small></div>
+  </div>
+
+  <div class="opts">
+    <div class="opt rec">
+      <div class="L" style="color:var(--ded)">A</div>
+      <h2>Search more annotation types for breakdown enzymes</h2>
+      <div class="k">Adds</div><p>Protein-domain families, EC numbers and ortholog groups, beyond KEGG enzyme IDs.</p>
+      <div class="k">Tells us</div><p>Catches enzymes that are present but unlabelled (e.g. a MED4 gene named metC with no enzyme ID).</p>
+      <div class="verdict rec">Recommended: makes "not found" trustworthy</div>
+    </div>
+    <div class="opt rec">
+      <div class="L">B</div>
+      <h2>Bring transporters back</h2>
+      <div class="k">Adds</div><p>Amino-acid uptake genes, including a reviewed "candidate family" line.</p>
+      <div class="k">Tells us</div><p>Whether the cell can take amino acids in at all. MED4 showed almost nothing; low-light strains may differ.</p>
+      <div class="verdict rec">Recommended if uptake matters</div>
+    </div>
+    <div class="opt">
+      <div class="L" style="color:var(--shared)">C</div>
+      <h2>Count shared enzymes as a second level</h2>
+      <div class="k">Adds</div><p>Aminotransferases, glutamate dehydrogenase and other enzymes that can run both ways.</p>
+      <div class="k">Tells us</div><p>Whether the capacity to free nitrogen exists, even if not dedicated.</p>
+      <div class="verdict meh">Weak alone: most strains have them</div>
+    </div>
+    <div class="opt">
+      <div class="L" style="color:var(--warn)">D</div>
+      <h2>Do shared enzymes respond to N starvation?</h2>
+      <div class="k">Adds</div><p>Expression data already in the database for MED4 and MIT9313 (e.g. Tolonen 2006; Read 2017; our lab's N-recycling study).</p>
+      <div class="k">Tells us</div><p>Whether cells switch these enzymes on when nitrogen is scarce: evidence they are used for breakdown.</p>
+      <div class="verdict int">Interesting: a separate kind of analysis</div>
+    </div>
+  </div>
+
+  <div class="ask">
+    <span>Decision: <b>A + B</b> (recommended) · A only · another combination?</span>
+    <span class="m">Any change reopens the approved plan · KG 0.1.0-alpha.9 · 2026-11-04 · D. Aharonovich</span>
+  </div>
+</div>
+</body>
+</html>
