@@ -1,12 +1,12 @@
-# Genomic capacity for amino-acid uptake and degradation across Prochlorococcus
+# Genomic capacity to release nitrogen from amino acids across Prochlorococcus
 
 ## Question
 
-Which amino-acid transporters and which amino-acid degradation routes does each *Prochlorococcus* strain carry in its genome, and how does this capacity differ among the high-light and low-light clades?
+Which *Prochlorococcus* strains carry the enzymes that remove nitrogen from each of the 20 standard amino acids, releasing it as ammonium or transferring it to 2-oxoglutarate? How does this capacity differ among the high-light and low-light clades, and compared with the closely related *Synechococcus*?
 
 ## Background
 
-*Prochlorococcus* is the most abundant photosynthetic organism in the oligotrophic ocean, where dissolved inorganic nitrogen is scarce and dissolved organic nitrogen, including free amino acids, is a potential alternative source. Strains differ in the inorganic and simple organic nitrogen sources their genomes allow them to use. Here we survey 45 sequenced *Prochlorococcus* genomes, spanning the high-light clades HLI–HLIV and the low-light clades LLI–LLIV. For each genome we record the transporters annotated to move each of the 20 standard amino acids and the completeness of each amino acid's degradation route(s). Transporter evidence combines curated transporter-classification matches, Gene Ontology transport functions, and published substrate predictions for substrate-binding proteins (Ford et al., 2021).
+*Prochlorococcus* lives in oligotrophic ocean waters, where dissolved inorganic nitrogen is scarce and dissolved organic nitrogen, including free amino acids, is a potential alternative source. To use an amino acid as a nitrogen source, a cell must remove its amino nitrogen. It can do so directly, releasing ammonium through a deaminase, ammonia-lyase, dehydrogenase, oxidase or amidase. Or it can transfer the amino group to 2-oxoglutarate through an aminotransferase, forming glutamate. Several of these enzymes are also needed for amino-acid biosynthesis. Here we survey 45 sequenced *Prochlorococcus* genomes spanning the high-light clades HLI–HLIV and the low-light clades LLI–LLIV, with *Synechococcus* genomes for comparison. For each genome we record which nitrogen-releasing enzymes it encodes for each amino acid, and we distinguish enzymes dedicated to amino-acid breakdown from those shared with biosynthesis.
 
 ## Methods
 
@@ -15,5 +15,3 @@ Which amino-acid transporters and which amino-acid degradation routes does each 
 ## Discussion
 
 ## References
-
-- Ford BA, Sullivan GJ, Moore L, Varkey D, Zhu H, Ostrowski M, Mabbutt BC, Paulsen IT, Shah BS (2021). Functional characterisation of substrate-binding proteins to address nutrient uptake in marine picocyanobacteria. *Biochemical Society Transactions*. doi:10.1042/BST20200244

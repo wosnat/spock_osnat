@@ -42,3 +42,8 @@ Full manifest and tables in `spike/spike_summary.md`; data in `spike/data/`. Key
 - **N release:** 11 of 20 amino acids have a catalogued N-releasing KO with a MED4 gene (Arg, Asn, Asp, Gln, Gly, His, Ile, Leu, Ser, Thr, Val); 9 have none (Ala, Cys, Glu, Lys, Met, Phe, Pro, Trp, Tyr). Most hits are enzymes also used in biosynthesis (e.g. ilvE PMM0878 for Ile/Leu/Val; hisC PMM0186; aspC-named PMM0674; ilvA PMM0908). No MED4 gene on glutamate dehydrogenase, glutaminase, alanine dehydrogenase, proline dehydrogenase, hut, arginase.
 - **Probes:** glnA found (PMM0920). urtC (PMM0972) and urtE (PMM0974) carry a curated GO MF term "branched-chain amino acid transmembrane transporter activity" → class-level credit on the urea transporter (not a failure under the rules, but flagged). pst genes: no amino-acid rows.
 - **Not done in pilot:** KO validity vs KEGG REST (15 of 75 KOs not in KG), approved GO list, subunit roles, reaction direction.
+
+## Design-review round 2 (2026-11-04, after the MED4 pilot)
+
+- Claude recommended a reviewed "candidate transporter family" line (example: gltS PMM0628 is family-only in TCDB 2.A.27; urtA–E in HAAT 3.A.1.4 but with direct urea systems → excluded). The line would add 1 gene in MED4.
+- **Researcher decision: leave transporters aside.** The analysis is now N-release capacity only; transporters are deferred. proposal.md rewritten (v2). The urea-transporter positive control and all transporter evidence lines are removed. A new up-front limit: enzyme presence ≠ use of *external* amino acids as an N source.
