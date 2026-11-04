@@ -63,13 +63,30 @@
   .sw{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-2px;margin-right:4px}
   .cav li{margin:4px 0}
   footer{margin-top:36px;font-size:12px;color:var(--muted)}
+  .approved{display:inline-block;font-size:12px;border:1px solid var(--ok);color:var(--ok);border-radius:10px;padding:1px 8px;margin-left:8px;vertical-align:middle}
+  /* timeline */
+  .tl{position:relative;margin:6px 0 0 14px;padding-left:22px;border-left:2px solid var(--line)}
+  .ev{position:relative;margin:0 0 12px}
+  .ev::before{content:"";position:absolute;left:-30px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+  .ev.done::before{background:var(--ok);border-color:var(--ok)}
+  .ev.review::before{background:var(--bg);border-color:var(--ok)}
+  .ev.turn::before{background:var(--up);border-color:var(--up)}
+  .ev.gate::before{width:14px;height:14px;left:-31px;border-radius:3px;background:var(--ok);border-color:var(--ok)}
+  .ev.next::before{background:var(--bg);border-color:var(--up);border-style:dashed}
+  .ev.later::before{background:var(--bg);border-color:var(--line)}
+  .ev b{font-size:14px}
+  .ev .d{font-size:13px}
+  .ev .c{font-size:11px;color:var(--muted);font-family:ui-monospace,Consolas,monospace}
+  .phase{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:14px 0 8px -22px}
+  .tlkey{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:4px}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:-1px;margin-right:4px;border:2px solid}
   @media (max-width:800px){.cols2,.cols3,.checks{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <main>
 
-<h1>Amino-acid utilization pathways in <i>Prochlorococcus</i><span class="draft">plan v5 · draft</span></h1>
+<h1>Amino-acid utilization pathways in <i>Prochlorococcus</i><span class="approved">plan v5 · approved 2026-11-04</span></h1>
 <p class="sub">Comparative genomics · 45 <i>Prochlorococcus</i> strains + <i>Synechococcus</i> · Researcher: Dikla Aharonovich · 2026-11-04 · KG release 0.1.0-alpha.9</p>
 
 <h2>The question</h2>
@@ -99,7 +116,7 @@
   <div class="panel">
     <h3><i>Synechococcus</i></h3>
     <p><b>Comparison group.</b> The closest relative, with the same annotations. Asks "how does <i>Prochlorococcus</i> compare?"</p>
-    <p class="muted" style="margin-top:6px">Not used to judge the method: looking similar could be real biology. Its genomes are larger, so gene count is shown beside every strain.</p>
+    <p class="muted" style="margin-top:6px"><b>Marine strains only</b> (subclusters 5.1–5.3); freshwater, hot-spring and other-genus strains are excluded. Not used to judge the method: looking similar could be real biology. Gene count is shown beside every strain.</p>
   </div>
 </div>
 
@@ -122,6 +139,13 @@
   <p class="muted" style="margin-top:8px">Pathways and steps come from a catalogue you approve (KEGG IDs, checked against KEGG). Genes are matched by enzyme ID, never by gene name. Broad and D-amino-acid enzymes go in their own column.</p>
 </div>
 
+<h2>Decisions locked at approval</h2>
+<div class="checks">
+  <div class="ck pos"><h3>Glutamate dehydrogenase = shared</h3><p>It also captures ammonium, so it is not evidence of breakdown. Glutamate will likely be "can't be judged".</p></div>
+  <div class="ck pos"><h3>Urease = shared</h3><p>It serves urea use, so it cannot make arginine "complete".</p></div>
+  <div class="ck pos"><h3>One rule for "shared"</h3><p>Shared = also needed to build something (amino acids, polyamines, cofactors), for central metabolism, or for another N source.</p></div>
+</div>
+
 <h2>What the MED4 pilot showed <span class="muted" style="text-transform:none;letter-spacing:0;font-size:13px">(draft catalogue)</span></h2>
 <div class="checks">
   <div class="ck pos"><h3>Asparagine: complete</h3><p>Asparaginase (PMM0821, ansA) frees NH₄⁺. One breakdown-only step, found.</p></div>
@@ -130,13 +154,33 @@
 </div>
 <p class="muted" style="margin-top:8px">Other MED4 hits are shared biosynthesis enzymes (ilvE, hisC, ilvA, glycine cleavage), which are not counted. One threonine hit (PMM1468) is flagged: its product is a biotin enzyme. Full pilot figure: spike/reports/med4_pilot_summary.html.</p>
 
-<h2>How it runs</h2>
-<div class="flow">
-  <div class="st"><div class="num">1</div><b>MED4 pilot</b>One strain, to see what results look like.<div class="badge" style="color:var(--ok)">✓ done</div></div>
-  <div class="st now"><div class="num">2</div><b>Lock the plan</b>Reviewer check, then your approval.<div class="badge">● now</div></div>
-  <div class="st"><div class="num">3</div><b>Approve the catalogue</b>You approve the enzyme list and the named controls, before any other strain is seen.</div>
-  <div class="st"><div class="num">4</div><b>Build &amp; run</b>Verify on MED4 + 2 strains by hand, then all 45 + <i>Synechococcus</i>.</div>
-  <div class="st"><div class="num">5</div><b>Evaluate &amp; write</b>Check the controls, collect the caveats, and write paper-ready text.</div>
+<h2>What has been done so far</h2>
+<div class="panel">
+  <div class="tlkey">
+    <span><span class="dot" style="background:var(--ok);border-color:var(--ok)"></span>done</span>
+    <span><span class="dot" style="border-color:var(--ok)"></span>independent review</span>
+    <span><span class="dot" style="background:var(--up);border-color:var(--up)"></span>your decision changed the plan</span>
+    <span><span class="dot" style="border-color:var(--up);border-style:dashed"></span>next</span>
+  </div>
+  <div class="tl">
+    <div class="phase">Planning · 2026-11-04</div>
+    <div class="ev done"><b>Question and database check</b><div class="d">Topic: amino-acid use in <i>Prochlorococcus</i>. The database has no amino-acid growth experiments, but it does have 45 annotated genomes. Locked as a standalone comparison of genomes.</div></div>
+    <div class="ev done"><b>Plan v1 drafted</b><div class="d">Transporters + full breakdown pathways, with Alteromonas as a positive control.</div><div class="c">53e01fd</div></div>
+    <div class="ev review"><b>Review 1: 6 concerns, 3 notes, all fixed</b><div class="d">Failure is judged by the controls only; transporters judged as whole systems; genome completeness from NCBI.</div><div class="c">828d1c6</div></div>
+    <div class="ev turn"><b>Your changes: Synechococcus as the comparison group; Alteromonas removed</b><div class="d">Checks moved inside <i>Prochlorococcus</i> (glnA, biosynthesis aminotransferases).</div><div class="c">ca55680</div></div>
+    <div class="ev done"><b>MED4 pilot</b><div class="d">Uptake: almost no amino-acid-specific transporter in MED4. Nitrogen release: hits are mostly shared biosynthesis enzymes.</div><div class="c">e1a7d5c</div></div>
+    <div class="ev turn"><b>Your change: transporters set aside, focus on nitrogen (plan v2)</b><div class="c">64a06fb</div></div>
+    <div class="ev review"><b>Review 2: 7 concerns, 4 notes, all handled</b><div class="d">Broad enzymes never credited; nitrogen-freeing step defined; marine <i>Synechococcus</i> rule.</div><div class="c">5ea9d03</div></div>
+    <div class="ev turn"><b>Your change: score whole pathways on breakdown-only steps (plan v4)</b><div class="d">"Enzymes that also build amino acids are not relevant."</div><div class="c">0fba322</div></div>
+    <div class="ev done"><b>MED4 pilot figure</b><div class="d">Enzyme-level preview: Asn breakdown enzyme found; 12 shared only; 7 nothing found.</div><div class="c">3550238 · 3d3811f</div></div>
+    <div class="ev review"><b>Review 3: 4 concerns, 4 notes, all fixed (plan v5)</b><div class="d">"Complete" requires the step that frees the nitrogen; one written rule for "shared"; one rule per cell.</div><div class="c">dbb9dcb</div></div>
+    <div class="ev gate"><b>Plan approved</b><div class="d">Glutamate dehydrogenase shared · urease shared · marine <i>Synechococcus</i> only.</div><div class="c">4ceb792</div></div>
+
+    <div class="phase">Building and running</div>
+    <div class="ev next"><b>Methods: build the pathway list and scoring code</b><div class="d">Draft pathway list for your review; enzymes checked against KEGG; missed-enzyme check; controls named; strain lists frozen; code tested on toy data and against a hand-built answer key (MIT9313, MIT9312).</div></div>
+    <div class="ev later"><b>Analysis: run all strains</b><div class="d">45 <i>Prochlorococcus</i> + marine <i>Synechococcus</i>; heatmap by clade; HTML reports.</div></div>
+    <div class="ev later"><b>Evaluation: check controls, write up</b><div class="d">Caveats collected; paper-ready text.</div></div>
+  </div>
 </div>
 
 <h2>How we will know the method works</h2>
@@ -179,7 +223,7 @@
   <li><b>Early look:</b> MED4 results were seen before the rules were locked. This is recorded in the plan notebook.</li>
 </ul></div>
 
-<footer>Source: proposal.md (v5) and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Pilot numbers from spike/data/med4_aa_summary.csv.</footer>
+<footer>Source: proposal.md (v5, approved) and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Pilot numbers from spike/data/med4_aa_summary.csv.</footer>
 </main>
 <script>
   // Layout sketch only: grey placeholder cells, no data.

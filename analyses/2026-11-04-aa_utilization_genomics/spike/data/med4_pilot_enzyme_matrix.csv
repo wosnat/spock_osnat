@@ -1,0 +1,84 @@
+amino_acid,ko,enzyme,label,ec,mode,shared,shared_reason,class,in_kg,found,locus_tags,kg_ko_name,note
+Ala,K00259,AlaDH,ald,1.4.1.1,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,ald; alanine dehydrogenase [EC:1.4.1.1],alanine dehydrogenase
+Ala,K00285,D-AA DH,dadA,1.4.5.1,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,dadA; D-amino-acid dehydrogenase [EC:1.4.5.1],D-amino acid dehydrogenase (broad; D-Ala)
+Ala,K00814,Ala AT (GPT),GPT,2.6.1.2,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,False,False,,,alanine aminotransferase
+Ala,K00835,avtA,avtA,2.6.1.66,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,avtA; valine--pyruvate aminotransferase [EC:2.6.1.66],alanine-valine aminotransferase
+Ala,K14260,Ala AT,alaA/alaC,2.6.1.2,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,alaA; alanine-synthesizing transaminase [EC:2.6.1.66 2.6.1.2],alanine aminotransferase
+Arg,K00926,carbamate kin.,arcC,2.7.2.2,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,arcC; carbamate kinase [EC:2.7.2.2],carbamate kinase (ADI pathway; carbamoyl-P to NH4 + CO2)
+Arg,K01478,Arg deiminase,arcA,3.5.3.6,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,arcA; arginine deiminase [EC:3.5.3.6],arginine deiminase: citrulline + NH4
+Arg,K01428,urease α,ureC,3.5.1.5,via urea,yes,urease: urea use (override),shared,True,True,PMM0963,ureC; urease subunit alpha [EC:3.5.1.5],urease alpha (urea from arginase/agmatinase)
+Arg,K01429,urease β,ureB,3.5.1.5,via urea,yes,urease: urea use (override),shared,True,True,PMM0964,ureB; urease subunit beta [EC:3.5.1.5],urease beta
+Arg,K01430,urease γ,ureA,3.5.1.5,via urea,yes,urease: urea use (override),shared,True,True,PMM0965,ureA; urease subunit gamma [EC:3.5.1.5],urease gamma
+Arg,K01476,arginase,rocF,3.5.3.1,via urea,no,draft catalogue: breakdown-only,dedicated,True,False,,"rocF, arg; arginase [EC:3.5.3.1]",arginase: urea + ornithine; NH4 via urease
+Arg,K01480,agmatinase,speB,3.5.3.11,via urea,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM1686,speB; agmatinase [EC:3.5.3.11],agmatinase: urea + putrescine; NH4 via urease
+Arg,K00819,Orn AT,rocD,2.6.1.13,transfer,no,draft catalogue: breakdown-only,dedicated,True,False,,"rocD, OAT; ornithine--oxo-acid transaminase [EC:2.6.1.13]",ornithine aminotransferase (ornithine from arginase)
+Arg,K12252,aruH,aruH,2.6.1.84,transfer,no,draft catalogue: breakdown-only,dedicated,True,False,,aruH; arginine:pyruvate transaminase [EC:2.6.1.84],arginine:pyruvate transaminase
+Arg,K00611,OTC,argF/arcB,2.1.3.3,other,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM1263,"OTC, argF, argI; ornithine carbamoyltransferase [EC:2.1.3.3]",ornithine carbamoyltransferase (ADI step 2; also Arg biosynthesis)
+Arg,K01585,Arg decarbox.,speA,4.1.1.19,other,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0045,speA; arginine decarboxylase [EC:4.1.1.19],arginine decarboxylase: agmatine (polyamines)
+Asn,K01424,asparaginase,ansA,3.5.1.1,NH4+,no,draft catalogue: breakdown-only,dedicated,True,True,PMM0821,"E3.5.1.1, ansA, ansB; L-asparaginase [EC:3.5.1.1]",L-asparaginase
+Asn,K13051,isoAsp-asparag.,iaaA/ansB,3.5.1.1;3.4.19.5,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,"ASRGL1, iaaA; L-asparaginase / beta-aspartyl-peptidase [EC:3.5.1.1 3.4.19.5]",isoaspartyl peptidase/L-asparaginase
+Asp,K00278,Asp oxidase,nadB,1.4.3.16,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0100,nadB; L-aspartate oxidase [EC:1.4.3.16],L-aspartate oxidase (NAD biosynthesis)
+Asp,K01744,aspartase,aspA,4.3.1.1,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,aspA; aspartate ammonia-lyase [EC:4.3.1.1],aspartate ammonia-lyase
+Asp,K00812,AspAT (aspB),aspB,2.6.1.1,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0674,aspB; aspartate aminotransferase [EC:2.6.1.1],aspartate aminotransferase
+Asp,K00813,AspAT (aspC),aspC,2.6.1.1,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,aspC; aspartate aminotransferase [EC:2.6.1.1],aspartate aminotransferase
+Asp,K11358,AspAT (yhdR),yhdR,2.6.1.1,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,False,False,,,aspartate aminotransferase
+Asp,K14454,GOT1,GOT1,2.6.1.1,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,False,False,,,"aspartate aminotransferase, cytoplasmic"
+Asp,K14455,GOT2,GOT2,2.6.1.1,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,False,False,,,"aspartate aminotransferase, mitochondrial"
+Cys,K01760,metC,metC,4.4.1.13,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,metC; cysteine-S-conjugate beta-lyase [EC:4.4.1.13],cystathionine beta-lyase / cysteine-S-conjugate beta-lyase (Met biosynthesis)
+Cys,K05396,D-Cys desulfh.,dcyD,4.4.1.15,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,dcyD; D-cysteine desulfhydrase [EC:4.4.1.15],D-cysteine desulfhydrase
+Cys,K17217,Cys γ-lyase,mccB,4.4.1.1,NH4+,no,draft catalogue: breakdown-only,dedicated,False,False,,,cystathionine gamma-lyase
+Cys,K01738,cysK,cysK,2.5.1.47,other,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0123;PMM0407,cysK; cysteine synthase [EC:2.5.1.47],cysteine synthase (side desulfhydrase activity in some isoforms)
+Gln,K01425,glutaminase,glsA,3.5.1.2,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,"glsA, GLS; glutaminase [EC:3.5.1.2]",glutaminase
+Gln,K00265,GOGAT large,gltB,1.4.1.13,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13],GOGAT large subunit NADPH (amide N to 2-OG)
+Gln,K00266,GOGAT small,gltD,1.4.1.13,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,gltD; glutamate synthase (NADPH) small chain [EC:1.4.1.13],GOGAT small subunit
+Gln,K00284,Fd-GOGAT,GLU/glsF,1.4.7.1,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM1512,"GLU, gltS; glutamate synthase (ferredoxin) [EC:1.4.7.1]",ferredoxin-dependent GOGAT (amide N to 2-OG)
+Glu,K00261,GDH NAD(P),GLUD1_2,1.4.1.3,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,"GLUD1_2, gdhA; glutamate dehydrogenase (NAD(P)+) [EC:1.4.1.3]",glutamate dehydrogenase NAD(P)+
+Glu,K00262,GDH NADP,gdhA,1.4.1.4,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,"E1.4.1.4, gdhA; glutamate dehydrogenase (NADP+) [EC:1.4.1.4]",glutamate dehydrogenase NADP+
+Glu,K15371,GDH NAD,GDH2,1.4.1.2,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,GDH2; glutamate dehydrogenase [EC:1.4.1.2],glutamate dehydrogenase NAD+
+Glu,K01580,Glu decarbox.,gadB,4.1.1.15,other,no,draft catalogue: breakdown-only,dedicated,True,False,,"E4.1.1.15, gadB, gadA, GAD; glutamate decarboxylase [EC:4.1.1.15]",glutamate decarboxylase: GABA (N retained)
+Gly,K00281,gcvP,gcvP,1.4.4.2,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM1668,"GLDC, gcvP; glycine cleavage system P protein (glycine dehydrogenase) [EC:1.4.4.2]",glycine cleavage P protein (also C1 metabolism)
+Gly,K00605,gcvT,gcvT,2.1.2.10,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM1687,"gcvT, AMT; glycine cleavage system T protein (aminomethyltransferase) [EC:2.1.2.10]",glycine cleavage T protein (releases NH4)
+Gly,K02437,gcvH,gcvH,-,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM1669,"gcvH, GCSH; glycine cleavage system H protein",glycine cleavage H protein
+Gly,K03153,Gly oxidase,thiO,1.4.3.19,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0047,thiO; glycine oxidase [EC:1.4.3.19],glycine oxidase (thiamine biosynthesis)
+Gly,K00830,AGXT,AGXT,2.6.1.44;2.6.1.51,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0919,AGXT; alanine-glyoxylate transaminase / serine-glyoxylate transaminase / serine-pyruvate transaminase [EC:2.6.1.44 2.6.1.45 2.6.1.51],alanine-glyoxylate / serine-pyruvate aminotransferase
+His,K01479,hutG,hutG,3.5.3.8,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,hutG; formiminoglutamase [EC:3.5.3.8],formimidoylglutamase
+His,K01745,hutH,hutH,4.3.1.3,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,"hutH, HAL; histidine ammonia-lyase [EC:4.3.1.3]",histidine ammonia-lyase
+His,K00817,hisC,hisC,2.6.1.9,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0186,hisC; histidinol-phosphate aminotransferase [EC:2.6.1.9],histidinol-phosphate aminotransferase (His biosynthesis; broad)
+His,K01468,hutI,hutI,3.5.2.7,other,no,draft catalogue: breakdown-only,dedicated,True,False,,"hutI, AMDHD1; imidazolonepropionase [EC:3.5.2.7]",imidazolonepropionase
+His,K01712,hutU,hutU,4.2.1.49,other,no,draft catalogue: breakdown-only,dedicated,True,False,,"hutU, UROC1; urocanate hydratase [EC:4.2.1.49]",urocanate hydratase
+Ile,K00263,LeuDH,ldh,1.4.1.9,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,E1.4.1.9; leucine dehydrogenase [EC:1.4.1.9],leucine dehydrogenase
+Ile,K00826,BCAT (ilvE),ilvE,2.6.1.42,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0878,"E2.6.1.42, ilvE; branched-chain amino acid aminotransferase [EC:2.6.1.42]",branched-chain aminotransferase
+Leu,K00263,LeuDH,ldh,1.4.1.9,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,E1.4.1.9; leucine dehydrogenase [EC:1.4.1.9],leucine dehydrogenase
+Leu,K00826,BCAT (ilvE),ilvE,2.6.1.42,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0878,"E2.6.1.42, ilvE; branched-chain amino acid aminotransferase [EC:2.6.1.42]",branched-chain aminotransferase
+Lys,K03918,Lys AT,lat,2.6.1.36,transfer,no,draft catalogue: breakdown-only,dedicated,False,False,,,lysine 6-aminotransferase
+Lys,K01582,Lys decarbox.,cadA,4.1.1.18,other,yes,"decarboxylase to polyamine, same class as speA (override)",shared,True,True,PMM1084,"E4.1.1.18, ldcC, cadA; lysine decarboxylase [EC:4.1.1.18]",lysine decarboxylase: cadaverine (N retained)
+Met,K01761,Met γ-lyase,mdeA,4.4.1.11,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,E4.4.1.11; methionine-gamma-lyase [EC:4.4.1.11],methionine gamma-lyase
+Phe,K00270,PheDH,pdh,1.4.1.20,NH4+,no,draft catalogue: breakdown-only,dedicated,False,False,,,phenylalanine dehydrogenase
+Phe,K10775,PAL,PAL,4.3.1.24,NH4+,no,draft catalogue: breakdown-only,dedicated,False,False,,,phenylalanine ammonia-lyase
+Phe,K13064,PTAL,PTAL,4.3.1.25,NH4+,no,draft catalogue: breakdown-only,dedicated,False,False,,,phenylalanine/tyrosine ammonia-lyase
+Phe,K00832,tyrB,tyrB,2.6.1.57,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,tyrB; aromatic-amino-acid transaminase [EC:2.6.1.57],aromatic-amino-acid aminotransferase
+Phe,K00838,ARO8,ARO8,2.6.1.57,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,False,False,,,aromatic aminotransferase I
+Pro,K00294,P5C DH,rocA,1.2.1.88,other,no,draft catalogue: breakdown-only,dedicated,True,False,,E1.2.1.88; 1-pyrroline-5-carboxylate dehydrogenase [EC:1.2.1.88],P5C dehydrogenase (to Glu)
+Pro,K00318,PRODH,PRODH,1.5.5.2,other,no,draft catalogue: breakdown-only,dedicated,True,False,,"PRODH, fadM, putB; proline dehydrogenase [EC:1.5.5.2]",proline dehydrogenase: P5C (N ends in Glu)
+Pro,K13821,putA,putA,1.5.5.2;1.2.1.88,other,no,draft catalogue: breakdown-only,dedicated,True,False,,"putA; RHH-type transcriptional regulator, proline utilization regulon repressor / proline dehydrogenase / delta 1-pyrroline-5-carboxylate dehydrogenase [EC:1.5.5.2 1.2.1.88]",bifunctional PutA (Pro to Glu)
+Ser,K01752,Ser dehydratase,sdaA,4.3.1.17,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,"E4.3.1.17, sdaA, sdaB, tdcG; L-serine dehydratase [EC:4.3.1.17]",L-serine dehydratase
+Ser,K01753,D-Ser dehydr.,dsdA,4.3.1.18,NH4+,no,draft catalogue: breakdown-only,dedicated,False,False,,,D-serine dehydratase
+Ser,K01754,Thr dehydratase,ilvA,4.3.1.19,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0908,"E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]",threonine dehydratase (Ile biosynthesis; also Ser)
+Ser,K17989,Ser/Thr dehydr.,SDS,4.3.1.17;4.3.1.19,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,"SDS, SDH, CHA1; L-serine/L-threonine ammonia-lyase [EC:4.3.1.17 4.3.1.19]",serine/threonine dehydratase
+Thr,K01754,Thr dehydratase,ilvA,4.3.1.19,NH4+,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0908,"E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]",threonine dehydratase (Ile biosynthesis; also Ser)
+Thr,K17989,Ser/Thr dehydr.,SDS,4.3.1.17;4.3.1.19,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,"SDS, SDH, CHA1; L-serine/L-threonine ammonia-lyase [EC:4.3.1.17 4.3.1.19]",serine/threonine dehydratase
+Thr,K00060,Thr DH,tdh,1.1.1.103,other,no,draft catalogue: breakdown-only,dedicated,True,False,,tdh; threonine 3-dehydrogenase [EC:1.1.1.103],threonine 3-dehydrogenase (to Gly via kbl)
+Thr,K00639,kbl,kbl,2.3.1.29,other,no,draft catalogue: breakdown-only,flagged,True,True,PMM1468,"kbl, GCAT; glycine C-acetyltransferase [EC:2.3.1.29]",2-amino-3-ketobutyrate CoA ligase
+Thr,K01620,Thr aldolase,ltaE,4.1.2.48,other,no,draft catalogue: breakdown-only,dedicated,True,False,,"ltaE, THA; threonine aldolase [EC:4.1.2.48]",threonine aldolase: Gly (N ends in Gly)
+Trp,K01667,tryptophanase,tnaA,4.1.99.1,NH4+,no,draft catalogue: breakdown-only,dedicated,False,False,,,tryptophanase
+Tyr,K13064,PTAL,PTAL,4.3.1.25,NH4+,no,draft catalogue: breakdown-only,dedicated,False,False,,,phenylalanine/tyrosine ammonia-lyase
+Tyr,K00815,Tyr AT,TAT,2.6.1.5,transfer,no,draft catalogue: breakdown-only,dedicated,False,False,,,tyrosine aminotransferase
+Tyr,K00832,tyrB,tyrB,2.6.1.57,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,False,,tyrB; aromatic-amino-acid transaminase [EC:2.6.1.57],aromatic-amino-acid aminotransferase
+Tyr,K00838,ARO8,ARO8,2.6.1.57,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,False,False,,,aromatic aminotransferase I
+Val,K00263,LeuDH,ldh,1.4.1.9,NH4+,no,draft catalogue: breakdown-only,dedicated,True,False,,E1.4.1.9; leucine dehydrogenase [EC:1.4.1.9],leucine dehydrogenase
+Val,K00826,BCAT (ilvE),ilvE,2.6.1.42,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,shared,True,True,PMM0878,"E2.6.1.42, ilvE; branched-chain amino acid aminotransferase [EC:2.6.1.42]",branched-chain aminotransferase
+broad / D-amino-acid,K00273,D-AA oxidase,DAO,1.4.3.3,NH4+,no,draft catalogue: breakdown-only,broad,True,True,PMM1703,"DAO, aao; D-amino-acid oxidase [EC:1.4.3.3]",D-amino-acid oxidase (broad)
+broad / D-amino-acid,K03334,L-AA oxidase,LAAO,1.4.3.2,NH4+,no,draft catalogue: breakdown-only,broad,False,False,,,L-amino-acid oxidase (broad)
+broad / D-amino-acid,K00837,AT (ALD1),ALD1,2.6.1.-,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,broad,False,False,,,aminotransferase
+broad / D-amino-acid,K10907,AT (K10907),K10907,2.6.1.-,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,broad,True,False,,K10907; aminotransferase [EC:2.6.1.-],aminotransferase (unspecified)
+broad / D-amino-acid,K14267,dapC,dapC,2.6.1.17,transfer,yes,draft catalogue: shared with biosynthesis/central metabolism,broad,True,False,,dapC; N-succinyldiaminopimelate aminotransferase [EC:2.6.1.17],"N-succinyldiaminopimelate aminotransferase (class I AT, broad)"
