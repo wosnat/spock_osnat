@@ -185,16 +185,24 @@ tb(s, Inches(0.7), Inches(6.95), Inches(12), Inches(0.35),
    size=11, color=MUTED, name="Caption")
 s.notes_slide.notes_text_frame.text = "Each tile is one amino acid; colour = best breakdown pathway status. Prochlorococcus rows are almost empty; heterotrophs carry complete pathways for 8-10 amino acids. Glu, Gly, Tyr cannot be judged with this database."
 
+# Figure 2: MED4 expression of amino-acid genes
+s = prs.slides.add_slide(blank)
+fig_title(s, 2, "MED4 gene responses to nitrogen stress")
+pic = s.shapes.add_picture(str(FIG / "fig_med4_expression_crop.png"), Inches(0.55), Inches(1.15), width=Inches(12.25)); pic.name = "MED4 expression heatmap"
+s.notes_slide.notes_text_frame.text = ("10 MED4 nitrogen/coculture experiments in the database. Short-term N deprivation (Tolonen 2006, Read 2017): glnA and urtA strongly up, no amino-acid gene responds (gltS, ansA, aminotransferases, dppA all ns). "
+    "Long-term N starvation (Weissberg, Aharonovich & Sher 2025): dppA (peptide-binding, PMM1049), ilvE (PMM0878) and urease up; consistent with recycling own proteins and/or peptide uptake. "
+    "Caveats: 2025 contrasts are vs each culture's own exponential sample; extreme 2016 coculture values unchecked; exploration not yet independently reviewed.")
+
 # Figure 2: uptake by group
 s = prs.slides.add_slide(blank)
-fig_title(s, 2, "Amino-acid uptake systems by group: E. coli vs MED4")
+fig_title(s, 3, "Amino-acid uptake systems by group: E. coli vs MED4")
 pic = s.shapes.add_picture(str(FIG / "fig_uptake_crop.png"), Inches(0.7), Inches(1.2), width=Inches(11.93)); pic.name = "Uptake comparison"
 tb(s, Inches(0.7), Inches(6.95), Inches(12), Inches(0.35), "E. coli (blue): K-12 textbook knowledge, not from our database. MED4 (green): database annotations. Annotation ≠ function.", size=11, color=MUTED, name="Caption")
 s.notes_slide.notes_text_frame.text = "E. coli (blue, textbook): ~25-30 uptake systems covering every group. MED4 (green, database): one candidate, gltS PMM0628 (glutamate); dppA PMM1049 is a peptide-binding protein. urtC/urtE carry a branched-chain label but are the urea transporter."
 
 # Figure 3: MED4 searched vs found
 s = prs.slides.add_slide(blank)
-fig_title(s, 3, "MED4: every enzyme searched, and what was found")
+fig_title(s, 4, "MED4: every enzyme searched, and what was found")
 pic = s.shapes.add_picture(str(FIG / "fig_med4_matrix_crop.png"), Inches(0.6), Inches(1.3), width=Inches(8.1)); pic.name = "MED4 searched vs found matrix"
 x = Inches(0.6) + pic.width + Inches(0.3); w = Inches(13.333) - x - Inches(0.5)
 box(s, x, Inches(1.3), w, Inches(5.6), PANEL, name="Reading card")
