@@ -69,7 +69,7 @@
 <body>
 <main>
 
-<h1>Amino-acid utilization pathways in <i>Prochlorococcus</i><span class="draft">plan v4 · draft</span></h1>
+<h1>Amino-acid utilization pathways in <i>Prochlorococcus</i><span class="draft">plan v5 · draft</span></h1>
 <p class="sub">Comparative genomics · 45 <i>Prochlorococcus</i> strains + <i>Synechococcus</i> · Researcher: Dikla Aharonovich · 2026-11-04 · KG release 0.1.0-alpha.9</p>
 
 <h2>The question</h2>
@@ -112,7 +112,7 @@
     <span class="node n">breakdown-only step</span><span class="arr">→</span>
     <span class="node">N freed: NH₄⁺ · glutamate · urea</span>
   </div>
-  <p style="margin-top:6px">Only the <b>breakdown-only</b> steps (orange border) count. Shared steps are shown greyed out as context, because every strain needs them to build amino acids, so they say nothing about utilization.</p>
+  <p style="margin-top:6px">Only the <b>breakdown-only</b> steps (orange border) count. The step that <b>frees the nitrogen</b> must be present for "complete", even if it is shared. Shared steps are shown greyed out as context, because every strain needs them to build amino acids, so they say nothing about utilization.</p>
   <div class="legend" style="font-size:13px;color:var(--ink);margin-top:10px">
     <span><span class="sw" style="background:var(--ok)"></span><b>complete</b>: all breakdown-only steps found</span>
     <span><span class="sw" style="background:var(--warn)"></span><b>partial</b>: some found (k of n)</span>
@@ -125,8 +125,8 @@
 <h2>What the MED4 pilot showed <span class="muted" style="text-transform:none;letter-spacing:0;font-size:13px">(draft catalogue)</span></h2>
 <div class="checks">
   <div class="ck pos"><h3>Asparagine: complete</h3><p>Asparaginase (PMM0821, ansA) frees NH₄⁺. One breakdown-only step, found.</p></div>
-  <div class="ck find"><h3>Lysine: partial</h3><p>Lysine decarboxylase (PMM1084, cadA) found; later steps not found.</p></div>
-  <div class="ck neg"><h3>Arginine, histidine: none</h3><p>No arginase, no arginine deiminase, no hut enzymes. Arginine's agmatine route has only shared steps, so it can't be judged.</p></div>
+  <div class="ck find"><h3>Arginine: absent</h3><p>No arginase or arginine deiminase. The agmatine route is complete but all-shared (speA, speB, urease), so it is flagged, not counted.</p></div>
+  <div class="ck neg"><h3>Histidine, lysine: absent</h3><p>No hut enzymes for histidine. Lysine decarboxylase (cadA) is found, but it makes a polyamine, so it counts as shared.</p></div>
 </div>
 <p class="muted" style="margin-top:8px">Other MED4 hits are shared biosynthesis enzymes (ilvE, hisC, ilvA, glycine cleavage), which are not counted. One threonine hit (PMM1468) is flagged: its product is a biotin enzyme. Full pilot figure: spike/reports/med4_pilot_summary.html.</p>
 
@@ -179,7 +179,7 @@
   <li><b>Early look:</b> MED4 results were seen before the rules were locked. This is recorded in the plan notebook.</li>
 </ul></div>
 
-<footer>Source: proposal.md (v4) and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Pilot numbers from spike/data/med4_aa_summary.csv.</footer>
+<footer>Source: proposal.md (v5) and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Pilot numbers from spike/data/med4_aa_summary.csv.</footer>
 </main>
 <script>
   // Layout sketch only: grey placeholder cells, no data.

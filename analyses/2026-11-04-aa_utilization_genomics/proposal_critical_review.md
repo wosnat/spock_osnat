@@ -31,3 +31,18 @@ Fresh-context critic over proposal.md v2 (N-release only; transporters deferred;
 | 9 | Note | KO-only matching inherits KO errors (PMM1468 bioF on K00639 kbl). | **Fixed.** KO/product disagreements are flagged, and a flagged hit makes no call until reviewed. |
 | 10 | Note | "Shared-only never dedicated" is a code invariant, not a test. | **Fixed.** It was moved to the methods fixtures. |
 | 11 | Note | The MED4 answer key is not blind. | **Fixed.** Stated; the two non-MED4 strains carry the weight. |
+
+# Proposal critical review — pass 3 (delta over v4, interpretation only), 2026-11-04
+
+Fresh-context critic over proposal.md v4 (utilization pathways scored on dedicated steps only). No target queries. **No Blockers.** Four Concerns, four Notes.
+
+| # | Severity | Finding (summary) | Disposition |
+|---|---|---|---|
+| 1 | Concern | Status is not anchored on the N-freeing step: a pathway can be "complete" while its N leaves only through an unchecked shared step (Thr→Gly→gcv), or "partial" although N is freed at step 1 (His/hutH). Pathway end undefined for multi-N amino acids. | **Fixed (v5).** Each pathway ends at its first N-freeing step. "Complete" needs all dedicated steps AND the N-freeing step present; a shared N-freeing step is an uncounted precondition. A separate "N-freeing step present/missing" field was added. Multi-N rule and Thr→Gly extension stated. Arginase → urea counts as freeing N (mode "via urea", set in pass 2). |
+| 2 | Concern | The dedicated/shared flag is not operational and is inconsistent in the draft (speA shared vs cadA dedicated; Thr→Gly; gadB). | **Fixed (v5).** Operational rule written (shared = needed for a must-build product, central C/N metabolism, or another N source; judged against cyanobacterial metabolism) and applied uniformly. cadA is now shared, like speA. Every flag is reasoned and researcher-approved at catalogue review. |
+| 3 | Concern | Per-amino-acid cell has no precedence (absent vs can't-be-judged), no tie rule, and k/n is not comparable across pathway lengths. | **Fixed (v5).** Precedence complete > partial > absent > can't be judged; ties go to the longer pathway; "all-shared route fully present" flag; n always shown; non-comparability stated. The Arg example was updated to "absent + flag". |
+| 4 | Concern | The pilot figure uses enzyme-level v3 categories after v4, draws the broad DAO as "complete", and hard-codes Lys "partial". | **Fixed.** Figure relabelled as an "enzyme-level preview"; broad row neutral; cadA reclassified shared (Lys partial removed). The notebook carries a correction note on the Lys example shown to the researcher. |
+| 5 | Note | The Asn example should list K13051 with K01424. | **Fixed.** |
+| 6 | Note | Name Gly with Glu as likely "can't be judged". | **Fixed.** |
+| 7 | Note | The expected-negative should be a dedicated step within a catalogued pathway. | **Fixed.** |
+| 8 | Note | paper.md Background has an unverified universal ("every genome carries them"). | **Fixed.** Sentence reworded. |

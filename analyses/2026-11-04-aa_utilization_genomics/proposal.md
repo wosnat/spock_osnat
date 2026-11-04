@@ -10,6 +10,7 @@ Researcher: Dikla Aharonovich · Drafted 2026-11-04 · Status: **draft, under de
 >   - Alteromonas removed;
 >   - after the MED4 pilot, **transporters set aside** (deferred, not in this analysis);
 >   - v4: **utilization pathways scored only on their breakdown-only (dedicated) steps.** The researcher judged that enzymes shared with biosynthesis are not informative about utilization, so the v3 "shared only" call was dropped.
+>   - v5 (critic pass 3): status anchored on each pathway's N-freeing step; an operational dedicated/shared rule; precedence for the per-amino-acid cell.
 >
 > Earlier versions are in git history; the reasons are in `proposal_notebook.md`.
 
@@ -51,7 +52,8 @@ None. The analysis is descriptive. Patterns across clades or between genera are 
 **1. Pathway catalogue.** For each of the 20 amino acids, list its known bacterial breakdown pathway(s) as ordered enzyme steps, up to and including the step(s) that free the nitrogen (as NH4+, by transamination, via urea, or by converting the skeleton into glutamate). Each step:
 - has **one or more KO ids** (isozymes and paralog KOs grouped). The step is present if any of its KOs is present;
 - has an **N-mode** where it frees N (NH4+ / transfer + acceptor / via urea / conversion to glutamate);
-- is flagged **dedicated** (used only for breaking amino acids down) or **shared** (also used in biosynthesis, central metabolism, or for another N source, e.g. urease). A short written reason is given for every flag.
+- is flagged **dedicated** or **shared** by one **operational rule**, applied uniformly. A step is **shared** if its reaction is needed in cyanobacterial metabolism for something other than breaking amino acids down: it makes a product the cell must build (an amino acid, a polyamine, a cofactor, a nucleotide); it belongs to central carbon or nitrogen metabolism; or it serves another N source (e.g. urease for urea). Otherwise it is **dedicated**. The judgement is against cyanobacterial metabolism, not bacteria in general `[interpretation]`. Consequence for the draft: both amino-acid decarboxylases making polyamines (speA for Arg, cadA for Lys) are **shared**. A short written reason is given for every flag, and the researcher approves them.
+- **Where a pathway ends.** Each pathway is defined up to and including its **N-freeing step**: the first step that frees nitrogen from the amino acid, as NH4+, by transamination, as urea, or by converting the skeleton into glutamate. For amino acids with more than one N (Arg, Asn, Gln, His, Lys, Trp), the pathway ends at the first N-freeing step. Further N atoms freed later are listed as context and not scored. Example: His via the hut route ends at histidine ammonia-lyase (hutH), which frees NH4+ at step 1. A route in which the amino acid's N is only moved into another amino acid (e.g. Thr → Gly) is extended to the step that frees N from that product. Example: Thr → Gly → glycine cleavage.
 
 **Source:** drafted by Claude from standard biochemistry (KEGG reference pathways/modules); an `[interpretation]` input. The MED4 pilot draft (`spike/data/med4_n_release_catalogue.csv`) is the starting point and will be rebuilt as pathways. KO validity is checked against KEGG REST (`list/ko`), not the KG. A valid KO with no gene in the KG stays in and scores absent. **The researcher approves the catalogue (steps, KOs, dedicated/shared flags) before any strain beyond MED4 is scored.** At that same review, the controls below are fixed.
 
@@ -63,17 +65,22 @@ None. The analysis is descriptive. Patterns across clades or between genera are 
 - **KO/product disagreements are flagged** (e.g. MED4 PMM1468: K00639 kbl, product "8-amino-7-oxononanoate synthase"). A flagged hit does not count until the researcher reviews it.
 - Locus tags are kept for every hit; orthologs are linked by KG ortholog groups for display only.
 
-**3. Pathway status per strain** (dedicated steps only; shared steps are shown as context and never count):
-- **complete:** all dedicated steps present (k = n);
-- **partial:** some dedicated steps present (shown as k of n);
+**3. Pathway status per strain.** k/n counts the **dedicated** steps only. Shared steps never add to k or n. But the **N-freeing step is an anchor**: it must be present in the strain for the pathway to be complete, even when it is a shared step (then it is an uncounted precondition).
+- **complete:** all dedicated steps present (k = n) **and** the N-freeing step present;
+- **partial:** some but not all dedicated steps present, **or** all dedicated steps present but the N-freeing step missing. Shown as k of n, plus a separate field "N-freeing step: present / missing";
 - **absent:** no dedicated step present;
-- **can't be judged from the genome:** the pathway has no dedicated step (all steps are shared). It is never counted as present.
+- **can't be judged from the genome:** the pathway has no dedicated step (all steps shared). It is never counted as present. A secondary flag records whether all of its shared steps are present ("all-shared route fully present").
+- n is always shown with k. k/n is **not comparable across pathways of different lengths**: single-step pathways can only be complete or absent.
 
-**Per amino acid:** the best pathway's status (highest k/n), with the number of pathways catalogued for that amino acid shown alongside. **Utilization pathway found** = at least one pathway complete. The k/n of the best partial pathway is shown otherwise.
+**Per amino acid:** one cell, chosen by precedence **complete > partial > absent > can't be judged**. Within "partial", the highest k/n wins; ties go to the pathway with more steps. The cell also shows:
+- the number of pathways catalogued for that amino acid;
+- the "all-shared route fully present" flag, if any of its pathways has it.
+
+**Utilization pathway found** means at least one pathway is complete.
 
 Worked examples from the MED4 pilot (draft catalogue, for illustration):
-- **Asn:** asparaginase route, 1 dedicated step (K01424), present (PMM0821 ansA) → **complete**.
-- **Arg:** arginase and arginine-deiminase routes absent; the agmatine route has only shared steps (speA, speB; urease shared) → arginine **no utilization pathway found**.
+- **Asn:** asparaginase route, 1 dedicated step that is also the N-freeing step (K01424/K13051), present (PMM0821 ansA) → **complete**.
+- **Arg:** arginase and arginine-deiminase routes absent. The agmatine route has only shared steps (speA, speB; urease shared) but all of them are present in MED4 → arginine cell = **absent**, with the flag "all-shared route fully present".
 - **His:** the hut pathway (all dedicated) has no MED4 gene → **absent**.
 
 **4. Cross-check for gaps in the catalogue.**
@@ -117,17 +124,17 @@ A "complete genome" below means NCBI assembly level "Complete Genome" (see the c
 - **Findings, not failures:**
   - every strain has the same calls;
   - most amino acids have no utilization pathway in Prochlorococcus;
-  - many pathways "can't be judged" (all steps shared);
+  - some amino acids "can't be judged" (all catalogued pathways are all-shared). Under the draft catalogue, Glu (if GDH is shared) and Gly (glycine cleavage and glycine oxidase are shared) are the likely cases;
   - complete pathways found in some strains only (e.g. larger LL genomes).
 
   Each is reported as a result. A null is a valid, bounded outcome.
 - **Pre-registered expected-negative (flag and inspect, not halt):**
-  - At catalogue approval, before scoring, name one enzyme that should be absent from **cyanobacteria in general** `[interpretation]`, so that a hit would more likely mean a KO-matching artefact than biology.
+  - At catalogue approval, before scoring, name one **dedicated step within a catalogued pathway** that should be absent from **cyanobacteria in general** `[interpretation]`, so that a hit would more likely mean a KO-matching artefact than biology. It is inspected at step level.
   - A hit in any strain is **inspected and reported**: its locus tag, its product, and whether the KO assignment holds up. It does not halt the analysis.
   - Disclosure: the MED4 pilot already showed which dedicated enzymes MED4 lacks (`proposal_notebook.md`), so any MED4-based candidate is not blind.
 
 ### Open choices for the researcher (to settle before the plan is locked)
-1. **Glutamate dehydrogenase (GDH): dedicated or shared?** It can deaminate glutamate (releasing NH4+), but in many bacteria it also assimilates NH4+ into glutamate. Recommendation: **shared**, to be cautious. With that, glutamate's main breakdown step is shared, so glutamate will likely be "can't be judged."
+1. **Glutamate dehydrogenase (GDH): dedicated or shared?** It can deaminate glutamate (releasing NH4+), but in many bacteria it also assimilates NH4+ into glutamate, which is central N metabolism under the shared rule. Recommendation: **shared**. With that, glutamate will likely be "can't be judged."
 2. **Synechococcus inclusion rule:** marine subclusters 5.1–5.3 only (recommended), or all 54 KG "Synechococcus" genomes.
 3. **Urease as shared** (recommended: it serves urea use, not amino-acid breakdown specifically).
 
