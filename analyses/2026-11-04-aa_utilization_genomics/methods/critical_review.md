@@ -43,3 +43,22 @@ Lens: data-integrity + interpretation. MED4-only. **2 Blockers, 3 Concerns, 4 No
 | 7 | Note | Gln_glutaminase.1 includes R00485 via EC 3.5.1.38, which makes asparaginase KOs look "missing". | **Being fixed.** |
 | 8 | Note | AND-group logic is correct but not used by 04; ARGZ subunit structure unverified. | **Being fixed / checked.** |
 | 9 | Note | The 32 new cross-check rows and the HTML counts are clean. | No change. |
+
+# Methods critical review — pass 3 (delta over the pass-2 fixes, commit 8acb849), 2026-11-04
+
+**1 Blocker, 3 Notes.** The pass-2 dispositions were verified as faithfully implemented:
+- Phe/Tyr AT are shared and debatable, with reasons citing pheA/tyrA.
+- The exclusion rule has no violations across all 83 dedicated KO rows.
+- Substrate keywords are present on all dedicated steps.
+- The N-neutral exclusion holds.
+- Assessability (10/7/3) was recomputed and matches the HTML.
+- The only credited dedicated MED4 hit is PMM0821.
+- The five flagged hits are genuine mismatches.
+- The ec fields equal the KEGG ENZYME lines.
+
+| # | Severity | Finding | Disposition |
+|---|---|---|---|
+| 1 | Blocker | Observability uses all ko_groups, including excluded KOs. Trp_transamination is "observable/scored" through K00832 (not credit-eligible); its only eligible KO K14265 has no KG node, so it would read "absent" everywhere. | **Being fixed.** Observability is now over credit-eligible KOs only. Trp_transamination → not assessable. Headline unchanged. |
+| 2 | Note | Substrate-only dedicated keywords ("asparagine", "tryptophan", "kynurenine", "putrescine") could match unrelated products. | **Being fixed.** Keywords now pair the substrate with the enzyme word. |
+| 3 | Note | The one credited dedicated hit (PMM0821) has a family-level product ("L-asparaginase II family protein"). | **Being fixed.** Shown as a caveat; the call is unchanged. |
+| 4 | Note | Superseded change-log rows (arogenate premise) render without a marker. | **Being fixed.** `superseded_by` column added; rows greyed out in the HTML. |
