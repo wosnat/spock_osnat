@@ -139,9 +139,15 @@ image_slide(root / "spike/figures/med4_pilot_slide.png",
     "MED4 pilot (draft enzyme list). Only asparaginase (PMM0821) is a breakdown-only enzyme; 12 amino acids have only shared enzymes, 7 nothing. "
     "Lessons that shaped the plan: transporters set aside, score whole pathways on breakdown-only steps, match by enzyme ID not gene name.",
     "MED4 pilot infographic")
-image_slide(root / "spike/mit9313/figures/mit9313_vs_med4_slide.png",
+image_slide(root / "slides/uptake_ecoli_vs_med4_slide.png",
+    "Amino-acid uptake by group. E. coli (blue): K-12 textbook knowledge, ~25-30 systems; no E. coli genome in our database, not yet cited. "
+    "MED4 (green, database): one candidate gene, gltS PMM0628 (glutamate, GO label only), plus dppA PMM1049 (peptide-binding protein). 0 amino-acid systems in the transporter database; 0 of 9 binding proteins predicted for amino acids. "
+    "urtC/urtE carry a branched-chain label but are the urea transporter.",
+    "Uptake E. coli vs MED4 infographic")
+image_slide(root / "slides/aa_comparison_with_ecoli_slide.png",
     "Three genomes, same draft pathway list and rules. Complete pathways: MED4 (high-light, 1,973 genes) 1 (Asn); MIT9313 (low-light, 2,906 genes) 2 (Asn + Ala via alanine dehydrogenase PMT1462); Alteromonas HOT1A3 (heterotroph, 4,028 genes) 8. "
-    "Breakdown-only steps found: 1 / 3 / 14. All Prochlorococcus hits are lone genes; HOT1A3 has three uptake/breakdown packages. MIT9313 was unblinded for this pilot.",
+    "Breakdown-only steps found: 1 / 3 / 14. All Prochlorococcus hits are lone genes; HOT1A3 has three uptake/breakdown packages. MIT9313 was unblinded for this pilot. "
+    "E. coli K-12 row (blue hatched) is textbook expectation, not scored: no E. coli genome in our database; ~10 amino acids expected to have a dedicated breakdown pathway (dadA, ast, ansA/B, aspA, cysteine desulfhydrase, glsA, putA, sdaA/B, tdh+kbl, tnaA); not yet cited.",
     "MED4 vs MIT9313 vs Alteromonas infographic")
 
 # ---------- Slide 5: status & next steps ----------
