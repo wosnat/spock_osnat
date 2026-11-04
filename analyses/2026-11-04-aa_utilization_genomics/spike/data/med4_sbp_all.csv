@@ -1,0 +1,10 @@
+locus_tag,gene_name,product,sbp_nutrient_class,sbp_predicted_substrate
+PMM0289,ycf22,"ABC-type transport system, periplasmic component",unknown,not_stated
+PMM0370,cynA,"cyanate ABC transporter, substrate-binding protein",nitrogen,cyanate
+PMM0601,mntC,"ABC-type Mn2+ transporter, substrate binding protein",trace_metals,manganese
+PMM0673,phnD,"phosphonate ABC type transporter, substrate binding component",phosphorus,phosphonate
+PMM0710,pstS,"phosphate ABC transporter, phosphate-binding protein PstS",phosphorus,phosphate
+PMM0970,urtA,"ABC-type urea transporter, substrate binding component",nitrogen,urea
+PMM1032,lraI,"ABC-type Mn2+/Zn2+ transport system, periplasmic component",trace_metals,manganese_zinc
+PMM1049,dppA,peptide/nickel transport system substrate-binding protein,nitrogen,peptide
+PMM1164,idiA2,iron deficiency-induced protein A,trace_metals,iron

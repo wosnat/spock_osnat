@@ -1,0 +1,20 @@
+
+
+## Anomalies / surprises (facts only)
+1. TCDB direct returns 0 genes for every amino acid and every amino-acid class in MED4 (data/med4_aa_uptake_envelopes.csv, line = tcdb_direct, total_matching = 0 in 27 of 27 targets).
+2. The only specific uptake row on any line is PMM0628 gltS for Glu (GO MF, curated); the same gene is family-only on TCDB (tcdb:2.A.27, tcdb_calls = eggnog, tcdb_direction = unknown).
+3. urtC (PMM0972) and urtE (PMM0974) carry GO MF go:0015658 branched-chain amino acid transmembrane transporter activity; urtA, urtB, urtD do not. Their TCDB system calls are urea porters (3.A.1.4.4 / 3.A.1.4.5).
+4. TCDB family candidates: Cys = 4 genes in tcdb:3.A.1.106 "Lipid Exporter (LipidE) Family" (PMM0065 mcyH, PMM0827 mdlB, PMM1239 hetA, PMM1295 sodX) plus PMM1323 glcH (tcdb:2.A.2 GPH family); Ala = PMM1180 sppA (signal peptide peptidase, tcdb:8.A.21.2 Stomatin family); Gln = PMM0261 murJ (lipid II flippase, tcdb:2.A.66.4). All have tcdb_substrate_system_count = 1 except gltS (5-6); all tcdb_direction = unknown.
+5. 15 of 75 catalogue KOs are not in the KG (ko_in_kg = False): K00270, K00814, K00815, K00837, K00838, K01667, K01753, K03334, K03918, K10775, K11358, K13064, K14454, K14455, K17217. Not-in-KG is not the same as invalid; not checked against KEGG REST.
+6. KO K00639 (KG name "kbl, GCAT; glycine C-acetyltransferase") maps to PMM1468, gene_name bioF, product "8-amino-7-oxononanoate synthase".
+7. KO K00812 (KG name "aspB; aspartate aminotransferase") maps to PMM0674 whose gene_name is aspC; K00813 (aspC) has no MED4 gene.
+8. PMM0222 has gene_name aspA but product "aspartoacylase"; its metabolism reactions are N-acetyl/N-formyl-aspartate amidohydrolases (EC 3.5.1.14/3.5.1.15). No MED4 gene on K01744 (aspartate ammonia-lyase).
+9. PMM1670 (gene_name metC, product "cystathionine beta-lyase family aluminum resistance") and PMM0409 (metB) carry cysteine/cystathionine lyase reactions in the metabolism arm (EC 4.4.1.x, including deaminating reactions), but no MED4 gene is on KO K01760 (metC).
+10. PMM1703 (no gene name, "possible D-amino-acid dehydrogenase") is on K00273 (DAO) and in the metabolism arm carries deaminating reactions for D-Arg, Gly and D-Pro.
+11. resolve_gene("pstA", MED4) returns 2 genes: PMM0724 pstA (phosphate ABC permease) and PMM0035 gene_name PSTA, product "3-phosphoserine transaminase". PMM0035 is not in the KO catalogue.
+12. No MED4 gene on any catalogued glutamate dehydrogenase KO (K00261, K00262, K15371), glutaminase (K01425), NADPH-GOGAT (K00265/K00266), arginase (K01476), arginine deiminase pathway (K01478, K00926), His utilisation (K01745, K01712, K01468, K01479), proline dehydrogenase / P5C dehydrogenase (K00318, K13821, K00294), serine dehydratase (K01752, K17989), Met gamma-lyase (K01761), tryptophanase (K01667 not in KG), aromatic aminotransferase (K00832), alanine dehydrogenase (K00259) or alanine aminotransferase (K14260, K00835).
+13. Amino acids with no catalogued NH4-release or transamination KO hit in MED4: Ala, Cys, Glu, Lys, Met, Phe, Pro, Trp, Tyr (n_release_present = no; 9 of 20). For Ala, Cys, Glu, Phe, Tyr, Pro, Met the metabolism arm lists genes with N-removing-class ECs outside the catalogue (column metabolism_arm_N_removing_genes_not_in_KO_catalogue). Trp and Lys have none on either.
+14. The cross-check column filter is EC-prefix based (1.4., 2.6.1., 3.5.1., 3.5.3., 4.3.1., 4.4.1., 4.1.99.1); it includes reactions where the amino acid is a product rather than a substrate (e.g. glsF, carA/carB, pabB for Glu; sufS1, amiC for Ala) and an unrelated EC (PMM1611 thiC, 4.1.99.17, matched by prefix 4.1.99.1). Reaction direction was not checked.
+15. Ile/Leu/Val uptake is credited via the branched-chain class only; no Ile/Leu/Val-specific row exists.
+16. glnA PMM0920 found on K01915.
+17. n_release_present counts NH4-release and transamination modes only; Arg is "yes" via urease (ureA/B/C) + agmatinase (speB), which requires speA (arginine decarboxylase, catalogued as other_N_route) as the first step.

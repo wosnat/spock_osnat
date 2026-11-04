@@ -1,0 +1,28 @@
+amino_acid,metabolite_ids,note
+Ala,kegg.compound:C01401;kegg.compound:C00041;kegg.compound:C00133,generic C01401 + L + D
+Arg,kegg.compound:C00062;kegg.compound:C00792;kegg.compound:C02385,no generic 'Arginine' found; C02385 'Amino acid(Arg-)' added as the arginine-like entry
+Asn,kegg.compound:C16438;kegg.compound:C00152,generic + L
+Asp,kegg.compound:C16433;kegg.compound:C00049;kegg.compound:C00402,generic + L + D
+Cys,kegg.compound:C00736;kegg.compound:C00097;kegg.compound:C00793,generic + L + D
+Glu,kegg.compound:C00302;kegg.compound:C00025;kegg.compound:C00217,generic + L + D
+Gln,kegg.compound:C00303;kegg.compound:C00064;kegg.compound:C00819,generic + L + D
+Gly,kegg.compound:C00037,achiral
+His,kegg.compound:C00768;kegg.compound:C00135,generic + L
+Ile,chebi:24898;kegg.compound:C00407,generic is chebi:24898
+Leu,kegg.compound:C16439;kegg.compound:C00123,generic + L
+Lys,kegg.compound:C16440;kegg.compound:C00047;kegg.compound:C00739,generic + L + D
+Met,kegg.compound:C01733;kegg.compound:C00073;kegg.compound:C00855,generic + L + D
+Phe,kegg.compound:C02057;kegg.compound:C00079;kegg.compound:C02265,generic + L + D
+Pro,kegg.compound:C16435;kegg.compound:C00148;kegg.compound:C00763,generic + L + D
+Ser,kegg.compound:C00716;kegg.compound:C00065;kegg.compound:C00740,generic + L + D
+Thr,kegg.compound:C00188,only L-Threonine found; no generic
+Trp,kegg.compound:C00806;kegg.compound:C00078,generic + L
+Tyr,kegg.compound:C01536;kegg.compound:C00082,generic + L
+Val,kegg.compound:C16436;kegg.compound:C00183;kegg.compound:C06417,generic + L + D
+class:amino_acid,kegg.compound:C00045;chebi:33709,class-level
+class:L-amino_acid,kegg.compound:C00151,class-level
+class:D-amino_acid,kegg.compound:C00405,class-level
+class:branched-chain_aa,chebi:22918,class-level
+class:polar_aa,chebi:26167,class-level
+class:aromatic_aa,kegg.compound:C01021,class-level
+class:sulfur_aa,chebi:26834,class-level

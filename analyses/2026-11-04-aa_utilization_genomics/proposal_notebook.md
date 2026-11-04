@@ -33,3 +33,12 @@
 - **Synechococcus** proposed by researcher as positive control; Claude recommended comparison group + Alteromonas kept as method check. **Decided: Synechococcus = comparison group alongside Alteromonas (method check).**
 - **Peek disclosure:** at the researcher's request, a throwaway proof-of-concept was run on MED4 alone (`spike/`) before the rules were locked. MED4 is also the planned answer-key strain, so its results have now been seen; the final call rules, catalogue and GO term list are still approved before scaling to all strains, and any rule shaped by the MED4 pilot is recorded as such.
 - **Alteromonas removed** (researcher, 2026-11-04). Replaced as method check by in-genus controls: glnA in all 45; 2–3 biosynthetic aminotransferases (N-transfer, required for prototrophy) in all 45; urea transporter urtA–E returned by the TCDB extraction on urea. Stated trade-off: no check that a *dedicated* degradation route can be detected where one surely exists.
+
+## MED4 pilot (throwaway, `spike/`, 2026-11-04)
+
+Full manifest and tables in `spike/spike_summary.md`; data in `spike/data/`. Key counts (verified against `spike/data/med4_aa_summary.csv`, `med4_aa_uptake.csv`, `med4_validation_probes.csv`):
+
+- **Uptake:** TCDB direct = 0 rows for all 20 amino acids and 7 amino-acid classes. GO MF specific = 1 gene (PMM0628 gltS, glutamate). SBP: 0 of 9 MED4 SBPs predicted for amino acids (PMM1049 dppA = peptide). TCDB family-walk candidates = 10 rows, mostly non-transporters by product (lipid exporters for Cys, sppA for Ala, murJ for Gln).
+- **N release:** 11 of 20 amino acids have a catalogued N-releasing KO with a MED4 gene (Arg, Asn, Asp, Gln, Gly, His, Ile, Leu, Ser, Thr, Val); 9 have none (Ala, Cys, Glu, Lys, Met, Phe, Pro, Trp, Tyr). Most hits are enzymes also used in biosynthesis (e.g. ilvE PMM0878 for Ile/Leu/Val; hisC PMM0186; aspC-named PMM0674; ilvA PMM0908). No MED4 gene on glutamate dehydrogenase, glutaminase, alanine dehydrogenase, proline dehydrogenase, hut, arginase.
+- **Probes:** glnA found (PMM0920). urtC (PMM0972) and urtE (PMM0974) carry a curated GO MF term "branched-chain amino acid transmembrane transporter activity" → class-level credit on the urea transporter (not a failure under the rules, but flagged). pst genes: no amino-acid rows.
+- **Not done in pilot:** KO validity vs KEGG REST (15 of 75 KOs not in KG), approved GO list, subunit roles, reaction direction.

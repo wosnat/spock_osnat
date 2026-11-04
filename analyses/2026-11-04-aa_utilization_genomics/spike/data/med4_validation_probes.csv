@@ -1,0 +1,12 @@
+query,total_matching,locus_tag,gene_name,product,uptake_rows
+glnA,1,PMM0920,glnA,"glutamine synthetase, type I",none
+urtA,1,PMM0970,urtA,"ABC-type urea transporter, substrate binding component",none
+urtB,1,PMM0971,urtB,"ABC-type urea transporter, permease component",none
+urtC,1,PMM0972,urtC,"ABC-type urea transporter, membrane component",class:branched-chain_aa/go_mf
+urtD,1,PMM0973,urtD,"ABC-type urea transporter, ATP-binding component UrtD",none
+urtE,1,PMM0974,urtE,"ABC-type urea transporter, ATPase component UrtE",class:branched-chain_aa/go_mf
+pstS,1,PMM0710,pstS,"phosphate ABC transporter, phosphate-binding protein PstS",none
+pstA,2,PMM0035,PSTA,3-phosphoserine transaminase,none
+pstA,2,PMM0724,pstA,ABC-type phosphate transport system permease component,none
+pstB,1,PMM0725,pstB,ABC-type phosphate transport system ATPase component,none
+pstC,1,PMM0723,pstC,ABC-type phosphate transport system permease component,none

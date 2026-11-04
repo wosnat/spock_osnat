@@ -1,0 +1,21 @@
+amino_acid,tcdb_direct,go_mf_specific,sbp_specific,class_level_calls,tcdb_family_candidates,n_release_present,nh4_release_ko_genes,transfer_ko_genes,other_n_route_ko_genes,broad_specificity_ko_genes,metabolism_arm_N_removing_genes_not_in_KO_catalogue
+Ala,none found in KG,none found in KG,none found in KG,none found in KG,PMM1180(sppA),no,none found in KG,none found in KG,,K00273:PMM1703(nan),PMM0070(sufS1); PMM0616(amiC); PMM0919(spt); PMM1472(bioA); PMM1527(alr)
+Arg,none found in KG,none found in KG,none found in KG,none found in KG,none,yes,K01428:PMM0963(ureC); K01429:PMM0964(ureB); K01430:PMM0965(ureA); K01480:PMM1686(speB),none found in KG,K00611:PMM1263(argF); K01585:PMM0045(speA),K00273:PMM1703(nan),PMM1703(-)
+Asn,none found in KG,none found in KG,none found in KG,none found in KG,none,yes,K01424:PMM0821(ansA),none found in KG,,K00273:PMM1703(nan),
+Asp,none found in KG,none found in KG,none found in KG,none found in KG,none,yes,K00278:PMM0100(nadB),K00812:PMM0674(aspC),,K00273:PMM1703(nan),PMM0222(aspA); PMM0821(ansA)
+Cys,none found in KG,none found in KG,none found in KG,none found in KG,PMM0065(mcyH); PMM0827(mdlB); PMM1239(hetA); PMM1295(sodX); PMM1323(glcH),no,none found in KG,none found in KG,K01738:PMM0123(cysK); K01738:PMM0407(cysK),K00273:PMM1703(nan),PMM0409(metB); PMM0674(aspC); PMM1670(metC)
+Glu,none found in KG,PMM0628(gltS),none found in KG,none found in KG,PMM0628(gltS),no,none found in KG,none found in KG,,K00273:PMM1703(nan),PMM0184(pabC); PMM0186(hisC); PMM0674(aspC); PMM0825(carB); PMM0878(ilvE); PMM0919(spt); PMM0951(carA); PMM1301(argD); PMM1500(dapL); PMM1512(glsF); PMM1606(glmS); PMM1692(pabB)
+Gln,none found in KG,none found in KG,none found in KG,none found in KG,PMM0261(murJ),yes,none found in KG,K00284:PMM1512(glsF),,K00273:PMM1703(nan),PMM0184(pabC); PMM0825(carB); PMM0951(carA); PMM1606(glmS); PMM1692(pabB)
+Gly,none found in KG,none found in KG,none found in KG,none found in KG,none,yes,K00281:PMM1668(gcvP); K00605:PMM1687(gcvT); K02437:PMM1669(gcvH); K03153:PMM0047(thiO),K00830:PMM0919(spt),,K00273:PMM1703(nan),PMM1298(lpdA); PMM1703(-)
+His,none found in KG,none found in KG,none found in KG,none found in KG,none,yes,none found in KG,K00817:PMM0186(hisC),,K00273:PMM1703(nan),
+Ile,none found in KG,none found in KG,none found in KG,"PMM0972[branched-chain_aa,go_mf]; PMM0974[branched-chain_aa,go_mf]",none,yes,none found in KG,K00826:PMM0878(ilvE),,K00273:PMM1703(nan),
+Leu,none found in KG,none found in KG,none found in KG,"PMM0972[branched-chain_aa,go_mf]; PMM0974[branched-chain_aa,go_mf]",none,yes,none found in KG,K00826:PMM0878(ilvE),,K00273:PMM1703(nan),
+Lys,none found in KG,none found in KG,none found in KG,none found in KG,none,no,none found in KG,none found in KG,K01582:PMM1084(cadA),K00273:PMM1703(nan),
+Met,none found in KG,none found in KG,none found in KG,none found in KG,none,no,none found in KG,none found in KG,,K00273:PMM1703(nan),PMM1611(thiC)
+Phe,none found in KG,none found in KG,none found in KG,none found in KG,none,no,none found in KG,none found in KG,,K00273:PMM1703(nan),PMM0186(hisC); PMM0674(aspC)
+Pro,none found in KG,none found in KG,none found in KG,none found in KG,none,no,none found in KG,none found in KG,,K00273:PMM1703(nan),PMM1703(-)
+Ser,none found in KG,none found in KG,none found in KG,none found in KG,none,yes,K01754:PMM0908(ilvA),none found in KG,,K00273:PMM1703(nan),PMM0919(spt)
+Thr,none found in KG,none found in KG,none found in KG,none found in KG,none,yes,K01754:PMM0908(ilvA),none found in KG,K00639:PMM1468(bioF),K00273:PMM1703(nan),
+Trp,none found in KG,none found in KG,none found in KG,none found in KG,none,no,none found in KG,none found in KG,,K00273:PMM1703(nan),
+Tyr,none found in KG,none found in KG,none found in KG,none found in KG,none,no,none found in KG,none found in KG,,K00273:PMM1703(nan),PMM0186(hisC); PMM0674(aspC)
+Val,none found in KG,none found in KG,none found in KG,"PMM0972[branched-chain_aa,go_mf]; PMM0974[branched-chain_aa,go_mf]",none,yes,none found in KG,K00826:PMM0878(ilvE),,K00273:PMM1703(nan),

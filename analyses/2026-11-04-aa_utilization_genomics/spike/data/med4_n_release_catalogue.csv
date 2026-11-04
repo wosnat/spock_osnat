@@ -1,0 +1,76 @@
+amino_acid,ko,label,ec,mode,shared_interpretation,note,ko_in_kg,kg_ko_name
+Ala,K00259,ald,1.4.1.1,release_NH4,no,alanine dehydrogenase,True,ald; alanine dehydrogenase [EC:1.4.1.1]
+Ala,K00285,dadA,1.4.5.1,release_NH4,no,D-amino acid dehydrogenase (broad; D-Ala),True,dadA; D-amino-acid dehydrogenase [EC:1.4.5.1]
+Ala,K14260,alaA/alaC,2.6.1.2,transfer_transamination,yes,alanine aminotransferase,True,alaA; alanine-synthesizing transaminase [EC:2.6.1.66 2.6.1.2]
+Ala,K00814,GPT,2.6.1.2,transfer_transamination,yes,alanine aminotransferase,False,
+Ala,K00835,avtA,2.6.1.66,transfer_transamination,yes,alanine-valine aminotransferase,True,avtA; valine--pyruvate aminotransferase [EC:2.6.1.66]
+Arg,K01476,rocF,3.5.3.1,release_NH4,no,arginase: urea + ornithine; NH4 via urease,True,"rocF, arg; arginase [EC:3.5.3.1]"
+Arg,K01478,arcA,3.5.3.6,release_NH4,no,arginine deiminase: citrulline + NH4,True,arcA; arginine deiminase [EC:3.5.3.6]
+Arg,K00611,argF/arcB,2.1.3.3,other_N_route,yes,ornithine carbamoyltransferase (ADI step 2; also Arg biosynthesis),True,"OTC, argF, argI; ornithine carbamoyltransferase [EC:2.1.3.3]"
+Arg,K00926,arcC,2.7.2.2,release_NH4,no,carbamate kinase (ADI pathway; carbamoyl-P to NH4 + CO2),True,arcC; carbamate kinase [EC:2.7.2.2]
+Arg,K01585,speA,4.1.1.19,other_N_route,yes,arginine decarboxylase: agmatine (polyamines),True,speA; arginine decarboxylase [EC:4.1.1.19]
+Arg,K01480,speB,3.5.3.11,release_NH4,yes,agmatinase: urea + putrescine; NH4 via urease,True,speB; agmatinase [EC:3.5.3.11]
+Arg,K12252,aruH,2.6.1.84,transfer_transamination,no,arginine:pyruvate transaminase,True,aruH; arginine:pyruvate transaminase [EC:2.6.1.84]
+Arg,K00819,rocD,2.6.1.13,transfer_transamination,no,ornithine aminotransferase (ornithine from arginase),True,"rocD, OAT; ornithine--oxo-acid transaminase [EC:2.6.1.13]"
+Arg,K01428,ureC,3.5.1.5,release_NH4,no,urease alpha (urea from arginase/agmatinase),True,ureC; urease subunit alpha [EC:3.5.1.5]
+Arg,K01429,ureB,3.5.1.5,release_NH4,no,urease beta,True,ureB; urease subunit beta [EC:3.5.1.5]
+Arg,K01430,ureA,3.5.1.5,release_NH4,no,urease gamma,True,ureA; urease subunit gamma [EC:3.5.1.5]
+Asn,K01424,ansA,3.5.1.1,release_NH4,no,L-asparaginase,True,"E3.5.1.1, ansA, ansB; L-asparaginase [EC:3.5.1.1]"
+Asn,K13051,iaaA/ansB,3.5.1.1;3.4.19.5,release_NH4,no,isoaspartyl peptidase/L-asparaginase,True,"ASRGL1, iaaA; L-asparaginase / beta-aspartyl-peptidase [EC:3.5.1.1 3.4.19.5]"
+Asp,K01744,aspA,4.3.1.1,release_NH4,no,aspartate ammonia-lyase,True,aspA; aspartate ammonia-lyase [EC:4.3.1.1]
+Asp,K00278,nadB,1.4.3.16,release_NH4,yes,L-aspartate oxidase (NAD biosynthesis),True,nadB; L-aspartate oxidase [EC:1.4.3.16]
+Asp,K00812,aspB,2.6.1.1,transfer_transamination,yes,aspartate aminotransferase,True,aspB; aspartate aminotransferase [EC:2.6.1.1]
+Asp,K00813,aspC,2.6.1.1,transfer_transamination,yes,aspartate aminotransferase,True,aspC; aspartate aminotransferase [EC:2.6.1.1]
+Asp,K11358,yhdR,2.6.1.1,transfer_transamination,yes,aspartate aminotransferase,False,
+Asp,K14454,GOT1,2.6.1.1,transfer_transamination,yes,"aspartate aminotransferase, cytoplasmic",False,
+Asp,K14455,GOT2,2.6.1.1,transfer_transamination,yes,"aspartate aminotransferase, mitochondrial",False,
+Cys,K01760,metC,4.4.1.13,release_NH4,yes,cystathionine beta-lyase / cysteine-S-conjugate beta-lyase (Met biosynthesis),True,metC; cysteine-S-conjugate beta-lyase [EC:4.4.1.13]
+Cys,K05396,dcyD,4.4.1.15,release_NH4,no,D-cysteine desulfhydrase,True,dcyD; D-cysteine desulfhydrase [EC:4.4.1.15]
+Cys,K17217,mccB,4.4.1.1,release_NH4,no,cystathionine gamma-lyase,False,
+Cys,K01738,cysK,2.5.1.47,other_N_route,yes,cysteine synthase (side desulfhydrase activity in some isoforms),True,cysK; cysteine synthase [EC:2.5.1.47]
+Glu,K00261,GLUD1_2,1.4.1.3,release_NH4,yes,glutamate dehydrogenase NAD(P)+,True,"GLUD1_2, gdhA; glutamate dehydrogenase (NAD(P)+) [EC:1.4.1.3]"
+Glu,K00262,gdhA,1.4.1.4,release_NH4,yes,glutamate dehydrogenase NADP+,True,"E1.4.1.4, gdhA; glutamate dehydrogenase (NADP+) [EC:1.4.1.4]"
+Glu,K15371,GDH2,1.4.1.2,release_NH4,yes,glutamate dehydrogenase NAD+,True,GDH2; glutamate dehydrogenase [EC:1.4.1.2]
+Glu,K01580,gadB,4.1.1.15,other_N_route,no,glutamate decarboxylase: GABA (N retained),True,"E4.1.1.15, gadB, gadA, GAD; glutamate decarboxylase [EC:4.1.1.15]"
+Gln,K01425,glsA,3.5.1.2,release_NH4,no,glutaminase,True,"glsA, GLS; glutaminase [EC:3.5.1.2]"
+Gln,K00265,gltB,1.4.1.13,transfer_transamination,yes,GOGAT large subunit NADPH (amide N to 2-OG),True,gltB; glutamate synthase (NADPH) large chain [EC:1.4.1.13]
+Gln,K00266,gltD,1.4.1.13,transfer_transamination,yes,GOGAT small subunit,True,gltD; glutamate synthase (NADPH) small chain [EC:1.4.1.13]
+Gln,K00284,GLU/glsF,1.4.7.1,transfer_transamination,yes,ferredoxin-dependent GOGAT (amide N to 2-OG),True,"GLU, gltS; glutamate synthase (ferredoxin) [EC:1.4.7.1]"
+Gly,K00281,gcvP,1.4.4.2,release_NH4,yes,glycine cleavage P protein (also C1 metabolism),True,"GLDC, gcvP; glycine cleavage system P protein (glycine dehydrogenase) [EC:1.4.4.2]"
+Gly,K00605,gcvT,2.1.2.10,release_NH4,yes,glycine cleavage T protein (releases NH4),True,"gcvT, AMT; glycine cleavage system T protein (aminomethyltransferase) [EC:2.1.2.10]"
+Gly,K02437,gcvH,-,release_NH4,yes,glycine cleavage H protein,True,"gcvH, GCSH; glycine cleavage system H protein"
+Gly,K03153,thiO,1.4.3.19,release_NH4,yes,glycine oxidase (thiamine biosynthesis),True,thiO; glycine oxidase [EC:1.4.3.19]
+Gly,K00830,AGXT,2.6.1.44;2.6.1.51,transfer_transamination,yes,alanine-glyoxylate / serine-pyruvate aminotransferase,True,AGXT; alanine-glyoxylate transaminase / serine-glyoxylate transaminase / serine-pyruvate transaminase [EC:2.6.1.44 2.6.1.45 2.6.1.51]
+His,K01745,hutH,4.3.1.3,release_NH4,no,histidine ammonia-lyase,True,"hutH, HAL; histidine ammonia-lyase [EC:4.3.1.3]"
+His,K01712,hutU,4.2.1.49,other_N_route,no,urocanate hydratase,True,"hutU, UROC1; urocanate hydratase [EC:4.2.1.49]"
+His,K01468,hutI,3.5.2.7,other_N_route,no,imidazolonepropionase,True,"hutI, AMDHD1; imidazolonepropionase [EC:3.5.2.7]"
+His,K01479,hutG,3.5.3.8,release_NH4,no,formimidoylglutamase,True,hutG; formiminoglutamase [EC:3.5.3.8]
+His,K00817,hisC,2.6.1.9,transfer_transamination,yes,histidinol-phosphate aminotransferase (His biosynthesis; broad),True,hisC; histidinol-phosphate aminotransferase [EC:2.6.1.9]
+Ile;Leu;Val,K00826,ilvE,2.6.1.42,transfer_transamination,yes,branched-chain aminotransferase,True,"E2.6.1.42, ilvE; branched-chain amino acid aminotransferase [EC:2.6.1.42]"
+Ile;Leu;Val,K00263,ldh,1.4.1.9,release_NH4,no,leucine dehydrogenase,True,E1.4.1.9; leucine dehydrogenase [EC:1.4.1.9]
+Lys,K03918,lat,2.6.1.36,transfer_transamination,no,lysine 6-aminotransferase,False,
+Lys,K01582,cadA,4.1.1.18,other_N_route,no,lysine decarboxylase: cadaverine (N retained),True,"E4.1.1.18, ldcC, cadA; lysine decarboxylase [EC:4.1.1.18]"
+Met,K01761,mdeA,4.4.1.11,release_NH4,no,methionine gamma-lyase,True,E4.4.1.11; methionine-gamma-lyase [EC:4.4.1.11]
+Phe;Tyr,K00832,tyrB,2.6.1.57,transfer_transamination,yes,aromatic-amino-acid aminotransferase,True,tyrB; aromatic-amino-acid transaminase [EC:2.6.1.57]
+Phe;Tyr,K00838,ARO8,2.6.1.57,transfer_transamination,yes,aromatic aminotransferase I,False,
+Phe,K10775,PAL,4.3.1.24,release_NH4,no,phenylalanine ammonia-lyase,False,
+Phe;Tyr,K13064,PTAL,4.3.1.25,release_NH4,no,phenylalanine/tyrosine ammonia-lyase,False,
+Phe,K00270,pdh,1.4.1.20,release_NH4,no,phenylalanine dehydrogenase,False,
+Tyr,K00815,TAT,2.6.1.5,transfer_transamination,no,tyrosine aminotransferase,False,
+Pro,K00318,PRODH,1.5.5.2,other_N_route,no,proline dehydrogenase: P5C (N ends in Glu),True,"PRODH, fadM, putB; proline dehydrogenase [EC:1.5.5.2]"
+Pro,K13821,putA,1.5.5.2;1.2.1.88,other_N_route,no,bifunctional PutA (Pro to Glu),True,"putA; RHH-type transcriptional regulator, proline utilization regulon repressor / proline dehydrogenase / delta 1-pyrroline-5-carboxylate dehydrogenase [EC:1.5.5.2 1.2.1.88]"
+Pro,K00294,rocA,1.2.1.88,other_N_route,no,P5C dehydrogenase (to Glu),True,E1.2.1.88; 1-pyrroline-5-carboxylate dehydrogenase [EC:1.2.1.88]
+Ser,K01752,sdaA,4.3.1.17,release_NH4,no,L-serine dehydratase,True,"E4.3.1.17, sdaA, sdaB, tdcG; L-serine dehydratase [EC:4.3.1.17]"
+Ser,K01753,dsdA,4.3.1.18,release_NH4,no,D-serine dehydratase,False,
+Ser;Thr,K01754,ilvA,4.3.1.19,release_NH4,yes,threonine dehydratase (Ile biosynthesis; also Ser),True,"E4.3.1.19, ilvA, tdcB; threonine dehydratase [EC:4.3.1.19]"
+Ser;Thr,K17989,SDS,4.3.1.17;4.3.1.19,release_NH4,no,serine/threonine dehydratase,True,"SDS, SDH, CHA1; L-serine/L-threonine ammonia-lyase [EC:4.3.1.17 4.3.1.19]"
+Thr,K01620,ltaE,4.1.2.48,other_N_route,no,threonine aldolase: Gly (N ends in Gly),True,"ltaE, THA; threonine aldolase [EC:4.1.2.48]"
+Thr,K00060,tdh,1.1.1.103,other_N_route,no,threonine 3-dehydrogenase (to Gly via kbl),True,tdh; threonine 3-dehydrogenase [EC:1.1.1.103]
+Thr,K00639,kbl,2.3.1.29,other_N_route,no,2-amino-3-ketobutyrate CoA ligase,True,"kbl, GCAT; glycine C-acetyltransferase [EC:2.3.1.29]"
+Trp,K01667,tnaA,4.1.99.1,release_NH4,no,tryptophanase,False,
+ALL,K03334,LAAO,1.4.3.2,release_NH4,no,L-amino-acid oxidase (broad),False,
+ALL,K00273,DAO,1.4.3.3,release_NH4,no,D-amino-acid oxidase (broad),True,"DAO, aao; D-amino-acid oxidase [EC:1.4.3.3]"
+ALL,K14267,dapC,2.6.1.17,transfer_transamination,yes,"N-succinyldiaminopimelate aminotransferase (class I AT, broad)",True,dapC; N-succinyldiaminopimelate aminotransferase [EC:2.6.1.17]
+ALL,K10907,K10907,2.6.1.-,transfer_transamination,yes,aminotransferase (unspecified),True,K10907; aminotransferase [EC:2.6.1.-]
+ALL,K00837,ALD1,2.6.1.-,transfer_transamination,yes,aminotransferase,False,
+REF,K01915,glnA,6.3.1.2,NH4_assimilation,yes,validation probe: glutamine synthetase,True,"glnA, GLUL; glutamine synthetase [EC:6.3.1.2]"
