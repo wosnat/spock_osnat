@@ -25,25 +25,26 @@ AAS = ["Ala", "Arg", "Asn", "Asp", "Cys", "Glu", "Gln", "Gly", "His", "Ile", "Le
        "Pro", "Ser", "Thr", "Trp", "Tyr", "Val"]
 BROAD = "broad / D-amino-acid"
 
-C_COMPLETE = "dedicated step found (pathway complete)"
-C_PARTIAL = "dedicated step found (pathway partial)"
+C_DED = "dedicated enzyme found"
+C_BROAD = "broad, never credited"
 C_SHARED = "shared enzymes only (not counted)"
 C_FLAG = "flagged: KO/product mismatch"
 C_NONE = "nothing found"
-PRIORITY = [C_COMPLETE, C_PARTIAL, C_SHARED, C_FLAG, C_NONE]
+PRIORITY = [C_DED, C_SHARED, C_FLAG, C_BROAD, C_NONE]
 
 # Pilot reclassifications (from the coordinator, applied in code)
-SHARED_OVERRIDE = {"K01428": "yes", "K01429": "yes", "K01430": "yes"}  # urease counts as shared (urea use)
+SHARED_OVERRIDE = {"K01428": "yes", "K01429": "yes", "K01430": "yes",  # urease counts as shared (urea use)
+                   "K01582": "yes"}  # cadA: decarboxylase to polyamine, same class as speA (shared)
 BROAD_KOS = {"K00273"}                                                 # own row, never credited to an AA
 FLAG_KO_GENE = {("K00639", "PMM1468")}                                # kbl KO on bioF gene
-PARTIAL_KOS = {"K01582"}                                               # cadA: dedicated, N not freed here
 
-# Palette: dataviz categorical slots 7 (violet), 3 (aqua), 4 (yellow), validated light all-pairs
-# (contrast WARN for aqua/yellow -> every mark is direct-labelled and a table follows).
+# Palette: dataviz categorical slots 7 (violet), 4 (yellow), validated light all-pairs
+# (contrast WARN for yellow -> every mark is direct-labelled and a table follows).
+# Broad row: neutral dark-ink hollow diamond, outside the counted categories.
 # Grey is a deliberate neutral for "not counted"; shape carries identity as well.
 STYLE = {
-    C_COMPLETE: dict(color="#6250d6", marker="o", fill=True),
-    C_PARTIAL: dict(color="#1baf7a", marker="D", fill=True),
+    C_DED: dict(color="#6250d6", marker="o", fill=True),
+    C_BROAD: dict(color="#52514e", marker="D", fill=False),
     C_SHARED: dict(color="#8f8e89", marker="s", fill=True),
     C_FLAG: dict(color="#eda100", marker="^", fill=True),
     C_NONE: dict(color="#8f8e89", marker="o", fill=False),
@@ -53,16 +54,12 @@ INK, INK2, SURFACE = "#0b0b0b", "#52514e", "#fcfcfb"
 
 def classify(r):
     if r.ko in BROAD_KOS:
-        return C_COMPLETE if r.shared == "no" else C_SHARED
+        return C_BROAD
     if (r.ko, r.locus_tag) in FLAG_KO_GENE:
         return C_FLAG
     if r.shared == "yes":
         return C_SHARED
-    if r.ko in PARTIAL_KOS:
-        return C_PARTIAL
-    if r["mode"] in ("release_NH4", "transfer_transamination"):
-        return C_COMPLETE
-    return C_PARTIAL  # dedicated, but the step does not itself free the N
+    return C_DED
 
 
 def build_items():
@@ -97,9 +94,9 @@ def status_table(items):
         out.append({
             "amino_acid": aa,
             "category": cat,
-            "credited": "no" if aa == BROAD else ("yes" if cat in (C_COMPLETE, C_PARTIAL) else "no"),
-            "dedicated_complete_genes": genes(C_COMPLETE),
-            "dedicated_partial_genes": genes(C_PARTIAL),
+            "credited": "no" if aa == BROAD else ("yes" if cat == C_DED else "no"),
+            "dedicated_genes": genes(C_DED),
+            "broad_genes": genes(C_BROAD),
             "shared_only_genes": genes(C_SHARED),
             "flagged_genes": genes(C_FLAG),
         })
@@ -154,28 +151,30 @@ def draw(items, status):
                               mec=st["color"] if not st["fill"] else SURFACE, label=c))
     ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.45, 1.075), ncol=3, frameon=False,
               fontsize=9, labelcolor=INK)
-    fig.suptitle("MED4 pilot — draft catalogue, not approved", x=0.06, y=0.995, ha="left",
+    fig.suptitle("MED4 pilot — enzyme-level preview (draft catalogue, not approved)", x=0.06, y=0.995, ha="left",
                  fontsize=14, color=INK, fontweight="bold")
     caption = ("Each mark is one MED4 gene annotated to a catalogued KEGG KO for that amino acid's nitrogen-removing "
                "or breakdown steps (draft catalogue, not approved; KG 0.1.0-alpha.9). Only dedicated (breakdown-only) "
                "steps count; enzymes shared with biosynthesis or central metabolism, including urease, are shown grey "
                "and not counted. \"Nothing found\" means no gene in this genome is annotated to any catalogued KO "
                "for that amino acid. The broad / D-amino-acid row (K00273) is never credited to an amino acid. "
-               "Ile, Leu and Val share one branched-chain aminotransferase entry. Labels: gene (locus tag).")
+               "Ile, Leu and Val share one branched-chain aminotransferase entry. Labels: gene (locus tag). "
+               "The planned analysis scores whole pathways (k of n breakdown-only steps, anchored on the step "
+               "that frees N); this preview marks single enzymes only.")
     fig.text(0.06, -0.02, caption, ha="left", va="top", fontsize=8.5, color=INK2, wrap=True)
     fig.subplots_adjust(left=0.14, right=0.98, top=0.9, bottom=0.04)
     return fig
 
 
 def write_html(status, svg_text):
-    cols = ["amino_acid", "category", "credited", "dedicated_complete_genes", "dedicated_partial_genes",
+    cols = ["amino_acid", "category", "credited", "dedicated_genes", "broad_genes",
             "shared_only_genes", "flagged_genes"]
     head = "".join(f"<th onclick=\"sortT({i})\">{html.escape(c)}</th>" for i, c in enumerate(cols))
     body = "".join("<tr>" + "".join(f"<td>{html.escape(str(r[c]))}</td>" for c in cols) + "</tr>"
                    for _, r in status.iterrows())
     page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
-<title>MED4 pilot: amino-acid dedicated-step status (draft)</title>
+<title>MED4 pilot: enzyme-level preview of amino-acid breakdown enzymes (draft)</title>
 <meta name="description" content="Throwaway MED4 spike: which catalogued amino-acid breakdown enzymes MED4 carries, scored on dedicated steps only; draft catalogue, not approved.">
 <style>
 body{{font-family:system-ui,Segoe UI,Arial,sans-serif;background:#fcfcfb;color:#0b0b0b;max-width:1200px;margin:2rem auto;padding:0 1rem;}}
@@ -183,10 +182,11 @@ p.note{{color:#52514e;font-size:0.95rem}} svg{{max-width:100%;height:auto}}
 table{{border-collapse:collapse;font-size:0.85rem;width:100%}} th,td{{border-bottom:1px solid #e3e2de;padding:4px 6px;text-align:left;vertical-align:top}}
 th{{cursor:pointer;background:#f0efec}}
 </style></head><body>
-<h1>MED4 pilot &mdash; draft catalogue, not approved</h1>
+<h1>MED4 pilot &mdash; enzyme-level preview (draft catalogue, not approved)</h1>
 <p class="note">Throwaway spike (one strain). The KO catalogue is a draft drafted from standard biochemistry and not yet approved.
 Only dedicated (breakdown-only) steps are credited; shared enzymes (including urease) are shown but not counted.
-&ldquo;Nothing found&rdquo; means no gene in this genome is annotated to a catalogued KO. Source: spike/data/med4_aa_n_release.csv;
+&ldquo;Nothing found&rdquo; means no gene in this genome is annotated to a catalogued KO.
+The planned analysis scores whole pathways (k of n breakdown-only steps, anchored on the step that frees N); this preview marks single enzymes only. Source: spike/data/med4_aa_n_release.csv;
 script: spike/scripts/s07_med4_pilot_figure.py.</p>
 {svg_text}
 <h2>Per-amino-acid status</h2>
