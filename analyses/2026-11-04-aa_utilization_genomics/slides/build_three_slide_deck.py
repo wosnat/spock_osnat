@@ -209,5 +209,10 @@ t = tb(s, x + Inches(0.3), Inches(1.5), w - Inches(0.6), Inches(5.2),
        size=15, after=10, name="Reading text")
 s.notes_slide.notes_text_frame.text = "Shows absence is informative: the classic breakdown enzymes were searched and are not annotated in MED4. Shared enzymes are present but say nothing about utilization."
 
+# ---------------- Summary infographic (closing slide) ----------------
+s = prs.slides.add_slide(blank)
+pic = s.shapes.add_picture(str(FIG / "summary_infographic.png"), 0, 0, width=W, height=H); pic.name = "Summary infographic"
+s.notes_slide.notes_text_frame.text = "One-page summary: what I did, what I got (complete breakdown pathways MED4 1, MIT9313 2, Alteromonas 8, E. coli ~10 textbook), and five reasons the question is still open."
+
 prs.save(out)
 print("saved", out, len(prs.slides), "slides")

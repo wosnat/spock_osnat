@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="One-page infographic summary: what I asked, what I did, what I got, and why the amino-acid utilization question is still open.">
+<title>Summary: amino-acid utilization in Prochlorococcus</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;
+        --pro:#1f8a4c;--pro2:#e5f4ea;--het:#1d5fae;--het2:#e6eef9;--warn:#9a6700;--warn2:#fdf3dc;--ded:#6250d6}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e9eaec}
+  .slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         padding:38px 56px 24px;display:grid;grid-template-rows:auto auto 1fr auto;gap:18px;overflow:hidden}
+  h1{margin:0;font-size:42px;line-height:1.1}
+  .q{background:var(--pro);color:#fff;border-radius:14px;padding:16px 26px;font-size:28px;font-weight:700}
+  .q small{display:block;font-size:17px;font-weight:400;opacity:.85;margin-top:4px}
+  .cols{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:22px;min-height:0}
+  .col{border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+  .col h2{margin:0 0 8px;font-size:28px;display:flex;align-items:center;gap:12px}
+  .n{width:40px;height:40px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800}
+  .did{background:var(--panel)} .did .n{background:var(--pro)}
+  .got{background:#fff;border:2px solid var(--line)} .got .n{background:var(--ded)}
+  .open{background:var(--warn2)} .open .n{background:var(--warn)} .open h2{color:var(--warn)}
+  .step{display:flex;gap:14px;align-items:flex-start;font-size:21px;line-height:1.32;margin-bottom:10px}
+  .step b{display:block;font-size:23px}
+  .ico{flex:0 0 42px;height:42px;border-radius:8px;background:var(--pro2);color:var(--pro);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+  .ico.h{background:var(--het2);color:var(--het)}
+  /* bar chart */
+  .bars{display:flex;flex-direction:column;gap:16px;margin:6px 0 10px}
+  .bar{display:grid;grid-template-columns:190px 1fr 64px;align-items:center;gap:12px;font-size:21px}
+  .bar .t{height:40px;border-radius:6px;background:#eef0f2;position:relative;overflow:hidden}
+  .bar .t i{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+  .bar .v{font-weight:800;font-size:28px}
+  .pro .t i{background:var(--pro)} .alt .t i{background:var(--het)} .eco .t i{background:repeating-linear-gradient(135deg,var(--het) 0 7px,#5b8fd0 7px 14px)}
+  .pro .v{color:var(--pro)} .alt .v,.eco .v{color:var(--het)}
+  .lab small{display:block;font-size:15px;color:var(--muted)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+  .fact{border-radius:10px;padding:14px 16px;font-size:18px;line-height:1.32}
+  .fact b{display:block;font-size:32px}
+  .fact.p{background:var(--pro2)} .fact.p b{color:var(--pro)}
+  .fact.h{background:var(--het2)} .fact.h b{color:var(--het)}
+  .why{display:flex;gap:12px;align-items:flex-start;font-size:21px;line-height:1.33;margin-bottom:10px}
+  .why span{flex:0 0 26px;height:26px;border-radius:50%;border:2px solid var(--warn);color:var(--warn);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:1px}
+  .next{margin-top:auto;background:#fff;border:2px solid var(--pro);border-radius:10px;padding:14px 16px;font-size:20px;line-height:1.32}
+  .next b{color:var(--pro)}
+  .foot{display:flex;justify-content:space-between;gap:30px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+</style>
+</head>
+<body>
+<div class="slide">
+  <h1>Amino-acid utilization in <i>Prochlorococcus</i>: where I am</h1>
+  <div class="q">Can <i>Prochlorococcus</i> use amino acids as a nitrogen source, and do strains differ?
+    <small>Starting point: my growth experiments on amino acids as the only N source (not in the lab database)</small></div>
+
+  <div class="cols">
+    <div class="col did">
+      <h2><span class="n">1</span>What I did</h2>
+      <div class="step"><div class="ico">DB</div><div><b>Checked the database</b>45 genomes; no amino-acid growth experiments</div></div>
+      <div class="step"><div class="ico">58</div><div><b>Built a pathway list</b>breakdown pathways for 20 amino acids; only breakdown-only steps count</div></div>
+      <div class="step"><div class="ico">3</div><div><b>Ran pilots</b>MED4 (high-light), MIT9313 (low-light), Alteromonas HOT1A3</div></div>
+      <div class="step"><div class="ico h">vs</div><div><b>Compared with heterotrophs</b>uptake and breakdown vs <i>E. coli</i> (textbook) and Alteromonas</div></div>
+      <div class="step"><div class="ico">⇄</div><div><b>Checked gene neighbours</b>breakdown gene next to a transporter?</div></div>
+    </div>
+
+    <div class="col got">
+      <h2><span class="n">2</span>What I got</h2>
+      <div style="font-size:16px;color:var(--muted)">Amino acids with a complete breakdown pathway (of 20)</div>
+      <div class="bars">
+        <div class="bar pro"><div class="lab"><b>MED4</b><small>high-light · 1,973 genes</small></div><div class="t"><i style="width:5%"></i></div><div class="v">1</div></div>
+        <div class="bar pro"><div class="lab"><b>MIT9313</b><small>low-light · 2,906 genes</small></div><div class="t"><i style="width:10%"></i></div><div class="v">2</div></div>
+        <div class="bar alt"><div class="lab"><b>Alteromonas</b><small>heterotroph · 4,028 genes</small></div><div class="t"><i style="width:40%"></i></div><div class="v">8</div></div>
+        <div class="bar eco"><div class="lab"><b><i>E. coli</i></b><small>textbook, not scored</small></div><div class="t"><i style="width:50%"></i></div><div class="v">~10</div></div>
+      </div>
+      <div class="facts">
+        <div class="fact p"><b>1</b>amino-acid uptake candidate in MED4 (gltS)</div>
+        <div class="fact h"><b>~25–30</b>uptake systems in <i>E. coli</i> (textbook)</div>
+        <div class="fact p"><b>lone</b>every <i>Prochlorococcus</i> breakdown gene; no uptake + breakdown package</div>
+        <div class="fact p"><b>urea</b>MED4 keeps a full uptake + breakdown package for urea, not for amino acids</div>
+      </div>
+    </div>
+
+    <div class="col open">
+      <h2><span class="n">3</span>Why it's still open</h2>
+      <div class="why"><span>1</span><div><b>Genes ≠ use.</b> Cells can put amino acids straight into protein without breaking them down</div></div>
+      <div class="why"><span>2</span><div><b>2 of 45 strains</b> looked at; no clade comparison yet</div></div>
+      <div class="why"><span>3</span><div><b>Uptake checked only in MED4;</b> low-light strains may differ</div></div>
+      <div class="why"><span>4</span><div><b>Blind spots:</b> Gly, Glu, Tyr can't be judged; pathway list still a draft</div></div>
+      <div class="why"><span>5</span><div><b>No growth data</b> in the database; growth on amino acids as sole N may be unpublished</div></div>
+      <div class="next"><b>Next:</b> approve the list → all 45 strains by amino-acid group → add uptake → set the genomes beside my growth experiments</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Green = <i>Prochlorococcus</i> · blue = heterotrophs. Pilot results on a draft pathway list. <i>E. coli</i> values are textbook expectations (no <i>E. coli</i> genome in the database). Annotation ≠ proven function.</span>
+    <span style="white-space:nowrap">KG 0.1.0-alpha.9 · 2026-11-04 · D. Aharonovich</span>
+  </div>
+</div>
+</body>
+</html>
