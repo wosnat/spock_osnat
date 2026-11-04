@@ -54,3 +54,9 @@ Full manifest and tables in `spike/spike_summary.md`; data in `spike/data/`. Key
 - Worked MED4 examples shown to the researcher (draft catalogue): Asn complete (asparaginase PMM0821 ansA); Lys partial (cadA PMM1084); Arg no pathway (urease now shared; agmatine route all-shared); His absent (no hut genes); Thr hit PMM1468 flagged KO/product mismatch.
   - **Correction (critic pass 3):** under the v5 operational shared rule, cadA (Lys decarboxylase → cadaverine, a polyamine) is shared like speA, so the "Lys partial" example shown to the researcher no longer holds. Lys has no dedicated step found in the MED4 draft.
 - The researcher asked for an updated infographic and a MED4 pilot summary figure (`spike/figures/`, throwaway).
+
+## Plan close (2026-11-04)
+
+- Researcher answered the three open choices "yes to all": GDH shared; marine Synechococcus (5.1–5.3) only; urease shared. These match the v5 recommendations, which critic pass 3 already reviewed, so no further framing change and no new delta pass.
+- Critic passes: 3 (v1, v2 delta, v4 delta), no Blockers in any; dispositions in proposal_critical_review.md.
+- **Plan approved; Run phase begins with the methods milestone (a discovery milestone: building the pathway catalogue).**

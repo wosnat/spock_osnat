@@ -1,6 +1,6 @@
 # Proposal — Amino-acid utilization pathways across Prochlorococcus genomes
 
-Researcher: Dikla Aharonovich · Drafted 2026-11-04 · Status: **draft, under design review**
+Researcher: Dikla Aharonovich · Drafted 2026-11-04 · Status: **approved 2026-11-04 (Plan locked)**
 
 > **Change log (Plan phase).**
 > - v1 covered amino-acid transporters and full degradation routes.
@@ -36,7 +36,7 @@ Counts from live MCP queries on 2026-11-04, KG release 0.1.0-alpha.9 (see `propo
   - LLI 4 · LLII 8 · LLIII 2 · LLIV 6
 
   The strain → clade table is frozen in methods from `list_organisms`.
-- **Comparison group: marine Synechococcus.** `list_organisms(["Synechococcus"])` returns 54 genome strains. The match also catches freshwater *S. elongatus* PCC 7942 and UTEX 2973, *Picosynechococcus* PCC 7002 and *Thermosynechococcus* BP-1. **Inclusion rule (recommended, pending researcher):** marine picocyanobacteria only, i.e. Synechococcus/Parasynechococcus subclusters 5.1–5.3. Freshwater, thermophilic and other-genus strains are excluded. The included list and its count are frozen in methods from `list_organisms`, using its clade/taxonomy fields.
+- **Comparison group: marine Synechococcus.** `list_organisms(["Synechococcus"])` returns 54 genome strains. The match also catches freshwater *S. elongatus* PCC 7942 and UTEX 2973, *Picosynechococcus* PCC 7002 and *Thermosynechococcus* BP-1. **Inclusion rule (researcher decision):** marine picocyanobacteria only, i.e. Synechococcus/Parasynechococcus subclusters 5.1–5.3. Freshwater, thermophilic and other-genus strains are excluded. The included list and its count are frozen in methods from `list_organisms`, using its clade/taxonomy fields.
 - **Experiments:** none used. No KG experiment grows Prochlorococcus on amino acids.
 - **Data used (genome annotations only):**
   - KEGG orthology (KO) assignments per gene (`genes_by_ontology`, ontology `kegg`).
@@ -133,10 +133,10 @@ A "complete genome" below means NCBI assembly level "Complete Genome" (see the c
   - A hit in any strain is **inspected and reported**: its locus tag, its product, and whether the KO assignment holds up. It does not halt the analysis.
   - Disclosure: the MED4 pilot already showed which dedicated enzymes MED4 lacks (`proposal_notebook.md`), so any MED4-based candidate is not blind.
 
-### Open choices for the researcher (to settle before the plan is locked)
-1. **Glutamate dehydrogenase (GDH): dedicated or shared?** It can deaminate glutamate (releasing NH4+), but in many bacteria it also assimilates NH4+ into glutamate, which is central N metabolism under the shared rule. Recommendation: **shared**. With that, glutamate will likely be "can't be judged."
-2. **Synechococcus inclusion rule:** marine subclusters 5.1–5.3 only (recommended), or all 54 KG "Synechococcus" genomes.
-3. **Urease as shared** (recommended: it serves urea use, not amino-acid breakdown specifically).
+### Researcher decisions (2026-11-04, design review close)
+1. **Glutamate dehydrogenase is shared.** It also assimilates NH4+ (central N metabolism). Glutamate will likely be "can't be judged."
+2. **Comparison group = marine Synechococcus only** (subclusters 5.1–5.3). Freshwater, thermophilic and other-genus strains are excluded; the list is frozen in methods.
+3. **Urease is shared.** It serves urea use.
 
 ### Design comparability
 No experiments are used; the concern is whether **annotations are comparable across genomes**.
