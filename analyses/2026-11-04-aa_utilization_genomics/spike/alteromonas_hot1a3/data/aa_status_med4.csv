@@ -1,0 +1,21 @@
+organism,amino_acid,cell_status,cell_k_of_n,cell_pathway,complete_pathways,n_pathways,n_not_assessable,n_excluded,all_shared_route_fully_present,all_shared_routes_present,dedicated_locus_tags,pathway_statuses
+Prochlorococcus MED4,Ala,absent,,,,2,0,0,True,Ala_transamination,,Ala_dehydrogenase=absent; Ala_transamination=can't be judged
+Prochlorococcus MED4,Arg,absent,,,,7,1,0,True,Arg_agmatinase,,Arg_arginase=absent; Arg_argZ=not assessable; Arg_ADI=absent; Arg_AST=absent; Arg_transaminase=absent; Arg_agmatinase=can't be judged; Arg_agmatine_deiminase=can't be judged
+Prochlorococcus MED4,Asn,complete,1/1,Asn_asparaginase,Asn_asparaginase,2,1,0,False,,PMM0821,Asn_transaminase=not assessable; Asn_asparaginase=complete(1/1)
+Prochlorococcus MED4,Asp,absent,,,,2,0,0,True,Asp_transamination,,Asp_aspartase=absent; Asp_transamination=can't be judged
+Prochlorococcus MED4,Cys,absent,,,,3,2,0,False,,,Cys_CDO=not assessable; Cys_CTH=absent; Cys_desulfidase=not assessable
+Prochlorococcus MED4,Gln,absent,,,,2,0,0,True,Gln_GOGAT,,Gln_glutaminase=absent; Gln_GOGAT=can't be judged
+Prochlorococcus MED4,Glu,can't be judged,,,,3,1,1,False,,,Glu_GDH=can't be judged; Glu_GABA_shunt=excluded; Glu_methylaspartate=not assessable
+Prochlorococcus MED4,Gly,can't be judged,,,,3,0,0,True,Gly_cleavage;Gly_transamination;Gly_oxidase,,Gly_cleavage=can't be judged; Gly_transamination=can't be judged; Gly_oxidase=can't be judged
+Prochlorococcus MED4,His,absent,,,,1,0,0,False,,,His_hut=absent
+Prochlorococcus MED4,Ile,absent,,,,2,0,0,True,Ile_BCAT,,Ile_LeuDH=absent; Ile_BCAT=can't be judged
+Prochlorococcus MED4,Leu,absent,,,,2,0,0,True,Leu_BCAT,,Leu_LeuDH=absent; Leu_BCAT=can't be judged
+Prochlorococcus MED4,Lys,absent,,,,5,3,0,False,,,Lys_cadaverine=absent; Lys_davBA=not assessable; Lys_6AT=not assessable; Lys_6DH=absent; Lys_saccharopine=not assessable
+Prochlorococcus MED4,Met,absent,,,,3,1,0,False,,,Met_transamination=can't be judged; Met_gamma_lyase=absent; Met_transsulfuration=not assessable
+Prochlorococcus MED4,Phe,absent,,,,4,2,0,True,Phe_transamination,,Phe_PAL=not assessable; Phe_hydroxylase_Tyr=absent; Phe_transamination=can't be judged; Phe_PheDH=not assessable
+Prochlorococcus MED4,Pro,absent,,,,1,0,0,False,,,Pro_PutA=absent
+Prochlorococcus MED4,Ser,absent,,,,3,0,0,True,Ser_SHMT_GCS;Ser_transamination,,Ser_SHMT_GCS=can't be judged; Ser_transamination=can't be judged; Ser_dehydratase=absent
+Prochlorococcus MED4,Thr,absent,,,,3,0,0,True,Thr_dehydratase,,Thr_dehydratase=can't be judged; Thr_aldolase=absent; Thr_TDH_kbl=absent
+Prochlorococcus MED4,Trp,absent,,,,5,3,0,False,,,Trp_IAM=absent; Trp_transamination=not assessable; Trp_kynurenine_KAT=not assessable; Trp_kynurenine_Ala=absent; Trp_tryptophanase=not assessable
+Prochlorococcus MED4,Tyr,can't be judged,,,,3,2,0,True,Tyr_transamination,,Tyr_transamination=can't be judged; Tyr_TAL=not assessable; Tyr_phenol_lyase=not assessable
+Prochlorococcus MED4,Val,absent,,,,2,0,0,True,Val_BCAT,,Val_LeuDH=absent; Val_BCAT=can't be judged

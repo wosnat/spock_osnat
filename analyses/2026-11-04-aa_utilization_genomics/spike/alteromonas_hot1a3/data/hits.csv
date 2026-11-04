@@ -1,0 +1,104 @@
+step_id,amino_acid,flag,ko,locus_tag,gene_name,product,call,credit_eligible,exclusion_reason,product_keywords,ko_groups,credits_multiple_aa,evidence
+Ala_dehydrogenase.1,Ala,dedicated,K00259,ACZ81_10620,ald,alanine dehydrogenase,credited,True,,alanine dehydrogenase,K00259|K19244,,family_inferred
+Ala_transamination.1,Ala,shared,K00830,ACZ81_07885,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Ala_transamination.1,Ala,shared,K00830,ACZ81_10170,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Ala_transamination.1,Ala,shared,K14260,ACZ81_11230,alaA,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Arg_AST.1,Arg,dedicated,K00673,ACZ81_01910,astA,arginine N-succinyltransferase,credited,True,,arginine n-succinyltransferase|arginine succinyltransferase,K00673,,family_inferred
+Arg_AST.2,Arg,dedicated,K01484,ACZ81_08435,astB,N-succinylarginine dihydrolase,credited,True,,succinylarginine dihydrolase,K01484,,family_inferred
+Arg_agmatinase.1,Arg,shared,K01585,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatinase.1,Arg,shared,K01584,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatinase.1,Arg,shared,K01585,ACZ81_18885,speA,biosynthetic arginine decarboxylase,credited,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatinase.2,Arg,shared,K01480,ACZ81_04160,hutG,formimidoylglutamase,flagged: KO/product mismatch,True,,agmatinase,K01480,,family_inferred
+Arg_agmatine_deiminase.1,Arg,shared,K01585,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatine_deiminase.1,Arg,shared,K01584,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatine_deiminase.1,Arg,shared,K01585,ACZ81_18885,speA,biosynthetic arginine decarboxylase,credited,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatine_deiminase.2,Arg,shared,K10536,ACZ81_18155,aguA,agmatine deiminase family protein,credited,True,,agmatine deiminase,K10536,,family_inferred
+Asn_asparaginase.1,Asn,dedicated,K01424,ACZ81_08315,iaaA,isoaspartyl peptidase/L-asparaginase family protein,credited,True,,asparaginase,K01424|K13051|K13278|K05597,,family_inferred
+Asn_asparaginase.1,Asn,dedicated,K13051,ACZ81_08315,iaaA,isoaspartyl peptidase/L-asparaginase family protein,credited,True,,asparaginase,K01424|K13051|K13278|K05597,,family_inferred
+Asn_asparaginase.1,Asn,dedicated,K01424,ACZ81_09265,ansA,asparaginase,credited,True,,asparaginase,K01424|K13051|K13278|K05597,,family_inferred
+Asp_transamination.1,Asp,shared,K00813,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+Cys_CDO.2,Cys,shared,K00813,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+Gln_GOGAT.1,Gln,shared,K00265,ACZ81_15335,gltB,glutamate synthase large subunit,credited,True,,glutamate synthase,K00265|K00264|K00284;K00266|K00264|K00284,,family_inferred
+Gln_GOGAT.1,Gln,shared,K00266,ACZ81_15340,gltD,FAD-dependent oxidoreductase,flagged: KO/product mismatch,True,,glutamate synthase,K00265|K00264|K00284;K00266|K00264|K00284,,family_inferred
+Gln_glutaminase.1,Gln,dedicated,K01425,ACZ81_13660,glsA,glutaminase B,credited,True,,glutaminase,K01425|K05597,,family_inferred
+Glu_GABA_shunt.1,Glu,dedicated,K01580,ACZ81_17835,panP,pyridoxal-dependent aspartate 1-decarboxylase PanP,flagged: KO/product mismatch,True,,glutamate decarboxylase,K01580,,family_inferred
+Glu_GDH.1,Glu,shared,K00262,ACZ81_09410,gdhA,NADP-specific glutamate dehydrogenase,credited,True,,glutamate dehydrogenase,K00260|K00261|K00262|K15371,,family_inferred
+Glu_GDH.1,Glu,shared,K15371,ACZ81_10240,gdhB,NAD-glutamate dehydrogenase,credited,True,,glutamate dehydrogenase,K00260|K00261|K00262|K15371,,family_inferred
+Glu_GDH.1,Glu,shared,K00262,ACZ81_20180,gdhA,hypothetical protein,flagged: KO/product mismatch,True,,glutamate dehydrogenase,K00260|K00261|K00262|K15371,,family_inferred
+Gly_cleavage.1,Gly,shared,K00281,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Gly_cleavage.1,Gly,shared,K00283,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Gly_cleavage.2,Gly,shared,K00605,ACZ81_14465,gcvT,glycine cleavage system aminomethyltransferase GcvT,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Gly_transamination.1,Gly,shared,K00830,ACZ81_07885,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K00830|K00827|K05825|K14272|K28204,,family_inferred
+Gly_transamination.1,Gly,shared,K00830,ACZ81_10170,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K00830|K00827|K05825|K14272|K28204,,family_inferred
+His_hut.1,His,dedicated,K01745,ACZ81_04180,hutH,histidine ammonia-lyase,credited,True,,histidine ammonia-lyase,K01745,,family_inferred
+Ile_BCAT.1,Ile,shared,K00826,ACZ81_01635,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+Ile_LeuDH.1,Ile,dedicated,K00263,ACZ81_05510,ldh,Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein,flagged: KO/product mismatch,True,,leucine dehydrogenase,K00263,Ile;Leu;Val,family_inferred
+Leu_BCAT.1,Leu,shared,K00826,ACZ81_01635,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+Leu_LeuDH.1,Leu,dedicated,K00263,ACZ81_05510,ldh,Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein,flagged: KO/product mismatch,True,,leucine dehydrogenase,K00263,Ile;Leu;Val,family_inferred
+Met_transsulfuration.1,Met,shared,K00789,ACZ81_03935,metK,methionine adenosyltransferase,credited,True,,adenosylmethionine synthe|methionine adenosyltransferase,K00789,,family_inferred
+Met_transsulfuration.2,Met,shared,K01251,ACZ81_15870,ahcY,adenosylhomocysteinase,credited,True,,adenosylhomocysteinase|adenosylhomocysteine hydrolase,K01251,,family_inferred
+Phe_hydroxylase_Tyr.1,Phe,dedicated,K00500,ACZ81_05485,phhA,phenylalanine 4-monooxygenase,flagged: KO/product mismatch,True,,phenylalanine 4-hydroxylase|phenylalanine hydroxylase|phenylalanine-4-hydroxylase,K00500,,family_inferred
+Phe_hydroxylase_Tyr.2,Phe,shared,K00813,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_hydroxylase_Tyr.2,Phe,shared,K00832,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_hydroxylase_Tyr.2,Phe,shared,K00817,ACZ81_11410,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_hydroxylase_Tyr.2,Phe,shared,K00817,ACZ81_12705,hisC,histidinol-phosphate transaminase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_hydroxylase_Tyr.2,Phe,shared,K00817,ACZ81_16160,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_transamination.1,Phe,shared,K00813,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_transamination.1,Phe,shared,K00832,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_transamination.1,Phe,shared,K00817,ACZ81_11410,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_transamination.1,Phe,shared,K00817,ACZ81_12705,hisC,histidinol-phosphate transaminase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_transamination.1,Phe,shared,K00817,ACZ81_16160,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Pro_PutA.1,Pro,dedicated,K13821,ACZ81_02790,putA,bifunctional proline dehydrogenase/L-glutamate gamma-semialdehyde dehydrogenase PutA,credited,True,,proline dehydrogenase|proline oxidase|proline utilization|putA,K00318|K13821,,family_inferred
+Pro_PutA.2,Pro,dedicated,K13821,ACZ81_02790,putA,bifunctional proline dehydrogenase/L-glutamate gamma-semialdehyde dehydrogenase PutA,credited,True,,pyrroline-5-carboxylate dehydrogenase|proline utilization|putA,K00294|K13821,,family_inferred
+Ser_SHMT_GCS.1,Ser,shared,K00600,ACZ81_02485,glyA,serine hydroxymethyltransferase,credited,True,,hydroxymethyltransferase,K00600,,family_inferred
+Ser_SHMT_GCS.1,Ser,shared,K00600,ACZ81_13040,glyA,serine hydroxymethyltransferase,credited,True,,hydroxymethyltransferase,K00600,,family_inferred
+Ser_SHMT_GCS.2,Ser,shared,K00281,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Ser_SHMT_GCS.2,Ser,shared,K00283,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Ser_SHMT_GCS.3,Ser,shared,K00605,ACZ81_14465,gcvT,glycine cleavage system aminomethyltransferase GcvT,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Ser_dehydratase.1,Ser,dedicated,K01752,ACZ81_10105,sdaA,L-serine ammonia-lyase,credited,True,,serine dehydratase|serine ammonia-lyase,K01752,,family_inferred
+Ser_transamination.1,Ser,shared,K00830,ACZ81_07885,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K00830|K13290,,family_inferred
+Ser_transamination.1,Ser,shared,K00830,ACZ81_10170,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K00830|K13290,,family_inferred
+Thr_TDH_kbl.1,Thr,dedicated,K00060,ACZ81_00315,tdh,L-threonine 3-dehydrogenase,credited,True,,threonine 3-dehydrogenase|threonine dehydrogenase,K00060|K15789,,family_inferred
+Thr_TDH_kbl.2,Thr,dedicated,K00639,ACZ81_00310,kbl,glycine C-acetyltransferase,credited,True,,2-amino-3-ketobutyrate|glycine c-acetyltransferase,K00639,,family_inferred
+Thr_TDH_kbl.3,Thr,shared,K00281,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Thr_TDH_kbl.3,Thr,shared,K00283,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Thr_TDH_kbl.4,Thr,shared,K00605,ACZ81_14465,gcvT,glycine cleavage system aminomethyltransferase GcvT,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Thr_aldolase.2,Thr,shared,K00281,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Thr_aldolase.2,Thr,shared,K00283,ACZ81_14455,gcvP,aminomethyl-transferring glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Thr_aldolase.3,Thr,shared,K00605,ACZ81_14465,gcvT,glycine cleavage system aminomethyltransferase GcvT,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Thr_dehydratase.1,Thr,shared,K01754,ACZ81_16485,tdcB,serine/threonine dehydratase,credited,True,,threonine dehydratase|threonine ammonia-lyase|serine/threonine dehydratase,K01754|K17989,,family_inferred
+Thr_dehydratase.1,Thr,shared,K01754,ACZ81_19590,ilvA,"threonine ammonia-lyase, biosynthetic",credited,True,,threonine dehydratase|threonine ammonia-lyase|serine/threonine dehydratase,K01754|K17989,,family_inferred
+Trp_kynurenine_Ala.1,Trp,dedicated,K00453,ACZ81_05520,kynA,"tryptophan 2,3-dioxygenase family protein",credited,True,,"tryptophan 2,3-dioxygenase|indoleamine 2,3-dioxygenase",K00453|K00463,,family_inferred
+Trp_kynurenine_Ala.3,Trp,dedicated,K01556,ACZ81_08290,kynU,kynureninase,credited,True,,kynureninase,K01556,,family_inferred
+Trp_kynurenine_Ala.4,Trp,shared,K00830,ACZ81_07885,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Trp_kynurenine_Ala.4,Trp,shared,K00830,ACZ81_10170,pucG,pyridoxal-phosphate-dependent aminotransferase family protein,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Trp_kynurenine_Ala.4,Trp,shared,K14260,ACZ81_11230,alaA,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Trp_kynurenine_KAT.1,Trp,dedicated,K00453,ACZ81_05520,kynA,"tryptophan 2,3-dioxygenase family protein",credited,True,,"tryptophan 2,3-dioxygenase|indoleamine 2,3-dioxygenase",K00453|K00463,,family_inferred
+Trp_transamination.1,Trp,dedicated,K00832,ACZ81_11055,aspC,amino acid aminotransferase,shared-enzyme hit (not credited),False,on a shared step; broad table,tryptophan aminotransferase|tryptophan transaminase,K14265|K00838|K00832,,family_inferred
+Tyr_transamination.1,Tyr,shared,K00813,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Tyr_transamination.1,Tyr,shared,K00832,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Tyr_transamination.1,Tyr,shared,K00817,ACZ81_11410,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Tyr_transamination.1,Tyr,shared,K00817,ACZ81_12705,hisC,histidinol-phosphate transaminase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Tyr_transamination.1,Tyr,shared,K00817,ACZ81_16160,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Val_BCAT.1,Val,shared,K00826,ACZ81_01635,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826|K00835|K14260,,family_inferred
+Val_BCAT.1,Val,shared,K14260,ACZ81_11230,alaA,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase,K00826|K00835|K14260,,family_inferred
+Val_LeuDH.1,Val,dedicated,K00263,ACZ81_05510,ldh,Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein,flagged: KO/product mismatch,True,,leucine dehydrogenase,K00263,Ile;Leu;Val,family_inferred
+BROAD:aspC,broad,broad,K00813,ACZ81_11055,aspC,amino acid aminotransferase,broad (never credited),False,,,,,family_inferred
+BROAD:dat,broad,broad,K00824,ACZ81_11175,dat,D-amino acid aminotransferase,broad (never credited),False,,,,,family_inferred
+BROAD:dcyD,broad,broad,K05396,ACZ81_15150,dcyD,1-aminocyclopropane-1-carboxylate deaminase/D-cysteine desulfhydrase,broad (never credited),False,,,,,family_inferred
+BROAD:hisC,broad,broad,K00817,ACZ81_11410,hisC2,pyridoxal phosphate-dependent aminotransferase,broad (never credited),False,,,,,family_inferred
+BROAD:hisC,broad,broad,K00817,ACZ81_12705,hisC,histidinol-phosphate transaminase,broad (never credited),False,,,,,family_inferred
+BROAD:hisC,broad,broad,K00817,ACZ81_16160,hisC2,pyridoxal phosphate-dependent aminotransferase,broad (never credited),False,,,,,family_inferred
+BROAD:ilvA,broad,broad,K01754,ACZ81_16485,tdcB,serine/threonine dehydratase,broad (never credited),False,,,,,family_inferred
+BROAD:ilvA,broad,broad,K01754,ACZ81_19590,ilvA,"threonine ammonia-lyase, biosynthetic",broad (never credited),False,,,,,family_inferred
+BROAD:patB/malY,broad,broad,K14155,ACZ81_10500,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,broad (never credited),False,,,,,family_inferred
+BROAD:patB/malY,broad,broad,K14155,ACZ81_15530,patB,MalY/PatB family protein,broad (never credited),False,,,,,family_inferred
+BROAD:tyrB,broad,broad,K00832,ACZ81_11055,aspC,amino acid aminotransferase,broad (never credited),False,,,,,family_inferred
+CTRL_AspAT,control,n_transfer_positive,K00813,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+CTRL_BCAT,control,n_transfer_positive,K00826,ACZ81_01635,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,ACZ81_11410,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,ACZ81_12705,hisC,histidinol-phosphate transaminase,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,ACZ81_16160,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,ACZ81_03330,,HDOD domain-containing protein,flagged: KO/product mismatch,True,,glutamine synthetase,K01915,,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,ACZ81_15545,glnA,glutamate--ammonia ligase,flagged: KO/product mismatch,True,,glutamine synthetase,K01915,,family_inferred
+NEG_astB,control,expected_negative,K01484,ACZ81_08435,astB,N-succinylarginine dihydrolase,credited,True,,succinylarginine dihydrolase,K01484,,family_inferred

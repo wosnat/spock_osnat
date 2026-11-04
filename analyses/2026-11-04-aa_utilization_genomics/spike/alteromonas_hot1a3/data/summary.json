@@ -1,0 +1,87 @@
+{
+ "HOT1A3": {
+  "dedicated_steps_catalogued": 53,
+  "dedicated_steps_found": 14,
+  "dedicated_steps_found_ids": [
+   "Ala_dehydrogenase.1",
+   "Arg_AST.1",
+   "Arg_AST.2",
+   "Asn_asparaginase.1",
+   "Gln_glutaminase.1",
+   "His_hut.1",
+   "Pro_PutA.1",
+   "Pro_PutA.2",
+   "Ser_dehydratase.1",
+   "Thr_TDH_kbl.1",
+   "Thr_TDH_kbl.2",
+   "Trp_kynurenine_Ala.1",
+   "Trp_kynurenine_Ala.3",
+   "Trp_kynurenine_KAT.1"
+  ],
+  "complete_pathways": [
+   "Ala_dehydrogenase",
+   "Arg_AST",
+   "Asn_asparaginase",
+   "His_hut",
+   "Gln_glutaminase",
+   "Ser_dehydratase",
+   "Pro_PutA",
+   "Thr_TDH_kbl"
+  ]
+ },
+ "MED4": {
+  "dedicated_steps_catalogued": 53,
+  "dedicated_steps_found": 1,
+  "dedicated_steps_found_ids": [
+   "Asn_asparaginase.1"
+  ],
+  "complete_pathways": [
+   "Asn_asparaginase"
+  ]
+ },
+ "dedicated_steps_unobservable": [
+  "Arg_argZ.1",
+  "Asn_transaminase.1",
+  "Cys_CDO.1",
+  "Cys_desulfidase.1",
+  "Glu_methylaspartate.1",
+  "Glu_methylaspartate.2",
+  "Lys_6AT.1",
+  "Lys_davBA.1",
+  "Lys_davBA.2",
+  "Lys_saccharopine.1",
+  "Lys_saccharopine.2",
+  "Met_transsulfuration.3",
+  "Phe_PAL.1",
+  "Phe_PheDH.1",
+  "Trp_kynurenine_KAT.3",
+  "Trp_transamination.1",
+  "Trp_tryptophanase.1",
+  "Tyr_TAL.1",
+  "Tyr_phenol_lyase.1"
+ ],
+ "gene_counts": {
+  "Alteromonas macleodii HOT1A3": [
+   [
+    "Alteromonas macleodii HOT1A3",
+    4028
+   ]
+  ],
+  "MED4": [
+   [
+    "Prochlorococcus MED4",
+    1973
+   ]
+  ]
+ },
+ "kg_calls": [
+  {
+   "tool": "genes_by_ontology",
+   "organism": "Alteromonas macleodii HOT1A3",
+   "n_term_ids": 131,
+   "total_matching": 51,
+   "returned": 51,
+   "truncated": false
+  }
+ ]
+}

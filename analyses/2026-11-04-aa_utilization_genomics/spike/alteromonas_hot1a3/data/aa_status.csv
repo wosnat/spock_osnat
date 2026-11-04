@@ -1,0 +1,21 @@
+organism,amino_acid,cell_status,cell_k_of_n,cell_pathway,complete_pathways,n_pathways,n_not_assessable,n_excluded,all_shared_route_fully_present,all_shared_routes_present,dedicated_locus_tags,pathway_statuses
+Alteromonas macleodii HOT1A3,Ala,complete,1/1,Ala_dehydrogenase,Ala_dehydrogenase,2,0,0,True,Ala_transamination,ACZ81_10620,Ala_dehydrogenase=complete(1/1); Ala_transamination=can't be judged
+Alteromonas macleodii HOT1A3,Arg,complete,2/2,Arg_AST,Arg_AST,7,1,0,True,Arg_agmatine_deiminase,ACZ81_01910;ACZ81_08435,Arg_arginase=absent; Arg_argZ=not assessable; Arg_ADI=absent; Arg_AST=complete(2/2); Arg_transaminase=absent; Arg_agmatinase=can't be judged; Arg_agmatine_deiminase=can't be judged
+Alteromonas macleodii HOT1A3,Asn,complete,1/1,Asn_asparaginase,Asn_asparaginase,2,1,0,False,,ACZ81_08315;ACZ81_09265,Asn_transaminase=not assessable; Asn_asparaginase=complete(1/1)
+Alteromonas macleodii HOT1A3,Asp,absent,,,,2,0,0,True,Asp_transamination,,Asp_aspartase=absent; Asp_transamination=can't be judged
+Alteromonas macleodii HOT1A3,Cys,absent,,,,3,2,0,False,,,Cys_CDO=not assessable; Cys_CTH=absent; Cys_desulfidase=not assessable
+Alteromonas macleodii HOT1A3,Gln,complete,1/1,Gln_glutaminase,Gln_glutaminase,2,0,0,False,,ACZ81_13660,Gln_glutaminase=complete(1/1); Gln_GOGAT=can't be judged
+Alteromonas macleodii HOT1A3,Glu,can't be judged,,,,3,1,1,True,Glu_GDH,,Glu_GDH=can't be judged; Glu_GABA_shunt=excluded; Glu_methylaspartate=not assessable
+Alteromonas macleodii HOT1A3,Gly,can't be judged,,,,3,0,0,True,Gly_cleavage;Gly_transamination,,Gly_cleavage=can't be judged; Gly_transamination=can't be judged; Gly_oxidase=can't be judged
+Alteromonas macleodii HOT1A3,His,complete,1/1,His_hut,His_hut,1,0,0,False,,ACZ81_04180,His_hut=complete(1/1)
+Alteromonas macleodii HOT1A3,Ile,absent,,,,2,0,0,True,Ile_BCAT,,Ile_LeuDH=absent; Ile_BCAT=can't be judged
+Alteromonas macleodii HOT1A3,Leu,absent,,,,2,0,0,True,Leu_BCAT,,Leu_LeuDH=absent; Leu_BCAT=can't be judged
+Alteromonas macleodii HOT1A3,Lys,absent,,,,5,3,0,False,,,Lys_cadaverine=absent; Lys_davBA=not assessable; Lys_6AT=not assessable; Lys_6DH=absent; Lys_saccharopine=not assessable
+Alteromonas macleodii HOT1A3,Met,absent,,,,3,1,0,False,,,Met_transamination=can't be judged; Met_gamma_lyase=absent; Met_transsulfuration=not assessable
+Alteromonas macleodii HOT1A3,Phe,absent,,,,4,2,0,True,Phe_transamination,,Phe_PAL=not assessable; Phe_hydroxylase_Tyr=absent; Phe_transamination=can't be judged; Phe_PheDH=not assessable
+Alteromonas macleodii HOT1A3,Pro,complete,2/2,Pro_PutA,Pro_PutA,1,0,0,False,,ACZ81_02790,Pro_PutA=complete(2/2)
+Alteromonas macleodii HOT1A3,Ser,complete,1/1,Ser_dehydratase,Ser_dehydratase,3,0,0,True,Ser_SHMT_GCS;Ser_transamination,ACZ81_10105,Ser_SHMT_GCS=can't be judged; Ser_transamination=can't be judged; Ser_dehydratase=complete(1/1)
+Alteromonas macleodii HOT1A3,Thr,complete,2/2,Thr_TDH_kbl,Thr_TDH_kbl,3,0,0,True,Thr_dehydratase,ACZ81_00310;ACZ81_00315,Thr_dehydratase=can't be judged; Thr_aldolase=absent; Thr_TDH_kbl=complete(2/2)
+Alteromonas macleodii HOT1A3,Trp,partial,2/3,Trp_kynurenine_Ala,,5,3,0,False,,ACZ81_05520;ACZ81_08290,Trp_IAM=absent; Trp_transamination=not assessable; Trp_kynurenine_KAT=not assessable; Trp_kynurenine_Ala=partial(2/3); Trp_tryptophanase=not assessable
+Alteromonas macleodii HOT1A3,Tyr,can't be judged,,,,3,2,0,True,Tyr_transamination,,Tyr_transamination=can't be judged; Tyr_TAL=not assessable; Tyr_phenol_lyase=not assessable
+Alteromonas macleodii HOT1A3,Val,absent,,,,2,0,0,True,Val_BCAT,,Val_LeuDH=absent; Val_BCAT=can't be judged

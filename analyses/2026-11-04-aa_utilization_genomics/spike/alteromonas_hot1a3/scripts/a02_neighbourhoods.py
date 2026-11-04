@@ -1,0 +1,101 @@
+"""THROWAWAY pilot: operon / neighbourhood check for every credited DEDICATED hit (HOT1A3 + MED4 PMM0821).
+
+gene_neighbors(locus_tags=<anchors>, window=5, limit=None). For each anchor, neighbours within rank_offset +-3 on the
+same strand are tested for:
+  - transporter: gene_category == 'Transport' OR product matches TRANSPORT_RE (case-insensitive except 'ABC')
+  - another step of the same pathway: neighbour locus tag carries a credited hit (hits.csv / med4_step_hits.csv) on a
+    different step_id of the same pathway_id
+operon_call: "package" if (transporter AND breakdown anchor) or (>= 2 steps of the pathway incl. the anchor);
+             else "lone gene".
+Positional adjacency only, never co-expression.
+Run (repo root): uv run python analyses/2026-11-04-aa_utilization_genomics/spike/alteromonas_hot1a3/scripts/a02_neighbourhoods.py
+"""
+from __future__ import annotations
+
+import json
+import re
+from pathlib import Path
+
+import pandas as pd
+from multiomics_explorer import gene_neighbors
+
+HERE = Path(__file__).resolve().parents[1]
+MDATA = HERE.parents[1] / "methods" / "data"
+OUT = HERE / "data"
+TRANSPORT_RE = re.compile(r"transporter|permease|symporter|antiporter|porin|exporter|importer|efflux|"
+                          r"substrate-binding|solute-binding|periplasmic binding|tonb|trap transporter", re.I)
+ABC_RE = re.compile(r"\bABC\b")
+
+
+def is_transporter(cat, prod) -> bool:
+    prod = prod or ""
+    return (cat == "Transport") or bool(TRANSPORT_RE.search(prod)) or bool(ABC_RE.search(prod))
+
+
+def main():
+    steps = pd.read_csv(MDATA / "pathway_catalogue_steps.csv", encoding="utf-8")
+    sid2pid = steps.drop_duplicates("step_id").set_index("step_id").pathway_id.to_dict()
+    ha = pd.read_csv(OUT / "hits.csv", encoding="utf-8").assign(organism="HOT1A3")
+    hm = pd.read_csv(MDATA / "med4_step_hits.csv", encoding="utf-8").assign(organism="MED4")
+    allh = pd.concat([ha, hm], ignore_index=True)
+    allh = allh[allh.step_id.isin(sid2pid)]
+    allh["pathway_id"] = allh.step_id.map(sid2pid)
+    cred = allh[allh.call == "credited"]
+    anchors = cred[cred.flag == "dedicated"][["organism", "pathway_id", "step_id", "locus_tag", "gene_name",
+                                               "product"]].drop_duplicates()
+    tags = sorted(anchors.locus_tag.unique())
+    r = gene_neighbors(locus_tags=tags, window=5, limit=None)
+    log = {"tool": "gene_neighbors", "n_anchors": len(tags), "window": 5, "total_matching": r["total_matching"],
+           "returned": r["returned"], "truncated": r.get("truncated"), "not_found": r.get("not_found"),
+           "not_matched": r.get("not_matched")}
+    print(json.dumps(log))
+    assert r["returned"] == r["total_matching"]
+    nb = pd.DataFrame(r["results"])
+    anc = pd.DataFrame(r["anchors"]).rename(columns={"locus_tag": "anchor_locus_tag", "strand": "anchor_strand",
+                                                     "product": "anchor_product"})
+    nb = nb.merge(anc[["anchor_locus_tag", "organism_name", "contig", "anchor_strand"]], on="anchor_locus_tag",
+                  how="left")
+    nb["transporter"] = [is_transporter(c, p) for c, p in zip(nb.gene_category, nb["product"])]
+    # catalogue hits on neighbours (any call), for context
+    hit_by_tag = allh.groupby("locus_tag").apply(
+        lambda g: ";".join(sorted({f"{s}[{c.split(':')[0].split(' ')[0]}]" for s, c in zip(g.step_id, g.call)})),
+        include_groups=False).to_dict()
+    nb["neighbour_catalogue_hits"] = nb.neighbor_locus_tag.map(hit_by_tag).fillna("")
+    nb["within3_same_strand"] = (nb.rank_offset.abs() <= 3) & nb.same_strand.astype(bool)
+    nb.to_csv(OUT / "neighbourhoods.csv", index=False, encoding="utf-8")
+
+    rows = []
+    for a in anchors.itertuples():
+        n = nb[(nb.anchor_locus_tag == a.locus_tag) & nb.within3_same_strand]
+        pw_tags = set(cred[(cred.pathway_id == a.pathway_id) & (cred.step_id != a.step_id)
+                           & (cred.organism == a.organism)].locus_tag) - {a.locus_tag}
+        same_pw = n[n.neighbor_locus_tag.isin(pw_tags)]
+        tr = n[n.transporter]
+        call = "package" if (len(tr) > 0 or len(same_pw) > 0) else "lone gene"
+        why = []
+        if len(tr):
+            why.append("transporter: " + "; ".join(f"{t}({o:+d}) {p}" for t, o, p in
+                                                    zip(tr.neighbor_locus_tag, tr.rank_offset, tr["product"])))
+        if len(same_pw):
+            why.append("same-pathway step: " + "; ".join(f"{t}({o:+d})" for t, o in
+                                                          zip(same_pw.neighbor_locus_tag, same_pw.rank_offset)))
+        rows.append({"organism": a.organism, "pathway_id": a.pathway_id, "step_id": a.step_id,
+                     "anchor_locus_tag": a.locus_tag, "gene_name": a.gene_name, "product": a.product,
+                     "n_neighbours_returned": int((nb.anchor_locus_tag == a.locus_tag).sum()),
+                     "n_same_strand_within3": len(n), "transporter_within3": len(tr) > 0,
+                     "same_pathway_step_within3": len(same_pw) > 0, "operon_call": call,
+                     "evidence": " | ".join(why),
+                     "same_strand_within3_products": " | ".join(f"{t}({o:+d}) {p}" for t, o, p in
+                                                                 zip(n.neighbor_locus_tag, n.rank_offset,
+                                                                     n["product"]))})
+    oc = pd.DataFrame(rows).sort_values(["organism", "pathway_id", "step_id"])
+    oc.to_csv(OUT / "operon_calls.csv", index=False, encoding="utf-8")
+    pd.set_option("display.width", 250)
+    pd.set_option("display.max_colwidth", 200)
+    print("neighbour rows:", len(nb), "| operon rows:", len(oc))
+    print(oc[["organism", "pathway_id", "anchor_locus_tag", "gene_name", "operon_call", "evidence"]].to_string(index=False))
+    print(oc[["anchor_locus_tag", "same_strand_within3_products"]].to_string(index=False))
+
+
+if __name__ == "__main__":
+    main()

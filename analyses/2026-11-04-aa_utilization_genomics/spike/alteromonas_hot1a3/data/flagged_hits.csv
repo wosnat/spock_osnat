@@ -1,0 +1,15 @@
+step_id,amino_acid,flag,ko,locus_tag,gene_name,product,call,credit_eligible,exclusion_reason,product_keywords,ko_groups,credits_multiple_aa,evidence
+Arg_agmatinase.1,Arg,shared,K01585,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatinase.1,Arg,shared,K01584,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatinase.2,Arg,shared,K01480,ACZ81_04160,hutG,formimidoylglutamase,flagged: KO/product mismatch,True,,agmatinase,K01480,,family_inferred
+Arg_agmatine_deiminase.1,Arg,shared,K01585,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatine_deiminase.1,Arg,shared,K01584,ACZ81_14015,,aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme,flagged: KO/product mismatch,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Gln_GOGAT.1,Gln,shared,K00266,ACZ81_15340,gltD,FAD-dependent oxidoreductase,flagged: KO/product mismatch,True,,glutamate synthase,K00265|K00264|K00284;K00266|K00264|K00284,,family_inferred
+Glu_GABA_shunt.1,Glu,dedicated,K01580,ACZ81_17835,panP,pyridoxal-dependent aspartate 1-decarboxylase PanP,flagged: KO/product mismatch,True,,glutamate decarboxylase,K01580,,family_inferred
+Glu_GDH.1,Glu,shared,K00262,ACZ81_20180,gdhA,hypothetical protein,flagged: KO/product mismatch,True,,glutamate dehydrogenase,K00260|K00261|K00262|K15371,,family_inferred
+Ile_LeuDH.1,Ile,dedicated,K00263,ACZ81_05510,ldh,Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein,flagged: KO/product mismatch,True,,leucine dehydrogenase,K00263,Ile;Leu;Val,family_inferred
+Leu_LeuDH.1,Leu,dedicated,K00263,ACZ81_05510,ldh,Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein,flagged: KO/product mismatch,True,,leucine dehydrogenase,K00263,Ile;Leu;Val,family_inferred
+Phe_hydroxylase_Tyr.1,Phe,dedicated,K00500,ACZ81_05485,phhA,phenylalanine 4-monooxygenase,flagged: KO/product mismatch,True,,phenylalanine 4-hydroxylase|phenylalanine hydroxylase|phenylalanine-4-hydroxylase,K00500,,family_inferred
+Val_LeuDH.1,Val,dedicated,K00263,ACZ81_05510,ldh,Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein,flagged: KO/product mismatch,True,,leucine dehydrogenase,K00263,Ile;Leu;Val,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,ACZ81_03330,,HDOD domain-containing protein,flagged: KO/product mismatch,True,,glutamine synthetase,K01915,,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,ACZ81_15545,glnA,glutamate--ammonia ligase,flagged: KO/product mismatch,True,,glutamine synthetase,K01915,,family_inferred

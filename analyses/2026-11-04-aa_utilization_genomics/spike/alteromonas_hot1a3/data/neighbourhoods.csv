@@ -1,0 +1,141 @@
+anchor_locus_tag,neighbor_locus_tag,rank_offset,bp_gap,strand,same_strand,product,gene_name,gene_category,organism_name,contig,anchor_strand,transporter,neighbour_catalogue_hits,within3_same_strand
+ACZ81_00310,ACZ81_00285,-5,5572,-,False,pantetheine-phosphate adenylyltransferase,coaD,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00310,ACZ81_00290,-4,4742,-,False,3-deoxy-D-manno-octulosonic acid kinase,kdkA,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00310,ACZ81_00295,-3,3789,+,True,hypothetical protein,,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00310,ACZ81_00300,-2,2617,+,True,hypothetical protein,,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00310,ACZ81_00305,-1,163,+,True,bifunctional diguanylate cyclase/phosphodiesterase,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00310,ACZ81_00315,1,0,+,True,L-threonine 3-dehydrogenase,tdh,Energy production,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,Thr_TDH_kbl.1[credited],True
+ACZ81_00310,ACZ81_00320,2,1021,+,True,thiosulfate sulfurtransferase GlpE,glpE,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00310,ACZ81_00325,3,1473,+,True,rhomboid family intramembrane serine protease GlpG,glpG,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00310,ACZ81_00330,4,2392,-,False,flagellar basal body-associated protein FliL,fliL2,Cell motility,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00310,ACZ81_00335,5,2954,+,True,chorismate--pyruvate lyase family protein,ubiC,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00315,ACZ81_00290,-5,5935,-,False,3-deoxy-D-manno-octulosonic acid kinase,kdkA,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00315,ACZ81_00295,-4,4982,+,True,hypothetical protein,,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00315,ACZ81_00300,-3,3810,+,True,hypothetical protein,,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00315,ACZ81_00305,-2,1356,+,True,bifunctional diguanylate cyclase/phosphodiesterase,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00315,ACZ81_00310,-1,0,+,True,glycine C-acetyltransferase,kbl,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,Thr_TDH_kbl.2[credited],True
+ACZ81_00315,ACZ81_00320,1,0,+,True,thiosulfate sulfurtransferase GlpE,glpE,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00315,ACZ81_00325,2,451,+,True,rhomboid family intramembrane serine protease GlpG,glpG,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_00315,ACZ81_00330,3,1370,-,False,flagellar basal body-associated protein FliL,fliL2,Cell motility,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00315,ACZ81_00335,4,1932,+,True,chorismate--pyruvate lyase family protein,ubiC,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_00315,ACZ81_00340,5,2498,+,True,4-hydroxybenzoate octaprenyltransferase,ubiA,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_01910,ACZ81_01885,-5,5252,+,False,DNA topoisomerase IV subunit A,parC,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_01910,ACZ81_01890,-4,4652,+,False,heme NO-binding domain-containing protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_01910,ACZ81_01895,-3,2471,+,False,putative bifunctional diguanylate cyclase/phosphodiesterase,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_01910,ACZ81_01900,-2,1599,-,True,DUF1338 domain-containing protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_01910,ACZ81_01905,-1,13,-,True,succinylglutamate-semialdehyde dehydrogenase,astD,Energy production,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_01910,ACZ81_01915,1,20,-,True,aspartate aminotransferase family protein,argD,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_01910,ACZ81_01920,2,1691,-,True,HDOD domain-containing protein,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_01910,ACZ81_01925,3,3155,-,True,anthranilate synthase component II,trpG,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_01910,ACZ81_01930,4,3840,-,True,tryptophan--tRNA ligase,trpS,Translation,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_01910,ACZ81_01935,5,4913,-,True,ribulose-phosphate 3-epimerase,rpe,Carbohydrate metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_02790,ACZ81_02760,-5,5891,-,False,cell division protein FtsB,ftsB,Cell cycle and division,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_02790,ACZ81_02765,-4,4076,-,False,TIGR03545 family protein,,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_02790,ACZ81_02770,-3,2111,-,False,methyl-accepting chemotaxis protein,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_02790,ACZ81_02775,-2,1520,-,False,Lrp/AsnC family transcriptional regulator,ybaO,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_02790,ACZ81_02780,-1,297,+,True,zinc-dependent alcohol dehydrogenase family protein,,Energy production,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_02790,ACZ81_02795,1,133,-,False,TIGR04211 family SH3 domain-containing protein,ygiM,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_02790,ACZ81_02800,2,908,+,True,CYTH domain-containing protein,ygiF,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_02790,ACZ81_02805,3,2490,+,True,helix-turn-helix domain-containing protein,,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_02790,ACZ81_02810,4,3601,-,False,DNA mismatch repair endonuclease MutH,mutH,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_02790,ACZ81_02815,5,4392,+,True,RNA pyrophosphohydrolase,rppH,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_04180,ACZ81_04155,-5,5118,+,True,serine/threonine transporter SstT,sstT,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,True,,False
+ACZ81_04180,ACZ81_04160,-4,4115,-,False,formimidoylglutamase,hutG,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,Arg_agmatinase.2[flagged],False
+ACZ81_04180,ACZ81_04165,-3,2863,-,False,imidazolonepropionase,hutI,Secondary metabolites,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_04180,ACZ81_04170,-2,1847,+,True,UTRA domain-containing protein,hutC,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_04180,ACZ81_04175,-1,2,+,True,urocanate hydratase,hutU,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_04180,ACZ81_04185,1,68,+,True,CreA family protein,creA,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_04180,ACZ81_04190,2,722,-,False,MipA/OmpV family protein,,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_04180,ACZ81_04195,3,1740,+,True,glucosamine kinase nucleotide-binding domain-containing protein,gspK,Carbohydrate metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_04180,ACZ81_04200,4,2612,+,True,N-acetylglucosamine-6-phosphate deacetylase,nagA,Carbohydrate metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_04180,ACZ81_04205,5,3802,+,True,hypothetical protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_05520,ACZ81_05495,-5,3405,+,True,fumarylacetoacetate hydrolase family protein,uptA,Secondary metabolites,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_05520,ACZ81_05500,-4,2596,+,True,maleylacetoacetate isomerase,maiA,Post-translational modification,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_05520,ACZ81_05505,-3,2083,-,False,Lrp/AsnC family transcriptional regulator,grp,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_05520,ACZ81_05510,-2,716,+,True,Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein,ldh,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,Ile_LeuDH.1[flagged];Leu_LeuDH.1[flagged];Val_LeuDH.1[flagged],True
+ACZ81_05520,ACZ81_05515,-1,236,-,False,late competence development ComFB family protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_05520,ACZ81_05525,1,250,+,True,TonB-dependent receptor,,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,True,,True
+ACZ81_05520,ACZ81_05530,2,3518,+,True,TonB-dependent receptor,,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,True,,True
+ACZ81_05520,ACZ81_05535,3,6425,+,True,2OG-Fe(II) oxygenase,,Post-translational modification,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_05520,ACZ81_05540,4,7582,+,True,hypothetical protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_05520,ACZ81_05545,5,7841,+,True,aspartyl/asparaginyl beta-hydroxylase domain-containing protein,,Post-translational modification,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08290,ACZ81_08265,-5,4678,-,False,carboxyl transferase domain-containing protein,liuB,Lipid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08290,ACZ81_08270,-4,3252,-,False,isovaleryl-CoA dehydrogenase,ivd,Lipid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08290,ACZ81_08275,-3,2848,-,False,MerR family transcriptional regulator,liuR,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08290,ACZ81_08280,-2,1320,+,True,thiolase family protein,atoB,Lipid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_08290,ACZ81_08285,-1,0,+,True,alpha/beta hydrolase family protein,,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_08290,ACZ81_08295,1,131,+,True,diguanylate cyclase,,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_08290,ACZ81_08300,2,1554,-,False,FapA family protein,,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08290,ACZ81_08305,3,3339,-,False,exodeoxyribonuclease I,sbcB,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08290,ACZ81_08310,4,5011,+,True,ATP-binding protein,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08290,ACZ81_08315,5,8943,+,True,isoaspartyl peptidase/L-asparaginase family protein,iaaA,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,Asn_asparaginase.1[credited],False
+ACZ81_08315,ACZ81_08290,-5,8943,+,True,kynureninase,kynU,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,Trp_kynurenine_Ala.3[credited],False
+ACZ81_08315,ACZ81_08295,-4,7408,+,True,diguanylate cyclase,,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08315,ACZ81_08300,-3,5733,-,False,FapA family protein,,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08315,ACZ81_08305,-2,4173,-,False,exodeoxyribonuclease I,sbcB,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08315,ACZ81_08310,-1,149,+,True,ATP-binding protein,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_08315,ACZ81_08320,1,180,+,True,CBS domain-containing protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,True
+ACZ81_08315,ACZ81_08325,2,779,-,False,phytase,phy,Lipid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08315,ACZ81_08330,3,3242,-,False,TonB-dependent receptor,,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,True,,False
+ACZ81_08315,ACZ81_08335,4,6322,+,True,diguanylate cyclase domain-containing protein,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08315,ACZ81_08340,5,7322,+,True,AraC family transcriptional regulator,,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_08435,ACZ81_08410,-5,6514,+,False,EAL domain-containing protein,yjcC,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_08435,ACZ81_08415,-4,5702,+,False,lipoprotein-releasing ABC transporter ATP-binding protein LolD,lolD,Defense mechanisms,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,True,,False
+ACZ81_08435,ACZ81_08420,-3,4489,+,False,lipoprotein-releasing ABC transporter permease subunit,lolE,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,True,,False
+ACZ81_08435,ACZ81_08425,-2,2742,-,True,dicarboxylate/amino acid:cation symporter,gltT,Intracellular trafficking,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,True,,True
+ACZ81_08435,ACZ81_08430,-1,78,+,False,beta strand repeat-containing protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_08435,ACZ81_08440,1,395,+,False,type I DNA topoisomerase,topA,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_08435,ACZ81_08445,2,3189,+,False,DUF2058 domain-containing protein,yaiL,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_08435,ACZ81_08450,3,4088,+,False,leishmanolysin-related zinc metalloendopeptidase,,Post-translational modification,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_08435,ACZ81_08455,4,5134,+,False,LysR family transcriptional regulator,,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_08435,ACZ81_08460,5,6038,+,False,molybdenum cofactor guanylyltransferase,mobA,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_09265,ACZ81_09240,-5,2712,-,True,signal peptide peptidase SppA,sppA,Post-translational modification,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_09265,ACZ81_09245,-4,2358,-,True,hypothetical protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_09265,ACZ81_09250,-3,1702,+,False,HvfX family Cu-binding RiPP maturation protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_09265,ACZ81_09255,-2,981,+,False,NAD(P)H nitroreductase,ydjA,Energy production,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_09265,ACZ81_09260,-1,41,-,True,DUF2797 domain-containing protein,LA2027,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_09265,ACZ81_09270,1,190,-,True,lipoyl synthase,lipA,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_09265,ACZ81_09275,2,1145,-,True,lipoyl(octanoyl) transferase LipB,lipB,Coenzyme metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_09265,ACZ81_09280,3,1817,-,True,DUF493 family protein YbeD,ybeD,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_09265,ACZ81_09285,4,2182,-,True,D-alanyl-D-alanine carboxypeptidase family protein,dacA,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_09265,ACZ81_09290,5,3686,-,True,septal ring lytic transglycosylase RlpA family protein,rlpA,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_10105,ACZ81_10080,-5,3874,-,True,CoA transferase subunit A,scoA,Lipid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_10105,ACZ81_10085,-4,2867,+,False,LysR family transcriptional regulator,,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_10105,ACZ81_10090,-3,2071,-,True,hypothetical protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_10105,ACZ81_10095,-2,1271,-,True,sensor histidine kinase,,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_10105,ACZ81_10100,-1,88,+,False,HTH-type transcriptional regulator CysB,cysB,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_10105,ACZ81_10110,1,153,-,True,CoA pyrophosphatase,nudL,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_10105,ACZ81_10115,2,788,-,True,aminodeoxychorismate synthase component I,pabB,Amino acid metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_10105,ACZ81_10120,3,2486,+,False,fumarate hydratase,fumA,Energy production,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_10105,ACZ81_10125,4,4249,+,False,DNA recombination protein RmuC,rmuC,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_10105,ACZ81_10130,5,5581,-,True,S8 family serine peptidase,,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_10620,ACZ81_10595,-5,5958,-,False,fluoride efflux transporter CrcB,fluC,Cell cycle and division,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,True,,False
+ACZ81_10620,ACZ81_10600,-4,4578,-,False,replication-associated recombination protein A,rarA,Replication and repair,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10605,-3,3767,-,False,outer membrane lipoprotein periplasmic chaperone LolA,lolA,Cell wall and membrane,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10610,-2,955,-,False,DNA translocase FtsK,ftsK,Cell cycle and division,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10615,-1,185,-,False,leucine-responsive transcriptional regulator Lrp,lrp,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10625,1,584,-,False,hypothetical protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10630,2,2365,-,False,orotidine-5^-phosphate decarboxylase,pyrF,Nucleotide metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10635,3,3070,-,False,lipopolysaccharide assembly protein LapB,lapB,Carbohydrate metabolism,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10640,4,4239,-,False,LapA family protein,yciS,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_10620,ACZ81_10645,5,4626,-,False,PilZ domain-containing protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,+,False,,False
+ACZ81_13660,ACZ81_13635,-5,6299,+,False,rhomboid family intramembrane serine protease,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_13660,ACZ81_13640,-4,5551,+,False,VC0807 family protein,,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_13660,ACZ81_13645,-3,4493,+,False,ABC transporter ATP-binding protein,,Defense mechanisms,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,True,,False
+ACZ81_13660,ACZ81_13650,-2,1485,+,False,FtsX-like permease family protein,,Defense mechanisms,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,True,,False
+ACZ81_13660,ACZ81_13655,-1,40,+,False,lipocalin-like domain-containing protein,attH,Unknown,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_13660,ACZ81_13665,1,102,-,True,alkaline phosphatase,,Inorganic ion transport,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_13660,ACZ81_13670,2,1814,-,True,chemotaxis protein CheV,chev-2,Signal transduction,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,True
+ACZ81_13660,ACZ81_13675,3,3211,+,False,isocitrate lyase,aceA,Energy production,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_13660,ACZ81_13680,4,5089,+,False,LysR family transcriptional regulator,,Transcription,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+ACZ81_13660,ACZ81_13685,5,6132,+,False,malate synthase G,glcB,Energy production,Alteromonas macleodii HOT1A3,NZ_CP012202.1,-,False,,False
+PMM0821,PMM1897,-5,2188,-,True,conserved hypothetical protein,,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,False
+PMM0821,PMM1898,-4,2058,-,True,Conserved hypothetical protein,,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,False
+PMM0821,PMM0819,-3,1762,-,True,conserved hypothetical protein,,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,True
+PMM0821,PMM0820,-2,1427,-,True,"conserved hypothetical protein, Prochlorococcus-specific",,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,True
+PMM0821,TX50_RS09930,-1,882,-,True,hypothetical protein,,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,True
+PMM0821,PMM0822,1,1,-,True,CGLD27-like uncharacterized conserved membrane protein,K8K14.9,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,True
+PMM0821,PMM0823,2,505,-,True,oligomerisation domain protein,rsfS,Translation,Prochlorococcus MED4,NC_005072.1,-,False,,True
+PMM0821,PMM0824,3,839,-,True,conserved hypothetical protein,,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,True
+PMM0821,PMM0825,4,1586,+,False,"carbamoyl-phosphate synthase, large subunit",carB,Nucleotide metabolism,Prochlorococcus MED4,NC_005072.1,-,False,,False
+PMM0821,PMM0826,5,4892,-,True,conserved hypothetical protein,,Unknown,Prochlorococcus MED4,NC_005072.1,-,False,,False

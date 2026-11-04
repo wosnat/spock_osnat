@@ -1,0 +1,9 @@
+step_id,amino_acid,flag,ko,locus_tag,gene_name,product,call,credit_eligible,exclusion_reason,product_keywords,ko_groups,credits_multiple_aa,evidence
+CTRL_AspAT,control,n_transfer_positive,K00813,ACZ81_11055,aspC,amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+CTRL_BCAT,control,n_transfer_positive,K00826,ACZ81_01635,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,ACZ81_11410,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,ACZ81_12705,hisC,histidinol-phosphate transaminase,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,ACZ81_16160,hisC2,pyridoxal phosphate-dependent aminotransferase,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,ACZ81_03330,,HDOD domain-containing protein,flagged: KO/product mismatch,True,,glutamine synthetase,K01915,,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,ACZ81_15545,glnA,glutamate--ammonia ligase,flagged: KO/product mismatch,True,,glutamine synthetase,K01915,,family_inferred
+NEG_astB,control,expected_negative,K01484,ACZ81_08435,astB,N-succinylarginine dihydrolase,credited,True,,succinylarginine dihydrolase,K01484,,family_inferred

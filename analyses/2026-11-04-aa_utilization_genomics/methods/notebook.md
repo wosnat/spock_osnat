@@ -19,3 +19,20 @@ Order of work:
   - asparaginase PMM0821, MED4's only credited dedicated hit, has no transporter or pathway step nearby (neighbours: hypotheticals, PMM0822 an uncharacterized membrane protein, rsfS, carB) → lone gene.
   - By contrast, urease ureC/B/A (PMM0963–0965) sits with ureD–G (PMM0966–0969) and urtA (PMM0970) → an uptake + breakdown package for urea.
 - **Researcher request: run the same pilot on Alteromonas macleodii HOT1A3** (exploratory; Alteromonas is not in the approved analysis). It uses the current draft catalogue; it computes pathway-level status for HOT1A3 and MED4 and an operon/neighbourhood call for each credited dedicated hit. Prochlorococcus strains other than MED4 stay blind.
+
+## Alteromonas HOT1A3 pilot (exploratory, `spike/alteromonas_hot1a3/`, 2026-11-04)
+
+The draft catalogue was scored at pathway level (v5 rule) for HOT1A3 (4,028 genes) and MED4 (1,973). Verified against `aa_status_med4_vs_hot1a3.csv`:
+
+| | complete | partial | absent | can't be judged |
+|---|---|---|---|---|
+| MED4 | 1 (Asn) | 0 | 16 | 3 |
+| HOT1A3 | 8 (Ala, Arg, Asn, Gln, His, Pro, Ser, Thr) | 1 (Trp 2/3) | 8 | 3 |
+
+- Dedicated steps found: MED4 1 / 53, HOT1A3 14 / 53 (34 of the 53 have a KG node).
+- Operon calls (±3, same strand): packages = astB ACZ81_08435 (beside a dicarboxylate/amino acid:cation symporter), tdh + kbl ACZ81_00315/00310, kynA ACZ81_05520 (beside TonB receptors). Lone = ald, astA, ansA, iaaA, glsA, hutH, putA, sdaA, kynU, and MED4 PMM0821.
+- **Method check restored informally:** the method does find complete dedicated pathways in a heterotroph genome (8 vs 1). [interpretation] Genome size differs ~2×.
+- **Catalogue issues exposed (to fix before approval):**
+  - product keywords miss synonyms. The glnA control is flagged in HOT1A3 (product "glutamate--ammonia ligase"); phhA "phenylalanine 4-monooxygenase" fails "hydroxylase"; gdhA ACZ81_20180 has product "hypothetical protein".
+  - The GOGAT AND group fails because gltD has a generic product.
+  - astB, the expected-negative for cyanobacteria, is detected in HOT1A3, so the KO is detectable in the KG (good for the control).

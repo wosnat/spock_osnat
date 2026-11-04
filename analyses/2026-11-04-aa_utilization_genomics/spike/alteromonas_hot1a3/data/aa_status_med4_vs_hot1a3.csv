@@ -1,0 +1,21 @@
+amino_acid,n_pathways,cell_status_med4,cell_k_of_n_med4,cell_pathway_med4,complete_pathways_med4,all_shared_route_fully_present_med4,dedicated_locus_tags_med4,n_not_assessable_med4,cell_status_hot1a3,cell_k_of_n_hot1a3,cell_pathway_hot1a3,complete_pathways_hot1a3,all_shared_route_fully_present_hot1a3,dedicated_locus_tags_hot1a3,n_not_assessable_hot1a3
+Ala,2,absent,,,,True,,0,complete,1/1,Ala_dehydrogenase,Ala_dehydrogenase,True,ACZ81_10620,0
+Arg,7,absent,,,,True,,1,complete,2/2,Arg_AST,Arg_AST,True,ACZ81_01910;ACZ81_08435,1
+Asn,2,complete,1/1,Asn_asparaginase,Asn_asparaginase,False,PMM0821,1,complete,1/1,Asn_asparaginase,Asn_asparaginase,False,ACZ81_08315;ACZ81_09265,1
+Asp,2,absent,,,,True,,0,absent,,,,True,,0
+Cys,3,absent,,,,False,,2,absent,,,,False,,2
+Gln,2,absent,,,,True,,0,complete,1/1,Gln_glutaminase,Gln_glutaminase,False,ACZ81_13660,0
+Glu,3,can't be judged,,,,False,,1,can't be judged,,,,True,,1
+Gly,3,can't be judged,,,,True,,0,can't be judged,,,,True,,0
+His,1,absent,,,,False,,0,complete,1/1,His_hut,His_hut,False,ACZ81_04180,0
+Ile,2,absent,,,,True,,0,absent,,,,True,,0
+Leu,2,absent,,,,True,,0,absent,,,,True,,0
+Lys,5,absent,,,,False,,3,absent,,,,False,,3
+Met,3,absent,,,,False,,1,absent,,,,False,,1
+Phe,4,absent,,,,True,,2,absent,,,,True,,2
+Pro,1,absent,,,,False,,0,complete,2/2,Pro_PutA,Pro_PutA,False,ACZ81_02790,0
+Ser,3,absent,,,,True,,0,complete,1/1,Ser_dehydratase,Ser_dehydratase,True,ACZ81_10105,0
+Thr,3,absent,,,,True,,0,complete,2/2,Thr_TDH_kbl,Thr_TDH_kbl,True,ACZ81_00310;ACZ81_00315,0
+Trp,5,absent,,,,False,,3,partial,2/3,Trp_kynurenine_Ala,,False,ACZ81_05520;ACZ81_08290,3
+Tyr,3,can't be judged,,,,True,,2,can't be judged,,,,True,,2
+Val,2,absent,,,,True,,0,absent,,,,True,,0
