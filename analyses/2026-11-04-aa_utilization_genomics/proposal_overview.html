@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Proposal overview — amino acids as a nitrogen source in Prochlorococcus</title>
+<title>Proposal overview — releasing nitrogen from amino acids in Prochlorococcus</title>
 <style>
   :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#ffffff;--panel:#f6f8fa;
         --up:#d9711c;--down:#2f6fb5;--ok:#2e7d4f;--warn:#9a6700;--bad:#b42318;--hl:#e8a33d;--ll:#3b6fb0;}
@@ -69,12 +69,12 @@
 <body>
 <main>
 
-<h1>Amino acids as a nitrogen source in <i>Prochlorococcus</i><span class="draft">plan · draft</span></h1>
-<p class="sub">Comparative genomics across 45 strains · Researcher: Dikla Aharonovich · Plan drafted 2026-11-04 · KG release 0.1.0-alpha.9</p>
+<h1>Releasing nitrogen from amino acids in <i>Prochlorococcus</i><span class="draft">plan v2 · draft</span></h1>
+<p class="sub">Comparative genomics · 45 <i>Prochlorococcus</i> strains + <i>Synechococcus</i> · Researcher: Dikla Aharonovich · 2026-11-04 · KG release 0.1.0-alpha.9</p>
 
 <h2>The question</h2>
-<div class="q">Which <i>Prochlorococcus</i> strains carry the genes to <b>take up</b> each amino acid and to <b>strip its nitrogen off</b>, and how does this differ between clades?
-<small>A standalone, descriptive map of capacity: no hypothesis, no formal statistics. Strains share ancestry, so they aren't independent samples. Gene presence ≠ proven function.</small></div>
+<div class="q">For each of the 20 amino acids, which strains carry an enzyme that <b>takes the nitrogen off</b>, and how does that differ between clades and from <i>Synechococcus</i>?
+<small>A standalone, descriptive map: no hypothesis, no formal statistics. Transporters (uptake) are set aside for now.</small></div>
 
 <h2>Who is compared</h2>
 <div class="cols2">
@@ -99,90 +99,92 @@
   <div class="panel">
     <h3><i>Synechococcus</i></h3>
     <p><b>Comparison group.</b> The closest relative, with the same annotations. Asks "how does <i>Prochlorococcus</i> compare?"</p>
-    <p class="muted" style="margin-top:6px">Not used to judge the method: looking similar could be real biology.</p>
+    <p class="muted" style="margin-top:6px">Not used to judge the method: looking similar could be real biology. Its genomes are larger, so gene count is shown beside every strain.</p>
   </div>
 </div>
 
-<h2>Two questions per strain × amino acid (all 20)</h2>
+<h2>Two ways to take the nitrogen off</h2>
 <div class="cols2">
   <div class="panel">
-    <h3>① Can it take the amino acid up?</h3>
-    <div class="route"><span class="node">amino acid outside</span><span class="arr">→</span><span class="node">transporter</span><span class="arr">→</span><span class="node">inside the cell</span></div>
-    <p>Three evidence lines, <b>kept separate</b>:</p>
-    <ul>
-      <li><span class="tag">TCDB</span>curated transporter system naming the amino acid</li>
-      <li><span class="tag">GO</span>transport function from a <b>term list you approve</b></li>
-      <li><span class="tag">SBP</span>published substrate-binding-protein prediction (42 of 45 strains)</li>
-    </ul>
-    <p style="margin-top:8px">Judged as whole systems: binding protein, permease and ATPase subunits recorded. A lone subunit is not a transporter. Exporters are flagged and not counted.</p>
-    <p class="muted" style="margin-top:6px">Calls: specific uptake · class-only ("amino acid") · SBP-only · export-only · none found</p>
+    <h3>Release as ammonium</h3>
+    <div class="route"><span class="node">amino acid</span><span class="arr">→</span><span class="node n">deaminase · lyase · dehydrogenase · amidase</span><span class="arr">→</span><span class="node">NH₄⁺</span></div>
+    <p class="muted">Some go through several steps first, e.g. arginine → agmatine → urea → NH₄⁺. Those are scored as steps present (k of n).</p>
   </div>
   <div class="panel">
-    <h3>② Can it strip the nitrogen off?</h3>
-    <div class="route"><span class="node">amino acid</span><span class="arr">→</span><span class="node n">N-releasing enzyme</span><span class="arr">→</span><span class="node">NH₄⁺ or glutamate</span></div>
-    <ul>
-      <li><b>Release as ammonium</b>: deaminases, ammonia-lyases, amino-acid dehydrogenases and oxidases, amidases</li>
-      <li><b>Transfer</b>: aminotransferases hand the amino group to 2-oxoglutarate, making glutamate</li>
-    </ul>
-    <p style="margin-top:8px">Enzymes from a <b>catalogue you approve</b> (KEGG enzyme IDs, checked against KEGG). Enzymes also used to <i>build</i> amino acids are flagged "shared": weaker evidence.</p>
-    <p class="muted" style="margin-top:6px">Context: the full carbon-skeleton route, scored as steps present (k of n).</p>
+    <h3>Transfer to glutamate</h3>
+    <div class="route"><span class="node">amino acid</span><span class="arr">+</span><span class="node">2-oxoglutarate</span><span class="arr">→</span><span class="node n">aminotransferase</span><span class="arr">→</span><span class="node">glutamate</span></div>
+    <p class="muted">Many aminotransferases also <i>build</i> amino acids, so most fall in "shared".</p>
   </div>
+</div>
+<div class="panel" style="margin-top:12px">
+  <h3>Each strain × amino acid gets one call</h3>
+  <div class="legend" style="font-size:13px;color:var(--ink)">
+    <span><span class="sw" style="background:var(--ok)"></span><b>dedicated</b>: has a breakdown-only enzyme (e.g. glutamate dehydrogenase, arginase)</span>
+    <span><span class="sw" style="background:var(--warn)"></span><b>shared only</b>: only enzymes also used to build amino acids (e.g. ilvE)</span>
+    <span><span class="sw" style="background:var(--line)"></span><b>none found</b></span>
+  </div>
+  <p class="muted" style="margin-top:8px">Enzymes come from a catalogue you approve (KEGG IDs, checked against KEGG). Genes are matched by enzyme ID, never by gene name.</p>
+</div>
+
+<h2>What the MED4 pilot showed</h2>
+<div class="cols2">
+  <div class="panel"><div class="big">11 / 20</div><p>amino acids with an N-releasing enzyme in MED4: Arg, Asn, Asp, Gln, Gly, His, Ile, Leu, Ser, Thr, Val.</p>
+  <p class="muted" style="margin-top:6px">Most hits are enzymes also used in biosynthesis (ilvE, hisC, ilvA).</p></div>
+  <div class="panel"><div class="big">0</div><p>MED4 genes found for classic breakdown-only enzymes: glutamate, alanine and proline dehydrogenase, glutaminase, arginase, the hut enzymes.</p>
+  <p class="muted" style="margin-top:6px">Gene names sometimes disagree with the enzyme ID, hence matching by ID.</p></div>
 </div>
 
 <h2>How it runs</h2>
 <div class="flow">
-  <div class="st now"><div class="num">1</div><b>MED4 pilot</b>One strain end to end, to see what results look like.<div class="badge">● running now</div></div>
-  <div class="st"><div class="num">2</div><b>Lock the rules</b>You approve the enzyme catalogue, the GO term list and the call rules, before any other strain is seen.</div>
-  <div class="st"><div class="num">3</div><b>Build &amp; verify</b>Toy tests, an independent MED4 check, a review of how the tools are used, a random sample of each bin.</div>
-  <div class="st"><div class="num">4</div><b>Run all strains</b>45 <i>Prochlorococcus</i> + <i>Synechococcus</i>.</div>
+  <div class="st"><div class="num">1</div><b>MED4 pilot</b>One strain, to see what results look like.<div class="badge" style="color:var(--ok)">✓ done</div></div>
+  <div class="st now"><div class="num">2</div><b>Lock the plan</b>Reviewer check, then your approval.<div class="badge">● now</div></div>
+  <div class="st"><div class="num">3</div><b>Approve the catalogue</b>You approve the enzyme list and the named controls, before any other strain is seen.</div>
+  <div class="st"><div class="num">4</div><b>Build &amp; run</b>Verify on MED4 + 2 strains by hand, then all 45 + <i>Synechococcus</i>.</div>
   <div class="st"><div class="num">5</div><b>Evaluate &amp; write</b>Check the controls, collect the caveats, and write paper-ready text.</div>
 </div>
 
-<h2>How we'll know the method works</h2>
+<h2>How we will know the method works</h2>
 <div class="checks">
   <div class="ck pos"><h3>Must be found</h3>
     <ul>
       <li>glnA (glutamine synthetase) in all 45 strains: tests the gene-matching</li>
-      <li>2–3 aminotransferases that amino-acid <i>building</i> needs (e.g. ilvE), in all 45 strains: tests the N-transfer catalogue</li>
-      <li>MED4 urea transporter (urtA–E) returned when searching for urea: tests the transporter extraction</li>
+      <li>2–3 aminotransferases that amino-acid <i>building</i> needs (e.g. ilvE, hisC), in every complete genome</li>
     </ul></div>
   <div class="ck neg"><h3>Must come out empty</h3>
     <ul>
-      <li>Urea transporter (urtA–E) and phosphate transporter (pstSCAB) in MED4: no amino-acid uptake call</li>
-      <li>A route of only "shared" enzymes is never called complete in the dedicated count</li>
-      <li>One degradation route, named in advance as expected absent</li>
+      <li>A strain with only "shared" enzymes is never called "dedicated"</li>
+      <li>One breakdown-only enzyme, named in advance as expected absent in all 45 strains</li>
     </ul></div>
   <div class="ck find"><h3>Findings, not failures</h3>
     <ul>
-      <li>All 45 strains look the same</li>
-      <li><i>Prochlorococcus</i> carries only "shared" enzymes</li>
-      <li>Most amino acids: no route found</li>
-    </ul>
-    <p class="muted" style="margin-top:6px">Each would be real biology, reported as a result.</p></div>
+      <li>All strains look the same</li>
+      <li>Only "shared" enzymes in <i>Prochlorococcus</i></li>
+      <li>Most amino acids: none found</li>
+    </ul></div>
 </div>
 
 <h2>What the result will look like <span class="muted" style="text-transform:none;letter-spacing:0;font-size:13px">(layout sketch, no data)</span></h2>
 <div class="panel">
   <div class="schem" id="schem"></div>
   <div class="legend">
-    <span><span class="sw" style="background:var(--ok)"></span>uptake + N release</span>
-    <span><span class="sw" style="background:var(--warn)"></span>one of the two</span>
-    <span><span class="sw" style="background:var(--line)"></span>neither found</span>
-    <span>· one panel each for uptake and N release; clicking a cell shows the locus tags</span>
+    <span><span class="sw" style="background:var(--ok)"></span>dedicated</span>
+    <span><span class="sw" style="background:var(--warn)"></span>shared only</span>
+    <span><span class="sw" style="background:var(--line)"></span>none found</span>
+    <span>· rows = strains by clade, then <i>Synechococcus</i>; clicking a cell shows the locus tags</span>
   </div>
 </div>
 
 <h2>Caveats that travel with every result</h2>
 <div class="panel cav"><ul>
-  <li><b>Annotation ≠ function.</b> A gene matching an enzyme family is not proof of activity or direction.</li>
-  <li><b>Absent may mean "not sequenced."</b> The KG has no genome-completeness field. NCBI assembly status is used to flag absences in incomplete genomes.</li>
-  <li><b>Small clades</b> (HLIII, HLIV, LLIII) can't stand for their clade.</li>
-  <li><b>Evidence lines aren't independent.</b> TCDB and GO calls often come from the same homology search.</li>
-  <li><b>No heterotroph check.</b> Without one, we can't prove the method would find a dedicated breakdown route where one surely exists. "Not found" is reported with that limit.</li>
-  <li><b>Early look:</b> MED4 results are seen before the rules are locked. This is recorded in the plan notebook.</li>
+  <li><b>Enzyme ≠ using outside amino acids.</b> These enzymes also act on amino acids made inside the cell. With uptake set aside, we cannot say a strain uses <i>external</i> amino acids as an N source.</li>
+  <li><b>Annotation ≠ function.</b> An enzyme-family match does not prove activity or substrate.</li>
+  <li><b>"None found" may mean "not sequenced".</b> NCBI assembly status is used to flag incomplete genomes.</li>
+  <li><b>No heterotroph check.</b> "No breakdown-only enzyme found" is reported with that limit.</li>
+  <li><b>Small clades</b> (HLIII, HLIV, LLIII) cannot stand for their clade.</li>
+  <li><b>Early look:</b> MED4 results were seen before the rules were locked. This is recorded in the plan notebook.</li>
 </ul></div>
 
-<footer>Source: proposal.md and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Counts from KG queries on 2026-11-04.</footer>
+<footer>Source: proposal.md (v2) and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Pilot numbers from spike/data/med4_aa_summary.csv.</footer>
 </main>
 <script>
   // Layout sketch only: grey placeholder cells, no data.
