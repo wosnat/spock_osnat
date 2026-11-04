@@ -1,0 +1,52 @@
+step_id,amino_acid,flag,ko,locus_tag,gene_name,product,call,credit_eligible,exclusion_reason,product_keywords,ko_groups,credits_multiple_aa,evidence
+Ala_dehydrogenase.1,Ala,dedicated,K00259,PMT1462,ald,alanine dehydrogenase,credited,True,,alanine dehydrogenase,K00259|K19244,,family_inferred
+Ala_transamination.1,Ala,shared,K00830,PMT0600,spt,alanine--glyoxylate aminotransferase,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Arg_agmatinase.1,Arg,shared,K01585,PMT2150,speA,arginine decarboxylase,credited,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Arg_agmatinase.2,Arg,shared,K01480,PMT2214,speB,agmatinase,credited,True,,agmatinase,K01480,,family_inferred
+Arg_agmatine_deiminase.1,Arg,shared,K01585,PMT2150,speA,arginine decarboxylase,credited,True,,arginine decarboxylase,K01585|K02626|K01584|K01583,,family_inferred
+Asn_asparaginase.1,Asn,dedicated,K01424,PMT0825,ansA,L-asparaginase II family protein,credited,True,,asparaginase,K01424|K13051|K13278|K05597,,family_inferred
+Asp_transamination.1,Asp,shared,K00812,PMT0779,aspC,aspartate aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+Cys_CDO.2,Cys,shared,K00812,PMT0779,aspC,aspartate aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+Cys_CTH.1,Cys,dedicated,K01758,PMT0226,metB,O-succinylhomoserine(thiol)-lyase,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Cys_CTH.1,Cys,dedicated,K01758,PMT2171,metC,cystathionine beta-lyase family aluminum resistance protein,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Gln_GOGAT.1,Gln,shared,K00284,PMT1777,glsF,ferredoxin-dependent glutamate synthase,credited,True,,glutamate synthase,K00265|K00264|K00284;K00266|K00264|K00284,,family_inferred
+Glu_GABA_shunt.1,Glu,dedicated,K01580,PMT0474,gadA,glutamate decarboxylase,credited,True,,glutamate decarboxylase,K01580,,family_inferred
+Glu_GDH.1,Glu,shared,K00262,PMT0623,gdhA,glutamate dehydrogenase,credited,True,,glutamate dehydrogenase,K00260|K00261|K00262|K15371,,family_inferred
+Gly_cleavage.1,Gly,shared,K00281,PMT2169,gcvP,glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Gly_cleavage.2,Gly,shared,K00605,PMT2215,gcvT,glycine cleavage system T protein,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Gly_oxidase.1,Gly,shared,K03153,PMT2140,thiO,glycine oxidase,credited,True,,glycine oxidase,K03153,,family_inferred
+Gly_transamination.1,Gly,shared,K00830,PMT0600,spt,alanine--glyoxylate aminotransferase,credited,True,,aminotransferase|transaminase,K00830|K00827|K05825|K14272|K28204,,family_inferred
+Ile_BCAT.1,Ile,shared,K00826,PMT0728,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+Leu_BCAT.1,Leu,shared,K00826,PMT0728,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+Lys_cadaverine.1,Lys,shared,K01582,PMT1066,cadA,lysine decarboxylase,credited,True,,lysine decarboxylase,K01582|K28682,,family_inferred
+Met_transsulfuration.1,Met,shared,K00789,PMT1670,metK,methionine adenosyltransferase,credited,True,,adenosylmethionine synthe|methionine adenosyltransferase,K00789,,family_inferred
+Met_transsulfuration.2,Met,shared,K01251,PMT0138,ahcY,adenosylhomocysteinase,credited,True,,adenosylhomocysteinase|adenosylhomocysteine hydrolase,K01251,,family_inferred
+Met_transsulfuration.4,Met,dedicated,K01758,PMT0226,metB,O-succinylhomoserine(thiol)-lyase,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Met_transsulfuration.4,Met,dedicated,K01758,PMT2171,metC,cystathionine beta-lyase family aluminum resistance protein,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Phe_hydroxylase_Tyr.2,Phe,shared,K00812,PMT0779,aspC,aspartate aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_hydroxylase_Tyr.2,Phe,shared,K00817,PMT2069,hisC,aminotransferase class I and II family protein,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_transamination.1,Phe,shared,K00812,PMT0779,aspC,aspartate aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Phe_transamination.1,Phe,shared,K00817,PMT2069,hisC,aminotransferase class I and II family protein,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Ser_SHMT_GCS.1,Ser,shared,K00600,PMT1847,glyA,serine hydroxymethyltransferase,credited,True,,hydroxymethyltransferase,K00600,,family_inferred
+Ser_SHMT_GCS.2,Ser,shared,K00281,PMT2169,gcvP,glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Ser_SHMT_GCS.3,Ser,shared,K00605,PMT2215,gcvT,glycine cleavage system T protein,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Ser_transamination.1,Ser,shared,K00830,PMT0600,spt,alanine--glyoxylate aminotransferase,credited,True,,aminotransferase|transaminase,K00830|K13290,,family_inferred
+Thr_TDH_kbl.2,Thr,dedicated,K00639,PMT1488,bioF,8-amino-7-oxononanoate synthase,flagged: KO/product mismatch,True,,2-amino-3-ketobutyrate|glycine c-acetyltransferase,K00639,,family_inferred
+Thr_TDH_kbl.3,Thr,shared,K00281,PMT2169,gcvP,glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Thr_TDH_kbl.4,Thr,shared,K00605,PMT2215,gcvT,glycine cleavage system T protein,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Thr_aldolase.2,Thr,shared,K00281,PMT2169,gcvP,glycine dehydrogenase,credited,True,,glycine dehydrogenase|glycine cleavage system p,K00281|K00282;K00281|K00283,,family_inferred
+Thr_aldolase.3,Thr,shared,K00605,PMT2215,gcvT,glycine cleavage system T protein,credited,True,,aminomethyltransferase|glycine cleavage system t,K00605,,family_inferred
+Thr_dehydratase.1,Thr,shared,K01754,PMT0684,ilvA,threonine ammonia-lyase,credited,True,,threonine dehydratase|threonine ammonia-lyase|serine/threonine dehydratase,K01754|K17989,,family_inferred
+Trp_IAM.2,Trp,dedicated,K21801,PMT1297,,amidase,flagged: KO/product mismatch,True,,indoleacetamide hydrolase|indole-3-acetamide hydrolase|indoleacetamide amidase,K21801,,family_inferred
+Trp_kynurenine_Ala.4,Trp,shared,K00830,PMT0600,spt,alanine--glyoxylate aminotransferase,credited,True,,aminotransferase|transaminase,K14260|K00814|K14272|K00830|K00827|K05825|K28204|K00835,,family_inferred
+Tyr_transamination.1,Tyr,shared,K00812,PMT0779,aspC,aspartate aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Tyr_transamination.1,Tyr,shared,K00817,PMT2069,hisC,aminotransferase class I and II family protein,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K00815|K00817|K00832|K00838|K05821|K11358|K14454|K14455|K15849,,family_inferred
+Val_BCAT.1,Val,shared,K00826,PMT0728,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826|K00835|K14260,,family_inferred
+BROAD:DAO,broad,broad,K00273,PMT2254,,possible D-amino-acid dehydrogenase,broad (never credited),False,,,,,family_inferred
+BROAD:aspB,broad,broad,K00812,PMT0779,aspC,aspartate aminotransferase,broad (never credited),False,,,,,family_inferred
+BROAD:hisC,broad,broad,K00817,PMT2069,hisC,aminotransferase class I and II family protein,broad (never credited),False,,,,,family_inferred
+BROAD:ilvA,broad,broad,K01754,PMT0684,ilvA,threonine ammonia-lyase,broad (never credited),False,,,,,family_inferred
+CTRL_AspAT,control,n_transfer_positive,K00812,PMT0779,aspC,aspartate aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+CTRL_BCAT,control,n_transfer_positive,K00826,PMT0728,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,PMT2069,hisC,aminotransferase class I and II family protein,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,PMT0601,glnA,"glutamine synthetase, type I",credited,True,,glutamine synthetase,K01915,,family_inferred

@@ -1,0 +1,5 @@
+step_id,amino_acid,flag,ko,locus_tag,gene_name,product,call,credit_eligible,exclusion_reason,product_keywords,ko_groups,credits_multiple_aa,evidence
+CTRL_AspAT,control,n_transfer_positive,K00812,PMT0779,aspC,aspartate aminotransferase,credited,True,,aminotransferase|transaminase,K00811|K00812|K00813|K11358|K14454|K14455|K15849,,family_inferred
+CTRL_BCAT,control,n_transfer_positive,K00826,PMT0728,ilvE,branched-chain amino acid aminotransferase,credited,True,,aminotransferase|transaminase,K00826,,family_inferred
+CTRL_HisC,control,n_transfer_positive,K00817,PMT2069,hisC,aminotransferase class I and II family protein,credited,True,,aminotransferase|transaminase|histidinol-phosphate,K00817,,family_inferred
+CTRL_glnA,control,matching_sanity,K01915,PMT0601,glnA,"glutamine synthetase, type I",credited,True,,glutamine synthetase,K01915,,family_inferred

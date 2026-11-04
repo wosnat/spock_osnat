@@ -1,0 +1,4 @@
+organism,pathway_id,step_id,anchor_locus_tag,gene_name,product,n_neighbours_returned,n_same_strand_within3,transporter_within3,same_pathway_step_within3,operon_call,evidence,same_strand_within3_products
+MIT9313,Ala_dehydrogenase,Ala_dehydrogenase.1,PMT1462,ald,alanine dehydrogenase,10,4,False,False,lone gene,,PMT1459(-3) GTP-binding protein of unknown function (DUF697) | PMT1460(-2) nicotinate (nicotinamide) nucleotide adenylyltransferase | PMT1461(-1) NAD+ synthase (glutamine-hydrolysing) | PMT1465(+3) hypothetical protein
+MIT9313,Asn_asparaginase,Asn_asparaginase.1,PMT0825,ansA,L-asparaginase II family protein,10,3,False,False,lone gene,,"PMT0823(-3) conserved hypothetical protein | PMT0824(-2) oligomerisation domain protein | PMT0827(+3) lantipeptide precursor, Nif11-like leader peptide domain protein"
+MIT9313,Glu_GABA_shunt,Glu_GABA_shunt.1,PMT0474,gadA,glutamate decarboxylase,10,1,False,False,lone gene,,PMT0473(-1) putative membrane protein

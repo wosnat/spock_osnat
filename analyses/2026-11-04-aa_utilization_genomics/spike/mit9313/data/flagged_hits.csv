@@ -1,0 +1,7 @@
+step_id,amino_acid,flag,ko,locus_tag,gene_name,product,call,credit_eligible,exclusion_reason,product_keywords,ko_groups,credits_multiple_aa,evidence
+Cys_CTH.1,Cys,dedicated,K01758,PMT0226,metB,O-succinylhomoserine(thiol)-lyase,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Cys_CTH.1,Cys,dedicated,K01758,PMT2171,metC,cystathionine beta-lyase family aluminum resistance protein,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Met_transsulfuration.4,Met,dedicated,K01758,PMT0226,metB,O-succinylhomoserine(thiol)-lyase,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Met_transsulfuration.4,Met,dedicated,K01758,PMT2171,metC,cystathionine beta-lyase family aluminum resistance protein,flagged: KO/product mismatch,True,,cystathionine gamma-lyase,K01758|K17217,Cys;Met,family_inferred
+Thr_TDH_kbl.2,Thr,dedicated,K00639,PMT1488,bioF,8-amino-7-oxononanoate synthase,flagged: KO/product mismatch,True,,2-amino-3-ketobutyrate|glycine c-acetyltransferase,K00639,,family_inferred
+Trp_IAM.2,Trp,dedicated,K21801,PMT1297,,amidase,flagged: KO/product mismatch,True,,indoleacetamide hydrolase|indole-3-acetamide hydrolase|indoleacetamide amidase,K21801,,family_inferred

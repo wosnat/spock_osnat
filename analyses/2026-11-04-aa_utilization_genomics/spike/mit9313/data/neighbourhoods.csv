@@ -1,0 +1,31 @@
+anchor_locus_tag,neighbor_locus_tag,rank_offset,bp_gap,strand,same_strand,product,gene_name,gene_category,organism_name,contig,anchor_strand,transporter,neighbour_catalogue_hits,within3_same_strand
+PMT0474,PMT_2373,-5,2938,+,False,Hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT_2374,-4,2813,+,False,Hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT0471,-3,1605,+,False,glutathione S-transferase,gst,Coenzyme metabolism,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT0472,-2,1075,+,False,secreted protein of unknown function DUF2808,,Post-translational modification,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT0473,-1,0,-,True,putative membrane protein,,Cell wall and membrane,Prochlorococcus MIT9313,NC_005071.1,-,False,,True
+PMT0474,PMT0475,1,97,+,False,GCN5-related N-acetyltransferase,,Transcription,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT0476,2,675,+,False,putative membrane protein,,Cell wall and membrane,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT0477,3,992,+,False,putative membrane protein,,Cell wall and membrane,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT0478,4,1456,+,False,conserved hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0474,PMT_2375,5,1872,-,True,Conserved hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,-,False,,False
+PMT0825,PMT0821,-5,4618,-,False,conserved hypothetical protein (DUF3386),,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT0825,PMT0822,-4,1274,-,False,"carbamoyl-phosphate synthase, large subunit",carB,Nucleotide metabolism,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT0825,PMT0823,-3,518,+,True,conserved hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,True
+PMT0825,PMT0824,-2,157,+,True,oligomerisation domain protein,rsfS,Translation,Prochlorococcus MIT9313,NC_005071.1,+,False,,True
+PMT0825,PMT_2436,-1,0,-,False,Hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT0825,AKG35_RS12750,1,358,-,False,hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT0825,PMT0826,2,595,-,False,conserved hypothetical protein,,Replication and repair,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT0825,PMT0827,3,1023,+,True,"lantipeptide precursor, Nif11-like leader peptide domain protein",lanA,Cellular processes,Prochlorococcus MIT9313,NC_005071.1,+,False,,True
+PMT0825,PMT_2437,4,1323,+,True,conserved hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT0825,PMT0828,5,1572,-,False,conserved hypothetical protein,,Replication and repair,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT1462,PMT1457,-5,4654,+,True,conserved hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT1462,PMT1458,-4,3662,+,True,CBS and DUF21 domain-containing protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT1462,PMT1459,-3,2337,+,True,GTP-binding protein of unknown function (DUF697),,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,True
+PMT1462,PMT1460,-2,1756,+,True,nicotinate (nicotinamide) nucleotide adenylyltransferase,nadD,Coenzyme metabolism,Prochlorococcus MIT9313,NC_005071.1,+,False,,True
+PMT1462,PMT1461,-1,62,+,True,NAD+ synthase (glutamine-hydrolysing),nadE,Coenzyme metabolism,Prochlorococcus MIT9313,NC_005071.1,+,False,,True
+PMT1462,PMT1463,1,60,-,False,conserved hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT1462,PMT1464,2,1200,-,False,conserved hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT1462,PMT1465,3,1428,+,True,hypothetical protein,,Unknown,Prochlorococcus MIT9313,NC_005071.1,+,False,,True
+PMT1462,PMT1466,4,1717,-,False,ATP synthase gamma chain,atpC,Photosynthesis,Prochlorococcus MIT9313,NC_005071.1,+,False,,False
+PMT1462,PMT1467,5,2698,-,False,ATP synthase alpha chain,atpA,Photosynthesis,Prochlorococcus MIT9313,NC_005071.1,+,False,,False

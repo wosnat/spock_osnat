@@ -78,7 +78,7 @@ text(s, Inches(1.0), Inches(2.3), Inches(11.4), Inches(1.3),
 steps = [("1", "Question & plan", "Database checked; plan reviewed 3× by an independent critic; approved"),
          ("2", "MED4 pilot", "1 of 34 breakdown-only enzymes found (asparaginase)"),
          ("3", "Pathway list", "58 pathways for 20 amino acids; 3 review rounds; awaiting your approval"),
-         ("4", "Comparisons", "Alteromonas HOT1A3: 8 complete pathways vs MED4's 1; MIT9313 running")]
+         ("4", "Comparisons", "Complete pathways: MED4 1, MIT9313 2, Alteromonas HOT1A3 8")]
 x0, y0, cw, ch, gap = Inches(0.7), Inches(4.15), Inches(2.84), Inches(2.55), Inches(0.19)
 for i, (n, h, d) in enumerate(steps):
     x = x0 + i * (cw + gap)
@@ -103,10 +103,10 @@ image_slide(root / "spike/figures/med4_pilot_slide.png",
     "MED4 pilot (draft enzyme list). Only asparaginase (PMM0821) is a breakdown-only enzyme; 12 amino acids have only shared enzymes, 7 nothing. "
     "Lessons that shaped the plan: transporters set aside, score whole pathways on breakdown-only steps, match by enzyme ID not gene name.",
     "MED4 pilot infographic")
-image_slide(root / "spike/alteromonas_hot1a3/figures/hot1a3_vs_med4_slide.png",
-    "Same draft pathway list and rules on the marine heterotroph Alteromonas HOT1A3: 8 complete pathways vs MED4's 1; 14 vs 1 breakdown-only steps found. "
-    "Shows the method can find complete pathways where they exist. Caveats: HOT1A3 genome is ~2x larger; keyword synonyms (e.g. glnA 'glutamate--ammonia ligase') still to fix.",
-    "MED4 vs Alteromonas infographic")
+image_slide(root / "spike/mit9313/figures/mit9313_vs_med4_slide.png",
+    "Three genomes, same draft pathway list and rules. Complete pathways: MED4 (high-light, 1,973 genes) 1 (Asn); MIT9313 (low-light, 2,906 genes) 2 (Asn + Ala via alanine dehydrogenase PMT1462); Alteromonas HOT1A3 (heterotroph, 4,028 genes) 8. "
+    "Breakdown-only steps found: 1 / 3 / 14. All Prochlorococcus hits are lone genes; HOT1A3 has three uptake/breakdown packages. MIT9313 was unblinded for this pilot.",
+    "MED4 vs MIT9313 vs Alteromonas infographic")
 
 # ---------- Slide 5: status & next steps ----------
 s = prs.slides.add_slide(blank)
@@ -115,7 +115,7 @@ cols = [
     ("What we learned", VIOLET, [
         "MED4 has almost no breakdown-only machinery: 1 enzyme, a lone gene",
         "MED4 keeps a full uptake + breakdown package for urea, not for amino acids",
-        "The method does find complete pathways in a heterotroph (Alteromonas: 8)",
+        "Low-light MIT9313 adds only alanine DH: 2 complete vs MED4 1; Alteromonas 8",
         "Some amino acids can't be judged with this database: Gly, Glu, Tyr"]),
     ("Decisions for you", GREEN, [
         "Approve the pathway list (23 debatable steps, 2 additions, controls)",
@@ -123,8 +123,8 @@ cols = [
         "Keep the operon (gene-neighbourhood) check?",
         "Add other annotation types (A) and/or transporters (B)?"]),
     ("Next steps", INK, [
-        "MIT9313 pilot (low-light) — running",
-        "Fix keyword synonyms; choose a new blind check strain",
+        "Fix keyword synonyms; pick a new blind low-light strain",
+        "Approve the list, then score all strains",
         "Score all 45 Prochlorococcus + marine Synechococcus",
         "Heatmap by clade, reports, paper-ready text"]),
 ]

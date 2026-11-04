@@ -56,7 +56,8 @@ def step_table(hits):
     return pd.DataFrame(out)
 
 
-def fig_matrix(st, aa_status, summ):
+def fig_matrix(st, aa_status, summ, key="HOT1A3", org_full="Alteromonas macleodii HOT1A3",
+               stem="hot1a3_step_matrix"):
     TW, TH, GAP, PGAP, RH = 1.0, 0.46, 0.10, 0.45, 1.32
     fig = plt.figure(figsize=(21, 24))
     fig.patch.set_facecolor(SURFACE)
@@ -106,8 +107,8 @@ def fig_matrix(st, aa_status, summ):
     ax.set_xlim(-2.6, maxx + 0.2)
     ax.set_ylim(-(len(AAS) - 1) * RH - 1.0, 0.8)
     ax.axis("off")
-    h = summ["HOT1A3"]
-    fig.suptitle(f"Alteromonas macleodii HOT1A3: catalogue steps searched vs found (draft catalogue, not approved)\n"
+    h = summ[key]
+    fig.suptitle(f"{org_full}: catalogue steps searched vs found (draft catalogue, not approved)\n"
                  f"Dedicated steps found {h['dedicated_steps_found']} of {h['dedicated_steps_catalogued']} catalogued "
                  f"({summ['n_observable_dedicated']} observable in the KG); complete pathways: "
                  f"{len(h['complete_pathways'])}", x=0.07, y=0.985, ha="left", fontsize=14, color=INK)
@@ -124,17 +125,19 @@ def fig_matrix(st, aa_status, summ):
     fig.legend(handles=handles, loc="lower left", bbox_to_anchor=(0.07, 0.045), ncol=4, fontsize=8.5, frameon=False,
                labelcolor=INK)
     fig.text(0.07, 0.035, "Tiles are catalogue steps grouped by pathway (small grey label above each group). 'N' marks "
-             "the N-freeing step. Locus tags under a tile are HOT1A3 genes credited for it (KO match + product keyword); "
+             "the N-freeing step. Locus tags under a tile are "
+             f"{key} genes credited for it (KO match + product keyword); "
              "the row label gives the per-amino-acid cell (v5 rule: complete > partial > absent > can't be judged).",
              ha="left", va="top", fontsize=8.5, color=INK2, wrap=True)
-    save(fig, "hot1a3_step_matrix")
+    save(fig, stem)
 
 
-def fig_compare(aa_m, aa_a, oc):
+def fig_compare(aa_m, aa_a, oc, rows=None, title=None, stem="med4_vs_hot1a3_status"):
     fig, ax = plt.subplots(figsize=(16, 3.9))
     fig.patch.set_facecolor(SURFACE)
     W, H, G = 1.0, 1.0, 0.12
-    rows = [("Prochlorococcus MED4", aa_m, "MED4"), ("Alteromonas HOT1A3", aa_a, "HOT1A3")]
+    rows = rows or [("Prochlorococcus MED4", aa_m, "MED4"), ("Alteromonas HOT1A3", aa_a, "HOT1A3")]
+    fig.set_size_inches(16, 2.6 + 1.3 * len(rows))
     for j, (name, df, okey) in enumerate(rows):
         y = -j * (H + 0.35)
         ax.text(-0.25, y + H / 2, name, ha="right", va="center", fontsize=10.5, color=INK,
@@ -170,7 +173,7 @@ def fig_compare(aa_m, aa_a, oc):
                 ax.add_patch(Polygon([[x, y], [x + 0.24, y], [x, y + 0.24]], closed=True, facecolor=GREY,
                                      edgecolor="none"))
     ax.set_xlim(-3.6, 20 * (W + G))
-    ax.set_ylim(-1.55, 1.15)
+    ax.set_ylim(-(len(rows) - 1) * (H + 0.35) - 0.2, 1.15)
     ax.set_aspect("equal")
     ax.axis("off")
     from matplotlib.lines import Line2D
@@ -184,9 +187,9 @@ def fig_compare(aa_m, aa_a, oc):
                Line2D([0], [0], marker=">", ls="none", markerfacecolor=GREY, markeredgecolor=GREY, label="corner triangle: an all-shared route is fully present")]
     ax.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.0, -0.02), ncol=3, fontsize=8, frameon=False,
               labelcolor=INK)
-    ax.set_title("Amino-acid breakdown pathways, MED4 vs Alteromonas HOT1A3 (pathway-level status, draft catalogue)",
+    ax.set_title(title or "Amino-acid breakdown pathways, MED4 vs Alteromonas HOT1A3 (pathway-level status, draft catalogue)",
                  loc="left", fontsize=12, color=INK)
-    save(fig, "med4_vs_hot1a3_status")
+    save(fig, stem)
 
 
 def main():

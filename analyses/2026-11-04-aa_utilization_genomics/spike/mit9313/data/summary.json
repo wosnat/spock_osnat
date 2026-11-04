@@ -1,0 +1,94 @@
+{
+ "MIT9313": {
+  "dedicated_steps_catalogued": 53,
+  "dedicated_steps_found": 3,
+  "dedicated_steps_found_ids": [
+   "Ala_dehydrogenase.1",
+   "Asn_asparaginase.1",
+   "Glu_GABA_shunt.1"
+  ],
+  "complete_pathways": [
+   "Ala_dehydrogenase",
+   "Asn_asparaginase"
+  ]
+ },
+ "MED4": {
+  "dedicated_steps_catalogued": 53,
+  "dedicated_steps_found": 1,
+  "dedicated_steps_found_ids": [
+   "Asn_asparaginase.1"
+  ],
+  "complete_pathways": [
+   "Asn_asparaginase"
+  ]
+ },
+ "HOT1A3": {
+  "dedicated_steps_catalogued": 53,
+  "dedicated_steps_found": 14,
+  "dedicated_steps_found_ids": [
+   "Ala_dehydrogenase.1",
+   "Arg_AST.1",
+   "Arg_AST.2",
+   "Asn_asparaginase.1",
+   "Gln_glutaminase.1",
+   "His_hut.1",
+   "Pro_PutA.1",
+   "Pro_PutA.2",
+   "Ser_dehydratase.1",
+   "Thr_TDH_kbl.1",
+   "Thr_TDH_kbl.2",
+   "Trp_kynurenine_Ala.1",
+   "Trp_kynurenine_Ala.3",
+   "Trp_kynurenine_KAT.1"
+  ],
+  "complete_pathways": [
+   "Ala_dehydrogenase",
+   "Arg_AST",
+   "Asn_asparaginase",
+   "His_hut",
+   "Gln_glutaminase",
+   "Ser_dehydratase",
+   "Pro_PutA",
+   "Thr_TDH_kbl"
+  ]
+ },
+ "gene_counts": {
+  "MIT9313": [
+   [
+    "Prochlorococcus MIT9313",
+    2906,
+    "LLIV"
+   ]
+  ],
+  "MED4": [
+   [
+    "Prochlorococcus MED4",
+    1973
+   ]
+  ],
+  "HOT1A3": [
+   [
+    "Alteromonas macleodii HOT1A3",
+    4028
+   ]
+  ]
+ },
+ "kg_calls": [
+  {
+   "tool": "genes_by_ontology",
+   "organism": "Prochlorococcus MIT9313",
+   "n_term_ids": 131,
+   "total_matching": 25,
+   "returned": 25,
+   "truncated": false
+  },
+  {
+   "tool": "list_organisms",
+   "organism_names": [
+    "Prochlorococcus MIT9313"
+   ],
+   "total_matching": 1,
+   "returned": 1
+  }
+ ]
+}

@@ -40,3 +40,19 @@ The draft catalogue was scored at pathway level (v5 rule) for HOT1A3 (4,028 gene
 ## MIT9313 pilot requested — blindness disclosure (2026-11-04)
 
 The researcher asked for the same pilot on MIT9313 before catalogue approval. **MIT9313 was one of the two blind answer-key strains; it is now unblinded by researcher decision.** Consequence: the verification-layer-2 answer key needs a replacement blind LL strain (candidates: MIT9303, MIT0701, chosen before catalogue approval and not looked at). Any catalogue change made after seeing MIT9313 is logged as "shaped by MIT9313 pilot".
+
+## MIT9313 pilot (exploratory, unblinded, `spike/mit9313/`, 2026-11-04)
+
+Same code and draft catalogue as HOT1A3. Verified against `aa_status_med4_vs_mit9313_vs_hot1a3.csv`:
+
+| | complete | partial | absent | can't be judged | dedicated steps found |
+|---|---|---|---|---|---|
+| MED4 (HLI, 1,973 genes) | 1 (Asn) | 0 | 16 | 3 | 1 |
+| MIT9313 (LLIV, 2,906 genes) | 2 (Ala, Asn) | 0 | 15 | 3 | 3 (one on the excluded GABA shunt) |
+| HOT1A3 (4,028 genes) | 8 | 1 | 8 | 3 | 14 |
+
+- MIT9313 adds alanine dehydrogenase (PMT1462, lone gene) to asparaginase (PMT0825, lone). gadA PMT0474 is on the N-neutral, excluded GABA shunt.
+- All Prochlorococcus dedicated hits are lone genes.
+- Controls: glnA PMT0601, ilvE PMT0728 and hisC PMT2069 are found; astB is absent (as expected).
+- Flagged hits are the same patterns as in MED4 (metB/metC on K01758; bioF on K00639). No synonym misses.
+- Bookkeeping anomaly to fix before the real run: the per-amino-acid locus-tag list and the "dedicated steps found" count include steps on excluded routes.

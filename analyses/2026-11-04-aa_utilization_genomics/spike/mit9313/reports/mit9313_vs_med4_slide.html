@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Prochlorococcus MIT9313 (low-light) vs MED4 (high-light), with Alteromonas HOT1A3 as reference — amino-acid breakdown pathways (pilot, draft catalogue)</title>
+<style>
+:root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;--ded:#6250d6;--lded:#c3bbf2;--shared:#8f8e89;--flag:#eda100;}
+*{box-sizing:border-box} html,body{margin:0;background:#e9eaec}
+.slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+ padding:40px 64px 28px;display:grid;grid-template-rows:auto auto 1fr auto;gap:18px;overflow:hidden}
+h1{margin:0;font-size:40px;line-height:1.1;letter-spacing:-.01em} h1 i{font-style:italic}
+.sub{margin:6px 0 0;font-size:20px;color:var(--muted)}
+.tag{display:inline-block;font-size:15px;font-weight:600;border:1.5px solid var(--flag);color:#9a6700;border-radius:14px;padding:2px 12px;margin-left:12px;vertical-align:6px}
+.row{display:grid;grid-template-columns:150px repeat(20,1fr);gap:6px;align-items:center;margin-bottom:8px}
+.lab{font-size:19px;font-weight:600;line-height:1.1} .lab small{display:block;font-weight:400;color:var(--muted);font-size:14px}
+.aa{height:84px;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.nm{font-weight:700;font-size:25px} .kn{font-size:17px;margin-top:1px}
+.aa.c{background:var(--ded);color:#fff} .aa.p{background:var(--lded);border:2px solid var(--ded)}
+.aa.a{background:#fff;border:2px solid var(--shared)}
+.aa.j{border:2px solid var(--shared);background:repeating-linear-gradient(45deg,#e6e5e1 0 6px,#cfceca 6px 8px)}
+.aa.j .nm{background:#e6e5e1;padding:0 4px;border-radius:3px}
+.aa.na{border:2px dashed var(--shared);background:#efeeea}
+.pk,.ln{position:absolute;top:6px;right:6px;width:12px;height:12px;border-radius:50%;border:2px solid currentColor}
+.pk{background:currentColor}
+.sh{position:absolute;left:0;bottom:0;border-bottom:16px solid var(--shared);border-right:16px solid transparent}
+.legend{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:17px;color:var(--muted);margin-top:4px}
+.sw{display:inline-block;width:16px;height:16px;border-radius:3px;vertical-align:-3px;margin-right:6px}
+.cols{display:grid;grid-template-columns:0.9fr 1.35fr 1fr;gap:24px;min-height:0}
+.card{background:var(--panel);border-radius:10px;padding:22px 26px;min-height:0;overflow:hidden}
+.card h2{margin:0 0 14px;font-size:20px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.card p,.card li{font-size:22px;line-height:1.38} .card ul{margin:0;padding-left:20px} .card li{margin:0 0 14px}
+.num{background:#fff;border-radius:8px;padding:14px 16px;border:1px solid var(--line);margin-bottom:18px}
+.num .pair{display:flex;gap:20px;align-items:baseline} .num b{font-size:60px;line-height:1;color:var(--ded)}
+.num b.m{color:#6b6a66} .num span{font-size:18px;color:var(--muted)} .num .t{font-size:19px;color:var(--ink);font-weight:600;margin-bottom:4px}
+.ex{background:#fff;border:2px solid var(--ded);border-radius:8px;padding:16px 18px;margin-bottom:18px;font-size:21px;line-height:1.35}
+.ex b.h{color:var(--ded);font-size:22px} .lt{font-weight:700} .pill{display:inline-block;font-size:14px;font-weight:700;border-radius:10px;padding:1px 9px;margin-left:6px;vertical-align:1px}
+.pill.pk2{background:var(--ded);color:#fff} .pill.ln2{border:1.5px solid var(--ded);color:var(--ded)}
+.ctl td{font-size:19px;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top} .ctl{border-collapse:collapse;width:100%;margin-bottom:18px}
+.ok{color:#1a7f37;font-weight:700} .fl{color:#9a6700;font-weight:700}
+.foot{display:flex;justify-content:space-between;gap:30px;font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+</style>
+<style>.aa{height:70px} .row{grid-template-columns:200px repeat(20,1fr);margin-bottom:7px} h1{font-size:33px} .num b{font-size:50px} .num .pair{gap:12px} .ex{margin-bottom:16px}
+.lab{font-size:18px} .ref .lab{color:var(--muted)} .ref{margin-top:12px}</style>
+</head><body><div class="slide">
+<div>
+ <h1><i>Prochlorococcus</i> MIT9313 (low-light) vs MED4 (high-light), with <i>Alteromonas</i> HOT1A3 as reference <span class="tag">pilot · draft catalogue</span></h1>
+ <p class="sub">Amino-acid breakdown pathways · same draft catalogue and rules for all three genomes: KO match + product keyword · shared steps not counted · N-freeing step required · cell = best pathway</p>
+</div>
+<div>
+ <div class="row"><div class="lab">MED4 · HLI<small>1,973 genes</small></div><div class='aa a' title='Ala: absent '><span class='nm'>Ala</span><b class='sh'></b></div><div class='aa a' title='Arg: absent '><span class='nm'>Arg</span><b class='sh'></b></div><div class='aa c' title='Asn: complete 1/1'><span class='nm'>Asn</span><span class='kn'>1/1</span><i class='ln'></i></div><div class='aa a' title='Asp: absent '><span class='nm'>Asp</span><b class='sh'></b></div><div class='aa a' title='Cys: absent '><span class='nm'>Cys</span></div><div class='aa a' title='Gln: absent '><span class='nm'>Gln</span><b class='sh'></b></div><div class='aa j' title='Glu: can't be judged '><span class='nm'>Glu</span></div><div class='aa j' title='Gly: can't be judged '><span class='nm'>Gly</span><b class='sh'></b></div><div class='aa a' title='His: absent '><span class='nm'>His</span></div><div class='aa a' title='Ile: absent '><span class='nm'>Ile</span><b class='sh'></b></div><div class='aa a' title='Leu: absent '><span class='nm'>Leu</span><b class='sh'></b></div><div class='aa a' title='Lys: absent '><span class='nm'>Lys</span></div><div class='aa a' title='Met: absent '><span class='nm'>Met</span></div><div class='aa a' title='Phe: absent '><span class='nm'>Phe</span><b class='sh'></b></div><div class='aa a' title='Pro: absent '><span class='nm'>Pro</span></div><div class='aa a' title='Ser: absent '><span class='nm'>Ser</span><b class='sh'></b></div><div class='aa a' title='Thr: absent '><span class='nm'>Thr</span><b class='sh'></b></div><div class='aa a' title='Trp: absent '><span class='nm'>Trp</span></div><div class='aa j' title='Tyr: can't be judged '><span class='nm'>Tyr</span><b class='sh'></b></div><div class='aa a' title='Val: absent '><span class='nm'>Val</span><b class='sh'></b></div></div>
+ <div class="row"><div class="lab">MIT9313 · LLIV<small>2,906 genes</small></div><div class='aa c' title='Ala: complete 1/1'><span class='nm'>Ala</span><span class='kn'>1/1</span><i class='ln'></i><b class='sh'></b></div><div class='aa a' title='Arg: absent '><span class='nm'>Arg</span><b class='sh'></b></div><div class='aa c' title='Asn: complete 1/1'><span class='nm'>Asn</span><span class='kn'>1/1</span><i class='ln'></i></div><div class='aa a' title='Asp: absent '><span class='nm'>Asp</span><b class='sh'></b></div><div class='aa a' title='Cys: absent '><span class='nm'>Cys</span></div><div class='aa a' title='Gln: absent '><span class='nm'>Gln</span><b class='sh'></b></div><div class='aa j' title='Glu: can't be judged '><span class='nm'>Glu</span><b class='sh'></b></div><div class='aa j' title='Gly: can't be judged '><span class='nm'>Gly</span><b class='sh'></b></div><div class='aa a' title='His: absent '><span class='nm'>His</span></div><div class='aa a' title='Ile: absent '><span class='nm'>Ile</span><b class='sh'></b></div><div class='aa a' title='Leu: absent '><span class='nm'>Leu</span><b class='sh'></b></div><div class='aa a' title='Lys: absent '><span class='nm'>Lys</span></div><div class='aa a' title='Met: absent '><span class='nm'>Met</span></div><div class='aa a' title='Phe: absent '><span class='nm'>Phe</span><b class='sh'></b></div><div class='aa a' title='Pro: absent '><span class='nm'>Pro</span></div><div class='aa a' title='Ser: absent '><span class='nm'>Ser</span><b class='sh'></b></div><div class='aa a' title='Thr: absent '><span class='nm'>Thr</span><b class='sh'></b></div><div class='aa a' title='Trp: absent '><span class='nm'>Trp</span></div><div class='aa j' title='Tyr: can't be judged '><span class='nm'>Tyr</span><b class='sh'></b></div><div class='aa a' title='Val: absent '><span class='nm'>Val</span><b class='sh'></b></div></div>
+ <div class="row ref"><div class="lab">HOT1A3 (reference)<small>4,028 genes</small></div><div class='aa c' title='Ala: complete 1/1'><span class='nm'>Ala</span><span class='kn'>1/1</span><i class='ln'></i><b class='sh'></b></div><div class='aa c' title='Arg: complete 2/2'><span class='nm'>Arg</span><span class='kn'>2/2</span><i class='pk'></i><b class='sh'></b></div><div class='aa c' title='Asn: complete 1/1'><span class='nm'>Asn</span><span class='kn'>1/1</span><i class='ln'></i></div><div class='aa a' title='Asp: absent '><span class='nm'>Asp</span><b class='sh'></b></div><div class='aa a' title='Cys: absent '><span class='nm'>Cys</span></div><div class='aa c' title='Gln: complete 1/1'><span class='nm'>Gln</span><span class='kn'>1/1</span><i class='ln'></i></div><div class='aa j' title='Glu: can't be judged '><span class='nm'>Glu</span><b class='sh'></b></div><div class='aa j' title='Gly: can't be judged '><span class='nm'>Gly</span><b class='sh'></b></div><div class='aa c' title='His: complete 1/1'><span class='nm'>His</span><span class='kn'>1/1</span><i class='ln'></i></div><div class='aa a' title='Ile: absent '><span class='nm'>Ile</span><b class='sh'></b></div><div class='aa a' title='Leu: absent '><span class='nm'>Leu</span><b class='sh'></b></div><div class='aa a' title='Lys: absent '><span class='nm'>Lys</span></div><div class='aa a' title='Met: absent '><span class='nm'>Met</span></div><div class='aa a' title='Phe: absent '><span class='nm'>Phe</span><b class='sh'></b></div><div class='aa c' title='Pro: complete 2/2'><span class='nm'>Pro</span><span class='kn'>2/2</span><i class='ln'></i></div><div class='aa c' title='Ser: complete 1/1'><span class='nm'>Ser</span><span class='kn'>1/1</span><i class='ln'></i><b class='sh'></b></div><div class='aa c' title='Thr: complete 2/2'><span class='nm'>Thr</span><span class='kn'>2/2</span><i class='pk'></i><b class='sh'></b></div><div class='aa p' title='Trp: partial 2/3'><span class='nm'>Trp</span><span class='kn'>2/3</span><i class='pk'></i></div><div class='aa j' title='Tyr: can't be judged '><span class='nm'>Tyr</span><b class='sh'></b></div><div class='aa a' title='Val: absent '><span class='nm'>Val</span><b class='sh'></b></div></div>
+ <div class="legend">
+  <span><span class="sw" style="background:var(--ded)"></span>complete (k/n dedicated steps)</span>
+  <span><span class="sw" style="background:var(--lded);border:2px solid var(--ded)"></span>partial</span>
+  <span><span class="sw" style="background:#fff;border:2px solid var(--shared)"></span>absent (not found with these annotations)</span>
+  <span><span class="sw" style="border:2px solid var(--shared);background:repeating-linear-gradient(45deg,#e6e5e1 0 3px,#cfceca 3px 5px)"></span>can't be judged (only all-shared routes)</span>
+  <span>● package (±3 genes, same strand: transporter or another step) &nbsp; ○ lone gene</span>
+  <span><span class="sw" style="background:linear-gradient(to top right,var(--shared) 50%,transparent 50%)"></span>an all-shared route is fully present</span>
+ </div>
+</div>
+<div class="cols">
+ <div class="card"><h2>Key numbers</h2>
+  <div class="num"><div class="t">Dedicated steps found (of 53; 34 have KOs in the KG)</div>
+   <div class="pair"><b class="m">1</b><span>MED4</span><b>3</b><span>MIT9313</span><b class="m">14</b><span>HOT1A3</span></div></div>
+  <div class="num"><div class="t">Complete pathways</div>
+   <div class="pair"><b class="m">1</b><span>MED4</span><b>2</b><span>MIT9313</span><b class="m">8</b><span>HOT1A3</span></div></div>
+  <div class="num"><div class="t">Cells: complete / partial / absent / can't judge</div>
+   <p style="margin:2px 0 0;font-size:20px">MED4 <b class="m" style="font-size:24px">1/0/16/3</b> · MIT9313 <b style="font-size:24px">2/0/15/3</b> · HOT1A3 <b class="m" style="font-size:24px">8/1/8/3</b></p></div>
+ </div>
+ <div class="card"><h2>Dedicated hits in MIT9313 that MED4 lacks</h2>
+  <div class='ex'><b class='h'>Ala · Ala_dehydrogenase</b> <span style='color:var(--muted);font-size:18px'>(pathway: complete)</span><br>ald <span class='lt'>PMT1462</span> · alanine dehydrogenase<span class='pill ln2'>lone gene</span><br><span style='color:var(--muted);font-size:17px'>Same-strand neighbours (±3): PMT1459(-3) GTP-binding protein of unknown function (DUF697) | PMT1460(-2) nicotinate (nicotinamide) nucleotide adenylyltransferase | PMT1461(-1) NAD+ synthase (glutamine-hydrolysing) | PMT1465(+3) hypothetical protein</span></div><div class='ex'><b class='h'>Glu · Glu_GABA_shunt</b> <span style='color:var(--muted);font-size:18px'>(pathway: excluded)</span><br>gadA <span class='lt'>PMT0474</span> · glutamate decarboxylase<span class='pill ln2'>lone gene</span><br><span style='color:var(--muted);font-size:17px'>Same-strand neighbours (±3): PMT0473(-1) putative membrane protein</span></div>
+  <p style="margin:8px 0 0;font-size:19px;color:var(--muted)">Shared by both: asparaginase, MIT9313 <b>PMT0825</b> / MED4 <b>PMM0821</b> (both lone genes). The glutamate decarboxylase route is N-neutral and excluded, so its hit does not change the Glu cell.</p>
+ </div>
+ <div class="card"><h2>Controls (MIT9313) &amp; caveats</h2>
+  <table class="ctl">
+   <tr><td>glnA</td><td><span class="ok">found</span> PMT0601 "glutamine synthetase, type I"</td></tr>
+   <tr><td>ilvE</td><td><span class="ok">found</span> PMT0728</td></tr>
+   <tr><td>hisC</td><td><span class="ok">found</span> PMT2069</td></tr>
+   <tr><td>astB</td><td>expected-negative: no gene on K01484</td></tr>
+  </table>
+  <ul>
+   <li>Draft catalogue, not approved. Product keywords miss synonyms (e.g. HOT1A3 glnA "glutamate--ammonia ligase" is flagged).</li>
+   <li>Annotation ≠ function.</li>
+   <li>Genome sizes: MED4 1,973, MIT9313 2,906, HOT1A3 4,028 genes.</li>
+  </ul>
+ </div>
+</div>
+<div class="foot"><span>Pathway-level status (proposal v5 rule) on the draft catalogue. Package = positional adjacency only. MIT9313 was unblinded by the researcher for this pilot. Data: spike/mit9313/data/aa_status_med4_vs_mit9313_vs_hot1a3.csv.</span>
+<span style="white-space:nowrap">2026-11-04 · throwaway pilot</span></div>
+</div></body></html>

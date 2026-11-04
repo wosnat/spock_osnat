@@ -1,0 +1,59 @@
+organism,amino_acid,pathway_id,pathway_name,n_steps,k_dedicated,n_dedicated,k_of_n,n_freeing_steps,n_freeing_present,all_steps_present,all_shared_route_fully_present,status_rule,status,dedicated_locus_tags,present_steps_loci,missing_steps
+Prochlorococcus MIT9313,Ala,Ala_dehydrogenase,alanine dehydrogenase,1,1,1,1/1,Ala_dehydrogenase.1,present,True,False,scored,complete,PMT1462,Ala_dehydrogenase.1:PMT1462,
+Prochlorococcus MIT9313,Ala,Ala_transamination,alanine transamination,1,0,0,-,Ala_transamination.1,present,True,True,cannot be judged (all-shared),can't be judged,,Ala_transamination.1:PMT0600,
+Prochlorococcus MIT9313,Arg,Arg_arginase,arginase route,1,0,1,0/1,Arg_arginase.1,missing,False,False,scored,absent,,,Arg_arginase.1
+Prochlorococcus MIT9313,Arg,Arg_argZ,arginine dihydrolase (ornithine-ammonia cycle),1,0,1,0/1,Arg_argZ.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Arg_argZ.1
+Prochlorococcus MIT9313,Arg,Arg_ADI,arginine deiminase route,1,0,1,0/1,Arg_ADI.1,missing,False,False,scored,absent,,,Arg_ADI.1
+Prochlorococcus MIT9313,Arg,Arg_AST,arginine succinyltransferase (AST) route,2,0,2,0/2,Arg_AST.2,missing,False,False,scored,absent,,,Arg_AST.1;Arg_AST.2
+Prochlorococcus MIT9313,Arg,Arg_transaminase,arginine transamination,1,0,1,0/1,Arg_transaminase.1,missing,False,False,scored,absent,,,Arg_transaminase.1
+Prochlorococcus MIT9313,Arg,Arg_agmatinase,agmatine route via agmatinase,2,0,0,-,Arg_agmatinase.2,present,True,True,cannot be judged (all-shared),can't be judged,,Arg_agmatinase.1:PMT2150 | Arg_agmatinase.2:PMT2214,
+Prochlorococcus MIT9313,Asp,Asp_aspartase,aspartate ammonia-lyase,1,0,1,0/1,Asp_aspartase.1,missing,False,False,scored,absent,,,Asp_aspartase.1
+Prochlorococcus MIT9313,Arg,Arg_agmatine_deiminase,agmatine route via agmatine deiminase,2,0,0,-,Arg_agmatine_deiminase.2,missing,False,False,cannot be judged (all-shared),can't be judged,,Arg_agmatine_deiminase.1:PMT2150,Arg_agmatine_deiminase.2
+Prochlorococcus MIT9313,Asn,Asn_transaminase,asparagine transamination,1,0,1,0/1,Asn_transaminase.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Asn_transaminase.1
+Prochlorococcus MIT9313,Asn,Asn_asparaginase,asparaginase,1,1,1,1/1,Asn_asparaginase.1,present,True,False,scored,complete,PMT0825,Asn_asparaginase.1:PMT0825,
+Prochlorococcus MIT9313,Asp,Asp_transamination,aspartate transamination,1,0,0,-,Asp_transamination.1,present,True,True,cannot be judged (all-shared),can't be judged,,Asp_transamination.1:PMT0779,
+Prochlorococcus MIT9313,Cys,Cys_CDO,cysteine dioxygenase route,2,0,1,0/1,Cys_CDO.2,present,False,False,not assessable (never 'absent'),not assessable,,Cys_CDO.2:PMT0779,Cys_CDO.1
+Prochlorococcus MIT9313,Cys,Cys_CTH,cystathionine gamma-lyase acting on cysteine,1,0,1,0/1,Cys_CTH.1,missing,False,False,scored,absent,,,Cys_CTH.1
+Prochlorococcus MIT9313,Cys,Cys_desulfidase,L-cysteine desulfidase / desulfhydrase,1,0,1,0/1,Cys_desulfidase.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Cys_desulfidase.1
+Prochlorococcus MIT9313,His,His_hut,histidine utilization (hut),1,0,1,0/1,His_hut.1,missing,False,False,scored,absent,,,His_hut.1
+Prochlorococcus MIT9313,Gly,Gly_cleavage,glycine cleavage system,2,0,0,-,Gly_cleavage.2,present,True,True,cannot be judged (all-shared),can't be judged,,Gly_cleavage.1:PMT2169 | Gly_cleavage.2:PMT2215,
+Prochlorococcus MIT9313,Gly,Gly_transamination,glycine transamination,1,0,0,-,Gly_transamination.1,present,True,True,cannot be judged (all-shared),can't be judged,,Gly_transamination.1:PMT0600,
+Prochlorococcus MIT9313,Gln,Gln_glutaminase,glutaminase,1,0,1,0/1,Gln_glutaminase.1,missing,False,False,scored,absent,,,Gln_glutaminase.1
+Prochlorococcus MIT9313,Glu,Glu_GDH,glutamate dehydrogenase,1,0,0,-,Glu_GDH.1,present,True,True,cannot be judged (all-shared),can't be judged,,Glu_GDH.1:PMT0623,
+Prochlorococcus MIT9313,Gln,Gln_GOGAT,glutamate synthase (GOGAT),1,0,0,-,Gln_GOGAT.1,present,True,True,cannot be judged (all-shared),can't be judged,,Gln_GOGAT.1:PMT1777,
+Prochlorococcus MIT9313,Glu,Glu_GABA_shunt,GABA shunt,2,1,2,1/2,Glu_GABA_shunt.2,missing,False,False,excluded (N-neutral),excluded,PMT0474,Glu_GABA_shunt.1:PMT0474,Glu_GABA_shunt.2
+Prochlorococcus MIT9313,Glu,Glu_methylaspartate,methylaspartate route,2,0,2,0/2,Glu_methylaspartate.2,missing,False,False,not assessable (never 'absent'),not assessable,,,Glu_methylaspartate.1;Glu_methylaspartate.2
+Prochlorococcus MIT9313,Gly,Gly_oxidase,glycine oxidase,1,0,0,-,Gly_oxidase.1,present,True,True,cannot be judged (all-shared),can't be judged,,Gly_oxidase.1:PMT2140,
+Prochlorococcus MIT9313,Lys,Lys_cadaverine,lysine decarboxylase / cadaverine route,2,0,1,0/1,Lys_cadaverine.2,missing,False,False,scored,absent,,Lys_cadaverine.1:PMT1066,Lys_cadaverine.2
+Prochlorococcus MIT9313,Val,Val_LeuDH,leucine dehydrogenase,1,0,1,0/1,Val_LeuDH.1,missing,False,False,scored,absent,,,Val_LeuDH.1
+Prochlorococcus MIT9313,Val,Val_BCAT,valine transamination,1,0,0,-,Val_BCAT.1,present,True,True,cannot be judged (all-shared),can't be judged,,Val_BCAT.1:PMT0728,
+Prochlorococcus MIT9313,Leu,Leu_LeuDH,leucine dehydrogenase,1,0,1,0/1,Leu_LeuDH.1,missing,False,False,scored,absent,,,Leu_LeuDH.1
+Prochlorococcus MIT9313,Leu,Leu_BCAT,leucine transamination,1,0,0,-,Leu_BCAT.1,present,True,True,cannot be judged (all-shared),can't be judged,,Leu_BCAT.1:PMT0728,
+Prochlorococcus MIT9313,Ile,Ile_LeuDH,leucine dehydrogenase,1,0,1,0/1,Ile_LeuDH.1,missing,False,False,scored,absent,,,Ile_LeuDH.1
+Prochlorococcus MIT9313,Ile,Ile_BCAT,isoleucine transamination,1,0,0,-,Ile_BCAT.1,present,True,True,cannot be judged (all-shared),can't be judged,,Ile_BCAT.1:PMT0728,
+Prochlorococcus MIT9313,Ser,Ser_SHMT_GCS,"serine to glycine, then glycine cleavage",3,0,0,-,Ser_SHMT_GCS.3,present,True,True,cannot be judged (all-shared),can't be judged,,Ser_SHMT_GCS.1:PMT1847 | Ser_SHMT_GCS.2:PMT2169 | Ser_SHMT_GCS.3:PMT2215,
+Prochlorococcus MIT9313,Ser,Ser_transamination,serine transamination,1,0,0,-,Ser_transamination.1,present,True,True,cannot be judged (all-shared),can't be judged,,Ser_transamination.1:PMT0600,
+Prochlorococcus MIT9313,Ser,Ser_dehydratase,L-serine dehydratase,1,0,1,0/1,Ser_dehydratase.1,missing,False,False,scored,absent,,,Ser_dehydratase.1
+Prochlorococcus MIT9313,Phe,Phe_PAL,phenylalanine ammonia-lyase,1,0,1,0/1,Phe_PAL.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Phe_PAL.1
+Prochlorococcus MIT9313,Phe,Phe_hydroxylase_Tyr,"phenylalanine hydroxylase to tyrosine, then tyrosine transamination",2,0,1,0/1,Phe_hydroxylase_Tyr.2,present,False,False,scored,absent,,"Phe_hydroxylase_Tyr.2:PMT0779,PMT2069",Phe_hydroxylase_Tyr.1
+Prochlorococcus MIT9313,Pro,Pro_PutA,proline to glutamate (PutA),2,0,2,0/2,Pro_PutA.2,missing,False,False,scored,absent,,,Pro_PutA.1;Pro_PutA.2
+Prochlorococcus MIT9313,Phe,Phe_transamination,phenylalanine transamination,1,0,0,-,Phe_transamination.1,present,True,True,cannot be judged (all-shared),can't be judged,,"Phe_transamination.1:PMT0779,PMT2069",
+Prochlorococcus MIT9313,Lys,Lys_davBA,lysine 2-monooxygenase route,2,0,2,0/2,Lys_davBA.2,missing,False,False,not assessable (never 'absent'),not assessable,,,Lys_davBA.1;Lys_davBA.2
+Prochlorococcus MIT9313,Met,Met_transamination,methionine transamination,1,0,0,-,Met_transamination.1,missing,False,False,cannot be judged (all-shared),can't be judged,,,Met_transamination.1
+Prochlorococcus MIT9313,Lys,Lys_6AT,lysine 6-aminotransferase,1,0,1,0/1,Lys_6AT.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Lys_6AT.1
+Prochlorococcus MIT9313,Lys,Lys_6DH,lysine 6-dehydrogenase,1,0,1,0/1,Lys_6DH.1,missing,False,False,scored,absent,,,Lys_6DH.1
+Prochlorococcus MIT9313,Lys,Lys_saccharopine,saccharopine route,2,0,2,0/2,Lys_saccharopine.2,missing,False,False,not assessable (never 'absent'),not assessable,,,Lys_saccharopine.1;Lys_saccharopine.2
+Prochlorococcus MIT9313,Met,Met_gamma_lyase,methionine gamma-lyase,1,0,1,0/1,Met_gamma_lyase.1,missing,False,False,scored,absent,,,Met_gamma_lyase.1
+Prochlorococcus MIT9313,Phe,Phe_PheDH,phenylalanine dehydrogenase,1,0,1,0/1,Phe_PheDH.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Phe_PheDH.1
+Prochlorococcus MIT9313,Met,Met_transsulfuration,SAM cycle + reverse transsulfuration,4,0,2,0/2,Met_transsulfuration.4,missing,False,False,not assessable (never 'absent'),not assessable,,Met_transsulfuration.1:PMT1670 | Met_transsulfuration.2:PMT0138,Met_transsulfuration.3;Met_transsulfuration.4
+Prochlorococcus MIT9313,Thr,Thr_dehydratase,threonine dehydratase,1,0,0,-,Thr_dehydratase.1,present,True,True,cannot be judged (all-shared),can't be judged,,Thr_dehydratase.1:PMT0684,
+Prochlorococcus MIT9313,Trp,Trp_IAM,indole-3-acetamide route,2,0,2,0/2,Trp_IAM.2,missing,False,False,scored,absent,,,Trp_IAM.1;Trp_IAM.2
+Prochlorococcus MIT9313,Trp,Trp_transamination,tryptophan transamination,1,0,1,0/1,Trp_transamination.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Trp_transamination.1
+Prochlorococcus MIT9313,Trp,Trp_kynurenine_KAT,kynurenine route (kynurenine aminotransferase),3,0,3,0/3,Trp_kynurenine_KAT.3,missing,False,False,not assessable (never 'absent'),not assessable,,,Trp_kynurenine_KAT.1;Trp_kynurenine_KAT.2;Trp_kynurenine_KAT.3
+Prochlorococcus MIT9313,Trp,Trp_kynurenine_Ala,"kynurenine route (kynureninase), then alanine transamination",4,0,3,0/3,Trp_kynurenine_Ala.4,present,False,False,scored,absent,,Trp_kynurenine_Ala.4:PMT0600,Trp_kynurenine_Ala.1;Trp_kynurenine_Ala.2;Trp_kynurenine_Ala.3
+Prochlorococcus MIT9313,Trp,Trp_tryptophanase,tryptophanase,1,0,1,0/1,Trp_tryptophanase.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Trp_tryptophanase.1
+Prochlorococcus MIT9313,Tyr,Tyr_transamination,tyrosine transamination,1,0,0,-,Tyr_transamination.1,present,True,True,cannot be judged (all-shared),can't be judged,,"Tyr_transamination.1:PMT0779,PMT2069",
+Prochlorococcus MIT9313,Tyr,Tyr_TAL,tyrosine ammonia-lyase,1,0,1,0/1,Tyr_TAL.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Tyr_TAL.1
+Prochlorococcus MIT9313,Tyr,Tyr_phenol_lyase,tyrosine phenol-lyase,1,0,1,0/1,Tyr_phenol_lyase.1,missing,False,False,not assessable (never 'absent'),not assessable,,,Tyr_phenol_lyase.1
+Prochlorococcus MIT9313,Thr,Thr_aldolase,"threonine aldolase, then glycine cleavage",3,0,1,0/1,Thr_aldolase.3,present,False,False,scored,absent,,Thr_aldolase.2:PMT2169 | Thr_aldolase.3:PMT2215,Thr_aldolase.1
+Prochlorococcus MIT9313,Thr,Thr_TDH_kbl,"threonine dehydrogenase + kbl, then glycine cleavage",4,0,2,0/2,Thr_TDH_kbl.4,present,False,False,scored,absent,,Thr_TDH_kbl.3:PMT2169 | Thr_TDH_kbl.4:PMT2215,Thr_TDH_kbl.1;Thr_TDH_kbl.2
