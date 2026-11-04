@@ -1,9 +1,9 @@
 pilot_amino_acid,ko,pilot_label,pilot_shared,new_location
 Ala,K00259,ald,no,catalogue: Ala_dehydrogenase.1
 Ala,K00285,dadA,no,broad_enzymes
-Ala,K14260,alaA/alaC,yes,catalogue: Ala_transamination.1;Trp_kynurenine_Ala.4
+Ala,K14260,alaA/alaC,yes,catalogue: Ala_transamination.1;Trp_kynurenine_Ala.4;Val_BCAT.1
 Ala,K00814,GPT,yes,catalogue: Ala_transamination.1;Trp_kynurenine_Ala.4
-Ala,K00835,avtA,yes,catalogue: Val_BCAT.1
+Ala,K00835,avtA,yes,catalogue: Ala_transamination.1;Trp_kynurenine_Ala.4;Val_BCAT.1
 Arg,K01476,rocF,no,catalogue: Arg_arginase.1
 Arg,K01478,arcA,no,catalogue: Arg_ADI.1
 Arg,K00611,argF/arcB,yes,excluded: argF/arcB OTC: ADI step 2; Arg pathways end at the first N-freeing step (arcA). Context only.
@@ -19,11 +19,11 @@ Asn,K01424,ansA,no,catalogue: Asn_asparaginase.1
 Asn,K13051,iaaA/ansB,no,catalogue: Asn_asparaginase.1
 Asp,K01744,aspA,no,catalogue: Asp_aspartase.1
 Asp,K00278,nadB,yes,"excluded: nadB L-aspartate oxidase: NAD biosynthesis; the imino N is kept in quinolinate, so no N is freed. Not catalogued."
-Asp,K00812,aspB,yes,catalogue: Asp_transamination.1;Cys_CDO.2
-Asp,K00813,aspC,yes,catalogue: Asp_transamination.1;Cys_CDO.2
-Asp,K11358,yhdR,yes,catalogue: Asp_transamination.1;Cys_CDO.2
-Asp,K14454,GOT1,yes,catalogue: Asp_transamination.1;Cys_CDO.2
-Asp,K14455,GOT2,yes,catalogue: Asp_transamination.1;Cys_CDO.2
+Asp,K00812,aspB,yes,catalogue: Asp_transamination.1;Cys_CDO.2;Phe_hydroxylase_Tyr.2;Phe_transamination.1;Tyr_transamination.1
+Asp,K00813,aspC,yes,catalogue: Asp_transamination.1;Cys_CDO.2;Phe_hydroxylase_Tyr.2;Phe_transamination.1;Tyr_transamination.1
+Asp,K11358,yhdR,yes,catalogue: Asp_transamination.1;Cys_CDO.2;Phe_hydroxylase_Tyr.2;Phe_transamination.1;Tyr_transamination.1
+Asp,K14454,GOT1,yes,catalogue: Asp_transamination.1;Cys_CDO.2;Phe_hydroxylase_Tyr.2;Phe_transamination.1;Tyr_transamination.1
+Asp,K14455,GOT2,yes,catalogue: Asp_transamination.1;Cys_CDO.2;Phe_hydroxylase_Tyr.2;Phe_transamination.1;Tyr_transamination.1
 Cys,K01760,metC,yes,broad_enzymes
 Cys,K05396,dcyD,no,broad_enzymes
 Cys,K17217,mccB,no,catalogue: Cys_CTH.1;Met_transsulfuration.4
@@ -40,18 +40,18 @@ Gly,K00281,gcvP,yes,catalogue: Gly_cleavage.1;Ser_SHMT_GCS.2;Thr_TDH_kbl.3;Thr_a
 Gly,K00605,gcvT,yes,catalogue: Gly_cleavage.2;Ser_SHMT_GCS.3;Thr_TDH_kbl.4;Thr_aldolase.3
 Gly,K02437,gcvH,yes,excluded: gcvH: carrier protein of glycine cleavage; not scored (P and T proteins scored).
 Gly,K03153,thiO,yes,catalogue: Gly_oxidase.1
-Gly,K00830,AGXT,yes,catalogue: Gly_transamination.1;Ser_transamination.1
+Gly,K00830,AGXT,yes,catalogue: Ala_transamination.1;Gly_transamination.1;Ser_transamination.1;Trp_kynurenine_Ala.4
 His,K01745,hutH,no,catalogue: His_hut.1
 His,K01712,hutU,no,excluded: hutU: after hutH (first N-freeing step). Context only.
 His,K01468,hutI,no,excluded: hutI: after hutH. Context only.
 His,K01479,hutG,no,excluded: hutG: after hutH. Context only.
-His,K00817,hisC,yes,"excluded: hisC histidinol-phosphate aminotransferase: histidine biosynthesis, not breakdown. Moved to proposed controls."
+His,K00817,hisC,yes,catalogue: Phe_hydroxylase_Tyr.2;Phe_transamination.1;Tyr_transamination.1
 Ile;Leu;Val,K00826,ilvE,yes,catalogue: Ile_BCAT.1;Leu_BCAT.1;Val_BCAT.1
 Ile;Leu;Val,K00263,ldh,no,catalogue: Ile_LeuDH.1;Leu_LeuDH.1;Val_LeuDH.1
 Lys,K03918,lat,no,catalogue: Lys_6AT.1
 Lys,K01582,cadA,no,catalogue: Lys_cadaverine.1
 Met,K01761,mdeA,no,catalogue: Met_gamma_lyase.1
-Phe;Tyr,K00832,tyrB,yes,catalogue: Phe_hydroxylase_Tyr.2;Phe_transamination.1;Tyr_transamination.1
+Phe;Tyr,K00832,tyrB,yes,catalogue: Phe_hydroxylase_Tyr.2;Phe_transamination.1;Trp_transamination.1;Tyr_transamination.1
 Phe;Tyr,K00838,ARO8,yes,catalogue: Phe_hydroxylase_Tyr.2;Phe_transamination.1;Trp_transamination.1;Tyr_transamination.1
 Phe,K10775,PAL,no,catalogue: Phe_PAL.1
 Phe;Tyr,K13064,PTAL,no,catalogue: Phe_PAL.1;Tyr_TAL.1
@@ -63,7 +63,7 @@ Pro,K00294,rocA,no,catalogue: Pro_PutA.2
 Ser,K01752,sdaA,no,catalogue: Ser_dehydratase.1
 Ser,K01753,dsdA,no,broad_enzymes
 Ser;Thr,K01754,ilvA,yes,catalogue: Thr_dehydratase.1
-Ser;Thr,K17989,SDS,no,catalogue: Ser_dehydratase.1;Thr_dehydratase.1
+Ser;Thr,K17989,SDS,no,catalogue: Thr_dehydratase.1
 Thr,K01620,ltaE,no,catalogue: Thr_aldolase.1
 Thr,K00060,tdh,no,catalogue: Thr_TDH_kbl.1
 Thr,K00639,kbl,no,catalogue: Thr_TDH_kbl.2

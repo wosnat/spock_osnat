@@ -6,8 +6,8 @@ Metabolite ids are the ones resolved in the pilot (spike/data/med4_aa_metabolite
 compound ids, not organism data); a copy is written to methods/data/aa_metabolite_ids.csv.
 
 Each MED4 gene's KO comes from gene_ontology_terms(ontology='kegg', organism='MED4').
-A reaction is "covered" if any of its genes' KOs, or any of its ECs, is in a catalogue step,
-the broad table or the controls. Uncovered reactions are candidates; each is judged BY HAND from
+A row is "covered" only if its gene carries a KO of a step of THAT amino acid whose KEGG reaction list
+(step_reactions.csv) contains the row reaction. Uncovered reactions are candidates; each is judged BY HAND from
 the KEGG equation (which side the amino acid is on, whether N leaves it), never from the EC prefix.
 The KG carries no substrate/product role or reversibility flag (docs://tools/genes_by_metabolite),
 so `aa_side` is the side of the equation as KEGG writes it; direction is a curated judgement.
@@ -50,6 +50,10 @@ INCORP = ("no", "substrate (incorporated)", R, "The amino acid is incorporated w
 BIO_TA = ("formally yes (transamination)", "product as written; N donor physiologically", R,
           "Biosynthetic transamination with glutamate as the N donor into a must-build amino acid "
           "(arginine / lysine); shared biosynthesis, not breakdown.")
+
+BROAD_D = ("yes (NH3)", "substrate (D-form)", R, "D-amino acid oxidase (PMM1703, K00273): broad / D-amino-acid enzyme, never credited.")
+GLU_AT_PROD = ("no", "product", R, "Glutamate is formed from the 2-oxoglutarate acceptor of a transamination of another amino acid; "
+               "nothing is removed from glutamate.")
 
 DECISIONS: dict[tuple[str, str], tuple[str, str, str, str]] = {
     # ---- Ala
@@ -192,6 +196,45 @@ DECISIONS: dict[tuple[str, str], tuple[str, str, str, str]] = {
     ("Thr", "kegg.reaction:R01466"): PROD,
     ("Thr", "kegg.reaction:R03663"): TRNA,
     ("Thr", "kegg.reaction:R10463"): INCORP,
+    # ---- rows newly uncovered by the per-amino-acid coverage rule (critic Blocker 2) ----
+    ("Ala", "kegg.reaction:R00585"): PROD,
+    ("Ala", "kegg.reaction:R03210"): ("no", "substrate (incorporated)", R,
+        "8-amino-7-oxononanoate synthase (biotin): Ala incorporated, N kept. Gene PMM1468 carries K00639 (kbl) and "
+        "K00652 (bioF); product bioF - KO/product mismatch for K00639 (flagged in med4_flagged_hits)."),
+    ("Ala", "kegg.reaction:R10124"): ("no", "substrate (incorporated)", R, "As R03210 (ACP form); PMM1468 bioF."),
+    ("Arg", "kegg.reaction:R02923"): BROAD_D,
+    ("Pro", "kegg.reaction:R02894"): BROAD_D,
+    ("Gly", "kegg.reaction:R00366"): ("yes (NH3)", "substrate", R,
+        "Glycine deamination by PMM1703, whose KO is K00273 (D-amino-acid oxidase, broad table, never credited). "
+        "The catalogued glycine oxidase step (Gly_oxidase, thiO K03153) is a different gene (PMM0047)."),
+    ("Asp", "kegg.reaction:R00485"): PROD,
+    ("Cys", "kegg.reaction:R00896"): ("yes (transamination)", "substrate", R,
+        "Cysteine transamination to 3-mercaptopyruvate by aspartate aminotransferase (PMM0674, K00812). Listed under "
+        "known omissions; if added it would be an all-shared route (aspartate aminotransferase is shared), like Cys_CDO.2. "
+        "Researcher call."),
+    ("Cys", "kegg.reaction:R01001"): PROD,
+    ("Gln", "kegg.reaction:R00253"): PROD,
+    ("Glu", "kegg.reaction:R00253"): ("no", "substrate", R, "Glutamine synthetase: Glu N kept in Gln (central N assimilation)."),
+    ("Glu", "kegg.reaction:R00021"): ("no", "substrate as written; product physiologically", R,
+        "Fd-GOGAT written in reverse; physiologically it forms Glu (Gln_GOGAT, shared)."),
+    ("Glu", "kegg.reaction:R10086"): ("yes (NH3, as written)", "substrate", R,
+        "KEGG links a Glu-deaminating (GDH-type) half-reaction to Fd-GOGAT PMM1512 (K00284). GOGAT is shared central N "
+        "assimilation; a GDH-type step is shared by researcher decision 1. Not added."),
+    **{("Glu", f"kegg.reaction:{r}"): GLU_AT_PROD for r in
+       ["R00355", "R00372", "R00694", "R00734", "R00896", "R01090", "R01214", "R02199", "R02433", "R02619",
+        "R03243", "R05052", "R10991"]},
+    ("Gly", "kegg.reaction:R00371"): ("no", "substrate as written; product physiologically", R,
+        "kbl written in reverse (glycine + acetyl-CoA); physiologically it forms glycine (Thr_TDH_kbl.2). Gene PMM1468 is bioF "
+        "(flagged KO/product mismatch)."),
+    ("Gly", "kegg.reaction:R00588"): PROD,
+    ("Gly", "kegg.reaction:R00945"): ("no (N moves to Ser)", "substrate as written", R,
+        "SHMT glycine -> serine direction; N kept (moves into serine). SHMT is shared (Ser_SHMT_GCS.1)."),
+    ("Gly", "kegg.reaction:R09099"): PROD,
+    ("Ser", "kegg.reaction:R00220"): ("yes (NH3)", "substrate", R,
+        "Serine deamination by ilvA (PMM0908, K01754): side activity of the Ile-biosynthesis threonine dehydratase, "
+        "listed in the broad table and never credited for Ser (Ser_dehydratase credits K01752 only)."),
+    ("Ser", "kegg.reaction:R09099"): ("no (N moves to Gly)", "substrate", R,
+        "SHMT, tetrahydromethanopterin form of R00945; same enzyme as Ser_SHMT_GCS.1 (shared)."),
 }
 
 
@@ -264,20 +307,33 @@ def main():
             ko_where.setdefault(k, set()).add(c.control_id)
         ec_where.setdefault(c.ec, set()).add(c.control_id)
 
-    # Coverage is judged on the GENE's KO only (the row is one gene). An EC match alone is recorded
-    # as information: KEGG reactions carry many ECs, so an EC hit does not mean the gene is in the catalogue.
-    def cov_ko(r):
+    # COVERED (critic Blocker 2): the row's gene carries a KO of a step of THAT amino acid's own pathways
+    # whose KEGG reaction list (step_reactions.csv) contains THIS reaction. A gene KO found only in another
+    # amino acid's step, the broad table or the controls is NOT coverage; it is recorded as information.
+    srn = pd.read_csv(DATA / "step_reactions.csv", encoding="utf-8").set_index("step_id").kegg_rn.fillna("")
+    own = {}
+    for _, s in steps.iterrows():
+        rns = {f"kegg.reaction:{x}" for x in srn.get(s.step_id, "").split(";") if x}
+        own.setdefault(s.amino_acid, []).append((s.step_id, set(s.kos.split(";")), rns))
+
+    def cov_own(r):
+        gk = set(r.gene_kos.split(";"))
+        return " | ".join(sid for sid, ks, rns in own.get(r.amino_acid, []) if gk & ks and r.reaction_id in rns)
+
+    def cov_info(r):
         return " | ".join(sorted({f"KO {k}: {w}" for k in r.gene_kos.split(";") for w in ko_where.get(k, [])}))
 
     def cov_ec(r):
         return " | ".join(sorted({f"EC {e}: {w}" for e in r.ec_numbers.split(";") for w in ec_where.get(e, [])}))
-    df["catalogue_coverage"] = df.apply(cov_ko, axis=1)
+    df["catalogue_coverage"] = df.apply(cov_own, axis=1)
+    df["ko_elsewhere_info"] = df.apply(cov_info, axis=1)
     df["ec_match_only_info"] = df.apply(cov_ec, axis=1)
     df["covered"] = df.catalogue_coverage != ""
     df.to_csv(DATA / "crosscheck_all_reactions_med4.csv", index=False, encoding="utf-8")
     print("rows:", len(df), "| distinct reactions:", df.reaction_id.nunique(),
-          "| covered rows (gene KO in catalogue/broad/controls):", int(df.covered.sum()),
-          "| uncovered rows with an EC match:", int((~df.covered & (df.ec_match_only_info != "")).sum()))
+          "| covered rows (gene KO in this aa's own step for this reaction):", int(df.covered.sum()),
+          "| uncovered rows whose gene KO is elsewhere in catalogue/broad/controls:",
+          int((~df.covered & (df.ko_elsewhere_info != "")).sum()))
 
     # candidates = uncovered reaction x amino acid
     unc = df[~df.covered]
@@ -290,6 +346,7 @@ def main():
                 gene_names=("gene_name", lambda s: ";".join(sorted(set(map(str, s))))),
                 products=("product", lambda s: " | ".join(sorted(set(map(str, s))))),
                 gene_kos=("gene_kos", lambda s: ";".join(sorted({k for v in s for k in v.split(';') if k}))),
+                ko_elsewhere_info=("ko_elsewhere_info", lambda s: " | ".join(sorted(set(x for x in s if x)))),
                 ec_match_only_info=("ec_match_only_info", lambda s: " | ".join(sorted(set(x for x in s if x)))))
            .reset_index())
     dec = agg.apply(lambda r: DECISIONS.get((r.amino_acid, r.reaction_id), ("", "", "UNDECIDED", "")), axis=1)

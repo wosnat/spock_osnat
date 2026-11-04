@@ -105,6 +105,11 @@ def main():
           "truncated:", det["truncated"], "not_found:", len(det["not_found"]))
     assert not det["truncated"]
     kg = {x["term_id"].split(":", 1)[1]: x["name"] for x in det["results"]}
+    # Overall (all-organism) gene_count is read ONLY for expected-negative candidate KOs, to confirm a
+    # hit is possible somewhere in the KG; per-organism counts are never read.
+    neg_kos = {k for _, c in ctrl[ctrl.control_type == "expected_negative"].iterrows() for k in c.kos.split(";")}
+    kg_total = {x["term_id"].split(":", 1)[1]: x.get("gene_count") for x in det["results"]
+                if x["term_id"].split(":", 1)[1] in neg_kos}
 
     rows = []
     for k in kos:
@@ -166,16 +171,90 @@ def main():
     comp.to_csv(DATA / "ec_ko_completeness.csv", index=False, encoding="utf-8")
     print("step x EC rows:", len(comp), "| with KOs outside the step:", int((comp.not_in_step != "").sum()))
 
-    # ---- expected-negative selection (first rank that is KEGG-valid and in KG) ----
+    # ---- reaction -> KO completeness per step (KEGG link/ko/rn) ----
+    ecd = ecdf.set_index("ec")
+    srows, rcomp = [], []
+    for _, s in steps.iterrows():
+        rn, src = (str(s.kegg_rn), "manual (verified list/rn)") if isinstance(s.kegg_rn, str) and s.kegg_rn else ("", "")
+        if not rn:
+            ids = []
+            for e in str(s.ec).split(";"):
+                e = e.strip()
+                if e in ecd.index and isinstance(ecd.loc[e, "all_reac"], str):
+                    main_part = ecd.loc[e, "all_reac"].split("(other)")[0]
+                    ids += [x for x in re.findall(r"R\d{5}", main_part)]
+            rn, src = ";".join(dict.fromkeys(ids)), "EC main reactions (ALL_REAC before '(other)')"
+        srows.append(dict(step_id=s.step_id, step_key=s.step_key, amino_acid=s.amino_acid, kegg_rn=rn, kegg_rn_source=src))
+        step_kos = set(s.kos.split(";"))
+        for r in [x for x in rn.split(";") if x]:
+            ks = sorted(l.split("\t")[1].replace("ko:", "") for l in kegg(f"link/ko/rn:{r}").splitlines() if "\t" in l)
+            extra = [k for k in ks if k not in step_kos]
+            rcomp.append(dict(step_id=s.step_id, step_key=s.step_key, flag=s.flag, is_n_freeing=s.is_n_freeing,
+                              reaction=r, kegg_kos_for_rn=";".join(ks),
+                              not_in_step=";".join(f"{k} ({names.get(k) or kegg('list/' + k).split(chr(9), 1)[-1].strip()})" for k in extra)))
+    pd.DataFrame(srows).to_csv(DATA / "step_reactions.csv", index=False, encoding="utf-8")
+    rcomp = pd.DataFrame(rcomp)
+    rcomp.to_csv(DATA / "rn_ko_completeness.csv", index=False, encoding="utf-8")
+    print("step x reaction rows:", len(rcomp), "| with KOs outside the step:", int((rcomp.not_in_step != "").sum()))
+    print(rcomp[rcomp.not_in_step != ""][["step_id", "reaction", "not_in_step"]].drop_duplicates(["reaction", "not_in_step"]).to_string())
+
+    # ---- assessability (observable = every SCORED step - dedicated steps + the N-freeing anchor - has
+    #      >=1 KO with a KG node in EVERY AND-group; also reported over all steps) ----
+    inkg = val.set_index("ko").in_kg
+
+    def step_obs(s):
+        return all(any(bool(inkg[k]) for k in g.split("|")) for g in s.ko_groups.split(";"))
+    steps["step_observable"] = steps.apply(step_obs, axis=1)
+    prow = []
+    for pid, g in steps.groupby("pathway_id", sort=False):
+        scored = g[(g.flag == "dedicated") | g.is_n_freeing]
+        has_ded = bool((g.flag == "dedicated").any())
+        nneut = g.n_neutral_pathway.iloc[0] if isinstance(g.n_neutral_pathway.iloc[0], str) else ""
+        obs = bool(scored.step_observable.all())
+        prow.append(dict(amino_acid=g.amino_acid.iloc[0], pathway_id=pid, has_dedicated=has_ded,
+                         n_neutral=bool(nneut), observable=obs, all_steps_observable=bool(g.step_observable.all()),
+                         unobservable_steps=";".join(g[~g.step_observable].step_id),
+                         status_rule=("not assessable (never 'absent')" if not obs else
+                                      ("cannot be judged (all-shared)" if not has_ded else "scored")),
+                         note=";".join(x for x in [nneut, g.assess_note.iloc[0] if isinstance(g.assess_note.iloc[0], str) else ""] if x)))
+    pdf = pd.DataFrame(prow)
+    pdf.to_csv(DATA / "pathway_assessability.csv", index=False, encoding="utf-8")
+    arow = []
+    for aa, g in pdf.groupby("amino_acid", sort=False):
+        ded = g[g.has_dedicated & ~g.n_neutral]
+        nobs = int(ded.observable.sum())
+        if len(ded) == 0:
+            a, why = "no", ("no dedicated step in any route (all routes all-shared)" if not g.n_neutral.any()
+                            else "only dedicated route is N-neutral; other routes all-shared")
+        elif nobs == 0:
+            a, why = "no", "no dedicated route is observable (its KOs have no node in the KG): " + ";".join(ded.pathway_id)
+        elif nobs < len(ded):
+            a, why = "partly", "not observable: " + ";".join(ded[~ded.observable].pathway_id)
+        else:
+            a, why = "yes", "all dedicated routes observable"
+        if g.n_neutral.any():
+            why += "; N-neutral route excluded: " + ";".join(g[g.n_neutral].pathway_id)
+        arow.append(dict(amino_acid=aa, n_pathways=len(g), n_dedicated_routes=len(ded),
+                         n_observable_dedicated_routes=nobs, n_all_shared=int((~g.has_dedicated).sum()),
+                         assessable=a, reason=why))
+    adf = pd.DataFrame(arow)
+    adf.to_csv(DATA / "aa_assessability.csv", index=False, encoding="utf-8")
+    print("pathways observable:", int(pdf.observable.sum()), "of", len(pdf),
+          "| differs from all-steps definition:", int((pdf.observable != pdf.all_steps_observable).sum()))
+    print(adf.to_string(index=False))
+
+    # ---- expected-negative selection (first rank that is KEGG-valid and has a KG KO node with gene_count >= 1) ----
     ok = val.set_index("ko")
     chosen = None
     ctrl["kegg_valid_all"] = ctrl.kos.map(lambda s: all(ok.loc[k, "kegg_valid"] for k in s.split(";")))
     ctrl["in_kg_any"] = ctrl.kos.map(lambda s: any(ok.loc[k, "in_kg"] for k in s.split(";")))
     ctrl["in_kg_kos"] = ctrl.kos.map(lambda s: ";".join(k for k in s.split(";") if ok.loc[k, "in_kg"]))
+    ctrl["kg_gene_count_total"] = ctrl.apply(lambda r: ";".join(f"{k}={kg_total.get(k, 0)}" for k in r.kos.split(";"))
+                                             if r.control_type == "expected_negative" else "", axis=1)
     neg = ctrl[ctrl.control_type == "expected_negative"].copy()
     neg["r"] = neg.rank_or_tier.astype(int)
     for _, r in neg.sort_values("r").iterrows():
-        if r.kegg_valid_all and r.in_kg_any:
+        if r.kegg_valid_all and r.in_kg_any and all((kg_total.get(k) or 0) >= 1 for k in r.kos.split(";") if ok.loc[k, "in_kg"]):
             chosen = r.control_id
             break
     ctrl["proposed"] = ctrl.apply(

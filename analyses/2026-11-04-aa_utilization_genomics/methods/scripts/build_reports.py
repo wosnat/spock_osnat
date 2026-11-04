@@ -96,6 +96,13 @@ def main():
     ctrl = pd.read_csv(DATA / "proposed_controls.csv", encoding="utf-8")
     comp = pd.read_csv(DATA / "ec_ko_completeness.csv", encoding="utf-8")
     rec = pd.read_csv(DATA / "pilot_reconciliation.csv", encoding="utf-8")
+    passess = pd.read_csv(DATA / "pathway_assessability.csv", encoding="utf-8").set_index("pathway_id")
+    aassess = pd.read_csv(DATA / "aa_assessability.csv", encoding="utf-8").set_index("amino_acid")
+    hits = pd.read_csv(DATA / "med4_step_hits.csv", encoding="utf-8")
+    flagged = pd.read_csv(DATA / "med4_flagged_hits.csv", encoding="utf-8")
+    fchg = pd.read_csv(DATA / "flag_change_log.csv", encoding="utf-8")
+    rcomp = pd.read_csv(DATA / "rn_ko_completeness.csv", encoding="utf-8")
+    srn = pd.read_csv(DATA / "step_reactions.csv", encoding="utf-8").set_index("step_id")
 
     long = long.join(val[["kegg_valid", "kegg_name", "in_kg"]], on="ko")
     steps["n_kos"] = steps.kos.str.split(";").map(len)
@@ -112,7 +119,10 @@ def main():
                          dedicated_steps=int((g.flag == "dedicated").sum()),
                          shared_steps=int((g.flag == "shared").sum()),
                          all_shared_pathways=int(sum(pcls[p] == "all-shared" for p in pids)),
-                         n_freeing_step_ids="; ".join(g[g.is_n_freeing].step_id)))
+                         n_freeing_step_ids="; ".join(g[g.is_n_freeing].step_id),
+                         n_pathways=int(aassess.loc[aa, "n_pathways"]),
+                         n_observable_dedicated_routes=int(aassess.loc[aa, "n_observable_dedicated_routes"]),
+                         assessable=aassess.loc[aa, "assessable"], assessable_reason=aassess.loc[aa, "reason"]))
     summ = pd.DataFrame(summ)
     summ.to_csv(DATA / "catalogue_summary_by_aa.csv", index=False, encoding="utf-8")
 
@@ -133,8 +143,21 @@ def main():
         (len(cat_kos), "distinct KOs in catalogue"),
         (n_invalid, "KOs not valid in KEGG (all tables)"),
         (len(cat_notkg), "catalogue KOs with no gene in the KG"),
-        (int((cand.proposal == "add").sum()), "cross-check rows proposed 'add'"),
+        (int((cand.proposal == "add").sum()), "cross-check reaction rows proposed 'add'"),
+        (int((summ.assessable == "yes").sum()), "amino acids assessable"),
+        (int((summ.assessable == "partly").sum()), "amino acids partly assessable"),
+        (int((summ.assessable == "no").sum()), "amino acids not assessable"),
+        (int((~passess.observable).sum()), "pathways not observable (status 'not assessable')"),
+        (flagged.locus_tag.nunique(), "MED4 genes flagged KO/product mismatch"),
     ]
+    unsc = summ[summ.assessable == "no"]
+    unsc_html = ("<p><b>Not assessable from KO annotation (by design):</b> " + "; ".join(
+        f"<b>{E(r.amino_acid)}</b> ({E(r.assessable_reason)})" for _, r in unsc.iterrows()) + ".</p>"
+        + "<p><b>Partly assessable:</b> " + "; ".join(
+        f"<b>{E(r.amino_acid)}</b> ({E(r.assessable_reason)})" for _, r in summ[summ.assessable == "partly"].iterrows()) + ".</p>"
+        '<p class="note">A pathway is observable if every scored step (each dedicated step and the N-freeing anchor) has, in every '
+        "required subunit group, at least one KO with a node in the KG. An unobservable pathway is reported as "
+        "<b>not assessable</b>, never as absent. Assessable counts only routes with a dedicated step that are not N-neutral.</p>")
 
     H = ['<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">',
          '<meta name="viewport" content="width=device-width,initial-scale=1">',
@@ -153,10 +176,12 @@ def main():
          '<span><span class="nfb">N-freeing</span> the pathway\'s anchor step (also underlined in black)</span>'
          "<span>Hover a step for its reaction and flag reason.</span></div>",
          "<h2>Per amino acid</h2>",
+         unsc_html,
          table(summ, "t_summ", mono=("n_freeing_step_ids",)),
          '<nav class="aa">' + "".join(f'<a href="#aa-{a}">{a}</a>' for a in AA_ORDER)
          + '<a href="#debatable">debatable</a><a href="#kos">KO checks</a><a href="#broad">broad</a>'
-           '<a href="#xcheck">MED4 cross-check</a><a href="#controls">controls</a><a href="#pilot">pilot</a></nav>']
+           '<a href="#xcheck">MED4 cross-check</a><a href="#hits">MED4 product check</a><a href="#controls">controls</a>'
+           '<a href="#changes">flag changes</a><a href="#omissions">known omissions</a><a href="#pilot">pilot</a></nav>']
 
     # ---- pathways ----
     H.append("<h2>Pathways by amino acid</h2>")
@@ -168,7 +193,10 @@ def main():
             cls = p.pathway_class.iloc[0]
             H.append('<div class="pw"><div class="pwh">'
                      f'<b>{E(p.pathway_name.iloc[0])} <span class="mono">({E(pid)})</span></b>'
-                     f'<span>{E(cls)} · {len(p)} step(s), {int((p.flag=="dedicated").sum())} dedicated · source: {E(p.source_ref.iloc[0])}</span></div>')
+                     f'<span>{E(cls)} · {len(p)} step(s), {int((p.flag=="dedicated").sum())} dedicated · '
+                     f'{"observable" if passess.loc[pid, "observable"] else "<b>NOT ASSESSABLE</b> (KOs not in KG)"} · source: {E(p.source_ref.iloc[0])}</span></div>')
+            if isinstance(passess.loc[pid, "note"], str) and passess.loc[pid, "note"]:
+                H.append(f'<div class="pnote"><b>Assessability:</b> {E(passess.loc[pid, "note"])}</div>')
             chain = []
             for _, s in p.iterrows():
                 c = "ded" if s.flag == "dedicated" else "sh"
@@ -185,9 +213,10 @@ def main():
             sub = long[long.pathway_id == pid].copy()
             sub["kegg_valid"] = sub.kegg_valid.map({True: "yes", False: "NO"})
             sub["in_kg"] = sub.in_kg.map({True: "yes", False: "no"})
-            sub = sub.merge(p[["step_id", "flag_reason", "debatable_reason"]].rename(columns={"flag_reason": "fr"}), on="step_id", suffixes=("", "_s"))
-            show = sub[["step_id", "ko", "kegg_name", "ec", "flag", "fr", "debatable", "kegg_valid", "in_kg"]].rename(
-                columns={"fr": "flag_reason", "kegg_name": "KEGG name"})
+            sub = sub.merge(p[["step_id", "flag_reason", "ko_groups", "product_keywords"]].rename(columns={"flag_reason": "fr"}), on="step_id", suffixes=("", "_s"))
+            sub["kegg_rn"] = sub.step_id.map(lambda s: srn.loc[s, "kegg_rn"] if s in srn.index else "")
+            show = sub[["step_id", "ko", "kegg_name", "ec", "kegg_rn", "ko_groups", "flag", "fr", "debatable", "kegg_valid", "in_kg", "product_keywords"]].rename(
+                columns={"fr": "flag_reason", "kegg_name": "KEGG name", "ko_groups": "ko_groups (; = AND, | = OR)"})
             H.append(table(show, mono=("step_id", "ko", "ec")))
             notes = [f"{E(s.step_id)}: {E(s.notes)}" for _, s in p.iterrows() if isinstance(s.notes, str) and s.notes]
             if isinstance(p.pathway_note.iloc[0], str) and p.pathway_note.iloc[0]:
@@ -218,6 +247,11 @@ def main():
              "Listed for the researcher to decide whether any is a missing isozyme; most are deliberate exclusions "
              "(see each step's notes).</p>")
     H.append(table(c2, "t_comp", mono=("step_id", "ec"), filt=True))
+    r2 = rcomp[rcomp.not_in_step.fillna("") != ""][["step_id", "flag", "is_n_freeing", "reaction", "not_in_step"]]
+    H.append(f"<h3>Other KOs KEGG links to a step's reaction ({len(r2)} step x reaction rows)</h3>"
+             '<p class="note">KEGG link/ko/rn on each step\'s reaction ids (manual list, or the EC\'s main reactions). '
+             "Anchor (N-freeing) transamination steps were filled from these links.</p>")
+    H.append(table(r2, "t_rcomp", mono=("step_id", "reaction"), filt=True))
 
     # ---- broad ----
     H.append('<h2 id="broad">Broad-specificity, D-amino-acid and side-activity enzymes (never credited)</h2>')
@@ -229,10 +263,19 @@ def main():
     allx = pd.read_csv(DATA / "crosscheck_all_reactions_med4.csv", encoding="utf-8")
     H.append(f'<p class="note">genes_by_metabolite(evidence_sources=[metabolism], organism=MED4, include_stereo_forms=True) for the 20 '
              f"amino acids: {len(allx)} gene x reaction x amino-acid rows, {allx.reaction_id.nunique()} distinct reactions, "
-             f"{int(allx.covered.sum())} rows covered by a catalogue / broad / control KO or EC. Uncovered reactions are grouped below "
+             f"{int(allx.covered.sum())} rows covered. <b>Covered</b> = the gene's KO is in a step of <i>that amino acid's own</i> "
+             "pathways whose KEGG reaction list contains this reaction; a KO found only in another amino acid's step, the broad "
+             "table or the controls is not coverage (shown as 'ko_elsewhere_info'). Uncovered reactions are grouped below "
              f"(one row per amino acid x reaction, {len(cand)} rows). 'aa_side' is the side of the KEGG equation as written; "
              "the KG carries no substrate/product role, so 'aa_role' and the proposal are hand judgements from the equation.</p>")
-    H.append(f"<p class=\"note\">Proposal counts: {E(cand.proposal.value_counts().to_dict())}</p>")
+    adds = cand[cand.proposal == "add"]
+    n_enz = adds.ec_numbers.fillna("").map(lambda s: s.split(";")[0]).nunique()
+    H.append(f"<p class=\"note\">Proposal counts: {E(cand.proposal.value_counts().to_dict())}. "
+             f"Proposed adds: <b>{n_enz} enzymes / {len(adds)} reaction rows</b>.</p>")
+    H.append('<p class="note"><b>Consistency note (asymmetry kept visible):</b> histidine decarboxylase (R01167, MED4 PMM0917) '
+             "is rejected because decarboxylation keeps N in histamine and no KEGG module defines a histamine N-freeing step, "
+             "whereas the analogous lysine route (cadA -> cadaverine -> patA, Lys_cadaverine) is catalogued because KEGG M00956 "
+             "defines it. The researcher may want the two treated the same way.</p>")
     cshow = cand[["proposal", "amino_acid", "reaction_id", "equation", "ec_numbers", "aa_side", "aa_role", "removes_N_from_aa",
                   "locus_tags", "gene_kos", "products", "reason"]].sort_values(["proposal", "amino_acid"])
     H.append(table(cshow, "t_x", mono=("reaction_id", "ec_numbers", "locus_tags", "gene_kos"), filt=True))
@@ -241,16 +284,42 @@ def main():
                 locus_tags=("locus_tag", lambda s: ";".join(sorted(set(s)))),
                 gene_kos=("gene_kos", "first"), catalogue_coverage=("catalogue_coverage", "first")).reset_index())
     H.append(f"<h3>Covered reactions ({len(cov)} amino acid x reaction rows)</h3>"
-             '<p class="note">Shown so coverage-by-EC matches can be checked (an EC match does not mean the amino acid is the substrate).</p>')
+             '<p class="note">catalogue_coverage = the amino acid\'s own step(s) whose KO and reaction match.</p>')
     H.append(table(cov, "t_cov", mono=("reaction_id", "locus_tags", "gene_kos"), filt=True))
+
+    # ---- MED4 product agreement ----
+    H.append('<h2 id="hits">MED4 product-agreement check</h2>')
+    H.append(f'<p class="note">Rule: a gene counts for a step only if its KG product contains one of the step\'s product keywords; '
+             f"otherwise it is <b>flagged: KO/product mismatch</b> and does not count until the researcher reviews it. "
+             f"genes_by_ontology(kegg, MED4) on all catalogue + control KOs: {len(hits)} step x gene rows, "
+             f"{hits.locus_tag.nunique()} MED4 genes; {len(flagged)} rows / {flagged.locus_tag.nunique()} genes flagged. "
+             "This is a hit list, not a pathway score.</p>")
+    H.append(table(flagged[["step_id", "amino_acid", "ko", "locus_tag", "gene_name", "product", "product_keywords", "call"]],
+                   "t_flag", mono=("step_id", "ko", "locus_tag"), filt=True))
 
     # ---- controls ----
     H.append('<h2 id="controls">Proposed controls (researcher approves)</h2>')
     H.append(table(ctrl[["control_type", "control_id", "step_name", "kos", "ec", "source_ref", "rank_or_tier",
                          "kegg_valid_all", "in_kg_any", "in_kg_kos", "proposed", "rationale"]], "t_ctrl", mono=("kos", "ec")))
-    H.append('<p class="note">Expected-negative rule (set before checking): first candidate in biology rank that is valid in KEGG '
-             "and has a KO node in the KG; a KO with no gene anywhere in the KG cannot produce a hit, so it could not reveal a "
-             "KO-matching artefact.</p>")
+    H.append('<p class="note">Expected-negative rule: first candidate in biology rank that is valid in KEGG and whose KO node '
+             "exists in the KG with an overall gene count of at least 1 (kg_gene_count_total; no per-organism counts read). A KO "
+             "with no gene anywhere in the KG cannot produce a hit, so it could not reveal a KO-matching artefact. "
+             "<b>Disclosure:</b> the ranking and this rule were written in the same commit as the KG lookup that applied them.</p>")
+    H.append(table(ctrl[["control_id", "kg_gene_count_total", "product_keywords", "disclosure"]], "t_ctrl2", mono=("control_id",)))
+
+    # ---- flag changes ----
+    H.append('<h2 id="changes">Flag and KO-list changes after the critic review</h2>')
+    H.append(table(fchg, "t_chg", mono=("step_key",)))
+
+    # ---- known omissions ----
+    H.append('<h2 id="omissions">Known omissions (not catalogued)</h2><ul>'
+             "<li>Glycine reductase (anaerobic, Stickland; glycine -> acetyl-P + NH4+).</li>"
+             "<li>Proline reductase (anaerobic, Stickland; N kept in 5-aminovalerate).</li>"
+             "<li>Lysine 2,3-aminomutase route (kamA; anaerobic lysine fermentation).</li>"
+             "<li>Cysteine -> 3-mercaptopyruvate by cysteine transamination (aspartate aminotransferase side activity, R00896).</li>"
+             "<li>Aromatic amino-acid decarboxylase + tynA amine oxidase (tyramine / phenylethylamine routes).</li>"
+             "<li>ArgZ (Arg_argZ) is catalogued but not assessable: its KOs have no node in the KG; a homolog-based search would be "
+             "needed (possible later extension).</li></ul>")
 
     # ---- pilot ----
     H.append('<h2 id="pilot">Where each pilot (spike) catalogue KO went</h2>')

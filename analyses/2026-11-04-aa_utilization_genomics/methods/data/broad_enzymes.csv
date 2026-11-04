@@ -10,5 +10,6 @@ K14267,dapC,2.6.1.17,broad aminotransferase,N-succinyldiaminopimelate aminotrans
 K10907,K10907,2.6.1.-,broad aminotransferase,"aminotransferase, substrate unspecified",pilot ALL row,False
 K00837,ISS1/VAS1,2.6.1.-,broad aminotransferase,"aromatic aminotransferase, substrate unspecified",pilot ALL row,False
 K01754,ilvA,4.3.1.19,side activity,threonine dehydratase also deaminates L-serine; credited only as Thr_dehydratase (shared),,False
+K17989,SDS,4.3.1.17;4.3.1.19,side activity,L-serine/L-threonine ammonia-lyase; listed in M00570 (Ile biosynthesis) -> credited only as Thr_dehydratase (shared); its Ser activity is a side activity like ilvA's,pilot Ser;Thr,False
 K01760,metC,4.4.1.13,side activity,cystathionine beta-lyase (Met biosynthesis); cysteine desulfhydrase side activity,pilot listed under Cys,False
 K14155,patB/malY,4.4.1.13,side activity,cystathionine beta-lyase family; cysteine desulfhydrase side activity,,False

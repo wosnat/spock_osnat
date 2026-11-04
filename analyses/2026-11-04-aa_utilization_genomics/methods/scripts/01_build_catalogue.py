@@ -25,6 +25,8 @@ Outputs (methods/data/):
   pathway_catalogue.csv        one row per amino acid x pathway x step x KO
   broad_enzymes.csv            broad / D-amino-acid / side-activity enzymes (never credited)
   pilot_reconciliation.csv     where every KO of the spike draft catalogue went
+  flag_change_log.csv          every flag / KO-list change made after the critic review (old -> new)
+  proposed_controls.csv        controls (02 adds validity, gene count and selection columns)
 
 Run (repo root): uv run python analyses/2026-11-04-aa_utilization_genomics/methods/scripts/01_build_catalogue.py
 """
@@ -40,6 +42,12 @@ SPIKE = MDIR.parent / "spike" / "data" / "med4_n_release_catalogue.csv"
 
 NH4, TR, UREA, GLU = "NH4+", "transamination", "via urea", "to glutamate"
 DED, SH = "dedicated", "shared"
+K00830_DEBATE = ("K00830 (AGXT) carries Ala-, Gly- and Ser- glyoxylate/pyruvate transamination; whether its "
+                 "photorespiratory role holds in cyanobacteria is not established here. Same judgement in ALA_AT, GLY_AT, SER_AT.")
+CTH_DEBATE = ("K01758 is cross-annotated onto forward-transsulfuration enzymes: in MED4 it sits on PMM0409 "
+              "(product O-succinylhomoserine thiol-lyase, MetB) and PMM1670 (cystathionine beta-lyase family, MetC-like), "
+              "both eggNOG family_inferred. MetB/MetC are Met-biosynthesis enzymes; only genes whose product names "
+              "cystathionine gamma-lyase are credited. Cys is also only a side substrate of CTH.")
 
 # ---------------------------------------------------------------------------------------------
 # Reusable step definitions (same reaction in several pathways -> one step_key, one flag).
@@ -47,7 +55,7 @@ DED, SH = "dedicated", "shared"
 #         flag_reason, debatable_reason ("" = not debatable), notes
 # ---------------------------------------------------------------------------------------------
 def S(step_key, step_name, reaction, kos, ec, n_freeing, n_mode, acceptor, flag, flag_reason,
-      debatable="", notes=""):
+      debatable="", notes=""):  # product_keywords, kegg_rn, ko_groups come from the lookup tables below
     return dict(step_key=step_key, step_name=step_name, reaction=reaction, kos=kos, ec=ec,
                 is_n_freeing=n_freeing, n_mode=n_mode if n_freeing else "", acceptor=acceptor,
                 flag=flag, flag_reason=flag_reason, debatable_reason=debatable, notes=notes)
@@ -65,10 +73,22 @@ GCS_T = S("GCS_T", "glycine cleavage T protein (aminomethyltransferase)",
           "Same glycine cleavage system: C1 (methylene-THF) supply and photorespiration.")
 ALA_AT = S("ALA_AT", "alanine transamination",
            "L-alanine + 2-oxo acid <=> pyruvate + L-amino acid",
-           ["K14260", "K00814", "K14272"], "2.6.1.2", True, TR, "2-oxoglutarate (-> Glu)", SH,
-           "Same reaction makes alanine (pyruvate + Glu); alanine is a must-build amino acid.")
+           ["K14260", "K00814", "K14272", "K00830", "K00827", "K05825", "K28204", "K00835"],
+           "2.6.1.2;2.6.1.44;2.6.1.66", True, TR,
+           "2-oxoglutarate (-> Glu; R00258), glyoxylate (-> Gly; R00369) or 2-oxoisovalerate (-> Val; R01215)", SH,
+           "Same reaction makes alanine (pyruvate + Glu); alanine is a must-build amino acid.",
+           debatable=K00830_DEBATE,
+           notes="KO list = KEGG link/ko/rn for R00258 + R00369 + R01215.")
 ASP_AT_KOS = ["K00811", "K00812", "K00813", "K11358", "K14454", "K14455", "K15849"]
-AROM_AT_KOS = ["K00815", "K00832", "K00838"]
+# KEGG link/ko/rn:R00694 (Phe) and R00734 (Tyr) give the same 12 KOs.
+AROM_AT_KOS = ["K00811", "K00812", "K00813", "K00815", "K00817", "K00832", "K00838", "K05821",
+               "K11358", "K14454", "K14455", "K15849"]
+AROM_AT_DEBATE = ("Reaction-level rule: MED4 makes Phe and Tyr via arogenate (arogenate dehydratase R00691 PMM1504; "
+                  "arogenate dehydrogenase R00733 PMM1565, both in the MED4 cross-check), so its biosynthetic "
+                  "transamination acts on prephenate, not on phenylpyruvate / 4-hydroxyphenylpyruvate; the Phe/Tyr "
+                  "transamination is then not needed for biosynthesis -> dedicated. But every KO here is a "
+                  "multi-substrate biosynthetic aminotransferase (Asp, His, aromatic), so the step will be present in "
+                  "nearly every genome; and strains using the phenylpyruvate route (M00024/M00025) would need it -> shared.")
 ADC = S("ADC", "arginine decarboxylase", "L-arginine -> agmatine + CO2",
         ["K01585", "K02626", "K01584", "K01583"], "4.1.1.19", False, "", "", SH,
         "Polyamine (putrescine/spermidine) biosynthesis, M00133; researcher decision: speA shared.",
@@ -76,8 +96,9 @@ ADC = S("ADC", "arginine decarboxylase", "L-arginine -> agmatine + CO2",
               "isozymes of one reaction.")
 TYR_AT = S("TYR_AT", "tyrosine transamination",
            "L-tyrosine + 2-oxoglutarate <=> 4-hydroxyphenylpyruvate + L-glutamate",
-           AROM_AT_KOS, "2.6.1.5;2.6.1.57", True, TR, "2-oxoglutarate (-> Glu)", SH,
-           "Reverse of the last step of tyrosine biosynthesis (M00025: K00832/K00838).",
+           AROM_AT_KOS, "2.6.1.1;2.6.1.5;2.6.1.57", True, TR, "2-oxoglutarate (-> Glu)", DED,
+           "Not needed for Tyr biosynthesis when Tyr is made via arogenate (MED4 cross-check: R00733 PMM1565) [KG + interpretation].",
+           debatable=AROM_AT_DEBATE,
            notes="M00044 step 1 also lists K03334 (L-amino-acid oxidase), kept in the broad table.")
 
 # ---------------------------------------------------------------------------------------------
@@ -140,10 +161,12 @@ add("Arg", "Arg_agmatine_deiminase", "agmatine route via agmatine deiminase", "m
 # ---- Asn ------------------------------------------------------------------------------------
 add("Asn", "Asn_asparaginase", "asparaginase", "map00250", [
     S("ASNASE", "L-asparaginase", "L-asparagine + H2O -> L-aspartate + NH4+",
-      ["K01424", "K13051", "K13278"], "3.5.1.1", True, NH4, "", DED,
+      ["K01424", "K13051", "K13278", "K05597"], "3.5.1.1;3.5.1.38", True, NH4, "", DED,
       "Breaks asparagine down; asparagine is made by asparagine synthetase, not this enzyme.",
       notes="K13051 (iaaA) is also an isoaspartyl peptidase; K13278 (ASPG) is mainly a eukaryotic "
-            "lysophospholipase with asparaginase activity.")])
+            "lysophospholipase with asparaginase activity. K05597 (glutaminase-asparaginase, EC 3.5.1.38) added from "
+            "KEGG link/ko/rn:R00485; it is also credited to Gln_glutaminase.",
+      debatable="K05597 is a two-substrate glutaminase-asparaginase credited to both Asn and Gln.")])
 add("Asn", "Asn_transaminase", "asparagine transamination", "map00250", [
     S("ASN_AT", "asparagine--oxo-acid transaminase", "L-asparagine + 2-oxo acid <=> 2-oxosuccinamate + L-amino acid",
       ["K22457"], "2.6.1.14", True, TR, "2-oxo acid (unspecified)", DED, "Asparagine catabolism only.")])
@@ -168,7 +191,7 @@ add("Cys", "Cys_CTH", "cystathionine gamma-lyase acting on cysteine", "map00270"
       ["K01758", "K17217"], "4.4.1.1", True, NH4, "", DED,
       "Reverse transsulfuration enzyme; cyanobacteria make cysteine via cysteine synthase and "
       "methionine via cystathionine beta-lyase, not this enzyme [interpretation].",
-      debatable="Cysteine is a side substrate of CTH; the same KOs also form Met_transsulfuration step CTH.")])
+      debatable=CTH_DEBATE)])
 add("Cys", "Cys_CDO", "cysteine dioxygenase route", "map00270", [
     S("CDO", "cysteine dioxygenase", "L-cysteine + O2 -> 3-sulfino-L-alanine", ["K00456"], "1.13.11.20",
       False, "", "", DED, "Cysteine catabolism only."),
@@ -179,10 +202,12 @@ add("Cys", "Cys_CDO", "cysteine dioxygenase route", "map00270", [
 
 # ---- Gln ------------------------------------------------------------------------------------
 add("Gln", "Gln_glutaminase", "glutaminase", "map00250", [
-    S("GLNASE", "glutaminase", "L-glutamine + H2O -> L-glutamate + NH4+", ["K01425"], "3.5.1.2",
+    S("GLNASE", "glutaminase", "L-glutamine + H2O -> L-glutamate + NH4+", ["K01425", "K05597"], "3.5.1.2;3.5.1.38",
       True, NH4, "", DED, "Free glutaminase; not part of GS-GOGAT assimilation.",
       notes="K23265 (EC 3.5.1.2) is excluded: it is PurQ, the glutaminase subunit of purine "
-            "biosynthesis (FGAM synthase), i.e. a shared biosynthetic amidotransferase.")])
+            "biosynthesis (FGAM synthase), i.e. a shared biosynthetic amidotransferase. CPS KOs (K01954-K01956, "
+            "K11540) also link to R00256 and are excluded for the same reason. K05597 added from link/ko/rn:R00256.",
+      debatable="K05597 is a two-substrate glutaminase-asparaginase credited to both Asn and Gln.")])
 add("Gln", "Gln_GOGAT", "glutamate synthase (GOGAT)", "map00250; map00910", [
     S("GOGAT", "glutamate synthase", "L-glutamine + 2-oxoglutarate + reductant -> 2 L-glutamate",
       ["K00265", "K00266", "K00264", "K00284"], "1.4.1.13;1.4.1.14;1.4.7.1", True, GLU,
@@ -205,6 +230,14 @@ add("Glu", "Glu_GABA_shunt", "GABA shunt", "M00027", [
       "GABA / polyamine catabolism; no must-build product.",
       debatable="With 2-oxoglutarate as acceptor the N returns to glutamate, so no net N leaves the Glu pool.")])
 
+add("Glu", "Glu_methylaspartate", "methylaspartate route", "map00630 (C5-branched dibasic acid); map00250", [
+    S("GLMUT", "glutamate mutase (methylaspartate mutase)", "L-glutamate <=> L-threo-3-methylaspartate",
+      ["K01846", "K19268"], "5.4.99.1", False, "", "", DED, "Glutamate fermentation only (clostridial-type route).",
+      notes="Two subunits: sigma K01846 (glmS/mutS) AND epsilon K19268 (glmE/mutE) are both required."),
+    S("MAL", "3-methylaspartate ammonia-lyase", "L-threo-3-methylaspartate -> mesaconate + NH4+", ["K04835"],
+      "4.3.1.2", True, NH4, "", DED, "Glutamate fermentation only.")],
+    note="Added on critic review.")
+
 # ---- Gly ------------------------------------------------------------------------------------
 add("Gly", "Gly_cleavage", "glycine cleavage system", "M00621", [GCS_P, GCS_T],
     note="All-shared route.")
@@ -216,8 +249,9 @@ add("Gly", "Gly_oxidase", "glycine oxidase", "map00260; M00895", [
     note="All-shared route.")
 add("Gly", "Gly_transamination", "glycine transamination", "map00260; map00630", [
     S("GLY_AT", "glycine transamination", "glycine + 2-oxo acid <=> glyoxylate + L-amino acid",
-      ["K00830", "K00827", "K14272"], "2.6.1.4;2.6.1.44", True, TR, "pyruvate (-> Ala) or 2-oxoglutarate (-> Glu)", SH,
-      "Photorespiratory glyoxylate -> glycine conversion runs these enzymes in the glycine-forming direction.")],
+      ["K00830", "K00827", "K05825", "K14272", "K28204"], "2.6.1.4;2.6.1.44", True, TR, "pyruvate (-> Ala) or 2-oxoglutarate (-> Glu)", SH,
+      "Photorespiratory glyoxylate -> glycine conversion runs these enzymes in the glycine-forming direction.",
+      debatable=K00830_DEBATE, notes="KO list = KEGG link/ko/rn for R00372 + R00369.")],
     note="All-shared route.")
 
 # ---- His ------------------------------------------------------------------------------------
@@ -230,7 +264,7 @@ add("His", "His_hut", "histidine utilization (hut)", "M00045", [
 for aa, full, extra_kos, extra_note in [
         ("Ile", "isoleucine", [], ""),
         ("Leu", "leucine", [], "M00036 step 1 (Leu degradation) is K00826."),
-        ("Val", "valine", ["K00835"], "K00835 avtA: L-valine + pyruvate <=> 2-oxoisovalerate + L-alanine.")]:
+        ("Val", "valine", ["K00835", "K14260"], "K00835 avtA / K14260 alaA: L-valine + pyruvate <=> 2-oxoisovalerate + L-alanine (R01215).")]:
     add(aa, f"{aa}_BCAT", f"{full} transamination", "map00280; M00036",
         [S("BCAT_VAL" if extra_kos else "BCAT", "branched-chain amino acid transamination",
            f"L-{full} + 2-oxoglutarate <=> branched-chain 2-oxo acid + L-glutamate",
@@ -242,7 +276,8 @@ for aa, full, extra_kos, extra_note in [
     add(aa, f"{aa}_LeuDH", "leucine dehydrogenase", "map00280", [
         S("LEUDH", "leucine dehydrogenase", f"L-{full} + NAD+ + H2O <=> 2-oxo acid + NH4+ + NADH",
           ["K00263"], "1.4.1.9", True, NH4, "", DED, "Branched-chain amino acid catabolism only.",
-          debatable="One enzyme acting on Ile, Leu and Val; it is credited to all three amino acids.")])
+          debatable="Reversible dehydrogenase (could run in the amino-acid-forming direction); also one enzyme "
+                    "credited to all three of Ile, Leu and Val.")])
 
 # ---- Lys (first N-freeing step) -------------------------------------------------------------
 add("Lys", "Lys_cadaverine", "lysine decarboxylase / cadaverine route", "M00956", [
@@ -261,7 +296,8 @@ add("Lys", "Lys_6AT", "lysine 6-aminotransferase", "map00310", [
       ["K03918"], "2.6.1.36", True, TR, "2-oxoglutarate (-> Glu)", DED, "Lysine catabolism only.")])
 add("Lys", "Lys_6DH", "lysine 6-dehydrogenase", "map00310", [
     S("LYSDH", "lysine 6-dehydrogenase", "L-lysine + NAD+ -> allysine + NH4+ + NADH", ["K19064"],
-      "1.4.1.18", True, NH4, "", DED, "Lysine catabolism only.")])
+      "1.4.1.18", True, NH4, "", DED, "Lysine catabolism only.",
+      debatable="Reversible dehydrogenase; treated like the other amino-acid dehydrogenases.")])
 add("Lys", "Lys_saccharopine", "saccharopine route", "M00032", [
     S("LKR", "lysine-ketoglutarate reductase", "L-lysine + 2-oxoglutarate + NADPH -> saccharopine",
       ["K14157"], "1.5.1.8", False, "", "", DED, "Lysine catabolism only."),
@@ -291,7 +327,8 @@ add("Met", "Met_transsulfuration", "SAM cycle + reverse transsulfuration", "M000
       notes="K10150 (cysO, cysteine synthase with CBS activity) excluded: cysteine biosynthesis enzyme."),
     S("CTH", "cystathionine gamma-lyase", "L-cystathionine + H2O -> L-cysteine + 2-oxobutanoate + NH4+",
       ["K01758", "K17217"], "4.4.1.1", True, NH4, "", DED,
-      "Reverse transsulfuration; frees the homocysteine-derived (methionine) N [interpretation].")])
+      "Reverse transsulfuration; frees the homocysteine-derived (methionine) N [interpretation].",
+      debatable=CTH_DEBATE)])
 
 # ---- Phe ------------------------------------------------------------------------------------
 add("Phe", "Phe_PAL", "phenylalanine ammonia-lyase", "map00360", [
@@ -299,15 +336,17 @@ add("Phe", "Phe_PAL", "phenylalanine ammonia-lyase", "map00360", [
       "4.3.1.24;4.3.1.25", True, NH4, "", DED, "Phenylalanine catabolism / secondary metabolism only.")])
 add("Phe", "Phe_PheDH", "phenylalanine dehydrogenase", "map00360", [
     S("PHEDH", "phenylalanine dehydrogenase", "L-phenylalanine + NAD+ + H2O <=> phenylpyruvate + NH4+ + NADH",
-      ["K00270"], "1.4.1.20", True, NH4, "", DED, "Phenylalanine catabolism only.")])
+      ["K00270"], "1.4.1.20", True, NH4, "", DED, "Phenylalanine catabolism only.",
+      debatable="Reversible dehydrogenase; could run in the Phe-forming direction.")])
 add("Phe", "Phe_transamination", "phenylalanine transamination", "map00360; M00024", [
     S("PHE_AT", "phenylalanine transamination", "L-phenylalanine + 2-oxoglutarate <=> phenylpyruvate + L-glutamate",
-      AROM_AT_KOS, "2.6.1.57;2.6.1.5", True, TR, "2-oxoglutarate (-> Glu)", SH,
-      "Same reaction is the last step of phenylalanine biosynthesis (M00024).")],
-    note="All-shared route.")
+      AROM_AT_KOS, "2.6.1.1;2.6.1.57;2.6.1.5", True, TR, "2-oxoglutarate (-> Glu)", DED,
+      "Not needed for Phe biosynthesis when Phe is made via arogenate (MED4 cross-check: R00691 PMM1504) [KG + interpretation].",
+      debatable=AROM_AT_DEBATE)])
 add("Phe", "Phe_hydroxylase_Tyr", "phenylalanine hydroxylase to tyrosine, then tyrosine transamination", "map00360; M00044", [
     S("PHHA", "phenylalanine 4-hydroxylase", "L-phenylalanine + O2 + BH4 -> L-tyrosine", ["K00500"],
-      "1.14.16.1", False, "", "", DED, "Tyrosine is made from prephenate/arogenate, not from Phe [interpretation]."),
+      "1.14.16.1", False, "", "", DED, "Tyrosine is made from arogenate (MED4: R00733 PMM1565), not by hydroxylating "
+      "Phe; same reasoning as PHE_AT/TYR_AT [KG + interpretation]."),
     TYR_AT])
 
 # ---- Pro ------------------------------------------------------------------------------------
@@ -320,9 +359,11 @@ add("Pro", "Pro_PutA", "proline to glutamate (PutA)", "M00970", [
 
 # ---- Ser ------------------------------------------------------------------------------------
 add("Ser", "Ser_dehydratase", "L-serine dehydratase", "map00260", [
-    S("SDA", "L-serine ammonia-lyase", "L-serine -> pyruvate + NH4+", ["K01752", "K17989"],
-      "4.3.1.17", True, NH4, "", DED, "Serine catabolism only.",
-      notes="Threonine dehydratase ilvA (K01754) also acts on serine; it is listed in the broad table.")])
+    S("SDA", "L-serine ammonia-lyase", "L-serine -> pyruvate + NH4+", ["K01752"],
+      "4.3.1.17", True, NH4, "", DED, "Serine catabolism only (R00220 is not needed for any biosynthesis).",
+      debatable="K01754 (ilvA) and K17989 (SDS) also carry R00220 but are the Ile-biosynthesis threonine "
+                "dehydratases (M00570); they are treated identically as side activities (broad table) so the Ser "
+                "and Thr contexts agree. Only K01752 is credited here.")])
 add("Ser", "Ser_SHMT_GCS", "serine to glycine, then glycine cleavage", "map00260; M00621", [
     S("SHMT", "serine hydroxymethyltransferase", "L-serine + THF <=> glycine + 5,10-methylene-THF",
       ["K00600"], "2.1.2.1", False, "", "", SH, "Main C1 and glycine source."),
@@ -331,15 +372,16 @@ add("Ser", "Ser_transamination", "serine transamination", "map00260; map00630", 
     S("SER_AT", "serine--pyruvate / serine--glyoxylate transamination",
       "L-serine + pyruvate (or glyoxylate) <=> 3-hydroxypyruvate + L-alanine (or glycine)",
       ["K00830", "K13290"], "2.6.1.51;2.6.1.45", True, TR, "pyruvate (-> Ala) or glyoxylate (-> Gly)", SH,
-      "Photorespiratory glycerate route enzymes [interpretation].",
-      debatable="Whether these enzymes serve photorespiration in cyanobacteria is not established here.")],
+      "Photorespiratory serine/glyoxylate interconversion (needed for photorespiratory glycine/serine) [interpretation].",
+      debatable=K00830_DEBATE, notes="KO list = KEGG link/ko/rn for R00585 + R00588.")],
     note="All-shared route.")
 
 # ---- Thr ------------------------------------------------------------------------------------
 add("Thr", "Thr_dehydratase", "threonine dehydratase", "M00570 (step 1)", [
     S("THR_DH", "threonine ammonia-lyase", "L-threonine -> 2-oxobutanoate + NH4+", ["K01754", "K17989"],
       "4.3.1.19", True, NH4, "", SH, "First step of isoleucine biosynthesis (M00570).",
-      debatable="Catabolic isozymes (tdcB) share KO K01754 with biosynthetic ilvA; KO cannot separate them.")],
+      debatable="Catabolic isozymes (tdcB) share KO K01754 with biosynthetic ilvA, and K17989 (SDS) is listed in "
+                "M00570 too; KO cannot separate catabolic from biosynthetic. The same KOs are side activities for Ser.")],
     note="All-shared route.")
 add("Thr", "Thr_aldolase", "threonine aldolase, then glycine cleavage", "map00260; M00621", [
     S("LTAE", "threonine aldolase", "L-threonine -> glycine + acetaldehyde", ["K01620"], "4.1.2.48",
@@ -385,11 +427,11 @@ add("Trp", "Trp_IAM", "indole-3-acetamide route", "map00380", [
       notes="Generic amidase amiE (K01426, EC 3.5.1.4) can also hydrolyse IAM; not listed (broad amidase).")])
 add("Trp", "Trp_transamination", "tryptophan transamination", "map00380", [
     S("TRP_AT", "tryptophan transamination", "L-tryptophan + 2-oxoglutarate <=> indole-3-pyruvate + L-glutamate",
-      ["K00838", "K14265"], "2.6.1.27", True, TR, "2-oxoglutarate (-> Glu)", SH,
-      "K00838 is the aromatic aminotransferase of Phe/Tyr biosynthesis (M00025).",
-      debatable="Trp biosynthesis needs no transamination; only the enzyme (not the reaction) is shared. "
-                "K14265 (Tam1) is a Trp-specific aminotransferase.")],
-    note="All-shared route.")
+      ["K14265", "K00838", "K00832"], "2.6.1.27;2.6.1.57", True, TR, "2-oxoglutarate (-> Glu)", DED,
+      "Reaction-level rule: Trp biosynthesis uses no transamination, so R00684 is needed for nothing else.",
+      debatable="KEGG links R00684 only to K14265 (Tam1); K00838 (via EC 2.6.1.27) and K00832 tyrB (multi-substrate "
+                "aromatic AT, added on review) are biosynthetic aromatic aminotransferases present in nearly every genome, "
+                "so this dedicated step will read 'present' wherever they are.")])
 
 # ---- Tyr ------------------------------------------------------------------------------------
 add("Tyr", "Tyr_TAL", "tyrosine ammonia-lyase", "map00350", [
@@ -416,6 +458,7 @@ BROAD = [
     ("K10907", "K10907", "2.6.1.-", "broad aminotransferase", "aminotransferase, substrate unspecified", "pilot ALL row"),
     ("K00837", "ISS1/VAS1", "2.6.1.-", "broad aminotransferase", "aromatic aminotransferase, substrate unspecified", "pilot ALL row"),
     ("K01754", "ilvA", "4.3.1.19", "side activity", "threonine dehydratase also deaminates L-serine; credited only as Thr_dehydratase (shared)", ""),
+    ("K17989", "SDS", "4.3.1.17;4.3.1.19", "side activity", "L-serine/L-threonine ammonia-lyase; listed in M00570 (Ile biosynthesis) -> credited only as Thr_dehydratase (shared); its Ser activity is a side activity like ilvA's", "pilot Ser;Thr"),
     ("K01760", "metC", "4.4.1.13", "side activity", "cystathionine beta-lyase (Met biosynthesis); cysteine desulfhydrase side activity", "pilot listed under Cys"),
     ("K14155", "patB/malY", "4.4.1.13", "side activity", "cystathionine beta-lyase family; cysteine desulfhydrase side activity", ""),
 ]
@@ -440,10 +483,108 @@ PILOT_EXCLUDED = {
 
 
 # ---------------------------------------------------------------------------------------------
+# Product-agreement rule (proposal section 3 step 2): a gene counts for a step only if its KG product
+# contains one of the step's keywords (case-insensitive substring). Otherwise the hit is
+# "flagged: KO/product mismatch" and does not count until the researcher reviews it.
+# ---------------------------------------------------------------------------------------------
+AT = ["aminotransferase", "transaminase"]
+PRODUCT_KW = {
+    "ALD": ["alanine dehydrogenase"], "ALA_AT": AT,
+    "ARGINASE": ["arginase"], "ARGZ": ["arginine dihydrolase"], "ADI": ["arginine deiminase"],
+    "ASTA": ["arginine n-succinyltransferase", "arginine succinyltransferase"], "ASTB": ["succinylarginine dihydrolase"],
+    "ARUH": AT, "ADC": ["arginine decarboxylase"], "AGMATINASE": ["agmatinase"], "AGUA": ["agmatine deiminase"],
+    "ASNASE": ["asparaginase"], "ASN_AT": AT, "ASPA": ["aspartate ammonia-lyase", "aspartase"], "ASP_AT": AT,
+    "CYS_DESULF": ["cysteine desulfidase", "cysteine desulfhydrase"], "CTH_CYS": ["cystathionine gamma-lyase"],
+    "CDO": ["cysteine dioxygenase"], "CSA_AT": AT, "GLNASE": ["glutaminase"], "GOGAT": ["glutamate synthase"],
+    "GDH": ["glutamate dehydrogenase"], "GAD": ["glutamate decarboxylase"], "GABA_AT": AT,
+    "GLMUT": ["methylaspartate mutase", "glutamate mutase"], "MAL": ["methylaspartate ammonia-lyase"],
+    "GCS_P": ["glycine dehydrogenase", "glycine cleavage system p"], "GCS_T": ["aminomethyltransferase", "glycine cleavage system t"],
+    "THIO": ["glycine oxidase"], "GLY_AT": AT, "HUTH": ["histidine ammonia-lyase"], "BCAT": AT, "BCAT_VAL": AT,
+    "LEUDH": ["leucine dehydrogenase"], "LDC": ["lysine decarboxylase"], "CAD_AT": AT,
+    "DAVB": ["lysine 2-monooxygenase", "lysine monooxygenase"], "DAVA": ["aminopentanamidase"], "LAT": AT,
+    "LYSDH": ["lysine 6-dehydrogenase", "lysine dehydrogenase"], "LKR": ["aminoadipic semialdehyde synthase", "lysine-ketoglutarate reductase"],
+    "SDH_SACCH": ["aminoadipic semialdehyde synthase", "saccharopine dehydrogenase"], "MGL": ["methionine gamma-lyase"],
+    "MET_AT": AT, "METK": ["adenosylmethionine synthe", "methionine adenosyltransferase"],
+    "SAHH": ["adenosylhomocysteinase", "adenosylhomocysteine hydrolase"], "CBS": ["cystathionine beta-synthase"],
+    "CTH": ["cystathionine gamma-lyase"], "PAL": ["ammonia-lyase"], "PHEDH": ["phenylalanine dehydrogenase"],
+    "PHE_AT": AT, "PHHA": ["phenylalanine 4-hydroxylase", "phenylalanine hydroxylase", "phenylalanine-4-hydroxylase"],
+    "TYR_AT": AT, "PRODH": ["proline dehydrogenase", "proline oxidase", "proline utilization", "putA"],
+    "P5CDH": ["pyrroline-5-carboxylate dehydrogenase", "proline utilization", "putA"],
+    "SDA": ["serine dehydratase", "serine ammonia-lyase"], "SHMT": ["hydroxymethyltransferase"], "SER_AT": AT,
+    "THR_DH": ["threonine dehydratase", "threonine ammonia-lyase", "serine/threonine dehydratase"],
+    "LTAE": ["threonine aldolase"], "TDH": ["threonine 3-dehydrogenase", "threonine dehydrogenase"],
+    "KBL": ["2-amino-3-ketobutyrate", "glycine c-acetyltransferase"], "TNAA": ["tryptophanase"],
+    "TDO": ["tryptophan 2,3-dioxygenase", "indoleamine 2,3-dioxygenase"], "KFA": ["formamidase"],
+    "KYNU": ["kynureninase"], "KAT": AT, "IAAM": ["tryptophan 2-monooxygenase"], "IAAH": ["indoleacetamide hydrolase", "amidase"],
+    "TRP_AT": AT, "TAL": ["ammonia-lyase"], "TPL": ["phenol-lyase"],
+}
+
+# KEGG reaction ids per step (checked with rest.kegg.jp list/rn and link/ko/rn on 2026-11-04). Steps not
+# listed get their EC's main reactions in 02_validate_kos.py (kegg_rn_source = "EC main reactions").
+KEGG_RN = {
+    "ALA_AT": "R00258;R00369;R01215", "PHE_AT": "R00694", "TYR_AT": "R00734", "TRP_AT": "R00684",
+    "ASP_AT": "R00355", "CSA_AT": "R02619", "BCAT": "R01090;R01214;R02199", "BCAT_VAL": "R01214;R01215",
+    "GLY_AT": "R00372;R00369", "SER_AT": "R00585;R00588", "GCS_P": "R03425", "GCS_T": "R04125", "KAT": "R01956",
+    "MET_AT": "R08618", "THR_DH": "R00996", "SDA": "R00220", "CYS_DESULF": "R00782", "CTH_CYS": "R00782",
+    "CTH": "R01001", "GOGAT": "R00093;R00114;R00021", "GDH": "R00243;R00248", "THIO": "R00366;R07463",
+    "ARGZ": "R13308", "ASNASE": "R00485", "ADC": "R00566", "LDC": "R00462", "METK": "R00177", "SHMT": "R00945",
+    "KBL": "R00371",
+}
+
+# AND groups (CNF): groups separated by ";" (all required), alternatives within a group by "|".
+# Steps not listed: one group, any KO.
+KO_GROUPS = {
+    "GCS_P": "K00281|K00282;K00281|K00283",                      # gcvP, or gcvPA AND gcvPB
+    "GOGAT": "K00265|K00264|K00284;K00266|K00264|K00284",        # gltB AND gltD, or GLT1, or Fd-GOGAT
+    "GLMUT": "K01846;K19268",                                    # sigma AND epsilon subunit
+}
+
+# Pathways excluded from assessability, and assessability notes.
+N_NEUTRAL = {"Glu_GABA_shunt": "With 2-oxoglutarate as GABA acceptor the N returns to glutamate: no net N freed."}
+ASSESS_NOTE = {"Arg_argZ": "ArgZ KOs K27545/K27542 have no node in the KG; assessing ArgZ would need a homolog-based "
+                           "search (a possible later extension)."}
+
+# Every flag / KO-list change made after the critic review (old -> new).
+FLAG_CHANGE_LOG = [
+    # step_key, field, old, new, reason
+    ("CTH_CYS", "debatable_reason", "Cys side substrate", "K01758 MetB/MetC cross-annotation (see CTH_DEBATE)", "critic Blocker 1"),
+    ("CTH", "debatable", "no", "yes", "critic Blocker 1: consistent with CTH_CYS; MetB/MetC cross-annotation"),
+    ("ALA_AT", "kos", "K14260;K00814;K14272", "+K00830;K00827;K05825;K28204;K00835", "critic Blocker 2: KEGG link/ko/rn R00258+R00369+R01215"),
+    ("ALA_AT", "debatable", "no", "yes", "K00830 consistency (ALA_AT/GLY_AT/SER_AT)"),
+    ("PHE_AT", "kos", "K00815;K00832;K00838", "12 KOs of KEGG link/ko/rn R00694", "critic Blocker 2"),
+    ("PHE_AT", "flag", "shared", "dedicated", "reaction-level rule; MED4 makes Phe via arogenate (R00691 PMM1504)"),
+    ("PHE_AT", "debatable", "no", "yes", "multi-substrate biosynthetic ATs; phenylpyruvate route in other strains"),
+    ("TYR_AT", "kos", "K00815;K00832;K00838", "12 KOs of KEGG link/ko/rn R00734", "critic Blocker 2"),
+    ("TYR_AT", "flag", "shared", "dedicated", "reaction-level rule; MED4 makes Tyr via arogenate (R00733 PMM1565)"),
+    ("TYR_AT", "debatable", "no", "yes", "as PHE_AT"),
+    ("TRP_AT", "kos", "K00838;K14265", "K14265;K00838;K00832", "critic: add tyrB K00832"),
+    ("TRP_AT", "flag", "shared", "dedicated", "reaction-level rule: Trp biosynthesis uses no transamination"),
+    ("GLY_AT", "kos", "K00830;K00827;K14272", "+K05825;K28204", "KEGG link/ko/rn R00372+R00369"),
+    ("GLY_AT", "debatable", "no", "yes", "K00830 consistency"),
+    ("SER_AT", "debatable_reason", "photorespiration not established", "K00830 consistency text", "K00830 consistency"),
+    ("SDA", "kos", "K01752;K17989", "K01752", "K17989 consistency: SDS treated like ilvA (side activity, broad table)"),
+    ("SDA", "debatable", "no", "yes", "K17989/K01754 handling"),
+    ("ALD", "debatable_reason", "reversible", "reversible (unchanged value yes)", "reversible dehydrogenases"),
+    ("LEUDH", "debatable_reason", "credited to 3 aa", "reversible + credited to 3 aa (value yes)", "reversible dehydrogenases"),
+    ("PHEDH", "debatable", "no", "yes", "reversible dehydrogenases"),
+    ("LYSDH", "debatable", "no", "yes", "reversible dehydrogenases"),
+    ("PHHA", "flag_reason", "Tyr from prephenate/arogenate", "Tyr from arogenate (MED4 R00733 PMM1565)", "reconciled with PHE_AT/TYR_AT"),
+    ("GLMUT;MAL", "new", "", "dedicated", "critic: Glu methylaspartate pathway added"),
+    ("ASNASE", "kos", "K01424;K13051;K13278", "+K05597", "KEGG link/ko/rn:R00485 (glutaminase-asparaginase)"),
+    ("ASNASE", "debatable", "no", "yes", "K05597 credited to both Asn and Gln"),
+    ("GLNASE", "kos", "K01425", "+K05597", "KEGG link/ko/rn:R00256"),
+    ("GLNASE", "debatable", "no", "yes", "K05597 credited to both Asn and Gln"),
+    ("BCAT_VAL", "kos", "K00826;K00835", "+K14260", "KEGG link/ko/rn:R01215"),
+    ("GCS_P;GOGAT;GLMUT", "ko_groups", "any KO", "AND groups", "critic: multi-subunit steps"),
+]
+
+# ---------------------------------------------------------------------------------------------
 # Proposed controls (researcher approves). Chosen from biology and KEGG modules, not from the
 # MED4 pilot outcome. Expected-negative: a ranked list; 02_validate_kos.py selects the first
-# candidate that is KEGG-valid AND has >=1 gene in the KG (a KO with no gene anywhere in the KG
-# can never produce a hit, so it could not detect a KO-matching artefact).
+# candidate that is KEGG-valid AND whose KO node exists in the KG with an overall gene_count >= 1
+# (ontology_term_details, no organism; per-organism counts are not read). A KO with no gene anywhere
+# in the KG can never produce a hit, so it could not detect a KO-matching artefact.
+# Disclosure: the ranking and this rule were written in the same working session/commit as the KG lookup.
 # ---------------------------------------------------------------------------------------------
 CONTROLS = [
     # control_type, control_id, step_name, kos, ec, source_ref, rank, rationale
@@ -479,10 +620,19 @@ CONTROLS = [
 ]
 
 
+CTRL_KW = {"CTRL_glnA": ["glutamine synthetase"], "CTRL_BCAT": AT, "CTRL_HisC": AT + ["histidinol-phosphate"],
+           "CTRL_AspAT": AT, "NEG_tnaA": ["tryptophanase"], "NEG_TPL": ["phenol-lyase"],
+           "NEG_astB": ["succinylarginine dihydrolase"]}
+
+
 def main():
     ctrl = pd.DataFrame(CONTROLS, columns=["control_type", "control_id", "step_name", "kos", "ec",
                                            "source_ref", "rank_or_tier", "rationale"])
     ctrl["kos"] = ctrl.kos.map(";".join)
+    ctrl["product_keywords"] = ctrl.control_id.map(lambda c: "|".join(CTRL_KW[c]))
+    ctrl["disclosure"] = ctrl.control_type.map(lambda c: (
+        "The ranking and the selection rule were written in the same commit as the KG lookup that applied them; "
+        "they are not pre-registered independently of it.") if c == "expected_negative" else "")
     DATA.mkdir(parents=True, exist_ok=True)
     ctrl.to_csv(DATA / "proposed_controls.csv", index=False, encoding="utf-8")
     rows = []
@@ -498,7 +648,12 @@ def main():
                              flag_reason=s["flag_reason"],
                              debatable="yes" if s["debatable_reason"] else "no",
                              debatable_reason=s["debatable_reason"], notes=s["notes"],
-                             pathway_note=p["pathway_note"]))
+                             pathway_note=p["pathway_note"],
+                             product_keywords="|".join(PRODUCT_KW[s["step_key"]]),
+                             kegg_rn=KEGG_RN.get(s["step_key"], ""),
+                             ko_groups=KO_GROUPS.get(s["step_key"], "|".join(s["kos"])),
+                             n_neutral_pathway=N_NEUTRAL.get(p["pathway_id"], ""),
+                             assess_note=ASSESS_NOTE.get(p["pathway_id"], "")))
     steps = pd.DataFrame(rows)
 
     # --- invariants of the v5 rules ---
@@ -509,6 +664,9 @@ def main():
     for key, g in steps.groupby("step_key"):
         assert g.flag.nunique() == 1 and g.kos.nunique() == 1, f"step_key {key} inconsistent"
     assert steps.step_id.is_unique
+    for _, s in steps.iterrows():  # every ko_groups KO is in the step's KO list and vice versa
+        gk = {k for g in s.ko_groups.split(";") for k in g.split("|")}
+        assert gk == set(s.kos.split(";")), s.step_id
     aas = sorted(steps.amino_acid.unique())
     assert len(aas) == 20, aas
 
@@ -541,6 +699,8 @@ def main():
         rec.append(dict(pilot_amino_acid=r.amino_acid, ko=k, pilot_label=r.label,
                         pilot_shared=r.shared_interpretation, new_location=where))
     rec = pd.DataFrame(rec)
+    pd.DataFrame(FLAG_CHANGE_LOG, columns=["step_key", "field", "old", "new", "reason"]).assign(
+        date="2026-11-04").to_csv(DATA / "flag_change_log.csv", index=False, encoding="utf-8")
 
     DATA.mkdir(parents=True, exist_ok=True)
     steps.to_csv(DATA / "pathway_catalogue_steps.csv", index=False, encoding="utf-8")

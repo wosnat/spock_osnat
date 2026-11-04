@@ -1,0 +1,30 @@
+step_key,field,old,new,reason,date
+CTH_CYS,debatable_reason,Cys side substrate,K01758 MetB/MetC cross-annotation (see CTH_DEBATE),critic Blocker 1,2026-11-04
+CTH,debatable,no,yes,critic Blocker 1: consistent with CTH_CYS; MetB/MetC cross-annotation,2026-11-04
+ALA_AT,kos,K14260;K00814;K14272,+K00830;K00827;K05825;K28204;K00835,critic Blocker 2: KEGG link/ko/rn R00258+R00369+R01215,2026-11-04
+ALA_AT,debatable,no,yes,K00830 consistency (ALA_AT/GLY_AT/SER_AT),2026-11-04
+PHE_AT,kos,K00815;K00832;K00838,12 KOs of KEGG link/ko/rn R00694,critic Blocker 2,2026-11-04
+PHE_AT,flag,shared,dedicated,reaction-level rule; MED4 makes Phe via arogenate (R00691 PMM1504),2026-11-04
+PHE_AT,debatable,no,yes,multi-substrate biosynthetic ATs; phenylpyruvate route in other strains,2026-11-04
+TYR_AT,kos,K00815;K00832;K00838,12 KOs of KEGG link/ko/rn R00734,critic Blocker 2,2026-11-04
+TYR_AT,flag,shared,dedicated,reaction-level rule; MED4 makes Tyr via arogenate (R00733 PMM1565),2026-11-04
+TYR_AT,debatable,no,yes,as PHE_AT,2026-11-04
+TRP_AT,kos,K00838;K14265,K14265;K00838;K00832,critic: add tyrB K00832,2026-11-04
+TRP_AT,flag,shared,dedicated,reaction-level rule: Trp biosynthesis uses no transamination,2026-11-04
+GLY_AT,kos,K00830;K00827;K14272,+K05825;K28204,KEGG link/ko/rn R00372+R00369,2026-11-04
+GLY_AT,debatable,no,yes,K00830 consistency,2026-11-04
+SER_AT,debatable_reason,photorespiration not established,K00830 consistency text,K00830 consistency,2026-11-04
+SDA,kos,K01752;K17989,K01752,"K17989 consistency: SDS treated like ilvA (side activity, broad table)",2026-11-04
+SDA,debatable,no,yes,K17989/K01754 handling,2026-11-04
+ALD,debatable_reason,reversible,reversible (unchanged value yes),reversible dehydrogenases,2026-11-04
+LEUDH,debatable_reason,credited to 3 aa,reversible + credited to 3 aa (value yes),reversible dehydrogenases,2026-11-04
+PHEDH,debatable,no,yes,reversible dehydrogenases,2026-11-04
+LYSDH,debatable,no,yes,reversible dehydrogenases,2026-11-04
+PHHA,flag_reason,Tyr from prephenate/arogenate,Tyr from arogenate (MED4 R00733 PMM1565),reconciled with PHE_AT/TYR_AT,2026-11-04
+GLMUT;MAL,new,,dedicated,critic: Glu methylaspartate pathway added,2026-11-04
+ASNASE,kos,K01424;K13051;K13278,+K05597,KEGG link/ko/rn:R00485 (glutaminase-asparaginase),2026-11-04
+ASNASE,debatable,no,yes,K05597 credited to both Asn and Gln,2026-11-04
+GLNASE,kos,K01425,+K05597,KEGG link/ko/rn:R00256,2026-11-04
+GLNASE,debatable,no,yes,K05597 credited to both Asn and Gln,2026-11-04
+BCAT_VAL,kos,K00826;K00835,+K14260,KEGG link/ko/rn:R01215,2026-11-04
+GCS_P;GOGAT;GLMUT,ko_groups,any KO,AND groups,critic: multi-subunit steps,2026-11-04
