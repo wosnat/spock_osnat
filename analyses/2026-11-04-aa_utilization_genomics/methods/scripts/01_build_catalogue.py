@@ -504,15 +504,15 @@ PRODUCT_KW = {
     "ARGINASE": ["arginase"], "ARGZ": ["arginine dihydrolase"], "ADI": ["arginine deiminase"],
     "ASTA": ["arginine n-succinyltransferase", "arginine succinyltransferase"], "ASTB": ["succinylarginine dihydrolase"],
     "ARUH": ["arginine:pyruvate", "arginine-pyruvate", "arginine transaminase", "arginine aminotransferase"], "ADC": ["arginine decarboxylase"], "AGMATINASE": ["agmatinase"], "AGUA": ["agmatine deiminase"],
-    "ASNASE": ["asparaginase"], "ASN_AT": ["asparagine"], "ASPA": ["aspartate ammonia-lyase", "aspartase"], "ASP_AT": AT,
+    "ASNASE": ["asparaginase"], "ASN_AT": ["asparagine aminotransferase", "asparagine transaminase", "asparagine--oxo-acid", "asparagine-oxo-acid"], "ASPA": ["aspartate ammonia-lyase", "aspartase"], "ASP_AT": AT,
     "CYS_DESULF": ["cysteine desulfidase", "cysteine desulfhydrase"], "CTH_CYS": ["cystathionine gamma-lyase"],
     "CDO": ["cysteine dioxygenase"], "CSA_AT": AT, "GLNASE": ["glutaminase"], "GOGAT": ["glutamate synthase"],
-    "GDH": ["glutamate dehydrogenase"], "GAD": ["glutamate decarboxylase"], "GABA_AT": ["4-aminobutyrate", "gaba", "aminobutyrate"],
+    "GDH": ["glutamate dehydrogenase"], "GAD": ["glutamate decarboxylase"], "GABA_AT": ["4-aminobutyrate aminotransferase", "4-aminobutyrate transaminase", "4-aminobutyrate--", "gaba aminotransferase", "gaba transaminase"],
     "GLMUT": ["methylaspartate mutase", "glutamate mutase"], "MAL": ["methylaspartate ammonia-lyase"],
     "GCS_P": ["glycine dehydrogenase", "glycine cleavage system p"], "GCS_T": ["aminomethyltransferase", "glycine cleavage system t"],
     "THIO": ["glycine oxidase"], "GLY_AT": AT, "HUTH": ["histidine ammonia-lyase"], "BCAT": AT, "BCAT_VAL": AT,
-    "LEUDH": ["leucine dehydrogenase"], "LDC": ["lysine decarboxylase"], "CAD_AT": ["putrescine", "cadaverine", "diamine"],
-    "DAVB": ["lysine 2-monooxygenase", "lysine monooxygenase"], "DAVA": ["aminopentanamidase", "aminovaleramidase"], "LAT": ["lysine"],
+    "LEUDH": ["leucine dehydrogenase"], "LDC": ["lysine decarboxylase"], "CAD_AT": ["putrescine aminotransferase", "diamine aminotransferase", "cadaverine aminotransferase", "putrescine--2-oxoglutarate"],
+    "DAVB": ["lysine 2-monooxygenase", "lysine monooxygenase"], "DAVA": ["aminopentanamidase", "aminovaleramidase"], "LAT": ["lysine aminotransferase", "lysine 6-aminotransferase", "lysine epsilon", "lysine 6-transaminase"],
     "LYSDH": ["lysine 6-dehydrogenase", "lysine dehydrogenase"], "LKR": ["aminoadipic semialdehyde synthase", "lysine-ketoglutarate reductase"],
     "SDH_SACCH": ["aminoadipic semialdehyde synthase", "saccharopine dehydrogenase"], "MGL": ["methionine gamma-lyase"],
     "MET_AT": AT, "METK": ["adenosylmethionine synthe", "methionine adenosyltransferase"],
@@ -526,8 +526,8 @@ PRODUCT_KW = {
     "LTAE": ["threonine aldolase"], "TDH": ["threonine 3-dehydrogenase", "threonine dehydrogenase"],
     "KBL": ["2-amino-3-ketobutyrate", "glycine c-acetyltransferase"], "TNAA": ["tryptophanase"],
     "TDO": ["tryptophan 2,3-dioxygenase", "indoleamine 2,3-dioxygenase"], "KFA": ["kynurenine formamidase", "arylformamidase"],
-    "KYNU": ["kynureninase"], "KAT": ["kynurenine"], "IAAM": ["tryptophan 2-monooxygenase"], "IAAH": ["indoleacetamide"],
-    "TRP_AT": ["tryptophan"], "TAL": ["tyrosine ammonia", "phenylalanine/tyrosine ammonia"], "TPL": ["phenol-lyase"],
+    "KYNU": ["kynureninase"], "KAT": ["kynurenine aminotransferase", "kynurenine transaminase", "kynurenine--oxoglutarate"], "IAAM": ["tryptophan 2-monooxygenase"], "IAAH": ["indoleacetamide hydrolase", "indole-3-acetamide hydrolase", "indoleacetamide amidase"],
+    "TRP_AT": ["tryptophan aminotransferase", "tryptophan transaminase"], "TAL": ["tyrosine ammonia", "phenylalanine/tyrosine ammonia"], "TPL": ["phenol-lyase"],
 }
 
 # KEGG reaction ids per step (checked with rest.kegg.jp list/rn and link/ko/rn on 2026-11-04). Steps not
@@ -598,6 +598,8 @@ FLAG_CHANGE_LOG = [
     ("ARUH;ASN_AT;GABA_AT;CAD_AT;LAT;PAL;TAL;KFA;KAT;IAAH;TRP_AT;DAVA", "product_keywords", "generic class words", "substrate-naming words", "delta critic: substrate-naming keywords on dedicated steps"),
     ("GLNASE", "kegg_rn", "EC main reactions", "R00256", "delta critic"),
     ("GCS_P;GOGAT;GLMUT", "ko_groups", "any KO", "AND groups", "critic: multi-subunit steps"),
+    ("ASN_AT;GABA_AT;CAD_AT;LAT;KAT;IAAH;TRP_AT", "product_keywords", "bare substrate word", "substrate + enzyme word", "delta critic pass 3"),
+    ("TRP_AT", "observable", "computed over all KOs", "computed over credit-eligible KOs only (K14265 not in KG)", "delta critic pass 3"),
 ]
 
 # ---------------------------------------------------------------------------------------------
@@ -745,8 +747,14 @@ def main():
         rec.append(dict(pilot_amino_acid=r.amino_acid, ko=k, pilot_label=r.label,
                         pilot_shared=r.shared_interpretation, new_location=where))
     rec = pd.DataFrame(rec)
-    pd.DataFrame(FLAG_CHANGE_LOG, columns=["step_key", "field", "old", "new", "reason"]).assign(
-        date="2026-11-04").to_csv(DATA / "flag_change_log.csv", index=False, encoding="utf-8")
+    log = pd.DataFrame(FLAG_CHANGE_LOG, columns=["step_key", "field", "old", "new", "reason"]).assign(date="2026-11-04")
+    log.insert(0, "row_id", range(1, len(log) + 1))
+    # rows later reversed by the delta critic (row ids count data rows; CSV line = row_id + 1)
+    SUPERSEDED = {6: "29;31", 9: "30;31", 22: "32"}
+    log["superseded_by"] = log.row_id.map(SUPERSEDED).fillna("")
+    assert log.loc[log.row_id == 6, "step_key"].item() == "PHE_AT" and log.loc[log.row_id == 9, "step_key"].item() == "TYR_AT"
+    assert log.loc[log.row_id == 22, "step_key"].item() == "PHHA"
+    log.to_csv(DATA / "flag_change_log.csv", index=False, encoding="utf-8")
 
     DATA.mkdir(parents=True, exist_ok=True)
     steps.to_csv(DATA / "pathway_catalogue_steps.csv", index=False, encoding="utf-8")

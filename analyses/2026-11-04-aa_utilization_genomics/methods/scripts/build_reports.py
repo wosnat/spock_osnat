@@ -299,8 +299,10 @@ def main():
              "This is a hit list, not a pathway score.</p>")
     H.append(f"<p class=\"note\">Calls: {E(hits.call.value_counts().to_dict())}. On shared steps 'credited' means present "
              "(shared steps never count toward k/n; they matter only as the N-freeing anchor).</p>")
-    H.append(table(hits[["call", "step_id", "flag", "amino_acid", "ko", "locus_tag", "gene_name", "product", "product_keywords",
-                         "exclusion_reason"]], "t_hits", mono=("step_id", "ko", "locus_tag"), filt=True))
+    hits["caveat"] = [("family-level annotation (product is class-generic)" if g and c == "credited" else "")
+                      for g, c in zip(hits.generic_product, hits.call)]
+    H.append(table(hits[["call", "caveat", "step_id", "flag", "amino_acid", "ko", "locus_tag", "gene_name", "product",
+                         "product_keywords", "exclusion_reason"]], "t_hits", mono=("step_id", "ko", "locus_tag"), filt=True))
     H.append('<h3>Exclusion rule: KOs that can never credit a dedicated step</h3>'
              '<p class="note">A KO on any shared step, any positive control (matching sanity, N-transfer) or the broad table '
              "(including the enzyme-level override list of multi-substrate biosynthetic aminotransferases: hisC, aspartate "
@@ -320,7 +322,13 @@ def main():
 
     # ---- flag changes ----
     H.append('<h2 id="changes">Flag and KO-list changes after the critic review</h2>')
-    H.append(table(fchg, "t_chg", mono=("step_key",)))
+    H.append('<p class="note">Rows with a value in superseded_by were reversed later (greyed out); the rows themselves are kept.</p>')
+    hc = ['<div class="scroll"><table class="sortable" id="t_chg"><thead><tr>' + "".join(f"<th>{E(c)}</th>" for c in fchg.columns) + "</tr></thead><tbody>"]
+    for _, r in fchg.iterrows():
+        sup = isinstance(r.superseded_by, str) and r.superseded_by
+        hc.append(f'<tr{" style=\"color:#898781;text-decoration:line-through\"" if sup else ""}>'
+                  + "".join(f"<td>{E(r[c])}</td>" for c in fchg.columns) + "</tr>")
+    H.append("".join(hc) + "</tbody></table></div>")
 
     # ---- known omissions ----
     H.append('<h2 id="omissions">Known omissions (not catalogued)</h2><ul>'

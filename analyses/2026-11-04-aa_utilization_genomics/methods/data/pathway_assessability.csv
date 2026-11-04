@@ -53,7 +53,7 @@ Trp,Trp_tryptophanase,True,False,False,False,Trp_tryptophanase.1,not assessable 
 Trp,Trp_kynurenine_Ala,True,False,True,True,,scored,
 Trp,Trp_kynurenine_KAT,True,False,False,False,Trp_kynurenine_KAT.3,not assessable (never 'absent'),
 Trp,Trp_IAM,True,False,True,True,,scored,
-Trp,Trp_transamination,True,False,True,True,,scored,
+Trp,Trp_transamination,True,False,False,False,Trp_transamination.1,not assessable (never 'absent'),
 Tyr,Tyr_TAL,True,False,False,False,Tyr_TAL.1,not assessable (never 'absent'),
 Tyr,Tyr_phenol_lyase,True,False,False,False,Tyr_phenol_lyase.1,not assessable (never 'absent'),
 Tyr,Tyr_transamination,False,False,True,True,,cannot be judged (all-shared),

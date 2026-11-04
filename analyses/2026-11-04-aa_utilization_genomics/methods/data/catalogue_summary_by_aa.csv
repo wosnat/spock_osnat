@@ -16,6 +16,6 @@ Phe,4,5,3,2,1,Phe_PAL.1; Phe_PheDH.1; Phe_transamination.1; Phe_hydroxylase_Tyr.
 Pro,1,2,2,0,0,Pro_PutA.2,1,1,yes,all dedicated routes observable
 Ser,3,5,1,4,2,Ser_dehydratase.1; Ser_SHMT_GCS.3; Ser_transamination.1,3,1,yes,all dedicated routes observable
 Thr,3,8,3,5,1,Thr_dehydratase.1; Thr_aldolase.3; Thr_TDH_kbl.4,3,2,yes,all dedicated routes observable
-Trp,5,11,10,1,0,Trp_tryptophanase.1; Trp_kynurenine_Ala.4; Trp_kynurenine_KAT.3; Trp_IAM.2; Trp_transamination.1,5,3,partly,not observable: Trp_tryptophanase;Trp_kynurenine_KAT
+Trp,5,11,10,1,0,Trp_tryptophanase.1; Trp_kynurenine_Ala.4; Trp_kynurenine_KAT.3; Trp_IAM.2; Trp_transamination.1,5,2,partly,not observable: Trp_tryptophanase;Trp_kynurenine_KAT;Trp_transamination
 Tyr,3,3,2,1,1,Tyr_TAL.1; Tyr_phenol_lyase.1; Tyr_transamination.1,3,0,no,no dedicated route is observable (its KOs have no node in the KG): Tyr_TAL;Tyr_phenol_lyase
 Val,2,2,1,1,1,Val_BCAT.1; Val_LeuDH.1,2,1,yes,all dedicated routes observable

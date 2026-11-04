@@ -216,9 +216,19 @@ def main():
     #      >=1 KO with a KG node in EVERY AND-group; also reported over all steps) ----
     inkg = val.set_index("ko").in_kg
 
-    def step_obs(s):
-        return all(any(bool(inkg[k]) for k in g.split("|")) for g in s.ko_groups.split(";"))
+    # Observability uses credit-eligible KOs only (exclusion rule from 01): on a dedicated step an excluded
+    # KO can never credit, so its KG node does not make the step observable.
+    longc = pd.read_csv(DATA / "pathway_catalogue.csv", encoding="utf-8")
+    elig = {(r.step_id, r.ko): bool(r.credit_eligible) for _, r in longc.iterrows()}
+
+    def step_obs(s, eligible_only=True):
+        return all(any(bool(inkg[k]) and (elig[(s.step_id, k)] or not eligible_only) for k in g.split("|"))
+                   for g in s.ko_groups.split(";"))
     steps["step_observable"] = steps.apply(step_obs, axis=1)
+    old_obs = steps.apply(lambda s: step_obs(s, eligible_only=False), axis=1)
+    affected = set(steps[(steps.step_observable != old_obs) & (steps.flag == "dedicated")].step_key)
+    print("dedicated steps whose observability changed under the eligible-only rule:", affected)
+    assert affected <= {"TRP_AT"}, affected
     prow = []
     for pid, g in steps.groupby("pathway_id", sort=False):
         scored = g[(g.flag == "dedicated") | g.is_n_freeing]
