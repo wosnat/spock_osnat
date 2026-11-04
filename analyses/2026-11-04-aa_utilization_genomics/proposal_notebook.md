@@ -26,3 +26,10 @@
 - **N-releasing enzymes only.** Researcher chose full routes; N-releasing steps are kept as a per-step flag instead.
 - **Linking to the researcher's growth data.** Out of scope at the researcher's request.
 - **Formal clade tests.** Rejected: descriptive aim, and strains are phylogenetically non-independent.
+
+## Design-review round 1 (2026-11-04)
+
+- **Focus narrowed to amino acids as a nitrogen source** (researcher). Degradation is now scored primarily by the N-releasing step per amino acid (release as NH4+ or transfer by transamination); the full carbon-skeleton route is secondary context. proposal.md to be updated after the pilot.
+- **Synechococcus** proposed by researcher as positive control; Claude recommended comparison group + Alteromonas kept as method check. **Decided: Synechococcus = comparison group alongside Alteromonas (method check).**
+- **Peek disclosure:** at the researcher's request, a throwaway proof-of-concept was run on MED4 alone (`spike/`) before the rules were locked. MED4 is also the planned answer-key strain, so its results have now been seen; the final call rules, catalogue and GO term list are still approved before scaling to all strains, and any rule shaped by the MED4 pilot is recorded as such.
+- **Alteromonas removed** (researcher, 2026-11-04). Replaced as method check by in-genus controls: glnA in all 45; 2–3 biosynthetic aminotransferases (N-transfer, required for prototrophy) in all 45; urea transporter urtA–E returned by the TCDB extraction on urea. Stated trade-off: no check that a *dedicated* degradation route can be detected where one surely exists.

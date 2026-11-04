@@ -8,7 +8,7 @@ Researcher: Dikla Aharonovich · Drafted 2026-11-04 · Status: **draft, under de
 
 - **What it is for:** a standalone comparative-genomics result (researcher's choice). It does not test or support a specific paper.
 - **Whose hypothesis:** none. The researcher has no prior hypothesis; this is a descriptive map. The researcher's own amino-acid growth experiments are explicitly **out of scope** (not in the KG, and set aside by the researcher).
-- **Non-goals for now:** gene expression (e.g. whether these genes respond to nitrogen stress); amino-acid biosynthesis; peptide and protein uptake beyond what the transporter evidence names; Synechococcus and other cyanobacteria (except as noted under validation).
+- **Non-goals for now:** gene expression (e.g. whether these genes respond to nitrogen stress); amino-acid biosynthesis; peptide and protein uptake beyond what the transporter evidence names; other cyanobacteria beyond Synechococcus (the comparison group).
 
 ## 2. KG entries
 
@@ -21,7 +21,7 @@ All counts from live MCP queries on 2026-11-04, KG release 0.1.0-alpha.9 (see `p
   - TCDB transporter-system calls with curated substrates (`genes_by_metabolite`, `transport` route) → amino-acid transporter evidence.
   - GO transport terms whose definition names an amino acid (`go_transport` route).
   - Predicted substrate-binding-protein substrates (DerivedMetric `sbp_predicted_substrate` / `sbp_nutrient_class`) from Ford et al. 2021 (DOI 10.1042/BST20200244), present for 42 of the 45 strains (absent: MIT1314, MIT1327, RSP50).
-- **Comparator organisms for validation:** Alteromonas macleodii MIT1002, EZ55, HOT1A3 (heterotrophs, same annotation layers in the KG).
+- **Comparison group:** all Synechococcus genomes in the KG (same annotation layers). Alteromonas is not used (researcher decision).
 
 ## 3. Framing
 
@@ -82,17 +82,17 @@ The route catalogue, the GO term list and the call rules are approved **before**
 ### Validation set
 The method works only if the following come out as expected (each checked in the methods milestone):
 
-1. **Alteromonas positive control (degradation).** The Alteromonas strains with genomes in the KG are scored with the same catalogue: MIT1002, EZ55 and HOT1A3, confirmed in methods to carry genes. They are heterotrophs that grow on amino acids `[interpretation]`. This control **catches gross breakage; it does not validate the catalogue.** Alteromonas genomes are about 4,200 genes, against 1,870–3,203 in Prochlorococcus, so they would out-score Prochlorococcus with almost any KO list. Two pre-stated expectations:
-   - *Count:* each Alteromonas strain has complete (all-steps) best routes for ≥ 2× the median number of amino acids across Prochlorococcus strains.
-   - *Route-level:* at catalogue approval, before any scoring, the researcher and Claude name 3 routes and the specific KOs expected present in Alteromonas. All named KOs must be found. This tests the catalogue's content, not just its total.
-2. **Matching sanity check.** Glutamine synthetase (glnA) is expected in all 45 Prochlorococcus genomes `[interpretation]`. The step-presence code must find it in all 45. This check tests the matching machinery; GS is not a degradation route.
-3. **Transporter positive control.** Alteromonas strains are expected to show specific-uptake TCDB-direct calls for ≥ 3 amino acids each `[interpretation]`. If they don't, the transporter extraction is broken.
-4. **Synechococcus:** role pending the researcher's decision. Either it joins as a comparison group (closest relative, same annotation layers) alongside Alteromonas, or it replaces Alteromonas as the positive control. See the open design choices.
+The researcher removed Alteromonas from the analysis (2026-11-04). The checks below use only Prochlorococcus itself plus the transporter extraction on a known system. **Trade-off:** without a heterotroph there is no check that the catalogue can detect a *dedicated* degradation route where one surely exists. A dedicated-route absence in Prochlorococcus is therefore reported as "not found with these annotations," with that limit stated.
+
+1. **Matching sanity check (enzymes).** Glutamine synthetase (glnA, K01915) is expected in all 45 Prochlorococcus genomes `[interpretation]`. The step-presence code must find it in all 45. This tests the matching machinery; GS is not a degradation route.
+2. **N-transfer positive control.** Prochlorococcus makes all 20 amino acids, so the aminotransferases its biosynthesis requires must be present in every strain `[interpretation]`. They are also N-transfer (shared) enzymes in the catalogue. At catalogue approval, before scoring, name 2–3 such biosynthetic aminotransferase KOs (e.g. branched-chain aminotransferase ilvE, K00826). Each must be found in all 45 strains (or in all complete genomes, if assembly status explains a gap).
+3. **Transporter extraction positive control.** The MED4 urea ABC transporter (urtA–E) is documented in the KG as having direct TCDB calls with urea as substrate (docs://analysis/transport). The extraction code, run with urea as the query compound, must return these genes as direct calls. This tests the TCDB extraction machinery on a known system. It is not an amino-acid result.
+4. **Synechococcus: comparison group, not a control** (researcher decision, 2026-11-04). It is the closest relative of Prochlorococcus, with the same annotation layers. It is scored with the same method and shown beside Prochlorococcus as a comparison ("how does Prochlorococcus compare with its closest relative?"). It is not used to judge whether the method works: a Synechococcus result similar to Prochlorococcus could be true biology. The Synechococcus strain set is all Synechococcus genomes in the KG; the list is frozen in methods from `list_organisms`.
 
 ### Falsifiability check
 - **Method failure is judged only by the controls:**
-  - Alteromonas fails either expectation in validation 1 or the transporter expectation in validation 3;
-  - glnA is not found in all 45 strains;
+  - glnA (validation 1) or a named biosynthetic aminotransferase (validation 2) is not found in every complete genome;
+  - the urea transporter positive control (validation 3) is not returned;
   - an expected-negative below fails.
 
   If any of these happen, the method is broken and the strain results are not interpreted.
@@ -113,7 +113,7 @@ No expression experiments are used, so the comparability concern is whether **an
 | GO MF transport terms | transporter evidence (2) | Same check; GO shares homology sources with TCDB | Term-level transport function | Independence from TCDB evidence |
 | SBP predicted substrate (Ford et al. 2021) | transporter evidence (3) | 42 of 45 strains; absent for MIT1314, MIT1327, RSP50 (reported as "no data", not "none") | Predicted binding substrate | Transport activity |
 | Genome completeness | affects all "absent" calls | The KG has no completeness field. **Source:** NCBI assembly level per strain (looked up by the KG's `ncbi_taxon_id`, outside the KG; recorded as an external input), plus any strains the researcher knows to be incomplete. **Action:** in a non-complete genome, an "absent" call is reported as **absent (assembly incomplete)**. Single-strain clades (HLIII, HLIV) and the smallest genome (RSP50) are named as the cases most exposed. | — | — |
-| Alteromonas annotations | validation only | Same pipeline check | Method sanity | Anything about Prochlorococcus |
+| Synechococcus annotations | comparison group | Same pipeline check; genome sizes differ from Prochlorococcus, so counts are shown alongside genome gene count | Differences in annotated capacity | Whether a shared absence is real biology or an annotation limit |
 
 ## 4. Deliverables
 - Strain × amino-acid transporter table (per evidence line, plus summary call), with locus tags.
