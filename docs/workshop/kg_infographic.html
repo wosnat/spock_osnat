@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inside the Spock Knowledge Graph</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a lab poster. Headline numbers, then the graph map with Gene at the hub,
+   then the four evidence layers, then who and what is inside. Colour = node family. */
+:root {
+  color-scheme: light;
+  --bg: #f3f6f7;
+  --panel: #ffffff;
+  --ink: #0e2430;
+  --ink-2: #4a5d66;
+  --ink-3: #7a8a91;
+  --line: #d5dfe2;
+  --accent: #0b7a6e;          /* sea green: the hub, the brand */
+  --fam-evidence: #2a78d6;    /* measurement layers */
+  --fam-chem: #1baf7a;        /* chemistry */
+  --fam-annot: #6250d6;       /* ontologies */
+  --fam-backbone: #52514e;    /* organisms, orthologs */
+  --bar: #2a78d6;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0c171c; --panel: #13232a; --ink: #e8f0f2; --ink-2: #a9bbc2; --ink-3: #7f949c;
+    --line: #263b44; --accent: #3cc2b1;
+    --fam-evidence: #3987e5; --fam-chem: #199e70; --fam-annot: #9085e9; --fam-backbone: #a9a89f;
+    --bar: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0c171c; --panel: #13232a; --ink: #e8f0f2; --ink-2: #a9bbc2; --ink-3: #7f949c;
+  --line: #263b44; --accent: #3cc2b1;
+  --fam-evidence: #3987e5; --fam-chem: #199e70; --fam-annot: #9085e9; --fam-backbone: #a9a89f;
+  --bar: #3987e5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.5 var(--font-body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 20px 56px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; }
+h2 { font-size: 1.45rem; font-weight: 800; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+p { margin: 0; max-width: 68ch; }
+.muted { color: var(--ink-2); }
+.small { font-size: 0.85rem; color: var(--ink-3); }
+code, .mono { font-family: var(--font-mono); font-size: 0.85em; }
+
+header { display: grid; gap: 12px; }
+.release { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.04em; }
+header p { font-size: 1.1rem; color: var(--ink-2); }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 16px; }
+
+/* headline numbers */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.stat { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 2px; align-content: start; }
+.stat .n { font-family: var(--font-display); font-weight: 800; font-size: 2rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat .l { font-weight: 600; }
+.stat .s { font-size: 0.82rem; color: var(--ink-3); }
+.stat.hub { border-color: var(--accent); }
+.stat.hub .n { color: var(--accent); }
+
+/* graph map */
+.map-scroll { overflow-x: auto; }
+.map { width: 100%; min-width: 720px; height: auto; display: block; }
+.map .edge { stroke: var(--line); stroke-width: 2; fill: none; }
+.map .elabel { fill: var(--ink-3); font: 500 12px var(--font-body); }
+.map .elabel-bg { fill: var(--panel); }
+.map .node rect { fill: var(--panel); stroke-width: 2; }
+.map .node .t { fill: var(--ink); font: 600 15px var(--font-body); }
+.map .node .c { fill: var(--ink-2); font: 400 12.5px var(--font-body); }
+.map .fam-evidence rect { stroke: var(--fam-evidence); }
+.map .fam-chem rect { stroke: var(--fam-chem); }
+.map .fam-annot rect { stroke: var(--fam-annot); }
+.map .fam-backbone rect { stroke: var(--fam-backbone); }
+.map .hub rect { fill: var(--accent); stroke: var(--accent); }
+.map .hub .t { fill: var(--panel); font-size: 20px; }
+.map .hub .c { fill: var(--panel); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 0.85rem; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 14px; border-radius: 4px; border: 2px solid; display: inline-block; }
+
+/* evidence layers */
+.layers { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+.layer { border: 1px solid var(--line); border-top: 4px solid var(--fam-evidence); border-radius: 10px; padding: 16px; display: grid; gap: 8px; align-content: start; background: var(--panel); }
+.layer.chem { border-top-color: var(--fam-chem); }
+.layer .n { font-family: var(--font-display); font-weight: 800; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.layer .q { font-style: italic; color: var(--ink-2); font-size: 0.92rem; }
+.layer .tool { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-3); }
+
+/* bar charts */
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.bars { display: grid; gap: 6px; }
+.bar-row { display: grid; grid-template-columns: 140px 1fr; align-items: center; gap: 10px; font-size: 0.9rem; }
+.bar-row .lab { color: var(--ink-2); text-align: right; line-height: 1.2; }
+.bar-track { position: relative; height: 22px; display: flex; align-items: center; gap: 8px; }
+.bar { height: 18px; background: var(--bar); border-radius: 0 4px 4px 0; min-width: 2px; }
+.bar-val { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 500; white-space: nowrap; }
+.bar-row:hover .bar, .bar-row:focus-visible .bar { filter: brightness(1.15); }
+.bar-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--bg); font-size: 0.82rem; padding: 6px 10px; border-radius: 6px; max-width: 260px; opacity: 0; transition: opacity .1s; z-index: 10; }
+@media (prefers-reduced-motion: reduce) { #tip { transition: none; } }
+
+/* chips + lists */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); border-left: 4px solid var(--fam-annot); border-radius: 6px; padding: 3px 9px; font-size: 0.85rem; background: var(--panel); }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+ul.plain { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+.rules { counter-reset: r; display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.rules li { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; }
+.rules li::before { counter-increment: r; content: counter(r); font-family: var(--font-display); font-weight: 800; color: var(--accent); font-size: 1.3rem; line-height: 1.2; }
+footer { font-size: 0.82rem; color: var(--ink-3); border-top: 1px solid var(--line); padding-top: 14px; }
+
+@media (max-width: 420px) {
+  .bar-row { grid-template-columns: 100px 1fr; font-size: 0.82rem; }
+  .panel { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="release">KG RELEASE 0.1.0-alpha.9 · BUILT 1 NOV 2026</div>
+  <h1>Inside the Spock knowledge graph</h1>
+  <p>One connected database of marine microbe genomes, expression experiments, ortholog groups, functional annotations and metabolites. <em>Prochlorococcus</em>, <em>Synechococcus</em> and <em>Alteromonas</em> are at its core. You ask questions in plain English, and Claude answers by querying it.</p>
+</header>
+
+<section class="stats" aria-label="Headline numbers">
+  <div class="stat hub"><div class="n">330,531</div><div class="l">genes</div><div class="s">protein-coding, each with a locus tag and sequence</div></div>
+  <div class="stat"><div class="n">123</div><div class="l">organisms</div><div class="s">116 sequenced strains + partners</div></div>
+  <div class="stat"><div class="n">60</div><div class="l">papers</div><div class="s">curated from their supplementary tables</div></div>
+  <div class="stat"><div class="n">340</div><div class="l">experiments</div><div class="s">238 wet-lab, 102 computed from genomes</div></div>
+  <div class="stat"><div class="n">358,913</div><div class="l">expression results</div><div class="s">one per gene × experiment × timepoint</div></div>
+  <div class="stat"><div class="n">3,249</div><div class="l">metabolites</div><div class="s">linked to genes via reactions and transporters</div></div>
+  <div class="stat"><div class="n">17</div><div class="l">ontologies</div><div class="s">GO, KEGG, Pfam, TCDB, COG and more</div></div>
+</section>
+
+<section class="panel" aria-labelledby="map-h">
+  <h2 id="map-h">Everything connects through the gene</h2>
+  <p class="muted">Each box is a type of node in the graph; each line is a type of link. Follow any line from a gene to reach its expression, annotations, orthologs, papers or chemistry.</p>
+  <div class="map-scroll">
+  <svg class="map" viewBox="0 0 1000 640" role="img" aria-label="Diagram of the knowledge graph: Gene in the centre, linked to experiments, derived metrics, gene clusters, publications, organisms, ortholog groups, ontology terms, and through reactions and transporters to metabolites, which mass-spec assays measure.">
+    <!-- edges -->
+    <g>
+      <line class="edge" x1="500" y1="300" x2="190" y2="120"/>
+      <line class="edge" x1="500" y1="300" x2="190" y2="300"/>
+      <line class="edge" x1="500" y1="300" x2="190" y2="480"/>
+      <line class="edge" x1="500" y1="300" x2="500" y2="70"/>
+      <line class="edge" x1="500" y1="70" x2="190" y2="120"/>
+      <line class="edge" x1="500" y1="300" x2="810" y2="120"/>
+      <line class="edge" x1="500" y1="300" x2="810" y2="240"/>
+      <line class="edge" x1="500" y1="300" x2="810" y2="360"/>
+      <line class="edge" x1="500" y1="300" x2="500" y2="490"/>
+      <line class="edge" x1="500" y1="490" x2="810" y2="490"/>
+      <line class="edge" x1="810" y1="590" x2="810" y2="490"/>
+    </g>
+    <!-- edge labels -->
+    <g>
+      <rect class="elabel-bg" x="290" y="196" width="130" height="34" rx="4"/>
+      <text class="elabel" x="355" y="210" text-anchor="middle">changed expression</text>
+      <text class="elabel" x="355" y="225" text-anchor="middle">log2FC, p-value, time</text>
+      <rect class="elabel-bg" x="300" y="290" width="110" height="20" rx="4"/>
+      <text class="elabel" x="355" y="304" text-anchor="middle">gene-level value</text>
+      <rect class="elabel-bg" x="300" y="380" width="110" height="20" rx="4"/>
+      <text class="elabel" x="355" y="394" text-anchor="middle">cluster member</text>
+      <rect class="elabel-bg" x="455" y="170" width="90" height="20" rx="4"/>
+      <text class="elabel" x="500" y="184" text-anchor="middle">names gene</text>
+      <rect class="elabel-bg" x="300" y="80" width="105" height="20" rx="4"/>
+      <text class="elabel" x="352" y="94" text-anchor="middle">reports</text>
+      <rect class="elabel-bg" x="610" y="196" width="90" height="20" rx="4"/>
+      <text class="elabel" x="655" y="210" text-anchor="middle">belongs to</text>
+      <rect class="elabel-bg" x="640" y="258" width="80" height="20" rx="4"/>
+      <text class="elabel" x="680" y="272" text-anchor="middle">member of</text>
+      <rect class="elabel-bg" x="618" y="322" width="110" height="20" rx="4"/>
+      <text class="elabel" x="673" y="336" text-anchor="middle">annotated with</text>
+      <rect class="elabel-bg" x="455" y="388" width="90" height="20" rx="4"/>
+      <text class="elabel" x="500" y="402" text-anchor="middle">catalyses</text>
+      <rect class="elabel-bg" x="618" y="480" width="110" height="20" rx="4"/>
+      <text class="elabel" x="673" y="494" text-anchor="middle">uses / moves</text>
+      <rect class="elabel-bg" x="820" y="530" width="70" height="20" rx="4"/>
+      <text class="elabel" x="826" y="544">measures</text>
+    </g>
+    <!-- nodes -->
+    <g class="node hub"><rect x="400" y="262" width="200" height="76" rx="10"/><text class="t" x="500" y="296" text-anchor="middle">Gene</text><text class="c" x="500" y="318" text-anchor="middle">330,531 · locus tag = identity</text></g>
+
+    <g class="node fam-evidence"><rect x="90" y="88" width="200" height="64" rx="8"/><text class="t" x="190" y="116" text-anchor="middle">Experiment</text><text class="c" x="190" y="136" text-anchor="middle">340 contrasts</text></g>
+    <g class="node fam-evidence"><rect x="90" y="268" width="200" height="64" rx="8"/><text class="t" x="190" y="296" text-anchor="middle">Derived metric</text><text class="c" x="190" y="316" text-anchor="middle">302 · rhythms, classes, flags</text></g>
+    <g class="node fam-evidence"><rect x="90" y="448" width="200" height="64" rx="8"/><text class="t" x="190" y="476" text-anchor="middle">Gene cluster</text><text class="c" x="190" y="496" text-anchor="middle">26 co-expression analyses</text></g>
+    <g class="node fam-evidence"><rect x="400" y="38" width="200" height="64" rx="8"/><text class="t" x="500" y="66" text-anchor="middle">Publication</text><text class="c" x="500" y="86" text-anchor="middle">60 papers</text></g>
+
+    <g class="node fam-backbone"><rect x="710" y="88" width="200" height="64" rx="8"/><text class="t" x="810" y="116" text-anchor="middle">Organism</text><text class="c" x="810" y="136" text-anchor="middle">123 · strain level</text></g>
+    <g class="node fam-backbone"><rect x="710" y="208" width="200" height="64" rx="8"/><text class="t" x="810" y="236" text-anchor="middle">Ortholog group</text><text class="c" x="810" y="256" text-anchor="middle">the same gene across strains</text></g>
+    <g class="node fam-annot"><rect x="710" y="328" width="200" height="64" rx="8"/><text class="t" x="810" y="356" text-anchor="middle">Ontology term</text><text class="c" x="810" y="376" text-anchor="middle">17 ontologies</text></g>
+
+    <g class="node fam-chem"><rect x="400" y="458" width="200" height="64" rx="8"/><text class="t" x="500" y="486" text-anchor="middle">Reaction · Transporter</text><text class="c" x="500" y="506" text-anchor="middle">KEGG reactions · TCDB systems</text></g>
+    <g class="node fam-chem"><rect x="710" y="458" width="200" height="64" rx="8"/><text class="t" x="810" y="486" text-anchor="middle">Metabolite</text><text class="c" x="810" y="506" text-anchor="middle">3,249 compounds</text></g>
+    <g class="node fam-chem"><rect x="710" y="562" width="200" height="64" rx="8"/><text class="t" x="810" y="590" text-anchor="middle">Metabolite assay</text><text class="c" x="810" y="610" text-anchor="middle">14 mass-spec assays</text></g>
+  </svg>
+  </div>
+  <div class="legend" aria-label="Node families">
+    <span><i style="border-color:var(--accent);background:var(--accent)"></i>Gene (the hub)</span>
+    <span><i style="border-color:var(--fam-evidence)"></i>Measurements and papers</span>
+    <span><i style="border-color:var(--fam-backbone)"></i>Organisms and orthologs</span>
+    <span><i style="border-color:var(--fam-annot)"></i>Functional annotation</span>
+    <span><i style="border-color:var(--fam-chem)"></i>Chemistry</span>
+  </div>
+</section>
+
+<section class="panel" aria-labelledby="layers-h">
+  <h2 id="layers-h">Four kinds of evidence</h2>
+  <p class="muted">The measured data sits in four separate layers. They answer different questions and are not interchangeable. Each card shows the number of datasets, then the data points they hold.</p>
+  <div class="layers">
+    <div class="layer">
+      <h3>Differential expression</h3>
+      <div class="n">193 <span class="small">experiments</span></div>
+      <p class="small"><strong>358,913 gene results</strong>: fold change, p-value and timepoint for each gene</p>
+      <p class="q">"Which genes go up when MED4 is starved of nitrogen?"</p>
+      <div class="tool">differential_expression_by_gene</div>
+    </div>
+    <div class="layer">
+      <h3>Derived metrics</h3>
+      <div class="n">302 <span class="small">metric columns</span></div>
+      <p class="small"><strong>53,079 gene values</strong> from papers: 210 categorical, 58 numeric, 34 yes/no columns (rhythmic? survives darkness?)</p>
+      <p class="q">"Which genes cycle with the day–night rhythm?"</p>
+      <div class="tool">list_derived_metrics</div>
+    </div>
+    <div class="layer">
+      <h3>Co-expression clusters</h3>
+      <div class="n">26 <span class="small">clustering analyses</span></div>
+      <p class="small"><strong>23,383 gene memberships</strong> in published modules (time course, diel, genomic islands)</p>
+      <p class="q">"What else moves together with my gene?"</p>
+      <div class="tool">list_clustering_analyses</div>
+    </div>
+    <div class="layer chem">
+      <h3>Metabolomics</h3>
+      <div class="n">14 <span class="small">mass-spec assays</span></div>
+      <p class="small"><strong>1,050 compound results</strong> on 135 compounds, attached to metabolites rather than genes</p>
+      <p class="q">"Was this compound detected in the coculture?"</p>
+      <div class="tool">list_metabolite_assays</div>
+    </div>
+  </div>
+</section>
+
+<section class="charts">
+  <div class="panel">
+    <h3>Sequenced strains by genus</h3>
+    <div class="bars" id="c-genus"></div>
+    <p class="small">116 genome strains. Another 7 organisms appear only as culture partners or treatments (for example phage, a diatom, <em>E. coli</em>).</p>
+  </div>
+  <div class="panel">
+    <h3>Experiments by measurement type</h3>
+    <div class="bars" id="c-omics"></div>
+    <p class="small">Of 340 experiments, "computed from genome" ones hold annotation-style metrics and no expression.</p>
+  </div>
+  <div class="panel">
+    <h3>Experiments by what was changed</h3>
+    <div class="bars" id="c-treat"></div>
+    <p class="small">An experiment can carry more than one treatment label, so these add to more than 340.</p>
+  </div>
+  <div class="panel">
+    <h3>How metabolites connect</h3>
+    <div class="bars" id="c-metab"></div>
+    <p class="small">3,249 metabolites in total. A compound can be reached by more than one route.</p>
+  </div>
+</section>
+
+<section class="two">
+  <div class="panel">
+    <h3>The 17 ontologies</h3>
+    <div class="chips">
+      <span class="chip">GO biological process</span><span class="chip">GO molecular function</span><span class="chip">GO cellular component</span>
+      <span class="chip">KEGG</span><span class="chip">BRITE</span><span class="chip">EC numbers</span><span class="chip">COG categories</span>
+      <span class="chip">Cyanorak roles</span><span class="chip">TIGR roles</span><span class="chip">Pfam</span><span class="chip">InterPro</span>
+      <span class="chip">NCBIfam</span><span class="chip">TCDB transporters</span><span class="chip">CAZy</span><span class="chip">MEROPS peptidases</span>
+      <span class="chip">PSORTb localization</span><span class="chip">SignalP signal peptides</span>
+    </div>
+    <p class="small">Every gene-to-term link records how it was made (curated, signature, homology…), so you can filter by trust.</p>
+  </div>
+  <div class="panel">
+    <h3>Not in the KG</h3>
+    <ul class="plain muted">
+      <li>Protein–protein interactions</li>
+      <li>SNPs and genome variants (one reference genome per strain)</li>
+      <li>Non-coding RNAs: tRNA, rRNA, sRNA</li>
+      <li>Transcript isoforms</li>
+      <li>3-D protein structure</li>
+    </ul>
+    <p class="small">If the KG cannot answer, Claude should say so and mark it as a gap.</p>
+  </div>
+</section>
+
+<section class="panel" aria-labelledby="rules-h">
+  <h2 id="rules-h">Three habits for working with it</h2>
+  <ol class="rules">
+    <li><p><strong>Genes are locus tags, not names.</strong> The name <span class="mono">glnA</span> matches 119 genes across the KG's strains; <span class="mono">PMM0920</span> is exactly one, <span class="mono">glnA</span> in MED4. Spock resolves names first and reports locus tags.</p></li>
+    <li><p><strong>Every claim traces to a query.</strong> Findings are tagged <span class="mono">[KG]</span>, <span class="mono">[interpretation]</span> or <span class="mono">[gap]</span>.</p></li>
+    <li><p><strong>Read the experiment design.</strong> Check what each treatment was compared against, and at which timepoint, before you compare fold changes across studies.</p></li>
+  </ol>
+</section>
+
+<footer>
+  All figures come from KG release 0.1.0-alpha.9 (built 2026-11-01, production), collected by <span class="mono">docs/workshop/kg_facts.py</span> on 2 Nov 2026. Counts change with each KG rebuild. The most-studied strain is <em>Prochlorococcus</em> MED4, with 45 experiments from 21 papers.
+</footer>
+</div>
+
+<div id="tip" role="tooltip"></div>
+<script>
+const DATA = {
+  "c-genus": { unit: "strains", rows: [
+    ["Synechococcus", 51], ["Prochlorococcus", 45], ["Alteromonas", 10], ["Cyanobium", 3],
+    ["Other (7 genera)", 7, "Meiothermus, Parasynechococcus, Picosynechococcus, Pseudomonas, Ruegeria, Shewanella, Thermosynechococcus: 1 each"] ]},
+  "c-omics": { unit: "experiments", rows: [
+    ["Computed from genome", 102], ["Proteomics", 82], ["RNA-seq", 79], ["Microarray", 33],
+    ["Exoproteomics", 19], ["Metabolomics", 12], ["Vesicle proteomics", 10],
+    ["Other", 3, "DNA-seq, vesicle DNA-seq, paired RNA-seq + proteome: 1 each"] ]},
+  "c-treat": { unit: "experiments", rows: [
+    ["Genome analysis", 102], ["Carbon", 88], ["Coculture", 39], ["Cell compartment", 25],
+    ["Nitrogen", 16], ["Light", 13], ["Growth phase", 11], ["Phosphorus", 10], ["Virus", 8], ["Darkness", 7],
+    ["11 others", 25, "iron 5, plastic 4, salt 3, mutant 3, diel 2, chemical 2, TSS mapping 2, temperature 1, RNA decay 1, oxygen 1, essentiality 1"] ]},
+  "c-metab": { unit: "metabolites", rows: [
+    ["Metabolic reaction", 2285, "A gene catalyses a KEGG reaction that involves it"],
+    ["Transporter (TCDB)", 1313, "A TCDB transport system lists it as a substrate"],
+    ["GO transport term", 218, "A GO term is defined as moving it"],
+    ["Measured (mass spec)", 135, "Detected or tested in a metabolomics assay"] ]}
+};
+const fmt = n => n.toLocaleString("en-US");
+const tip = document.getElementById("tip");
+for (const [id, spec] of Object.entries(DATA)) {
+  const el = document.getElementById(id);
+  const max = Math.max(...spec.rows.map(r => r[1]));
+  for (const [label, v, note] of spec.rows) {
+    const row = document.createElement("div");
+    row.className = "bar-row";
+    row.tabIndex = 0;
+    const text = `${label}: ${fmt(v)} ${spec.unit}` + (note ? ` · ${note}` : "");
+    row.setAttribute("aria-label", text);
+    row.innerHTML = `<div class="lab">${label}</div><div class="bar-track"><div class="bar" style="width:calc(${(v / max * 100).toFixed(1)}% - 52px)"></div><span class="bar-val">${fmt(v)}</span></div>`;
+    const show = (x, y) => { tip.textContent = text; tip.style.left = Math.min(x + 14, innerWidth - 270) + "px"; tip.style.top = (y + 14) + "px"; tip.style.opacity = 1; };
+    row.addEventListener("mousemove", e => show(e.clientX, e.clientY));
+    row.addEventListener("mouseleave", () => tip.style.opacity = 0);
+    row.addEventListener("focus", () => { const r = row.getBoundingClientRect(); show(r.left + 140, r.top); });
+    row.addEventListener("blur", () => tip.style.opacity = 0);
+    el.appendChild(row);
+  }
+}
+</script>
+</body>
+</html>

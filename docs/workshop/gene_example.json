@@ -1,0 +1,2131 @@
+{
+ "overview": {
+  "total_matching": 1,
+  "by_organism": [
+   {
+    "organism_name": "Prochlorococcus MED4",
+    "count": 1
+   }
+  ],
+  "by_category": [
+   {
+    "category": "Amino acid metabolism",
+    "count": 1
+   }
+  ],
+  "by_annotation_type": [
+   {
+    "annotation_type": "go_bp",
+    "count": 1
+   },
+   {
+    "annotation_type": "go_mf",
+    "count": 1
+   },
+   {
+    "annotation_type": "go_cc",
+    "count": 1
+   },
+   {
+    "annotation_type": "pfam",
+    "count": 1
+   },
+   {
+    "annotation_type": "cog_category",
+    "count": 1
+   },
+   {
+    "annotation_type": "kegg",
+    "count": 1
+   },
+   {
+    "annotation_type": "brite",
+    "count": 1
+   },
+   {
+    "annotation_type": "ec",
+    "count": 1
+   },
+   {
+    "annotation_type": "cyanorak_role",
+    "count": 1
+   },
+   {
+    "annotation_type": "tigr_role",
+    "count": 1
+   },
+   {
+    "annotation_type": "interpro",
+    "count": 1
+   },
+   {
+    "annotation_type": "ncbifam",
+    "count": 1
+   }
+  ],
+  "by_annotation_state": [
+   {
+    "annotation_state": "informative_multi",
+    "count": 1
+   }
+  ],
+  "has_expression": 1,
+  "has_significant_expression": 1,
+  "has_orthologs": 1,
+  "has_clusters": 1,
+  "has_derived_metrics": 1,
+  "has_chemistry": 1,
+  "has_discussed": 1,
+  "by_merops_class": [],
+  "has_ncbifam": 1,
+  "has_tcdb": 0,
+  "has_cazy": 0,
+  "not_found": [],
+  "warnings": [],
+  "top_discussing_publications": [
+   {
+    "doi": "10.1038/ismej.2017.88",
+    "title": "Nitrogen cost minimization is promoted by structural changes in the transcriptome of N-deprived Prochlorococcus cells",
+    "n_genes": 1
+   },
+   {
+    "doi": "10.1038/msb4100087",
+    "title": "Global gene expression of Prochlorococcus ecotypes in response to changes in nitrogen availability",
+    "n_genes": 1
+   },
+   {
+    "doi": "10.64898/2026.04.15.718746",
+    "title": "Extreme genome reduction selectively retains modular regulatory architecture in Prochlorococcus MED4: conserved transcriptional modules reveal core physiological regulatory programs",
+    "n_genes": 1
+   }
+  ],
+  "returned": 1,
+  "offset": 0,
+  "truncated": false,
+  "results": [
+   {
+    "locus_tag": "PMM0920",
+    "gene_name": "glnA",
+    "product": "glutamine synthetase, type I",
+    "gene_category": "Amino acid metabolism",
+    "annotation_quality": 3,
+    "annotation_state": "informative_multi",
+    "informative_annotation_types": [
+     "go_bp",
+     "go_mf",
+     "go_cc",
+     "pfam",
+     "cog_category",
+     "kegg",
+     "brite",
+     "ec",
+     "cyanorak_role",
+     "tigr_role",
+     "reaction",
+     "ncbifam"
+    ],
+    "organism_name": "Prochlorococcus MED4",
+    "annotation_types": [
+     "go_bp",
+     "go_mf",
+     "go_cc",
+     "pfam",
+     "cog_category",
+     "kegg",
+     "brite",
+     "ec",
+     "cyanorak_role",
+     "tigr_role",
+     "interpro",
+     "ncbifam"
+    ],
+    "expression_edge_count": 43,
+    "significant_up_count": 20,
+    "significant_down_count": 6,
+    "closest_ortholog_group_size": 96,
+    "closest_ortholog_genera": [
+     "Cyanobium",
+     "Prochlorococcus",
+     "Synechococcus"
+    ],
+    "cluster_membership_count": 3,
+    "cluster_types": [
+     "decay_pattern",
+     "diel",
+     "time_course"
+    ],
+    "numeric_metric_count": 13,
+    "boolean_metric_count": 2,
+    "categorical_metric_count": 2,
+    "reaction_count": 1,
+    "catalyzed_metabolite_count": 6,
+    "transported_metabolite_count": 0,
+    "go_transport_metabolite_count": 0,
+    "tcdb_best_hit_identity": null,
+    "discussed_in_publication_count": 3,
+    "merops_classes": [],
+    "ncbifam_family_count": 1,
+    "tcdb_assignment_count": 0,
+    "cazy_family_count": 0,
+    "merops_evidence_score_max": null,
+    "evidence_sources": [
+     "metabolism",
+     "metabolomics"
+    ],
+    "gene_summary": "glnA :: glutamine synthetase, type I :: Involved in nitrogen metabolism via ammonium assimilation. Catalyzes the ATP-dependent biosynthesis of glutamine from glutamate and ammonia",
+    "function_description": "Involved in nitrogen metabolism via ammonium assimilation. Catalyzes the ATP-dependent biosynthesis of glutamine from glutamate and ammonia",
+    "all_identifiers": [
+     "CK_Pro_MED4_00920",
+     "Q7V1F3",
+     "TX50_RS04910",
+     "WP_011132553.1"
+    ],
+    "numeric_metric_types_observed": [
+     "antisense_tss_count",
+     "damping_ratio",
+     "diel_amplitude_protein_log2",
+     "diel_amplitude_transcript_log2",
+     "expression_at_t0_log2",
+     "internal_tss_count",
+     "minus10_element_score",
+     "peak_time_protein_h",
+     "peak_time_transcript_h",
+     "protein_transcript_lag_h",
+     "rna_decay_time_min",
+     "rna_half_life_min",
+     "tss_distance_to_cds"
+    ],
+    "boolean_metric_types_observed": [
+     "expressed_above_background",
+     "has_primary_tss"
+    ],
+    "categorical_metric_types_observed": [
+     "expression_level_class",
+     "pangenome_membership"
+    ],
+    "compartments_observed": [
+     "whole_cell"
+    ],
+    "discussed_in_publications": [
+     {
+      "evidence": "The larger NtcA iModulon includes ntcA, glutamate synthase (glnA), glnB (Results 2.4, lines 193-195)",
+      "prominence": "central",
+      "doi": "10.64898/2026.04.15.718746"
+     },
+     {
+      "evidence": "Members of the NtcA regulon that exhibited increased transcript abundance during N-deprivation included genes encoding the assimilation pathways for urea and cyanate, as well as the glutamine synthase gene glnA (Supplementary Tables S3\u2013S6). (p5, Results)",
+      "prominence": "central",
+      "doi": "10.1038/ismej.2017.88"
+     },
+     {
+      "evidence": "The glnA gene, encoding GS, was upregulated in both strains (Figure 4D), similar to other cyanobacteria (Results, p7)",
+      "prominence": "central",
+      "doi": "10.1038/msb4100087"
+     }
+    ],
+    "derived_metric_count": 17,
+    "derived_metric_value_kinds": [
+     "numeric",
+     "boolean",
+     "categorical"
+    ]
+   }
+  ]
+ },
+ "expression_summary": {
+  "organism_name": "Prochlorococcus MED4",
+  "matching_genes": 1,
+  "total_matching": 43,
+  "rows_by_status": {
+   "not_significant": 17,
+   "significant_up": 20,
+   "significant_down": 6
+  },
+  "median_abs_log2fc": 2.444533472585622,
+  "max_abs_log2fc": 5.06051169137151,
+  "experiment_count": 23,
+  "rows_by_treatment_type": {
+   "light": 5,
+   "nitrogen": 25,
+   "darkness": 2,
+   "carbon": 7,
+   "coculture": 3,
+   "salt": 1
+  },
+  "rows_by_background_factors": {
+   "axenic": 26,
+   "diel": 6,
+   "coculture": 14,
+   "light": 34,
+   "darkness": 2
+  },
+  "by_table_scope": {
+   "all_detected_genes": 36,
+   "significant_only": 1,
+   "filtered_subset": 6
+  },
+  "rows_by_growth_phase": {
+   "diel": 4,
+   "nutrient_limited": 14,
+   "death": 4,
+   "darkness": 2,
+   "acclimated_steady_state": 3,
+   "acute_stress": 10,
+   "exponential": 6
+  },
+  "top_categories": [
+   {
+    "total_genes": 1,
+    "category": "Amino acid metabolism",
+    "significant_genes": 1
+   }
+  ],
+  "experiments": [
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 5,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_proteomics_coculture",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "Each timepoint (day 18, day 31, day 60, day 89, days 60+89) is coculture MED4 vs the same coculture series sampled on day 11 (exponential). days 60+89 pools the day 60 and day 89 samples."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 5,
+     "not_significant": 1,
+     "significant_down": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ]
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 3,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_proteomics_axenic",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "day 14, day 31 and day 89: axenic MED4 vs axenic MED4 sampled on day 7 (exponential). Day 7 and day 14 come from the axenic repeat experiment; the methods do not say which run day 31 and day 89 came from."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 3,
+     "significant_down": 2,
+     "significant_up": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "Each timepoint (day 18, day 31, day 60, day 89) is coculture MED4 vs the same coculture series sampled on day 11 (exponential). days 60+89 pools the day 60 and day 89 samples."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 2,
+     "not_significant": 1,
+     "significant_down": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq",
+    "control_timing": "matched",
+    "table_scope": "filtered_subset",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ]
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "not_significant": 1,
+     "significant_down": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.64898/2026.04.15.718746_extended_darkness_med4",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "darkness"
+    ],
+    "design_notes": "Control for 2h and 4h is the normal-diel circadian time-course sample at the same ZT (ZT 2 and ZT 4, lights on, diel), not ZT 0 as one Methods sentence suggests; the reported log2FC reproduce the same-ZT contrast from the GEO GSE314951 counts (r = 1.00) and not the ZT 0 contrast (r below 0.6)."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark",
+    "control_timing": "matched",
+    "table_scope": "significant_only",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "light"
+    ],
+    "design_notes": "Dark and light arms come from two experiments run on separate days, each split from its own mid-log (exponential) mother culture; arms are compared at the same hours post-inoculation."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 1,
+     "significant_down": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "coculture"
+    ],
+    "design_notes": "Matched by growth state, not by sampling day: the axenic MED4 control came from a separate repeat experiment sampled on days 7 and 14 to match axenic MED4 growth dynamics (Methods p. 14). day 11: coculture day 11 vs axenic day 7 (both exponential). day 18: coculture day 18 vs axenic day 14 (death, axenic MED4 lost viability around day 11)."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "day 14: axenic MED4 vs the same axenic series sampled on day 7 (exponential); axenic MED4 was a separate repeat experiment sampled on days 7 and 14. No axenic MED4 RNA exists after day 14."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "steady state: log-phase cultures acclimated to the alternative N source vs log-phase cultures on ammonium (exponential). Methods do not state that both arms were harvested on the same day; matched by growth state, assumed from the acclimated parallel-culture design."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "filtered_subset",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "max across 70min-24h: gas-shocked and air-sparged control bottles were split from one pooled culture at t = 0 and sampled in parallel at the same times (exponential). The value is the extremum over time of the log2 change versus t = 0 under the gas minus the same change in air; significance by betr against the parallel air time course."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "filtered_subset",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "max across 70min-24h: gas-shocked and air-sparged control bottles were split from one pooled culture at t = 0 and sampled in parallel at the same times (exponential). The value is the extremum over time of the log2 change versus t = 0 under the gas minus the same change in air; significance by betr against the parallel air time course."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray",
+    "control_timing": "baseline",
+    "table_scope": "filtered_subset",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "max across 70min-24h: the air-sparged culture at each time is compared with its own t = 0 sample (taken immediately after centrifugation and resuspension, before sparging; exponential). Table S1 reports the maximal log2 fold change versus t = 0 over the time course; significance by betr time-series test against t = 0."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "coculture"
+    ]
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 2,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.64898/2026.04.15.718746_extended_light_med4",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "light"
+    ],
+    "design_notes": "Control for 14h and 16h is the normal-diel circadian time-course sample at the same ZT (ZT 14 and ZT 16, lights off, diel), not ZT 0 or ZT 12; the reported log2FC reproduce the same-ZT contrast from the GEO GSE314951 counts (r = 1.00) and not the ZT 12 contrast (r below 0.82)."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1128/spectrum.03275-22_dark_high_glucose_med4_proteomics",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "adjusted_p_value on these edges is the unadjusted p-value reported by the paper (no multiple-testing correction). The p-values are one-tailed (half the two-tailed value) from an unpaired Student t-test."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1021/pr060460c_light_ML_vs_LL_med4_proteomics",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "light"
+    ]
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1128/spectrum.03275-22_dark_low_glucose_med4_proteomics",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "adjusted_p_value on these edges is the unadjusted p-value reported by the paper (no multiple-testing correction). The p-values are one-tailed (half the two-tailed value) from an unpaired Student t-test."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1021/pr060460c_light_HL_vs_LL_med4_proteomics",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "light"
+    ]
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1128/spectrum.03275-22_light_high_glucose_med4_proteomics",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "adjusted_p_value on these edges is the unadjusted p-value reported by the paper (no multiple-testing correction). The p-values are one-tailed (half the two-tailed value) from an unpaired Student t-test."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1128/spectrum.03275-22_light_low_glucose_med4_proteomics",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "adjusted_p_value on these edges is the unadjusted p-value reported by the paper (no multiple-testing correction). The p-values are one-tailed (half the two-tailed value) from an unpaired Student t-test."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "steady state: log-phase cultures acclimated to the alternative N source vs log-phase cultures on ammonium (exponential). Methods do not state that both arms were harvested on the same day; matched by growth state, assumed from the acclimated parallel-culture design."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "not_significant": 1,
+     "significant_up": 0,
+     "significant_down": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "salt"
+    ]
+   }
+  ],
+  "not_found": [],
+  "no_expression": [],
+  "filtered_out": [],
+  "warnings": [],
+  "not_found_experiments": [],
+  "not_matched_experiments": [],
+  "returned": 0,
+  "offset": 0,
+  "truncated": true
+ },
+ "expression_significant": {
+  "organism_name": "Prochlorococcus MED4",
+  "matching_genes": 1,
+  "total_matching": 26,
+  "rows_by_status": {
+   "significant_up": 20,
+   "significant_down": 6,
+   "not_significant": 0
+  },
+  "median_abs_log2fc": 2.444533472585622,
+  "max_abs_log2fc": 5.06051169137151,
+  "experiment_count": 14,
+  "rows_by_treatment_type": {
+   "nitrogen": 19,
+   "darkness": 1,
+   "light": 1,
+   "coculture": 2,
+   "carbon": 3
+  },
+  "rows_by_background_factors": {
+   "coculture": 7,
+   "light": 24,
+   "axenic": 17,
+   "diel": 1
+  },
+  "by_table_scope": {
+   "all_detected_genes": 20,
+   "significant_only": 1,
+   "filtered_subset": 5
+  },
+  "rows_by_growth_phase": {
+   "nutrient_limited": 10,
+   "diel": 1,
+   "death": 4,
+   "acute_stress": 8,
+   "exponential": 3
+  },
+  "top_categories": [
+   {
+    "total_genes": 1,
+    "category": "Amino acid metabolism",
+    "significant_genes": 1
+   }
+  ],
+  "experiments": [
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 5,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_proteomics_coculture",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "Each timepoint (day 18, day 31, day 60, day 89, days 60+89) is coculture MED4 vs the same coculture series sampled on day 11 (exponential). days 60+89 pools the day 60 and day 89 samples."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 5,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ]
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 3,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "PROTEOMICS",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_proteomics_axenic",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "day 14, day 31 and day 89: axenic MED4 vs axenic MED4 sampled on day 7 (exponential). Day 7 and day 14 come from the axenic repeat experiment; the methods do not say which run day 31 and day 89 came from."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 2,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "Each timepoint (day 18, day 31, day 60, day 89) is coculture MED4 vs the same coculture series sampled on day 11 (exponential). days 60+89 pools the day 60 and day 89 samples."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 2,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq",
+    "control_timing": "matched",
+    "table_scope": "filtered_subset",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "nitrogen"
+    ]
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.64898/2026.04.15.718746_extended_darkness_med4",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "darkness"
+    ],
+    "design_notes": "Control for 2h and 4h is the normal-diel circadian time-course sample at the same ZT (ZT 2 and ZT 4, lights on, diel), not ZT 0 as one Methods sentence suggests; the reported log2FC reproduce the same-ZT contrast from the GEO GSE314951 counts (r = 1.00) and not the ZT 0 contrast (r below 0.6)."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark",
+    "control_timing": "matched",
+    "table_scope": "significant_only",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "light"
+    ],
+    "design_notes": "Dark and light arms come from two experiments run on separate days, each split from its own mid-log (exponential) mother culture; arms are compared at the same hours post-inoculation."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic",
+    "control_timing": "baseline",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "day 14: axenic MED4 vs the same axenic series sampled on day 7 (exponential); axenic MED4 was a separate repeat experiment sampled on days 7 and 14. No axenic MED4 RNA exists after day 14."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "time_course",
+    "treatment_type": [
+     "coculture"
+    ],
+    "design_notes": "Matched by growth state, not by sampling day: the axenic MED4 control came from a separate repeat experiment sampled on days 7 and 14 to match axenic MED4 growth dynamics (Methods p. 14). day 11: coculture day 11 vs axenic day 7 (both exponential). day 18: coculture day 18 vs axenic day 14 (death, axenic MED4 lost viability around day 11)."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "nitrogen"
+    ],
+    "design_notes": "steady state: log-phase cultures acclimated to the alternative N source vs log-phase cultures on ammonium (exponential). Methods do not state that both arms were harvested on the same day; matched by growth state, assumed from the acclimated parallel-culture design."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "filtered_subset",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "max across 70min-24h: gas-shocked and air-sparged control bottles were split from one pooled culture at t = 0 and sampled in parallel at the same times (exponential). The value is the extremum over time of the log2 change versus t = 0 under the gas minus the same change in air; significance by betr against the parallel air time course."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray",
+    "control_timing": "matched",
+    "table_scope": "filtered_subset",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "max across 70min-24h: gas-shocked and air-sparged control bottles were split from one pooled culture at t = 0 and sampled in parallel at the same times (exponential). The value is the extremum over time of the log2 change versus t = 0 under the gas minus the same change in air; significance by betr against the parallel air time course."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_up": 1,
+     "significant_down": 0,
+     "not_significant": 0
+    },
+    "omics_type": "MICROARRAY",
+    "experiment_id": "10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray",
+    "control_timing": "baseline",
+    "table_scope": "filtered_subset",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "carbon"
+    ],
+    "design_notes": "max across 70min-24h: the air-sparged culture at each time is compared with its own t = 0 sample (taken immediately after centrifugation and resuspension, before sparging; exponential). Table S1 reports the maximal log2 fold change versus t = 0 over the time course; significance by betr time-series test against t = 0."
+   },
+   {
+    "matching_genes": 1,
+    "rows_by_status": {
+     "significant_down": 1,
+     "significant_up": 0,
+     "not_significant": 0
+    },
+    "omics_type": "RNASEQ",
+    "experiment_id": "10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq",
+    "control_timing": "matched",
+    "table_scope": "all_detected_genes",
+    "is_time_course": "single_time_point",
+    "treatment_type": [
+     "coculture"
+    ]
+   }
+  ],
+  "not_found": [],
+  "no_expression": [],
+  "filtered_out": [],
+  "warnings": [],
+  "not_found_experiments": [],
+  "not_matched_experiments": [],
+  "returned": 0,
+  "offset": 0,
+  "truncated": true
+ },
+ "homologs": {
+  "total_matching": 4,
+  "by_organism": [
+   {
+    "organism_name": "Prochlorococcus MED4",
+    "count": 1
+   }
+  ],
+  "by_source": [
+   {
+    "source": "eggnog",
+    "count": 3
+   },
+   {
+    "source": "cyanorak",
+    "count": 1
+   }
+  ],
+  "not_found": [],
+  "no_groups": [],
+  "top_cyanorak_roles": [
+   {
+    "id": "cyanorak.role:E.4",
+    "count": 1,
+    "name": "Central intermediary metabolism > Nitrogen metabolism"
+   },
+   {
+    "id": "cyanorak.role:A.3",
+    "count": 1,
+    "name": "Amino acid biosynthesis > Glutamate family (Arg, Gln, Glu, Pro)"
+   }
+  ],
+  "top_cog_categories": [
+   {
+    "id": "cog.category:H",
+    "count": 1,
+    "name": "Coenzyme transport and metabolism"
+   }
+  ],
+  "warnings": [],
+  "returned": 0,
+  "offset": 0,
+  "truncated": true
+ },
+ "ontology_terms": {
+  "total_matching": 26,
+  "total_genes": 1,
+  "total_terms": 26,
+  "by_ontology": [
+   {
+    "ontology_type": "interpro",
+    "term_count": 7,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "go_bp",
+    "term_count": 3,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "go_mf",
+    "term_count": 3,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "cyanorak_role",
+    "term_count": 2,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "go_cc",
+    "term_count": 2,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "pfam",
+    "term_count": 2,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "brite",
+    "term_count": 1,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "cog_category",
+    "term_count": 1,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "ec",
+    "term_count": 1,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "kegg",
+    "term_count": 1,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "ncbifam",
+    "term_count": 1,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "subcellular_localization",
+    "term_count": 1,
+    "gene_count": 1
+   },
+   {
+    "ontology_type": "tigr_role",
+    "term_count": 1,
+    "gene_count": 1
+   }
+  ],
+  "by_term": [
+   {
+    "term_id": "kegg.brite:ko01000.A6.B3.C1.D2",
+    "term_name": "6.3.1.2  glutamine synthetase",
+    "level": 3,
+    "count": 1,
+    "tree": "enzymes",
+    "tree_code": "ko01000",
+    "ontology_type": "brite"
+   },
+   {
+    "term_id": "cog.category:H",
+    "term_name": "Coenzyme transport and metabolism",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "cog_category"
+   },
+   {
+    "term_id": "cyanorak.role:E.4",
+    "term_name": "Central intermediary metabolism > Nitrogen metabolism",
+    "level": 1,
+    "count": 1,
+    "ontology_type": "cyanorak_role"
+   },
+   {
+    "term_id": "cyanorak.role:A.3",
+    "term_name": "Amino acid biosynthesis > Glutamate family (Arg, Gln, Glu, Pro)",
+    "level": 1,
+    "count": 1,
+    "ontology_type": "cyanorak_role"
+   },
+   {
+    "term_id": "ec:6.3.1.2",
+    "term_name": "glutamine synthetase",
+    "level": 3,
+    "count": 1,
+    "ontology_type": "ec"
+   },
+   {
+    "term_id": "go:1901704",
+    "term_name": "L-glutamine biosynthetic process",
+    "level": 6,
+    "count": 1,
+    "ontology_type": "go_bp"
+   },
+   {
+    "term_id": "go:0019740",
+    "term_name": "nitrogen utilization",
+    "level": 3,
+    "count": 1,
+    "ontology_type": "go_bp"
+   },
+   {
+    "term_id": "go:0009399",
+    "term_name": "nitrogen fixation",
+    "level": 4,
+    "count": 1,
+    "ontology_type": "go_bp"
+   },
+   {
+    "term_id": "go:0016020",
+    "term_name": "membrane",
+    "level": 2,
+    "count": 1,
+    "ontology_type": "go_cc"
+   },
+   {
+    "term_id": "go:0005737",
+    "term_name": "cytoplasm",
+    "level": 2,
+    "count": 1,
+    "ontology_type": "go_cc"
+   },
+   {
+    "term_id": "go:0046872",
+    "term_name": "metal ion binding",
+    "level": 5,
+    "count": 1,
+    "ontology_type": "go_mf"
+   },
+   {
+    "term_id": "go:0005524",
+    "term_name": "ATP binding",
+    "level": 4,
+    "count": 1,
+    "ontology_type": "go_mf"
+   },
+   {
+    "term_id": "go:0004356",
+    "term_name": "glutamine synthetase activity",
+    "level": 6,
+    "count": 1,
+    "ontology_type": "go_mf"
+   },
+   {
+    "term_id": "interpro:IPR036651",
+    "term_name": "Glutamine synthetase, N-terminal domain superfamily",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "interpro"
+   },
+   {
+    "term_id": "interpro:IPR027303",
+    "term_name": "Glutamine synthetase, glycine-rich site",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "interpro"
+   },
+   {
+    "term_id": "interpro:IPR027302",
+    "term_name": "Glutamine synthetase, N-terminal conserved site",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "interpro"
+   },
+   {
+    "term_id": "interpro:IPR014746",
+    "term_name": "Glutamine synthetase/guanido kinase, catalytic domain",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "interpro"
+   },
+   {
+    "term_id": "interpro:IPR008147",
+    "term_name": "Glutamine synthetase, N-terminal domain",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "interpro"
+   },
+   {
+    "term_id": "interpro:IPR008146",
+    "term_name": "Glutamine synthetase, catalytic domain",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "interpro"
+   },
+   {
+    "term_id": "interpro:IPR004809",
+    "term_name": "Glutamine synthetase type I",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "interpro"
+   },
+   {
+    "term_id": "kegg.orthology:K01915",
+    "term_name": "glnA, GLUL; glutamine synthetase [EC:6.3.1.2]",
+    "level": 3,
+    "count": 1,
+    "ontology_type": "kegg"
+   },
+   {
+    "term_id": "ncbifam:TIGR00653",
+    "term_name": "type I glutamate--ammonia ligase",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "ncbifam"
+   },
+   {
+    "term_id": "pfam:PF03951",
+    "term_name": "Glutamine synthetase, beta-Grasp domain",
+    "level": 1,
+    "count": 1,
+    "ontology_type": "pfam"
+   },
+   {
+    "term_id": "pfam:PF00120",
+    "term_name": "Glutamine synthetase, catalytic domain",
+    "level": 1,
+    "count": 1,
+    "ontology_type": "pfam"
+   },
+   {
+    "term_id": "psortb_Cytoplasmic",
+    "term_name": "Cytoplasmic",
+    "level": 0,
+    "count": 1,
+    "ontology_type": "subcellular_localization"
+   },
+   {
+    "term_id": "tigr.role:73",
+    "term_name": "Amino acid biosynthesis / Glutamate family",
+    "level": 1,
+    "count": 1,
+    "ontology_type": "tigr_role"
+   }
+  ],
+  "terms_per_gene_min": 26,
+  "terms_per_gene_max": 26,
+  "terms_per_gene_median": 26,
+  "returned": 26,
+  "offset": 0,
+  "truncated": false,
+  "not_found": [],
+  "no_terms": [],
+  "results": [
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "cog.category:H",
+    "term_name": "Coenzyme transport and metabolism",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "family_inferred",
+    "ontology_type": "cog_category"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "cyanorak.role:A.3",
+    "term_name": "Amino acid biosynthesis > Glutamate family (Arg, Gln, Glu, Pro)",
+    "level": 1,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "cyanorak_role"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "cyanorak.role:E.4",
+    "term_name": "Central intermediary metabolism > Nitrogen metabolism",
+    "level": 1,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "cyanorak_role"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "ec:6.3.1.2",
+    "term_name": "glutamine synthetase",
+    "level": 3,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "ec"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:0004356",
+    "term_name": "glutamine synthetase activity",
+    "level": 6,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "go_mf"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:0005524",
+    "term_name": "ATP binding",
+    "level": 4,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "go_mf"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:0005737",
+    "term_name": "cytoplasm",
+    "level": 2,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "go_cc"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:0009399",
+    "term_name": "nitrogen fixation",
+    "level": 4,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "go_bp"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:0016020",
+    "term_name": "membrane",
+    "level": 2,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "go_cc"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:0019740",
+    "term_name": "nitrogen utilization",
+    "level": 3,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "go_bp"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:0046872",
+    "term_name": "metal ion binding",
+    "level": 5,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "go_mf"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "go:1901704",
+    "term_name": "L-glutamine biosynthetic process",
+    "level": 6,
+    "is_informative": true,
+    "evidence": "domain_inferred",
+    "ontology_type": "go_bp"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "interpro:IPR004809",
+    "term_name": "Glutamine synthetase type I",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "interpro_type": "FAMILY",
+    "ontology_type": "interpro"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "interpro:IPR008146",
+    "term_name": "Glutamine synthetase, catalytic domain",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "interpro_type": "DOMAIN",
+    "ontology_type": "interpro"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "interpro:IPR008147",
+    "term_name": "Glutamine synthetase, N-terminal domain",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "interpro_type": "DOMAIN",
+    "ontology_type": "interpro"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "interpro:IPR014746",
+    "term_name": "Glutamine synthetase/guanido kinase, catalytic domain",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "interpro_type": "HOMOLOGOUS_SUPERFAMILY",
+    "ontology_type": "interpro"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "interpro:IPR027302",
+    "term_name": "Glutamine synthetase, N-terminal conserved site",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "interpro_type": "CONSERVED_SITE",
+    "ontology_type": "interpro"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "interpro:IPR027303",
+    "term_name": "Glutamine synthetase, glycine-rich site",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "interpro_type": "CONSERVED_SITE",
+    "ontology_type": "interpro"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "interpro:IPR036651",
+    "term_name": "Glutamine synthetase, N-terminal domain superfamily",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "interpro_type": "HOMOLOGOUS_SUPERFAMILY",
+    "ontology_type": "interpro"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "kegg.brite:ko01000.A6.B3.C1.D2",
+    "term_name": "6.3.1.2  glutamine synthetase",
+    "level": 3,
+    "tree": "enzymes",
+    "tree_code": "ko01000",
+    "is_informative": true,
+    "evidence": "family_inferred",
+    "ontology_type": "brite"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "kegg.orthology:K01915",
+    "term_name": "glnA, GLUL; glutamine synthetase [EC:6.3.1.2]",
+    "level": 3,
+    "is_informative": true,
+    "evidence": "family_inferred",
+    "ontology_type": "kegg"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "ncbifam:TIGR00653",
+    "term_name": "type I glutamate--ammonia ligase",
+    "level": 0,
+    "is_informative": true,
+    "evidence": "signature",
+    "ontology_type": "ncbifam"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "pfam:PF00120",
+    "term_name": "Glutamine synthetase, catalytic domain",
+    "level": 1,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "pfam"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "pfam:PF03951",
+    "term_name": "Glutamine synthetase, beta-Grasp domain",
+    "level": 1,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "pfam"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "psortb_Cytoplasmic",
+    "term_name": "Cytoplasmic",
+    "level": 0,
+    "is_informative": true,
+    "ontology_type": "subcellular_localization"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "term_id": "tigr.role:73",
+    "term_name": "Amino acid biosynthesis / Glutamate family",
+    "level": 1,
+    "is_informative": true,
+    "evidence": "curated",
+    "ontology_type": "tigr_role"
+   }
+  ],
+  "trust_axes": {
+   "brite": [
+    "sources",
+    "evidence"
+   ],
+   "cazy": [
+    "sources",
+    "evidence",
+    "evidence_score"
+   ],
+   "cog_category": [
+    "sources",
+    "evidence"
+   ],
+   "cyanorak_role": [
+    "sources",
+    "evidence"
+   ],
+   "ec": [
+    "sources",
+    "evidence",
+    "evidence_score"
+   ],
+   "go_bp": [
+    "sources",
+    "evidence",
+    "evidence_score"
+   ],
+   "go_cc": [
+    "sources",
+    "evidence",
+    "evidence_score"
+   ],
+   "go_mf": [
+    "sources",
+    "evidence",
+    "evidence_score"
+   ],
+   "interpro": [
+    "sources",
+    "evidence"
+   ],
+   "kegg": [
+    "sources",
+    "evidence"
+   ],
+   "merops": [
+    "sources",
+    "evidence",
+    "evidence_score",
+    "tier"
+   ],
+   "ncbifam": [
+    "sources",
+    "evidence"
+   ],
+   "pfam": [
+    "sources",
+    "evidence",
+    "evidence_score"
+   ],
+   "signal_peptide_type": [],
+   "subcellular_localization": [],
+   "tcdb": [
+    "sources",
+    "evidence",
+    "tier"
+   ],
+   "tigr_role": [
+    "sources",
+    "evidence"
+   ]
+  },
+  "filters_applied": {},
+  "skipped_ontologies": [],
+  "by_evidence": [
+   {
+    "evidence": "curated",
+    "count": 13
+   },
+   {
+    "evidence": "signature",
+    "count": 8
+   },
+   {
+    "evidence": "family_inferred",
+    "count": 3
+   },
+   {
+    "evidence": "domain_inferred",
+    "count": 1
+   }
+  ],
+  "by_tier": [],
+  "by_sources": [
+   {
+    "source": "interproscan",
+    "count": 14
+   },
+   {
+    "source": "cyanorak",
+    "count": 9
+   },
+   {
+    "source": "uniprot",
+    "count": 9
+   },
+   {
+    "source": "eggnog",
+    "count": 6
+   },
+   {
+    "source": "ncbi",
+    "count": 1
+   }
+  ],
+  "by_call_class": [],
+  "by_tcdb_call": [],
+  "evidence_score_stats": {
+   "min": 0.0,
+   "median": 0.667,
+   "max": 1.0,
+   "n_null": 0
+  },
+  "warnings": []
+ },
+ "metabolites": {
+  "total_matching": 6,
+  "returned": 6,
+  "offset": 0,
+  "truncated": false,
+  "warnings": [
+   "Stereo forms hold more rows: L-Glutamate (kegg.compound:C00025) \u2192 Glutamate (kegg.compound:C00302): 1 reaction, 0 transporter families. Counts never combine across stereo forms, see stereo_relatives."
+  ],
+  "resolved_aliases": {},
+  "not_found": {
+   "locus_tags": [],
+   "organism": null,
+   "metabolite_ids": [],
+   "metabolite_pathway_ids": [],
+   "metabolite_elements": []
+  },
+  "not_matched": [],
+  "by_gene": [
+   {
+    "go_transport_rows": 0,
+    "locus_tag": "PMM0920",
+    "reaction_count": 1,
+    "tcdb_family_rows": 0,
+    "multi_source_metabolite_count": 0,
+    "tcdb_direct_rows": 0,
+    "rows": 6,
+    "product": "glutamine synthetase, type I",
+    "tcdb_assignment_count": 0,
+    "metabolism_rows": 6,
+    "transporter_count": 0,
+    "metabolite_count": 6,
+    "gene_name": "glnA"
+   }
+  ],
+  "by_evidence_source": [
+   {
+    "evidence_source": "metabolism",
+    "count": 6
+   }
+  ],
+  "by_evidence_source_combination": [
+   {
+    "evidence_sources": [
+     "metabolism"
+    ],
+    "pair_count": 6
+   }
+  ],
+  "by_tcdb_route": [],
+  "tcdb_family_substrates_not_shown": {
+   "genes": 0,
+   "metabolites": 0,
+   "rows": 0
+  },
+  "tcdb_family_substrates_skipped": [],
+  "by_element": [
+   {
+    "element": "H",
+    "metabolite_count": 6
+   },
+   {
+    "element": "N",
+    "metabolite_count": 5
+   },
+   {
+    "element": "O",
+    "metabolite_count": 5
+   },
+   {
+    "element": "C",
+    "metabolite_count": 4
+   },
+   {
+    "element": "P",
+    "metabolite_count": 3
+   }
+  ],
+  "top_metabolites": [
+   {
+    "metabolism_rows": 1,
+    "transporter_count": 0,
+    "go_transport_rows": 0,
+    "gene_count": 1,
+    "metabolite_id": "kegg.compound:C00002",
+    "name": "ATP",
+    "reaction_count": 1,
+    "multi_source_gene_count": 0,
+    "tcdb_family_rows": 0,
+    "tcdb_direct_rows": 0,
+    "formula": "C10H12N5O13P3"
+   },
+   {
+    "metabolism_rows": 1,
+    "transporter_count": 0,
+    "go_transport_rows": 0,
+    "gene_count": 1,
+    "metabolite_id": "kegg.compound:C00008",
+    "name": "ADP",
+    "reaction_count": 1,
+    "multi_source_gene_count": 0,
+    "tcdb_family_rows": 0,
+    "tcdb_direct_rows": 0,
+    "formula": "C10H12N5O10P2"
+   },
+   {
+    "metabolism_rows": 1,
+    "transporter_count": 0,
+    "go_transport_rows": 0,
+    "gene_count": 1,
+    "metabolite_id": "kegg.compound:C00009",
+    "name": "Orthophosphate",
+    "reaction_count": 1,
+    "multi_source_gene_count": 0,
+    "tcdb_family_rows": 0,
+    "tcdb_direct_rows": 0,
+    "formula": "HO4P"
+   },
+   {
+    "metabolism_rows": 1,
+    "transporter_count": 0,
+    "go_transport_rows": 0,
+    "gene_count": 1,
+    "metabolite_id": "kegg.compound:C00014",
+    "name": "Ammonia",
+    "reaction_count": 1,
+    "multi_source_gene_count": 0,
+    "tcdb_family_rows": 0,
+    "tcdb_direct_rows": 0,
+    "formula": "H4N"
+   },
+   {
+    "metabolism_rows": 1,
+    "transporter_count": 0,
+    "go_transport_rows": 0,
+    "gene_count": 1,
+    "metabolite_id": "kegg.compound:C00025",
+    "name": "L-Glutamate",
+    "reaction_count": 1,
+    "multi_source_gene_count": 0,
+    "tcdb_family_rows": 0,
+    "tcdb_direct_rows": 0,
+    "formula": "C5H8NO4"
+   },
+   {
+    "metabolism_rows": 1,
+    "transporter_count": 0,
+    "go_transport_rows": 0,
+    "gene_count": 1,
+    "metabolite_id": "kegg.compound:C00064",
+    "name": "L-Glutamine",
+    "reaction_count": 1,
+    "multi_source_gene_count": 0,
+    "tcdb_family_rows": 0,
+    "tcdb_direct_rows": 0,
+    "formula": "C5H10N2O3"
+   }
+  ],
+  "top_reactions": [
+   {
+    "gene_count": 1,
+    "reaction_id": "kegg.reaction:R00253",
+    "name": "L-glutamate:ammonia ligase (ADP-forming); ATP + L-Glutamate + Ammonia <=> ADP + Orthophosphate + L-Glutamine",
+    "metabolite_count": 6,
+    "ec_numbers": [
+     "6.3.1.2"
+    ]
+   }
+  ],
+  "top_tcdb_families": [],
+  "top_gene_categories": [
+   {
+    "category": "Amino acid metabolism",
+    "gene_count": 1
+   }
+  ],
+  "top_metabolite_pathways": [
+   {
+    "metabolite_pathway_name": "Nitrogen cycle",
+    "gene_count": 1,
+    "pathway_reaction_count": 11,
+    "pathway_metabolite_count": 8,
+    "metabolite_pathway_id": "kegg.pathway:ko01310"
+   },
+   {
+    "metabolite_pathway_name": "Carbapenem biosynthesis",
+    "gene_count": 1,
+    "pathway_reaction_count": 4,
+    "pathway_metabolite_count": 11,
+    "metabolite_pathway_id": "kegg.pathway:ko00332"
+   },
+   {
+    "metabolite_pathway_name": "Vitamin B6 metabolism",
+    "gene_count": 1,
+    "pathway_reaction_count": 15,
+    "pathway_metabolite_count": 18,
+    "metabolite_pathway_id": "kegg.pathway:ko00750"
+   },
+   {
+    "metabolite_pathway_name": "Nitrogen metabolism",
+    "gene_count": 1,
+    "pathway_reaction_count": 24,
+    "pathway_metabolite_count": 18,
+    "metabolite_pathway_id": "kegg.pathway:ko00910"
+   },
+   {
+    "metabolite_pathway_name": "Taurine and hypotaurine metabolism",
+    "gene_count": 1,
+    "pathway_reaction_count": 12,
+    "pathway_metabolite_count": 21,
+    "metabolite_pathway_id": "kegg.pathway:ko00430"
+   },
+   {
+    "metabolite_pathway_name": "C5-Branched dibasic acid metabolism",
+    "gene_count": 1,
+    "pathway_reaction_count": 11,
+    "pathway_metabolite_count": 23,
+    "metabolite_pathway_id": "kegg.pathway:ko00660"
+   },
+   {
+    "metabolite_pathway_name": "Biosynthesis of various siderophores",
+    "gene_count": 1,
+    "pathway_reaction_count": 9,
+    "pathway_metabolite_count": 23,
+    "metabolite_pathway_id": "kegg.pathway:ko00975"
+   },
+   {
+    "metabolite_pathway_name": "Arginine biosynthesis",
+    "gene_count": 1,
+    "pathway_reaction_count": 26,
+    "pathway_metabolite_count": 24,
+    "metabolite_pathway_id": "kegg.pathway:ko00220"
+   },
+   {
+    "metabolite_pathway_name": "Glutathione metabolism",
+    "gene_count": 1,
+    "pathway_reaction_count": 19,
+    "pathway_metabolite_count": 24,
+    "metabolite_pathway_id": "kegg.pathway:ko00480"
+   },
+   {
+    "metabolite_pathway_name": "Alanine, aspartate and glutamate metabolism",
+    "gene_count": 1,
+    "pathway_reaction_count": 34,
+    "pathway_metabolite_count": 25,
+    "metabolite_pathway_id": "kegg.pathway:ko00250"
+   }
+  ],
+  "gene_count_total": 1,
+  "reaction_count_total": 1,
+  "transporter_count_total": 0,
+  "metabolite_count_total": 6,
+  "stereo_relatives": {
+   "kegg.compound:C00025": [
+    {
+     "metabolite_id": "kegg.compound:C00302",
+     "name": "Glutamate",
+     "relation": "unspecified_form",
+     "reaction_count": 1,
+     "transporter_count": 0,
+     "gene_count": 2
+    }
+   ]
+  },
+  "results": [
+   {
+    "locus_tag": "PMM0920",
+    "gene_name": "glnA",
+    "product": "glutamine synthetase, type I",
+    "evidence_source": "metabolism",
+    "tcdb_route": null,
+    "attached_tcdb_id": null,
+    "tcdb_direction": null,
+    "tcdb_identity": null,
+    "tcdb_calls": null,
+    "tcdb_substrate_system_count": null,
+    "reaction_id": "kegg.reaction:R00253",
+    "reaction_name": "L-glutamate:ammonia ligase (ADP-forming); ATP + L-Glutamate + Ammonia <=> ADP + Orthophosphate + L-Glutamine",
+    "ec_numbers": [
+     "6.3.1.2"
+    ],
+    "mass_balance": "balanced",
+    "tcdb_family_id": null,
+    "tcdb_family_name": null,
+    "metabolite_id": "kegg.compound:C00002",
+    "metabolite_name": "ATP",
+    "metabolite_formula": "C10H12N5O13P3",
+    "metabolite_mass": 503.15,
+    "metabolite_chebi_id": "15422",
+    "metabolite_structure_kind": "defined",
+    "go_term_id": null,
+    "go_term_name": null,
+    "go_namespace": null,
+    "go_evidence": null,
+    "go_sources": null,
+    "go_term_depth": null,
+    "go_axiom_term_id": null,
+    "go_axiom_term_name": null,
+    "target_kind": "metabolite"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "gene_name": "glnA",
+    "product": "glutamine synthetase, type I",
+    "evidence_source": "metabolism",
+    "tcdb_route": null,
+    "attached_tcdb_id": null,
+    "tcdb_direction": null,
+    "tcdb_identity": null,
+    "tcdb_calls": null,
+    "tcdb_substrate_system_count": null,
+    "reaction_id": "kegg.reaction:R00253",
+    "reaction_name": "L-glutamate:ammonia ligase (ADP-forming); ATP + L-Glutamate + Ammonia <=> ADP + Orthophosphate + L-Glutamine",
+    "ec_numbers": [
+     "6.3.1.2"
+    ],
+    "mass_balance": "balanced",
+    "tcdb_family_id": null,
+    "tcdb_family_name": null,
+    "metabolite_id": "kegg.compound:C00008",
+    "metabolite_name": "ADP",
+    "metabolite_formula": "C10H12N5O10P2",
+    "metabolite_mass": 424.179,
+    "metabolite_chebi_id": "16761",
+    "metabolite_structure_kind": "defined",
+    "go_term_id": null,
+    "go_term_name": null,
+    "go_namespace": null,
+    "go_evidence": null,
+    "go_sources": null,
+    "go_term_depth": null,
+    "go_axiom_term_id": null,
+    "go_axiom_term_name": null,
+    "target_kind": "metabolite"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "gene_name": "glnA",
+    "product": "glutamine synthetase, type I",
+    "evidence_source": "metabolism",
+    "tcdb_route": null,
+    "attached_tcdb_id": null,
+    "tcdb_direction": null,
+    "tcdb_identity": null,
+    "tcdb_calls": null,
+    "tcdb_substrate_system_count": null,
+    "reaction_id": "kegg.reaction:R00253",
+    "reaction_name": "L-glutamate:ammonia ligase (ADP-forming); ATP + L-Glutamate + Ammonia <=> ADP + Orthophosphate + L-Glutamine",
+    "ec_numbers": [
+     "6.3.1.2"
+    ],
+    "mass_balance": "balanced",
+    "tcdb_family_id": null,
+    "tcdb_family_name": null,
+    "metabolite_id": "kegg.compound:C00009",
+    "metabolite_name": "Orthophosphate",
+    "metabolite_formula": "HO4P",
+    "metabolite_mass": 95.978,
+    "metabolite_chebi_id": "26078",
+    "metabolite_structure_kind": "defined",
+    "go_term_id": null,
+    "go_term_name": null,
+    "go_namespace": null,
+    "go_evidence": null,
+    "go_sources": null,
+    "go_term_depth": null,
+    "go_axiom_term_id": null,
+    "go_axiom_term_name": null,
+    "target_kind": "metabolite"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "gene_name": "glnA",
+    "product": "glutamine synthetase, type I",
+    "evidence_source": "metabolism",
+    "tcdb_route": null,
+    "attached_tcdb_id": null,
+    "tcdb_direction": null,
+    "tcdb_identity": null,
+    "tcdb_calls": null,
+    "tcdb_substrate_system_count": null,
+    "reaction_id": "kegg.reaction:R00253",
+    "reaction_name": "L-glutamate:ammonia ligase (ADP-forming); ATP + L-Glutamate + Ammonia <=> ADP + Orthophosphate + L-Glutamine",
+    "ec_numbers": [
+     "6.3.1.2"
+    ],
+    "mass_balance": "balanced",
+    "tcdb_family_id": null,
+    "tcdb_family_name": null,
+    "metabolite_id": "kegg.compound:C00014",
+    "metabolite_name": "Ammonia",
+    "metabolite_formula": "H4N",
+    "metabolite_mass": 18.039,
+    "metabolite_chebi_id": "16134",
+    "metabolite_structure_kind": "defined",
+    "go_term_id": null,
+    "go_term_name": null,
+    "go_namespace": null,
+    "go_evidence": null,
+    "go_sources": null,
+    "go_term_depth": null,
+    "go_axiom_term_id": null,
+    "go_axiom_term_name": null,
+    "target_kind": "metabolite"
+   },
+   {
+    "locus_tag": "PMM0920",
+    "gene_name": "glnA",
+    "product": "glutamine synthetase, type I",
+    "evidence_source": "metabolism",
+    "tcdb_route": null,
+    "attached_tcdb_id": null,
+    "tcdb_direction": null,
+    "tcdb_identity": null,
+    "tcdb_calls": null,
+    "tcdb_substrate_system_count": null,
+    "reaction_id": "kegg.reaction:R00253",
+    "reaction_name": "L-glutamate:ammonia ligase (ADP-forming); ATP + L-Glutamate + Ammonia <=> ADP + Orthophosphate + L-Glutamine",
+    "ec_numbers": [
+     "6.3.1.2"
+    ],
+    "mass_balance": "balanced",
+    "tcdb_family_id": null,
+    "tcdb_family_name": null,
+    "metabolite_id": "kegg.compound:C00025",
+    "metabolite_name": "L-Glutamate",
+    "metabolite_formula": "C5H8NO4",
+    "metabolite_mass": 146.122,
+    "metabolite_chebi_id": "16015",
+    "metabolite_structure_kind": "defined",
+    "go_term_id": null,
+    "go_term_name": null,
+    "go_namespace": null,
+    "go_evidence": null,
+    "go_sources": null,
+    "go_term_depth": null,
+    "go_axiom_term_id": null,
+    "go_axiom_term_name": null,
+    "target_kind": "metabolite",
+    "stereo_relative_ids": [
+     "kegg.compound:C00302"
+    ]
+   },
+   {
+    "locus_tag": "PMM0920",
+    "gene_name": "glnA",
+    "product": "glutamine synthetase, type I",
+    "evidence_source": "metabolism",
+    "tcdb_route": null,
+    "attached_tcdb_id": null,
+    "tcdb_direction": null,
+    "tcdb_identity": null,
+    "tcdb_calls": null,
+    "tcdb_substrate_system_count": null,
+    "reaction_id": "kegg.reaction:R00253",
+    "reaction_name": "L-glutamate:ammonia ligase (ADP-forming); ATP + L-Glutamate + Ammonia <=> ADP + Orthophosphate + L-Glutamine",
+    "ec_numbers": [
+     "6.3.1.2"
+    ],
+    "mass_balance": "balanced",
+    "tcdb_family_id": null,
+    "tcdb_family_name": null,
+    "metabolite_id": "kegg.compound:C00064",
+    "metabolite_name": "L-Glutamine",
+    "metabolite_formula": "C5H10N2O3",
+    "metabolite_mass": 146.146,
+    "metabolite_chebi_id": "18050",
+    "metabolite_structure_kind": "defined",
+    "go_term_id": null,
+    "go_term_name": null,
+    "go_namespace": null,
+    "go_evidence": null,
+    "go_sources": null,
+    "go_term_depth": null,
+    "go_axiom_term_id": null,
+    "go_axiom_term_name": null,
+    "target_kind": "metabolite"
+   }
+  ],
+  "rows_by_go_term_depth": [],
+  "top_metabolite_pathways_truncated": true
+ }
+}

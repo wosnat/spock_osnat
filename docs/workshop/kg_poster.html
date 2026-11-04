@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The KG at a glance</title>
+<style>
+/* Workshop poster: big numbers, who is in it, where the data is, one gene's view.
+   Series colours are the dataviz reference palette, slots 1-4, fixed order. */
+.viz-root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface-1: #fcfcfb;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --other: #c3c2b7;
+  --on-fill: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) .viz-root {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface-1: #1a1a19; --text-primary: #f0efec; --text-secondary: #c3c2b7;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500; --other: #52514e;
+  }
+}
+:root[data-theme="dark"] .viz-root {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface-1: #1a1a19; --text-primary: #f0efec; --text-secondary: #c3c2b7;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500; --other: #52514e;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+.viz-root { background: var(--page); color: var(--text-primary); min-height: 100vh;
+  font: 400 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 48px 24px 56px; display: grid; gap: 24px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 1.35rem; font-weight: 700; }
+p { margin: 0; max-width: 70ch; }
+.sub { color: var(--text-secondary); font-size: 1.15rem; }
+.kicker { color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.note { color: var(--text-muted); font-size: 0.85rem; }
+.card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 14px; padding: 24px; display: grid; gap: 16px; align-content: start; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 24px; }
+@media (max-width: 520px) { .grid2 { grid-template-columns: 1fr; } .card { padding: 16px; } }
+
+/* hero numbers */
+.hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+.hero .card { gap: 2px; padding: 18px 20px; }
+.hero .n { font-size: 2.4rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.01em; }
+.hero .l { font-weight: 600; }
+.hero .s { color: var(--text-muted); font-size: 0.85rem; }
+
+/* legend */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.88rem; color: var(--text-secondary); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* waffle: one square per sequenced strain */
+.waffle { display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px; max-width: 520px; }
+.waffle div { aspect-ratio: 1; border-radius: 3px; }
+.waffle div:hover, .waffle div:focus-visible { outline: 2px solid var(--text-primary); outline-offset: 1px; }
+
+/* stacked horizontal bars */
+.stack { display: grid; gap: 10px; }
+.srow { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; font-size: 0.92rem; }
+.srow .lab { text-align: right; color: var(--text-secondary); line-height: 1.2; }
+.srow .lab em { color: var(--text-primary); }
+.strack { display: flex; align-items: center; gap: 8px; }
+.sbar { display: flex; gap: 2px; height: 22px; }
+.sbar div { height: 100%; min-width: 2px; }
+.sbar div:last-child { border-radius: 0 4px 4px 0; }
+.sbar div:hover { filter: brightness(1.12); }
+.tot { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+@media (max-width: 520px) { .srow { grid-template-columns: 100px 1fr; font-size: 0.8rem; } }
+
+/* column chart */
+.cols { position: relative; height: 200px; display: flex; align-items: flex-end; gap: 4px;
+  border-bottom: 1px solid var(--axis); padding-top: 18px; }
+.cols .gl { position: absolute; left: 0; right: 0; border-top: 1px solid var(--grid); }
+.cols .gl span { position: absolute; left: -26px; top: -9px; font-size: 0.72rem; color: var(--text-muted); font-variant-numeric: tabular-nums; width: 20px; text-align: right; }
+.col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; position: relative; z-index: 1; }
+.col .b { background: var(--series-1); border-radius: 4px 4px 0 0; }
+.col:hover .b { filter: brightness(1.12); }
+.col .v { position: absolute; left: 0; right: 0; text-align: center; font-size: 0.75rem; font-weight: 600; }
+.xlab { display: flex; gap: 4px; font-size: 0.72rem; color: var(--text-muted); }
+.xlab span { flex: 1; text-align: center; font-variant-numeric: tabular-nums; }
+.colwrap { padding-left: 30px; display: grid; gap: 4px; }
+
+/* simple bars */
+.bars { display: grid; gap: 5px; }
+.brow { display: grid; grid-template-columns: 170px 1fr; gap: 10px; align-items: center; font-size: 0.88rem; }
+.brow .lab { text-align: right; color: var(--text-secondary); }
+.btrack { display: flex; align-items: center; gap: 8px; }
+.brow .b { height: 16px; background: var(--series-1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.brow:hover .b { filter: brightness(1.12); }
+.brow .val { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* one gene's view */
+.gene { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.gene .g { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: grid; gap: 2px; }
+.gene .g .n { font-size: 1.7rem; font-weight: 800; }
+.gene .g .l { color: var(--text-secondary); font-size: 0.9rem; }
+.id { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: baseline; }
+.id .tag { font-family: ui-monospace, Consolas, monospace; font-size: 1.4rem; font-weight: 700; }
+.id .nm { font-style: italic; font-size: 1.2rem; }
+
+/* flow */
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; counter-reset: s; }
+.flow div { border-left: 3px solid var(--series-1); padding: 4px 0 4px 14px; display: grid; gap: 4px; }
+.flow div::before { counter-increment: s; content: "Step " counter(s); color: var(--text-muted); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.flow strong { font-size: 1.02rem; }
+.flow p { color: var(--text-secondary); font-size: 0.9rem; }
+code { font-family: ui-monospace, Consolas, monospace; font-size: 0.88em; }
+
+details { font-size: 0.9rem; color: var(--text-secondary); }
+summary { cursor: pointer; font-weight: 600; }
+table { border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 3px 14px 3px 0; border-bottom: 1px solid var(--grid); }
+td.r, th.r { text-align: right; }
+
+#tip { position: fixed; pointer-events: none; background: var(--text-primary); color: var(--surface-1); font-size: 0.82rem;
+  padding: 6px 10px; border-radius: 6px; max-width: 280px; opacity: 0; z-index: 10; }
+footer { color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--grid); padding-top: 14px; }
+</style>
+</head>
+<body class="viz-root">
+<div class="wrap">
+
+<header style="display:grid;gap:12px">
+  <div class="kicker">Multiomics knowledge graph · release 0.1.0-alpha.9</div>
+  <h1>Marine microbes, connected in one graph</h1>
+  <p class="sub">Genomes, expression studies, annotations and chemistry for <em>Prochlorococcus</em>, <em>Synechococcus</em>, <em>Alteromonas</em> and their partners. You ask in plain English; Claude queries the graph and shows its sources.</p>
+</header>
+
+<section class="hero" aria-label="Headline numbers">
+  <div class="card"><div class="n">330,531</div><div class="l">genes</div><div class="s">each identified by its locus tag</div></div>
+  <div class="card"><div class="n">116</div><div class="l">sequenced strains</div><div class="s">plus 7 partner organisms, phage and reference proteomes</div></div>
+  <div class="card"><div class="n">60</div><div class="l">papers</div><div class="s">published 2006–2026</div></div>
+  <div class="card"><div class="n">340</div><div class="l">experiments</div><div class="s">41 of them time courses</div></div>
+  <div class="card"><div class="n">358,913</div><div class="l">expression results</div><div class="s">gene × experiment × timepoint</div></div>
+  <div class="card"><div class="n">70,426</div><div class="l">ortholog groups</div><div class="s">the same gene, across strains</div></div>
+</section>
+
+<section class="grid2">
+  <div class="card">
+    <h2>Who's in it</h2>
+    <p class="note">One square = one sequenced strain (116). Hover a square for its name.</p>
+    <div class="legend" id="waffle-legend"></div>
+    <div class="waffle" id="waffle" role="img" aria-label="116 sequenced strains: Synechococcus 51, Prochlorococcus 45, Alteromonas 10, Cyanobium 3, other genera 7"></div>
+    <p class="note">Most strains are genomes only. The expression data sits on a few well-studied ones; <em>Prochlorococcus</em> MED4 alone has 45 experiments from 21 papers.</p>
+  </div>
+
+  <div class="card">
+    <h2>Two decades of papers</h2>
+    <p class="note">Papers in the KG, by publication year.</p>
+    <div class="colwrap">
+      <div class="cols" id="cols" role="img" aria-label="Papers per year, 2006 to 2026, peaking at 7 in 2015"></div>
+      <div class="xlab" id="xlab"></div>
+    </div>
+    <p class="note">Each paper's results are stored as experiments, so studies from different labs can be queried together.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Who wrote the papers</h2>
+  <p class="note">Papers per last author (usually the senior author). 60 papers from 33 last authors. Hover a bar for the years.</p>
+  <div class="bars" id="authors"></div>
+</section>
+
+<section class="card">
+  <h2>Where the expression data is</h2>
+  <p class="note">Expression results per genus, split by how they were measured.</p>
+  <div class="legend" id="stack-legend"></div>
+  <div class="stack" id="stack"></div>
+  <p class="note">Hover a segment for its count. Exoproteomics measures proteins released outside the cell.</p>
+</section>
+
+<section class="card">
+  <h2>One gene, many views</h2>
+  <div class="id"><span class="tag">PMM0920</span><span class="nm">glnA</span><span class="note">glutamine synthetase · <em>Prochlorococcus</em> MED4</span></div>
+  <div class="gene">
+    <div class="g"><div class="n">43</div><div class="l">expression results: 20 significantly up, 6 down</div></div>
+    <div class="g"><div class="n">96</div><div class="l">genes in its ortholog group, across <em>Prochlorococcus</em>, <em>Synechococcus</em>, <em>Cyanobium</em></div></div>
+    <div class="g"><div class="n">12</div><div class="l">annotation sources: GO, KEGG, Pfam, EC, COG and more</div></div>
+    <div class="g"><div class="n">17</div><div class="l">per-gene values reported in papers (rhythms, classes)</div></div>
+    <div class="g"><div class="n">3</div><div class="l">co-expression clusters: time course, diel, decay pattern</div></div>
+    <div class="g"><div class="n">6</div><div class="l">metabolites, via the reaction it catalyses</div></div>
+  </div>
+  <p class="note">Searching by the name <em>glnA</em> finds 119 genes across the strains. The locus tag finds exactly one, so Spock always reports locus tags.</p>
+</section>
+
+<section class="card">
+  <h2>Every gene, many annotation lenses</h2>
+  <p class="note">Number of gene-to-term links from each annotation source.</p>
+  <div class="bars" id="annot"></div>
+</section>
+
+<section class="card">
+  <h2>How a question travels</h2>
+  <div class="flow">
+    <div><strong>You ask</strong><p>"Which MED4 genes go up under nitrogen starvation?"</p></div>
+    <div><strong>Claude picks tools</strong><p>About 40 KG tools, such as <code>list_experiments</code> and <code>differential_expression_by_gene</code>.</p></div>
+    <div><strong>The graph answers</strong><p>Rows of locus tags, fold changes and the experiment design behind them.</p></div>
+    <div><strong>You get sources</strong><p>Each claim is tagged <code>[KG]</code>, <code>[interpretation]</code> or <code>[gap]</code>.</p></div>
+  </div>
+</section>
+
+<details>
+  <summary>Show the numbers behind the charts as tables</summary>
+  <div id="tables"></div>
+</details>
+
+<footer>
+  Counts from KG release 0.1.0-alpha.9 (built 1 Nov 2026), queried 3 Nov 2026. The glnA example is from the same release. Counts change with each KG rebuild.
+</footer>
+</div>
+<div id="tip" role="tooltip"></div>
+
+<script>
+const fmt = n => n.toLocaleString("en-US");
+const tip = document.getElementById("tip");
+function hover(el, text) {
+  el.tabIndex = 0;
+  el.setAttribute("aria-label", text);
+  const show = (x, y) => { tip.textContent = text; tip.style.left = Math.min(x + 14, innerWidth - 290) + "px"; tip.style.top = (y + 14) + "px"; tip.style.opacity = 1; };
+  el.addEventListener("mousemove", e => show(e.clientX, e.clientY));
+  el.addEventListener("mouseleave", () => tip.style.opacity = 0);
+  el.addEventListener("focus", () => { const r = el.getBoundingClientRect(); show(r.left, r.bottom); });
+  el.addEventListener("blur", () => tip.style.opacity = 0);
+}
+const tables = document.getElementById("tables");
+function table(title, head, rows) {
+  const h = `<h3 style="font-size:0.95rem;margin:14px 0 0">${title}</h3><table><tr>${head.map((x, i) => `<th class="${i ? "r" : ""}">${x}</th>`).join("")}</tr>` +
+    rows.map(r => `<tr>${r.map((x, i) => `<td class="${i ? "r" : ""}">${typeof x === "number" ? fmt(x) : x}</td>`).join("")}</tr>`).join("") + "</table>";
+  tables.insertAdjacentHTML("beforeend", h);
+}
+
+/* Who's in it: waffle */
+// Strain names are the KG's preferred_name; KG genus in brackets where the name differs.
+const pre = (p, s) => s.split(" ").map(x => p + x.replace(/_/g, " "));
+const GENERA = [
+  ["Synechococcus", "--series-1", pre("Synechococcus ",
+    "A15-127 A15-24 A15-28 A15-44 A15-60 A15-62 A18-25c A18-40 A18-46.1 BIOS-E4-1 BIOS-U3-1 BMK-MC-1 BOUM118 CB0101 CB0205 CC9311 CC9605 CC9616 CC9902 KORDI-100 KORDI-49 KORDI-52 M16.1 MEDNS5 MINOS11 MITS9220 MVIR-18-1 NOUM97013 PROS-7-1 PROS-9-1 PROS-U-1 RCC307 ROS8604 RS9902 RS9907 RS9909 RS9915 RS9916 RS9917 SYN20 TAK9802 WH5701 WH7803 WH7805 WH8016 WH8101 WH8103 WH8109 elongatus_PCC_7942 elongatus_UTEX_2973 sp._BL107")],
+  ["Prochlorococcus", "--series-2", pre("Prochlorococcus ",
+    "AS9601 EQPAC1 GP2 HNLC1 HNLC2 LG MED4 MIT0601 MIT0602 MIT0603 MIT0604 MIT0701 MIT0702 MIT0703 MIT0801 MIT1314 MIT1327 MIT9107 MIT9116 MIT9123 MIT9201 MIT9202 MIT9211 MIT9215 MIT9301 MIT9302 MIT9303 MIT9311 MIT9312 MIT9313 MIT9314 MIT9321 MIT9322 MIT9401 MIT9515 NATL1A NATL2A PAC1 RSP50 SB SS2 SS35 SS51 SS52 marinus_subsp._marinus_CCMP1375_(SS120)")],
+  ["Alteromonas", "--series-3", [...pre("Alteromonas macleodii ", "83-1 AD45 ATCC27126 BGP6 BS11 EZ55 HOT1A3 MIT1002"),
+    ...pre("Alteromonas mediterranea ", "AltDE AltDE1")]],
+  ["Cyanobium", "--series-4", pre("Cyanobium ", "NS01 PCC6307 PCC7001")],
+  ["Other genera", "--other", ["Meiothermus ruber", "Synechococcus WH8102 (genus Parasynechococcus)",
+    "Synechococcus PCC 7002 (genus Picosynechococcus)", "Pseudomonas putida KT2440", "Ruegeria pomeroyi DSS-3",
+    "Shewanella sp. W3-18-1", "Thermosynechococcus vestitus BP-1"]],
+];
+const waffle = document.getElementById("waffle"), wl = document.getElementById("waffle-legend");
+for (const [name, color, strains] of GENERA) {
+  wl.insertAdjacentHTML("beforeend", `<span><i style="background:var(${color})"></i>${name === "Other genera" ? name : `<em>${name}</em>`} ${strains.length}</span>`);
+  for (const s of strains) {
+    const d = document.createElement("div");
+    d.style.background = `var(${color})`;
+    hover(d, s);
+    waffle.appendChild(d);
+  }
+}
+table("Sequenced strains by genus", ["Genus", "Strains"], GENERA.map(g => [g[0], g[2].length]));
+
+/* Papers by year: columns */
+const YEARS = [[2006,3],[2007,2],[2008,0],[2009,3],[2010,2],[2011,1],[2012,2],[2013,0],[2014,4],[2015,7],[2016,4],[2017,4],[2018,3],[2019,3],[2020,3],[2021,2],[2022,4],[2023,6],[2024,2],[2025,1],[2026,4]];
+const cols = document.getElementById("cols"), xlab = document.getElementById("xlab"), ymax = 8;
+for (const t of [2, 4, 6, 8]) cols.insertAdjacentHTML("beforeend", `<div class="gl" style="bottom:${t / ymax * (100 - 9)}%"><span>${t}</span></div>`);
+for (const [y, n] of YEARS) {
+  const c = document.createElement("div");
+  c.className = "col";
+  const h = n / ymax * (200 - 18);
+  c.innerHTML = `<div class="b" style="height:${h}px"></div>` + (n === 7 ? `<div class="v" style="bottom:${h + 2}px">${n}</div>` : "");
+  hover(c, `${y}: ${n} paper${n === 1 ? "" : "s"}`);
+  cols.appendChild(c);
+  xlab.insertAdjacentHTML("beforeend", `<span>${y % 5 === 0 || y === 2026 ? y : ""}</span>`);
+}
+table("Papers by year", ["Year", "Papers"], YEARS);
+
+/* Papers per last author: bars */
+const AUTHORS = [
+  ["Sallie W. Chisholm", [2006, 2006, 2006, 2007, 2009, 2010, 2011, 2012, 2014, 2015, 2016, 2016, 2018, 2022, 2023, 2023, 2024, 2026]],
+  ["David J. Scanlan", [2010, 2015, 2017]],
+  ["Catherine A. Biggs", [2007, 2012]],
+  ["José M. García-Fernández", [2017, 2023]],
+  ["Mary Ann Moran", [2015, 2020]],
+  ["J. Jeffrey Morris", [2022, 2026]],
+  ["Ian T. Paulsen", [2009, 2019]],
+  ["Daniel Sher", [2016, 2025]],
+  ["Matthias Wietz", [2019, 2020]],
+  ["Qinglu Zeng", [2015, 2019]],
+];
+const SINGLE = ["Jean Armengaud", "Katherine A. Barbeau", "Alexander S. Beliaev", "Pavlo Bohutskyi", "Joseph A. Christie-Oleza",
+  "Sonya T. Dyhrman", "Susan S. Golden", "Joseph J. Grzymski", "Kathryn Halloran", "Gerhard J. Herndl", "Sijun Huang",
+  "Allan Konopka", "Lijuan Long", "Ángel López-Urrutia", "Yanhe Ma", "Brian Palenik", "Katharina Pflüger-Grau",
+  "Bhumika S. Shah", "Rotem Sorek", "Claudia Steglich", "Spencer J. Williams", "Lina F. Yousef", "Weiwen Zhang"];
+const auth = document.getElementById("authors"), aumax = AUTHORS[0][1].length;
+const authorRow = (label, n, text) => {
+  const row = document.createElement("div");
+  row.className = "brow";
+  row.innerHTML = `<div class="lab">${label}</div><div class="btrack"><div class="b" style="width:calc((100% - 80px) * ${(n / aumax).toFixed(4)})"></div><span class="val">${n}</span></div>`;
+  hover(row, text);
+  auth.appendChild(row);
+};
+for (const [name, years] of AUTHORS) authorRow(name, years.length, `${name}: ${years.length} papers (${[...new Set(years)].join(", ")})`);
+authorRow(`${SINGLE.length} others (1 each)`, 1, `1 paper each: ${SINGLE.join(", ")}`);
+table("Papers per last author", ["Last author", "Papers"], [...AUTHORS.map(([n, y]) => [n, y.length]), ...SINGLE.map(n => [n, 1])]);
+
+/* Expression by genus x platform: stacked bars */
+const SERIES = [["RNA-seq", "--series-1"], ["Microarray", "--series-2"], ["Proteomics", "--series-3"], ["Exoproteomics", "--series-4"]];
+const EXPR = [
+  ["<em>Prochlorococcus</em>", [77533, 35465, 17271, 0]],
+  ["<em>Alteromonas</em>", [92813, 0, 18452, 0]],
+  ["<em>Synechococcus</em>", [15057, 35798, 4257, 2856]],
+  ["<em>Parasynechococcus</em>", [12, 23079, 3579, 629]],
+  ["<em>Ruegeria</em>", [4325, 0, 9068, 2842]],
+  ["4 other genera", [10656, 0, 5221, 0], "Pseudomonas, Marinobacter, Shewanella, Picosynechococcus"],
+];
+const sl = document.getElementById("stack-legend");
+for (const [n, c] of SERIES) sl.insertAdjacentHTML("beforeend", `<span><i style="background:var(${c})"></i>${n}</span>`);
+const stack = document.getElementById("stack");
+const smax = Math.max(...EXPR.map(r => r[1].reduce((a, b) => a + b)));
+for (const [name, vals, note] of EXPR) {
+  const total = vals.reduce((a, b) => a + b);
+  const row = document.createElement("div");
+  row.className = "srow";
+  row.innerHTML = `<div class="lab">${name}</div><div class="strack"><div class="sbar" style="width:calc((100% - 80px) * ${(total / smax).toFixed(4)})"></div><span class="tot">${fmt(total)}</span></div>`;
+  const bar = row.querySelector(".sbar");
+  const plain = name.replace(/<[^>]+>/g, "");
+  vals.forEach((v, i) => {
+    if (!v) return;
+    const seg = document.createElement("div");
+    seg.style.flex = String(v);
+    seg.style.background = `var(${SERIES[i][1]})`;
+    hover(seg, `${plain} · ${SERIES[i][0]}: ${fmt(v)} results` + (note ? ` (${note})` : ""));
+    bar.appendChild(seg);
+  });
+  stack.appendChild(row);
+}
+table("Expression results by genus and platform", ["Genus", ...SERIES.map(s => s[0]), "Total"],
+  EXPR.map(([n, v]) => [n.replace(/<[^>]+>/g, ""), ...v, v.reduce((a, b) => a + b)]));
+
+/* Annotation links: bars */
+const ANNOT = [
+  ["GO biological process", 1061844], ["InterPro", 944076], ["GO molecular function", 761260], ["Pfam", 431174],
+  ["GO cellular component", 343989], ["TIGR roles", 275982], ["COG categories", 275548], ["Cyanorak roles", 221176],
+  ["PSORTb localization", 196696], ["EC numbers", 174734], ["KEGG orthology", 174335], ["TCDB transporters", 174257],
+  ["NCBIfam", 162174], ["SignalP signal peptides", 28423], ["MEROPS peptidases", 9980], ["CAZy enzymes", 5800],
+];
+const annot = document.getElementById("annot"), amax = ANNOT[0][1];
+for (const [name, v] of ANNOT) {
+  const row = document.createElement("div");
+  row.className = "brow";
+  row.innerHTML = `<div class="lab">${name}</div><div class="btrack"><div class="b" style="width:calc((100% - 80px) * ${(v / amax).toFixed(4)})"></div><span class="val">${fmt(v)}</span></div>`;
+  hover(row, `${name}: ${fmt(v)} gene-to-term links`);
+  annot.appendChild(row);
+}
+table("Gene-to-term links by annotation source", ["Source", "Links"], ANNOT);
+</script>
+</body>
+</html>
