@@ -156,5 +156,58 @@ tb(s, Inches(0.7), Inches(7.0), Inches(12), Inches(0.3),
 s.notes_slide.notes_text_frame.text = ("Complete breakdown pathways: MED4 1 (asparaginase PMM0821), MIT9313 2 (asparaginase PMT0825, alanine dehydrogenase PMT1462), Alteromonas HOT1A3 8, E. coli ~10 expected (textbook). "
     "The genome analysis can only show capacity. Whether Prochlorococcus uses amino acids as an N source needs uptake evidence across strains, expression data, and growth experiments like mine.")
 
+# ---------------- Figure slides ----------------
+from pathlib import Path
+from pptx.util import Emu
+FIG = Path(__file__).resolve().parent
+ROOT = FIG.parent
+
+def fig_title(s, n, text):
+    tb(s, Inches(0.7), Inches(0.4), Inches(12), Inches(0.7), [[(f"Figure {n} · ", {"color": PRO}), (text, {})]], size=28, font=HEAD, bold=True, name="Title")
+
+# Figure 1: per-amino-acid comparison
+s = prs.slides.add_slide(blank)
+fig_title(s, 1, "Breakdown pathways for each amino acid")
+pic = s.shapes.add_picture(str(FIG / "fig_aa_comparison_strip.png"), Inches(0.65), Inches(1.35), width=Inches(12.05)); pic.name = "Per-amino-acid comparison"
+y = Inches(1.35) + pic.height + Inches(0.55)
+cards = [("MED4 · 1", "Asn only (asparaginase PMM0821)", PRO, PRO_L),
+         ("MIT9313 · 2", "Asn + Ala (alanine dehydrogenase PMT1462)", PRO, PRO_L),
+         ("Alteromonas · 8", "Ala, Arg, Asn, Gln, His, Pro, Ser, Thr", HET, HET_L),
+         ("E. coli · ~10", "textbook expectation, not scored", HET, HET_L)]
+cw, gap = Inches(2.86), Inches(0.17)
+for i, (h, d, colr, fill) in enumerate(cards):
+    x = Inches(0.7) + i * (cw + gap)
+    box(s, x, y, cw, Inches(1.6), fill, name=f"Count card {i+1}")
+    tb(s, x + Inches(0.2), y + Inches(0.2), cw - Inches(0.4), Inches(0.5), h, size=22, bold=True, font=HEAD, color=colr, name=f"Count card {i+1} title")
+    tb(s, x + Inches(0.2), y + Inches(0.75), cw - Inches(0.4), Inches(0.8), d, size=16, color=INK, name=f"Count card {i+1} text")
+tb(s, Inches(0.7), Inches(6.95), Inches(12), Inches(0.35),
+   "Complete = all breakdown-only steps found and the nitrogen-freeing step present. Pilot on a draft pathway list; MED4, MIT9313, Alteromonas HOT1A3 scored from the database; E. coli row is textbook.",
+   size=11, color=MUTED, name="Caption")
+s.notes_slide.notes_text_frame.text = "Each tile is one amino acid; colour = best breakdown pathway status. Prochlorococcus rows are almost empty; heterotrophs carry complete pathways for 8-10 amino acids. Glu, Gly, Tyr cannot be judged with this database."
+
+# Figure 2: uptake by group
+s = prs.slides.add_slide(blank)
+fig_title(s, 2, "Amino-acid uptake systems by group: E. coli vs MED4")
+pic = s.shapes.add_picture(str(FIG / "fig_uptake_crop.png"), Inches(0.7), Inches(1.2), width=Inches(11.93)); pic.name = "Uptake comparison"
+tb(s, Inches(0.7), Inches(6.95), Inches(12), Inches(0.35), "E. coli (blue): K-12 textbook knowledge, not from our database. MED4 (green): database annotations. Annotation ≠ function.", size=11, color=MUTED, name="Caption")
+s.notes_slide.notes_text_frame.text = "E. coli (blue, textbook): ~25-30 uptake systems covering every group. MED4 (green, database): one candidate, gltS PMM0628 (glutamate); dppA PMM1049 is a peptide-binding protein. urtC/urtE carry a branched-chain label but are the urea transporter."
+
+# Figure 3: MED4 searched vs found
+s = prs.slides.add_slide(blank)
+fig_title(s, 3, "MED4: every enzyme searched, and what was found")
+pic = s.shapes.add_picture(str(FIG / "fig_med4_matrix_crop.png"), Inches(0.6), Inches(1.3), width=Inches(8.1)); pic.name = "MED4 searched vs found matrix"
+x = Inches(0.6) + pic.width + Inches(0.3); w = Inches(13.333) - x - Inches(0.5)
+box(s, x, Inches(1.3), w, Inches(5.6), PANEL, name="Reading card")
+t = tb(s, x + Inches(0.3), Inches(1.5), w - Inches(0.6), Inches(5.2),
+       [[("How to read it", {"bold": True, "size": 20, "font": HEAD})],
+        [("Filled tile", {"bold": True}), (" = MED4 has a gene; ", {}), ("hollow", {"bold": True}), (" = searched, not found", {})],
+        [("Violet", {"bold": True, "color": RGBColor(0x62, 0x50, 0xD6)}), (" = breakdown-only enzyme; ", {}), ("grey", {"bold": True, "color": MUTED}), (" = shared with building amino acids (not counted)", {})],
+        [("Breakdown-only: ", {"bold": True}), ("34 searched, 1 found", {}), (" (asparaginase)", {})],
+        [("Shared: ", {"bold": True}), ("34 searched, 19 found", {})],
+        [("Missing in MED4: glutamate, alanine and proline dehydrogenases, glutaminase, arginase, hut", {})],
+        [("Enzyme-level preview on the draft list; dashed = enzyme ID not in the database", {"size": 13, "color": MUTED})]],
+       size=15, after=10, name="Reading text")
+s.notes_slide.notes_text_frame.text = "Shows absence is informative: the classic breakdown enzymes were searched and are not annotated in MED4. Shared enzymes are present but say nothing about utilization."
+
 prs.save(out)
 print("saved", out, len(prs.slides), "slides")
