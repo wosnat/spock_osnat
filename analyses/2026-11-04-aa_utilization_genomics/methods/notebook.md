@@ -56,3 +56,17 @@ Same code and draft catalogue as HOT1A3. Verified against `aa_status_med4_vs_mit
 - Controls: glnA PMT0601, ilvE PMT0728 and hisC PMT2069 are found; astB is absent (as expected).
 - Flagged hits are the same patterns as in MED4 (metB/metC on K01758; bioF on K00639). No synonym misses.
 - Bookkeeping anomaly to fix before the real run: the per-amino-acid locus-tag list and the "dedicated steps found" count include steps on excluded routes.
+
+## Replacement blind strain chosen (2026-11-04, before catalogue approval)
+
+The researcher chose **MIT9303** (LLIV) to replace MIT9313 as the blind low-light answer-key strain. Its genes have not been queried or looked at in this analysis. It stays blind until the catalogue is approved.
+
+## Path to catalogue approval (co-defined 2026-11-04)
+
+1. Verify the critic pass-3 dispositions are implemented.
+2. Fix the pilot-exposed issues:
+   - add EC-name synonyms to the product keywords, tested on HOT1A3;
+   - stop excluded-route steps from entering the per-amino-acid locus-tag lists and the "dedicated steps found" counts.
+3. Re-run MED4 / MIT9313 / HOT1A3 and diff against the pilot tables.
+4. Delta critic pass over the changes.
+5. Show a random sample from each bin (verification layer 4), then the researcher decides.
