@@ -6,10 +6,20 @@ K00824,dat,2.6.1.21,D-amino acid,D-alanine transaminase,,False
 K05396,dcyD,4.4.1.15,D-amino acid,D-cysteine desulfhydrase,pilot listed under Cys,False
 K01753,dsdA,4.3.1.18,D-amino acid,D-serine ammonia-lyase,pilot listed under Ser,False
 K20498,DSD1,4.3.1.18,D-amino acid,D-serine ammonia-lyase (eukaryotic type),,False
-K14267,dapC,2.6.1.17,broad aminotransferase,N-succinyldiaminopimelate aminotransferase; class I AT used in lysine biosynthesis (M00016),pilot ALL row,False
+K14267,dapC,2.6.1.17,multi-substrate biosynthetic AT (enzyme-level override),N-succinyldiaminopimelate aminotransferase; class I AT used in lysine biosynthesis (M00016),pilot ALL row,False
 K10907,K10907,2.6.1.-,broad aminotransferase,"aminotransferase, substrate unspecified",pilot ALL row,False
 K00837,ISS1/VAS1,2.6.1.-,broad aminotransferase,"aromatic aminotransferase, substrate unspecified",pilot ALL row,False
 K01754,ilvA,4.3.1.19,side activity,threonine dehydratase also deaminates L-serine; credited only as Thr_dehydratase (shared),,False
 K17989,SDS,4.3.1.17;4.3.1.19,side activity,L-serine/L-threonine ammonia-lyase; listed in M00570 (Ile biosynthesis) -> credited only as Thr_dehydratase (shared); its Ser activity is a side activity like ilvA's,pilot Ser;Thr,False
+K00817,hisC,2.6.1.9,multi-substrate biosynthetic AT (enzyme-level override),histidinol-phosphate aminotransferase; also Phe/Tyr transamination; His biosynthesis,,False
+K00811,ASP5,2.6.1.1,multi-substrate biosynthetic AT (enzyme-level override),aspartate aminotransferase (chloroplastic),,False
+K00812,aspB,2.6.1.1,multi-substrate biosynthetic AT (enzyme-level override),aspartate aminotransferase,,False
+K00813,aspC,2.6.1.1,multi-substrate biosynthetic AT (enzyme-level override),aspartate aminotransferase,,False
+K11358,yhdR,2.6.1.1,multi-substrate biosynthetic AT (enzyme-level override),aspartate aminotransferase,,False
+K14454,GOT1,2.6.1.1,multi-substrate biosynthetic AT (enzyme-level override),"aspartate aminotransferase, cytoplasmic",,False
+K14455,GOT2,2.6.1.1,multi-substrate biosynthetic AT (enzyme-level override),"aspartate aminotransferase, mitochondrial",,False
+K15849,PAT,2.6.1.1;2.6.1.78;2.6.1.79,multi-substrate biosynthetic AT (enzyme-level override),aspartate/prephenate aminotransferase,,False
+K00832,tyrB,2.6.1.57,multi-substrate biosynthetic AT (enzyme-level override),aromatic-amino-acid aminotransferase (Phe/Tyr biosynthesis),,False
+K00838,ARO8,2.6.1.57;2.6.1.39;2.6.1.27;2.6.1.5,multi-substrate biosynthetic AT (enzyme-level override),aromatic amino acid aminotransferase I,,False
 K01760,metC,4.4.1.13,side activity,cystathionine beta-lyase (Met biosynthesis); cysteine desulfhydrase side activity,pilot listed under Cys,False
 K14155,patB/malY,4.4.1.13,side activity,cystathionine beta-lyase family; cysteine desulfhydrase side activity,,False

@@ -1,6 +1,6 @@
-step_id,amino_acid,step_key,ko,product_keywords,flag,locus_tag,gene_name,product,evidence,product_agrees,call
-Cys_CTH.1,Cys,CTH_CYS,K01758,cystathionine gamma-lyase,dedicated,PMM0409,metB,O-succinylhomoserine(thiol)-lyase,family_inferred,False,flagged: KO/product mismatch
-Cys_CTH.1,Cys,CTH_CYS,K01758,cystathionine gamma-lyase,dedicated,PMM1670,metC,cystathionine beta-lyase family aluminum resistance protein,family_inferred,False,flagged: KO/product mismatch
-Met_transsulfuration.4,Met,CTH,K01758,cystathionine gamma-lyase,dedicated,PMM0409,metB,O-succinylhomoserine(thiol)-lyase,family_inferred,False,flagged: KO/product mismatch
-Met_transsulfuration.4,Met,CTH,K01758,cystathionine gamma-lyase,dedicated,PMM1670,metC,cystathionine beta-lyase family aluminum resistance protein,family_inferred,False,flagged: KO/product mismatch
-Thr_TDH_kbl.2,Thr,KBL,K00639,2-amino-3-ketobutyrate|glycine c-acetyltransferase,dedicated,PMM1468,bioF,8-amino-7-oxononanoate synthase,family_inferred,False,flagged: KO/product mismatch
+step_id,amino_acid,step_key,ko,ko_groups,product_keywords,flag,credit_eligible,exclusion_reason,credits_multiple_aa,locus_tag,gene_name,product,evidence,product_agrees,generic_product,call
+Cys_CTH.1,Cys,CTH_CYS,K01758,K01758|K17217,cystathionine gamma-lyase,dedicated,True,,Cys;Met,PMM0409,metB,O-succinylhomoserine(thiol)-lyase,family_inferred,False,False,flagged: KO/product mismatch
+Cys_CTH.1,Cys,CTH_CYS,K01758,K01758|K17217,cystathionine gamma-lyase,dedicated,True,,Cys;Met,PMM1670,metC,cystathionine beta-lyase family aluminum resistance protein,family_inferred,False,False,flagged: KO/product mismatch
+Met_transsulfuration.4,Met,CTH,K01758,K01758|K17217,cystathionine gamma-lyase,dedicated,True,,Cys;Met,PMM0409,metB,O-succinylhomoserine(thiol)-lyase,family_inferred,False,False,flagged: KO/product mismatch
+Met_transsulfuration.4,Met,CTH,K01758,K01758|K17217,cystathionine gamma-lyase,dedicated,True,,Cys;Met,PMM1670,metC,cystathionine beta-lyase family aluminum resistance protein,family_inferred,False,False,flagged: KO/product mismatch
+Thr_TDH_kbl.2,Thr,KBL,K00639,K00639,2-amino-3-ketobutyrate|glycine c-acetyltransferase,dedicated,True,,,PMM1468,bioF,8-amino-7-oxononanoate synthase,family_inferred,False,False,flagged: KO/product mismatch

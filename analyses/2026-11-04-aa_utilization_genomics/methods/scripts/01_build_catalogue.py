@@ -83,12 +83,11 @@ ASP_AT_KOS = ["K00811", "K00812", "K00813", "K11358", "K14454", "K14455", "K1584
 # KEGG link/ko/rn:R00694 (Phe) and R00734 (Tyr) give the same 12 KOs.
 AROM_AT_KOS = ["K00811", "K00812", "K00813", "K00815", "K00817", "K00832", "K00838", "K05821",
                "K11358", "K14454", "K14455", "K15849"]
-AROM_AT_DEBATE = ("Reaction-level rule: MED4 makes Phe and Tyr via arogenate (arogenate dehydratase R00691 PMM1504; "
-                  "arogenate dehydrogenase R00733 PMM1565, both in the MED4 cross-check), so its biosynthetic "
-                  "transamination acts on prephenate, not on phenylpyruvate / 4-hydroxyphenylpyruvate; the Phe/Tyr "
-                  "transamination is then not needed for biosynthesis -> dedicated. But every KO here is a "
-                  "multi-substrate biosynthetic aminotransferase (Asp, His, aromatic), so the step will be present in "
-                  "nearly every genome; and strains using the phenylpyruvate route (M00024/M00025) would need it -> shared.")
+AROM_AT_DEBATE = ("Route inferred from annotation only: MED4 PMM1504 is pheA (prephenate dehydratase, K04518) and "
+                  "PMM1565 is tyrA (prephenate dehydrogenase), i.e. the phenylpyruvate / 4-hydroxyphenylpyruvate route, "
+                  "whose last step is this transamination -> shared. KEGG also links those KOs to the arogenate "
+                  "reactions (R00691/R00733), so the route is not proven; a strain using the arogenate route would "
+                  "not need this reaction.")
 ADC = S("ADC", "arginine decarboxylase", "L-arginine -> agmatine + CO2",
         ["K01585", "K02626", "K01584", "K01583"], "4.1.1.19", False, "", "", SH,
         "Polyamine (putrescine/spermidine) biosynthesis, M00133; researcher decision: speA shared.",
@@ -96,8 +95,9 @@ ADC = S("ADC", "arginine decarboxylase", "L-arginine -> agmatine + CO2",
               "isozymes of one reaction.")
 TYR_AT = S("TYR_AT", "tyrosine transamination",
            "L-tyrosine + 2-oxoglutarate <=> 4-hydroxyphenylpyruvate + L-glutamate",
-           AROM_AT_KOS, "2.6.1.1;2.6.1.5;2.6.1.57", True, TR, "2-oxoglutarate (-> Glu)", DED,
-           "Not needed for Tyr biosynthesis when Tyr is made via arogenate (MED4 cross-check: R00733 PMM1565) [KG + interpretation].",
+           AROM_AT_KOS, "2.6.1.1;2.6.1.5;2.6.1.9;2.6.1.57", True, TR, "2-oxoglutarate (-> Glu)", SH,
+           "Same reaction (reverse) is the last step of Tyr biosynthesis via 4-hydroxyphenylpyruvate (M00025); MED4 tyrA "
+           "PMM1565 (prephenate dehydrogenase) indicates this route [KG annotation + interpretation].",
            debatable=AROM_AT_DEBATE,
            notes="M00044 step 1 also lists K03334 (L-amino-acid oxidase), kept in the broad table.")
 
@@ -340,13 +340,14 @@ add("Phe", "Phe_PheDH", "phenylalanine dehydrogenase", "map00360", [
       debatable="Reversible dehydrogenase; could run in the Phe-forming direction.")])
 add("Phe", "Phe_transamination", "phenylalanine transamination", "map00360; M00024", [
     S("PHE_AT", "phenylalanine transamination", "L-phenylalanine + 2-oxoglutarate <=> phenylpyruvate + L-glutamate",
-      AROM_AT_KOS, "2.6.1.1;2.6.1.57;2.6.1.5", True, TR, "2-oxoglutarate (-> Glu)", DED,
-      "Not needed for Phe biosynthesis when Phe is made via arogenate (MED4 cross-check: R00691 PMM1504) [KG + interpretation].",
+      AROM_AT_KOS, "2.6.1.1;2.6.1.5;2.6.1.9;2.6.1.57", True, TR, "2-oxoglutarate (-> Glu)", SH,
+      "Same reaction (reverse) is the last step of Phe biosynthesis via phenylpyruvate (M00024); MED4 pheA PMM1504 "
+      "(prephenate dehydratase) indicates this route [KG annotation + interpretation].",
       debatable=AROM_AT_DEBATE)])
 add("Phe", "Phe_hydroxylase_Tyr", "phenylalanine hydroxylase to tyrosine, then tyrosine transamination", "map00360; M00044", [
     S("PHHA", "phenylalanine 4-hydroxylase", "L-phenylalanine + O2 + BH4 -> L-tyrosine", ["K00500"],
-      "1.14.16.1", False, "", "", DED, "Tyrosine is made from arogenate (MED4: R00733 PMM1565), not by hydroxylating "
-      "Phe; same reasoning as PHE_AT/TYR_AT [KG + interpretation]."),
+      "1.14.16.1", False, "", "", DED, "Tyrosine is made from prephenate via tyrA (MED4 PMM1565, prephenate "
+      "dehydrogenase) and transamination, not by hydroxylating Phe; route inferred from annotation [KG + interpretation]."),
     TYR_AT])
 
 # ---- Pro ------------------------------------------------------------------------------------
@@ -427,11 +428,11 @@ add("Trp", "Trp_IAM", "indole-3-acetamide route", "map00380", [
       notes="Generic amidase amiE (K01426, EC 3.5.1.4) can also hydrolyse IAM; not listed (broad amidase).")])
 add("Trp", "Trp_transamination", "tryptophan transamination", "map00380", [
     S("TRP_AT", "tryptophan transamination", "L-tryptophan + 2-oxoglutarate <=> indole-3-pyruvate + L-glutamate",
-      ["K14265", "K00838", "K00832"], "2.6.1.27;2.6.1.57", True, TR, "2-oxoglutarate (-> Glu)", DED,
+      ["K14265", "K00838", "K00832"], "2.6.1.27", True, TR, "2-oxoglutarate (-> Glu)", DED,
       "Reaction-level rule: Trp biosynthesis uses no transamination, so R00684 is needed for nothing else.",
       debatable="KEGG links R00684 only to K14265 (Tam1); K00838 (via EC 2.6.1.27) and K00832 tyrB (multi-substrate "
                 "aromatic AT, added on review) are biosynthetic aromatic aminotransferases present in nearly every genome, "
-                "so this dedicated step will read 'present' wherever they are.")])
+                "so by the exclusion rule they never credit this dedicated step: only K14265 can.")])
 
 # ---- Tyr ------------------------------------------------------------------------------------
 add("Tyr", "Tyr_TAL", "tyrosine ammonia-lyase", "map00350", [
@@ -454,11 +455,21 @@ BROAD = [
     ("K05396", "dcyD", "4.4.1.15", "D-amino acid", "D-cysteine desulfhydrase", "pilot listed under Cys"),
     ("K01753", "dsdA", "4.3.1.18", "D-amino acid", "D-serine ammonia-lyase", "pilot listed under Ser"),
     ("K20498", "DSD1", "4.3.1.18", "D-amino acid", "D-serine ammonia-lyase (eukaryotic type)", ""),
-    ("K14267", "dapC", "2.6.1.17", "broad aminotransferase", "N-succinyldiaminopimelate aminotransferase; class I AT used in lysine biosynthesis (M00016)", "pilot ALL row"),
+    ("K14267", "dapC", "2.6.1.17", "multi-substrate biosynthetic AT (enzyme-level override)", "N-succinyldiaminopimelate aminotransferase; class I AT used in lysine biosynthesis (M00016)", "pilot ALL row"),
     ("K10907", "K10907", "2.6.1.-", "broad aminotransferase", "aminotransferase, substrate unspecified", "pilot ALL row"),
     ("K00837", "ISS1/VAS1", "2.6.1.-", "broad aminotransferase", "aromatic aminotransferase, substrate unspecified", "pilot ALL row"),
     ("K01754", "ilvA", "4.3.1.19", "side activity", "threonine dehydratase also deaminates L-serine; credited only as Thr_dehydratase (shared)", ""),
     ("K17989", "SDS", "4.3.1.17;4.3.1.19", "side activity", "L-serine/L-threonine ammonia-lyase; listed in M00570 (Ile biosynthesis) -> credited only as Thr_dehydratase (shared); its Ser activity is a side activity like ilvA's", "pilot Ser;Thr"),
+    ("K00817", "hisC", "2.6.1.9", "multi-substrate biosynthetic AT (enzyme-level override)", "histidinol-phosphate aminotransferase; also Phe/Tyr transamination; His biosynthesis", ""),
+    ("K00811", "ASP5", "2.6.1.1", "multi-substrate biosynthetic AT (enzyme-level override)", "aspartate aminotransferase (chloroplastic)", ""),
+    ("K00812", "aspB", "2.6.1.1", "multi-substrate biosynthetic AT (enzyme-level override)", "aspartate aminotransferase", ""),
+    ("K00813", "aspC", "2.6.1.1", "multi-substrate biosynthetic AT (enzyme-level override)", "aspartate aminotransferase", ""),
+    ("K11358", "yhdR", "2.6.1.1", "multi-substrate biosynthetic AT (enzyme-level override)", "aspartate aminotransferase", ""),
+    ("K14454", "GOT1", "2.6.1.1", "multi-substrate biosynthetic AT (enzyme-level override)", "aspartate aminotransferase, cytoplasmic", ""),
+    ("K14455", "GOT2", "2.6.1.1", "multi-substrate biosynthetic AT (enzyme-level override)", "aspartate aminotransferase, mitochondrial", ""),
+    ("K15849", "PAT", "2.6.1.1;2.6.1.78;2.6.1.79", "multi-substrate biosynthetic AT (enzyme-level override)", "aspartate/prephenate aminotransferase", ""),
+    ("K00832", "tyrB", "2.6.1.57", "multi-substrate biosynthetic AT (enzyme-level override)", "aromatic-amino-acid aminotransferase (Phe/Tyr biosynthesis)", ""),
+    ("K00838", "ARO8", "2.6.1.57;2.6.1.39;2.6.1.27;2.6.1.5", "multi-substrate biosynthetic AT (enzyme-level override)", "aromatic amino acid aminotransferase I", ""),
     ("K01760", "metC", "4.4.1.13", "side activity", "cystathionine beta-lyase (Met biosynthesis); cysteine desulfhydrase side activity", "pilot listed under Cys"),
     ("K14155", "patB/malY", "4.4.1.13", "side activity", "cystathionine beta-lyase family; cysteine desulfhydrase side activity", ""),
 ]
@@ -492,21 +503,21 @@ PRODUCT_KW = {
     "ALD": ["alanine dehydrogenase"], "ALA_AT": AT,
     "ARGINASE": ["arginase"], "ARGZ": ["arginine dihydrolase"], "ADI": ["arginine deiminase"],
     "ASTA": ["arginine n-succinyltransferase", "arginine succinyltransferase"], "ASTB": ["succinylarginine dihydrolase"],
-    "ARUH": AT, "ADC": ["arginine decarboxylase"], "AGMATINASE": ["agmatinase"], "AGUA": ["agmatine deiminase"],
-    "ASNASE": ["asparaginase"], "ASN_AT": AT, "ASPA": ["aspartate ammonia-lyase", "aspartase"], "ASP_AT": AT,
+    "ARUH": ["arginine:pyruvate", "arginine-pyruvate", "arginine transaminase", "arginine aminotransferase"], "ADC": ["arginine decarboxylase"], "AGMATINASE": ["agmatinase"], "AGUA": ["agmatine deiminase"],
+    "ASNASE": ["asparaginase"], "ASN_AT": ["asparagine"], "ASPA": ["aspartate ammonia-lyase", "aspartase"], "ASP_AT": AT,
     "CYS_DESULF": ["cysteine desulfidase", "cysteine desulfhydrase"], "CTH_CYS": ["cystathionine gamma-lyase"],
     "CDO": ["cysteine dioxygenase"], "CSA_AT": AT, "GLNASE": ["glutaminase"], "GOGAT": ["glutamate synthase"],
-    "GDH": ["glutamate dehydrogenase"], "GAD": ["glutamate decarboxylase"], "GABA_AT": AT,
+    "GDH": ["glutamate dehydrogenase"], "GAD": ["glutamate decarboxylase"], "GABA_AT": ["4-aminobutyrate", "gaba", "aminobutyrate"],
     "GLMUT": ["methylaspartate mutase", "glutamate mutase"], "MAL": ["methylaspartate ammonia-lyase"],
     "GCS_P": ["glycine dehydrogenase", "glycine cleavage system p"], "GCS_T": ["aminomethyltransferase", "glycine cleavage system t"],
     "THIO": ["glycine oxidase"], "GLY_AT": AT, "HUTH": ["histidine ammonia-lyase"], "BCAT": AT, "BCAT_VAL": AT,
-    "LEUDH": ["leucine dehydrogenase"], "LDC": ["lysine decarboxylase"], "CAD_AT": AT,
-    "DAVB": ["lysine 2-monooxygenase", "lysine monooxygenase"], "DAVA": ["aminopentanamidase"], "LAT": AT,
+    "LEUDH": ["leucine dehydrogenase"], "LDC": ["lysine decarboxylase"], "CAD_AT": ["putrescine", "cadaverine", "diamine"],
+    "DAVB": ["lysine 2-monooxygenase", "lysine monooxygenase"], "DAVA": ["aminopentanamidase", "aminovaleramidase"], "LAT": ["lysine"],
     "LYSDH": ["lysine 6-dehydrogenase", "lysine dehydrogenase"], "LKR": ["aminoadipic semialdehyde synthase", "lysine-ketoglutarate reductase"],
     "SDH_SACCH": ["aminoadipic semialdehyde synthase", "saccharopine dehydrogenase"], "MGL": ["methionine gamma-lyase"],
     "MET_AT": AT, "METK": ["adenosylmethionine synthe", "methionine adenosyltransferase"],
     "SAHH": ["adenosylhomocysteinase", "adenosylhomocysteine hydrolase"], "CBS": ["cystathionine beta-synthase"],
-    "CTH": ["cystathionine gamma-lyase"], "PAL": ["ammonia-lyase"], "PHEDH": ["phenylalanine dehydrogenase"],
+    "CTH": ["cystathionine gamma-lyase"], "PAL": ["phenylalanine ammonia", "phenylalanine/tyrosine ammonia"], "PHEDH": ["phenylalanine dehydrogenase"],
     "PHE_AT": AT, "PHHA": ["phenylalanine 4-hydroxylase", "phenylalanine hydroxylase", "phenylalanine-4-hydroxylase"],
     "TYR_AT": AT, "PRODH": ["proline dehydrogenase", "proline oxidase", "proline utilization", "putA"],
     "P5CDH": ["pyrroline-5-carboxylate dehydrogenase", "proline utilization", "putA"],
@@ -514,9 +525,9 @@ PRODUCT_KW = {
     "THR_DH": ["threonine dehydratase", "threonine ammonia-lyase", "serine/threonine dehydratase"],
     "LTAE": ["threonine aldolase"], "TDH": ["threonine 3-dehydrogenase", "threonine dehydrogenase"],
     "KBL": ["2-amino-3-ketobutyrate", "glycine c-acetyltransferase"], "TNAA": ["tryptophanase"],
-    "TDO": ["tryptophan 2,3-dioxygenase", "indoleamine 2,3-dioxygenase"], "KFA": ["formamidase"],
-    "KYNU": ["kynureninase"], "KAT": AT, "IAAM": ["tryptophan 2-monooxygenase"], "IAAH": ["indoleacetamide hydrolase", "amidase"],
-    "TRP_AT": AT, "TAL": ["ammonia-lyase"], "TPL": ["phenol-lyase"],
+    "TDO": ["tryptophan 2,3-dioxygenase", "indoleamine 2,3-dioxygenase"], "KFA": ["kynurenine formamidase", "arylformamidase"],
+    "KYNU": ["kynureninase"], "KAT": ["kynurenine"], "IAAM": ["tryptophan 2-monooxygenase"], "IAAH": ["indoleacetamide"],
+    "TRP_AT": ["tryptophan"], "TAL": ["tyrosine ammonia", "phenylalanine/tyrosine ammonia"], "TPL": ["phenol-lyase"],
 }
 
 # KEGG reaction ids per step (checked with rest.kegg.jp list/rn and link/ko/rn on 2026-11-04). Steps not
@@ -527,7 +538,7 @@ KEGG_RN = {
     "GLY_AT": "R00372;R00369", "SER_AT": "R00585;R00588", "GCS_P": "R03425", "GCS_T": "R04125", "KAT": "R01956",
     "MET_AT": "R08618", "THR_DH": "R00996", "SDA": "R00220", "CYS_DESULF": "R00782", "CTH_CYS": "R00782",
     "CTH": "R01001", "GOGAT": "R00093;R00114;R00021", "GDH": "R00243;R00248", "THIO": "R00366;R07463",
-    "ARGZ": "R13308", "ASNASE": "R00485", "ADC": "R00566", "LDC": "R00462", "METK": "R00177", "SHMT": "R00945",
+    "ARGZ": "R13308", "ASNASE": "R00485", "GLNASE": "R00256", "ADC": "R00566", "LDC": "R00462", "METK": "R00177", "SHMT": "R00945",
     "KBL": "R00371",
 }
 
@@ -542,7 +553,8 @@ KO_GROUPS = {
 # Pathways excluded from assessability, and assessability notes.
 N_NEUTRAL = {"Glu_GABA_shunt": "With 2-oxoglutarate as GABA acceptor the N returns to glutamate: no net N freed."}
 ASSESS_NOTE = {"Arg_argZ": "ArgZ KOs K27545/K27542 have no node in the KG; assessing ArgZ would need a homolog-based "
-                           "search (a possible later extension)."}
+                           "search (a possible later extension). KEGG M00978 lists (K27542,K27545) as alternatives, "
+                           "not subunits, so no AND group."}
 
 # Every flag / KO-list change made after the critic review (old -> new).
 FLAG_CHANGE_LOG = [
@@ -575,6 +587,16 @@ FLAG_CHANGE_LOG = [
     ("GLNASE", "kos", "K01425", "+K05597", "KEGG link/ko/rn:R00256"),
     ("GLNASE", "debatable", "no", "yes", "K05597 credited to both Asn and Gln"),
     ("BCAT_VAL", "kos", "K00826;K00835", "+K14260", "KEGG link/ko/rn:R01215"),
+    ("PHE_AT", "flag", "dedicated", "shared", "delta critic: arogenate premise contradicted by pheA/tyrA products"),
+    ("TYR_AT", "flag", "dedicated", "shared", "delta critic: arogenate premise contradicted by pheA/tyrA products"),
+    ("PHE_AT;TYR_AT", "flag_reason", "arogenate route", "phenylpyruvate route (pheA PMM1504, tyrA PMM1565), annotation-inferred", "delta critic: arogenate premise contradicted by pheA/tyrA products"),
+    ("PHHA", "flag_reason", "Tyr from arogenate", "Tyr from prephenate via tyrA + transamination", "delta critic: arogenate premise contradicted by pheA/tyrA products"),
+    ("PHE_AT;TYR_AT", "ec", "2.6.1.1;2.6.1.5;2.6.1.57", "2.6.1.1;2.6.1.5;2.6.1.9;2.6.1.57", "delta critic: ec = KEGG ENZYME line of R00694/R00734 (K00817 hisC carries 2.6.1.9)"),
+    ("TRP_AT", "ec", "2.6.1.27;2.6.1.57", "2.6.1.27", "delta critic: ec = KEGG ENZYME line of R00684"),
+    ("TRP_AT", "credit", "K14265;K00838;K00832", "K14265 only (K00838, K00832 excluded)", "delta critic: exclusion rule"),
+    ("ALL dedicated steps", "credit_eligible", "all KOs", "KOs on any shared step / positive control / broad table never credit", "delta critic: exclusion rule"),
+    ("ARUH;ASN_AT;GABA_AT;CAD_AT;LAT;PAL;TAL;KFA;KAT;IAAH;TRP_AT;DAVA", "product_keywords", "generic class words", "substrate-naming words", "delta critic: substrate-naming keywords on dedicated steps"),
+    ("GLNASE", "kegg_rn", "EC main reactions", "R00256", "delta critic"),
     ("GCS_P;GOGAT;GLMUT", "ko_groups", "any KO", "AND groups", "critic: multi-subunit steps"),
 ]
 
@@ -676,8 +698,32 @@ def main():
 
     long = steps.assign(ko=steps.kos.str.split(";")).explode("ko")
     long = long[["amino_acid", "pathway_id", "pathway_name", "source_ref", "step_order", "step_id",
-                 "step_key", "step_name", "ko", "ec", "is_n_freeing", "n_mode", "acceptor", "flag",
-                 "flag_reason", "debatable", "debatable_reason", "pathway_class"]]
+                 "step_key", "step_name", "ko", "ko_groups", "ec", "is_n_freeing", "n_mode", "acceptor", "flag",
+                 "flag_reason", "debatable", "debatable_reason", "pathway_class", "product_keywords"]]
+
+    # ---- exclusion rule (delta critic): a KO that sits on ANY shared step, ANY positive control
+    # (matching_sanity / n_transfer_positive) or the broad table never credits a dedicated step.
+    broad_kos = {b[0] for b in BROAD}
+    shared_kos = set(long[long.flag == SH].ko)
+    pos_kos = {k for c in CONTROLS if c[0] in ("matching_sanity", "n_transfer_positive") for k in c[3]}
+
+    def excl(r):
+        if r.flag != DED:
+            return ""
+        why = [w for w, s in (("on a shared step", shared_kos), ("positive-control KO", pos_kos),
+                              ("broad table", broad_kos)) if r.ko in s]
+        return "; ".join(why)
+    long["exclusion_reason"] = long.apply(excl, axis=1)
+    long["credit_eligible"] = long.exclusion_reason == ""
+    ded_ok = long[(long.flag == DED) & long.credit_eligible]
+    aa_by_ko = ded_ok.groupby("ko").amino_acid.apply(lambda s: sorted(set(s)))
+    long["credits_multiple_aa"] = long.apply(
+        lambda r: ";".join(aa_by_ko[r.ko]) if r.flag == DED and r.credit_eligible and len(aa_by_ko.get(r.ko, [])) > 1 else "", axis=1)
+    moved = long[~long.credit_eligible][["step_id", "step_key", "amino_acid", "ko", "exclusion_reason"]]
+    moved.to_csv(DATA / "exclusion_moves.csv", index=False, encoding="utf-8")
+    empty = [sid for sid, g in long[long.flag == DED].groupby("step_id") if not g.credit_eligible.any()]
+    print("exclusion rule: KO rows moved:", len(moved), "| dedicated steps left with no creditable KO:", empty)
+    print(moved.to_string(index=False))
 
     broad = pd.DataFrame(BROAD, columns=["ko", "label", "ec", "category", "description", "pilot_note"])
     broad["credited"] = False

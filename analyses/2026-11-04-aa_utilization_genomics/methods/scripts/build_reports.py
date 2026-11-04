@@ -103,6 +103,7 @@ def main():
     fchg = pd.read_csv(DATA / "flag_change_log.csv", encoding="utf-8")
     rcomp = pd.read_csv(DATA / "rn_ko_completeness.csv", encoding="utf-8")
     srn = pd.read_csv(DATA / "step_reactions.csv", encoding="utf-8").set_index("step_id")
+    moves = pd.read_csv(DATA / "exclusion_moves.csv", encoding="utf-8")
 
     long = long.join(val[["kegg_valid", "kegg_name", "in_kg"]], on="ko")
     steps["n_kos"] = steps.kos.str.split(";").map(len)
@@ -194,7 +195,7 @@ def main():
             H.append('<div class="pw"><div class="pwh">'
                      f'<b>{E(p.pathway_name.iloc[0])} <span class="mono">({E(pid)})</span></b>'
                      f'<span>{E(cls)} · {len(p)} step(s), {int((p.flag=="dedicated").sum())} dedicated · '
-                     f'{"observable" if passess.loc[pid, "observable"] else "<b>NOT ASSESSABLE</b> (KOs not in KG)"} · source: {E(p.source_ref.iloc[0])}</span></div>')
+                     f'status rule: <b>{E(passess.loc[pid, "status_rule"])}</b> · source: {E(p.source_ref.iloc[0])}</span></div>')
             if isinstance(passess.loc[pid, "note"], str) and passess.loc[pid, "note"]:
                 H.append(f'<div class="pnote"><b>Assessability:</b> {E(passess.loc[pid, "note"])}</div>')
             chain = []
@@ -213,9 +214,11 @@ def main():
             sub = long[long.pathway_id == pid].copy()
             sub["kegg_valid"] = sub.kegg_valid.map({True: "yes", False: "NO"})
             sub["in_kg"] = sub.in_kg.map({True: "yes", False: "no"})
-            sub = sub.merge(p[["step_id", "flag_reason", "ko_groups", "product_keywords"]].rename(columns={"flag_reason": "fr"}), on="step_id", suffixes=("", "_s"))
+            sub = sub.merge(p[["step_id", "flag_reason"]].rename(columns={"flag_reason": "fr"}), on="step_id", suffixes=("", "_s"))
+            sub["credit_eligible"] = sub.credit_eligible.map({True: "yes", False: "NO"})
             sub["kegg_rn"] = sub.step_id.map(lambda s: srn.loc[s, "kegg_rn"] if s in srn.index else "")
-            show = sub[["step_id", "ko", "kegg_name", "ec", "kegg_rn", "ko_groups", "flag", "fr", "debatable", "kegg_valid", "in_kg", "product_keywords"]].rename(
+            show = sub[["step_id", "ko", "kegg_name", "ec", "kegg_rn", "ko_groups", "flag", "fr", "debatable", "kegg_valid", "in_kg",
+                        "credit_eligible", "exclusion_reason", "credits_multiple_aa", "product_keywords"]].rename(
                 columns={"fr": "flag_reason", "kegg_name": "KEGG name", "ko_groups": "ko_groups (; = AND, | = OR)"})
             H.append(table(show, mono=("step_id", "ko", "ec")))
             notes = [f"{E(s.step_id)}: {E(s.notes)}" for _, s in p.iterrows() if isinstance(s.notes, str) and s.notes]
@@ -294,8 +297,16 @@ def main():
              f"genes_by_ontology(kegg, MED4) on all catalogue + control KOs: {len(hits)} step x gene rows, "
              f"{hits.locus_tag.nunique()} MED4 genes; {len(flagged)} rows / {flagged.locus_tag.nunique()} genes flagged. "
              "This is a hit list, not a pathway score.</p>")
-    H.append(table(flagged[["step_id", "amino_acid", "ko", "locus_tag", "gene_name", "product", "product_keywords", "call"]],
-                   "t_flag", mono=("step_id", "ko", "locus_tag"), filt=True))
+    H.append(f"<p class=\"note\">Calls: {E(hits.call.value_counts().to_dict())}. On shared steps 'credited' means present "
+             "(shared steps never count toward k/n; they matter only as the N-freeing anchor).</p>")
+    H.append(table(hits[["call", "step_id", "flag", "amino_acid", "ko", "locus_tag", "gene_name", "product", "product_keywords",
+                         "exclusion_reason"]], "t_hits", mono=("step_id", "ko", "locus_tag"), filt=True))
+    H.append('<h3>Exclusion rule: KOs that can never credit a dedicated step</h3>'
+             '<p class="note">A KO on any shared step, any positive control (matching sanity, N-transfer) or the broad table '
+             "(including the enzyme-level override list of multi-substrate biosynthetic aminotransferases: hisC, aspartate "
+             "aminotransferases, PAT, tyrB, ARO8, dapC) never credits a dedicated step; a hit is reported as a shared-enzyme hit. "
+             f"KO rows moved: {len(moves)}.</p>")
+    H.append(table(moves, "t_moves", mono=("step_id", "ko")))
 
     # ---- controls ----
     H.append('<h2 id="controls">Proposed controls (researcher approves)</h2>')

@@ -184,7 +184,17 @@ def main():
                     main_part = ecd.loc[e, "all_reac"].split("(other)")[0]
                     ids += [x for x in re.findall(r"R\d{5}", main_part)]
             rn, src = ";".join(dict.fromkeys(ids)), "EC main reactions (ALL_REAC before '(other)')"
-        srows.append(dict(step_id=s.step_id, step_key=s.step_key, amino_acid=s.amino_acid, kegg_rn=rn, kegg_rn_source=src))
+        # EC from the KEGG reaction entries' ENZYME lines (the rule for step ec)
+        ec_rn = []
+        for r in [x for x in rn.split(";") if x]:
+            for d in parse_flat(kegg(f"get/rn:{r}")):
+                ec_rn += d.get("ENZYME", "").split()
+        ec_rn = sorted(set(ec_rn))
+        step_ec = {x.strip() for x in str(s.ec).split(";")}
+        srows.append(dict(step_id=s.step_id, step_key=s.step_key, amino_acid=s.amino_acid, kegg_rn=rn, kegg_rn_source=src,
+                          ko_groups=s.ko_groups, step_ec=s.ec, ec_from_reactions=";".join(ec_rn),
+                          rn_ec_not_in_step=";".join(e for e in ec_rn if e not in step_ec),
+                          step_ec_not_in_rn=";".join(e for e in sorted(step_ec) if ec_rn and e not in ec_rn)))
         step_kos = set(s.kos.split(";"))
         for r in [x for x in rn.split(";") if x]:
             ks = sorted(l.split("\t")[1].replace("ko:", "") for l in kegg(f"link/ko/rn:{r}").splitlines() if "\t" in l)
@@ -192,7 +202,11 @@ def main():
             rcomp.append(dict(step_id=s.step_id, step_key=s.step_key, flag=s.flag, is_n_freeing=s.is_n_freeing,
                               reaction=r, kegg_kos_for_rn=";".join(ks),
                               not_in_step=";".join(f"{k} ({names.get(k) or kegg('list/' + k).split(chr(9), 1)[-1].strip()})" for k in extra)))
-    pd.DataFrame(srows).to_csv(DATA / "step_reactions.csv", index=False, encoding="utf-8")
+    sr = pd.DataFrame(srows)
+    sr.to_csv(DATA / "step_reactions.csv", index=False, encoding="utf-8")
+    print("steps whose ec differs from their reactions' ENZYME lines:")
+    print(sr[(sr.rn_ec_not_in_step != "") | (sr.step_ec_not_in_rn != "")].drop_duplicates("step_key")[
+        ["step_id", "kegg_rn", "step_ec", "ec_from_reactions", "rn_ec_not_in_step", "step_ec_not_in_rn"]].to_string())
     rcomp = pd.DataFrame(rcomp)
     rcomp.to_csv(DATA / "rn_ko_completeness.csv", index=False, encoding="utf-8")
     print("step x reaction rows:", len(rcomp), "| with KOs outside the step:", int((rcomp.not_in_step != "").sum()))
@@ -214,7 +228,8 @@ def main():
         prow.append(dict(amino_acid=g.amino_acid.iloc[0], pathway_id=pid, has_dedicated=has_ded,
                          n_neutral=bool(nneut), observable=obs, all_steps_observable=bool(g.step_observable.all()),
                          unobservable_steps=";".join(g[~g.step_observable].step_id),
-                         status_rule=("not assessable (never 'absent')" if not obs else
+                         status_rule=("excluded (N-neutral)" if nneut else
+                                      "not assessable (never 'absent')" if not obs else
                                       ("cannot be judged (all-shared)" if not has_ded else "scored")),
                          note=";".join(x for x in [nneut, g.assess_note.iloc[0] if isinstance(g.assess_note.iloc[0], str) else ""] if x)))
     pdf = pd.DataFrame(prow)

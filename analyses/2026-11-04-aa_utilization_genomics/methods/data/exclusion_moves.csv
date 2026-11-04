@@ -1,0 +1,3 @@
+step_id,step_key,amino_acid,ko,exclusion_reason
+Trp_transamination.1,TRP_AT,Trp,K00838,on a shared step; broad table
+Trp_transamination.1,TRP_AT,Trp,K00832,on a shared step; broad table

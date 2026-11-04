@@ -13,9 +13,9 @@ Leu,2,1,1,1,yes,all dedicated routes observable
 Val,2,1,1,1,yes,all dedicated routes observable
 Lys,5,5,2,0,partly,not observable: Lys_davBA;Lys_6AT;Lys_saccharopine
 Met,3,2,1,1,partly,not observable: Met_transsulfuration
-Phe,4,4,2,0,partly,not observable: Phe_PAL;Phe_PheDH
+Phe,4,3,1,1,partly,not observable: Phe_PAL;Phe_PheDH
 Pro,1,1,1,0,yes,all dedicated routes observable
 Ser,3,1,1,2,yes,all dedicated routes observable
 Thr,3,2,2,1,yes,all dedicated routes observable
 Trp,5,5,3,0,partly,not observable: Trp_tryptophanase;Trp_kynurenine_KAT
-Tyr,3,3,1,0,partly,not observable: Tyr_TAL;Tyr_phenol_lyase
+Tyr,3,2,0,1,no,no dedicated route is observable (its KOs have no node in the KG): Tyr_TAL;Tyr_phenol_lyase

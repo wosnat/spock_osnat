@@ -27,4 +27,14 @@ ASNASE,debatable,no,yes,K05597 credited to both Asn and Gln,2026-11-04
 GLNASE,kos,K01425,+K05597,KEGG link/ko/rn:R00256,2026-11-04
 GLNASE,debatable,no,yes,K05597 credited to both Asn and Gln,2026-11-04
 BCAT_VAL,kos,K00826;K00835,+K14260,KEGG link/ko/rn:R01215,2026-11-04
+PHE_AT,flag,dedicated,shared,delta critic: arogenate premise contradicted by pheA/tyrA products,2026-11-04
+TYR_AT,flag,dedicated,shared,delta critic: arogenate premise contradicted by pheA/tyrA products,2026-11-04
+PHE_AT;TYR_AT,flag_reason,arogenate route,"phenylpyruvate route (pheA PMM1504, tyrA PMM1565), annotation-inferred",delta critic: arogenate premise contradicted by pheA/tyrA products,2026-11-04
+PHHA,flag_reason,Tyr from arogenate,Tyr from prephenate via tyrA + transamination,delta critic: arogenate premise contradicted by pheA/tyrA products,2026-11-04
+PHE_AT;TYR_AT,ec,2.6.1.1;2.6.1.5;2.6.1.57,2.6.1.1;2.6.1.5;2.6.1.9;2.6.1.57,delta critic: ec = KEGG ENZYME line of R00694/R00734 (K00817 hisC carries 2.6.1.9),2026-11-04
+TRP_AT,ec,2.6.1.27;2.6.1.57,2.6.1.27,delta critic: ec = KEGG ENZYME line of R00684,2026-11-04
+TRP_AT,credit,K14265;K00838;K00832,"K14265 only (K00838, K00832 excluded)",delta critic: exclusion rule,2026-11-04
+ALL dedicated steps,credit_eligible,all KOs,KOs on any shared step / positive control / broad table never credit,delta critic: exclusion rule,2026-11-04
+ARUH;ASN_AT;GABA_AT;CAD_AT;LAT;PAL;TAL;KFA;KAT;IAAH;TRP_AT;DAVA,product_keywords,generic class words,substrate-naming words,delta critic: substrate-naming keywords on dedicated steps,2026-11-04
+GLNASE,kegg_rn,EC main reactions,R00256,delta critic,2026-11-04
 GCS_P;GOGAT;GLMUT,ko_groups,any KO,AND groups,critic: multi-subunit steps,2026-11-04

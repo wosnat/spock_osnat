@@ -4,6 +4,12 @@ Rule (proposal section 3 step 2, made operational on critic review): a gene coun
 its KG `product` contains one of the step's `product_keywords` (case-insensitive substring).
 Otherwise the hit is "flagged: KO/product mismatch" and does not count until the researcher reviews it.
 
+Exclusion rule (enforced here, defined in 01): on a DEDICATED step, a hit on a KO that sits on any shared
+step, any positive control or the broad table is a "shared-enzyme hit" and is never credited.
+Dedicated steps carry substrate-naming keywords only, so a class-generic product ("... family protein")
+without the substrate is flagged.
+Calls: credited | flagged: KO/product mismatch | shared-enzyme hit (not credited).
+
 This lists MED4 hits per catalogue step and per control; it does NOT compute pathway status (that is
 the next methods step, scoring).
 
@@ -34,11 +40,15 @@ def main():
     steps = pd.read_csv(DATA / "pathway_catalogue_steps.csv", encoding="utf-8")
     ctrl = pd.read_csv(DATA / "proposed_controls.csv", encoding="utf-8")
     kw = steps.drop_duplicates("step_id").set_index("step_id").product_keywords
-    units = [(r.step_id, r.amino_acid, r.step_key, r.ko, kw[r.step_id], r.flag) for _, r in long.iterrows()]
+    units = [(r.step_id, r.amino_acid, r.step_key, r.ko, r.ko_groups, kw[r.step_id], r.flag, bool(r.credit_eligible),
+              r.exclusion_reason if isinstance(r.exclusion_reason, str) else "", r.credits_multiple_aa
+              if isinstance(r.credits_multiple_aa, str) else "") for _, r in long.iterrows()]
     for _, c in ctrl.iterrows():
         for k in c.kos.split(";"):
-            units.append((c.control_id, "control", c.control_id, k, c.product_keywords, c.control_type))
-    u = pd.DataFrame(units, columns=["step_id", "amino_acid", "step_key", "ko", "product_keywords", "flag"])
+            units.append((c.control_id, "control", c.control_id, k, c.kos.replace(";", "|"), c.product_keywords,
+                          c.control_type, True, "", ""))
+    u = pd.DataFrame(units, columns=["step_id", "amino_acid", "step_key", "ko", "ko_groups", "product_keywords", "flag",
+                                     "credit_eligible", "exclusion_reason", "credits_multiple_aa"])
     kos = sorted(set(u.ko))
     g = genes_by_ontology(ontology="kegg", organism=ORG, term_ids=[f"kegg.orthology:{k}" for k in kos],
                           min_gene_set_size=0, max_gene_set_size=None, limit=None)
@@ -50,15 +60,19 @@ def main():
     keep = [c for c in ["ko", "locus_tag", "gene_name", "product", "evidence", "sources"] if c in gdf.columns]
     hits = u.merge(gdf[keep], on="ko", how="inner")
     hits["product_agrees"] = [agrees(p, k) for p, k in zip(hits["product"], hits.product_keywords)]
-    hits["call"] = hits.product_agrees.map({True: "credited", False: "flagged: KO/product mismatch"})
+    hits["generic_product"] = hits["product"].fillna("").str.lower().str.contains("family protein|hypothetical|uncharacterized")
+    hits["call"] = [("shared-enzyme hit (not credited)" if not ok else
+                     "credited" if agree else "flagged: KO/product mismatch")
+                    for ok, agree in zip(hits.credit_eligible, hits.product_agrees)]
     hits = hits.sort_values(["amino_acid", "step_id", "locus_tag"])
     hits.to_csv(DATA / "med4_step_hits.csv", index=False, encoding="utf-8")
-    fl = hits[~hits.product_agrees]
+    fl = hits[hits.call != "credited"]
     fl.to_csv(DATA / "med4_flagged_hits.csv", index=False, encoding="utf-8")
+    print(hits.call.value_counts().to_dict())
     print("hit rows:", len(hits), "| distinct MED4 genes:", hits.locus_tag.nunique(), "| flagged rows:", len(fl),
           "| flagged genes:", fl.locus_tag.nunique())
     pd.set_option("display.width", 250)
-    print(fl[["step_id", "ko", "locus_tag", "gene_name", "product", "product_keywords"]].to_string(index=False))
+    print(hits[["step_id", "flag", "ko", "locus_tag", "gene_name", "product", "call"]].to_string(index=False))
 
 
 if __name__ == "__main__":
