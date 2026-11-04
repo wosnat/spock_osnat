@@ -41,16 +41,30 @@ Rules:
 - Calls naming only a **class** ("amino acid", "polar amino acid", "branched-chain amino acid") are reported as a separate "class-level" column, not credited to individual amino acids. A class that unambiguously names a defined set (e.g. branched-chain = Leu/Ile/Val) is credited to that set but marked as class-derived.
 - **TCDB family-walk rows** (`include_tcdb_family_substrates`) are excluded from calls. They are counted and reported as "candidates" only, because they say the family moves the compound somewhere, not that this gene does (docs://analysis/transport).
 - Agreement between TCDB and GO is reported as one line of homology evidence, not two independent confirmations.
-- Output per strain × amino acid: number of genes per evidence line, plus a summary call: **specific** (≥1 gene with TCDB-direct or GO-MF naming that amino acid), **class-only**, or **none found**.
+- **GO matching uses an approved term list, not free text.** The methods milestone lists the GO MF transport terms whose curated transport target is an amino acid. The researcher approves this list (like the route catalogue) before it is used. Free-text matching on definitions is not used.
+- **Calls are recorded at the system level.** For each TCDB-direct system, record which subunit roles the strain carries: substrate-binding protein, permease or ATPase, read from the TCDB system and gene annotations. A lone ATPase does not count as a whole system.
+- **Direction.** Systems that TCDB marks as export (`tcdb_direction = export`), or that sit in known amino-acid efflux families (e.g. LysE/RhtB, TC 2.A.75 / 2.A.76), are flagged **export** and not counted as uptake capacity.
+- Output per strain × amino acid: number of genes per evidence line, subunit roles present, plus a summary call:
+  - **specific uptake:** ≥1 non-export system naming that amino acid, via TCDB-direct or the approved GO list;
+  - **class-only;**
+  - **SBP-only:** only the substrate-binding-protein prediction names it;
+  - **export-only;**
+  - **none found.**
+  - For MIT1314, MIT1327 and RSP50, the SBP line reads **no data**.
 
 **B. Amino-acid degradation routes.** Route-by-route, not whole KEGG maps (most KEGG amino-acid maps mix biosynthesis and degradation; see proposal_notebook).
 1. **Route catalogue.** For each of the 20 amino acids, list its known bacterial degradation route(s) as ordered enzyme steps. Each step is one or more KEGG orthology IDs (alternatives = isozymes). Each step carries two flags:
    - **N-releasing:** the step removes the amino nitrogen (as ammonium or by transfer to an acceptor such as 2-oxoglutarate).
    - **Shared:** the enzyme is also used in biosynthesis or central metabolism, so its presence alone is weak evidence for degradation.
 
-   The catalogue is drafted by Claude from standard biochemistry (KEGG reference pathways and modules). It is an `[interpretation]` input. Every KO is checked to exist in the KG, and **the researcher reviews and approves the catalogue before it is used**.
+   The catalogue is drafted by Claude from standard biochemistry (KEGG reference pathways and modules). It is an `[interpretation]` input. **The researcher reviews and approves the catalogue before it is used.**
+
+   **KO validity is checked against KEGG itself** (KEGG REST `list/ko`), not against the KG. The KG holds only KO nodes that at least one of its genes carries, so "not in the KG" cannot tell a mistyped KO from a valid KO that no organism has. A valid KO missing from the KG stays in the route and scores absent; these are listed separately.
 2. **Step presence per strain:** a step is present if ≥1 gene in the strain is annotated to any of its KOs. Gene identity is by locus tag; orthologs across strains are linked by KG ortholog groups for display only.
-3. **Route status per strain:** **complete** (all steps present), **partial** (some), **absent** (none). Status is reported twice: counting all steps, and counting only non-shared steps (does the strain have the route's *dedicated* enzymes?).
+3. **Route status per strain:** reported as the step fraction **k/n** (steps present / steps in route). The labels are shorthand: **complete** (n/n), **partial** (1 to n−1 of n), **absent** (0/n). Status is reported twice:
+   - counting all steps;
+   - counting only non-shared steps, i.e. does the strain have the route's *dedicated* enzymes? A route with zero non-shared steps (e.g. one-step transamination routes) gets the status **no dedicated step defined**. It is never vacuously complete.
+4. **Per amino acid:** the number of catalogued routes is shown alongside the best route. "Best route" is the route with the highest all-steps fraction, with ties broken by the non-shared fraction. This makes visible that amino acids with more catalogued alternatives have more chances to score.
 
 **Comparison.** Strains × amino-acid tables for A and B, grouped by clade. The main figure is a heatmap (rows = strains ordered by clade; columns = amino acids; panels = transporter call and best degradation-route status). Per-clade counts summarise each column.
 
@@ -58,7 +72,9 @@ Rules:
 1. real-serialization fixtures;
 2. an independent MCP-only answer key for one strain (MED4) and a few routes;
 3. an API-usage review of `genes_by_metabolite` / `genes_by_ontology` / DerivedMetric calls against the explorer docs;
-4. a random sample of genes in each call bin (specific, class-only, family candidate; complete/partial routes) shown to the researcher before the rules are approved.
+4. a random sample of genes in each call bin (specific, class-only, SBP-only, export, family candidate; complete/partial routes) shown to the researcher.
+
+The route catalogue, the GO term list and the call rules are approved **before** any strain-level results or bin samples are seen. Any rule changed after seeing the samples is recorded in the methods notebook, with its reason and the date.
 
 ### Statistics plan
 **No formal statistical tests, because the analysis is descriptive and has no hypothesis.** Additionally, strains are not independent samples (they share ancestry within clades), so a test of e.g. high-light vs low-light gene counts would overstate confidence. Results are reported as counts and fractions per strain and per clade, with clade sizes stated (HLIII, HLIV each n = 1; LLIII n = 2; clade-level summaries for these are flagged as single-strain observations).
@@ -66,15 +82,25 @@ Rules:
 ### Validation set
 The method works only if the following come out as expected (each checked in the methods milestone):
 
-1. **Alteromonas positive control (degradation).** The three Alteromonas strains, heterotrophs that grow on amino acids `[interpretation]`, are scored with the same catalogue. Expected: complete routes for clearly more amino acids than any Prochlorococcus strain. If Alteromonas scores no better than Prochlorococcus, the catalogue or the matching is broken.
+1. **Alteromonas positive control (degradation).** The Alteromonas strains with genomes in the KG are scored with the same catalogue: MIT1002, EZ55 and HOT1A3, confirmed in methods to carry genes. They are heterotrophs that grow on amino acids `[interpretation]`. This control **catches gross breakage; it does not validate the catalogue.** Alteromonas genomes are about 4,200 genes, against 1,870–3,203 in Prochlorococcus, so they would out-score Prochlorococcus with almost any KO list. Two pre-stated expectations:
+   - *Count:* each Alteromonas strain has complete (all-steps) best routes for ≥ 2× the median number of amino acids across Prochlorococcus strains.
+   - *Route-level:* at catalogue approval, before any scoring, the researcher and Claude name 3 routes and the specific KOs expected present in Alteromonas. All named KOs must be found. This tests the catalogue's content, not just its total.
 2. **Matching sanity check.** Glutamine synthetase (glnA) is expected in all 45 Prochlorococcus genomes `[interpretation]`. The step-presence code must find it in all 45. This check tests the matching machinery; GS is not a degradation route.
-3. **Transporter positive control.** Alteromonas strains are expected to show specific TCDB-direct amino-acid transporter calls for several amino acids `[interpretation]`. If none are found, the transporter extraction is broken.
+3. **Transporter positive control.** Alteromonas strains are expected to show specific-uptake TCDB-direct calls for ≥ 3 amino acids each `[interpretation]`. If they don't, the transporter extraction is broken.
+4. **Synechococcus:** role pending the researcher's decision. Either it joins as a comparison group (closest relative, same annotation layers) alongside Alteromonas, or it replaces Alteromonas as the positive control. See the open design choices.
 
 ### Falsifiability check
-- **"Nothing real" looks like:** every degradation route has the same status in all 45 strains *and* Alteromonas looks like Prochlorococcus. Or every "complete" call depends on shared steps only (the non-shared-steps status is absent everywhere). Either means the method is detecting housekeeping enzymes, not degradation capacity.
+- **Method failure is judged only by the controls:**
+  - Alteromonas fails either expectation in validation 1 or the transporter expectation in validation 3;
+  - glnA is not found in all 45 strains;
+  - an expected-negative below fails.
+
+  If any of these happen, the method is broken and the strain results are not interpreted.
+- **These are findings, not failures:** every route having the same status in all 45 strains, or Prochlorococcus carrying only shared steps (no dedicated degradation enzymes). For a streamlined, closely related genus either may be true biology, and both would be reported as results.
 - **Pre-registered expected-negatives:**
-  - **Non-amino-acid transporters get no amino-acid credit.** The MED4 urea ABC transporter genes (urtA–E) and the phosphate Pst genes (pstS/A/B/C) must receive **no specific amino-acid call**. urtA's TCDB family (3.A.1.4) contains amino-acid systems, so this checks that family-walk rows are kept out of calls.
-  - **Shared-only routes are not called "complete (dedicated)."** A route whose only present steps are flagged shared must not reach complete status in the non-shared count.
+  - **Non-amino-acid transporters get no amino-acid credit.** The MED4 urea ABC transporter genes (urtA–E) and the phosphate Pst genes (pstS/A/B/C) must receive **no specific-uptake amino-acid call**. urtA's TCDB family (3.A.1.4) contains amino-acid systems, so this partly checks that family-walk rows are kept out of calls (a design rule). Class-only or SBP-only credit on these genes would not count as a failure, but it would be reported and reviewed.
+  - **Shared-only routes are not called complete in the dedicated count.** A route whose only present steps are flagged shared must not reach complete status in the non-shared count.
+  - **A degradation expected-negative:** at catalogue approval, before any scoring, name one route that is expected *absent* across Prochlorococcus `[interpretation]`. It must score absent in the dedicated count in all 45 strains.
 - **A null is a valid outcome.** If most Prochlorococcus strains carry no dedicated degradation route for most amino acids, that is reported as a bounded negative ("no route found with these annotations"), not a non-result. Absence of an annotation ≠ absence of function; this caveat travels with every "absent" call.
 
 ### Design comparability
@@ -82,11 +108,11 @@ No expression experiments are used, so the comparability concern is whether **an
 
 | Data source | Role | Comparable across strains? | Can confirm | Cannot confirm |
 |---|---|---|---|---|
-| KEGG KO per gene | degradation-route steps | To check in methods: whether all 45 genomes went through the same annotation pipeline (KG `sources` / `evidence` fields). | Enzyme-family presence | Enzyme activity, direction, regulation |
+| KEGG KO per gene | degradation-route steps | The KG has no organism-level provenance (`reference_database` is null for all 45). The methods milestone tabulates the gene→KO edge `sources` / `evidence` per strain. If they differ across strains, that is reported; if the field is unusable, pipeline comparability is stated as an assumption. | Enzyme-family presence | Enzyme activity, direction, regulation |
 | TCDB direct calls | transporter evidence (1) | Same check | A curated system with that substrate | Actual substrate in this strain; uptake vs export unless TCDB states it |
 | GO MF transport terms | transporter evidence (2) | Same check; GO shares homology sources with TCDB | Term-level transport function | Independence from TCDB evidence |
 | SBP predicted substrate (Ford et al. 2021) | transporter evidence (3) | 42 of 45 strains; absent for MIT1314, MIT1327, RSP50 (reported as "no data", not "none") | Predicted binding substrate | Transport activity |
-| Genome completeness | affects all "absent" calls | **Ask researcher / check:** some genomes may be draft or incomplete assemblies, which would inflate absences | — | — |
+| Genome completeness | affects all "absent" calls | The KG has no completeness field. **Source:** NCBI assembly level per strain (looked up by the KG's `ncbi_taxon_id`, outside the KG; recorded as an external input), plus any strains the researcher knows to be incomplete. **Action:** in a non-complete genome, an "absent" call is reported as **absent (assembly incomplete)**. Single-strain clades (HLIII, HLIV) and the smallest genome (RSP50) are named as the cases most exposed. | — | — |
 | Alteromonas annotations | validation only | Same pipeline check | Method sanity | Anything about Prochlorococcus |
 
 ## 4. Deliverables
