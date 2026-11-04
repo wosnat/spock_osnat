@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="One-slide comparison of amino-acid uptake systems: E. coli K-12 (background knowledge) vs Prochlorococcus MED4 (KG pilot), by amino-acid group.">
+<title>Amino-acid uptake: E. coli vs Prochlorococcus MED4</title>
+<style>
+  :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#fcfcfb;--panel:#f3f4f6;
+        --ec:#1d5fae;--ec2:#e6eef9;--pro:#1f8a4c;--pro2:#e5f4ea;--warn:#9a6700;}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#e9eaec}
+  .slide{width:1920px;height:1080px;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+         padding:40px 60px 26px;display:grid;grid-template-rows:auto auto 1fr auto;gap:18px;overflow:hidden}
+  h1{margin:0;font-size:46px;line-height:1.1}
+  h1 .ec{color:var(--ec)} h1 .pro{color:var(--pro)}
+  .sub{margin:8px 0 0;font-size:22px;color:var(--muted)}
+  /* totals */
+  .tot{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .t{border-radius:12px;padding:18px 26px;display:flex;align-items:center;gap:26px}
+  .t.ec{background:var(--ec2)} .t.pro{background:var(--pro2)}
+  .t .big{font-size:76px;font-weight:800;line-height:.9;white-space:nowrap}
+  .t.ec .big{color:var(--ec)} .t.pro .big{color:var(--pro)}
+  .t h2{margin:0;font-size:28px}
+  .t.ec h2{color:var(--ec)} .t.pro h2{color:var(--pro)}
+  .t p{margin:6px 0 0;font-size:20px;color:var(--ink);line-height:1.35}
+  .tag{display:inline-block;font-size:14px;font-weight:700;border-radius:10px;padding:1px 9px;margin-left:8px;vertical-align:4px;background:#fff}
+  .tag.ec{border:1.5px solid var(--ec);color:var(--ec)} .tag.pro{border:1.5px solid var(--pro);color:var(--pro)}
+  /* group rows */
+  .rows{display:grid;grid-template-rows:repeat(6,1fr);gap:8px;min-height:0}
+  .row{display:grid;grid-template-columns:250px 1fr 1fr;gap:10px}
+  .g{background:var(--panel);border-radius:8px;padding:10px 14px;display:flex;flex-direction:column;justify-content:center}
+  .g b{font-size:21px} .g span{font-size:16px;color:var(--muted)}
+  .c{border-radius:8px;padding:8px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:18px}
+  .c.ec{background:var(--ec2)} .c.pro{background:var(--pro2)}
+  .chip{border-radius:14px;padding:3px 11px;font-size:17px;font-weight:600;background:#fff}
+  .c.ec .chip{border:2px solid var(--ec);color:var(--ec)}
+  .c.pro .chip{border:2px solid var(--pro);color:var(--pro)}
+  .none{font-size:20px;font-weight:800;color:var(--pro);opacity:.55}
+  .note{font-size:16px;color:var(--muted)}
+  .lt{font-family:ui-monospace,Consolas,monospace;font-size:15px}
+  .foot{display:flex;justify-content:space-between;gap:30px;font-size:15px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div>
+    <h1>Amino-acid uptake: <span class="ec"><i>E. coli</i></span> vs <span class="pro"><i>Prochlorococcus</i> MED4</span></h1>
+    <p class="sub">Which transporters bring each group of amino acids into the cell?</p>
+  </div>
+
+  <div class="tot">
+    <div class="t ec"><div class="big">~25–30</div><div><h2>uptake systems <span class="tag ec">general knowledge</span></h2><p>Every amino-acid group covered, often by several systems: ABC transporters plus permeases</p></div></div>
+    <div class="t pro"><div class="big">1</div><div><h2>candidate gene <span class="tag pro">our database pilot</span></h2><p>gltS (glutamate) only: 0 amino-acid systems in the transporter database; 0 of 9 binding proteins predicted for amino acids</p></div></div>
+  </div>
+
+  <div class="rows">
+    <div class="row"><div class="g"><b>Branched-chain</b><span>Leu · Ile · Val</span></div>
+      <div class="c ec"><span class="chip">LIV-I ABC (livJ/livKHMGF)</span><span class="chip">BrnQ</span></div>
+      <div class="c pro"><span class="none">none</span><span class="note">urtC/urtE (<span class="lt">PMM0972/0974</span>) carry a "branched-chain" label but are the <b>urea</b> transporter</span></div></div>
+    <div class="row"><div class="g"><b>Aromatic</b><span>Phe · Tyr · Trp</span></div>
+      <div class="c ec"><span class="chip">AroP</span><span class="chip">PheP</span><span class="chip">TyrP</span><span class="chip">Mtr</span><span class="chip">TnaB</span></div>
+      <div class="c pro"><span class="none">none</span></div></div>
+    <div class="row"><div class="g"><b>Basic</b><span>Arg · Lys · His</span></div>
+      <div class="c ec"><span class="chip">Arg ABC (ArtJ/ArtPIQM)</span><span class="chip">LAO/His ABC (ArgT, HisJQMP)</span><span class="chip">LysP</span><span class="chip">CadB</span></div>
+      <div class="c pro"><span class="none">none</span></div></div>
+    <div class="row"><div class="g"><b>Acidic + amides</b><span>Asp · Glu · Asn · Gln</span></div>
+      <div class="c ec"><span class="chip">Glu/Asp ABC (GltIJKL)</span><span class="chip">GltP</span><span class="chip">GltS</span><span class="chip">DctA</span><span class="chip">Gln ABC (GlnHPQ)</span><span class="chip">AnsP</span></div>
+      <div class="c pro"><span class="chip">gltS <span class="lt">PMM0628</span></span><span class="note">putative Na⁺/glutamate symporter; GO label only</span></div></div>
+    <div class="row"><div class="g"><b>Small / other</b><span>Gly · Ala · Ser · Thr · Cys · Met · Pro</span></div>
+      <div class="c ec"><span class="chip">CycA</span><span class="chip">SdaC</span><span class="chip">TdcC</span><span class="chip">SstT</span><span class="chip">PutP</span><span class="chip">ProP / ProVWX</span><span class="chip">MetNIQ</span></div>
+      <div class="c pro"><span class="none">none</span></div></div>
+    <div class="row"><div class="g"><b>Peptides</b><span>di- and oligopeptides</span></div>
+      <div class="c ec"><span class="chip">Dpp ABC</span><span class="chip">Opp ABC</span></div>
+      <div class="c pro"><span class="chip">dppA <span class="lt">PMM1049</span></span><span class="note">binding protein predicted for peptides</span></div></div>
+  </div>
+
+  <div class="foot">
+    <span><i>E. coli</i> (blue): K-12 textbook knowledge; there is no <i>E. coli</i> genome in our database, so these are not from it and not yet cited. MED4 (green): database annotations (transporter database, GO, binding-protein predictions). Annotation ≠ function; poorly annotated or broad transporters could be missed.</span>
+    <span style="white-space:nowrap">KG 0.1.0-alpha.9 · 2026-11-04</span>
+  </div>
+</div>
+</body>
+</html>
