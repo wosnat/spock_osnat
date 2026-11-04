@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Proposal overview — releasing nitrogen from amino acids in Prochlorococcus</title>
+<title>Proposal overview — amino-acid utilization pathways in Prochlorococcus</title>
 <style>
   :root{--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--bg:#ffffff;--panel:#f6f8fa;
         --up:#d9711c;--down:#2f6fb5;--ok:#2e7d4f;--warn:#9a6700;--bad:#b42318;--hl:#e8a33d;--ll:#3b6fb0;}
@@ -69,11 +69,11 @@
 <body>
 <main>
 
-<h1>Releasing nitrogen from amino acids in <i>Prochlorococcus</i><span class="draft">plan v2 · draft</span></h1>
+<h1>Amino-acid utilization pathways in <i>Prochlorococcus</i><span class="draft">plan v4 · draft</span></h1>
 <p class="sub">Comparative genomics · 45 <i>Prochlorococcus</i> strains + <i>Synechococcus</i> · Researcher: Dikla Aharonovich · 2026-11-04 · KG release 0.1.0-alpha.9</p>
 
 <h2>The question</h2>
-<div class="q">For each of the 20 amino acids, which strains carry an enzyme that <b>takes the nitrogen off</b>, and how does that differ between clades and from <i>Synechococcus</i>?
+<div class="q">For each of the 20 amino acids, which strains carry a <b>breakdown (utilization) pathway</b> that frees its nitrogen, judged only by the pathway's <b>breakdown-only</b> enzymes? How does that differ between clades and from marine <i>Synechococcus</i>?
 <small>A standalone, descriptive map: no hypothesis, no formal statistics. Transporters (uptake) are set aside for now.</small></div>
 
 <h2>Who is compared</h2>
@@ -103,36 +103,32 @@
   </div>
 </div>
 
-<h2>Two ways to take the nitrogen off</h2>
-<div class="cols2">
-  <div class="panel">
-    <h3>Release as ammonium</h3>
-    <div class="route"><span class="node">amino acid</span><span class="arr">→</span><span class="node n">deaminase · lyase · dehydrogenase · amidase</span><span class="arr">→</span><span class="node">NH₄⁺</span></div>
-    <p class="muted">Some go through several steps first, e.g. arginine → agmatine → urea → NH₄⁺. Those are scored as steps present (k of n).</p>
+<h2>How a pathway is scored</h2>
+<div class="panel">
+  <div class="route">
+    <span class="node">amino acid</span><span class="arr">→</span>
+    <span class="node n">breakdown-only step</span><span class="arr">→</span>
+    <span class="node" style="opacity:.55">shared step <span class="muted">(also builds amino acids)</span></span><span class="arr">→</span>
+    <span class="node n">breakdown-only step</span><span class="arr">→</span>
+    <span class="node">N freed: NH₄⁺ · glutamate · urea</span>
   </div>
-  <div class="panel">
-    <h3>Transfer to glutamate</h3>
-    <div class="route"><span class="node">amino acid</span><span class="arr">+</span><span class="node">2-oxoglutarate</span><span class="arr">→</span><span class="node n">aminotransferase</span><span class="arr">→</span><span class="node">glutamate</span></div>
-    <p class="muted">Many aminotransferases also <i>build</i> amino acids, so most fall in "shared".</p>
+  <p style="margin-top:6px">Only the <b>breakdown-only</b> steps (orange border) count. Shared steps are shown greyed out as context, because every strain needs them to build amino acids, so they say nothing about utilization.</p>
+  <div class="legend" style="font-size:13px;color:var(--ink);margin-top:10px">
+    <span><span class="sw" style="background:var(--ok)"></span><b>complete</b>: all breakdown-only steps found</span>
+    <span><span class="sw" style="background:var(--warn)"></span><b>partial</b>: some found (k of n)</span>
+    <span><span class="sw" style="background:var(--line)"></span><b>absent</b>: none found</span>
+    <span><span class="sw" style="background:repeating-linear-gradient(45deg,var(--line) 0 3px,transparent 3px 6px);border:1px solid var(--line)"></span><b>can't be judged</b>: the pathway has only shared steps</span>
   </div>
-</div>
-<div class="panel" style="margin-top:12px">
-  <h3>Each strain × amino acid gets one call</h3>
-  <div class="legend" style="font-size:13px;color:var(--ink)">
-    <span><span class="sw" style="background:var(--ok)"></span><b>dedicated</b>: has a breakdown-only enzyme (e.g. glutamate dehydrogenase, arginase)</span>
-    <span><span class="sw" style="background:var(--warn)"></span><b>shared only</b>: only enzymes also used to build amino acids (e.g. ilvE)</span>
-    <span><span class="sw" style="background:var(--line)"></span><b>none found</b></span>
-  </div>
-  <p class="muted" style="margin-top:8px">Enzymes come from a catalogue you approve (KEGG IDs, checked against KEGG). Genes are matched by enzyme ID, never by gene name.</p>
+  <p class="muted" style="margin-top:8px">Pathways and steps come from a catalogue you approve (KEGG IDs, checked against KEGG). Genes are matched by enzyme ID, never by gene name. Broad and D-amino-acid enzymes go in their own column.</p>
 </div>
 
-<h2>What the MED4 pilot showed</h2>
-<div class="cols2">
-  <div class="panel"><div class="big">11 / 20</div><p>amino acids with an N-releasing enzyme in MED4: Arg, Asn, Asp, Gln, Gly, His, Ile, Leu, Ser, Thr, Val.</p>
-  <p class="muted" style="margin-top:6px">Most hits are enzymes also used in biosynthesis (ilvE, hisC, ilvA).</p></div>
-  <div class="panel"><div class="big">0</div><p>MED4 genes found for classic breakdown-only enzymes: glutamate, alanine and proline dehydrogenase, glutaminase, arginase, the hut enzymes.</p>
-  <p class="muted" style="margin-top:6px">Gene names sometimes disagree with the enzyme ID, hence matching by ID.</p></div>
+<h2>What the MED4 pilot showed <span class="muted" style="text-transform:none;letter-spacing:0;font-size:13px">(draft catalogue)</span></h2>
+<div class="checks">
+  <div class="ck pos"><h3>Asparagine: complete</h3><p>Asparaginase (PMM0821, ansA) frees NH₄⁺. One breakdown-only step, found.</p></div>
+  <div class="ck find"><h3>Lysine: partial</h3><p>Lysine decarboxylase (PMM1084, cadA) found; later steps not found.</p></div>
+  <div class="ck neg"><h3>Arginine, histidine: none</h3><p>No arginase, no arginine deiminase, no hut enzymes. Arginine's agmatine route has only shared steps, so it can't be judged.</p></div>
 </div>
+<p class="muted" style="margin-top:8px">Other MED4 hits are shared biosynthesis enzymes (ilvE, hisC, ilvA, glycine cleavage), which are not counted. One threonine hit (PMM1468) is flagged: its product is a biotin enzyme. Full pilot figure: spike/reports/med4_pilot_summary.html.</p>
 
 <h2>How it runs</h2>
 <div class="flow">
@@ -152,14 +148,13 @@
     </ul></div>
   <div class="ck neg"><h3>Must come out empty</h3>
     <ul>
-      <li>A strain with only "shared" enzymes is never called "dedicated"</li>
-      <li>One breakdown-only enzyme, named in advance as expected absent in all 45 strains</li>
+      <li>One enzyme absent from cyanobacteria in general, named in advance. A hit is inspected as a possible annotation error.</li>
     </ul></div>
   <div class="ck find"><h3>Findings, not failures</h3>
     <ul>
       <li>All strains look the same</li>
-      <li>Only "shared" enzymes in <i>Prochlorococcus</i></li>
-      <li>Most amino acids: none found</li>
+      <li>Most amino acids: no utilization pathway</li>
+      <li>Complete pathways only in some strains (e.g. larger low-light genomes)</li>
     </ul></div>
 </div>
 
@@ -167,24 +162,24 @@
 <div class="panel">
   <div class="schem" id="schem"></div>
   <div class="legend">
-    <span><span class="sw" style="background:var(--ok)"></span>dedicated</span>
-    <span><span class="sw" style="background:var(--warn)"></span>shared only</span>
-    <span><span class="sw" style="background:var(--line)"></span>none found</span>
+    <span><span class="sw" style="background:var(--ok)"></span>complete</span>
+    <span><span class="sw" style="background:var(--warn)"></span>partial</span>
+    <span><span class="sw" style="background:var(--line)"></span>absent / can't be judged</span>
     <span>· rows = strains by clade, then <i>Synechococcus</i>; clicking a cell shows the locus tags</span>
   </div>
 </div>
 
 <h2>Caveats that travel with every result</h2>
 <div class="panel cav"><ul>
-  <li><b>Enzyme ≠ using outside amino acids.</b> These enzymes also act on amino acids made inside the cell. With uptake set aside, we cannot say a strain uses <i>external</i> amino acids as an N source.</li>
+  <li><b>Pathway ≠ using outside amino acids.</b> These enzymes also act on amino acids made inside the cell. With uptake set aside, we cannot say a strain uses <i>external</i> amino acids as an N source.</li>
   <li><b>Annotation ≠ function.</b> An enzyme-family match does not prove activity or substrate.</li>
-  <li><b>"None found" may mean "not sequenced".</b> NCBI assembly status is used to flag incomplete genomes.</li>
-  <li><b>No heterotroph check.</b> "No breakdown-only enzyme found" is reported with that limit.</li>
+  <li><b>"Absent" may mean "not sequenced".</b> NCBI assembly status is used to flag incomplete genomes.</li>
+  <li><b>No heterotroph check.</b> "Absent" is reported as "not found with these annotations".</li>
   <li><b>Small clades</b> (HLIII, HLIV, LLIII) cannot stand for their clade.</li>
   <li><b>Early look:</b> MED4 results were seen before the rules were locked. This is recorded in the plan notebook.</li>
 </ul></div>
 
-<footer>Source: proposal.md (v2) and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Pilot numbers from spike/data/med4_aa_summary.csv.</footer>
+<footer>Source: proposal.md (v4) and proposal_notebook.md in analyses/2026-11-04-aa_utilization_genomics. Pilot numbers from spike/data/med4_aa_summary.csv.</footer>
 </main>
 <script>
   // Layout sketch only: grey placeholder cells, no data.

@@ -47,3 +47,9 @@ Full manifest and tables in `spike/spike_summary.md`; data in `spike/data/`. Key
 
 - Claude recommended a reviewed "candidate transporter family" line (example: gltS PMM0628 is family-only in TCDB 2.A.27; urtA–E in HAAT 3.A.1.4 but with direct urea systems → excluded). The line would add 1 gene in MED4.
 - **Researcher decision: leave transporters aside.** The analysis is now N-release capacity only; transporters are deferred. proposal.md rewritten (v2). The urea-transporter positive control and all transporter evidence lines are removed. A new up-front limit: enzyme presence ≠ use of *external* amino acids as an N source.
+
+## Design-review round 3 (2026-11-04)
+
+- **Researcher: "only enzymes also used to build amino acids is not relevant" → focus on utilization pathways.** v4: whole breakdown pathways per amino acid, scored only on dedicated (breakdown-only) steps; shared steps shown as context, never counted; all-shared pathways = "can't be judged from the genome". The v3 dedicated / shared-only / none-found call is dropped.
+- Worked MED4 examples shown to the researcher (draft catalogue): Asn complete (asparaginase PMM0821 ansA); Lys partial (cadA PMM1084); Arg no pathway (urease now shared; agmatine route all-shared); His absent (no hut genes); Thr hit PMM1468 flagged KO/product mismatch.
+- The researcher asked for an updated infographic and a MED4 pilot summary figure (`spike/figures/`, throwaway).
