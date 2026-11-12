@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><path d="M858.0,56 L858.0,34 L306.0,34 L306.0,54" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<rect x="410" y="22" width="336" height="22" fill="#ffffff"/>
+<text x="582.0" y="38" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">corrections loop back: iterate, redo, reopen; all recorded</text>
+<polygon points="218,58 390,58 402,76.0 390,94 218,94 218,76.0" fill="#0b0b0b"/>
+<text x="308.0" y="82" font-size="16" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">Plan</text>
+<text x="306.0" y="114" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">question, KG entries,</text>
+<text x="306.0" y="130" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">framing</text>
+<polygon points="402,58 574,58 586,76.0 574,94 402,94 414,76.0" fill="#0b0b0b"/>
+<text x="492.0" y="82" font-size="16" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">Execute</text>
+<text x="490.0" y="114" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">do, show, explore</text>
+<text x="490.0" y="130" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">(kg-coder)</text>
+<polygon points="586,58 758,58 770,76.0 758,94 586,94 598,76.0" fill="#0b0b0b"/>
+<text x="676.0" y="82" font-size="16" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">Review</text>
+<text x="674.0" y="114" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">critic, before the</text>
+<text x="674.0" y="130" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">researcher sees results</text>
+<polygon points="770,58 942,58 954,76.0 942,94 770,94 782,76.0" fill="#0b0b0b"/>
+<text x="860.0" y="82" font-size="16" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">Decide &amp; record</text>
+<text x="858.0" y="114" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">researcher approves;</text>
+<text x="858.0" y="130" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">commit</text>
+<text x="12" y="82" font-size="16" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Concept</text>
+<text x="12" y="101" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">(numbered as in Fig. 1)</text>
+<rect x="12" y="146" width="200" height="70" rx="6" fill="#e5effa" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="181.0" r="10.5" fill="#2a78d6" stroke="#fff" stroke-width="1.5"/>
+<text x="30" y="185.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">1</text>
+<text x="48" y="176.5" font-size="15" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">KG is the only</text>
+<text x="48" y="195.5" font-size="15" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">data source</text>
+<rect x="218" y="146" width="176" height="70" rx="6" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.2"/>
+<text x="227" y="169.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">KG entries enumerated</text>
+<text x="227" y="186.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">from the KG, not</text>
+<text x="227" y="203.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">memory</text>
+<rect x="402" y="146" width="176" height="70" rx="6" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.2"/>
+<text x="411" y="177.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">every number comes</text>
+<text x="411" y="194.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">from a KG query</text>
+<rect x="586" y="146" width="176" height="70" rx="6" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.2"/>
+<text x="595" y="177.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">critic spot-checks</text>
+<text x="595" y="194.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">claims in the KG</text>
+<rect x="770" y="146" width="176" height="70" rx="6" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.2"/>
+<text x="779" y="169.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">findings tagged [KG],</text>
+<text x="779" y="186.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">[interpretation] or</text>
+<text x="779" y="203.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">[gap]</text>
+<rect x="12" y="222" width="200" height="70" rx="6" fill="#fdede7" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="257.0" r="10.5" fill="#eb6834" stroke="#fff" stroke-width="1.5"/>
+<text x="30" y="261.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">2</text>
+<text x="48" y="252.5" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="start">Pre-registered</text>
+<text x="48" y="271.5" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="start">framing</text>
+<rect x="218" y="222" width="176" height="70" rx="6" fill="#fef6f3" stroke="#eb6834" stroke-width="1.2"/>
+<text x="227" y="245.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">test, validation set</text>
+<text x="227" y="262.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">and expected-negative</text>
+<text x="227" y="279.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">fixed before data</text>
+<rect x="402" y="222" width="176" height="70" rx="6" fill="#fef6f3" stroke="#eb6834" stroke-width="1.2"/>
+<text x="411" y="253.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">method built to the</text>
+<text x="411" y="270.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">locked approach</text>
+<rect x="586" y="222" width="176" height="70" rx="6" fill="#fef6f3" stroke="#eb6834" stroke-width="1.2"/>
+<text x="595" y="245.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">results judged against</text>
+<text x="595" y="262.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">validation set and</text>
+<text x="595" y="279.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">expected-negative</text>
+<rect x="770" y="222" width="176" height="70" rx="6" fill="#fef6f3" stroke="#eb6834" stroke-width="1.2"/>
+<text x="779" y="253.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">plan changes only by a</text>
+<text x="779" y="270.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">recorded reopen</text>
+<rect x="12" y="298" width="200" height="70" rx="6" fill="#e2efea" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="333.0" r="10.5" fill="#0d7a53" stroke="#fff" stroke-width="1.5"/>
+<text x="30" y="337.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">3</text>
+<text x="48" y="328.5" font-size="15" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="start">Doing split from</text>
+<text x="48" y="347.5" font-size="15" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="start">judging</text>
+<rect x="218" y="298" width="176" height="70" rx="6" fill="#ffffff" stroke="#c9c8c2" stroke-width="1" stroke-dasharray="3,3"/>
+<rect x="402" y="298" width="176" height="70" rx="6" fill="#f0f7f5" stroke="#0d7a53" stroke-width="1.2"/>
+<text x="411" y="321.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">kg-coder returns</text>
+<text x="411" y="338.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">artifacts, not</text>
+<text x="411" y="355.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">conclusions</text>
+<rect x="586" y="298" width="176" height="70" rx="6" fill="#f0f7f5" stroke="#0d7a53" stroke-width="1.2"/>
+<text x="595" y="329.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">judge reads the real</text>
+<text x="595" y="346.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">files, not summaries</text>
+<rect x="770" y="298" width="176" height="70" rx="6" fill="#f0f7f5" stroke="#0d7a53" stroke-width="1.2"/>
+<text x="779" y="329.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">only the main thread</text>
+<text x="779" y="346.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">writes the notebook</text>
+<rect x="12" y="374" width="200" height="70" rx="6" fill="#eceafa" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="409.0" r="10.5" fill="#6250d6" stroke="#fff" stroke-width="1.5"/>
+<text x="30" y="413.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">4</text>
+<text x="48" y="404.5" font-size="15" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="start">Fresh-context</text>
+<text x="48" y="423.5" font-size="15" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="start">critic</text>
+<rect x="218" y="374" width="176" height="70" rx="6" fill="#f6f4fd" stroke="#6250d6" stroke-width="1.2"/>
+<text x="227" y="397.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">critic on the</text>
+<text x="227" y="414.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">proposal; delta pass</text>
+<text x="227" y="431.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">after each change</text>
+<rect x="402" y="374" width="176" height="70" rx="6" fill="#ffffff" stroke="#c9c8c2" stroke-width="1" stroke-dasharray="3,3"/>
+<rect x="586" y="374" width="176" height="70" rx="6" fill="#f6f4fd" stroke="#6250d6" stroke-width="1.2"/>
+<text x="595" y="397.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">cold reader per</text>
+<text x="595" y="414.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">milestone; Blockers</text>
+<text x="595" y="431.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">resolved first</text>
+<rect x="770" y="374" width="176" height="70" rx="6" fill="#f6f4fd" stroke="#6250d6" stroke-width="1.2"/>
+<text x="779" y="397.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">claims added after</text>
+<text x="779" y="414.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">review get a delta</text>
+<text x="779" y="431.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">pass</text>
+<rect x="12" y="450" width="200" height="70" rx="6" fill="#e2e2e2" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="485.0" r="10.5" fill="#0b0b0b" stroke="#fff" stroke-width="1.5"/>
+<text x="30" y="489.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">5</text>
+<text x="48" y="480.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Describe before</text>
+<text x="48" y="499.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">interpreting</text>
+<rect x="218" y="450" width="176" height="70" rx="6" fill="#ffffff" stroke="#c9c8c2" stroke-width="1" stroke-dasharray="3,3"/>
+<rect x="402" y="450" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="411" y="481.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">numbers and direction</text>
+<text x="411" y="498.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">first</text>
+<rect x="586" y="450" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="595" y="481.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">“all”, “every” checked</text>
+<text x="595" y="498.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">against the data file</text>
+<rect x="770" y="450" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="779" y="473.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">tables, not prose;</text>
+<text x="779" y="490.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">strong words only at</text>
+<text x="779" y="507.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">evaluation</text>
+<rect x="12" y="526" width="200" height="70" rx="6" fill="#e2e2e2" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="561.0" r="10.5" fill="#0b0b0b" stroke="#fff" stroke-width="1.5"/>
+<text x="30" y="565.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">6</text>
+<text x="48" y="556.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Scripts + full</text>
+<text x="48" y="575.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">history</text>
+<rect x="218" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="227" y="557.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">each design-review</text>
+<text x="227" y="574.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">round committed</text>
+<rect x="402" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="411" y="557.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">all computation in</text>
+<text x="411" y="574.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">scripts, not chat</text>
+<rect x="586" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="595" y="557.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">critic findings and</text>
+<text x="595" y="574.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">dispositions saved</text>
+<rect x="770" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="779" y="549.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">every iteration</text>
+<text x="779" y="566.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">committed, never</text>
+<text x="779" y="583.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">amended</text>
+<rect x="12" y="608" width="200" height="70" rx="6" fill="#ffffff" stroke="#eb6834" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="26" y="638" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="start">Researcher</text>
+<text x="26" y="657" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="start">in control</text>
+<rect x="218" y="608" width="176" height="70" rx="6" fill="#ffffff" stroke="#eb6834" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="227" y="639.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">design review: shapes</text>
+<text x="227" y="656.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">the plan</text>
+<rect x="402" y="608" width="176" height="70" rx="6" fill="#ffffff" stroke="#eb6834" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="411" y="639.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">co-define: scope</text>
+<text x="411" y="656.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">agreed before work</text>
+<rect x="586" y="608" width="176" height="70" rx="6" fill="#ffffff" stroke="#eb6834" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="595" y="639.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">sees work only after</text>
+<text x="595" y="656.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">the critic</text>
+<rect x="770" y="608" width="176" height="70" rx="6" fill="#ffffff" stroke="#eb6834" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="779" y="639.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">explicit approval</text>
+<text x="779" y="656.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">closes each step</text></svg>

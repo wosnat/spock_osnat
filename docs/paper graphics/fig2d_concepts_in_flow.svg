@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="548" viewBox="0 0 960 548" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><path d="M12,34 L12,26 L488,26 L488,34" fill="none" stroke="#52514e" stroke-width="1.5"/>
+<rect x="220.0" y="16" width="60" height="20" fill="#ffffff"/>
+<text x="250.0" y="31" font-size="15" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="middle">PLAN</text>
+<path d="M532,34 L532,26 L932,26 L932,34" fill="none" stroke="#52514e" stroke-width="1.5"/>
+<rect x="702.0" y="16" width="60" height="20" fill="#ffffff"/>
+<text x="732.0" y="31" font-size="15" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="middle">RUN</text>
+<rect x="12" y="46" width="128" height="382" rx="8" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="22" y="68" font-size="13" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="start">SCOPE</text>
+<text x="22" y="96" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Grounded</text>
+<text x="22" y="120" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">from the KG,</text>
+<text x="22" y="138" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">not memory</text>
+<line x1="22" y1="152" x2="130" y2="152" stroke="#9fc2ed" stroke-width="1"/>
+<text x="22" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="32" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">experiments and</text>
+<text x="32" y="188" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">publications</text>
+<text x="32" y="204" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">listed by query</text>
+<text x="22" y="226" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="32" y="226" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">genes resolved</text>
+<text x="32" y="242" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">to locus tags</text>
+<text x="22" y="264" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="32" y="264" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">KG gaps</text>
+<text x="32" y="280" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">flagged, not</text>
+<text x="32" y="296" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">filled</text>
+<rect x="154" y="46" width="196" height="382" rx="8" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="164" y="68" font-size="13" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="start">FRAMING</text>
+<text x="164" y="96" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Pre-registered</text>
+<text x="164" y="120" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">hit and miss set in</text>
+<text x="164" y="138" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">advance</text>
+<line x1="164" y1="152" x2="340" y2="152" stroke="#9fc2ed" stroke-width="1"/>
+<text x="164" y="172" font-size="13" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Hypothesis</text>
+<text x="164" y="188" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">stated in prose</text>
+<text x="164" y="210" font-size="13" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Statistics plan</text>
+<text x="164" y="226" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">the test and thresholds, or</text>
+<text x="164" y="242" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">a reasoned “none”</text>
+<text x="164" y="264" font-size="13" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Validation set</text>
+<text x="164" y="280" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">named genes and the</text>
+<text x="164" y="296" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">behavior expected if it</text>
+<text x="164" y="312" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">works</text>
+<text x="164" y="334" font-size="13" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Expected-negative</text>
+<text x="164" y="350" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">a class that must not score</text>
+<text x="164" y="372" font-size="13" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Design comparability</text>
+<text x="164" y="388" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">what each arm is compared</text>
+<text x="164" y="404" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">against</text>
+<rect x="364" y="46" width="124" height="382" rx="8" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="374" y="68" font-size="13" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="start">REVIEW</text>
+<text x="374" y="96" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Fresh eyes</text>
+<text x="374" y="120" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">critic, then</text>
+<text x="374" y="138" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">researcher</text>
+<line x1="374" y1="152" x2="478" y2="152" stroke="#9fc2ed" stroke-width="1"/>
+<text x="374" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="384" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">critic reads</text>
+<text x="384" y="188" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">the plan cold</text>
+<text x="374" y="210" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="384" y="210" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">researcher's</text>
+<text x="384" y="226" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">design review</text>
+<text x="374" y="248" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="384" y="248" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">delta pass</text>
+<text x="384" y="264" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">after each</text>
+<text x="384" y="280" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">change</text>
+<rect x="532" y="46" width="124" height="382" rx="8" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="542" y="68" font-size="13" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="start">METHODS</text>
+<text x="542" y="96" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Tested first</text>
+<text x="542" y="120" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">on toy data</text>
+<line x1="542" y1="152" x2="646" y2="152" stroke="#9fc2ed" stroke-width="1"/>
+<text x="542" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="552" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">hand-computed</text>
+<text x="552" y="188" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">toy cases</text>
+<text x="542" y="210" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="552" y="210" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">pilot against</text>
+<text x="552" y="226" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">an independent</text>
+<text x="552" y="242" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">key</text>
+<text x="542" y="264" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="552" y="264" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">a random</text>
+<text x="552" y="280" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">sample of</text>
+<text x="552" y="296" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">every bin</text>
+<text x="552" y="312" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">checked</text>
+<rect x="670" y="46" width="124" height="382" rx="8" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="680" y="68" font-size="13" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="start">ANALYSIS</text>
+<text x="680" y="96" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Checked</text>
+<text x="680" y="120" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">a cold critic</text>
+<text x="680" y="138" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">re-counts</text>
+<line x1="680" y1="152" x2="784" y2="152" stroke="#9fc2ed" stroke-width="1"/>
+<text x="680" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="690" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">every number</text>
+<text x="690" y="188" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">re-checked</text>
+<text x="690" y="204" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">against the</text>
+<text x="690" y="220" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">data files</text>
+<text x="680" y="242" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="690" y="242" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">“all” and</text>
+<text x="690" y="258" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">“every”</text>
+<text x="690" y="274" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">verified, not</text>
+<text x="690" y="290" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">glanced</text>
+<text x="680" y="312" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="690" y="312" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">coder reports</text>
+<text x="690" y="328" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">facts; the</text>
+<text x="690" y="344" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">main thread</text>
+<text x="690" y="360" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">judges</text>
+<rect x="808" y="46" width="124" height="382" rx="8" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.6"/>
+<text x="818" y="68" font-size="13" font-weight="bold" font-style="normal" fill="#52514e" text-anchor="start">EVALUATION</text>
+<text x="818" y="96" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Claims last</text>
+<text x="818" y="120" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">interpret only</text>
+<text x="818" y="138" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">now</text>
+<line x1="818" y1="152" x2="922" y2="152" stroke="#9fc2ed" stroke-width="1"/>
+<text x="818" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="828" y="172" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">judged by the</text>
+<text x="828" y="188" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">pre-set hit</text>
+<text x="828" y="204" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">and miss</text>
+<text x="818" y="226" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="828" y="226" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">a negative</text>
+<text x="828" y="242" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">result</text>
+<text x="828" y="258" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">reported with</text>
+<text x="828" y="274" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">its limits,</text>
+<text x="828" y="290" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">not dropped</text>
+<text x="818" y="312" font-size="13" font-weight="normal" font-style="normal" fill="#2a78d6" text-anchor="start">•</text>
+<text x="828" y="312" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">strong words</text>
+<text x="828" y="328" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">allowed only</text>
+<text x="828" y="344" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">here</text>
+<path d="M141,108 L153,108" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<path d="M351,108 L363,108" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<path d="M489,108 L531,108" fill="none" stroke="#0b0b0b" stroke-width="2.4" marker-end="url(#m0b0b0b)"/>
+<path d="M657,108 L669,108" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<path d="M795,108 L807,108" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="498" y="56" width="24" height="362" rx="12" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="515" y="237.0" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle" transform="rotate(-90 515 237.0)">PROPOSAL LOCKED</text>
+<rect x="12" y="446" width="920" height="28" rx="14" fill="#eb6834" stroke="none" stroke-width="1.5"/>
+<text x="472.0" y="465" font-size="14" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">Researcher agrees each step's scope before, and approves it after</text>
+<rect x="12" y="484" width="920" height="28" rx="14" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="472.0" y="503" font-size="14" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">Every step scripted and committed; nothing amended or overwritten</text>
+<text x="472.0" y="534" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">Corrections loop back openly; the locked framing changes only by a recorded reopen.</text></svg>

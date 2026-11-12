@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="646" viewBox="0 0 960 646" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><rect x="6" y="6" width="352" height="634" rx="10" fill="#f5f5f3" stroke="none" stroke-width="1.5"/>
+<rect x="368" y="6" width="586" height="634" rx="10" fill="#f5f5f3" stroke="none" stroke-width="1.5"/>
+<text x="22" y="38" font-size="20" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">PLAN</text>
+<text x="86" y="38" font-size="15" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">→ proposal.md</text>
+<text x="384" y="38" font-size="20" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">RUN</text>
+<text x="436" y="38" font-size="15" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">three milestones</text>
+<rect x="20" y="56" width="324" height="42" rx="8" fill="#ffffff" stroke="#c9c8c2" stroke-width="1.5"/>
+<circle cx="40" cy="77" r="11" fill="#0b0b0b"/>
+<text x="40" y="82" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">1</text>
+<text x="58" y="83" font-size="16" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Question, locked</text>
+<rect x="20" y="112" width="324" height="42" rx="8" fill="#ffffff" stroke="#c9c8c2" stroke-width="1.5"/>
+<circle cx="40" cy="133" r="11" fill="#0b0b0b"/>
+<text x="40" y="138" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">2</text>
+<text x="58" y="139" font-size="16" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">KG entries, from the KG</text>
+<rect x="20" y="168" width="324" height="188" rx="8" fill="#ffffff" stroke="#c9c8c2" stroke-width="1.5"/>
+<circle cx="40" cy="189" r="11" fill="#0b0b0b"/>
+<text x="40" y="194" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">3</text>
+<text x="58" y="195" font-size="16" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Framing, enumerated</text>
+<text x="58" y="222" font-size="15" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">• Hypothesis</text>
+<text x="58" y="244" font-size="15" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">• Approach</text>
+<text x="58" y="266" font-size="15" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">• Statistics plan</text>
+<text x="58" y="288" font-size="15" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">• Validation set (named genes)</text>
+<text x="58" y="310" font-size="15" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">• Falsifiability + expected-negative</text>
+<text x="58" y="332" font-size="15" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">• Design comparability</text>
+<path d="M182,99 L182,111" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M182,155 L182,167" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M182,357 L182,369" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<rect x="20" y="370" width="324" height="172" rx="8" fill="#ffffff" stroke="#c9c8c2" stroke-width="1.5"/>
+<circle cx="40" cy="391" r="11" fill="#0b0b0b"/>
+<text x="40" y="396" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">4</text>
+<text x="58" y="397" font-size="16" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Review before execution</text>
+<rect x="32" y="410" width="146" height="40" rx="6" fill="#f1f1f1" stroke="#52514e" stroke-width="2"/>
+<text x="105" y="435" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">Self-review</text>
+<rect x="186" y="410" width="146" height="40" rx="6" fill="#f2f1fc" stroke="#6250d6" stroke-width="2"/>
+<text x="259" y="435" font-size="15" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="middle">Critic</text>
+<rect x="32" y="470" width="146" height="40" rx="6" fill="#f2f1fc" stroke="#6250d6" stroke-width="2"/>
+<text x="105" y="495" font-size="15" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="middle">Delta critic</text>
+<rect x="186" y="470" width="146" height="40" rx="6" fill="#fdf3ef" stroke="#eb6834" stroke-width="2"/>
+<text x="259" y="495" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="middle">Design review</text>
+<path d="M179,430 L185,430" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M259,451 L259,469" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M185,490 L179,490" fill="none" stroke="#eb6834" stroke-width="1.8" marker-end="url(#meb6834)"/>
+<path d="M105,511 L105,528 L259,528 L259,512" fill="none" stroke="#6250d6" stroke-width="1.8" marker-end="url(#m6250d6)"/>
+<text x="182" y="524" font-size="13" font-weight="normal" font-style="normal" fill="#6250d6" text-anchor="middle">repeat until no change</text>
+<path d="M182,543 L182,557" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<rect x="20" y="558" width="324" height="44" rx="22" fill="#0b0b0b" stroke="#0b0b0b" stroke-width="1.5"/>
+<text x="182" y="586" font-size="15" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">proposal locked (approval commit)</text>
+<path d="M345,580 L362,580 L362,112 L382,112" fill="none" stroke="#0b0b0b" stroke-width="2" marker-end="url(#m0b0b0b)"/>
+<rect x="384" y="56" width="172" height="138" rx="8" fill="#ffffff" stroke="#0b0b0b" stroke-width="2"/>
+<text x="396" y="80" font-size="17" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">methods</text>
+<text x="396" y="102.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">build the method;</text>
+<text x="396" y="119.92" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">toy-tested</text>
+<text x="396" y="139.84" font-size="13" font-weight="normal" font-style="normal" fill="#6250d6" text-anchor="start">critic if it emits data</text>
+<rect x="396" y="176" width="9" height="9" rx="2" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="410" y="185" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">approval commit</text>
+<path d="M557,116 L572,116" fill="none" stroke="#0b0b0b" stroke-width="2" marker-end="url(#m0b0b0b)"/>
+<rect x="574" y="56" width="172" height="138" rx="8" fill="#ffffff" stroke="#0b0b0b" stroke-width="2"/>
+<text x="586" y="80" font-size="17" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">analysis</text>
+<text x="586" y="102.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">run it: scores,</text>
+<text x="586" y="119.92" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">figures</text>
+<text x="586" y="139.84" font-size="13" font-weight="normal" font-style="normal" fill="#6250d6" text-anchor="start">critic: data +</text>
+<text x="586" y="156.48000000000002" font-size="13" font-weight="normal" font-style="normal" fill="#6250d6" text-anchor="start">interpretation</text>
+<rect x="586" y="176" width="9" height="9" rx="2" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="600" y="185" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">approval commit</text>
+<path d="M747,116 L762,116" fill="none" stroke="#0b0b0b" stroke-width="2" marker-end="url(#m0b0b0b)"/>
+<rect x="764" y="56" width="172" height="138" rx="8" fill="#ffffff" stroke="#0b0b0b" stroke-width="2"/>
+<text x="776" y="80" font-size="17" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">evaluation</text>
+<text x="776" y="102.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">assess vs. framing;</text>
+<text x="776" y="119.92" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">write paper</text>
+<text x="776" y="139.84" font-size="13" font-weight="normal" font-style="normal" fill="#6250d6" text-anchor="start">critic: interpretation</text>
+<rect x="776" y="176" width="9" height="9" rx="2" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="790" y="185" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">approval commit</text>
+<path d="M470,195 L470,200 L850,200 L850,195 M660,200 L660,204" fill="none" stroke="#52514e" stroke-width="1.5"/>
+<rect x="384" y="204" width="552" height="300" rx="8" fill="#ffffff" stroke="#c9c8c2" stroke-width="1.5"/>
+<text x="398" y="230" font-size="16" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Inside every milestone</text>
+<text x="441" y="270" font-size="13" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="middle">researcher</text>
+<text x="877" y="270" font-size="13" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="middle">researcher</text>
+<path d="M501,274 L501,266 L817,266 L817,274" fill="none" stroke="#1baf7a" stroke-width="1.5"/>
+<text x="659" y="259" font-size="13" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="middle">delegated: artifacts, not conclusions</text>
+<rect x="392" y="280" width="98" height="100" rx="8" fill="#fdf0eb" stroke="#eb6834" stroke-width="2"/>
+<text x="441" y="303" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="middle">co-define</text>
+<text x="441" y="324" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">researcher</text>
+<text x="441" y="340" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">agrees the</text>
+<text x="441" y="356" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">scope</text>
+<path d="M491,330 L500,330" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="501" y="280" width="98" height="100" rx="8" fill="#e8f7f2" stroke="#1baf7a" stroke-width="2"/>
+<text x="550" y="303" font-size="15" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="middle">do</text>
+<text x="550" y="324" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">kg-coder runs</text>
+<text x="550" y="340" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">it</text>
+<path d="M600,330 L609,330" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="610" y="280" width="98" height="100" rx="8" fill="#e8f7f2" stroke="#1baf7a" stroke-width="2"/>
+<text x="659" y="303" font-size="15" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="middle">show</text>
+<text x="659" y="324" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">tables,</text>
+<text x="659" y="340" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">figures,</text>
+<text x="659" y="356" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">reports</text>
+<path d="M709,330 L718,330" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="719" y="280" width="98" height="100" rx="8" fill="#e8f7f2" stroke="#1baf7a" stroke-width="2"/>
+<text x="768" y="303" font-size="15" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="middle">explore</text>
+<text x="768" y="324" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">follow the</text>
+<text x="768" y="340" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">results</text>
+<path d="M818,330 L827,330" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="828" y="280" width="98" height="100" rx="8" fill="#fdf0eb" stroke="#eb6834" stroke-width="2"/>
+<text x="877" y="303" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="middle">decide</text>
+<text x="877" y="324" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">researcher</text>
+<text x="877" y="340" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">approves</text>
+<path d="M768,381 C739,430 579,430 550,381" fill="none" stroke="#0d7a53" stroke-width="1.8" marker-end="url(#m0d7a53)"/>
+<text x="659" y="452" font-size="13" font-weight="normal" font-style="normal" fill="#0d7a53" text-anchor="middle">iterate; every round committed</text>
+<rect x="804" y="400" width="132" height="52" rx="6" fill="#f2f1fc" stroke="#6250d6" stroke-width="2"/>
+<path d="M877,400 L877,382" fill="none" stroke="#6250d6" stroke-width="2" marker-end="url(#m6250d6)"/>
+<text x="870" y="422" font-size="13" font-weight="normal" font-style="normal" fill="#6250d6" text-anchor="middle">critic before</text>
+<text x="870" y="439" font-size="13" font-weight="normal" font-style="normal" fill="#6250d6" text-anchor="middle">results are shown</text>
+<text x="398" y="490" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="start">Exploration may exceed the plan; findings still pass the decide gate.</text>
+<rect x="384" y="518" width="552" height="70" rx="8" fill="#ffffff" stroke="#eb6834" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="398" y="543" font-size="15" font-weight="bold" font-style="normal" fill="#eb6834" text-anchor="start">Reopen:</text>
+<text x="462" y="543.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">data that contradicts the locked proposal reopens it; the</text>
+<text x="462" y="560.92" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">original, the reveal and the revision are all recorded.</text>
+<rect x="384" y="606" width="14" height="14" rx="3" fill="#eb6834" stroke="none" stroke-width="1.5"/>
+<text x="404" y="618" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">researcher gate</text>
+<rect x="536.0" y="606" width="14" height="14" rx="3" fill="#1baf7a" stroke="none" stroke-width="1.5"/>
+<text x="556.0" y="618" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">kg-coder</text>
+<rect x="637.6" y="606" width="14" height="14" rx="3" fill="#6250d6" stroke="none" stroke-width="1.5"/>
+<text x="657.6" y="618" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">critic (fresh context)</text>
+<rect x="840.0" y="606" width="14" height="14" rx="3" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="860.0" y="618" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">commit</text></svg>
