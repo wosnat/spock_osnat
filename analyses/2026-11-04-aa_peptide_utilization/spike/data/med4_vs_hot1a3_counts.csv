@@ -1,0 +1,26 @@
+role,aa_class,MED4,HOT1A3,MED4_excl_weak,HOT1A3_excl_weak
+uptake,acidic,1,10,1,9
+uptake,amides (Asn/Gln),1,9,0,7
+uptake,aromatic,0,12,0,10
+uptake,basic,0,14,0,9
+uptake,broad/unknown,0,2,0,2
+uptake,hydrophobic/branched-chain,5,11,5,11
+uptake,peptides,13,31,9,19
+uptake,polar/neutral,0,15,0,12
+uptake,small (Gly/Ala/Ser),1,17,0,13
+uptake,sulfur,5,29,0,5
+peptidase,peptides,67,165,61,138
+N-entry enzyme,acidic,3,13,3,13
+N-entry enzyme,amides (Asn/Gln),4,12,4,12
+N-entry enzyme,aromatic,3,10,3,10
+N-entry enzyme,basic,3,7,3,7
+N-entry enzyme,broad/unknown,18,19,18,19
+N-entry enzyme,hydrophobic/branched-chain,1,3,1,3
+N-entry enzyme,polar/neutral,5,7,5,7
+N-entry enzyme,small (Gly/Ala/Ser),7,15,7,15
+N-entry enzyme,sulfur,6,5,6,5
+N-assimilation core,acidic,1,4,1,4
+N-assimilation core,amides (Asn/Gln),1,2,1,2
+N-assimilation core,broad/unknown,8,4,8,4
+regulation-if-found,hydrophobic/branched-chain,0,1,0,1
+regulation-if-found,not applicable,3,9,3,9

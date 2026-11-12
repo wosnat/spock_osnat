@@ -1,0 +1,89 @@
+role,subrole,MED4,HOT1A3,present_in
+uptake,ABC transporter (component unclear),5,2,both
+uptake,ABC transporter ATPase,5,7,both
+uptake,ABC transporter SBP,2,11,both
+uptake,ABC transporter permease,4,7,both
+uptake,protein translocation (by product keyword),2,6,both
+uptake,secondary transporter,3,31,both
+uptake,transporter (type unclear),5,23,both
+peptidase,cysteine endopeptidase,0,3,HOT1A3 only
+peptidase,dipeptidyl/tripeptidyl-peptidase,0,4,HOT1A3 only
+peptidase,omega peptidase,0,6,HOT1A3 only
+peptidase,peptidyl-dipeptidase,0,2,HOT1A3 only
+peptidase,threonine endopeptidase,0,2,HOT1A3 only
+peptidase,GO-only peptidase call (check),4,19,both
+peptidase,aminopeptidase,6,11,both
+peptidase,aspartic endopeptidase,1,6,both
+peptidase,dipeptidase,2,6,both
+peptidase,housekeeping protease (by product keyword),27,29,both
+peptidase,metallocarboxypeptidase,3,4,both
+peptidase,metalloendopeptidase,7,17,both
+peptidase,peptidase (EC sub-subclass not stated),21,48,both
+peptidase,serine carboxypeptidase,6,8,both
+peptidase,serine endopeptidase,19,22,both
+N-entry enzyme,catalogue step: 1-pyrroline-5-carboxylate dehydrogenase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: L-serine ammonia-lyase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: agmatine deiminase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: alanine dehydrogenase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: arginine N-succinyltransferase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: glutamate decarboxylase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: glutamate dehydrogenase,0,3,HOT1A3 only
+N-entry enzyme,catalogue step: glutaminase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: histidine ammonia-lyase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: kynureninase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: leucine dehydrogenase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: phenylalanine 4-hydroxylase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: proline dehydrogenase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: succinylarginine dihydrolase,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: threonine 3-dehydrogenase,0,1,HOT1A3 only
+N-entry enzyme,"catalogue step: tryptophan 2,3-dioxygenase / indoleamine 2,3-dioxygenase",0,1,HOT1A3 only
+N-entry enzyme,catalogue step: tryptophan transamination,0,1,HOT1A3 only
+N-entry enzyme,catalogue step: cystathionine gamma-lyase,2,0,MED4 only
+N-entry enzyme,catalogue step: cystathionine gamma-lyase (cysteine desulfhydrase activity),2,0,MED4 only
+N-entry enzyme,catalogue step: glycine oxidase,1,0,MED4 only
+N-entry enzyme,catalogue step: lysine decarboxylase,1,0,MED4 only
+N-entry enzyme,AA ammonia-lyase,2,5,both
+N-entry enzyme,amidinohydrolase/ureohydrolase,1,4,both
+N-entry enzyme,amidohydrolase (linear amide),5,18,both
+N-entry enzyme,aminotransferase,17,19,both
+N-entry enzyme,catalogue step: 2-amino-3-ketobutyrate CoA ligase,1,1,both
+N-entry enzyme,catalogue step: L-asparaginase,1,2,both
+N-entry enzyme,catalogue step: S-adenosylmethionine synthetase,1,1,both
+N-entry enzyme,catalogue step: adenosylhomocysteinase,1,1,both
+N-entry enzyme,catalogue step: agmatinase,1,1,both
+N-entry enzyme,catalogue step: alanine transamination,1,3,both
+N-entry enzyme,catalogue step: arginine decarboxylase,1,2,both
+N-entry enzyme,catalogue step: aspartate transamination,1,1,both
+N-entry enzyme,catalogue step: branched-chain amino acid transamination,1,2,both
+N-entry enzyme,catalogue step: cysteine-sulfinate transamination (by aspartate aminotransferase),1,1,both
+N-entry enzyme,catalogue step: glutamate synthase,1,2,both
+N-entry enzyme,catalogue step: glycine cleavage P protein (glycine decarboxylase),1,1,both
+N-entry enzyme,catalogue step: glycine cleavage T protein (aminomethyltransferase),1,1,both
+N-entry enzyme,catalogue step: glycine transamination,1,2,both
+N-entry enzyme,catalogue step: phenylalanine transamination,2,4,both
+N-entry enzyme,catalogue step: serine hydroxymethyltransferase,1,2,both
+N-entry enzyme,catalogue step: serine--pyruvate / serine--glyoxylate transamination,1,2,both
+N-entry enzyme,catalogue step: threonine ammonia-lyase,1,2,both
+N-entry enzyme,catalogue step: tyrosine transamination,2,4,both
+N-entry enzyme,decarboxylase,5,5,both
+N-entry enzyme,glycine cleavage,3,3,both
+N-entry enzyme,oxidoreductase on CH-NH2 (other),6,12,both
+N-assimilation core,GDH,0,3,HOT1A3 only
+N-assimilation core,"GOGAT (NADPH, large)",0,1,HOT1A3 only
+N-assimilation core,"GOGAT (NADPH, small)",0,1,HOT1A3 only
+N-assimilation core,asparagine synthetase,0,2,HOT1A3 only
+N-assimilation core,GOGAT (ferredoxin),1,0,MED4 only
+N-assimilation core,urease,3,0,MED4 only
+N-assimilation core,urease accessory,4,0,MED4 only
+N-assimilation core,GS (glnA),1,2,both
+N-assimilation core,ammonium transporter (amt),1,1,both
+regulation-if-found,Lrp/AsnC,0,4,HOT1A3 only
+regulation-if-found,glnD (PII uridylyltransferase),0,1,HOT1A3 only
+regulation-if-found,ntrB/glnL,0,1,HOT1A3 only
+regulation-if-found,ntrC/glnG,0,1,HOT1A3 only
+regulation-if-found,rpoN (sigma-54),0,1,HOT1A3 only
+regulation-if-found,ntcA (resolve_gene),1,0,MED4 only
+regulation-if-found,pipX (resolve_gene),1,0,MED4 only
+regulation-if-found,PII (glnB),1,1,both
+regulation-if-found,PII (glnK),1,2,both
+regulation-if-found,glnB (resolve_gene),1,1,both
