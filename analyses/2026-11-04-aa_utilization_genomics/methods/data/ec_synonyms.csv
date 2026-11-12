@@ -1,0 +1,790 @@
+unit,dedicated_rule,candidate,source,kept,reason
+ALD,True,NAD+-linked alanine dehydrogenase,EC 1.4.1.1 NAME,True,added
+ALD,True,alpha-alanine dehydrogenase,EC 1.4.1.1 NAME,True,added
+ALD,True,NAD+-dependent alanine dehydrogenase,EC 1.4.1.1 NAME,True,added
+ALD,True,alanine oxidoreductase,EC 1.4.1.1 NAME,True,added
+ALD,True,NADH-dependent alanine dehydrogenase,EC 1.4.1.1 NAME,True,added
+ALD,True,L-alanine:NAD+ oxidoreductase,EC 1.4.1.1 SYSNAME,True,added
+ALD,True,alanine dehydrogenase,EC 1.4.1.1 NAME,False,already a curated keyword
+ALD,True,AlaDH,EC 1.4.1.1 NAME,False,abbreviation
+ALD,True,L-alanine dehydrogenase,EC 1.4.1.1 NAME,False,already a curated keyword
+ALA_AT,False,alanine transaminase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,glutamic-pyruvic transaminase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,glutamic-alanine transaminase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,alanine aminotransferase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,alanine-alpha-ketoglutarate aminotransferase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,alanine-pyruvate aminotransferase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,glutamic acid-pyruvic acid transaminase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,glutamic-pyruvic aminotransferase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,pyruvate transaminase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,pyruvate-alanine aminotransferase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,pyruvate-glutamate transaminase,EC 2.6.1.2 NAME,True,added
+ALA_AT,False,L-alanine:2-oxoglutarate aminotransferase,EC 2.6.1.2 SYSNAME,True,added
+ALA_AT,False,alanine---glyoxylate transaminase,EC 2.6.1.44 NAME,True,added
+ALA_AT,False,alanine-glyoxylate aminotransferase,EC 2.6.1.44 NAME,True,added
+ALA_AT,False,alanine-glyoxylic aminotransferase,EC 2.6.1.44 NAME,True,added
+ALA_AT,False,L-alanine-glycine transaminase,EC 2.6.1.44 NAME,True,added
+ALA_AT,False,L-alanine:glyoxylate aminotransferase,EC 2.6.1.44 SYSNAME,True,added
+ALA_AT,False,valine---pyruvate transaminase,EC 2.6.1.66 NAME,True,added
+ALA_AT,False,valine-pyruvate aminotransferase,EC 2.6.1.66 NAME,True,added
+ALA_AT,False,alanine-oxoisovalerate aminotransferase,EC 2.6.1.66 NAME,True,added
+ALA_AT,False,L-valine:pyruvate aminotransferase,EC 2.6.1.66 SYSNAME,True,added
+ALA_AT,False,GPT (ambiguous),EC 2.6.1.2 NAME,False,KEGG marks it (ambiguous)
+ALA_AT,False,ALT,EC 2.6.1.2 NAME,False,abbreviation
+ALA_AT,False,AGT,EC 2.6.1.44 NAME,False,abbreviation
+ALA_AT,False,transaminase C,EC 2.6.1.66 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+ARGINASE,True,arginine amidinase,EC 3.5.3.1 NAME,True,added
+ARGINASE,True,arginine transamidinase,EC 3.5.3.1 NAME,True,added
+ARGINASE,True,L-arginine amidinohydrolase,EC 3.5.3.1 SYSNAME,True,added
+ARGINASE,True,arginase,EC 3.5.3.1 NAME,False,already a curated keyword
+ARGINASE,True,canavanase,EC 3.5.3.1 NAME,False,dedicated step: does not name the substrate
+ARGINASE,True,L-arginase,EC 3.5.3.1 NAME,False,already a curated keyword
+ARGZ,True,L-arginine aminodihydrolase,EC 3.5.3.27 SYSNAME,True,added
+ARGZ,True,arginine dihydrolase,EC 3.5.3.27 NAME,False,already a curated keyword
+ARGZ,True,argZ (gene name),EC 3.5.3.27 NAME,False,abbreviation
+ADI,True,L-arginine iminohydrolase,EC 3.5.3.6 SYSNAME,True,added
+ADI,True,arginine deiminase,EC 3.5.3.6 NAME,False,already a curated keyword
+ADI,True,arginine dihydrolase,EC 3.5.3.6 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+ADI,True,citrulline iminase,EC 3.5.3.6 NAME,False,dedicated step: does not name the substrate
+ADI,True,L-arginine deiminase,EC 3.5.3.6 NAME,False,already a curated keyword
+ASTA,True,arginine and ornithine N2-succinyltransferase,EC 2.3.1.109 NAME,True,added
+ASTA,True,succinyl-CoA:L-arginine 2-N-succinyltransferase,EC 2.3.1.109 NAME,True,added
+ASTA,True,succinyl-CoA:L-arginine N2-succinyltransferase,EC 2.3.1.109 SYSNAME,True,added
+ASTA,True,arginine N-succinyltransferase,EC 2.3.1.109 NAME,False,already a curated keyword
+ASTA,True,arginine succinyltransferase,EC 2.3.1.109 NAME,False,already a curated keyword
+ASTA,True,AstA,EC 2.3.1.109 NAME,False,abbreviation
+ASTA,True,AOST,EC 2.3.1.109 NAME,False,abbreviation
+ASTA,True,AST (ambiguous),EC 2.3.1.109 NAME,False,KEGG marks it (ambiguous)
+ASTB,True,N-succinylarginine dihydrolase,EC 3.5.3.23 NAME,True,added
+ASTB,True,N2-succinylarginine dihydrolase,EC 3.5.3.23 NAME,True,added
+ASTB,True,arginine succinylhydrolase,EC 3.5.3.23 NAME,False,dedicated step: does not name the substrate
+ASTB,True,SADH,EC 3.5.3.23 NAME,False,abbreviation
+ASTB,True,AruB,EC 3.5.3.23 NAME,False,abbreviation
+ASTB,True,AstB,EC 3.5.3.23 NAME,False,abbreviation
+ASTB,True,2-N-succinyl-L-arginine iminohydrolase (decarboxylating),EC 3.5.3.23 NAME,False,dedicated step: does not name the substrate
+ASTB,True,N2-succinyl-L-arginine iminohydrolase (decarboxylating),EC 3.5.3.23 SYSNAME,False,dedicated step: does not name the substrate
+ARUH,True,arginine---pyruvate transaminase,EC 2.6.1.84 NAME,True,added
+ARUH,True,arginine:pyruvate transaminase,EC 2.6.1.84 NAME,True,added
+ARUH,True,L-arginine:pyruvate aminotransferase,EC 2.6.1.84 SYSNAME,True,added
+ARUH,True,AruH,EC 2.6.1.84 NAME,False,abbreviation
+ARUH,True,ATase,EC 2.6.1.84 NAME,False,abbreviation
+ADC,False,L-arginine carboxy-lyase,EC 4.1.1.19 NAME,True,added
+ADC,False,arginine decarboxylase,EC 4.1.1.19 NAME,False,already a curated keyword
+ADC,False,SpeA,EC 4.1.1.19 NAME,False,abbreviation
+AGMATINASE,False,agmatine ureohydrolase,EC 3.5.3.11 NAME,True,added
+AGMATINASE,False,agmatine amidinohydrolase,EC 3.5.3.11 SYSNAME,True,added
+AGMATINASE,False,agmatinase,EC 3.5.3.11 NAME,False,already a curated keyword
+AGMATINASE,False,SpeB,EC 3.5.3.11 NAME,False,abbreviation
+AGUA,False,agmatine amidinohydrolase,EC 3.5.3.12 NAME,True,added
+AGUA,False,agmatine iminohydrolase,EC 3.5.3.12 SYSNAME,True,added
+AGUA,False,agmatine deiminase,EC 3.5.3.12 NAME,False,already a curated keyword
+ASNASE,True,asparaginase II,EC 3.5.1.1 NAME,True,added
+ASNASE,True,alpha-asparaginase,EC 3.5.1.1 NAME,True,added
+ASNASE,True,L-asparagine amidohydrolase,EC 3.5.1.1 SYSNAME,True,added
+ASNASE,True,glutaminase-asparaginase,EC 3.5.1.38 NAME,True,added
+ASNASE,True,L-asparagine/L-glutamine amidohydrolase,EC 3.5.1.38 NAME,True,added
+ASNASE,True,asparaginase,EC 3.5.1.1 NAME,False,already a curated keyword
+ASNASE,True,L-asparaginase,EC 3.5.1.1 NAME,False,already a curated keyword
+ASNASE,True,colaspase,EC 3.5.1.1 NAME,False,dedicated step: does not name the substrate
+ASNASE,True,elspar,EC 3.5.1.1 NAME,False,abbreviation
+ASNASE,True,leunase,EC 3.5.1.1 NAME,False,dedicated step: does not name the substrate
+ASNASE,True,crasnitin,EC 3.5.1.1 NAME,False,dedicated step: does not name the substrate
+ASNASE,True,crisantaspase,EC 3.5.1.1 NAME,False,dedicated step: does not name the substrate
+ASNASE,True,glutamin-(asparagin-)ase,EC 3.5.1.38 NAME,False,dedicated step: does not name the substrate
+ASNASE,True,ansB (gene name),EC 3.5.1.38 NAME,False,abbreviation
+ASNASE,True,L-ASNase/L-GLNase,EC 3.5.1.38 NAME,False,abbreviation
+ASNASE,True,L-glutamine(L-asparagine) amidohydrolase,EC 3.5.1.38 SYSNAME,False,dedicated step: does not name the substrate
+ASN_AT,True,asparagine---oxo-acid transaminase,EC 2.6.1.14 NAME,True,added
+ASN_AT,True,asparagine-keto acid aminotransferase,EC 2.6.1.14 NAME,True,added
+ASN_AT,True,L-asparagine:2-oxo-acid aminotransferase,EC 2.6.1.14 SYSNAME,True,added
+ASPA,True,aspartate ammonia-lyase,EC 4.3.1.1 NAME,False,already a curated keyword
+ASPA,True,aspartase,EC 4.3.1.1 NAME,False,already a curated keyword
+ASPA,True,fumaric aminase,EC 4.3.1.1 NAME,False,dedicated step: does not name the substrate
+ASPA,True,L-aspartase,EC 4.3.1.1 NAME,False,already a curated keyword
+ASPA,True,L-aspartate ammonia-lyase,EC 4.3.1.1 NAME,False,already a curated keyword
+ASPA,True,L-aspartate ammonia-lyase (fumarate-forming),EC 4.3.1.1 SYSNAME,False,already a curated keyword
+ASP_AT,False,aspartate transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamic-oxaloacetic transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamic-aspartic transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,2-oxoglutarate-glutamate aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,aspartate alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,aspartate-2-oxoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,aspartic acid aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,aspartyl aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamate-oxalacetate aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamate-oxalate transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamic-aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamic-oxalacetic transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamic oxalic transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,L-aspartate-alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,L-aspartate-2-ketoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,L-aspartate-2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,L-aspartate-2-oxoglutarate-transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,oxaloacetate-aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,oxaloacetate transferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,aspartate:2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,glutamate oxaloacetate transaminase,EC 2.6.1.1 NAME,True,added
+ASP_AT,False,transaminase A,EC 2.6.1.1 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+ASP_AT,False,AAT,EC 2.6.1.1 NAME,False,abbreviation
+ASP_AT,False,AspT,EC 2.6.1.1 NAME,False,abbreviation
+ASP_AT,False,AST (ambiguous),EC 2.6.1.1 NAME,False,KEGG marks it (ambiguous)
+ASP_AT,False,GOT (enzyme) [ambiguous],EC 2.6.1.1 NAME,False,KEGG marks it [ambiguous]
+CYS_DESULF,True,L-cysteine sulfide-lyase,EC 4.4.1.28 SYSNAME,True,added
+CYS_DESULF,True,L-cysteine desulfidase,EC 4.4.1.28 NAME,False,already a curated keyword
+CYS_DESULF,True,L-cysteine desulfhydrase,EC 4.4.1.28 NAME,False,already a curated keyword
+CTH_CYS,True,L-cystathionine cysteine-lyase,EC 4.4.1.1 NAME,True,added
+CTH_CYS,True,cystathionine gamma-lyase,EC 4.4.1.1 NAME,False,already a curated keyword
+CTH_CYS,True,homoserine deaminase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,homoserine dehydratase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,cystine desulfhydrase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,cysteine desulfhydrase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,gamma-cystathionase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,cystathionase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,homoserine deaminase-cystathionase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,gamma-CTL,EC 4.4.1.1 NAME,False,abbreviation
+CTH_CYS,True,cystalysin,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,cysteine lyase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH_CYS,True,CGL,EC 4.4.1.1 NAME,False,abbreviation
+CDO,True,cysteine oxidase,EC 1.13.11.20 NAME,True,added
+CDO,True,L-cysteine:oxygen oxidoreductase,EC 1.13.11.20 SYSNAME,True,added
+CDO,True,cysteine dioxygenase,EC 1.13.11.20 NAME,False,already a curated keyword
+CSA_AT,False,aspartate transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamic-oxaloacetic transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamic-aspartic transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,2-oxoglutarate-glutamate aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,aspartate alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,aspartate-2-oxoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,aspartic acid aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,aspartyl aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamate-oxalacetate aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamate-oxalate transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamic-aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamic-oxalacetic transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamic oxalic transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,L-aspartate-alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,L-aspartate-2-ketoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,L-aspartate-2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,L-aspartate-2-oxoglutarate-transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,oxaloacetate-aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,oxaloacetate transferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,aspartate:2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,glutamate oxaloacetate transaminase,EC 2.6.1.1 NAME,True,added
+CSA_AT,False,transaminase A,EC 2.6.1.1 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+CSA_AT,False,AAT,EC 2.6.1.1 NAME,False,abbreviation
+CSA_AT,False,AspT,EC 2.6.1.1 NAME,False,abbreviation
+CSA_AT,False,AST (ambiguous),EC 2.6.1.1 NAME,False,KEGG marks it (ambiguous)
+CSA_AT,False,GOT (enzyme) [ambiguous],EC 2.6.1.1 NAME,False,KEGG marks it [ambiguous]
+GLNASE,True,glutaminase I,EC 3.5.1.2 NAME,True,added
+GLNASE,True,glutamine aminohydrolase,EC 3.5.1.2 NAME,True,added
+GLNASE,True,L-glutamine amidohydrolase,EC 3.5.1.2 SYSNAME,True,added
+GLNASE,True,glutaminase-asparaginase,EC 3.5.1.38 NAME,True,added
+GLNASE,True,L-asparagine/L-glutamine amidohydrolase,EC 3.5.1.38 NAME,True,added
+GLNASE,True,glutaminase,EC 3.5.1.2 NAME,False,already a curated keyword
+GLNASE,True,L-glutaminase,EC 3.5.1.2 NAME,False,already a curated keyword
+GLNASE,True,glutamin-(asparagin-)ase,EC 3.5.1.38 NAME,False,dedicated step: no enzyme word
+GLNASE,True,ansB (gene name),EC 3.5.1.38 NAME,False,abbreviation
+GLNASE,True,L-ASNase/L-GLNase,EC 3.5.1.38 NAME,False,abbreviation
+GOGAT,False,L-glutamate synthetase,EC 1.4.1.13 NAME,True,added
+GOGAT,False,NADPH-dependent glutamate synthase,EC 1.4.1.13 NAME,True,added
+GOGAT,False,glutamine-ketoglutaric aminotransferase,EC 1.4.1.13 NAME,True,added
+GOGAT,False,NADPH-glutamate synthase,EC 1.4.1.13 NAME,True,added
+GOGAT,False,NADPH-linked glutamate synthase,EC 1.4.1.13 NAME,True,added
+GOGAT,False,glutamine amide-2-oxoglutarate aminotransferase,EC 1.4.1.13 NAME,True,added
+GOGAT,False,"L-glutamine:2-oxoglutarate aminotransferase, NADPH oxidizing",EC 1.4.1.13 NAME,True,added
+GOGAT,False,L-glutamate:NADP+ oxidoreductase,EC 1.4.1.13 SYSNAME,True,added
+GOGAT,False,NADH: GOGAT,EC 1.4.1.14 NAME,True,added
+GOGAT,False,NADH-glutamate synthase,EC 1.4.1.14 NAME,True,added
+GOGAT,False,NADH-dependent glutamate synthase,EC 1.4.1.14 NAME,True,added
+GOGAT,False,L-glutamate:NAD+ oxidoreductase,EC 1.4.1.14 SYSNAME,True,added
+GOGAT,False,ferredoxin-dependent glutamate synthase,EC 1.4.7.1 NAME,True,added
+GOGAT,False,ferredoxin-glutamate synthase,EC 1.4.7.1 NAME,True,added
+GOGAT,False,L-glutamate:ferredoxin oxidoreductase,EC 1.4.7.1 SYSNAME,True,added
+GOGAT,False,glutamate synthase (NADPH),EC 1.4.1.13 NAME,False,already a curated keyword
+GOGAT,False,glutamate (reduced nicotinamide adenine dinucleotide phosphate) synthase,EC 1.4.1.13 NAME,False,already a curated keyword
+GOGAT,False,L-glutamate synthase,EC 1.4.1.13 NAME,False,already a curated keyword
+GOGAT,False,GOGAT,EC 1.4.1.13 NAME,False,abbreviation
+GOGAT,False,glutamate synthase (NADH),EC 1.4.1.14 NAME,False,already a curated keyword
+GOGAT,False,glutamate (reduced nicotinamide adenine dinucleotide) synthase,EC 1.4.1.14 NAME,False,already a curated keyword
+GOGAT,False,L-glutamate synthase (NADH),EC 1.4.1.14 NAME,False,already a curated keyword
+GOGAT,False,glutamate synthase (ferredoxin),EC 1.4.7.1 NAME,False,already a curated keyword
+GOGAT,False,glutamate synthase (ferredoxin-dependent),EC 1.4.7.1 NAME,False,already a curated keyword
+GDH,False,glutamic dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,glutamaglutamate oxidoreductase,EC 1.4.1.2 NAME,True,added
+GDH,False,glutamic acid dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+-dependent glutamate dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+-dependent glutamic dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+-glutamate dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+-linked glutamate dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+-linked glutamic dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+-specific glutamic dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+-specific glutamate dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,NAD+:glutamate oxidoreductase,EC 1.4.1.2 NAME,True,added
+GDH,False,NADH-linked glutamate dehydrogenase,EC 1.4.1.2 NAME,True,added
+GDH,False,L-glutamate:NAD+ oxidoreductase,EC 1.4.1.2 SYSNAME,True,added
+GDH,False,NADH-dependent glutamate dehydrogenase,EC 1.4.1.4 NAME,True,added
+GDH,False,L-glutamate:NADP+ oxidoreductase,EC 1.4.1.4 SYSNAME,True,added
+GDH,False,glutamate dehydrogenase (NAD+),EC 1.4.1.2 NAME,False,already a curated keyword
+GDH,False,L-glutamate dehydrogenase,EC 1.4.1.2 NAME,False,already a curated keyword
+GDH,False,glutamate dehydrogenase [NAD(P)+],EC 1.4.1.3 NAME,False,already a curated keyword
+GDH,False,glutamate dehydrogenase [NAD(P)+],EC 1.4.1.3 NAME,False,already a curated keyword
+GDH,False,glutamate dehydrogenase (NADP+),EC 1.4.1.4 NAME,False,already a curated keyword
+GDH,False,L-glutamate dehydrogenase,EC 1.4.1.4 NAME,False,already a curated keyword
+GAD,True,L-glutamic acid decarboxylase,EC 4.1.1.15 NAME,True,added
+GAD,True,L-glutamic decarboxylase,EC 4.1.1.15 NAME,True,added
+GAD,True,L-glutamate alpha-decarboxylase,EC 4.1.1.15 NAME,True,added
+GAD,True,gamma-glutamate decarboxylase,EC 4.1.1.15 NAME,True,added
+GAD,True,L-glutamate 1-carboxy-lyase,EC 4.1.1.15 NAME,True,added
+GAD,True,glutamate decarboxylase,EC 4.1.1.15 NAME,False,already a curated keyword
+GAD,True,cysteic acid decarboxylase,EC 4.1.1.15 NAME,False,dedicated step: does not name the substrate
+GAD,True,aspartate 1-decarboxylase,EC 4.1.1.15 NAME,False,dedicated step: does not name the substrate
+GAD,True,aspartic alpha-decarboxylase,EC 4.1.1.15 NAME,False,dedicated step: does not name the substrate
+GAD,True,L-aspartate-alpha-decarboxylase,EC 4.1.1.15 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,4-aminobutyrate---2-oxoglutarate transaminase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,gamma-aminobutyrate-alpha-ketoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,gamma-aminobutyrate-alpha-ketoglutarate transaminase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,gamma-aminobutyrate:alpha-oxoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,4-aminobutyrate-2-ketoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,4-aminobutyrate-2-oxoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-alpha-ketoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-alpha-ketoglutarate transaminase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-alpha-ketoglutaric acid transaminase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-alpha-oxoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-2-oxoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-2-oxoglutarate transaminase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-oxoglutarate aminotransferase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,GABA-oxoglutarate transaminase,EC 2.6.1.19 NAME,True,added
+GABA_AT,True,4-aminobutanoate:2-oxoglutarate aminotransferase,EC 2.6.1.19 SYSNAME,True,added
+GABA_AT,True,4-aminobutyrate---pyruvate transaminase,EC 2.6.1.96 NAME,True,added
+GABA_AT,True,4-aminobutanoate:pyruvate aminotransferase,EC 2.6.1.96 SYSNAME,True,added
+GABA_AT,True,beta-alanine-oxoglutarate transaminase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,aminobutyrate aminotransferase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,beta-alanine aminotransferase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,beta-alanine-oxoglutarate aminotransferase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,gamma-aminobutyrate aminotransaminase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyrate transaminase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyric acid aminotransferase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyric acid transaminase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyric acid-alpha-ketoglutarate transaminase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,gamma-aminobutyric acid-alpha-ketoglutaric acid aminotransferase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,gamma-aminobutyric acid-2-oxoglutarate transaminase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,gamma-aminobutyric transaminase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,4-aminobutyrate aminotransferase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,4-aminobutyric acid 2-ketoglutaric acid aminotransferase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,4-aminobutyric acid aminotransferase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,aminobutyrate transaminase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,GABA aminotransferase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,GABA transaminase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,GABA transferase (ambiguous),EC 2.6.1.19 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,glutamate-succinic semialdehyde transaminase,EC 2.6.1.19 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,GabT,EC 2.6.1.19 NAME,False,abbreviation
+GABA_AT,True,aminobutyrate aminotransferase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyrate aminotransaminase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyrate transaminase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyric acid aminotransferase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyric acid pyruvate transaminase,EC 2.6.1.96 NAME,False,dedicated step: does not name the substrate
+GABA_AT,True,gamma-aminobutyric acid transaminase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,gamma-aminobutyric transaminase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,4-aminobutyrate aminotransferase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,4-aminobutyric acid aminotransferase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,aminobutyrate transaminase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,GABA aminotransferase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,GABA transaminase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,GABA transferase (ambiguous),EC 2.6.1.96 NAME,False,KEGG marks it (ambiguous)
+GABA_AT,True,POP2 (gene name),EC 2.6.1.96 NAME,False,abbreviation
+GLMUT,True,beta-methylaspartate-glutamate mutase,EC 5.4.99.1 NAME,True,added
+GLMUT,True,L-threo-3-methylaspartate carboxy-aminomethylmutase,EC 5.4.99.1 SYSNAME,True,added
+GLMUT,True,methylaspartate mutase,EC 5.4.99.1 NAME,False,already a curated keyword
+GLMUT,True,glutamate mutase,EC 5.4.99.1 NAME,False,already a curated keyword
+GLMUT,True,glutamic mutase,EC 5.4.99.1 NAME,False,dedicated step: does not name the substrate
+GLMUT,True,glutamic isomerase,EC 5.4.99.1 NAME,False,dedicated step: does not name the substrate
+GLMUT,True,glutamic acid mutase,EC 5.4.99.1 NAME,False,dedicated step: does not name the substrate
+GLMUT,True,glutamic acid isomerase,EC 5.4.99.1 NAME,False,dedicated step: does not name the substrate
+GLMUT,True,methylaspartic acid mutase,EC 5.4.99.1 NAME,False,dedicated step: does not name the substrate
+GLMUT,True,glutamate isomerase,EC 5.4.99.1 NAME,False,dedicated step: does not name the substrate
+MAL,True,L-threo-3-methylaspartate ammonia-lyase,EC 4.3.1.2 NAME,True,added
+MAL,True,methylaspartate ammonia-lyase,EC 4.3.1.2 NAME,False,already a curated keyword
+MAL,True,beta-methylaspartase,EC 4.3.1.2 NAME,False,dedicated step: does not name the substrate
+MAL,True,3-methylaspartase,EC 4.3.1.2 NAME,False,dedicated step: does not name the substrate
+GCS_P,False,glycine decarboxylase,EC 1.4.4.2 NAME,True,added
+GCS_P,False,glycine-cleavage complex,EC 1.4.4.2 NAME,True,added
+GCS_P,False,glycine:lipoylprotein oxidoreductase,EC 1.4.4.2 NAME,True,added
+GCS_P,False,glycine cleavage system P-protein,EC 1.4.4.2 NAME,True,added
+GCS_P,False,glycine-cleavage complex P-protein,EC 1.4.4.2 NAME,True,added
+GCS_P,False,glycine:H-protein-lipoyllysine oxidoreductase,EC 1.4.4.2 SYSNAME,True,added
+GCS_P,False,glycine dehydrogenase (aminomethyl-transferring),EC 1.4.4.2 NAME,False,already a curated keyword
+GCS_P,False,P-protein,EC 1.4.4.2 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+GCS_P,False,protein P1,EC 1.4.4.2 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+GCS_P,False,glycine dehydrogenase (decarboxylating),EC 1.4.4.2 NAME,False,already a curated keyword
+GCS_T,False,S-aminomethyldihydrolipoylprotein:-tetrahydrofolate aminomethyltransferase,EC 2.1.2.10 NAME,True,added
+GCS_T,False,glycine synthase,EC 2.1.2.10 NAME,True,added
+GCS_T,False,tetrahydrofolate aminomethyltransferase,EC 2.1.2.10 NAME,True,added
+GCS_T,False,-8-S-aminomethyldihydrolipoyllysine:tetrahydrofolate aminomethyltransferase,EC 2.1.2.10 NAME,True,added
+GCS_T,False,-S8-aminomethyldihydrolipoyllysine:tetrahydrofolate aminomethyltransferase,EC 2.1.2.10 SYSNAME,True,added
+GCS_T,False,aminomethyltransferase,EC 2.1.2.10 NAME,False,already a curated keyword
+GCS_T,False,T-protein,EC 2.1.2.10 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+THIO,False,glycine:oxygen oxidoreductase,EC 1.4.3.19 SYSNAME,True,added
+THIO,False,glycine oxidase,EC 1.4.3.19 NAME,False,already a curated keyword
+GLY_AT,False,glycine transaminase,EC 2.6.1.4 NAME,True,added
+GLY_AT,False,glutamic-glyoxylic transaminase,EC 2.6.1.4 NAME,True,added
+GLY_AT,False,glycine aminotransferase,EC 2.6.1.4 NAME,True,added
+GLY_AT,False,glyoxylate-glutamic transaminase,EC 2.6.1.4 NAME,True,added
+GLY_AT,False,L-glutamate:glyoxylate aminotransferase,EC 2.6.1.4 NAME,True,added
+GLY_AT,False,glyoxylate-glutamate aminotransferase,EC 2.6.1.4 NAME,True,added
+GLY_AT,False,glycine:2-oxoglutarate aminotransferase,EC 2.6.1.4 SYSNAME,True,added
+GLY_AT,False,alanine---glyoxylate transaminase,EC 2.6.1.44 NAME,True,added
+GLY_AT,False,alanine-glyoxylate aminotransferase,EC 2.6.1.44 NAME,True,added
+GLY_AT,False,alanine-glyoxylic aminotransferase,EC 2.6.1.44 NAME,True,added
+GLY_AT,False,L-alanine-glycine transaminase,EC 2.6.1.44 NAME,True,added
+GLY_AT,False,L-alanine:glyoxylate aminotransferase,EC 2.6.1.44 SYSNAME,True,added
+GLY_AT,False,AGT,EC 2.6.1.44 NAME,False,abbreviation
+HUTH,True,histidine alpha-deaminase,EC 4.3.1.3 NAME,True,added
+HUTH,True,histidine ammonia-lyase,EC 4.3.1.3 NAME,False,already a curated keyword
+HUTH,True,histidase,EC 4.3.1.3 NAME,False,dedicated step: does not name the substrate
+HUTH,True,histidinase,EC 4.3.1.3 NAME,False,dedicated step: does not name the substrate
+HUTH,True,L-histidine ammonia-lyase,EC 4.3.1.3 NAME,False,already a curated keyword
+HUTH,True,L-histidine ammonia-lyase (urocanate-forming),EC 4.3.1.3 SYSNAME,False,already a curated keyword
+BCAT,False,branched-chain-amino-acid transaminase,EC 2.6.1.42 NAME,True,added
+BCAT,False,branched-chain amino acid aminotransferase,EC 2.6.1.42 NAME,True,added
+BCAT,False,branched-chain amino acid-glutamate transaminase,EC 2.6.1.42 NAME,True,added
+BCAT,False,branched-chain aminotransferase,EC 2.6.1.42 NAME,True,added
+BCAT,False,L-branched chain amino acid aminotransferase,EC 2.6.1.42 NAME,True,added
+BCAT,False,glutamate-branched-chain amino acid transaminase,EC 2.6.1.42 NAME,True,added
+BCAT,False,branched-chain-amino-acid:2-oxoglutarate aminotransferase,EC 2.6.1.42 SYSNAME,True,added
+BCAT,False,transaminase B,EC 2.6.1.42 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+LEUDH,True,"L-leucine:NAD+ oxidoreductase, deaminating",EC 1.4.1.9 NAME,True,added
+LEUDH,True,L-leucine:NAD+ oxidoreductase,EC 1.4.1.9 SYSNAME,True,added
+LEUDH,True,leucine dehydrogenase,EC 1.4.1.9 NAME,False,already a curated keyword
+LEUDH,True,L-leucine dehydrogenase,EC 1.4.1.9 NAME,False,already a curated keyword
+LEUDH,True,LeuDH,EC 1.4.1.9 NAME,False,abbreviation
+BCAT_VAL,False,branched-chain-amino-acid transaminase,EC 2.6.1.42 NAME,True,added
+BCAT_VAL,False,branched-chain amino acid aminotransferase,EC 2.6.1.42 NAME,True,added
+BCAT_VAL,False,branched-chain amino acid-glutamate transaminase,EC 2.6.1.42 NAME,True,added
+BCAT_VAL,False,branched-chain aminotransferase,EC 2.6.1.42 NAME,True,added
+BCAT_VAL,False,L-branched chain amino acid aminotransferase,EC 2.6.1.42 NAME,True,added
+BCAT_VAL,False,glutamate-branched-chain amino acid transaminase,EC 2.6.1.42 NAME,True,added
+BCAT_VAL,False,branched-chain-amino-acid:2-oxoglutarate aminotransferase,EC 2.6.1.42 SYSNAME,True,added
+BCAT_VAL,False,valine---pyruvate transaminase,EC 2.6.1.66 NAME,True,added
+BCAT_VAL,False,valine-pyruvate aminotransferase,EC 2.6.1.66 NAME,True,added
+BCAT_VAL,False,alanine-oxoisovalerate aminotransferase,EC 2.6.1.66 NAME,True,added
+BCAT_VAL,False,L-valine:pyruvate aminotransferase,EC 2.6.1.66 SYSNAME,True,added
+BCAT_VAL,False,transaminase B,EC 2.6.1.42 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+BCAT_VAL,False,transaminase C,EC 2.6.1.66 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+LDC,False,L-lysine carboxy-lyase,EC 4.1.1.18 NAME,True,added
+LDC,False,lysine decarboxylase,EC 4.1.1.18 NAME,False,already a curated keyword
+CAD_AT,True,putrescine---2-oxoglutarate transaminase,EC 2.6.1.82 NAME,True,added
+CAD_AT,True,putrescine-alpha-ketoglutarate transaminase,EC 2.6.1.82 NAME,True,added
+CAD_AT,True,putrescine:alpha-ketoglutarate aminotransferase,EC 2.6.1.82 NAME,True,added
+CAD_AT,True,"butane-1,4-diamine:2-oxoglutarate aminotransferase",EC 2.6.1.82 NAME,True,added
+CAD_AT,True,putrescine:2-oxoglutarate aminotransferase,EC 2.6.1.82 SYSNAME,True,added
+CAD_AT,True,YgjG,EC 2.6.1.82 NAME,False,abbreviation
+CAD_AT,True,PAT (ambiguous),EC 2.6.1.82 NAME,False,KEGG marks it (ambiguous)
+CAD_AT,True,putrescine transaminase (ambiguous),EC 2.6.1.82 NAME,False,KEGG marks it (ambiguous)
+CAD_AT,True,putrescine aminotransferase (ambiguous),EC 2.6.1.82 NAME,False,KEGG marks it (ambiguous)
+DAVB,True,lysine oxygenase,EC 1.13.12.2 NAME,True,added
+DAVB,True,L-lysine-2-monooxygenase,EC 1.13.12.2 NAME,True,added
+DAVB,True,L-lysine:oxygen 2-oxidoreductase,EC 1.13.12.2 SYSNAME,True,added
+DAVB,True,lysine 2-monooxygenase,EC 1.13.12.2 NAME,False,already a curated keyword
+DAVB,True,lysine monooxygenase,EC 1.13.12.2 NAME,False,already a curated keyword
+DAVA,True,5-aminopentanamidase,EC 3.5.1.30 NAME,True,added
+DAVA,True,5-aminovaleramidase,EC 3.5.1.30 NAME,True,added
+DAVA,True,5-aminopentanamide amidohydrolase,EC 3.5.1.30 SYSNAME,True,added
+DAVA,True,5-aminonorvaleramidase,EC 3.5.1.30 NAME,False,dedicated step: does not name the substrate
+LAT,True,lysine epsilon-aminotransferase,EC 2.6.1.36 NAME,True,added
+LAT,True,lysine epsilon-transaminase,EC 2.6.1.36 NAME,True,added
+LAT,True,lysine:2-ketoglutarate 6-aminotransferase,EC 2.6.1.36 NAME,True,added
+LAT,True,L-lysine-alpha-ketoglutarate aminotransferase,EC 2.6.1.36 NAME,True,added
+LAT,True,L-lysine-alpha-ketoglutarate 6-aminotransferase,EC 2.6.1.36 NAME,True,added
+LAT,True,L-lysine:2-oxoglutarate 6-aminotransferase,EC 2.6.1.36 SYSNAME,True,added
+LAT,True,L-lysine 6-transaminase,EC 2.6.1.36 NAME,False,already a curated keyword
+LAT,True,lysine 6-aminotransferase,EC 2.6.1.36 NAME,False,already a curated keyword
+LYSDH,True,L-lysine epsilon-dehydrogenase,EC 1.4.1.18 NAME,True,added
+LYSDH,True,L-lysine:NAD+ 6-oxidoreductase,EC 1.4.1.18 SYSNAME,True,added
+LYSDH,True,lysine 6-dehydrogenase,EC 1.4.1.18 NAME,False,already a curated keyword
+LYSDH,True,L-lysine 6-dehydrogenase,EC 1.4.1.18 NAME,False,already a curated keyword
+LYSDH,True,LysDH,EC 1.4.1.18 NAME,False,abbreviation
+LKR,True,lysine-2-oxoglutarate reductase,EC 1.5.1.8 NAME,True,added
+LKR,True,L-lysine-alpha-ketoglutarate reductase,EC 1.5.1.8 NAME,True,added
+LKR,True,lysine:alpha-ketoglutarate:TPNH oxidoreductase,EC 1.5.1.8 NAME,True,added
+LKR,True,6-N--L-lysine:NADP+ oxidoreductase,EC 1.5.1.8 NAME,True,added
+LKR,True,N6--L-lysine:NADP+ oxidoreductase,EC 1.5.1.8 SYSNAME,True,added
+LKR,True,"saccharopine dehydrogenase (NADP+, L-lysine-forming)",EC 1.5.1.8 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+LKR,True,lysine-ketoglutarate reductase,EC 1.5.1.8 NAME,False,already a curated keyword
+LKR,True,"saccharopine (nicotinamide adenine dinucleotide phosphate, lysine-forming) dehydrogenase",EC 1.5.1.8 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+SDH_SACCH,True,"dehydrogenase, saccharopine",EC 1.5.1.9 NAME,True,added
+SDH_SACCH,True,"saccharopine dehydrogenase (NAD+, L-glutamate-forming)",EC 1.5.1.9 NAME,False,already a curated keyword
+SDH_SACCH,True,saccharopin dehydrogenase,EC 1.5.1.9 NAME,False,dedicated step: does not name the substrate
+SDH_SACCH,True,NAD+ oxidoreductase (L-2-aminoadipic-delta-semialdehyde and glutamate forming),EC 1.5.1.9 NAME,False,dedicated step: does not name the substrate
+SDH_SACCH,True,aminoadipic semialdehyde synthase,EC 1.5.1.9 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+SDH_SACCH,True,"6-N-(L-1,3-dicarboxypropyl)-L-lysine:NAD+ oxidoreductase (L-glutamate-forming)",EC 1.5.1.9 NAME,False,dedicated step: does not name the substrate
+SDH_SACCH,True,"N6-(L-1,3-dicarboxypropyl)-L-lysine:NAD+ oxidoreductase (L-glutamate-forming)",EC 1.5.1.9 SYSNAME,False,dedicated step: does not name the substrate
+MGL,True,methionine lyase,EC 4.4.1.11 NAME,True,added
+MGL,True,methionine dethiomethylase,EC 4.4.1.11 NAME,True,added
+MGL,True,L-methionine methanethiol-lyase,EC 4.4.1.11 NAME,True,added
+MGL,True,methionine gamma-lyase,EC 4.4.1.11 NAME,False,already a curated keyword
+MGL,True,L-methioninase,EC 4.4.1.11 NAME,False,dedicated step: does not name the substrate
+MGL,True,methioninase,EC 4.4.1.11 NAME,False,dedicated step: does not name the substrate
+MGL,True,L-methionine gamma-lyase,EC 4.4.1.11 NAME,False,already a curated keyword
+MET_AT,False,methionine transaminase,EC 2.6.1.88 NAME,True,added
+MET_AT,False,methionine-oxo-acid transaminase,EC 2.6.1.88 NAME,True,added
+MET_AT,False,L-methionine:2-oxo-acid aminotransferase,EC 2.6.1.88 SYSNAME,True,added
+METK,False,adenosylmethionine synthetase,EC 2.5.1.6 NAME,True,added
+METK,False,ATP-methionine adenosyltransferase,EC 2.5.1.6 NAME,True,added
+METK,False,methionine S-adenosyltransferase,EC 2.5.1.6 NAME,True,added
+METK,False,methionine-activating enzyme,EC 2.5.1.6 NAME,True,added
+METK,False,S-adenosyl-L-methionine synthetase,EC 2.5.1.6 NAME,True,added
+METK,False,S-adenosylmethionine synthase,EC 2.5.1.6 NAME,True,added
+METK,False,S-adenosylmethionine synthetase,EC 2.5.1.6 NAME,True,added
+METK,False,AdoMet synthetase,EC 2.5.1.6 NAME,True,added
+METK,False,ATP:L-methionine S-adenosyltransferase,EC 2.5.1.6 SYSNAME,True,added
+METK,False,methionine adenosyltransferase,EC 2.5.1.6 NAME,False,already a curated keyword
+SAHH,False,S-adenosylhomocysteine synthase,EC 3.13.2.1 NAME,True,added
+SAHH,False,S-adenosylhomocysteinase,EC 3.13.2.1 NAME,True,added
+SAHH,False,S-adenosyl-L-homocysteine hydrolase,EC 3.13.2.1 SYSNAME,True,added
+SAHH,False,adenosylhomocysteinase,EC 3.13.2.1 NAME,False,already a curated keyword
+SAHH,False,S-adenosylhomocysteine hydrolase (ambiguous),EC 3.13.2.1 NAME,False,KEGG marks it (ambiguous)
+SAHH,False,adenosylhomocysteine hydrolase,EC 3.13.2.1 NAME,False,already a curated keyword
+SAHH,False,SAHase,EC 3.13.2.1 NAME,False,abbreviation
+SAHH,False,AdoHcyase,EC 3.13.2.1 NAME,False,abbreviation
+CBS,True,cystathionine beta-synthase,EC 4.2.1.22 NAME,False,already a curated keyword
+CBS,True,serine sulfhydrase,EC 4.2.1.22 NAME,False,dedicated step: does not name the substrate
+CBS,True,beta-thionase,EC 4.2.1.22 NAME,False,dedicated step: does not name the substrate
+CBS,True,methylcysteine synthase,EC 4.2.1.22 NAME,False,dedicated step: does not name the substrate
+CBS,True,cysteine synthase (incorrect),EC 4.2.1.22 NAME,False,KEGG marks it (incorrect)
+CBS,True,serine sulfhydrylase,EC 4.2.1.22 NAME,False,dedicated step: does not name the substrate
+CBS,True,L-serine hydro-lyase (adding homocysteine),EC 4.2.1.22 NAME,False,dedicated step: does not name the substrate
+CBS,True,L-serine hydro-lyase (adding homocysteine; L-cystathionine-forming),EC 4.2.1.22 SYSNAME,False,dedicated step: does not name the substrate
+CTH,True,L-cystathionine cysteine-lyase,EC 4.4.1.1 NAME,True,added
+CTH,True,cystathionine gamma-lyase,EC 4.4.1.1 NAME,False,already a curated keyword
+CTH,True,homoserine deaminase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,homoserine dehydratase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,cystine desulfhydrase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,cysteine desulfhydrase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,gamma-cystathionase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,cystathionase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,homoserine deaminase-cystathionase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,gamma-CTL,EC 4.4.1.1 NAME,False,abbreviation
+CTH,True,cystalysin,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,cysteine lyase,EC 4.4.1.1 NAME,False,dedicated step: does not name the substrate
+CTH,True,CGL,EC 4.4.1.1 NAME,False,abbreviation
+PAL,True,phenylalanine ammonia-lyase,EC 4.3.1.24 NAME,True,added
+PAL,True,phenylalanine deaminase,EC 4.3.1.24 NAME,True,added
+PAL,True,phenylalanine ammonium-lyase,EC 4.3.1.24 NAME,True,added
+PAL,True,phenylalanine/tyrosine ammonia-lyase,EC 4.3.1.25 NAME,True,added
+PAL,True,L-phenylalanine:trans-cinnamate ammonia-lyase,EC 4.3.1.25 SYSNAME,True,added
+PAL,True,PAL,EC 4.3.1.24 NAME,False,abbreviation
+PAL,True,Phe ammonia-lyase,EC 4.3.1.24 NAME,False,dedicated step: does not name the substrate
+PAL,True,PTAL,EC 4.3.1.25 NAME,False,abbreviation
+PAL,True,bifunctional PAL,EC 4.3.1.25 NAME,False,dedicated step: does not name the substrate
+PHEDH,True,L-phenylalanine:NAD+ oxidoreductase,EC 1.4.1.20 SYSNAME,True,added
+PHEDH,True,phenylalanine dehydrogenase,EC 1.4.1.20 NAME,False,already a curated keyword
+PHEDH,True,L-phenylalanine dehydrogenase,EC 1.4.1.20 NAME,False,already a curated keyword
+PHEDH,True,PHD,EC 1.4.1.20 NAME,False,abbreviation
+PHE_AT,False,aspartate transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamic-oxaloacetic transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamic-aspartic transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,2-oxoglutarate-glutamate aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,aspartate alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,aspartate-2-oxoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,aspartic acid aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,aspartyl aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamate-oxalacetate aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamate-oxalate transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamic-aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamic-oxalacetic transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamic oxalic transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,L-aspartate-alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,L-aspartate-2-ketoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,L-aspartate-2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,L-aspartate-2-oxoglutarate-transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,oxaloacetate-aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,oxaloacetate transferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,aspartate:2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,glutamate oxaloacetate transaminase,EC 2.6.1.1 NAME,True,added
+PHE_AT,False,tyrosine transaminase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,tyrosine aminotransferase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,glutamic-hydroxyphenylpyruvic transaminase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,glutamic phenylpyruvic aminotransferase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,L-phenylalanine 2-oxoglutarate aminotransferase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,phenylalanine aminotransferase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,phenylalanine transaminase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,phenylalanine-alpha-ketoglutarate transaminase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,phenylpyruvate transaminase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,phenylpyruvic acid transaminase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,tyrosine-alpha-ketoglutarate aminotransferase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,tyrosine-alpha-ketoglutarate transaminase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,tyrosine-2-ketoglutarate aminotransferase,EC 2.6.1.5 NAME,True,added
+PHE_AT,False,L-tyrosine:2-oxoglutarate aminotransferase,EC 2.6.1.5 SYSNAME,True,added
+PHE_AT,False,aromatic-amino-acid transaminase,EC 2.6.1.57 NAME,True,added
+PHE_AT,False,aromatic amino acid aminotransferase,EC 2.6.1.57 NAME,True,added
+PHE_AT,False,aromatic aminotransferase,EC 2.6.1.57 NAME,True,added
+PHE_AT,False,aromatic-amino-acid:2-oxoglutarate aminotransferase,EC 2.6.1.57 SYSNAME,True,added
+PHE_AT,False,histidinol-phosphate transaminase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,imidazolylacetolphosphate transaminase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,glutamic-imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,histidinol phosphate aminotransferase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,histidine:imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,IAP transaminase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,imidazolylacetolphosphate aminotransferase,EC 2.6.1.9 NAME,True,added
+PHE_AT,False,L-histidinol-phosphate:2-oxoglutarate aminotransferase,EC 2.6.1.9 SYSNAME,True,added
+PHE_AT,False,transaminase A,EC 2.6.1.1 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+PHE_AT,False,AAT,EC 2.6.1.1 NAME,False,abbreviation
+PHE_AT,False,AspT,EC 2.6.1.1 NAME,False,abbreviation
+PHE_AT,False,AST (ambiguous),EC 2.6.1.1 NAME,False,KEGG marks it (ambiguous)
+PHE_AT,False,GOT (enzyme) [ambiguous],EC 2.6.1.1 NAME,False,KEGG marks it [ambiguous]
+PHE_AT,False,TyrAT,EC 2.6.1.5 NAME,False,abbreviation
+PHE_AT,False,ArAT,EC 2.6.1.57 NAME,False,abbreviation
+PHHA,True,phenylalanine 4-monooxygenase,EC 1.14.16.1 NAME,True,added
+PHHA,True,phenylalaninase,EC 1.14.16.1 NAME,True,added
+PHHA,True,"L-phenylalanine,tetrahydropteridine:oxygen oxidoreductase",EC 1.14.16.1 SYSNAME,True,added
+PHHA,True,phenylalanine 4-hydroxylase,EC 1.14.16.1 NAME,False,already a curated keyword
+PHHA,True,phenylalanine hydroxylase,EC 1.14.16.1 NAME,False,already a curated keyword
+TYR_AT,False,aspartate transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamic-oxaloacetic transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamic-aspartic transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,2-oxoglutarate-glutamate aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,aspartate alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,aspartate-2-oxoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,aspartic acid aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,aspartyl aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamate-oxalacetate aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamate-oxalate transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamic-aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamic-oxalacetic transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamic oxalic transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,L-aspartate-alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,L-aspartate-2-ketoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,L-aspartate-2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,L-aspartate-2-oxoglutarate-transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,oxaloacetate-aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,oxaloacetate transferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,aspartate:2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,glutamate oxaloacetate transaminase,EC 2.6.1.1 NAME,True,added
+TYR_AT,False,tyrosine transaminase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,tyrosine aminotransferase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,glutamic-hydroxyphenylpyruvic transaminase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,glutamic phenylpyruvic aminotransferase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,L-phenylalanine 2-oxoglutarate aminotransferase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,phenylalanine aminotransferase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,phenylalanine transaminase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,phenylalanine-alpha-ketoglutarate transaminase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,phenylpyruvate transaminase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,phenylpyruvic acid transaminase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,tyrosine-alpha-ketoglutarate aminotransferase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,tyrosine-alpha-ketoglutarate transaminase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,tyrosine-2-ketoglutarate aminotransferase,EC 2.6.1.5 NAME,True,added
+TYR_AT,False,L-tyrosine:2-oxoglutarate aminotransferase,EC 2.6.1.5 SYSNAME,True,added
+TYR_AT,False,aromatic-amino-acid transaminase,EC 2.6.1.57 NAME,True,added
+TYR_AT,False,aromatic amino acid aminotransferase,EC 2.6.1.57 NAME,True,added
+TYR_AT,False,aromatic aminotransferase,EC 2.6.1.57 NAME,True,added
+TYR_AT,False,aromatic-amino-acid:2-oxoglutarate aminotransferase,EC 2.6.1.57 SYSNAME,True,added
+TYR_AT,False,histidinol-phosphate transaminase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,imidazolylacetolphosphate transaminase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,glutamic-imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,histidinol phosphate aminotransferase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,histidine:imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,IAP transaminase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,imidazolylacetolphosphate aminotransferase,EC 2.6.1.9 NAME,True,added
+TYR_AT,False,L-histidinol-phosphate:2-oxoglutarate aminotransferase,EC 2.6.1.9 SYSNAME,True,added
+TYR_AT,False,transaminase A,EC 2.6.1.1 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+TYR_AT,False,AAT,EC 2.6.1.1 NAME,False,abbreviation
+TYR_AT,False,AspT,EC 2.6.1.1 NAME,False,abbreviation
+TYR_AT,False,AST (ambiguous),EC 2.6.1.1 NAME,False,KEGG marks it (ambiguous)
+TYR_AT,False,GOT (enzyme) [ambiguous],EC 2.6.1.1 NAME,False,KEGG marks it [ambiguous]
+TYR_AT,False,TyrAT,EC 2.6.1.5 NAME,False,abbreviation
+TYR_AT,False,ArAT,EC 2.6.1.57 NAME,False,abbreviation
+PRODH,True,L-proline: oxidoreductase,EC 1.5.5.2 NAME,True,added
+PRODH,True,L-proline:quinone oxidoreductase,EC 1.5.5.2 SYSNAME,True,added
+PRODH,True,proline dehydrogenase,EC 1.5.5.2 NAME,False,already a curated keyword
+PRODH,True,L-proline dehydrogenase,EC 1.5.5.2 NAME,False,already a curated keyword
+P5CDH,True,L-glutamate gamma-semialdehyde dehydrogenase,EC 1.2.1.88 NAME,True,added
+P5CDH,True,1-pyrroline-5-carboxylate dehydrogenase,EC 1.2.1.88 NAME,True,added
+P5CDH,True,Delta1-pyrroline-5-carboxylate dehydrogenase,EC 1.2.1.88 NAME,True,added
+P5CDH,True,L-pyrroline-5-carboxylate-NAD+ oxidoreductase,EC 1.2.1.88 NAME,True,added
+P5CDH,True,1-pyrroline-5-carboxylate:NAD+ oxidoreductase,EC 1.2.1.88 NAME,True,added
+P5CDH,True,L-glutamate gamma-semialdehyde:NAD+ oxidoreductase,EC 1.2.1.88 SYSNAME,True,added
+P5CDH,True,1-pyrroline dehydrogenase,EC 1.2.1.88 NAME,False,dedicated step: does not name the substrate
+P5CDH,True,pyrroline-5-carboxylate dehydrogenase,EC 1.2.1.88 NAME,False,already a curated keyword
+P5CDH,True,pyrroline-5-carboxylic acid dehydrogenase,EC 1.2.1.88 NAME,False,dedicated step: does not name the substrate
+P5CDH,True,Delta1-pyrroline-5-carboxylic acid dehydrogenase,EC 1.2.1.88 NAME,False,dedicated step: does not name the substrate
+SDA,True,serine deaminase,EC 4.3.1.17 NAME,True,added
+SDA,True,L-serine hydro-lyase,EC 4.3.1.17 NAME,True,added
+SDA,True,L-serine ammonia-lyase,EC 4.3.1.17 NAME,False,already a curated keyword
+SDA,True,L-hydroxyaminoacid dehydratase,EC 4.3.1.17 NAME,False,dedicated step: does not name the substrate
+SDA,True,L-serine dehydratase,EC 4.3.1.17 NAME,False,already a curated keyword
+SDA,True,L-serine ammonia-lyase (pyruvate-forming),EC 4.3.1.17 SYSNAME,False,already a curated keyword
+SHMT,False,glycine hydroxymethyltransferase,EC 2.1.2.1 NAME,True,added
+SHMT,False,serine aldolase,EC 2.1.2.1 NAME,True,added
+SHMT,False,serine hydroxymethylase,EC 2.1.2.1 NAME,True,added
+SHMT,False,serine hydroxymethyltransferase,EC 2.1.2.1 NAME,True,added
+SHMT,False,allothreonine aldolase,EC 2.1.2.1 NAME,True,added
+SHMT,False,serine transhydroxymethylase,EC 2.1.2.1 NAME,True,added
+SHMT,False,"5,10-methylenetetrahydrofolate:glycine hydroxymethyltransferase",EC 2.1.2.1 SYSNAME,True,added
+SHMT,False,threonine aldolase,EC 2.1.2.1 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+SHMT,False,L-threonine aldolase,EC 2.1.2.1 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+SER_AT,False,serine---glyoxylate transaminase,EC 2.6.1.45 NAME,True,added
+SER_AT,False,L-serine:glyoxylate aminotransferase,EC 2.6.1.45 SYSNAME,True,added
+SER_AT,False,serine---pyruvate transaminase,EC 2.6.1.51 NAME,True,added
+SER_AT,False,hydroxypyruvate:L-alanine transaminase,EC 2.6.1.51 NAME,True,added
+SER_AT,False,L-serine:pyruvate aminotransferase,EC 2.6.1.51 SYSNAME,True,added
+SER_AT,False,SPT,EC 2.6.1.51 NAME,False,abbreviation
+THR_DH,False,threonine deaminase,EC 4.3.1.19 NAME,True,added
+THR_DH,False,serine deaminase,EC 4.3.1.19 NAME,True,added
+THR_DH,False,threonine dehydrase,EC 4.3.1.19 NAME,True,added
+THR_DH,False,L-threonine hydro-lyase,EC 4.3.1.19 NAME,True,added
+THR_DH,False,threonine ammonia-lyase,EC 4.3.1.19 NAME,False,already a curated keyword
+THR_DH,False,L-serine dehydratase,EC 4.3.1.19 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+THR_DH,False,L-threonine dehydratase,EC 4.3.1.19 NAME,False,already a curated keyword
+THR_DH,False,threonine dehydratase,EC 4.3.1.19 NAME,False,already a curated keyword
+THR_DH,False,L-threonine ammonia-lyase,EC 4.3.1.19 NAME,False,already a curated keyword
+THR_DH,False,L-threonine ammonia-lyase (2-oxobutanoate-forming),EC 4.3.1.19 SYSNAME,False,already a curated keyword
+LTAE,True,low-specificity L-threonine aldolase,EC 4.1.2.48 NAME,True,added
+LTAE,True,L-threonine/L-allo-threonine acetaldehyde-lyase,EC 4.1.2.48 SYSNAME,True,added
+LTAE,True,LtaE,EC 4.1.2.48 NAME,False,abbreviation
+TDH,True,L-threonine:NAD+ oxidoreductase,EC 1.1.1.103 SYSNAME,True,added
+TDH,True,L-threonine 3-dehydrogenase,EC 1.1.1.103 NAME,False,already a curated keyword
+TDH,True,L-threonine dehydrogenase,EC 1.1.1.103 NAME,False,already a curated keyword
+TDH,True,threonine 3-dehydrogenase,EC 1.1.1.103 NAME,False,already a curated keyword
+TDH,True,threonine dehydrogenase,EC 1.1.1.103 NAME,False,already a curated keyword
+TDH,True,TDH,EC 1.1.1.103 NAME,False,abbreviation
+KBL,True,2-amino-3-ketobutyrate CoA ligase,EC 2.3.1.29 NAME,True,added
+KBL,True,2-amino-3-ketobutyrate coenzyme A ligase,EC 2.3.1.29 NAME,True,added
+KBL,True,2-amino-3-ketobutyrate-CoA ligase,EC 2.3.1.29 NAME,True,added
+KBL,True,glycine acetyltransferase,EC 2.3.1.29 NAME,True,added
+KBL,True,acetyl-CoA:glycine C-acetyltransferase,EC 2.3.1.29 SYSNAME,True,added
+KBL,True,glycine C-acetyltransferase,EC 2.3.1.29 NAME,False,already a curated keyword
+KBL,True,aminoacetone synthase,EC 2.3.1.29 NAME,False,dedicated step: does not name the substrate
+KBL,True,aminoacetone synthetase,EC 2.3.1.29 NAME,False,dedicated step: does not name the substrate
+KBL,True,KBL,EC 2.3.1.29 NAME,False,abbreviation
+KBL,True,AKB ligase,EC 2.3.1.29 NAME,False,dedicated step: does not name the substrate
+TNAA,True,L-tryptophan indole-lyase,EC 4.1.99.1 NAME,True,added
+TNAA,True,tryptophanase,EC 4.1.99.1 NAME,False,already a curated keyword
+TNAA,True,L-tryptophanase,EC 4.1.99.1 NAME,False,already a curated keyword
+TNAA,True,TNase,EC 4.1.99.1 NAME,False,abbreviation
+TDO,True,tryptophan oxygenase,EC 1.13.11.11 NAME,True,added
+TDO,True,tryptophan peroxidase,EC 1.13.11.11 NAME,True,added
+TDO,True,L-tryptophan pyrrolase,EC 1.13.11.11 NAME,True,added
+TDO,True,"L-tryptophan:oxygen 2,3-oxidoreductase",EC 1.13.11.11 NAME,True,added
+TDO,True,"D-tryptophan:oxygen 2,3-oxidoreductase",EC 1.13.11.52 NAME,True,added
+TDO,True,"tryptophan 2,3-dioxygenase",EC 1.13.11.11 NAME,False,already a curated keyword
+TDO,True,tryptophan pyrrolase (ambiguous),EC 1.13.11.11 NAME,False,KEGG marks it (ambiguous)
+TDO,True,tryptophanase,EC 1.13.11.11 NAME,False,names another catalogue enzyme (curated keyword of a step with disjoint EC)
+TDO,True,"tryptamine 2,3-dioxygenase",EC 1.13.11.11 NAME,False,dedicated step: does not name the substrate
+TDO,True,"indoleamine 2,3-dioxygenase (ambiguous)",EC 1.13.11.11 NAME,False,KEGG marks it (ambiguous)
+TDO,True,"indolamine 2,3-dioxygenase (ambiguous)",EC 1.13.11.11 NAME,False,KEGG marks it (ambiguous)
+TDO,True,TDO,EC 1.13.11.11 NAME,False,abbreviation
+TDO,True,"L-tryptophan 2,3-dioxygenase",EC 1.13.11.11 NAME,False,already a curated keyword
+TDO,True,"indoleamine 2,3-dioxygenase",EC 1.13.11.52 NAME,False,already a curated keyword
+TDO,True,IDO (ambiguous),EC 1.13.11.52 NAME,False,KEGG marks it (ambiguous)
+TDO,True,tryptophan pyrrolase (ambiguous),EC 1.13.11.52 NAME,False,KEGG marks it (ambiguous)
+KFA,True,formylkynurenine formamidase,EC 3.5.1.9 NAME,True,added
+KFA,True,arylformamidase,EC 3.5.1.9 NAME,False,already a curated keyword
+KFA,True,kynurenine formamidase,EC 3.5.1.9 NAME,False,already a curated keyword
+KFA,True,formylase,EC 3.5.1.9 NAME,False,dedicated step: does not name the substrate
+KFA,True,formylkynureninase,EC 3.5.1.9 NAME,False,dedicated step: does not name the substrate
+KFA,True,formamidase I,EC 3.5.1.9 NAME,False,dedicated step: does not name the substrate
+KFA,True,formamidase II,EC 3.5.1.9 NAME,False,dedicated step: does not name the substrate
+KFA,True,aryl-formylamine amidohydrolase,EC 3.5.1.9 SYSNAME,False,dedicated step: does not name the substrate
+KYNU,True,L-kynurenine hydrolase,EC 3.7.1.3 SYSNAME,True,added
+KYNU,True,kynureninase,EC 3.7.1.3 NAME,False,already a curated keyword
+KAT,True,kynurenine---oxoglutarate transaminase,EC 2.6.1.7 NAME,True,added
+KAT,True,kynurenine 2-oxoglutarate transaminase,EC 2.6.1.7 NAME,True,added
+KAT,True,L-kynurenine:2-oxoglutarate aminotransferase,EC 2.6.1.7 SYSNAME,True,added
+KAT,True,kynurenine transaminase (cyclizing),EC 2.6.1.7 NAME,False,already a curated keyword
+KAT,True,kynurenine aminotransferase,EC 2.6.1.7 NAME,False,already a curated keyword
+KAT,True,L-kynurenine aminotransferase,EC 2.6.1.7 NAME,False,already a curated keyword
+IAAM,True,L-tryptophan:oxygen 2-oxidoreductase,EC 1.13.12.3 SYSNAME,True,added
+IAAM,True,tryptophan 2-monooxygenase,EC 1.13.12.3 NAME,False,already a curated keyword
+IAAM,True,tms1 (gene name),EC 1.13.12.3 NAME,False,abbreviation
+IAAM,True,iaaM (gene name),EC 1.13.12.3 NAME,False,abbreviation
+TRP_AT,True,5-hydroxytryptophan-ketoglutaric transaminase,EC 2.6.1.27 NAME,True,added
+TRP_AT,True,hydroxytryptophan aminotransferase,EC 2.6.1.27 NAME,True,added
+TRP_AT,True,L-tryptophan:2-oxoglutarate aminotransferase,EC 2.6.1.27 SYSNAME,True,added
+TRP_AT,True,tryptophan transaminase,EC 2.6.1.27 NAME,False,already a curated keyword
+TRP_AT,True,L-phenylalanine-2-oxoglutarate aminotransferase,EC 2.6.1.27 NAME,False,dedicated step: does not name the substrate
+TRP_AT,True,tryptophan aminotransferase,EC 2.6.1.27 NAME,False,already a curated keyword
+TRP_AT,True,L-tryptophan aminotransferase,EC 2.6.1.27 NAME,False,already a curated keyword
+TRP_AT,True,L-tryptophan transaminase,EC 2.6.1.27 NAME,False,already a curated keyword
+TAL,True,tyrosine ammonia-lyase,EC 4.3.1.23 NAME,True,added
+TAL,True,phenylalanine/tyrosine ammonia-lyase,EC 4.3.1.25 NAME,True,added
+TAL,True,TAL,EC 4.3.1.23 NAME,False,abbreviation
+TAL,True,tyrase,EC 4.3.1.23 NAME,False,abbreviation
+TAL,True,PTAL,EC 4.3.1.25 NAME,False,abbreviation
+TAL,True,bifunctional PAL,EC 4.3.1.25 NAME,False,dedicated step: does not name the substrate
+TAL,True,L-phenylalanine(or L-tyrosine):trans-cinnamate(or trans-p-hydroxycinnamate) ammonia-lyase,EC 4.3.1.25 SYSNAME,False,dedicated step: does not name the substrate
+TPL,True,tyrosine phenol-lyase,EC 4.1.99.2 NAME,True,added
+TPL,True,beta-tyrosinase,EC 4.1.99.2 NAME,False,dedicated step: does not name the substrate
+CTRL_glnA,False,glutamate---ammonia ligase,EC 6.3.1.2 NAME,True,added
+CTRL_glnA,False,glutamylhydroxamic synthetase,EC 6.3.1.2 NAME,True,added
+CTRL_glnA,False,L-glutamate:ammonia ligase,EC 6.3.1.2 SYSNAME,True,added
+CTRL_glnA,False,glutamine synthetase,EC 6.3.1.2 NAME,False,already a curated keyword
+CTRL_glnA,False,L-glutamine synthetase,EC 6.3.1.2 NAME,False,already a curated keyword
+CTRL_glnA,False,GS,EC 6.3.1.2 NAME,False,abbreviation
+CTRL_BCAT,False,branched-chain-amino-acid transaminase,EC 2.6.1.42 NAME,True,added
+CTRL_BCAT,False,branched-chain amino acid aminotransferase,EC 2.6.1.42 NAME,True,added
+CTRL_BCAT,False,branched-chain amino acid-glutamate transaminase,EC 2.6.1.42 NAME,True,added
+CTRL_BCAT,False,branched-chain aminotransferase,EC 2.6.1.42 NAME,True,added
+CTRL_BCAT,False,L-branched chain amino acid aminotransferase,EC 2.6.1.42 NAME,True,added
+CTRL_BCAT,False,glutamate-branched-chain amino acid transaminase,EC 2.6.1.42 NAME,True,added
+CTRL_BCAT,False,branched-chain-amino-acid:2-oxoglutarate aminotransferase,EC 2.6.1.42 SYSNAME,True,added
+CTRL_BCAT,False,transaminase B,EC 2.6.1.42 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+CTRL_HisC,False,histidinol-phosphate transaminase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,imidazolylacetolphosphate transaminase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,glutamic-imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,histidinol phosphate aminotransferase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,histidine:imidazoleacetol phosphate transaminase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,IAP transaminase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,imidazolylacetolphosphate aminotransferase,EC 2.6.1.9 NAME,True,added
+CTRL_HisC,False,L-histidinol-phosphate:2-oxoglutarate aminotransferase,EC 2.6.1.9 SYSNAME,True,added
+CTRL_AspAT,False,aspartate transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamic-oxaloacetic transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamic-aspartic transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,2-oxoglutarate-glutamate aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,aspartate alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,aspartate-2-oxoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,aspartic acid aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,aspartyl aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamate-oxalacetate aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamate-oxalate transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamic-aspartic aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamic-oxalacetic transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamic oxalic transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,L-aspartate-alpha-ketoglutarate transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,L-aspartate-2-ketoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,L-aspartate-2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,L-aspartate-2-oxoglutarate-transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,oxaloacetate-aspartate aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,oxaloacetate transferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,aspartate:2-oxoglutarate aminotransferase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,glutamate oxaloacetate transaminase,EC 2.6.1.1 NAME,True,added
+CTRL_AspAT,False,transaminase A,EC 2.6.1.1 NAME,False,"no specific word (only class / generic words, e.g. 'transaminase A', 'P-protein')"
+CTRL_AspAT,False,AAT,EC 2.6.1.1 NAME,False,abbreviation
+CTRL_AspAT,False,AspT,EC 2.6.1.1 NAME,False,abbreviation
+CTRL_AspAT,False,AST (ambiguous),EC 2.6.1.1 NAME,False,KEGG marks it (ambiguous)
+CTRL_AspAT,False,GOT (enzyme) [ambiguous],EC 2.6.1.1 NAME,False,KEGG marks it [ambiguous]
+NEG_tnaA,True,L-tryptophan indole-lyase,EC 4.1.99.1 NAME,True,added
+NEG_tnaA,True,tryptophanase,EC 4.1.99.1 NAME,False,already a curated keyword
+NEG_tnaA,True,L-tryptophanase,EC 4.1.99.1 NAME,False,already a curated keyword
+NEG_tnaA,True,TNase,EC 4.1.99.1 NAME,False,abbreviation
+NEG_TPL,True,tyrosine phenol-lyase,EC 4.1.99.2 NAME,True,added
+NEG_TPL,True,beta-tyrosinase,EC 4.1.99.2 NAME,False,dedicated step: does not name the substrate
+NEG_astB,True,N-succinylarginine dihydrolase,EC 3.5.3.23 NAME,True,added
+NEG_astB,True,N2-succinylarginine dihydrolase,EC 3.5.3.23 NAME,True,added
+NEG_astB,True,arginine succinylhydrolase,EC 3.5.3.23 NAME,False,dedicated step: does not name the substrate
+NEG_astB,True,SADH,EC 3.5.3.23 NAME,False,abbreviation
+NEG_astB,True,AruB,EC 3.5.3.23 NAME,False,abbreviation
+NEG_astB,True,AstB,EC 3.5.3.23 NAME,False,abbreviation
+NEG_astB,True,2-N-succinyl-L-arginine iminohydrolase (decarboxylating),EC 3.5.3.23 NAME,False,dedicated step: does not name the substrate
+NEG_astB,True,N2-succinyl-L-arginine iminohydrolase (decarboxylating),EC 3.5.3.23 SYSNAME,False,dedicated step: does not name the substrate

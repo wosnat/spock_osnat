@@ -17,63 +17,16 @@ Run (repo root): uv run python analyses/2026-11-04-aa_utilization_genomics/metho
 """
 from __future__ import annotations
 
-import json
 import re
-import time
-import urllib.request
 from pathlib import Path
 
 import pandas as pd
 from multiomics_explorer import ontology_term_details, search_ontology
 
+from kegg_rest import chunks, kegg, parse_flat  # moved out of this file (shared with 01)
+
 MDIR = Path(__file__).resolve().parents[1]
 DATA = MDIR / "data"
-CACHE = DATA / "kegg_cache"
-BASE = "https://rest.kegg.jp"
-
-
-def kegg(op: str) -> str:
-    """GET https://rest.kegg.jp/<op>, cached on disk."""
-    CACHE.mkdir(parents=True, exist_ok=True)
-    f = CACHE / (re.sub(r"[^A-Za-z0-9.+_-]", "_", op)[:180] + ".txt")
-    if f.exists():
-        return f.read_text(encoding="utf-8")
-    for attempt in range(3):
-        try:
-            with urllib.request.urlopen(f"{BASE}/{op}", timeout=60) as r:
-                txt = r.read().decode("utf-8")
-            break
-        except Exception as e:  # noqa: BLE001
-            if attempt == 2:
-                raise RuntimeError(f"KEGG REST failed for {op}: {e}") from e
-            time.sleep(3)
-    f.write_text(txt, encoding="utf-8")
-    time.sleep(0.5)  # be polite
-    return txt
-
-
-def chunks(xs, n=10):
-    for i in range(0, len(xs), n):
-        yield xs[i:i + n]
-
-
-def parse_flat(txt: str) -> list[dict]:
-    """Split a KEGG flat-file multi-entry response into {FIELD: text} dicts."""
-    out = []
-    for block in txt.split("///"):
-        if not block.strip():
-            continue
-        d, cur = {}, None
-        for line in block.splitlines():
-            if not line.strip():
-                continue
-            if line[:12].strip():
-                cur = line[:12].strip()
-                d[cur] = line[12:].strip()
-            elif cur:
-                d[cur] += " " + line[12:].strip()
-        out.append(d)
-    return out
 
 
 def main():
@@ -145,7 +98,7 @@ def main():
         for d in parse_flat(kegg("get/" + "+".join("ec:" + e for e in ch))):
             ent = d.get("ENTRY", "").split()
             ecid = ent[1] if len(ent) > 1 and ent[0] == "EC" else (ent[0] if ent else "")
-            ec_rows.append(dict(ec=ecid, ec_name=d.get("NAME", ""), kegg_reaction=d.get("REACTION", ""),
+            ec_rows.append(dict(ec=ecid, ec_name=d.get("NAME", ""), ec_sysname=d.get("SYSNAME", ""), kegg_reaction=d.get("REACTION", ""),
                                 all_reac=d.get("ALL_REAC", "")))
     ecdf = pd.DataFrame(ec_rows)
     missing_ec = sorted(set(ecs) - set(ecdf.ec))

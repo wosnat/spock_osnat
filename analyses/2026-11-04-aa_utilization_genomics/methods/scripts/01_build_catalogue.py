@@ -36,6 +36,9 @@ from pathlib import Path
 
 import pandas as pd
 
+from kegg_rest import complete_ecs, ec_entries, ec_id
+from product_match import agrees, ec_synonyms, matched_keyword, normalize
+
 MDIR = Path(__file__).resolve().parents[1]
 DATA = MDIR / "data"
 SPIKE = MDIR.parent / "spike" / "data" / "med4_n_release_catalogue.csv"
@@ -519,8 +522,8 @@ PRODUCT_KW = {
     "SAHH": ["adenosylhomocysteinase", "adenosylhomocysteine hydrolase"], "CBS": ["cystathionine beta-synthase"],
     "CTH": ["cystathionine gamma-lyase"], "PAL": ["phenylalanine ammonia", "phenylalanine/tyrosine ammonia"], "PHEDH": ["phenylalanine dehydrogenase"],
     "PHE_AT": AT, "PHHA": ["phenylalanine 4-hydroxylase", "phenylalanine hydroxylase", "phenylalanine-4-hydroxylase"],
-    "TYR_AT": AT, "PRODH": ["proline dehydrogenase", "proline oxidase", "proline utilization", "putA"],
-    "P5CDH": ["pyrroline-5-carboxylate dehydrogenase", "proline utilization", "putA"],
+    "TYR_AT": AT, "PRODH": ["proline dehydrogenase", "proline oxidase", "proline utilization"],
+    "P5CDH": ["pyrroline-5-carboxylate dehydrogenase", "proline utilization"],
     "SDA": ["serine dehydratase", "serine ammonia-lyase"], "SHMT": ["hydroxymethyltransferase"], "SER_AT": AT,
     "THR_DH": ["threonine dehydratase", "threonine ammonia-lyase", "serine/threonine dehydratase"],
     "LTAE": ["threonine aldolase"], "TDH": ["threonine 3-dehydrogenase", "threonine dehydrogenase"],
@@ -529,6 +532,30 @@ PRODUCT_KW = {
     "KYNU": ["kynureninase"], "KAT": ["kynurenine aminotransferase", "kynurenine transaminase", "kynurenine--oxoglutarate"], "IAAM": ["tryptophan 2-monooxygenase"], "IAAH": ["indoleacetamide hydrolase", "indole-3-acetamide hydrolase", "indoleacetamide amidase"],
     "TRP_AT": ["tryptophan aminotransferase", "tryptophan transaminase"], "TAL": ["tyrosine ammonia", "phenylalanine/tyrosine ammonia"], "TPL": ["phenol-lyase"],
 }
+
+# Substrate stems per DEDICATED step (and per expected-negative control): an EC-name synonym is added to a
+# dedicated step's keywords only if it names one of these (pass-2/3 rule: dedicated steps name the substrate).
+# Matching is on normalized text (product_match.normalize).
+STEP_SUBSTRATE = {
+    "ALD": ["alanine"], "ARGINASE": ["arginase", "arginine"], "ARGZ": ["arginine"], "ADI": ["arginine"],
+    "ASTA": ["arginine"], "ASTB": ["succinylarginine"], "ARUH": ["arginine"], "ASNASE": ["asparagin"],
+    "ASN_AT": ["asparagine"], "ASPA": ["aspartate", "aspartase"], "CYS_DESULF": ["cysteine"],
+    "CTH_CYS": ["cystathionine"], "CDO": ["cysteine"], "GLNASE": ["glutamin"], "GAD": ["glutam"],
+    "GABA_AT": ["aminobutyrate", "aminobutanoate", "gaba"], "GLMUT": ["methylaspartate", "glutamate mutase"],
+    "MAL": ["methylaspartate"], "HUTH": ["histidine"], "LEUDH": ["leucine"],
+    "CAD_AT": ["putrescine", "cadaverine", "diamine"], "DAVB": ["lysine"], "DAVA": ["aminopentanamid", "aminovaleramid"],
+    "LAT": ["lysine"], "LYSDH": ["lysine"], "LKR": ["lysine", "saccharopine", "aminoadipic"],
+    "SDH_SACCH": ["saccharopine", "aminoadipic"], "MGL": ["methionine"], "CBS": ["cystathionine"],
+    "CTH": ["cystathionine"], "PAL": ["phenylalanine"], "PHEDH": ["phenylalanine"], "PHHA": ["phenylalanin"],
+    "PRODH": ["proline"], "P5CDH": ["pyrroline-5-carboxylate", "glutamate-5-semialdehyde", "glutamate 5-semialdehyde",
+                                    "glutamate-gamma-semialdehyde", "glutamate gamma-semialdehyde"],
+    "SDA": ["serine"], "LTAE": ["threonine"], "TDH": ["threonine"],
+    "KBL": ["amino-3-oxobutanoate", "amino-3-ketobutyrate", "glycine"], "TNAA": ["tryptophan"],
+    "TDO": ["tryptophan", "indoleamine"], "KFA": ["kynurenine", "arylformamid"], "KYNU": ["kynuren"],
+    "KAT": ["kynurenine"], "IAAM": ["tryptophan"], "IAAH": ["indoleacetamide", "indole-3-acetamide"],
+    "TRP_AT": ["tryptophan"], "TAL": ["tyrosine"], "TPL": ["tyrosine", "phenol-lyase"],
+}
+CTRL_AS_STEP = {"NEG_tnaA": "TNAA", "NEG_TPL": "TPL", "NEG_astB": "ASTB"}  # expected negatives follow the dedicated rule
 
 # KEGG reaction ids per step (checked with rest.kegg.jp list/rn and link/ko/rn on 2026-11-04). Steps not
 # listed get their EC's main reactions in 02_validate_kos.py (kegg_rn_source = "EC main reactions").
@@ -600,6 +627,11 @@ FLAG_CHANGE_LOG = [
     ("GCS_P;GOGAT;GLMUT", "ko_groups", "any KO", "AND groups", "critic: multi-subunit steps"),
     ("ASN_AT;GABA_AT;CAD_AT;LAT;KAT;IAAH;TRP_AT", "product_keywords", "bare substrate word", "substrate + enzyme word", "delta critic pass 3"),
     ("TRP_AT", "observable", "computed over all KOs", "computed over credit-eligible KOs only (K14265 not in KG)", "delta critic pass 3"),
+    # --- pilot-exposed fixes (HOT1A3 / MIT9313 pilots), path to catalogue approval ---
+    ("ALL steps + controls", "product matching", "lower-case substring", "normalized substring (hyphen runs collapsed, L- word prefix dropped, whitespace collapsed)", "HOT1A3 pilot: glnA ACZ81_15545 product 'glutamate--ammonia ligase' vs KEGG name 'glutamate---ammonia ligase'"),
+    ("ALL steps + controls", "product_keywords", "curated keywords only", "curated keywords + filtered KEGG ENZYME NAME/SYSNAME synonyms of the step's EC(s); audit in ec_synonyms.csv", "HOT1A3 pilot: glnA ACZ81_15545 'glutamate--ammonia ligase' and phhA ACZ81_05485 'phenylalanine 4-monooxygenase' flagged by synonym gaps"),
+    ("dedicated steps + NEG controls", "ec synonym filter", "", "synonym must name the substrate (STEP_SUBSTRATE) and contain an enzyme word; KEGG-ambiguous, abbreviations, bare class words and names of other catalogue enzymes dropped", "keep pass-2/3 rules: dedicated steps name the substrate; class-generic products stay flagged"),
+    ("PRODH;P5CDH", "product_keywords", "proline dehydrogenase|...|putA", "'putA' removed", "'puta' is a substring of 'putative', so any 'putative ...' product on K00318/K00294/K13821 would have agreed"),
 ]
 
 # ---------------------------------------------------------------------------------------------
@@ -649,6 +681,56 @@ CTRL_KW = {"CTRL_glnA": ["glutamine synthetase"], "CTRL_BCAT": AT, "CTRL_HisC": 
            "NEG_astB": ["succinylarginine dihydrolase"]}
 
 
+# Class-generic products seen in the KG (MED4 / MIT9313 / HOT1A3 hits) that must never credit a dedicated step.
+GENERIC_PRODUCTS = ["aminotransferase class I and II family protein",
+                    "pyridoxal-phosphate-dependent aminotransferase family protein",
+                    "aminotransferase class I/II-fold pyridoxal phosphate-dependent enzyme",
+                    "Glu/Leu/Phe/Val dehydrogenase dimerization domain-containing protein",
+                    "FAD-dependent oxidoreductase", "hypothetical protein", "amidase", "HDOD domain-containing protein",
+                    "putative uncharacterized protein"]
+
+
+def add_ec_synonyms(steps: pd.DataFrame, ctrl: pd.DataFrame) -> pd.DataFrame:
+    """Add KEGG EC-name synonyms to product_keywords of steps and controls (in place); return the audit table."""
+    ecs = complete_ecs(list(steps.ec) + list(ctrl.ec))  # same EC set + batching as 02 -> same cache files
+    entries = {ec_id(d): d for d in ec_entries(ecs)}
+    missing = sorted(set(ecs) - set(entries))
+    assert not missing, f"KEGG ENZYME entries not returned: {missing}"
+    units = {}
+    for _, r in steps.drop_duplicates("step_key").iterrows():
+        units[r.step_key] = dict(curated=PRODUCT_KW[r.step_key], ecs=complete_ecs([r.ec]), dedicated=r.flag == DED,
+                                 stems=STEP_SUBSTRATE.get(r.step_key, []))
+    for _, c in ctrl.iterrows():
+        st = CTRL_AS_STEP.get(c.control_id)
+        units[c.control_id] = dict(curated=CTRL_KW[c.control_id], ecs=complete_ecs([c.ec]), dedicated=st is not None,
+                                   stems=STEP_SUBSTRATE.get(st, []))
+    for k, u in units.items():
+        if u["dedicated"]:
+            assert u["stems"], f"dedicated unit {k} has no substrate stems"
+    audit, syn = [], {}
+    for k, u in units.items():
+        foreign = {normalize(w) for k2, u2 in units.items() if k2 != k and not (set(u2["ecs"]) & set(u["ecs"]))
+                   for w in u2["curated"]}
+        added, dropped = ec_synonyms(u["ecs"], entries, dedicated=u["dedicated"], stems=u["stems"], foreign=foreign,
+                                     curated=u["curated"])
+        syn[k] = [a for a, _ in added]
+        audit += [dict(unit=k, dedicated_rule=u["dedicated"], candidate=a, source=src, kept=True, reason="added")
+                  for a, src in added]
+        audit += [dict(unit=k, dedicated_rule=u["dedicated"], candidate=c, source=src, kept=False, reason=why)
+                  for c, src, why in dropped]
+    steps["product_keywords_curated"] = steps.step_key.map(lambda k: "|".join(PRODUCT_KW[k]))
+    steps["ec_synonyms"] = steps.step_key.map(lambda k: "|".join(syn[k]))
+    steps["product_keywords"] = steps.step_key.map(lambda k: "|".join(PRODUCT_KW[k] + syn[k]))
+    ctrl["product_keywords_curated"] = ctrl.control_id.map(lambda c: "|".join(CTRL_KW[c]))
+    ctrl["ec_synonyms"] = ctrl.control_id.map(lambda c: "|".join(syn[c]))
+    ctrl["product_keywords"] = ctrl.control_id.map(lambda c: "|".join(CTRL_KW[c] + syn[c]))
+    # pass-2 rule must survive the synonyms: a class-generic product never agrees with a dedicated step
+    for _, r in steps[steps.flag == DED].drop_duplicates("step_key").iterrows():
+        for gp in GENERIC_PRODUCTS:
+            assert not agrees(gp, r.product_keywords), (r.step_key, gp, matched_keyword(gp, r.product_keywords))
+    return pd.DataFrame(audit)
+
+
 def main():
     ctrl = pd.DataFrame(CONTROLS, columns=["control_type", "control_id", "step_name", "kos", "ec",
                                            "source_ref", "rank_or_tier", "rationale"])
@@ -679,6 +761,11 @@ def main():
                              n_neutral_pathway=N_NEUTRAL.get(p["pathway_id"], ""),
                              assess_note=ASSESS_NOTE.get(p["pathway_id"], "")))
     steps = pd.DataFrame(rows)
+    syn_audit = add_ec_synonyms(steps, ctrl)
+    ctrl.to_csv(DATA / "proposed_controls.csv", index=False, encoding="utf-8")
+    syn_audit.to_csv(DATA / "ec_synonyms.csv", index=False, encoding="utf-8")
+    print("EC synonyms: candidates", len(syn_audit), "| added", int(syn_audit.kept.sum()), "| dropped by reason",
+          syn_audit[~syn_audit.kept].reason.value_counts().to_dict())
 
     # --- invariants of the v5 rules ---
     for pid, g in steps.groupby("pathway_id"):

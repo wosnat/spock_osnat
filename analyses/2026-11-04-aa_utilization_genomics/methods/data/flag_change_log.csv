@@ -40,3 +40,7 @@ row_id,step_key,field,old,new,reason,date,superseded_by
 39,GCS_P;GOGAT;GLMUT,ko_groups,any KO,AND groups,critic: multi-subunit steps,2026-11-04,
 40,ASN_AT;GABA_AT;CAD_AT;LAT;KAT;IAAH;TRP_AT,product_keywords,bare substrate word,substrate + enzyme word,delta critic pass 3,2026-11-04,
 41,TRP_AT,observable,computed over all KOs,computed over credit-eligible KOs only (K14265 not in KG),delta critic pass 3,2026-11-04,
+42,ALL steps + controls,product matching,lower-case substring,"normalized substring (hyphen runs collapsed, L- word prefix dropped, whitespace collapsed)",HOT1A3 pilot: glnA ACZ81_15545 product 'glutamate--ammonia ligase' vs KEGG name 'glutamate---ammonia ligase',2026-11-04,
+43,ALL steps + controls,product_keywords,curated keywords only,curated keywords + filtered KEGG ENZYME NAME/SYSNAME synonyms of the step's EC(s); audit in ec_synonyms.csv,HOT1A3 pilot: glnA ACZ81_15545 'glutamate--ammonia ligase' and phhA ACZ81_05485 'phenylalanine 4-monooxygenase' flagged by synonym gaps,2026-11-04,
+44,dedicated steps + NEG controls,ec synonym filter,,"synonym must name the substrate (STEP_SUBSTRATE) and contain an enzyme word; KEGG-ambiguous, abbreviations, bare class words and names of other catalogue enzymes dropped",keep pass-2/3 rules: dedicated steps name the substrate; class-generic products stay flagged,2026-11-04,
+45,PRODH;P5CDH,product_keywords,proline dehydrogenase|...|putA,'putA' removed,"'puta' is a substring of 'putative', so any 'putative ...' product on K00318/K00294/K13821 would have agreed",2026-11-04,
