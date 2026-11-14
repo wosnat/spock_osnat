@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><path d="M858.0,56 L858.0,34 L306.0,34 L306.0,54" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="700" viewBox="0 0 960 700" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m4a5a6c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5a6c"/></marker><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker><marker id="mb0397a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0397a"/></marker><marker id="m8a6200" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a6200"/></marker><marker id="m0b7f99" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7f99"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><path d="M858.0,56 L858.0,34 L306.0,34 L306.0,54" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
 <rect x="410" y="22" width="336" height="22" fill="#ffffff"/>
 <text x="582.0" y="38" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">corrections loop back: iterate, redo, reopen; all recorded</text>
 <polygon points="218,58 390,58 402,76.0 390,94 218,94 218,76.0" fill="#0b0b0b"/>
@@ -91,37 +91,37 @@
 <text x="779" y="397.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">claims added after</text>
 <text x="779" y="414.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">review get a delta</text>
 <text x="779" y="431.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">pass</text>
-<rect x="12" y="450" width="200" height="70" rx="6" fill="#e2e2e2" stroke="none" stroke-width="1.5"/>
-<circle cx="30" cy="485.0" r="10.5" fill="#0b0b0b" stroke="#fff" stroke-width="1.5"/>
+<rect x="12" y="450" width="200" height="70" rx="6" fill="#f6e7ef" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="485.0" r="10.5" fill="#b0397a" stroke="#fff" stroke-width="1.5"/>
 <text x="30" y="489.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">5</text>
-<text x="48" y="480.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Describe before</text>
-<text x="48" y="499.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">interpreting</text>
+<text x="48" y="480.5" font-size="15" font-weight="bold" font-style="normal" fill="#b0397a" text-anchor="start">Describe before</text>
+<text x="48" y="499.5" font-size="15" font-weight="bold" font-style="normal" fill="#b0397a" text-anchor="start">interpreting</text>
 <rect x="218" y="450" width="176" height="70" rx="6" fill="#ffffff" stroke="#c9c8c2" stroke-width="1" stroke-dasharray="3,3"/>
-<rect x="402" y="450" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<rect x="402" y="450" width="176" height="70" rx="6" fill="#faf3f7" stroke="#b0397a" stroke-width="1.2"/>
 <text x="411" y="481.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">numbers and direction</text>
 <text x="411" y="498.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">first</text>
-<rect x="586" y="450" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<rect x="586" y="450" width="176" height="70" rx="6" fill="#faf3f7" stroke="#b0397a" stroke-width="1.2"/>
 <text x="595" y="481.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">“all”, “every” checked</text>
 <text x="595" y="498.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">against the data file</text>
-<rect x="770" y="450" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<rect x="770" y="450" width="176" height="70" rx="6" fill="#faf3f7" stroke="#b0397a" stroke-width="1.2"/>
 <text x="779" y="473.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">tables, not prose;</text>
 <text x="779" y="490.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">strong words only at</text>
 <text x="779" y="507.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">evaluation</text>
-<rect x="12" y="526" width="200" height="70" rx="6" fill="#e2e2e2" stroke="none" stroke-width="1.5"/>
-<circle cx="30" cy="561.0" r="10.5" fill="#0b0b0b" stroke="#fff" stroke-width="1.5"/>
+<rect x="12" y="526" width="200" height="70" rx="6" fill="#f1ece0" stroke="none" stroke-width="1.5"/>
+<circle cx="30" cy="561.0" r="10.5" fill="#8a6200" stroke="#fff" stroke-width="1.5"/>
 <text x="30" y="565.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">6</text>
-<text x="48" y="556.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Scripts + full</text>
-<text x="48" y="575.5" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">history</text>
-<rect x="218" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<text x="48" y="556.5" font-size="15" font-weight="bold" font-style="normal" fill="#8a6200" text-anchor="start">Scripts + full</text>
+<text x="48" y="575.5" font-size="15" font-weight="bold" font-style="normal" fill="#8a6200" text-anchor="start">history</text>
+<rect x="218" y="526" width="176" height="70" rx="6" fill="#f8f6f0" stroke="#8a6200" stroke-width="1.2"/>
 <text x="227" y="557.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">each design-review</text>
 <text x="227" y="574.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">round committed</text>
-<rect x="402" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<rect x="402" y="526" width="176" height="70" rx="6" fill="#f8f6f0" stroke="#8a6200" stroke-width="1.2"/>
 <text x="411" y="557.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">all computation in</text>
 <text x="411" y="574.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">scripts, not chat</text>
-<rect x="586" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<rect x="586" y="526" width="176" height="70" rx="6" fill="#f8f6f0" stroke="#8a6200" stroke-width="1.2"/>
 <text x="595" y="557.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">critic findings and</text>
 <text x="595" y="574.5" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">dispositions saved</text>
-<rect x="770" y="526" width="176" height="70" rx="6" fill="#f0f0f0" stroke="#0b0b0b" stroke-width="1.2"/>
+<rect x="770" y="526" width="176" height="70" rx="6" fill="#f8f6f0" stroke="#8a6200" stroke-width="1.2"/>
 <text x="779" y="549.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">every iteration</text>
 <text x="779" y="566.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">committed, never</text>
 <text x="779" y="583.0" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">amended</text>

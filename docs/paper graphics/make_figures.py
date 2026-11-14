@@ -20,6 +20,7 @@ OUT = Path(__file__).parent
 INK, INK2, LINE, BG = "#0b0b0b", "#52514e", "#c9c8c2", "#ffffff"
 BLUE, ORANGE, AQUA, VIOLET, RED = "#2a78d6", "#eb6834", "#1baf7a", "#6250d6", "#e34948"
 AQUA_TXT = "#0d7a53"  # aqua darkened for text on white
+MAGENTA, OCHRE = "#b0397a", "#8a6200"  # Fig 1 concepts 5-6 (no role meaning)
 FONT = "Helvetica, Arial, 'Segoe UI', sans-serif"
 MIN_FONT = 13
 
@@ -46,7 +47,8 @@ def wrap(s, width, size, k=0.5):
 class SVG:
     def __init__(self, w, h):
         self.w, self.h, self.parts = w, h, []
-        self.colors = {INK, INK2, BLUE, ORANGE, AQUA, AQUA_TXT, VIOLET, RED}
+        self.colors = {INK, INK2, BLUE, ORANGE, AQUA, AQUA_TXT, VIOLET, RED, MAGENTA, OCHRE,
+                       SLATE, TEAL}
 
     def add(self, s):
         self.parts.append(s)
@@ -91,7 +93,7 @@ class SVG:
         print("wrote", OUT / name)
 
 
-CONCEPT_COLORS = [BLUE, ORANGE, AQUA_TXT, VIOLET, INK, INK]   # Fig 1 rows 1-6
+CONCEPT_COLORS = [BLUE, ORANGE, AQUA_TXT, VIOLET, MAGENTA, OCHRE]   # Fig 1 rows 1-6
 CONCEPT_SHORT = ["KG is the only data source", "pre-registered framing",
                  "doing split from judging", "fresh-context critic",
                  "describe before interpreting", "scripts + full history"]
@@ -109,37 +111,37 @@ def cbadge(s, cx, cy, n):
 ROWS = [
     ("Facts from model memory",
      "gene names, values and experiments recalled, not queried",
-     "The KG is the sole data source", BLUE,
+     "The knowledge graph (KG) is the sole data source", BLUE,
      "Every claim must trace to a KG query. Never rely on intrinsic knowledge for data.",
-     "Rule 1 · findings tagged [KG] / [interpretation] / [gap]"),
+     "Each finding is tagged: from the KG, interpretation, or a gap in the KG"),
     ("Confirming the hoped-for result",
      "success criteria chosen after the data are seen",
      "Pre-registered framing, locked before data", ORANGE,
      "…a pre-registered expected-negative — a class that should not score if the signal is "
      "genuine.",
-     "Rule 8 · also a statistics plan and a named validation set"),
+     "Also fixed in advance: the statistical test and genes of known expected behavior"),
     ("Narrated, not measured",
-     "a summary says “all 5 are UP”; the data file disagrees",
+     "the agent's own summary is trusted; its output files are never opened",
      "Execution separated from judgment", AQUA_TXT,
-     "You execute; the main thread judges. You return artifacts, not conclusions.",
-     "kg-coder agent · the judge reads the real files"),
+     "You execute; the main [agent] judges. You return artifacts, not conclusions.",
+     "A coding sub-agent runs the scripts; the main agent judges from the output files"),
     ("Grading one's own story",
      "the author cannot see the holes in their own narrative",
      "Independent fresh-context critic", VIOLET,
      "The author who wrote the story cannot reliably see its holes; a fresh reader of the "
      "data files can.",
-     "critic gate · Blockers resolved before the researcher sees the work"),
+     "A separate agent, new to the analysis, must clear each result before the researcher sees it"),
     ("Overclaiming",
      "the language outruns the evidence",
-     "Describe before interpreting", INK,
+     "Describe before interpreting", MAGENTA,
      "Words like “all”, “every”, “systematically” … require a query against the data file, "
      "not a heatmap glance.",
-     "Rule 9 · “striking”, “central finding” banned until evaluation"),
+     "Evaluative words such as “striking” are held back until the final evaluation step"),
     ("Untraceable results",
      "arithmetic in chat; analyses silently revised",
-     "Scripts and a complete history", INK,
+     "Scripts and a complete history", OCHRE,
      "Chat-computed statistics are unreproducible — they can't be rerun, verified, or shared.",
-     "Rule 5 · every iteration committed, never amended"),
+     "All computation in saved scripts; every iteration committed to git, never rewritten"),
 ]
 
 
@@ -148,7 +150,7 @@ def figure1():
     xr, wr = 12, 300          # risk column
     xc, wc = 352, 596         # concept column
     s.text(xr + 4, 28, "Threat to validity", size=16, weight="bold", fill=RED)
-    s.text(xc + 4, 28, "Spock concept — in the skill's own words", size=16, weight="bold")
+    s.text(xc + 4, 28, "Spock safeguard — quoted from its instructions to the AI", size=16, weight="bold")
 
     y, rh, gap = 42, 92, 8
     for n, (risk, gloss, concept, c, quote, src) in enumerate(ROWS, 1):
@@ -162,7 +164,6 @@ def figure1():
         s.rect(xc, y, wc, rh, stroke=c, fill=tint(c, 0.06), sw=1.5)
         s.add(f'<rect x="{xc}" y="{y}" width="4" height="{rh}" fill="{c}"/>')
         s.text(xc + 16, y + 25, concept, size=16, weight="bold", fill=c)
-        cbadge(s, xc + wc - 20, y + 20, n)
         yy = s.para(xc + 16, y + 47, f"“{quote}”", wc - 30, size=14, style="italic")
         s.text(xc + 16, yy + 1, src, size=13, fill=INK2)
         y += rh + gap
@@ -172,6 +173,695 @@ def figure1():
            "and approves it; the assistant never closes a step alone.",
            size=14, weight="bold", fill=INK, anchor="middle")
     s.save("fig1_concepts.svg")
+
+
+# ---------------------------------------------------------------- Figure 1b
+# Same safeguards as Figure 1; the left column is framed unmistakably as failure modes
+# (red header band, warning icon, threats phrased as what goes wrong).
+PROBLEMS = [
+    ("AI states facts from memory",
+     "gene names, values and experiments are recalled, not queried, and may be wrong"),
+    ("Criteria fitted to the result",
+     "success is defined after seeing the data, so any outcome can pass"),
+    ("Unchecked summaries",
+     "the AI's own summary is trusted; its output files are never opened"),
+    ("Self-grading",
+     "the AI that wrote the story also checks it, and misses its holes"),
+    ("Overclaiming",
+     "the wording outruns the evidence"),
+    ("Untraceable results",
+     "numbers computed in chat; analyses silently revised"),
+]
+RED_TXT = "#b3261e"  # red darkened for text on a light tint
+
+
+def warn_icon(s, x, y):
+    """Red warning triangle, top-left corner at (x, y), 22 wide."""
+    s.add(f'<polygon points="{x + 11},{y} {x + 22},{y + 19} {x},{y + 19}" fill="{RED}"/>')
+    s.text(x + 11, y + 16.5, "!", size=13, weight="bold", fill="#fff", anchor="middle")
+
+
+SLATE, TEAL = "#4a5a6c", "#0b7f99"
+# Fig 1b safeguard colours: nothing red-adjacent (red is reserved for the problem column).
+COLORS_1B = [BLUE, SLATE, AQUA_TXT, VIOLET, TEAL, OCHRE]
+
+
+def icon(s, kind, x, y, c):
+    """24x24 line icon in colour c, top-left at (x, y)."""
+    g = f'fill="none" stroke="{c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
+    if kind == "database":      # the KG
+        s.add(f'<g {g}><ellipse cx="{x + 12}" cy="{y + 5}" rx="9" ry="3.5"/>'
+              f'<path d="M{x + 3},{y + 5} V{y + 19} a9,3.5 0 0 0 18,0 V{y + 5}"/>'
+              f'<path d="M{x + 3},{y + 12} a9,3.5 0 0 0 18,0"/></g>')
+    elif kind == "lock":        # locked framing
+        s.add(f'<g {g}><path d="M{x + 7},{y + 11} V{y + 7} a5,5 0 0 1 10,0 V{y + 11}"/></g>'
+              f'<rect x="{x + 4}" y="{y + 11}" width="16" height="12" rx="2" fill="{c}"/>')
+    elif kind == "scales":      # judgment kept apart
+        s.add(f'<g {g}><path d="M{x + 12},{y + 3} V{y + 22} M{x + 7},{y + 22} H{x + 17} '
+              f'M{x + 3},{y + 6} H{x + 21} M{x + 3},{y + 6} L{x},{y + 14} M{x + 3},{y + 6} '
+              f'L{x + 6},{y + 14} M{x + 21},{y + 6} L{x + 18},{y + 14} M{x + 21},{y + 6} '
+              f'L{x + 24},{y + 14}"/>'
+              f'<path d="M{x},{y + 14} a3,2.5 0 0 0 6,0 Z M{x + 18},{y + 14} a3,2.5 0 0 0 6,0 Z" '
+              f'fill="{c}"/></g>')
+    elif kind == "magnifier":   # fresh reader
+        s.add(f'<g {g}><circle cx="{x + 10}" cy="{y + 10}" r="7"/>'
+              f'<path d="M{x + 15},{y + 15} L{x + 22},{y + 22}" stroke-width="3"/></g>')
+    elif kind == "bars":        # describe the data first
+        s.add(f'<g fill="{c}"><rect x="{x + 3}" y="{y + 13}" width="4.5" height="8"/>'
+              f'<rect x="{x + 10}" y="{y + 7}" width="4.5" height="14"/>'
+              f'<rect x="{x + 17}" y="{y + 2}" width="4.5" height="19"/></g>'
+              f'<path d="M{x + 1},{y + 22.5} H{x + 23}" {g}/>')
+    elif kind == "check":       # verified
+        s.add(f'<g {g}><circle cx="{x + 12}" cy="{y + 12}" r="10"/>'
+              f'<path d="M{x + 7},{y + 12.5} L{x + 10.5},{y + 16} L{x + 17},{y + 8.5}"/></g>')
+    elif kind == "code":        # everything in scripts
+        s.add(f'<path d="M{x + 7},{y + 6} L{x + 1},{y + 12} L{x + 7},{y + 18} '
+              f'M{x + 17},{y + 6} L{x + 23},{y + 12} L{x + 17},{y + 18} '
+              f'M{x + 14},{y + 3} L{x + 10},{y + 21}" {g}/>')
+
+
+ICONS_1B = ["database", "lock", "scales", "magnifier", "bars", "code"]
+
+
+def figure1b():
+    s = SVG(960, 706)
+    xr, wr = 12, 300          # problem column
+    xc, wc = 352, 596         # safeguard column
+    s.rect(xr, 8, wr, 32, stroke="none", fill=RED, rx=6)
+    s.text(xr + 14, 30, "What can go wrong", size=16, weight="bold", fill="#fff")
+    s.rect(xc, 8, wc, 32, stroke="none", fill=INK, rx=6)
+    s.text(xc + 16, 30, "How Spock prevents it", size=16, weight="bold", fill="#fff")
+    s.text(xc + wc - 14, 30, "quoted from its instructions to the AI", size=13,
+           fill="#e6e6e3", anchor="end", style="italic")
+
+    y, rh, gap = 54, 92, 8
+    for (prob, gloss), (_, _, concept, _, quote, src), c, ic in zip(
+            PROBLEMS, ROWS, COLORS_1B, ICONS_1B):
+        s.rect(xr, y, wr, rh, stroke=RED, fill=tint(RED, 0.08), sw=1.2, dash="5 3")
+        warn_icon(s, xr + 12, y + 13)
+        s.text(xr + 42, y + 29, prob, size=16, weight="bold", fill=RED_TXT)
+        s.para(xr + 14, y + 54, gloss, wr - 26, size=14, fill=INK2)
+
+        s.arrow([(xr + wr + 6, y + rh / 2), (xc - 8, y + rh / 2)], INK2, sw=2)
+
+        s.rect(xc, y, wc, rh, stroke=c, fill=tint(c, 0.06), sw=1.5)
+        s.add(f'<rect x="{xc}" y="{y}" width="4" height="{rh}" fill="{c}"/>')
+        s.text(xc + 16, y + 25, concept, size=16, weight="bold", fill=c)
+        icon(s, ic, xc + wc - 38, y + 10, c)
+        yy = s.para(xc + 16, y + 47, f"“{quote}”", wc - 30, size=14, style="italic")
+        s.text(xc + 16, yy + 1, src, size=13, fill=INK2)
+        y += rh + gap
+
+    s.rect(xr, y + 4, xc + wc - xr, 38, stroke=INK2, fill=tint(INK2, 0.08), rx=19)
+    s.text((xr + xc + wc) / 2, y + 28, "Throughout: the researcher agrees each step's scope "
+           "and approves it; the assistant never closes a step alone.",
+           size=14, weight="bold", fill=INK, anchor="middle")
+    s.save("fig1b_concepts.svg")
+
+
+# ---------------------------------------------------------------- Figure 1c
+# Six safeguards, ordered by research stage so the rows map onto Figure 2e.
+# (stage, problem, gloss, safeguard, colour, icon, verbatim quote, how it is enforced)
+# Quote sources: SKILL.md Rules 1, 5, 9 and the Plan framing; references/research-notebook.md
+# (toy-data verification); references/step-protocol.md GATE C.
+ROWS_1C = [
+    ("PLAN", "AI states facts from memory",
+     "gene names, values and experiments are recalled, not queried, and may be wrong",
+     "Grounded in the knowledge graph (KG)", BLUE, "database",
+     "Every claim must trace to a KG query. Never rely on intrinsic knowledge for data.",
+     "Each finding is tagged by source; gaps in the KG are flagged, not filled"),
+    ("PLAN", "Criteria fitted to the result",
+     "success is defined after seeing the data, so any outcome can pass",
+     "Pre-registered framing", SLATE, "lock",
+     "The validation set says what a hit looks like; this [expected-negative] says what a "
+     "miss looks like.",
+     "Also fixed: the statistics plan · changed only by a recorded reopening · nulls reported"),
+    ("METHOD", "Silent errors in the method",
+     "the tests pass, yet the code is wrong on the real data files",
+     "Methods verified before use", TEAL, "check",
+     "Create small synthetic input, compute expected output by hand, run the utility, compare.",
+     "Then a pilot against an independent answer key, and a random sample of every bin"),
+    ("ANALYSIS", "Grading one's own work",
+     "the AI that produced a result also judges it, and misses its holes",
+     "Doing, judging and reviewing kept apart", VIOLET, "scales",
+     "The author who wrote the story cannot reliably see its holes; a fresh reader of the "
+     "data files can.",
+     "A coding agent runs scripts, the main agent judges, a fresh-context critic reviews"),
+    ("CLAIMS", "Overclaiming",
+     "the wording outruns the evidence",
+     "Verify before generalizing", AQUA_TXT, "magnifier",
+     "Words like “all”, “every”, “systematically” … require a query against the data file, "
+     "not a heatmap glance.",
+     "Numbers and direction first; interpretive words wait for the evaluation step"),
+    ("RECORD", "Untraceable results",
+     "numbers computed in chat; earlier analyses silently overwritten",
+     "Scripts and a complete history", OCHRE, "code",
+     "Chat-computed statistics are unreproducible — they can't be rerun, verified, or shared.",
+     "Every iteration is committed; wrong turns stay in the history, never rewritten"),
+]
+
+
+def figure1c():
+    s = SVG(960, 722)
+    xr, wr = 12, 300          # problem column
+    xc, wc = 352, 596         # safeguard column
+    s.rect(xr, 8, wr, 32, stroke="none", fill=RED, rx=6)
+    s.text(xr + 14, 30, "What can go wrong", size=16, weight="bold", fill="#fff")
+    s.rect(xc, 8, wc, 32, stroke="none", fill=INK, rx=6)
+    s.text(xc + 16, 30, "How Spock prevents it", size=16, weight="bold", fill="#fff")
+    s.text(xc + wc - 14, 30, "quoted from its instructions to the AI", size=13,
+           fill="#e6e6e3", anchor="end", style="italic")
+
+    y, rh, gap = 52, 96, 7
+    for stage, prob, gloss, concept, c, ic, quote, how in ROWS_1C:
+        s.rect(xr, y, wr, rh, stroke=RED, fill=tint(RED, 0.08), sw=1.2, dash="5 3")
+        s.text(xr + 14, y + 19, stage, size=13, weight="bold", fill=INK2)
+        warn_icon(s, xr + 12, y + 27)
+        s.text(xr + 42, y + 43, prob, size=16, weight="bold", fill=RED_TXT)
+        s.para(xr + 14, y + 66, gloss, wr - 26, size=14, fill=INK2)
+
+        s.arrow([(xr + wr + 6, y + rh / 2), (xc - 8, y + rh / 2)], INK2, sw=2)
+
+        s.rect(xc, y, wc, rh, stroke=c, fill=tint(c, 0.06), sw=1.5)
+        s.add(f'<rect x="{xc}" y="{y}" width="4" height="{rh}" fill="{c}"/>')
+        s.text(xc + 16, y + 25, concept, size=16, weight="bold", fill=c)
+        icon(s, ic, xc + wc - 38, y + 10, c)
+        yy = s.para(xc + 16, y + 48, f"“{quote}”", wc - 60, size=14, style="italic")
+        s.text(xc + 16, yy + 3, how, size=13, fill=INK2)
+        y += rh + gap
+
+    s.rect(xr, y + 3, xc + wc - xr, 38, stroke=INK2, fill=tint(INK2, 0.08), rx=19)
+    s.text((xr + xc + wc) / 2, y + 27, "Throughout: the researcher agrees each step's scope "
+           "and approves it; the assistant never closes a step alone.",
+           size=14, weight="bold", fill=INK, anchor="middle")
+    s.save("fig1c_concepts.svg")
+
+
+# ---------------------------------------------------------------- Figure 1e
+# Figure 1c aligned with Figure 2h: safeguard names = the Fig 2h legend, stages = Fig 2h stages,
+# plain-language enforcement lines, and the plainest verbatim quote from each rule
+# (SKILL.md Rule 1; Plan framing "A null is a valid outcome"; research-notebook.md toy-data
+# verification; step-protocol.md GATE C; Rule 9 "Describe before interpreting"; Rule 5).
+ROWS_1E = [
+    ("PLAN", "AI states facts from memory",
+     "gene names, values and experiments are recalled rather than looked up",
+     "KG data only", BLUE, "database",
+     "Every claim must trace to a KG query. Never rely on intrinsic knowledge for data.",
+     "All data come from the knowledge graph (KG); gaps are flagged, not filled"),
+    ("PLAN", "Criteria fitted to the result",
+     "success is defined after seeing the data, so any outcome can pass",
+     "Criteria set first", SLATE, "lock",
+     "A null is a valid outcome.",
+     "Controls and statistical tests are fixed in a frozen plan (Fig. 2B); any change is recorded"),
+    ("BUILD METHOD", "Silent errors in the method",
+     "the tests pass, yet the code is wrong on the real data",
+     "Method tested", TEAL, "check",
+     "Create small synthetic input, compute expected output by hand, run [the code], compare.",
+     "Then checked against answers built independently, and on random samples of output"),
+    ("ANALYSE", "Grading one's own work",
+     "the AI that produced a result also judges it, and misses its holes",
+     "Doing ≠ judging", VIOLET, "scales",
+     "The author who wrote the story cannot reliably see its holes; a fresh reader of the "
+     "data files can.",
+     "One AI runs the code, another judges the output, a third, new to the work, reviews"),
+    ("EVALUATE", "Overclaiming",
+     "the wording outruns the evidence",
+     "Claims checked", AQUA_TXT, "magnifier",
+     "Numbers and direction first, interpretation second.",
+     "Words such as “all” or “every” must be checked against the data first"),
+    ("THROUGHOUT", "Untraceable results",
+     "numbers computed in chat; earlier analyses silently overwritten",
+     "Full history", OCHRE, "code",
+     "Chat-computed statistics are unreproducible — they can't be rerun, verified, or shared.",
+     "All computation in saved scripts; every version kept, never overwritten"),
+]
+
+
+def figure1e():
+    s = SVG(960, 722)
+    xr, wr = 12, 300
+    xc, wc = 352, 596
+    s.rect(xr, 8, wr, 32, stroke="none", fill=RED, rx=6)
+    s.text(xr + 14, 30, "What can go wrong", size=16, weight="bold", fill="#fff")
+    s.rect(xc, 8, wc, 32, stroke="none", fill=INK, rx=6)
+    s.text(xc + 16, 30, "How Spock prevents it", size=16, weight="bold", fill="#fff")
+    s.text(xc + wc - 14, 30, "quoted from its instructions to the AI", size=13,
+           fill="#e6e6e3", anchor="end", style="italic")
+
+    y, rh, gap = 52, 96, 7
+    for stage, prob, gloss, concept, c, ic, quote, how in ROWS_1E:
+        s.rect(xr, y, wr, rh, stroke=RED, fill=tint(RED, 0.08), sw=1.2, dash="5 3")
+        s.text(xr + 14, y + 19, stage, size=13, weight="bold", fill=INK2)
+        warn_icon(s, xr + 12, y + 27)
+        s.text(xr + 42, y + 43, prob, size=16, weight="bold", fill=RED_TXT)
+        s.para(xr + 14, y + 66, gloss, wr - 26, size=14, fill=INK2)
+
+        s.arrow([(xr + wr + 6, y + rh / 2), (xc - 8, y + rh / 2)], INK2, sw=2)
+
+        s.rect(xc, y, wc, rh, stroke=c, fill=tint(c, 0.06), sw=1.5)
+        s.add(f'<rect x="{xc}" y="{y}" width="4" height="{rh}" fill="{c}"/>')
+        s.text(xc + 16, y + 25, concept, size=16, weight="bold", fill=c)
+        icon(s, ic, xc + wc - 38, y + 10, c)
+        yy = s.para(xc + 16, y + 48, f"“{quote}”", wc - 60, size=14, style="italic")
+        s.text(xc + 16, yy + 3, how, size=13, fill=INK2)
+        y += rh + gap
+
+    s.rect(xr, y + 3, xc + wc - xr, 38, stroke=INK2, fill=tint(INK2, 0.08), rx=19)
+    s.text((xr + xc + wc) / 2, y + 27, "Throughout: the researcher approves every plan and "
+           "every stage; the AI never moves on alone.",
+           size=14, weight="bold", fill=INK, anchor="middle")
+    s.save("fig1e_concepts.svg")
+
+
+# ---------------------------------------------------------------- Figure 2f
+COLORS_1C = dict((r[5], r[4]) for r in ROWS_1C)   # icon kind -> safeguard colour (Fig 1c)
+
+
+def icon_badge(s, kind, cx, cy, r=11):
+    """Fig 1c safeguard icon in a white disc ringed in its colour."""
+    c = COLORS_1C[kind]
+    s.add(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#fff" stroke="{c}" stroke-width="1.8"/>')
+    k = (r * 1.35) / 24
+    s.add(f'<g transform="translate({cx - 12 * k},{cy - 12 * k}) scale({k})">')
+    icon(s, kind, 0, 0, c)
+    s.add("</g>")
+
+
+def figure2f():
+    """The research process as a swimlane flowchart: one lane per actor, the Plan, the lock,
+    and one Run milestone expanded (methods, analysis and evaluation each repeat it). Badges
+    mark where each Figure 1c safeguard acts. Sources: SKILL.md Rule 8,
+    references/step-protocol.md (gates, GATE C, reopen and redo paths), .claude/agents/*.md."""
+    W, H = 960, 646
+    s = SVG(W, H)
+
+    def node(x, y, w, h, lines, c, size=13):
+        s.rect(x, y, w, h, stroke=c, fill=tint(c, 0.12), rx=7, sw=1.5)
+        y0 = y + h / 2 - (len(lines) - 1) * size * 0.62 + size * 0.36
+        for i, ln in enumerate(lines):
+            s.text(x + w / 2, y0 + i * size * 1.24, ln, size=size, fill=INK, anchor="middle",
+                   weight="bold" if i == 0 else "normal")
+
+    def diamond(cx, cy, label, c, hw=40, hh=30):
+        s.add(f'<polygon points="{cx},{cy - hh} {cx + hw},{cy} {cx},{cy + hh} {cx - hw},{cy}" '
+              f'fill="{tint(c, 0.15)}" stroke="{c}" stroke-width="1.6"/>')
+        s.text(cx, cy + 4.5, label, size=13, weight="bold", anchor="middle")
+
+    def label(x, y, t, anchor="start", fill=INK2, bg=False):
+        if bg:
+            w = len(t) * 6.4 + 8
+            x0 = {"start": x - 4, "middle": x - w / 2, "end": x - w + 4}[anchor]
+            s.rect(x0, y - 12, w, 17, stroke="none", fill="#fff", rx=3)
+        s.text(x, y, t, size=13, fill=fill, anchor=anchor, style="italic")
+
+    def commit(x, y):
+        s.add(f'<circle cx="{x}" cy="{y}" r="5" fill="#fff" stroke="{OCHRE}" '
+              f'stroke-width="2.4"/>')
+
+    def vtext(x, y, t, c, size=14):
+        s.add(f'<text x="0" y="0" font-size="{size}" font-weight="bold" fill="{c}" '
+              f'text-anchor="middle" transform="translate({x},{y}) rotate(-90)">'
+              f'{escape(t)}</text>')
+
+    # lanes
+    lanes = [("Researcher", ORANGE, 50, 120), ("Main agent", INK2, 170, 140),
+             ("Coding agent", AQUA_TXT, 310, 110), ("Critic agent", VIOLET, 420, 110)]
+    for name, c, y, h in lanes:
+        s.rect(12, y, W - 24, h, stroke="none", fill=tint(c, 0.06), rx=0)
+        s.add(f'<line x1="12" y1="{y + h}" x2="{W - 12}" y2="{y + h}" stroke="{LINE}"/>')
+        s.add(f'<rect x="12" y="{y}" width="4" height="{h}" fill="{c}"/>')
+        vtext(44, y + h / 2, name, c)
+    s.add(f'<line x1="72" y1="50" x2="72" y2="530" stroke="{LINE}"/>')
+
+    # phase headers
+    s.rect(80, 10, 302, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(231, 30, "PLAN", size=14, weight="bold", anchor="middle")
+    s.rect(424, 10, 524, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(686, 30, "RUN — one milestone; methods, analysis, evaluation each repeat it",
+           size=14, weight="bold", anchor="middle")
+
+    # ---- Plan
+    node(88, 88, 104, 44, ["Research", "question"], ORANGE)
+    node(88, 212, 108, 56, ["List KG entries", "by query, not", "from memory"], INK2)
+    node(210, 212, 112, 56, ["Write framing:", "hit, miss,", "statistics plan"], INK2)
+    node(210, 447, 112, 56, ["Critic reads", "the plan cold"], VIOLET)
+    diamond(346, 110, "agree?", ORANGE, hw=34)
+    s.arrow([(140, 132), (140, 210)])
+    s.arrow([(196, 240), (208, 240)])
+    s.arrow([(266, 268), (266, 445)])
+    s.arrow([(322, 475), (346, 475), (346, 142)])
+    s.arrow([(312, 110), (238, 110), (238, 210)], dash="5 3")
+    label(275, 102, "changes", anchor="middle")
+    label(340, 336, "delta pass", anchor="end", fill=VIOLET)
+    label(340, 352, "after each", anchor="end", fill=VIOLET)
+    label(340, 368, "change", anchor="end", fill=VIOLET)
+    s.text(170, 370, "not used in planning", size=13, fill=INK2, anchor="middle",
+           style="italic")
+    icon_badge(s, "database", 199, 207)
+    icon_badge(s, "lock", 325, 207)
+
+    # ---- the lock
+    s.rect(392, 50, 22, 480, stroke="none", fill=INK, rx=4)
+    vtext(407, 300, "PROPOSAL LOCKED", "#fff", size=13)
+    s.arrow([(380, 110), (390, 110)], INK, sw=2)
+    commit(385, 96)
+    icon_badge(s, "lock", 403, 66)
+
+    # ---- Run (one milestone)
+    node(428, 88, 100, 44, ["Agree the", "scope"], ORANGE)
+    node(428, 337, 130, 56, ["Run scripts and", "KG queries; return", "files + facts only"],
+         AQUA_TXT)
+    node(588, 212, 116, 56, ["Read the real", "files; judge what", "they show"], INK2)
+    node(724, 447, 118, 56, ["Fresh critic", "re-checks claims", "against the files"], VIOLET)
+    diamond(890, 110, "approve?", ORANGE, hw=44)
+
+    s.arrow([(478, 132), (478, 335)])
+    s.arrow([(558, 365), (620, 365), (620, 270)])
+    label(589, 358, "manifest", anchor="middle")
+    s.arrow([(588, 232), (534, 232), (534, 335)], dash="5 3")
+    label(540, 290, "follow-ups")
+    s.arrow([(704, 250), (783, 250), (783, 445)])
+    s.arrow([(724, 490), (664, 490), (664, 270)], dash="5 3")
+    label(656, 452, "blockers: fix,", anchor="end")
+    label(656, 468, "or rebut with data", anchor="end")
+    s.arrow([(842, 475), (890, 475), (890, 142)])
+    label(896, 320, "clean", fill=VIOLET)
+    s.arrow([(890, 80), (890, 68), (478, 68), (478, 86)], dash="5 3")
+    label(684, 63, "no: iterate within the milestone, or redo it", anchor="middle")
+    s.arrow([(934, 110), (947, 110)], INK, sw=2)
+    label(940, 100, "yes", anchor="middle")
+    commit(940, 124)
+    commit(588, 268)
+
+    # reopen path: a data reveal reopens the locked plan, on the record
+    s.arrow([(646, 210), (646, 186), (296, 186), (296, 210)], INK, dash="2 3", sw=1.6)
+    label(548, 203, "data contradict the plan → recorded reopening", anchor="middle",
+          fill=INK, bg=True)
+
+    icon_badge(s, "check", 425, 332)
+    icon_badge(s, "database", 561, 332)
+    icon_badge(s, "code", 561, 398)
+    icon_badge(s, "magnifier", 708, 207)
+    icon_badge(s, "scales", 846, 442)
+
+    # ---- legend
+    y = 556
+    s.text(24, y + 5, "Safeguards (Fig. 1):", size=13, weight="bold")
+    x = 164
+    for kind, t in [("database", "KG only"), ("lock", "pre-registered"),
+                    ("check", "methods tested"), ("scales", "roles kept apart"),
+                    ("magnifier", "verify claims"), ("code", "scripts + history")]:
+        icon_badge(s, kind, x + 10, y, r=10)
+        s.text(x + 26, y + 5, t, size=13, fill=INK)
+        x += 129
+    y = 586
+    commit(30, y)
+    s.text(42, y + 5, "commit: every iteration and approval, never amended", size=13)
+    s.arrow([(420, y), (460, y)], INK2, dash="5 3")
+    s.text(468, y + 5, "loops back", size=13)
+    s.arrow([(572, y), (612, y)], INK, dash="2 3", sw=1.6)
+    s.text(620, y + 5, "reopening the locked plan", size=13)
+    s.rect(12, 606, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
+    s.text(W / 2, 625, "The researcher's gates (orange) open and close every step; "
+           "no agent closes a step alone.", size=13, weight="bold", anchor="middle")
+    s.save("fig2f_process_swimlanes.svg")
+
+
+# ---------------------------------------------------------------- Figure 2g
+def figure2g():
+    """Figure 2f simplified: two lanes (researcher, AI); the coding agent and the critic are
+    steps in the AI lane; only the three loops that matter for validity are drawn."""
+    W, H = 960, 428
+    s = SVG(W, H)
+
+    def node(x, y, w, h, lines, c, size=13):
+        s.rect(x, y, w, h, stroke=c, fill=tint(c, 0.12), rx=7, sw=1.5)
+        y0 = y + h / 2 - (len(lines) - 1) * size * 0.62 + size * 0.36
+        for i, ln in enumerate(lines):
+            s.text(x + w / 2, y0 + i * size * 1.24, ln, size=size, fill=INK, anchor="middle",
+                   weight="bold" if i == 0 else "normal")
+
+    def diamond(cx, cy, label, c, hw=40, hh=28):
+        s.add(f'<polygon points="{cx},{cy - hh} {cx + hw},{cy} {cx},{cy + hh} {cx - hw},{cy}" '
+              f'fill="{tint(c, 0.15)}" stroke="{c}" stroke-width="1.6"/>')
+        s.text(cx, cy + 4.5, label, size=13, weight="bold", anchor="middle")
+
+    def label(x, y, t, anchor="start", fill=INK2, bg=False):
+        if bg:
+            w = len(t) * 6.4 + 8
+            x0 = {"start": x - 4, "middle": x - w / 2, "end": x - w + 4}[anchor]
+            s.rect(x0, y - 12, w, 17, stroke="none", fill="#fff", rx=3)
+        s.text(x, y, t, size=13, fill=fill, anchor=anchor, style="italic")
+
+    def commit(x, y):
+        s.add(f'<circle cx="{x}" cy="{y}" r="5" fill="#fff" stroke="{OCHRE}" '
+              f'stroke-width="2.4"/>')
+
+    def vtext(x, y, t, c, size=14):
+        s.add(f'<text x="0" y="0" font-size="{size}" font-weight="bold" fill="{c}" '
+              f'text-anchor="middle" transform="translate({x},{y}) rotate(-90)">'
+              f'{escape(t)}</text>')
+
+    # lanes
+    for name, c, y, h in [("Researcher", ORANGE, 50, 110), ("AI", INK2, 160, 150)]:
+        s.rect(12, y, W - 24, h, stroke="none", fill=tint(c, 0.06), rx=0)
+        s.add(f'<line x1="12" y1="{y + h}" x2="{W - 12}" y2="{y + h}" stroke="{LINE}"/>')
+        s.add(f'<rect x="12" y="{y}" width="4" height="{h}" fill="{c}"/>')
+        vtext(44, y + h / 2, name, c)
+    s.add(f'<line x1="72" y1="50" x2="72" y2="310" stroke="{LINE}"/>')
+
+    # phase headers
+    s.rect(80, 10, 302, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(231, 30, "PLAN", size=14, weight="bold", anchor="middle")
+    s.rect(424, 10, 524, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(686, 30, "RUN — repeated for methods, analysis, evaluation",
+           size=14, weight="bold", anchor="middle")
+
+    # ---- Plan
+    node(88, 83, 100, 44, ["Research", "question"], ORANGE)
+    node(88, 207, 124, 56, ["Ground in the KG;", "write the framing"], INK2)
+    node(234, 207, 100, 56, ["Fresh critic", "reviews plan"], VIOLET)
+    diamond(284, 105, "agree?", ORANGE, hw=36)
+    s.arrow([(138, 127), (138, 205)])
+    s.arrow([(212, 235), (232, 235)])
+    s.arrow([(284, 207), (284, 135)])
+    s.arrow([(248, 105), (200, 105), (200, 205)], dash="5 3")
+    label(224, 97, "changes", anchor="middle")
+    icon_badge(s, "database", 108, 207)
+    icon_badge(s, "lock", 212, 207)
+
+    # ---- the lock
+    s.rect(392, 50, 22, 260, stroke="none", fill=INK, rx=4)
+    vtext(407, 180, "PROPOSAL LOCKED", "#fff", size=13)
+    s.arrow([(320, 105), (390, 105)], INK, sw=2)
+    label(356, 97, "yes", anchor="middle")
+    commit(356, 118)
+
+    # ---- Run
+    node(432, 83, 96, 44, ["Agree the", "scope"], ORANGE)
+    node(432, 207, 124, 56, ["Coding agent runs", "scripts; returns files"], AQUA_TXT)
+    node(578, 207, 120, 56, ["Main AI reads the", "files and judges"], INK2)
+    node(720, 207, 104, 56, ["Fresh critic", "checks claims"], VIOLET)
+    diamond(884, 105, "approve?", ORANGE, hw=44)
+    s.arrow([(480, 127), (480, 205)])
+    s.arrow([(556, 235), (576, 235)])
+    s.arrow([(698, 235), (718, 235)])
+    s.arrow([(824, 235), (884, 235), (884, 135)])
+    s.arrow([(884, 77), (884, 64), (480, 64), (480, 81)], dash="5 3")
+    label(682, 58, "no: iterate, or redo the milestone", anchor="middle")
+    s.arrow([(928, 105), (947, 105)], INK, sw=2)
+    label(936, 136, "yes", anchor="middle")
+    commit(938, 120)
+    icon_badge(s, "check", 452, 207)
+    icon_badge(s, "code", 556, 207)
+    icon_badge(s, "magnifier", 698, 207)
+    icon_badge(s, "scales", 824, 207)
+
+    # reopen path
+    s.arrow([(638, 263), (638, 288), (160, 288), (160, 265)], INK, dash="2 3", sw=1.6)
+    label(560, 302, "data contradict the plan → recorded reopening", anchor="middle",
+          fill=INK)
+
+    # ---- legend
+    y = 338
+    s.text(24, y + 5, "Safeguards (Fig. 1):", size=13, weight="bold")
+    x = 164
+    for kind, t in [("database", "KG only"), ("lock", "pre-registered"),
+                    ("check", "methods tested"), ("scales", "roles kept apart"),
+                    ("magnifier", "verify claims"), ("code", "scripts + history")]:
+        icon_badge(s, kind, x + 10, y, r=10)
+        s.text(x + 26, y + 5, t, size=13, fill=INK)
+        x += 129
+    y = 366
+    commit(30, y)
+    s.text(42, y + 5, "commit: every iteration and approval, never amended", size=13)
+    s.arrow([(420, y), (460, y)], INK2, dash="5 3")
+    s.text(468, y + 5, "loops back", size=13)
+    s.arrow([(572, y), (612, y)], INK, dash="2 3", sw=1.6)
+    s.text(620, y + 5, "reopening the locked plan", size=13)
+    s.rect(12, 388, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
+    s.text(W / 2, 407, "The researcher's gates (orange) open and close every step; "
+           "the AI never closes a step alone.", size=13, weight="bold", anchor="middle")
+    s.save("fig2g_process_simple.svg")
+
+
+# ---------------------------------------------------------------- Figure 2h
+# Reader-facing Figure 2g (panel A) plus panel B: what the frozen plan fixes in advance,
+# shown on a worked example. Panel B source:
+# analyses/2026-11-03-ntca_urea_response/proposal.md (Framing) and its plan commits
+# (approved 71fc4ab -> control added 1958831 -> re-approved 4236f21).
+FRAMING_EXAMPLE = [
+    ("Hypothesis", "the gene switches on with urea"),
+    ("Positive control", "urea-use genes must switch on"),
+    ("Negative control", "growth genes must stay flat"),
+    ("Statistics plan", "no new test; the original study's verdicts"),
+    ("Decision rule", "four outcomes, named in advance"),
+    ("Fair comparison", "each strain vs its own control"),
+]
+
+
+def figure2h():
+    W, H = 960, 594
+    s = SVG(W, H)
+
+    def node(x, y, w, h, lines, c, size=13):
+        # uniform weight: node text is one sentence wrapped over lines, so no line is a title
+        s.rect(x, y, w, h, stroke=c, fill=tint(c, 0.12), rx=7, sw=1.5)
+        y0 = y + h / 2 - (len(lines) - 1) * size * 0.62 + size * 0.36
+        for i, ln in enumerate(lines):
+            s.text(x + w / 2, y0 + i * size * 1.24, ln, size=size, fill=INK, anchor="middle")
+
+    def diamond(cx, cy, label, c, hw=40, hh=28):
+        s.add(f'<polygon points="{cx},{cy - hh} {cx + hw},{cy} {cx},{cy + hh} {cx - hw},{cy}" '
+              f'fill="{tint(c, 0.15)}" stroke="{c}" stroke-width="1.6"/>')
+        s.text(cx, cy + 4.5, label, size=13, weight="bold", anchor="middle")
+
+    def label(x, y, t, anchor="start", fill=INK2):
+        s.text(x, y, t, size=13, fill=fill, anchor=anchor, style="italic")
+
+    def commit(x, y):
+        s.add(f'<circle cx="{x}" cy="{y}" r="5" fill="#fff" stroke="{OCHRE}" '
+              f'stroke-width="2.4"/>')
+
+    def vtext(x, y, t, c, size=14):
+        s.add(f'<text x="0" y="0" font-size="{size}" font-weight="bold" fill="{c}" '
+              f'text-anchor="middle" transform="translate({x},{y}) rotate(-90)">'
+              f'{escape(t)}</text>')
+
+    def panel_letter(x, y, t):
+        s.text(x, y, t, size=18, weight="bold")
+
+    # ================= panel A: the process
+    panel_letter(14, 31, "A")
+    s.rect(80, 10, 302, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(231, 30, "1 · Plan the study", size=14, weight="bold", anchor="middle")
+    s.rect(424, 10, 524, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(686, 30, "2 · Run it, stage by stage: build the method, analyse, evaluate",
+           size=14, weight="bold", anchor="middle")
+
+    for name, c, y, h in [("Researcher", ORANGE, 50, 110), ("AI assistant", INK2, 160, 150)]:
+        s.rect(12, y, W - 24, h, stroke="none", fill=tint(c, 0.06), rx=0)
+        s.add(f'<line x1="12" y1="{y + h}" x2="{W - 12}" y2="{y + h}" stroke="{LINE}"/>')
+        s.add(f'<rect x="12" y="{y}" width="4" height="{h}" fill="{c}"/>')
+        vtext(44, y + h / 2, name, c)
+    s.add(f'<line x1="72" y1="50" x2="72" y2="310" stroke="{LINE}"/>')
+
+    # plan
+    node(88, 83, 100, 44, ["Research", "question"], ORANGE)
+    node(88, 200, 124, 70, ["Find the data;", "set the success", "criteria (see B)"], INK2)
+    node(234, 207, 100, 56, ["AI reviewer,", "new to the work,", "checks the plan"], VIOLET)
+    diamond(284, 105, "approve?", ORANGE, hw=42)
+    s.arrow([(138, 127), (138, 198)])
+    s.arrow([(212, 235), (232, 235)])
+    s.arrow([(284, 207), (284, 135)])
+    s.arrow([(242, 105), (196, 105), (196, 198)], dash="5 3")
+    label(219, 97, "revise", anchor="middle")
+    icon_badge(s, "database", 106, 200)
+    icon_badge(s, "lock", 212, 200)
+
+    # freeze
+    s.rect(392, 50, 22, 260, stroke="none", fill=INK, rx=4)
+    vtext(407, 180, "PLAN FROZEN", "#fff", size=13)
+    s.arrow([(326, 105), (390, 105)], INK, sw=2)
+    label(356, 97, "yes", anchor="middle")
+    commit(356, 118)
+
+    # run
+    node(432, 80, 100, 50, ["Agree what this", "stage will do"], ORANGE)
+    node(432, 200, 124, 70, ["Coding AI runs", "the analysis code;", "returns output files"],
+         AQUA_TXT)
+    node(578, 200, 120, 70, ["Main AI reads", "the output files", "and judges them"], INK2)
+    node(720, 200, 108, 70, ["AI reviewer,", "new to the work,", "re-checks claims"], VIOLET)
+    diamond(884, 105, "approve?", ORANGE, hw=44)
+    s.arrow([(482, 130), (482, 198)])
+    s.arrow([(556, 235), (576, 235)])
+    s.arrow([(698, 235), (718, 235)])
+    s.arrow([(828, 235), (884, 235), (884, 135)])
+    s.arrow([(884, 77), (884, 64), (482, 64), (482, 78)], dash="5 3")
+    label(683, 58, "no: revise, or redo this stage", anchor="middle")
+    s.arrow([(928, 105), (947, 105)], INK, sw=2)
+    label(937, 92, "yes", anchor="middle")
+    commit(938, 120)
+    icon_badge(s, "check", 450, 200)
+    icon_badge(s, "code", 556, 200)
+    icon_badge(s, "magnifier", 698, 200)
+    icon_badge(s, "scales", 828, 200)
+
+    s.arrow([(638, 270), (638, 290), (160, 290), (160, 272)], INK, dash="2 3", sw=1.6)
+    label(690, 304, "results contradict the plan → plan reopened; the change is recorded",
+          anchor="middle", fill=INK)
+
+    # ================= legend (applies to panel A)
+    y = 330
+    s.text(24, y + 5, "Safeguards (Fig. 1):", size=13, weight="bold")
+    x = 160
+    for kind, t in [("database", "KG data only"), ("lock", "criteria set first"),
+                    ("check", "method tested"), ("scales", "doing ≠ judging"),
+                    ("magnifier", "claims checked"), ("code", "full history")]:
+        icon_badge(s, kind, x + 10, y, r=10)
+        s.text(x + 26, y + 5, t, size=13, fill=INK)
+        x += 131
+    y = 356
+    commit(30, y)
+    s.text(42, y + 5, "saved to version history; never overwritten", size=13)
+    s.arrow([(360, y), (400, y)], INK2, dash="5 3")
+    s.text(408, y + 5, "revision loop", size=13)
+    s.arrow([(530, y), (570, y)], INK, dash="2 3", sw=1.6)
+    s.text(578, y + 5, "reopening the frozen plan", size=13)
+
+    # ================= panel B: the frozen plan, drawn as a document (not a diagram)
+    top, x0, x1, fold = 388, 12, W - 12, 18
+    bot = top + 150
+    s.add(f'<path d="M{x0},{top} H{x1 - fold} L{x1},{top + fold} V{bot} H{x0} Z" '
+          f'fill="{tint(SLATE, 0.05)}" stroke="{SLATE}" stroke-width="1.5"/>')
+    s.add(f'<path d="M{x1 - fold},{top} V{top + fold} H{x1}" fill="{tint(SLATE, 0.25)}" '
+          f'stroke="{SLATE}" stroke-width="1.5"/>')
+    s.add(f'<path d="M{x0},{top} H{x1 - fold - 1} V{top + 30} H{x0} Z" fill="{SLATE}"/>')
+    s.text(x0 + 12, top + 21, "B", size=17, weight="bold", fill="#fff")
+    s.text(x0 + 34, top + 21, "The frozen plan: fixed before any results exist", size=15,
+           weight="bold", fill="#fff")
+    s.text(x1 - fold - 10, top + 21, "example: does a nitrogen-control gene switch on when "
+           "bacteria are fed urea?", size=13, style="italic", fill="#fff", anchor="end")
+    for i, (head, ex) in enumerate(FRAMING_EXAMPLE):
+        x = x0 + 24 + (i // 3) * 462
+        y = top + 56 + (i % 3) * 26
+        s.rect(x, y - 11, 12, 12, stroke=SLATE, fill="#fff", rx=2, sw=1.4)
+        s.add(f'<path d="M{x + 2.5},{y - 5} L{x + 5},{y - 2} L{x + 10},{y - 9}" fill="none" '
+              f'stroke="{SLATE}" stroke-width="1.8" stroke-linecap="round"/>')
+        s.add(f'<text x="{x + 20}" y="{y}" font-size="14" fill="{INK}">'
+              f'<tspan font-weight="bold" fill="{SLATE}">{escape(head)}:</tspan> '
+              f'{escape(ex)}</text>')
+    s.add(f'<line x1="{x0 + 24}" y1="{top + 124}" x2="{x1 - 24}" y2="{top + 124}" '
+          f'stroke="{tint(SLATE, 0.3)}"/>')
+    commit(x0 + 30, top + 138)
+    s.text(x0 + 44, top + 143, "Version history: approved → revised to add a control → "
+           "re-approved; both versions kept.", size=13, fill=INK2, style="italic")
+
+    # ================= banner
+    s.rect(12, 556, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
+    s.text(W / 2, 575, "The researcher approves every plan and every stage; the AI never "
+           "moves on alone.", size=14, weight="bold", anchor="middle")
+    s.save("fig2h_process_framing.svg")
 
 
 # ---------------------------------------------------------------- Figure 2
@@ -729,6 +1419,12 @@ def figure3():
 
 if __name__ == "__main__":
     figure1()
+    figure1b()
+    figure1c()
+    figure1e()
+    figure2f()
+    figure2g()
+    figure2h()
     figure2()
     figure2b()
     figure2c()

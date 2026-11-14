@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="706" viewBox="0 0 960 706" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m4a5a6c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5a6c"/></marker><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker><marker id="mb0397a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0397a"/></marker><marker id="m8a6200" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a6200"/></marker><marker id="m0b7f99" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7f99"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><rect x="12" y="8" width="300" height="32" rx="6" fill="#e34948" stroke="none" stroke-width="1.5"/>
+<text x="26" y="30" font-size="16" font-weight="bold" font-style="normal" fill="#fff" text-anchor="start">What can go wrong</text>
+<rect x="352" y="8" width="596" height="32" rx="6" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="368" y="30" font-size="16" font-weight="bold" font-style="normal" fill="#fff" text-anchor="start">How Spock prevents it</text>
+<text x="934" y="30" font-size="13" font-weight="normal" font-style="italic" fill="#e6e6e3" text-anchor="end">quoted from its instructions to the AI</text>
+<rect x="12" y="54" width="300" height="92" rx="8" fill="#fdf0f0" stroke="#e34948" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polygon points="35,67 46,86 24,86" fill="#e34948"/>
+<text x="35" y="83.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">!</text>
+<text x="54" y="83" font-size="16" font-weight="bold" font-style="normal" fill="#b3261e" text-anchor="start">AI states facts from memory</text>
+<text x="26" y="108.0" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">gene names, values and experiments are</text>
+<text x="26" y="125.92" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">recalled, not queried, and may be wrong</text>
+<path d="M318,100.0 L344,100.0" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="352" y="54" width="596" height="92" rx="8" fill="#f2f7fd" stroke="#2a78d6" stroke-width="1.5"/>
+<rect x="352" y="54" width="4" height="92" fill="#2a78d6"/>
+<text x="368" y="79" font-size="16" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">The knowledge graph (KG) is the sole data source</text>
+<g fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="922" cy="69" rx="9" ry="3.5"/><path d="M913,69 V83 a9,3.5 0 0 0 18,0 V69"/><path d="M913,76 a9,3.5 0 0 0 18,0"/></g>
+<text x="368" y="101.0" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“Every claim must trace to a KG query. Never rely on intrinsic knowledge for</text>
+<text x="368" y="118.92" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">data.”</text>
+<text x="368" y="137.84" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">Each finding is tagged: from the KG, interpretation, or a gap in the KG</text>
+<rect x="12" y="154" width="300" height="92" rx="8" fill="#fdf0f0" stroke="#e34948" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polygon points="35,167 46,186 24,186" fill="#e34948"/>
+<text x="35" y="183.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">!</text>
+<text x="54" y="183" font-size="16" font-weight="bold" font-style="normal" fill="#b3261e" text-anchor="start">Criteria fitted to the result</text>
+<text x="26" y="208.0" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">success is defined after seeing the</text>
+<text x="26" y="225.92000000000002" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">data, so any outcome can pass</text>
+<path d="M318,200.0 L344,200.0" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="352" y="154" width="596" height="92" rx="8" fill="#f4f5f6" stroke="#4a5a6c" stroke-width="1.5"/>
+<rect x="352" y="154" width="4" height="92" fill="#4a5a6c"/>
+<text x="368" y="179" font-size="16" font-weight="bold" font-style="normal" fill="#4a5a6c" text-anchor="start">Pre-registered framing, locked before data</text>
+<g fill="none" stroke="#4a5a6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M917,175 V171 a5,5 0 0 1 10,0 V175"/></g><rect x="914" y="175" width="16" height="12" rx="2" fill="#4a5a6c"/>
+<text x="368" y="201.0" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“…a pre-registered expected-negative — a class that should not score if the</text>
+<text x="368" y="218.92000000000002" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">signal is genuine.”</text>
+<text x="368" y="237.84" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">Also fixed in advance: the statistical test and genes of known expected behavior</text>
+<rect x="12" y="254" width="300" height="92" rx="8" fill="#fdf0f0" stroke="#e34948" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polygon points="35,267 46,286 24,286" fill="#e34948"/>
+<text x="35" y="283.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">!</text>
+<text x="54" y="283" font-size="16" font-weight="bold" font-style="normal" fill="#b3261e" text-anchor="start">Unchecked summaries</text>
+<text x="26" y="308.0" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">the AI's own summary is trusted; its</text>
+<text x="26" y="325.92" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">output files are never opened</text>
+<path d="M318,300.0 L344,300.0" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="352" y="254" width="596" height="92" rx="8" fill="#f0f7f5" stroke="#0d7a53" stroke-width="1.5"/>
+<rect x="352" y="254" width="4" height="92" fill="#0d7a53"/>
+<text x="368" y="279" font-size="16" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="start">Execution separated from judgment</text>
+<g fill="none" stroke="#0d7a53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M922,267 V286 M917,286 H927 M913,270 H931 M913,270 L910,278 M913,270 L916,278 M931,270 L928,278 M931,270 L934,278"/><path d="M910,278 a3,2.5 0 0 0 6,0 Z M928,278 a3,2.5 0 0 0 6,0 Z" fill="#0d7a53"/></g>
+<text x="368" y="301.0" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“You execute; the main [agent] judges. You return artifacts, not conclusions.”</text>
+<text x="368" y="319.92" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">A coding sub-agent runs the scripts; the main agent judges from the output files</text>
+<rect x="12" y="354" width="300" height="92" rx="8" fill="#fdf0f0" stroke="#e34948" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polygon points="35,367 46,386 24,386" fill="#e34948"/>
+<text x="35" y="383.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">!</text>
+<text x="54" y="383" font-size="16" font-weight="bold" font-style="normal" fill="#b3261e" text-anchor="start">Self-grading</text>
+<text x="26" y="408.0" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">the AI that wrote the story also checks</text>
+<text x="26" y="425.92" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">it, and misses its holes</text>
+<path d="M318,400.0 L344,400.0" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="352" y="354" width="596" height="92" rx="8" fill="#f6f4fd" stroke="#6250d6" stroke-width="1.5"/>
+<rect x="352" y="354" width="4" height="92" fill="#6250d6"/>
+<text x="368" y="379" font-size="16" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="start">Independent fresh-context critic</text>
+<g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="920" cy="374" r="7"/><path d="M925,379 L932,386" stroke-width="3"/></g>
+<text x="368" y="401.0" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“The author who wrote the story cannot reliably see its holes; a fresh reader of</text>
+<text x="368" y="418.92" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">the data files can.”</text>
+<text x="368" y="437.84000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">A separate agent, new to the analysis, must clear each result before the researcher sees it</text>
+<rect x="12" y="454" width="300" height="92" rx="8" fill="#fdf0f0" stroke="#e34948" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polygon points="35,467 46,486 24,486" fill="#e34948"/>
+<text x="35" y="483.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">!</text>
+<text x="54" y="483" font-size="16" font-weight="bold" font-style="normal" fill="#b3261e" text-anchor="start">Overclaiming</text>
+<text x="26" y="508.0" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">the wording outruns the evidence</text>
+<path d="M318,500.0 L344,500.0" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="352" y="454" width="596" height="92" rx="8" fill="#f0f7f9" stroke="#0b7f99" stroke-width="1.5"/>
+<rect x="352" y="454" width="4" height="92" fill="#0b7f99"/>
+<text x="368" y="479" font-size="16" font-weight="bold" font-style="normal" fill="#0b7f99" text-anchor="start">Describe before interpreting</text>
+<g fill="#0b7f99"><rect x="913" y="477" width="4.5" height="8"/><rect x="920" y="471" width="4.5" height="14"/><rect x="927" y="466" width="4.5" height="19"/></g><path d="M911,486.5 H933" fill="none" stroke="#0b7f99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="368" y="501.0" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“Words like “all”, “every”, “systematically” … require a query against the data</text>
+<text x="368" y="518.92" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">file, not a heatmap glance.”</text>
+<text x="368" y="537.84" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">Evaluative words such as “striking” are held back until the final evaluation step</text>
+<rect x="12" y="554" width="300" height="92" rx="8" fill="#fdf0f0" stroke="#e34948" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polygon points="35,567 46,586 24,586" fill="#e34948"/>
+<text x="35" y="583.5" font-size="13" font-weight="bold" font-style="normal" fill="#fff" text-anchor="middle">!</text>
+<text x="54" y="583" font-size="16" font-weight="bold" font-style="normal" fill="#b3261e" text-anchor="start">Untraceable results</text>
+<text x="26" y="608.0" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">numbers computed in chat; analyses</text>
+<text x="26" y="625.92" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">silently revised</text>
+<path d="M318,600.0 L344,600.0" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<rect x="352" y="554" width="596" height="92" rx="8" fill="#f8f6f0" stroke="#8a6200" stroke-width="1.5"/>
+<rect x="352" y="554" width="4" height="92" fill="#8a6200"/>
+<text x="368" y="579" font-size="16" font-weight="bold" font-style="normal" fill="#8a6200" text-anchor="start">Scripts and a complete history</text>
+<path d="M917,570 L911,576 L917,582 M927,570 L933,576 L927,582 M924,567 L920,585" fill="none" stroke="#8a6200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="368" y="601.0" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“Chat-computed statistics are unreproducible — they can't be rerun, verified, or</text>
+<text x="368" y="618.92" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">shared.”</text>
+<text x="368" y="637.84" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">All computation in saved scripts; every iteration committed to git, never rewritten</text>
+<rect x="12" y="658" width="936" height="38" rx="19" fill="#f1f1f1" stroke="#52514e" stroke-width="1.5"/>
+<text x="480.0" y="682" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">Throughout: the researcher agrees each step's scope and approves it; the assistant never closes a step alone.</text></svg>

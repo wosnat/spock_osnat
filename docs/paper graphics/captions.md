@@ -8,12 +8,10 @@ Regenerate: `uv run python "docs/paper graphics/make_figures.py"` then
 ~350 dpi PNG). Each figure ships as SVG (editable), PDF and PNG.
 
 Quoted text is verbatim from `.claude/skills/research-methodology/` (SKILL.md,
-references/step-protocol.md) and `.claude/agents/kg-coder.md`; "…" marks an elision. If the
+references/step-protocol.md) and `.claude/agents/kg-coder.md`; "…" marks an elision and [square brackets] an editorial substitution. If the
 skill text changes, update the quotes in `make_figures.py`.
 
 ## Figure 1 — fig1_concepts
-
-(Concept boxes carry numbers 1–6, which are the rows of Figure 2b.)
 
 **How Spock keeps AI-assisted research valid.** Each row pairs a threat to validity in
 LLM-assisted analysis (left) with the Spock concept that counters it, quoted from the
@@ -102,3 +100,107 @@ subagent that starts from a fresh context on every pass. The critic is read-only
 the current milestone's files, and applies a lens matched to the work. The main thread
 records a disposition for each of its findings. Splitting doing from judging means no single
 agent both produces a result and vouches for it.
+
+## Figure 1b — fig1b_concepts (alternative to Figure 1: problems framed explicitly)
+
+**How Spock keeps AI-assisted research valid.** Left (red, dashed): six ways AI-assisted
+analysis goes wrong. Right: the Spock safeguard that prevents each one, quoted from the
+instructions Spock gives the AI, with a plain-language note on how it is enforced. Data come
+only from the knowledge graph (KG), and every finding is tagged by source. Success and
+failure criteria, including a statistics plan, genes of known expected behavior and an
+expected-negative class, are fixed before any data are seen. A coding sub-agent returns
+output files, not conclusions, so judgment is made from the data themselves. A separate
+agent with a fresh context reviews each result before the researcher sees it. Generalizing
+and evaluative language waits until the data support it. All computation lives in scripts,
+and every iteration is committed. Throughout, the researcher agrees the scope of each step
+and approves its outcome.
+
+## Figure 1c — fig1c_concepts (six safeguards ordered by research stage)
+
+**How Spock counters threats to validity in AI-assisted research.** Left (red, dashed): six
+ways an AI-assisted analysis can go wrong, ordered by the research stage where they arise.
+Right: the Spock safeguard that counters each one, quoted from the instructions Spock gives
+the AI ("…" marks an elision, [brackets] an editorial insertion), with a plain-language note
+on how it is enforced. Data come only from the knowledge graph (KG); every finding is tagged
+by source and gaps are flagged, not filled. Before the analysis runs, the framing names the
+genes that should score, a class that should not, and the statistics plan. It changes only by
+a recorded reopening, and a null result is reported as a bounded negative. Each new method
+is checked on hand-computed toy data, then against an independent answer key and on a random
+sample of its output. A coding agent runs the scripts, the main agent judges from the output
+files, and a critic agent with a fresh context reviews the plan and each claim-bearing
+milestone. Generalizing words require a check against the data, and interpretive language
+waits for the evaluation step. All computation is in scripts and every iteration is
+committed. Throughout, the researcher agrees the scope of each step and approves its outcome.
+
+## Figure 2f — fig2f_process_swimlanes (the research process as a swimlane flowchart)
+
+**The Spock research process.** Each lane is one actor: the researcher, the main agent, a
+coding agent and a critic agent. *Plan (left):* the researcher poses the question. The main
+agent lists the relevant knowledge-graph (KG) entries by query and writes the framing: the
+genes that should score, a class that should not, and the statistics plan. A critic agent
+with a fresh context reviews the plan before the researcher's design review. Each change
+from that review gets a new critic pass, until the researcher agrees and the proposal is
+locked. *Run (right):* one milestone is shown; methods, analysis and evaluation each repeat
+it. The researcher agrees the scope. The coding agent runs scripts and KG queries and returns
+files and a factual manifest, never conclusions. The main agent reads the real files, judges
+what they show, and sends follow-up questions back to the coding agent. The critic then
+re-checks the milestone's claims against its files, with a lens matched to the milestone
+(data integrity and interpretation at analysis, interpretation only at evaluation, and
+methods only when it produces a data file). Each blocking issue is fixed, or rebutted with
+data, before the researcher sees the work. The researcher then approves, asks for another
+iteration, or asks for the milestone to be redone. If the data contradict the locked plan,
+the plan is reopened on the record rather than silently changed. Every iteration and
+approval is committed and never amended. Badges mark where each safeguard of Figure 1 acts.
+
+## Figure 2g — fig2g_process_simple (Figure 2f simplified to two lanes)
+
+**The Spock research process.** *Plan:* the researcher poses the question. The AI lists the
+relevant knowledge-graph (KG) entries by query and writes the framing: the genes that should
+score, a class that should not, and the statistics plan. A critic agent with a fresh context
+reviews the plan, and the researcher reviews the design. Changes loop back until the
+researcher agrees, and the proposal is then locked. *Run:* methods, analysis and evaluation
+each follow the same loop. The researcher agrees the scope. A coding agent runs the scripts
+and returns files, not conclusions. The main AI reads the files and judges what they show,
+and a fresh critic checks the claims against the files, raising blocking issues that are
+fixed or rebutted with data before the researcher sees the work. The researcher then
+approves, or asks for another iteration or a redo. If the data contradict the locked plan,
+the plan is reopened on the record rather than silently changed. Every iteration and
+approval is committed and never amended. Badges mark where each safeguard of Figure 1 acts.
+
+## Figure 2h — fig2h_process_framing (Figure 2g in plain language, plus the frozen plan)
+
+**The Spock research process, and what the plan fixes in advance.** **(A)** The researcher
+poses a question. The AI assistant finds the relevant data in the knowledge graph (KG) and
+drafts a plan that sets the success criteria (panel B). A second AI, new to the work, reviews
+the plan, and the researcher revises it until they approve it. The plan is then frozen. The
+work runs in three stages: building and testing the method, the analysis, and the
+evaluation. Each stage follows the same loop. The researcher agrees what the stage will do. A
+coding AI runs the analysis code and returns output files, not conclusions. The main AI
+reads the files and judges what they show, and a second AI, new to the work, re-checks the
+claims against the files. Only then does the researcher see the stage and approve it, or ask
+for a revision or a redo. If the results contradict the frozen plan, the plan is reopened and
+the change is recorded, never made silently. Every version is saved and never overwritten.
+Badges and line styles are explained in the legend below panel A. **(B)** The six things a
+plan must fix before any results exist, on a small worked example: does a gene that controls
+nitrogen use switch on when marine bacteria (*Prochlorococcus*) are fed urea instead of
+ammonium? The positive control (genes for using urea must switch on) shows the data can reveal
+an effect at all; the negative control (growth genes must stay flat) shows what "no effect"
+looks like. Without both, a null result cannot be told apart from an experiment that could not
+detect anything. In this example the plan was approved, then revised before any results to add a further
+control, and re-approved; both versions are kept.
+
+## Figure 1e — fig1e_concepts (Figure 1c aligned with Figure 2h)
+
+**How Spock counters threats to validity in AI-assisted research.** Left: six ways an
+AI-assisted analysis can go wrong, labelled with the stage of the process (Figure 2A) where
+each arises. Right: the safeguard that counters it, quoted from the instructions Spock gives
+the AI ([brackets] mark an editorial substitution), with how it is enforced. The safeguard
+names and icons are the same as in Figure 2. All data come from a knowledge graph (KG), and
+gaps in it are flagged rather than filled from memory. The success criteria, including a
+positive and a negative control, are fixed in a frozen plan before any results exist
+(Figure 2B), and a null result is reported rather than dropped. Each method is first tested
+on small hand-computed examples. Running the code, judging its output and reviewing the
+claims are done by separate AI agents, the reviewer starting with no knowledge of the work.
+Claims are checked against the data before general words such as "all" are used, and
+interpretation comes only after the numbers. All computation is in saved scripts, and every
+version is kept. Throughout, the researcher approves every plan and every stage.
