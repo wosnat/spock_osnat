@@ -112,7 +112,11 @@ Single `paper.md` at the analysis root. **It is written for the reader of the ev
 
 *(N-import coculture: `paper.md` drifted into a process record — internal vocabulary, file paths, two cited papers missing from References and one listed but uncited — and a separate journal-style manuscript had to be written at the end.)*
 
-**The conclusion leads with a findings table.** At the evaluation milestone, the Discussion opens with one table — one row per question or route, one column per reference or condition, a short verdict in each cell — followed by **numbered plain-language meanings**, one per pattern in the table, each a sentence or two a biologist outside the project could restate. Caveats go in their own short section after the meanings, each tied to the finding it limits. Do not fold every caveat into the conclusion sentence: critic-hardened prose that carries all its caveats inline becomes unreadable. *(N-import coculture: the researcher rejected the critic-hardened conclusion as "a long paragraph that says we know nothing"; a findings table plus numbered meanings fixed it.)*
+**The conclusion leads with a findings table.** At the evaluation milestone, the Discussion opens with one table — one row per question or route, one column per reference or condition, a short verdict in each cell, and a last column saying whether the row was **tested as planned** or is **exploratory** — followed by **numbered plain-language meanings**, one per pattern in the table, each a sentence or two a biologist outside the project could restate. Caveats go in their own short section after the meanings, each tied to the finding it limits. Do not fold every caveat into the conclusion sentence: critic-hardened prose that carries all its caveats inline becomes unreadable. *(N-import coculture: the researcher rejected the critic-hardened conclusion as "a long paragraph that says we know nothing"; a findings table plus numbered meanings fixed it.)*
+
+**Tested as planned, or exploratory.** A finding is *tested as planned* only if the proposal's decision rule produced it, on data nobody looked at before the plan was set (`decisions_log.md` lists what was seen early). Anything seen during planning, found during exploration, or produced by a rule changed after the results were seen is *exploratory*. Say this in the paper's own words: the findings table carries the label, and Methods states once, in a sentence or two, which analyses were specified in advance and what was examined before the plan was set ("Before the analysis was specified, we examined the expression of the control genes and of ntcA in MED4; results for MED4 are therefore exploratory"). An exploratory analysis says once, in Methods, that it is exploratory, and needs no per-row label.
+
+**Put each finding in perspective.** After the numbered meanings, the Discussion compares each finding with the other KG experiments that bear on it, in a short table: the finding; each other experiment or publication (resolved through `list_publications`); whether it **agrees**, **disagrees**, or **can't tell**; and why, in a few words (different design, platform, timepoint, or strain; gene not measured). "Can't tell" is a valid and common answer. The comparison uses KG data only; any reading of why studies differ is interpretation and is worded as such. *(Workshop: "the grand overview it was able to generate across multiple papers" was the most-valued strength; it should be part of every evaluation, not an extra.)*
 
 | paper.md section | Populated from |
 |---|---|
@@ -120,7 +124,7 @@ Single `paper.md` at the analysis root. **It is written for the reader of the ev
 | Background | Plan phase (KG entries and prior work) |
 | Methods | Plan phase (framing) + methods milestone (implementation) |
 | Results | analysis milestone |
-| Discussion (findings table → numbered meanings → caveats) | evaluation milestone |
+| Discussion (findings table with labels → numbered meanings → comparison with other studies → caveats) | evaluation milestone |
 | References | accumulates across every phase that cites publications |
 
 References are populated as publications are cited. Every reference must be resolved through `list_publications` and cited by DOI — never drafted from intrinsic knowledge (see [anti-hallucination.md — Category 5.2](anti-hallucination.md#52-publication-attribution-from-training-knowledge)). Citation format inside prose can be short (author-year or numeric); the References section at the end carries a full reference with its DOI for each publication. KG experiment IDs are internal: they go in the notebooks, and `paper.md` names a dataset as a paper would (the publication, organism, condition, and the KG release used, stated once in Methods).
@@ -203,7 +207,8 @@ What to show depends on the phase.
 - Cross-condition comparison with expectation check against the proposal's framing
 
 ### Evaluation (evaluation milestone)
-- Findings table (question/route × reference/condition) and numbered meanings — see [paper.md growth pattern](#papermd-growth-pattern)
+- Findings table (question/route × reference/condition), each row labelled tested as planned or exploratory, and numbered meanings — see [paper.md growth pattern](#papermd-growth-pattern)
+- Comparison with the other KG experiments that bear on each finding: agrees / disagrees / can't tell, and why
 - Named predictions held / not held, read through the decision rule; if pre-registered labels were deferred, the rule is reported as "not evaluated as pre-registered", not replaced by a post-hoc criterion
 - Sensitivity / LOO stability where applicable
 - Harvested caveats

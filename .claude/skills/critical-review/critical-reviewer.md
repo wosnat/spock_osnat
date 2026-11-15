@@ -86,6 +86,12 @@ checks — those are the author's decide-gate checklist, not your job.
 ### Interpretation / scientific critique
 - Conclusions earned by the evidence — does each claim follow from the trusted
   inputs and this milestone's results, or does it reach past them?
+- Labels (evaluation) — is anything marked "tested as planned" that
+  `decisions_log.md` lists as seen before the plan was set, or that rests on a
+  rule changed after the results were seen? Those are exploratory.
+- Comparison with other studies (evaluation) — does each "agrees" or
+  "disagrees" hold given the other experiment's design, platform and timepoint,
+  or should it be "can't tell"?
 - Testability — does the framing let the stated hypothesis be confirmed or
   refuted, or is it unfalsifiable as written?
 - Controls — are the positive/negative controls real and independent, or do they

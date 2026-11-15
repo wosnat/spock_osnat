@@ -93,7 +93,7 @@ The coding subagent does the milestone's work:
 
 - **methods:** implement the approach the proposal committed to as an ad-hoc Python module; verify against hand-computed toy data (`superpowers:test-driven-development`), with fixtures in the **real artifact's serialization form** and a main-thread spot-run on one real row — a green suite over the wrong input type is not evidence. When the method **constructs the entity set**, the spot-run is replaced by four layers before scaling: real-serialization fixtures → a pilot against an independent MCP-only answer key → an API-usage review against the explorer's source and docs → a random sample of each bin before any tier or class rule is approved (see [research-notebook.md — Phase 1](research-notebook.md#phase-1--analysis-code-methodology-first))
 - **analysis:** run the method; produce scored outputs, figures, tables
-- **evaluation:** assess results against the framing; QC scripts for sensitivity/stability where a result triggers them
+- **evaluation:** assess results against the framing; label each finding tested as planned or exploratory (checked against `decisions_log.md`); compare each finding with the other KG experiments that bear on it (agrees / disagrees / can't tell, and why); QC scripts for sensitivity/stability where a result triggers them
 
 Every figure is made with the `dataviz` skill and the template's colour parameters, and every milestone produces HTML reports in `reports/` — a `summary.html` plus one page per aspect, rebuilt in place as the work iterates (see [figures-and-reports.md](figures-and-reports.md)).
 

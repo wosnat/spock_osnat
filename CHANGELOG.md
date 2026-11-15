@@ -40,6 +40,15 @@ the Plan phase wrote a whole proposal before walking the researcher through it.
 - Analyses started under the old layout keep `proposal_notebook.md`; nothing
   needs migrating.
 
+### Changed — evaluation: two labels and a comparison with other studies
+
+- Each finding in `paper.md` is labelled **tested as planned** or **exploratory**;
+  Methods says once what was examined before the plan was set. The evaluation
+  critic checks the labels against `decisions_log.md`.
+- The Discussion compares each finding with the other KG experiments that bear on
+  it: agrees / disagrees / can't tell, and why. Cross-paper integration was the
+  workshop's most-valued strength.
+
 ### Changed — how Spock works with the researcher (Rule 10)
 
 - **Rules are for Claude, not the researcher.** Claude no longer narrates rules

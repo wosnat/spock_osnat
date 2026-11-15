@@ -395,6 +395,17 @@ Two rules keep this from quietly breaking the skill's guarantees:
   what they mean — that is what preserves the anomaly-catch (a heatmap
   narrated "all 5 UP" while the data file shows them negative).
 
+**Every finding carries one of two labels, and is put in perspective.**
+At the evaluation milestone, each finding in `paper.md` is marked either
+**tested as planned** (read through the proposal's decision rule, on data
+not looked at before the plan was set) or **exploratory** (everything else:
+seen during planning, found during exploration, or changed after the
+results were seen). An exploratory analysis is exploratory throughout and
+says so once. And because bringing many papers together is one of Spock's
+strengths, the evaluation also places each finding against the other KG
+experiments that bear on it: agrees, disagrees, or can't tell, and why. See
+[research-notebook.md — paper.md growth](references/research-notebook.md#papermd-growth-pattern).
+
 **The main thread owns `notebook.md`.** The subagent authors code, data,
 figures, and logs; the main thread authors the notebook — pasting the
 subagent's factual run-manifest verbatim into the mechanical sections

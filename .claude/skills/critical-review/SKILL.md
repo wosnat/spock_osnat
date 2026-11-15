@@ -91,7 +91,10 @@ verdict does not cover what came after it.
 new computation, so a data-integrity sweep has little to bite. Run **interpretation
 only**: is each conclusion earned by the analysis milestone's results? are caveats
 honest? is anything over-claimed, causal-from-correlational, or compared across
-platforms? Evaluation reads the analysis milestone's outputs as **trusted
+platforms? is each finding's label right — nothing marked *tested as planned*
+that `decisions_log.md` lists as seen before the plan was set, or that rests on
+a rule changed after the results were seen? does each "agrees / disagrees" in
+the comparison with other studies hold, given the designs? Evaluation reads the analysis milestone's outputs as **trusted
 evidence** — it judges whether the conclusions follow from them; it does not
 re-open those files hunting for new data defects (the analysis review already did
 that).
