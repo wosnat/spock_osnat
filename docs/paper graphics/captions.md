@@ -1,6 +1,6 @@
 # Spock paper graphics — draft captions
 
-Both figures are sized for half an A4 page: 170 mm wide (A4 text width), ~115–123 mm tall,
+Figures are sized for A4 text width: 170 mm wide, ~110–123 mm tall (Figure 1e, with seven rows, is ~146 mm),
 with text ≥ 6.5 pt at that size.
 
 Regenerate: `uv run python "docs/paper graphics/make_figures.py"` then
@@ -170,8 +170,11 @@ approval is committed and never amended. Badges mark where each safeguard of Fig
 ## Figure 2h — fig2h_process_framing (Figure 2g in plain language, plus the frozen plan)
 
 **The Spock research process, and what the plan fixes in advance.** **(A)** The researcher
-poses a question. The AI assistant finds the relevant data in the knowledge graph (KG) and
-drafts a plan that sets the success criteria (panel B). A second AI, new to the work, reviews
+poses a question. The AI assistant shows what the knowledge graph (KG) holds and checks what
+the data and annotations can actually show, then sets the success criteria with the
+researcher (panel B). Looking at the data during planning is free; the one exception is the
+result the plan will test, which the researcher may still choose to see, after which it is
+reported as exploratory. A second AI, new to the work, reviews
 the plan, and the researcher revises it until they approve it. The plan is then frozen. The
 work runs in three stages: building and testing the method, the analysis, and the
 evaluation. Each stage follows the same loop. The researcher agrees what the stage will do. A
@@ -181,24 +184,28 @@ claims against the files. Only then does the researcher see the stage and approv
 for a revision or a redo. If the results contradict the frozen plan, the plan is reopened and
 the change is recorded, never made silently. Every version is saved and never overwritten.
 Badges and line styles are explained in the legend below panel A. **(B)** The six things a
-plan must fix before any results exist, on a small worked example: does a gene that controls
+plan must fix before the result is scored, on a small worked example: does a gene that controls
 nitrogen use switch on when marine bacteria (*Prochlorococcus*) are fed urea instead of
 ammonium? The positive control (genes for using urea must switch on) shows the data can reveal
 an effect at all; the negative control (growth genes must stay flat) shows what "no effect"
 looks like. Without both, a null result cannot be told apart from an experiment that could not
-detect anything. In this example the plan was approved, then revised before any results to add a further
-control, and re-approved; both versions are kept.
+detect anything. In this example the decision rule was committed and approved, and a further control was
+added. While checking the revision, the AI reviewer looked up one result value; only the
+controls changed after that, the change was disclosed, and the plan was re-approved. Every
+version is kept.
 
 ## Figure 1e — fig1e_concepts (Figure 1c aligned with Figure 2h)
 
-**How Spock counters threats to validity in AI-assisted research.** Left: six ways an
+**How Spock counters threats to validity in AI-assisted research.** Left: seven ways an
 AI-assisted analysis can go wrong, labelled with the stage of the process (Figure 2A) where
 each arises. Right: the safeguard that counters it, quoted from the instructions Spock gives
 the AI ([brackets] mark an editorial substitution), with how it is enforced. The safeguard
 names and icons are the same as in Figure 2. All data come from a knowledge graph (KG), and
-gaps in it are flagged rather than filled from memory. The success criteria, including a
-positive and a negative control, are fixed in a frozen plan before any results exist
-(Figure 2B), and a null result is reported rather than dropped. Each method is first tested
+gaps in it are flagged rather than filled from memory. Before the success criteria are set,
+a quick test checks what the data and annotations can actually tell apart. The criteria,
+including positive and negative controls and a decision rule, are fixed in the plan before
+the result is scored (Figure 2B): the controls must pass, then the method is frozen, then the
+targets are scored once. Anything seen before the plan was set is reported as exploratory. Each method is first tested
 on small hand-computed examples. Running the code, judging its output and reviewing the
 claims are done by separate AI agents, the reviewer starting with no knowledge of the work.
 Claims are checked against the data before general words such as "all" are used, and

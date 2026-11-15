@@ -360,7 +360,8 @@ def figure1c():
 # ---------------------------------------------------------------- Figure 1e
 # Figure 1c aligned with Figure 2h: safeguard names = the Fig 2h legend, stages = Fig 2h stages,
 # plain-language enforcement lines, and the plainest verbatim quote from each rule
-# (SKILL.md Rule 1; Plan framing "A null is a valid outcome"; research-notebook.md toy-data
+# (SKILL.md Rule 1; Plan step 4 "Check that the approach can work"; Two modes, control-validated
+# order; research-notebook.md toy-data
 # verification; step-protocol.md GATE C; Rule 9 "Describe before interpreting"; Rule 5).
 ROWS_1E = [
     ("PLAN", "AI states facts from memory",
@@ -368,11 +369,16 @@ ROWS_1E = [
      "KG data only", BLUE, "database",
      "Every claim must trace to a KG query. Never rely on intrinsic knowledge for data.",
      "All data come from the knowledge graph (KG); gaps are flagged, not filled"),
+    ("PLAN", "Plan outruns the data",
+     "success criteria are set for data or annotations that cannot deliver them",
+     "Scope first", MAGENTA, "bars",
+     "A quick, throwaway test … of what the data and annotations can actually tell apart.",
+     "Data, annotations and controls are checked before the criteria are set"),
     ("PLAN", "Criteria fitted to the result",
      "success is defined after seeing the data, so any outcome can pass",
      "Criteria set first", SLATE, "lock",
-     "A null is a valid outcome.",
-     "Controls and statistical tests are fixed in a frozen plan (Fig. 2B); any change is recorded"),
+     "controls pass → method frozen → targets scored once, last.",
+     "Controls and decision rule fixed in the plan (Fig. 2B); anything seen earlier is exploratory"),
     ("BUILD METHOD", "Silent errors in the method",
      "the tests pass, yet the code is wrong on the real data",
      "Method tested", TEAL, "check",
@@ -398,7 +404,7 @@ ROWS_1E = [
 
 
 def figure1e():
-    s = SVG(960, 722)
+    s = SVG(960, 825)
     xr, wr = 12, 300
     xc, wc = 352, 596
     s.rect(xr, 8, wr, 32, stroke="none", fill=RED, rx=6)
@@ -437,9 +443,9 @@ def figure1e():
 COLORS_1C = dict((r[5], r[4]) for r in ROWS_1C)   # icon kind -> safeguard colour (Fig 1c)
 
 
-def icon_badge(s, kind, cx, cy, r=11):
+def icon_badge(s, kind, cx, cy, r=11, c=None):
     """Fig 1c safeguard icon in a white disc ringed in its colour."""
-    c = COLORS_1C[kind]
+    c = c or COLORS_1C[kind]
     s.add(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="#fff" stroke="{c}" stroke-width="1.8"/>')
     k = (r * 1.35) / 24
     s.add(f'<g transform="translate({cx - 12 * k},{cy - 12 * k}) scale({k})">')
@@ -709,7 +715,8 @@ def figure2g():
 # Reader-facing Figure 2g (panel A) plus panel B: what the frozen plan fixes in advance,
 # shown on a worked example. Panel B source:
 # analyses/2026-11-03-ntca_urea_response/proposal.md (Framing) and its plan commits
-# (approved 71fc4ab -> control added 1958831 -> re-approved 4236f21).
+# (decision rule committed 792866c -> approved 71fc4ab -> control added 1958831 -> a reviewer
+# saw MED4 ntcA during the delta pass; only the controls changed, disclosed -> re-approved 4236f21).
 FRAMING_EXAMPLE = [
     ("Hypothesis", "the gene switches on with urea"),
     ("Positive control", "urea-use genes must switch on"),
@@ -721,7 +728,7 @@ FRAMING_EXAMPLE = [
 
 
 def figure2h():
-    W, H = 960, 594
+    W, H = 960, 622
     s = SVG(W, H)
 
     def node(x, y, w, h, lines, c, size=13):
@@ -767,24 +774,27 @@ def figure2h():
     s.add(f'<line x1="72" y1="50" x2="72" y2="310" stroke="{LINE}"/>')
 
     # plan
-    node(88, 83, 100, 44, ["Research", "question"], ORANGE)
-    node(88, 200, 124, 70, ["Find the data;", "set the success", "criteria (see B)"], INK2)
-    node(234, 207, 100, 56, ["AI reviewer,", "new to the work,", "checks the plan"], VIOLET)
-    diamond(284, 105, "approve?", ORANGE, hw=42)
-    s.arrow([(138, 127), (138, 198)])
-    s.arrow([(212, 235), (232, 235)])
-    s.arrow([(284, 207), (284, 135)])
-    s.arrow([(242, 105), (196, 105), (196, 198)], dash="5 3")
-    label(219, 97, "revise", anchor="middle")
-    icon_badge(s, "database", 106, 200)
-    icon_badge(s, "lock", 212, 200)
+    node(86, 83, 90, 44, ["Research", "question"], ORANGE)
+    node(86, 200, 90, 70, ["Explore what", "the data can", "show"], INK2)
+    node(188, 200, 88, 70, ["Set success", "criteria", "(see B)"], INK2)
+    node(288, 200, 92, 70, ["AI reviewer,", "new to the", "work, checks", "the plan"], VIOLET)
+    diamond(300, 105, "approve?", ORANGE, hw=40)
+    s.arrow([(131, 127), (131, 198)])
+    s.arrow([(176, 235), (186, 235)])
+    s.arrow([(276, 235), (286, 235)])
+    s.arrow([(300, 200), (300, 135)])
+    s.arrow([(260, 105), (232, 105), (232, 198)], dash="5 3")
+    label(246, 97, "revise", anchor="middle")
+    icon_badge(s, "database", 102, 200)
+    icon_badge(s, "bars", 176, 200, c=MAGENTA)
+    icon_badge(s, "lock", 276, 200)
 
     # freeze
     s.rect(392, 50, 22, 260, stroke="none", fill=INK, rx=4)
     vtext(407, 180, "PLAN FROZEN", "#fff", size=13)
-    s.arrow([(326, 105), (390, 105)], INK, sw=2)
-    label(356, 97, "yes", anchor="middle")
-    commit(356, 118)
+    s.arrow([(340, 105), (390, 105)], INK, sw=2)
+    label(366, 97, "yes", anchor="middle")
+    commit(366, 118)
 
     # run
     node(432, 80, 100, 50, ["Agree what this", "stage will do"], ORANGE)
@@ -807,21 +817,23 @@ def figure2h():
     icon_badge(s, "magnifier", 698, 200)
     icon_badge(s, "scales", 828, 200)
 
-    s.arrow([(638, 270), (638, 290), (160, 290), (160, 272)], INK, dash="2 3", sw=1.6)
+    s.arrow([(638, 270), (638, 290), (232, 290), (232, 272)], INK, dash="2 3", sw=1.6)
     label(690, 304, "results contradict the plan → plan reopened; the change is recorded",
           anchor="middle", fill=INK)
 
     # ================= legend (applies to panel A)
     y = 330
     s.text(24, y + 5, "Safeguards (Fig. 1):", size=13, weight="bold")
-    x = 160
-    for kind, t in [("database", "KG data only"), ("lock", "criteria set first"),
-                    ("check", "method tested"), ("scales", "doing ≠ judging"),
-                    ("magnifier", "claims checked"), ("code", "full history")]:
-        icon_badge(s, kind, x + 10, y, r=10)
-        s.text(x + 26, y + 5, t, size=13, fill=INK)
-        x += 131
-    y = 356
+    items = [("database", "KG data only", None), ("bars", "scope first", MAGENTA),
+             ("lock", "criteria set first", None), ("check", "method tested", None),
+             ("scales", "doing ≠ judging", None), ("magnifier", "claims checked", None),
+             ("code", "full history", None)]
+    for i, (kind, t, c) in enumerate(items):
+        x = 160 + (i % 4) * 190
+        yy = y + (i // 4) * 26
+        icon_badge(s, kind, x + 10, yy, r=10, c=c)
+        s.text(x + 26, yy + 5, t, size=13, fill=INK)
+    y = 384
     commit(30, y)
     s.text(42, y + 5, "saved to version history; never overwritten", size=13)
     s.arrow([(360, y), (400, y)], INK2, dash="5 3")
@@ -830,7 +842,7 @@ def figure2h():
     s.text(578, y + 5, "reopening the frozen plan", size=13)
 
     # ================= panel B: the frozen plan, drawn as a document (not a diagram)
-    top, x0, x1, fold = 388, 12, W - 12, 18
+    top, x0, x1, fold = 414, 12, W - 12, 18
     bot = top + 150
     s.add(f'<path d="M{x0},{top} H{x1 - fold} L{x1},{top + fold} V{bot} H{x0} Z" '
           f'fill="{tint(SLATE, 0.05)}" stroke="{SLATE}" stroke-width="1.5"/>')
@@ -838,7 +850,7 @@ def figure2h():
           f'stroke="{SLATE}" stroke-width="1.5"/>')
     s.add(f'<path d="M{x0},{top} H{x1 - fold - 1} V{top + 30} H{x0} Z" fill="{SLATE}"/>')
     s.text(x0 + 12, top + 21, "B", size=17, weight="bold", fill="#fff")
-    s.text(x0 + 34, top + 21, "The frozen plan: fixed before any results exist", size=15,
+    s.text(x0 + 34, top + 21, "The frozen plan: fixed before the result is scored", size=15,
            weight="bold", fill="#fff")
     s.text(x1 - fold - 10, top + 21, "example: does a nitrogen-control gene switch on when "
            "bacteria are fed urea?", size=13, style="italic", fill="#fff", anchor="end")
@@ -854,12 +866,13 @@ def figure2h():
     s.add(f'<line x1="{x0 + 24}" y1="{top + 124}" x2="{x1 - 24}" y2="{top + 124}" '
           f'stroke="{tint(SLATE, 0.3)}"/>')
     commit(x0 + 30, top + 138)
-    s.text(x0 + 44, top + 143, "Version history: approved → revised to add a control → "
-           "re-approved; both versions kept.", size=13, fill=INK2, style="italic")
+    s.text(x0 + 44, top + 143, "History: decision rule committed and approved → control added → "
+           "a reviewer saw one value → only the controls changed, disclosed → re-approved.",
+           size=13, fill=INK2, style="italic")
 
     # ================= banner
-    s.rect(12, 556, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
-    s.text(W / 2, 575, "The researcher approves every plan and every stage; the AI never "
+    s.rect(12, 584, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
+    s.text(W / 2, 603, "The researcher approves every plan and every stage; the AI never "
            "moves on alone.", size=14, weight="bold", anchor="middle")
     s.save("fig2h_process_framing.svg")
 
