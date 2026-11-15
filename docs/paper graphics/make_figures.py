@@ -420,7 +420,7 @@ def figure1e():
         s.text(xr + 14, y + 19, stage, size=13, weight="bold", fill=INK2)
         warn_icon(s, xr + 12, y + 27)
         s.text(xr + 42, y + 43, prob, size=16, weight="bold", fill=RED_TXT)
-        s.para(xr + 14, y + 66, gloss, wr - 26, size=14, fill=INK2)
+        s.para(xr + 14, y + 66, gloss, wr - 26, size=14, fill=INK)
 
         s.arrow([(xr + wr + 6, y + rh / 2), (xc - 8, y + rh / 2)], INK2, sw=2)
 
