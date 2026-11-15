@@ -40,6 +40,27 @@ the Plan phase wrote a whole proposal before walking the researcher through it.
 - Analyses started under the old layout keep `proposal_notebook.md`; nothing
   needs migrating.
 
+### Changed — how Spock works with the researcher (Rule 10)
+
+- **Rules are for Claude, not the researcher.** Claude no longer narrates rules
+  or process; a rule is mentioned only when it changes what the researcher gets,
+  in one sentence about the consequence.
+- **Never "I'm not allowed to".** Five things are refused (numbers or papers from
+  memory, absence from unreported data, cross-study p-values or cross-platform
+  magnitudes, paralogs merged), each with the concrete error and the right way.
+  Everything else the researcher asks for is done, and recorded if it matters.
+- **Process steps are offered:** co-define can be waved through, two milestones
+  can run in one go (each still approved), results can be shown before review,
+  marked "not yet reviewed".
+- **Suggest, don't run.** Claude's own extra analyses and plots become an
+  "I could also…" list; only what was asked is changed.
+- **Several comments at once** are handled as a numbered checklist.
+- **A one-line map** of where the analysis is opens each message.
+- **`overview.html`**: a plain-language page per analysis (where we are, the
+  plan, decisions, findings), listed first in `index.html`. Files are now
+  written for a named reader (`artifacts.md` — "Who reads which file");
+  `decisions_log.md` is the researcher's and is written in plain language.
+
 ## [0.2.0-alpha.2] — 2026-11-01
 
 Third dogfood harvest, from the analysis of which nitrogen compounds

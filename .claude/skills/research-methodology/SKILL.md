@@ -6,7 +6,8 @@ description: Use when answering biological questions, analyzing expression data,
 # Multi-omics research methodology
 
 These rules apply to ALL research work — dialogue, analysis,
-execution. They are non-negotiable.
+execution. They govern how Claude does the work; Rule 10 says how they
+meet the researcher, which is mostly not at all.
 
 > **Load this skill BEFORE invoking `superpowers:brainstorming` for the
 > Plan phase of an analysis.** Brainstorming's capture location and terminal
@@ -357,11 +358,16 @@ they do fit:
   critic pass earns a delta pass** over the new work before it closes.
   See [step-protocol.md GATE C](references/step-protocol.md).
 
-**Exploration is expected to exceed the plan.** You cannot foresee
-everything, and good exploration is *led by* the results. Findings you
-did not plan for are welcome — that is discovery, not scope drift. The
-only requirement is that they still pass through the decide gate before
-being committed as findings.
+**Explore what the researcher asks; suggest the rest.** Interactive
+exploration — in the Plan, in evaluation, and in methods when the method
+is complex or results are unexpected — is one of Spock's strengths, and
+exploration the researcher asks for is free: findings you did not plan
+for are discovery, not scope drift, provided they pass the decide gate
+before being committed as findings. What Claude does **not** do is start
+extra analyses, plots or reports on its own. Its own ideas become a short
+*"I could also…"* list for the researcher to pick from (see Rule 10).
+*(Workshop: "additional irrelevant plots", "additional analyses that I did
+not ask for — these are tokens being burnt".)*
 
 **Delegate execution to a coding subagent; keep judgment in the main
 thread.** The KG queries and script iterations that make up *do* and
@@ -446,7 +452,9 @@ phase and the methods and analysis milestones (these signal commitment
 before the analysis has earned it): "striking", "massive", "central
 finding", "biologically loaded", "biologically explosive", "reframes",
 "rich", "hand-wavy" as praise. Reserve interpretive vocabulary for the
-evaluation milestone.
+evaluation milestone. This restrains Claude's *own* wording; when the
+researcher asks what a result means before evaluation, answer, and label
+the answer provisional.
 
 **Describe before interpreting.** Write the numbers and direction
 first ("5 markers show RNA log2FC < 0 and protein log2FC > 0 at
@@ -465,6 +473,79 @@ change needs the same friction in two analyses. Don't enumerate
 speculative proposals.
 
 See [Anti-hallucination — 2.6 Emotive vocabulary and speculative proposals](references/anti-hallucination.md#26-emotive-vocabulary-and-speculative-proposals).
+
+## Rule 10: Working with the researcher
+
+These rules exist so Claude does the work correctly. They are not for
+the researcher to manage. Workshop researchers found Spock "overwhelming",
+did not "fully follow its thought process", and heard it explain rules
+nobody had asked about.
+
+**Don't narrate the rules.** Mention a rule only when it changes what the
+researcher gets or has to decide, and then in one sentence about the
+consequence, in plain words. No rule or gate names, no "under our rules",
+no "peeking", no "I noted in the log that…". Record quietly in
+`decisions_log.md` or `notebook.md` and move on. *(ntcA, amino-acid
+genomics: "One caveat for the record: looking at results before the rules
+are locked is the 'peeking' the plan guards against, so I'll note it…";
+"Under our rules I can't use their claims as data…" — both unprompted.)*
+
+**Never "I'm not allowed to".** Say "I can; here's what it changes", or
+do it the right way without comment. Only five things are refused, and
+each refusal names the concrete error and offers the right way:
+
+| Refused | Say, roughly | Offer instead |
+|---|---|---|
+| Numbers, genes or experiments from memory | "I'd be guessing." | Query the KG, then answer |
+| A paper cited from memory | "I can't confirm that paper is the source." | What the KG holds, or the claim marked unverified |
+| Absence read from truncated or unreported data | "Not reported isn't the same as not expressed." | Check the table's scope; say what is known |
+| P-values compared across studies, or fold-change size across platforms | "Those numbers aren't on the same scale." | Ranks or calls within each study, side by side |
+| Expression merged across paralogs, or a gene named without its locus tag | (just do it right) | Label as `name (locus_tag)`; say in one line if the name has paralogs |
+
+Everything else the researcher asks for, Claude does. If it has a
+consequence, say it in one line and record it: knowledge from outside the
+KG is labelled `[interpretation]` or "not from the KG"; an interpretation
+asked for before evaluation is labelled provisional; a look at the answer
+before the plan is set follows the one question in Rule 8. Work the
+researcher asks for that would break a craft rule (statistics in chat, a
+quick unscripted number) is simply done the right way, without a lecture.
+
+**Process steps are offered, not imposed.** The researcher may wave
+through a co-define, ask to run methods and analysis in one go, or ask to
+see a result before the critic has run — show it marked "not yet
+reviewed"; the review still runs before the milestone closes. Each
+milestone still gets its own approval. Record each waiver in the
+milestone's `notebook.md`.
+
+**Suggest, don't run.** Do what was asked, and only that. Extra analyses,
+plots, reports or edits Claude thinks of go into a short *"I could
+also…"* list at the end of the message. Change only what the researcher
+asked to change; any other change Claude thinks is needed is suggested,
+not made. *(Workshop: "it changed things we didn't ask".)*
+
+**Take several comments at once.** When the researcher sends several
+comments in one message, number them, say in one line each what you will
+do, work through them as a checklist, and report each as done.
+*(Workshop: "it was hard to give it several comments at once, so we split
+them into small points and ran each separately".)*
+
+**Show where we are.** During an analysis, open each message with a
+one-line map, e.g. *Plan: ✓ question · ✓ KG data · → approach · can it
+work? · framing* or *✓ Plan · ✓ Methods · → Analysis · Evaluation*.
+
+**Questions stand alone.** One topic per question. Each says what it is
+about, what each option changes in the result, and which you recommend —
+text before a pop-up may not be on screen. A choice with a sensible
+default is stated, not asked: "I set X because Y; change it?"
+
+**Keep the overview current.** `overview.html` at the analysis root is
+the researcher's page: where we are, the question and mode, the plan in
+small tables, decisions so far with who made them, open questions, and —
+once results exist — the findings table with links to the reports. Update
+it when a Plan step closes and at every milestone's decide phase. See
+[artifacts.md — Who reads which file](references/artifacts.md#who-reads-which-file).
+*(ntcA and amino-acid genomics: the researcher asked for a plain-language
+overview page by hand in both.)*
 
 ## References — read on demand, not all at once
 

@@ -32,6 +32,8 @@ MILESTONES = [
     ("evaluation", "Evaluation"),
 ]
 ROOT_DOCS = [
+    ("overview.html", "Overview: where the analysis is, the plan, decisions and findings"),
+    ("proposal_overview.html", "Plan overview"),
     ("paper.html", "Paper draft, with figures (print to PDF from here)"),
     ("paper.md", "Paper draft (markdown source)"),
     ("proposal.md", "Proposal (the plan)"),

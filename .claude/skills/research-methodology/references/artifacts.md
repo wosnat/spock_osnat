@@ -32,6 +32,7 @@ Simple lookups stay in chat:
 
 ```
 analyses/<slug>/
+  overview.html             # the researcher's plain-language page: where we are, the plan, decisions, findings (written by Claude)
   paper.md                  # paper-ready writeup (drops into a manuscript), grows across the arc
   paper.html                # paper.md with figures embedded (generated: scripts/build_paper.py)
   index.html                # front page linking every report + the paper (generated: scripts/build_report_index.py)
@@ -56,6 +57,19 @@ analyses/<slug>/
 
 **Why per-milestone folders:** keeps each Run milestone's artifacts self-contained and reviewable; avoids an analysis-wide `scripts/` or `results/` that becomes a dumping ground and loses milestone context. The Plan phase is a conversation, so it produces two files at the root (`proposal.md` + `decisions_log.md`), plus the throwaway `spike/` folder when its feasibility check ran.
 
+## Who reads which file
+
+Every file is written for one reader. Write it for that reader, and don't make the researcher read files that weren't written for them.
+
+| Reader | Files | Written as |
+|---|---|---|
+| The researcher | `overview.html`, `decisions_log.md`, `proposal.md`, `reports/`, `index.html` | Plain language ([SKILL.md Rule 9](../SKILL.md)) — no tool, field or file names in the text |
+| The paper's reader | `paper.md` / `paper.html` | Journal prose |
+| Spock and KG developers | `gaps_and_friction.md`, `usage/`, script logs | Technical is fine |
+| Claude and the critic | `notebook.md` decide-gate checklists, run-manifests, `critical_review.md` | Technical is fine |
+
+**`overview.html`** is the researcher's front page, the persistent form of the "so far" summary. It holds, in plain words and small tables: a one-line map of where the analysis is (Plan steps, then methods, analysis, evaluation); the question and the mode; the plan (what is compared, controls with their expected results, the decision rule — or, for an exploratory analysis, the scope and deliverables); decisions so far with who made them; open questions; and, once results exist, the findings table with links to each milestone's `summary.html`. Claude writes it (it is prose, so no script generates it), keeps it self-contained (inline CSS, no network fetch, opens by double-click), and updates it when each Plan step closes and at each milestone's decide phase. `index.html` lists it first. *(Before this rule, two analyses had a hand-requested `proposal_overview.html`; the index lists that too.)*
+
 ## Scaffold creation
 
 **Who:** Claude proposes the slug; the user approves or counter-proposes.
@@ -65,6 +79,7 @@ analyses/<slug>/
 2. **Create the minimal scaffold:**
    ```
    analyses/<slug>/
+     overview.html         # the researcher's page; starts with the question and the step map, updated as each step closes
      paper.md              # skeleton with empty section headers: Question, Background, Methods, Results, Discussion, References
      gaps_and_friction.md  # header only; entries added as friction occurs
      .gitignore            # per-analysis (template below)
