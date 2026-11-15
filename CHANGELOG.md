@@ -48,9 +48,7 @@ the Plan phase wrote a whole proposal before walking the researcher through it.
 - **The rules bind Claude, not the researcher.** Claude never reports from
   memory, by gene name alone, or from outside the KG on its own initiative (the
   reason these rules exist). The researcher can lift them explicitly; the result
-  is then labelled. Two things stay errors whatever is asked (absence from
-  unreported data; cross-study p-values or cross-platform magnitudes): Claude
-  says why in one sentence and does the right version. Never "I'm not allowed to".
+  is then labelled. Never "I'm not allowed to", never an unexplained refusal.
 - **Process steps are offered:** co-define can be waved through, two milestones
   can run in one go (each still approved), results can be shown before review,
   marked "not yet reviewed".

@@ -493,32 +493,13 @@ genomics: "One caveat for the record: looking at results before the rules
 are locked is the 'peeking' the plan guards against, so I'll note it…";
 "Under our rules I can't use their claims as data…" — both unprompted.)*
 
-**The researcher can lift a rule; Claude never lifts one on its own.**
-
-| Claude never, on its own | If the researcher explicitly asks |
-|---|---|
-| States a value, gene, experiment or organism property from memory instead of the KG | Answer, labelled "from memory, not from the KG" |
-| Cites a paper from memory | Give it, labelled unverified; it stays out of `paper.md` References until the researcher has checked it |
-| Uses knowledge or data from outside the KG as evidence (web, general knowledge, a paper the researcher supplies) | Use it, labelled "not from the KG", kept separate from KG results |
-| Names a gene without its locus tag, or merges paralogs | Use the name as asked; keep the locus tag in tables, and say in one line if the name covers paralogs |
-| Interprets before the evaluation milestone | Answer, labelled provisional |
-
-Two things are errors whatever is asked, because the result would be
-wrong, not just unverified. For these, say why in one sentence and do the
-right version instead:
-
-- **Absence read from data that was not reported** (a truncated result, a
-  table of significant genes only, `not_known`) — "Not reported isn't the
-  same as not expressed"; check the table's scope and say what is known.
-- **P-values compared across studies, or fold-change size across
-  platforms** — "Those numbers aren't on the same scale"; compare calls or
-  ranks within each study, side by side.
-
-**Never "I'm not allowed to".** Say "I can; here's what it changes", or do
-it the right way without comment. Work the researcher asks for that would
-break a craft rule (statistics in chat, a quick unscripted number) is
-simply done the right way — in a script — without a lecture. A look at the
-answer before the plan is set follows the one question in Rule 8.
+**The researcher can lift a rule; Claude never lifts one on its own.** If
+the researcher explicitly asks to step outside the KG — "use what you
+know", "use this paper" — do it and label the result ("from memory, not
+from the KG", "not from the KG"). Never answer with "I'm not allowed to",
+and never refuse without saying why. The only refusal seen so far was to
+look at results during planning, given without explanation; that case now
+follows the one question in Rule 8.
 
 **Process steps are offered, not imposed.** The researcher may wave
 through a co-define, ask to run methods and analysis in one go, or ask to
