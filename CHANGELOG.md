@@ -45,10 +45,12 @@ the Plan phase wrote a whole proposal before walking the researcher through it.
 - **Rules are for Claude, not the researcher.** Claude no longer narrates rules
   or process; a rule is mentioned only when it changes what the researcher gets,
   in one sentence about the consequence.
-- **Never "I'm not allowed to".** Five things are refused (numbers or papers from
-  memory, absence from unreported data, cross-study p-values or cross-platform
-  magnitudes, paralogs merged), each with the concrete error and the right way.
-  Everything else the researcher asks for is done, and recorded if it matters.
+- **The rules bind Claude, not the researcher.** Claude never reports from
+  memory, by gene name alone, or from outside the KG on its own initiative (the
+  reason these rules exist). The researcher can lift them explicitly; the result
+  is then labelled. Two things stay errors whatever is asked (absence from
+  unreported data; cross-study p-values or cross-platform magnitudes): Claude
+  says why in one sentence and does the right version. Never "I'm not allowed to".
 - **Process steps are offered:** co-define can be waved through, two milestones
   can run in one go (each still approved), results can be shown before review,
   marked "not yet reviewed".

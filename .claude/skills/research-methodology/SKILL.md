@@ -476,10 +476,13 @@ See [Anti-hallucination — 2.6 Emotive vocabulary and speculative proposals](re
 
 ## Rule 10: Working with the researcher
 
-These rules exist so Claude does the work correctly. They are not for
-the researcher to manage. Workshop researchers found Spock "overwhelming",
-did not "fully follow its thought process", and heard it explain rules
-nobody had asked about.
+The rules in this skill are limits on **Claude's own behaviour**. They
+were written because Claude, on its own initiative, reported values from
+memory, identified genes by name alone, and read absence from data that was
+never reported — not because researchers asked it to. They bind Claude
+silently and are not for the researcher to manage. Workshop researchers
+found Spock "overwhelming" and did not "fully follow its thought process";
+hearing the rules explained made that worse.
 
 **Don't narrate the rules.** Mention a rule only when it changes what the
 researcher gets or has to decide, and then in one sentence about the
@@ -490,25 +493,32 @@ genomics: "One caveat for the record: looking at results before the rules
 are locked is the 'peeking' the plan guards against, so I'll note it…";
 "Under our rules I can't use their claims as data…" — both unprompted.)*
 
-**Never "I'm not allowed to".** Say "I can; here's what it changes", or
-do it the right way without comment. Only five things are refused, and
-each refusal names the concrete error and offers the right way:
+**The researcher can lift a rule; Claude never lifts one on its own.**
 
-| Refused | Say, roughly | Offer instead |
-|---|---|---|
-| Numbers, genes or experiments from memory | "I'd be guessing." | Query the KG, then answer |
-| A paper cited from memory | "I can't confirm that paper is the source." | What the KG holds, or the claim marked unverified |
-| Absence read from truncated or unreported data | "Not reported isn't the same as not expressed." | Check the table's scope; say what is known |
-| P-values compared across studies, or fold-change size across platforms | "Those numbers aren't on the same scale." | Ranks or calls within each study, side by side |
-| Expression merged across paralogs, or a gene named without its locus tag | (just do it right) | Label as `name (locus_tag)`; say in one line if the name has paralogs |
+| Claude never, on its own | If the researcher explicitly asks |
+|---|---|
+| States a value, gene, experiment or organism property from memory instead of the KG | Answer, labelled "from memory, not from the KG" |
+| Cites a paper from memory | Give it, labelled unverified; it stays out of `paper.md` References until the researcher has checked it |
+| Uses knowledge or data from outside the KG as evidence (web, general knowledge, a paper the researcher supplies) | Use it, labelled "not from the KG", kept separate from KG results |
+| Names a gene without its locus tag, or merges paralogs | Use the name as asked; keep the locus tag in tables, and say in one line if the name covers paralogs |
+| Interprets before the evaluation milestone | Answer, labelled provisional |
 
-Everything else the researcher asks for, Claude does. If it has a
-consequence, say it in one line and record it: knowledge from outside the
-KG is labelled `[interpretation]` or "not from the KG"; an interpretation
-asked for before evaluation is labelled provisional; a look at the answer
-before the plan is set follows the one question in Rule 8. Work the
-researcher asks for that would break a craft rule (statistics in chat, a
-quick unscripted number) is simply done the right way, without a lecture.
+Two things are errors whatever is asked, because the result would be
+wrong, not just unverified. For these, say why in one sentence and do the
+right version instead:
+
+- **Absence read from data that was not reported** (a truncated result, a
+  table of significant genes only, `not_known`) — "Not reported isn't the
+  same as not expressed"; check the table's scope and say what is known.
+- **P-values compared across studies, or fold-change size across
+  platforms** — "Those numbers aren't on the same scale"; compare calls or
+  ranks within each study, side by side.
+
+**Never "I'm not allowed to".** Say "I can; here's what it changes", or do
+it the right way without comment. Work the researcher asks for that would
+break a craft rule (statistics in chat, a quick unscripted number) is
+simply done the right way — in a script — without a lecture. A look at the
+answer before the plan is set follows the one question in Rule 8.
 
 **Process steps are offered, not imposed.** The researcher may wave
 through a co-define, ask to run methods and analysis in one go, or ask to
