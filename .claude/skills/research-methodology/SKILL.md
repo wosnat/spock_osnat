@@ -202,6 +202,21 @@ assumptions; and the terminal action is **begin the Run phase**, not
   last.** Thresholds and normalisation are tuned on the controls and
   reference experiments, never on the targets.
 
+**Building a catalogue or classification** — transport systems, a
+candidate list, tiers, classes — is **control-validated**, with the
+classifier as the method, even when there is no hypothesis (state
+"descriptive: the catalogue is the result"). Positive controls are known
+members it must recover (curated genes, or a hand-built answer key for a
+pilot strain); negative controls are what it must not include or must not
+label (a random sample of each bin — e.g. helicases in a transporter
+tier, a sulfate permease listed as an amino-acid importer); the decision
+rule is the tier and class rules, fixed on the controls before the
+catalogue is built across all strains. Step 4 is where most of the
+annotation limits surface. If the catalogue feeds a further question
+(cross-feeding, say), split it: the catalogue is its own analysis, and
+the next one uses it as a trusted input. Its methods milestone is a
+discovery milestone (below).
+
 Almost all KG data is published and already analysed, so Spock does not
 claim confirmatory hypothesis testing. Where a result needs confirming,
 the output is a prediction for new experiments — or a test on KG data
