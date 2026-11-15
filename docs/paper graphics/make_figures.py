@@ -429,7 +429,7 @@ def figure1e():
         s.text(xc + 16, y + 25, concept, size=16, weight="bold", fill=c)
         icon(s, ic, xc + wc - 38, y + 10, c)
         yy = s.para(xc + 16, y + 48, f"“{quote}”", wc - 60, size=14, style="italic")
-        s.text(xc + 16, yy + 3, how, size=13, fill=INK2)
+        s.text(xc + 16, yy + 3, how, size=13, fill=INK)
         y += rh + gap
 
     s.rect(xr, y + 3, xc + wc - xr, 38, stroke=INK2, fill=tint(INK2, 0.08), rx=19)
