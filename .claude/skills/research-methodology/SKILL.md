@@ -533,7 +533,13 @@ default is stated, not asked: "I set X because Y; change it?"
 the researcher's page: where we are, the question and mode, the plan in
 small tables, decisions so far with who made them, open questions, and —
 once results exist — the findings table with links to the reports. Update
-it when a Plan step closes and at every milestone's decide phase. See
+it when a Plan step closes and at every milestone's decide phase. A page
+the researcher doesn't know about is not an interface: **open it in the
+browser when it is first created** (`start "" <path>` on Windows, `open` on
+macOS, `xdg-open` on Linux) and tell the researcher in one line that this
+is their page for following the analysis; after that, **end every message
+that updates it with a one-line link** ("Overview updated: <path>"). The
+page reloads itself, so a tab left open stays current. See
 [artifacts.md — Who reads which file](references/artifacts.md#who-reads-which-file).
 *(ntcA and amino-acid genomics: the researcher asked for a plain-language
 overview page by hand in both.)*

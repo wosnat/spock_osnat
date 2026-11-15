@@ -57,7 +57,8 @@ the Plan phase wrote a whole proposal before walking the researcher through it.
 - **Several comments at once** are handled as a numbered checklist.
 - **A one-line map** of where the analysis is opens each message.
 - **`overview.html`**: a plain-language page per analysis (where we are, the
-  plan, decisions, findings), listed first in `index.html`. Files are now
+  plan, decisions, findings), listed first in `index.html`, opened in the browser
+  when created, linked in every message that updates it, and self-refreshing. Files are now
   written for a named reader (`artifacts.md` — "Who reads which file");
   `decisions_log.md` is the researcher's and is written in plain language.
 
