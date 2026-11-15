@@ -15,10 +15,12 @@ Plans, framings, predictions, metrics, terms, decisions, and caveats enter the a
 Look at the data before drafting the plan. Pull what's in the KG — counts, fields, coverage — then propose the minimal framing that fits, stated concretely. Start simple; expand only when a specific finding forces it.
 
 Concrete rules:
-- **The Plan phase grounds the dialogue in MCP queries, not assumptions.** Before locking scope or framing, run `list_publications`, `list_experiments`, `list_organisms` filtered to the prompt's context. Surface counts and structural surprises (e.g. "axenic RNA-seq is single-contrast, not time-course") in the dialogue. Capture the queries and key counts in `proposal_notebook.md`.
+- **The Plan phase grounds the dialogue in MCP queries, not assumptions.** Before locking scope or framing, run `list_publications`, `list_experiments`, `list_organisms` filtered to the prompt's context. Surface counts and structural surprises (e.g. "axenic RNA-seq is single-contrast, not time-course") in the dialogue, shown as a table or plot. Capture the queries and key counts as facts in `decisions_log.md`, before the choices they inform.
+- **Size the question before framing it.** If it has several parts that each need their own answer, or many stress types, strains and papers to sort before anything can be scored, propose splitting it into smaller analyses done one after another. A plan that keeps generating decisions without closing is the sign it was too big. *(General stress response: three parts, about 60 decisions in a week, plan still open.)*
+- **Check that the approach can work before framing it** — in `spike/`, throwaway: annotation depth and recall, control coverage, a random sample per group, distribution shape per experiment. Required when the method builds its own gene set or mixes platforms. *(N-import: the transport-annotation limits surfaced only after the plan was locked.)*
 - **The Plan phase locks the question and framing, not sub-questions.** Sub-narratives that form during dialogue (e.g., "protein persists while mRNA is gone") are for the Run phase to test. Defer; note them.
 - **Ask what the result is for before locking the question.** Is this a standalone result, or part of a paper (or a rewrite of one)? Whose hypothesis is it — the researcher's own, possibly unpublished, or a published claim being tested? The answer changes what counts as a finding and who is anchored to it. *(N-import coculture: the anchor was the researcher's own preprint, which the analysis was rewriting; the Plan learned this only at approval.)*
-- **Framing has a floor, not a template.** The floor — all six, stated concretely: hypothesis in prose; approach (how and why); a deliberate statistics decision (the specific test and thresholds, *or* an explicit reasoned "none, because descriptive"); a named validation set (genes/pathways whose behavior is already known, with the expected behavior if the method works); a falsifiability check (the result that would say the method found nothing real, and a pre-registered expected-negative class that should *not* score if the signal is genuine); and design comparability (below). Nothing beyond the floor unless the data forces it.
+- **Framing has a floor, not a template** (control-validated mode; an exploratory analysis agrees scope and deliverables instead). The floor — all seven, stated concretely: hypothesis in prose; approach (how and why); a deliberate statistics decision (the specific test and thresholds, *or* an explicit reasoned "none, because descriptive"); positive controls (named genes, pathways or experiments that must show the expected effect if the method works, each with its expected result, coverage checked); negative controls (a class that should *not* score if the signal is genuine, with its expected score stated, not assumed to be zero); a decision rule (every reading of the target named in advance, with thresholds); and design comparability (below). Nothing beyond the floor unless the data forces it.
 - **Design comparability — one row per experiment used.** A metric can be comparable while the *designs* are not. For each experiment, state: its role in the analysis; what each arm is compared against (the reference sample, and that sample's physiological state — growth phase, nutrient status, sampling day); whether its contrasts share samples or one fitted model (if so they are not independent evidence); and what it can and cannot confirm. The KG does not hold everything here — reference-culture physiology often lives only with the researcher — so **ask the researcher** for the culture states the KG doesn't record, and mark those cells as researcher-supplied. A table is the natural form. *(Two analyses running: Alteromonas coculture hit an FDR-family-size trap across experiments; N-import coculture missed that late coculture vs early axenic confounds partner with starvation length, that the axenic "early" reference was a late-decline culture, that each arm's RNA reference was its own already-stressed exponential phase, and that the coculture-vs-axenic contrasts were algebraically one fitted model.)*
 - **Predictions are named, not matrixed.** If confirmation bias is a real risk, name 1–3 predictions — not a 4×4 matrix of ordering and thresholds.
 - **Stability checks are added when a specific result triggers them**, not planned up front.
@@ -30,19 +32,21 @@ This principle governs the whole arc. If you find yourself listing or architecti
 
 ## The arc
 
-**Plan phase** — one grounded `superpowers:brainstorming` conversation converging on `proposal.md`:
-1. **Question** — the locked research question, plus what it is for (standalone result or part of a paper; whose hypothesis)
-2. **KG entries** — relevant publications, experiments, organisms, data types, enumerated from the KG
-3. **Framing** — hypothesis, approach, statistics plan, validation set, falsifiability check / expected-negative, design comparability, all in KG terms (the enumerated floor above)
+**Plan phase** — one grounded `superpowers:brainstorming` conversation, walked through with the researcher in five steps, each closing on a "so far" summary they confirm (see [SKILL.md Rule 8 — Plan](../SKILL.md)):
+1. **Clarify and size the question** — what it is for (standalone result or part of a paper; whose hypothesis), the mode (exploratory or control-validated), and whether to split it
+2. **Show what the KG holds** — publications, experiments, organisms, data types, coverage, enumerated from the KG and shown as tables or plots
+3. **Agree the general approach**
+4. **Check that the approach can work** — throwaway tests in `spike/`, when the method builds its own gene set or mixes platforms
+5. **Set the framing** — hypothesis, approach, statistics plan, positive and negative controls, decision rule, design comparability, all in KG terms (the enumerated floor above); control-validated mode only
 
-`proposal.md` is the **research proposal**, locked at the end of the Plan phase. The Run phase executes against it.
+`proposal.md` is written after the five steps, as the record of what was agreed, and locked at the end of the Plan phase. The Run phase executes against it.
 
 **Run phase** — three milestones, each in its own folder:
 - **methods** — implement the approach the proposal committed to as an ad-hoc Python module; toy-test it
 - **analysis** — run the method; produce scored outputs, figures, tables
 - **evaluation** — assess results against the framing; harvest caveats; finalize the paper
 
-The Plan phase produces `proposal.md` + `proposal_notebook.md` (grounding queries, counts, rejected alternatives). It is interactive, not scripted, but not assumption-driven — MCP queries ground the conversation. Run milestones add `scripts/`, `data/`, `figures/`, and QC alongside `notebook.md`.
+The Plan phase produces `proposal.md` + `decisions_log.md` (the step-by-step dialog: KG facts, decisions with who decided them, rejected alternatives, open questions), plus a throwaway `spike/` folder when step 4 ran. It is interactive, not scripted, but not assumption-driven — MCP queries ground the conversation. Run milestones add `scripts/`, `data/`, `figures/`, and QC alongside `notebook.md`.
 
 ## The Run-milestone rhythm: co-define → do → show → explore → decide
 
@@ -127,7 +131,7 @@ When the analysis ends, the paper ends. A recurring failure mode was deferring w
 
 A top-level file at `analyses/<slug>/gaps_and_friction.md` captures friction encountered during the analysis, distinct from decisions:
 
-- **Decision** = a fork the analysis had to take, based on data → logged in the relevant milestone's `notebook.md` (or `proposal.md` if the fork was in the Plan phase)
+- **Decision** = a fork the analysis had to take, based on data → logged in the relevant milestone's `notebook.md` (or `decisions_log.md` if the fork was in the Plan phase)
 - **Friction** = a problem that slowed us down, surprised us, or revealed a gap in methodology / KG / tooling → logged in `gaps_and_friction.md`
 
 These can co-occur — a methodology gap can force both a decision and a friction entry. Log in both places when that happens.
@@ -160,15 +164,19 @@ Append-only. Redo friction entries accumulate.
 
 ## Using `superpowers:brainstorming` for the Plan phase
 
-The brainstorming skill's dialogue pattern (clarifying questions one at a time, proposing approaches, converging, then presenting a design for approval) fits the whole Plan phase — the phase *is* one brainstorming conversation that lands the question, the KG entries, and the enumerated framing. **Three overrides apply:**
+The brainstorming skill's dialogue pattern (clarifying questions one at a time, exploring context, proposing approaches, then presenting the design section by section with a check-in after each) fits the whole Plan phase. Follow it literally: the five steps in [SKILL.md Rule 8 — Plan](../SKILL.md) are that pattern applied to a KG analysis. **Do not jump from a clarifying answer to writing `proposal.md`** — the walk-through is the point. **Three overrides apply:**
 
-1. **Capture location.** The skill's default writes a design doc to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`. Override: the design doc is `analyses/<slug>/proposal.md` (question + KG entries + enumerated framing), and the dialogue record — clarifying exchange in summary form, KG-grounding queries and counts, rejected alternatives — lands in `analyses/<slug>/proposal_notebook.md`.
-2. **KG grounding alongside the dialogue.** Brainstorming is pure conversation by default. The Plan phase adds MCP grounding (`list_publications`, `list_experiments`, `list_organisms` filtered to the prompt's context) before scope or framing decisions. Capture queries and counts in `proposal_notebook.md`. See the Just-in-time concrete rules above for the rationale.
+1. **Capture location.** The skill's default writes a design doc to `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`. Override: the design doc is `analyses/<slug>/proposal.md` (question + KG entries + framing), written *after* the five steps are agreed, and the dialog record lands in `analyses/<slug>/decisions_log.md`.
+2. **KG grounding alongside the dialogue.** Brainstorming is pure conversation by default. The Plan phase adds MCP grounding (`list_publications`, `list_experiments`, `list_organisms` filtered to the prompt's context) before scope or framing decisions, and shows it — tables, plots, a decision tree when many experiments must be sorted. Record the facts in `decisions_log.md`. See the Just-in-time concrete rules above for the rationale.
 3. **Terminal action.** The skill's terminal state is invoking `superpowers:writing-plans`. **Skip this.** The Plan phase's approval advances to the Run phase (methods milestone), not to implementation-plan writing. `proposal.md` *is* the plan — the enumerated framing replaces a separate implementation plan.
 
-Brainstorming's own **spec self-review** and **user-reviews-the-spec** steps are kept — they become the Plan phase's close gate, plus one addition: the fresh-context critic runs on every proposal (interpretation-only) before the researcher approves. See [step-protocol.md — The Plan phase](step-protocol.md) for the ordered close (self-review → critic → design review with the researcher → delta critic pass over the changes, repeating until approval brings no further change → commit → Run begins).
+**How the dialog reads to the researcher.** One topic per message, in plain words. Show data rather than describing it. Ask open questions while exploring (steps 1–3); offer choices with a recommendation when deciding (step 5). Use a pop-up question only for a crisp choice, and make it stand alone: what it is about, what each option changes in the result, and the recommendation — text written before the pop-up may not be on screen. A choice with a sensible default is stated, not asked: "I set X because Y; change it?" A choice the researcher answers by picking "Recommended" without comment was probably not a real decision for them.
 
-**The approval step is a design review, not a sign-off.** In both analyses so far the researcher answered "approve?" with design input — four rounds in a row in the second — and each reopened the proposal. So present the proposal at the close as a **short list of the open design choices** (what is compared, how the set is defined, which controls, what is deferred), each with your recommendation, not as a finished document to accept. Expect changes, and after them run a scoped delta critic pass over what changed.
+**`decisions_log.md` format.** One section per step, each with a numbered table: `#`, decision, decided by (researcher / Claude proposed, researcher agreed / awaiting OK), reason. KG facts the step relies on are listed before its table, tagged `[KG]`. Open questions sit at the bottom until settled; caveats that emerge go in their own section and carry into `paper.md`. What the researcher chose to look at early (see [SKILL.md — Looking at the data](../SKILL.md)) is recorded here, without comment.
+
+Brainstorming's own **spec self-review** and **user-reviews-the-spec** steps are kept — they become the Plan phase's close gate, plus one addition: the fresh-context critic runs on every proposal (interpretation-only) before the researcher approves. See [step-protocol.md — The Plan phase](step-protocol.md#the-plan-phase) for the ordered close.
+
+**The close is a design review, not a sign-off.** Because the framing was agreed step by step, the review should bring few surprises. Present the critic's findings as *"the reviewer noticed X; I suggest Y, because Z"*, each with the choice it opens. Expect changes anyway, and after them run a scoped delta critic pass over what changed.
 
 If the skill's preamble nudges toward writing a spec doc outside the analysis folder or invoking writing-plans at the end, treat those as defaults being overridden by this methodology skill (which has higher priority for research work in this repo).
 
@@ -181,13 +189,13 @@ What to show depends on the phase.
 - Sample rows of selected entries (experiment ID, publication, TPs, omics)
 - Per-TP gene counts (`timepoints[].gene_count`) or the distinct-gene denominator (`distinct_gene_count`), **not** cumulative `gene_count` (see [anti-hallucination.md — Category 5.3](anti-hallucination.md#53-field-semantics-from-memory--cumulative-vs-per-timepoint-counts))
 - Publication attributions resolved via `list_publications`
-- Validation set selected from the KG with validation: what distinguishes an expected-positive from the expected-negative class; coverage of TPs/conditions; distributional QC
-- Hypothesis in prose; statistics decision (named test or reasoned "none"); falsifiability check phrased in KG-operational terms (what table / metric / direction would show a hit, and what would show nothing real)
+- Positive and negative controls selected from the KG: what distinguishes them; their coverage of TPs/conditions (checked in `spike/`); distributional QC
+- Hypothesis in prose; statistics decision (named test or reasoned "none"); decision rule phrased in KG-operational terms (what table / metric / direction gives each reading of the target, and what would show nothing real)
 
 ### Computation / metric (methods milestone)
 - Worked example: 2–3 genes or clusters through the formula with actual numbers, step by step
 - Summary statistics of the output (distribution, range, NaNs)
-- Sanity check against the validation set ("glnA should score high — does it?")
+- Sanity check against the positive controls ("glnA should score high — does it?")
 
 ### Scoring / comparison (analysis milestone)
 - Full results table in markdown (the actual numbers, not prose summary)
@@ -196,7 +204,7 @@ What to show depends on the phase.
 
 ### Evaluation (evaluation milestone)
 - Findings table (question/route × reference/condition) and numbered meanings — see [paper.md growth pattern](#papermd-growth-pattern)
-- Named predictions held / not held; if pre-registered labels were deferred, the falsifiability check is reported as "not evaluated as pre-registered", not replaced by a post-hoc criterion
+- Named predictions held / not held, read through the decision rule; if pre-registered labels were deferred, the rule is reported as "not evaluated as pre-registered", not replaced by a post-hoc criterion
 - Sensitivity / LOO stability where applicable
 - Harvested caveats
 

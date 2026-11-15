@@ -1,6 +1,6 @@
 ---
 name: critic
-description: Fresh-context critical reviewer for a claim-bearing research artifact (a proposal, or a methods / analysis / evaluation milestone). Use when the critical-review skill dispatches a review pass, including delta passes.
+description: Fresh-context critical reviewer for a claim-bearing Run-phase artifact (a methods / analysis / evaluation milestone). Use when the critical-review skill dispatches a review pass, including delta passes. Proposals during the Plan phase go to proposal-critic instead.
 disallowedTools: Edit, Write, NotebookEdit
 ---
 

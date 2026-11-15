@@ -35,8 +35,20 @@ highest-leverage artifact — a flaw in the framing propagates through all three
 Run milestones and is the most expensive to unwind — so it is reviewed before the
 Run phase begins. Its lens is **interpretation only**: there is no data yet, so
 there is nothing to integrity-check; the critic weighs the framing's testability,
-controls, confounders, and whether the statistics decision, validation set, and
-falsifiability check / expected-negative fit the question. Invoke it especially when the framing rests on a judgment call that
+controls, confounders, and whether the statistics decision, the positive and
+negative controls and the decision rule fit the question (for an exploratory
+proposal: whether the scope and deliverables match the question).
+
+**During the Plan phase the critic must not open the result the plan will test.**
+In three analyses it did exactly that while spot-checking: ntcA's own fold
+change, the 12 target genes of a coverage check, and the calls of all 26
+control genes — and in one it wrote and ran a script despite being read-only.
+So the proposal is reviewed by the **`proposal-critic`** agent
+(`.claude/agents/proposal-critic.md`), which has no shell, cannot write files,
+and has only experiment-level and annotation KG tools. A check it cannot run is
+reported as unverified, and the author runs it on non-target genes or
+experiment-level counts. Use `proposal-critic` for the first proposal pass and
+every delta pass before the Plan approval commit. Invoke it especially when the framing rests on a judgment call that
 is not self-evidently sound: a **non-obvious combining key** (e.g. mapping
 disjoint strains onto shared ortholog groups), a **derived or constructed
 comparison**, or **controls whose validity is not obvious** (is the positive
@@ -100,8 +112,12 @@ not a fresh-context dispatch.
 proposal files at the analysis root).
 
 **2. Dispatch the `critic` agent** (`.claude/agents/critic.md` — it cannot edit
-files; fall back to a `general-purpose` subagent if it isn't available), filling
-the template at [critical-reviewer.md](critical-reviewer.md). Dispatch a fresh
+files; fall back to a `general-purpose` subagent if it isn't available) — or, for
+a proposal, the **`proposal-critic`** agent — filling the template at
+[critical-reviewer.md](critical-reviewer.md). If `proposal-critic` isn't
+available, use `critic` and add to the prompt: "Do not open expression values or
+any other data that answers the question; do not run shell commands that write
+files." Dispatch a fresh
 critic for every pass, delta passes included — never continue an earlier one; a
 critic that remembers the last pass is no longer reading cold.
 
@@ -132,7 +148,7 @@ Placeholders:
   the file-and-number that proves it), or deferred (why it can wait). Commit it
   with the phase.
 - **Clean** → no file. Add one line to the milestone's `notebook.md` (or
-  `proposal_notebook.md` for the proposal):
+  `decisions_log.md` for the proposal):
   `Critical review: clean (data-integrity + interpretation)` or `(interpretation)`
   — so the clean verdict sits with the decide-gate checklist, not floating elsewhere.
 
@@ -145,7 +161,10 @@ Placeholders:
   missed context — but disputing requires a file-and-number, not confidence.
 
 **5. Present to the researcher** alongside the decide-gate state: the
-`critical_review.md` with your dispositions (or the one-line clean note).
+`critical_review.md` with your dispositions (or the one-line clean note). For a
+proposal, bring each finding as *"the reviewer noticed X; I suggest Y, because
+Z"*, with the choice it opens — not as a silent fix followed by a question about
+one of its details.
 
 ## What the critic is told NOT to do
 

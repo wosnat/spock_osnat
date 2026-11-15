@@ -37,8 +37,9 @@ analyses/<slug>/
   index.html                # front page linking every report + the paper (generated: scripts/build_report_index.py)
   gaps_and_friction.md      # transitional — methodology/KG/tooling friction log
   .gitignore                # per-analysis, created at scaffolding
-  proposal.md               # question + KG entries + enumerated framing (the plan)
-  proposal_notebook.md      # brainstorming record: grounding queries, counts, rejected alternatives
+  proposal.md               # question + mode + KG entries + framing (the plan), written after the five Plan steps
+  decisions_log.md          # the Plan dialog, step by step: KG facts, decisions + who decided, open questions
+  spike/                    # throwaway "can the approach work?" checks from Plan step 4 (only when it ran)
   proposal_critical_review.md   # only when the proposal critic found something
   methods/
     notebook.md
@@ -53,7 +54,7 @@ analyses/<slug>/
 
 **Slug format:** `YYYY-MM-DD-<descriptor>` where descriptor is snake_case, 2–4 words reflecting the research question (e.g., `2026-04-23-n_limitation_signature`). Same-day collisions: append a letter suffix (`-a`, `-b`).
 
-**Why per-milestone folders:** keeps each Run milestone's artifacts self-contained and reviewable; avoids an analysis-wide `scripts/` or `results/` that becomes a dumping ground and loses milestone context. The Plan phase is a conversation, so it produces two files at the root (`proposal.md` + `proposal_notebook.md`), not a folder.
+**Why per-milestone folders:** keeps each Run milestone's artifacts self-contained and reviewable; avoids an analysis-wide `scripts/` or `results/` that becomes a dumping ground and loses milestone context. The Plan phase is a conversation, so it produces two files at the root (`proposal.md` + `decisions_log.md`), plus the throwaway `spike/` folder when its feasibility check ran.
 
 ## Scaffold creation
 
@@ -67,11 +68,11 @@ analyses/<slug>/
      paper.md              # skeleton with empty section headers: Question, Background, Methods, Results, Discussion, References
      gaps_and_friction.md  # header only; entries added as friction occurs
      .gitignore            # per-analysis (template below)
-     proposal.md           # empty; converges through the Plan-phase brainstorming
-     proposal_notebook.md  # empty; captures grounding queries and dialogue
+     proposal.md           # empty; written after the five Plan steps are agreed
+     decisions_log.md      # header only; one section per Plan step, filled as the dialog goes
    ```
-3. **Run the Plan-phase brainstorming.** `proposal.md` converges (question + KG entries + enumerated framing); `proposal_notebook.md` captures the grounding queries, counts, and rejected alternatives.
-4. **Commit as you go:** the scaffold is the first iteration commit; each design-review round is another. **At Plan-phase approval:** `paper.md`'s Question and Background sections are populated and the Plan approval commit lands (see [step-protocol.md — Commit structure](step-protocol.md#commit-structure)).
+3. **Run the Plan-phase dialog** in its five steps (see [SKILL.md Rule 8 — Plan](../SKILL.md)). `decisions_log.md` fills as each step closes; `spike/` is created only if step 4 runs; `proposal.md` is written once all five steps are agreed.
+4. **Commit as you go:** the scaffold is the first iteration commit; each Plan step and each design-review round is another. **At Plan-phase approval:** `paper.md`'s Question and Background sections are populated and the Plan approval commit lands (see [step-protocol.md — Commit structure](step-protocol.md#commit-structure)).
 
 Run-milestone folders (`methods/`, `analysis/`, `evaluation/`) are created **progressively** — each folder (and its `scripts/` / `data/` / `figures/` subfolders as needed) is created when that milestone begins, not pre-created at scaffold time. This avoids empty folders cluttering the analysis during work in progress.
 
@@ -85,7 +86,11 @@ Each Run-milestone folder contains:
 - **`reports/`** — the milestone's HTML reports: a required `summary.html` plus one page per aspect, self-contained, built by `scripts/build_reports.py` from `data/` and listed in the analysis's `index.html` (see [figures-and-reports.md](figures-and-reports.md#milestone-reports--milestonereports-and-the-analysis-indexhtml))
 - **`critical_review.md`** — at the analysis and evaluation milestones, at a methods milestone that emits a data artifact, and after a delta pass; **only when the critic found something**: its findings plus the author's disposition for each (a clean review is a one-line note in `notebook.md`, not a file). See the `critical-review` skill and [step-protocol.md GATE C](step-protocol.md)
 
-The Plan phase has no folder — it produces `proposal.md` + `proposal_notebook.md` at the analysis root (plus `proposal_critical_review.md` when the proposal critic found something), because it is a conversation, not a computation.
+The Plan phase has no milestone folder — it produces `proposal.md` + `decisions_log.md` at the analysis root (plus `proposal_critical_review.md` when the proposal critic found something), because it is a conversation, not a computation.
+
+### spike/ (Plan step 4 only)
+
+`spike/` holds the throwaway checks of Plan step 4 — can the approach work? — with its own `scripts/`, `data/` and, if useful, `figures/`. It is committed for the record but **never read by the Run phase**: anything the method needs is rebuilt properly in `methods/`. Its findings are summarised as facts in `decisions_log.md`. It checks what the data and annotations can tell apart (annotation depth and recall, control coverage, a random sample per group, distribution shape per experiment); it does not open the data that answers the question without the researcher's OK (see [SKILL.md — Looking at the data](../SKILL.md)). Analyses that predate this rule may also have a `spike/` from ad-hoc pilots.
 
 ### QC artifacts
 

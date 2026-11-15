@@ -11,6 +11,35 @@ explorer pin lives in `pyproject.toml` and the KG version comes from
 
 ## [Unreleased]
 
+### Changed — the Plan phase is a conversation
+
+From the first workshop (participant reflections, three workshop analyses) and
+the ntcA/urea analysis. Researchers found Spock overwhelming and hard to follow;
+the Plan phase wrote a whole proposal before walking the researcher through it.
+
+- **Five-step Plan dialog.** Clarify and size the question → show what the KG
+  holds → agree the approach → check the approach can work (`spike/`) → set the
+  framing. Each step ends with a "so far" summary the researcher confirms;
+  `proposal.md` is written afterwards, as the record of what was agreed.
+  Critic findings are brought to the researcher as suggestions with reasons.
+- **Big questions are split** into smaller analyses done one after another.
+- **Two modes**, chosen in step 1: *exploratory* (scope and deliverables, no
+  framing) and *control-validated* (controls pass → method frozen → targets
+  scored once).
+- **Framing terms renamed:** the validation set and the expected-negative /
+  falsifiability check are now **positive and negative controls**, each with its
+  expected result stated, plus a **decision rule** for every reading of the target.
+- **Looking at data during planning is free.** The one exception, in
+  control-validated mode, is a plain-language question before showing the data
+  that answers the question; what is seen early is recorded quietly.
+- **`decisions_log.md` replaces `proposal_notebook.md`:** a numbered table per
+  step with who decided each point (adopted from a workshop analysis).
+- **New `proposal-critic` agent** for Plan-phase reviews: no shell, no file
+  writing, experiment-level and annotation KG tools only. In three analyses the
+  critic had opened the tested result while checking the plan.
+- Analyses started under the old layout keep `proposal_notebook.md`; nothing
+  needs migrating.
+
 ## [0.2.0-alpha.2] — 2026-11-01
 
 Third dogfood harvest, from the analysis of which nitrogen compounds

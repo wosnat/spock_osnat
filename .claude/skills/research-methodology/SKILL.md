@@ -121,44 +121,122 @@ The arc leans on the superpowers skills where they genuinely fit, and
 keeps its own machinery only where research work needs something they
 don't provide.
 
-### Plan — uses `superpowers:brainstorming`
+### Plan — a conversation built with the researcher
 
-The Plan phase is one grounded brainstorming conversation that
-converges on a single **`proposal.md`** at the analysis root:
+The Plan phase is one grounded `superpowers:brainstorming` conversation,
+walked through with the researcher in five steps. Each step is a short
+dialog, not a batch of questions, and ends with a plain-language **"so
+far" summary** the researcher confirms before the next step. **Do not
+write `proposal.md` until all five steps are agreed** — the proposal
+records what was agreed and holds no surprises. *(ntcA/urea: the first
+real question the researcher got was a pop-up about a fold-change
+threshold, for a plan they had not been shown, fixing a critic finding
+they had not seen. They answered "Recommended" twice, then asked "what is
+the plan — present it to me".)*
 
-- **Question** — the locked research question, and what it is for: a
-  standalone result or part of a paper (or a rewrite of one), and whose
-  hypothesis it is — ask; it changes who is anchored to the answer
-- **KG entries** — the publications, experiments, organisms, and data
-  types that bear on it, *enumerated from the KG, not memory*
-- **Framing** — stated concretely (see below)
+1. **Clarify the question, and size it.** What the researcher wants to
+   know; what the result is for (a standalone result or part of a paper;
+   whose hypothesis); and the **mode** (below). If the question is too big
+   for one analysis — several parts that each need their own answer, or
+   many stress types, strains and papers to sort before anything can be
+   scored — propose splitting it into smaller analyses, each with its own
+   short plan and its own result, done one after another. *(General
+   stress response: three parts in one plan; about 60 decisions over a
+   week, and the plan never closed.)*
+2. **Show what the KG holds.** Experiments, designs, coverage, and how
+   each experiment's data look — as a table or a plot, not a description.
+   When there are many experiments to sort, offer a decision tree showing
+   where each one lands, and keep it current as decisions are made.
+3. **Agree the general approach**, in plain words.
+4. **Check that the approach can work.** A quick, throwaway test in
+   `spike/` of what the data and annotations can actually tell apart:
+   annotation depth and recall against a curated source, coverage of the
+   candidate controls, a random sample of what lands in each group, and
+   distribution shape per experiment when experiments come from different
+   platforms. **Required** when the method builds its own gene set or
+   combines experiments from different platforms; skip it otherwise. It
+   may send you back to step 3. *(N-import: TCDB substrates inherited from
+   the subfamily, a "Medium" tier full of helicases, and curated
+   transporters missing from the gene universe all surfaced in the methods
+   milestone, after the plan was locked; the module went through seven
+   versions.)*
+5. **Set the framing** — control-validated mode only (below). Offer a
+   plain-language explainer for any statistics or method the researcher
+   has not used before.
+
+Then: write `proposal.md` → self-review → critic → bring the critic's
+findings to the researcher as *"the reviewer noticed X; I suggest Y,
+because Z"* — never fix them silently and then ask about a detail → delta
+critic pass over whatever changed → approval commit. If the researcher
+says "go fast", shorten the steps, but still show the summary before
+writing anything. See
+[step-protocol.md — The Plan phase](references/step-protocol.md#the-plan-phase).
+
+**The dialog is recorded in `decisions_log.md`** at the analysis root:
+one numbered table per step — the decision, who decided it (researcher;
+Claude proposed and researcher agreed; awaiting OK), and why — with KG
+facts listed before the choices they inform and open questions at the
+bottom. Commit after each step. *(General stress response: this log,
+kept by hand, worked better than the template's notebook.)*
 
 Three overrides apply to brainstorming here (see
-[research-notebook.md](references/research-notebook.md)): the design doc
-is `proposal.md` in the analysis folder, not `docs/superpowers/specs/`;
-the dialogue is grounded in live KG queries, not assumptions; and the
-terminal action is **begin the Run phase**, not `writing-plans`. Each
-design-review round is committed; the Plan phase closes with an
-approval commit.
+[research-notebook.md](references/research-notebook.md#using-superpowersbrainstorming-for-the-plan-phase)):
+the design doc is `proposal.md` in the analysis folder, not
+`docs/superpowers/specs/`; the dialog is grounded in live KG queries, not
+assumptions; and the terminal action is **begin the Run phase**, not
+`writing-plans`.
 
-**Review the proposal before execution.** The proposal is the
-highest-leverage artifact — a flaw propagates through all three Run
-milestones and is the most expensive to unwind — so the Plan phase
-closes on a review, in order: (1) **self-review** — read `proposal.md`
-with fresh eyes for vagueness, a missing stats decision, an
-unnamed/uncheckable validation set, a missing falsifiability check /
-expected-negative, a missing design-comparability row, or
-contradiction, and fix inline;
-(2) **critical review** — the fresh-context critic runs on every
-proposal, interpretation-only (no data yet), via the `critical-review`
-skill; (3) **design review with the researcher** — not a sign-off: the
-researcher's design thinking happens here, so present a short list of
-the open design choices, each with your recommendation and the critic
-findings that bear on it, and expect changes; (4) **delta critic pass**
-over whatever the design review changed, then back to (3) until the
-researcher approves with no further change. Begin the Run phase only
-then. See
-[step-protocol.md — The Plan phase](references/step-protocol.md).
+#### Two modes — chosen in step 1
+
+- **Exploratory** — "show me what the KG has on X". Agree the scope and
+  the deliverables (which overviews, which maps); there is no framing.
+  Every result is labelled exploratory. An idea that emerges (a
+  mechanism, a link between pathways) becomes a *suggested follow-up
+  analysis*, not something to build evidence for inside this one.
+  *(Amino-acid pathways: an atlas request drifted into "evidence visuals"
+  for a carbon–nitrogen mechanism, with no framing behind them.)*
+- **Control-validated** — "does X happen under Y?". The method must give
+  the expected result on positive and negative controls before it is
+  applied to the target. The full framing below applies. Order in the
+  Run phase: **controls pass → method frozen → targets scored once,
+  last.** Thresholds and normalisation are tuned on the controls and
+  reference experiments, never on the targets.
+
+Almost all KG data is published and already analysed, so Spock does not
+claim confirmatory hypothesis testing. Where a result needs confirming,
+the output is a prediction for new experiments — or a test on KG data
+nobody has looked at (another strain, paper or data type), where it
+exists.
+
+#### Looking at the data before the plan is set
+
+Look at anything; nothing is refused or debated. **Exactly one thing
+triggers a question:** in control-validated mode, just before showing
+*the data that answers the question* — the target genes' values in the
+target comparison, for an expression question; gene presence in the
+target strains, for a genome comparison. What counts depends on the
+question, not on the kind of data. Ask, in these words or close to them:
+
+> "This will show the answer to our question. If we look now, before the
+> plan is final, the result can no longer serve as a test of our
+> prediction. It will be reported as exploratory. Look now, or wait until
+> the plan is set?"
+
+Everything else is free and needs no comment: what exists; coverage;
+ontologies, annotations, orthologs, gene neighbourhoods and other genomic
+features; annotation limits; distributions per experiment (comparing them
+across experiments is encouraged — microarray, RNA-seq and proteomics
+differ, and that difference must not be read as biology); and the control
+genes (looking at controls and calibrating on them is what
+control-validated means). Two habits keep the question rare: check
+coverage and detection with counts (`summary=True`), not values; and
+record in `decisions_log.md` any experiment kept or dropped because of
+how the controls looked, since that shapes the result. If the researcher
+chooses to look, record what was seen in `decisions_log.md`, without
+further comment; it appears once, as a sentence in `paper.md` Methods.
+Exploratory mode tracks nothing.
+
+#### Framing (control-validated mode)
 
 **Framing is enumerated, not sketched.** The recurring failure is a
 vague plan that looks fine, gets approved, then falls apart in
@@ -171,18 +249,22 @@ time*. Every framing states, specifically:
 - **Statistics plan** — a deliberate decision every time: the specific
   statistical test(s) and thresholds, *or* an explicit "no formal
   stats, because descriptive," with the reasoning. Never left implicit.
-- **Validation set** — the specific genes or pathways whose behavior is
-  already known, named, with the behavior expected if the method works
-  ("glnA should score high under N-limitation — if it doesn't,
-  something's wrong")
-- **Falsifiability check** — named in advance: the result that would say
-  the method found *nothing real* (or is only flagging noise), and a
-  **pre-registered expected-negative** — a class that should *not* score
-  if the signal is genuine. The validation set says what a *hit* looks
-  like; this says what a *miss* looks like. Without it a true null and a
-  noise result are indistinguishable, and a negative finding cannot be
-  trusted. A null is a valid outcome; the evaluation milestone writes it
-  up as a bounded negative, not a non-result.
+- **Positive controls** — the named genes, pathways or experiments that
+  must show the expected effect if the method works, each with its
+  expected result stated, and their coverage checked in step 4. If a
+  positive control fails, the target result is *uninterpretable*, not
+  negative.
+- **Negative controls** — a class that should *not* score if the signal
+  is genuine, with its expected score stated rather than assumed to be
+  zero (growth genes move with growth rate; an alternative nitrogen
+  source can share part of the nitrogen response). Positive controls say
+  what a hit looks like; negative controls say what "nothing real" looks
+  like. Without both, a true null and a method that could not detect
+  anything are indistinguishable. A null is a valid outcome; the
+  evaluation milestone writes it up as a bounded negative.
+- **Decision rule** — every reading of the target named in advance
+  (e.g. up / down / suggestive only / not changed), each with its
+  threshold, so no outcome is judged after the data are seen.
 - **Design comparability** — per experiment used: its role; what each
   arm is compared against and that reference sample's physiological
   state (growth phase, nutrient status, sampling day); whether contrasts
@@ -305,8 +387,9 @@ where the researcher is. See
 
 - **No `spec.md` / `plan.md`** — `proposal.md` is the plan; the Run
   milestones execute it
-- **No global `decisions.md`** — decisions live in the milestone's
-  `notebook.md` where they were forced
+- **One decisions file, for the Plan phase only** — `decisions_log.md`
+  records the Plan dialog (it replaces `proposal_notebook.md`); Run-phase
+  decisions live in the milestone's `notebook.md` where they were forced
 - **No `hypotheses.md`** — the hypothesis lives in `proposal.md`
 - **No cross-file labels** (H1/P3/D8/T4) — labels are document-scoped
   and must be paired with a short readable name in the same paragraph

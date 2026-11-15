@@ -17,7 +17,7 @@ edited here).
 ```
 .claude/skills/research-methodology/   # Domain rules + the Plan→Run research arc (reference skill)
 .claude/skills/recipes/                # On-demand analysis protocols land here as methods are formalized (none yet)
-.claude/agents/                        # kg-coder (Run-phase coding subagent) + critic (read-only reviewer)
+.claude/agents/                        # kg-coder (Run-phase coding subagent) + critic (read-only reviewer) + proposal-critic (Plan-phase reviewer, no access to results)
 .mcp.json                              # Registers the multiomics-kg MCP server (uv run)
 .env / .env.example                    # KG credentials (gitignored; copy the example)
 hooks/                                 # Usage-logging hook (writes into usage/)
@@ -47,19 +47,28 @@ plan is committed means retrofitting.
 
 Every analysis is two phases:
 
-**Plan** — one grounded `superpowers:brainstorming` conversation converging on
-`proposal.md` (committed each design-review round; closed by an approval commit):
-- **Question** — user prompt + clarifying questions → locked question
-- **KG entries** — relevant publications, experiments, organisms, data types,
-  enumerated from the KG
-- **Framing** — enumerated concretely: hypothesis, approach, statistics plan (the
-  specific test or a reasoned "none"), a named validation set (check
-  genes/pathways with expected behavior), a falsifiability check (what
-  "nothing real" looks like, plus a pre-registered expected-negative), and design
-  comparability (per experiment: what each arm is compared against and that
-  reference's physiological state, shared samples or models, what it can confirm)
-- The Plan closes on a **design review** with the researcher (open choices, each
-  with a recommendation), followed by a delta critic pass over what changed
+**Plan** — one grounded `superpowers:brainstorming` conversation, walked through
+with the researcher in five steps, each ending with a "so far" summary they
+confirm and recorded in `decisions_log.md`:
+1. **Clarify and size the question** — what it is for, the mode (*exploratory*:
+   scope and deliverables, no framing; or *control-validated*: the full framing),
+   and whether to split a question that is too big into smaller analyses
+2. **Show what the KG holds** — publications, experiments, organisms, data types,
+   coverage, as tables or plots (a decision tree when many experiments must be sorted)
+3. **Agree the general approach**
+4. **Check that the approach can work** — throwaway tests in `spike/`, required when
+   the method builds its own gene set or mixes platforms
+5. **Set the framing** — hypothesis, approach, statistics plan (the specific test or a
+   reasoned "none"), positive and negative controls (each with its expected result),
+   a decision rule for every reading of the target, and design comparability (per
+   experiment: what each arm is compared against and that reference's
+   physiological state, shared samples or models, what it can confirm)
+
+Then `proposal.md` is written as the record of what was agreed, reviewed by the
+`proposal-critic`, its findings brought to the researcher with recommendations, a
+delta critic pass over what changed, and an approval commit. Looking at data during
+planning is free; the one exception is a plain-language question before showing the
+data that answers the question, in control-validated mode.
 
 **Run** — three milestones, each in its own folder; every iteration committed, each
 milestone closed by an approval commit, and a push requested when the analysis is done:

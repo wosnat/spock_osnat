@@ -1,7 +1,8 @@
 # Critical reviewer — subagent prompt template
 
 Fill the placeholders and dispatch as the template's `critic` agent
-(`.claude/agents/critic.md`; fall back to `general-purpose` if it isn't loaded). The text
+(`.claude/agents/critic.md`), or `proposal-critic` for a proposal; fall back to
+`general-purpose` if it isn't loaded. The text
 below is the subagent's entire instruction. It must NOT be given your session
 history — a cold read is the point.
 
@@ -39,6 +40,16 @@ claims follow from them, but do **not** re-open them hunting for new data defect
 The one exception: if a claim under review directly **contradicts** a trusted
 input, flag that contradiction (it may need the proposal or an earlier milestone
 reopened) — but do not go looking for it.
+
+## If you are reviewing a proposal
+
+The plan is not final, and the researcher has not seen the result it will test.
+Do not look up the data that answers the question — the target genes' values
+in the target comparison, or, for a genome comparison, gene presence in the
+target strains. Check experiment-level facts, annotations and locus tags only.
+If a check would need those data, or a shell, report it as **unverified** and
+say what the author should check (on non-target genes, or with experiment-level
+counts). Write no files.
 
 ## Lens — apply only the dimensions named in "Lens to apply" above
 
