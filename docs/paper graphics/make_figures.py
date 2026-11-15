@@ -760,10 +760,10 @@ def figure2h():
 
     # ================= panel A: the process
     panel_letter(14, 31, "A")
-    s.rect(80, 10, 302, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
-    s.text(231, 30, "1 · Plan the study", size=14, weight="bold", anchor="middle")
-    s.rect(424, 10, 524, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
-    s.text(686, 30, "2 · Run it, stage by stage: build the method, analyse, evaluate",
+    s.rect(80, 10, 326, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(243, 30, "1 · Plan the study", size=14, weight="bold", anchor="middle")
+    s.rect(446, 10, 502, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text(697, 30, "2 · Run it, stage by stage: build the method, analyse, evaluate",
            size=14, weight="bold", anchor="middle")
 
     for name, c, y, h in [("Researcher", ORANGE, 50, 110), ("AI assistant", INK2, 160, 150)]:
@@ -773,64 +773,67 @@ def figure2h():
         vtext(44, y + h / 2, name, c)
     s.add(f'<line x1="72" y1="50" x2="72" y2="310" stroke="{LINE}"/>')
 
-    # plan
-    node(86, 83, 90, 44, ["Research", "question"], ORANGE)
-    node(86, 200, 90, 70, ["Explore what", "the data can", "show"], INK2)
-    node(188, 200, 88, 70, ["Set success", "criteria", "(see B)"], INK2)
-    node(288, 200, 92, 70, ["AI reviewer,", "new to the", "work, checks", "the plan"], VIOLET)
-    diamond(300, 105, "approve?", ORANGE, hw=40)
-    s.arrow([(131, 127), (131, 198)])
-    s.arrow([(176, 235), (186, 235)])
-    s.arrow([(276, 235), (286, 235)])
-    s.arrow([(300, 200), (300, 135)])
-    s.arrow([(260, 105), (232, 105), (232, 198)], dash="5 3")
-    label(246, 97, "revise", anchor="middle")
-    icon_badge(s, "database", 102, 200)
-    icon_badge(s, "bars", 176, 200, c=MAGENTA)
-    icon_badge(s, "lock", 276, 200)
+    # plan: three boxes, 18-unit gaps (same as the run lane)
+    node(84, 83, 96, 44, ["Research", "question"], ORANGE)
+    node(84, 200, 96, 70, ["Explore what", "the data can", "show"], INK2)
+    node(198, 200, 92, 70, ["Set success", "criteria", "(see B)"], INK2)
+    node(308, 200, 96, 70, ["AI reviewer,", "new to the", "work, checks", "the plan"], VIOLET)
+    diamond(334, 105, "approve?", ORANGE, hw=40)
+    s.arrow([(132, 127), (132, 198)])
+    s.arrow([(180, 235), (196, 235)])
+    s.arrow([(290, 235), (306, 235)])
+    s.arrow([(334, 200), (334, 135)])
+    s.arrow([(294, 105), (244, 105), (244, 198)], dash="5 3")
+    label(269, 97, "revise", anchor="middle")
+    icon_badge(s, "database", 100, 200)
+    icon_badge(s, "bars", 180, 200, c=MAGENTA)
+    icon_badge(s, "lock", 290, 200)
 
     # freeze
-    s.rect(392, 50, 22, 260, stroke="none", fill=INK, rx=4)
-    vtext(407, 180, "PLAN FROZEN", "#fff", size=13)
-    s.arrow([(340, 105), (390, 105)], INK, sw=2)
-    label(366, 97, "yes", anchor="middle")
-    commit(366, 118)
+    s.rect(416, 50, 22, 260, stroke="none", fill=INK, rx=4)
+    vtext(431, 180, "PLAN FROZEN", "#fff", size=13)
+    s.arrow([(374, 105), (414, 105)], INK, sw=2)
+    label(394, 97, "yes", anchor="middle")
+    commit(394, 118)
 
     # run
-    node(432, 80, 100, 50, ["Agree what this", "stage will do"], ORANGE)
-    node(432, 200, 124, 70, ["Coding AI runs", "the analysis code;", "returns output files"],
+    node(452, 80, 100, 50, ["Agree what this", "stage will do"], ORANGE)
+    node(452, 200, 124, 70, ["Coding AI runs", "the analysis code;", "returns output files"],
          AQUA_TXT)
-    node(578, 200, 120, 70, ["Main AI reads", "the output files", "and judges them"], INK2)
-    node(720, 200, 108, 70, ["AI reviewer,", "new to the work,", "re-checks claims"], VIOLET)
-    diamond(884, 105, "approve?", ORANGE, hw=44)
-    s.arrow([(482, 130), (482, 198)])
-    s.arrow([(556, 235), (576, 235)])
-    s.arrow([(698, 235), (718, 235)])
-    s.arrow([(828, 235), (884, 235), (884, 135)])
-    s.arrow([(884, 77), (884, 64), (482, 64), (482, 78)], dash="5 3")
-    label(683, 58, "no: revise, or redo this stage", anchor="middle")
-    s.arrow([(928, 105), (947, 105)], INK, sw=2)
-    label(937, 92, "yes", anchor="middle")
-    commit(938, 120)
-    icon_badge(s, "check", 450, 200)
-    icon_badge(s, "code", 556, 200)
-    icon_badge(s, "magnifier", 698, 200)
-    icon_badge(s, "scales", 828, 200)
+    node(594, 200, 118, 70, ["Main AI reads", "the output files", "and judges them"], INK2)
+    node(730, 200, 108, 70, ["AI reviewer,", "new to the work,", "re-checks claims"], VIOLET)
+    diamond(890, 105, "approve?", ORANGE, hw=42)
+    s.arrow([(502, 130), (502, 198)])
+    s.arrow([(576, 235), (592, 235)])
+    s.arrow([(712, 235), (728, 235)])
+    s.arrow([(838, 235), (890, 235), (890, 135)])
+    s.arrow([(890, 77), (890, 64), (502, 64), (502, 78)], dash="5 3")
+    label(696, 58, "no: revise, or redo this stage", anchor="middle")
+    s.arrow([(932, 105), (947, 105)], INK, sw=2)
+    label(940, 92, "yes", anchor="middle")
+    commit(940, 120)
+    icon_badge(s, "check", 470, 200)
+    icon_badge(s, "code", 576, 200)
+    icon_badge(s, "magnifier", 712, 200)
+    icon_badge(s, "scales", 838, 200)
 
-    s.arrow([(638, 270), (638, 290), (232, 290), (232, 272)], INK, dash="2 3", sw=1.6)
-    label(690, 304, "results contradict the plan → plan reopened; the change is recorded",
+    s.arrow([(653, 270), (653, 290), (244, 290), (244, 272)], INK, dash="2 3", sw=1.6)
+    label(696, 304, "results contradict the plan → plan reopened; the change is recorded",
           anchor="middle", fill=INK)
 
-    # ================= legend (applies to panel A)
+    # ================= legend (applies to panel A): an aligned grid, columns sized to text
     y = 330
     s.text(24, y + 5, "Safeguards (Fig. 1):", size=13, weight="bold")
     items = [("database", "KG data only", None), ("bars", "scope first", MAGENTA),
              ("lock", "criteria set first", None), ("check", "method tested", None),
              ("scales", "doing ≠ judging", None), ("magnifier", "claims checked", None),
              ("code", "full history", None)]
+    ncol = 4
+    colw = [max(len(items[i][1]) for i in range(c, len(items), ncol)) * 7 + 58
+            for c in range(ncol)]
     for i, (kind, t, c) in enumerate(items):
-        x = 160 + (i % 4) * 190
-        yy = y + (i // 4) * 26
+        x = 160 + sum(colw[:i % ncol])
+        yy = y + (i // ncol) * 26
         icon_badge(s, kind, x + 10, yy, r=10, c=c)
         s.text(x + 26, yy + 5, t, size=13, fill=INK)
     y = 384
