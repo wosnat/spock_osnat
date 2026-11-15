@@ -368,7 +368,7 @@ ROWS_1E = [
      "gene names, values and experiments are recalled rather than looked up",
      "KG data only", BLUE, "database",
      "Every claim must trace to a KG query. Never rely on intrinsic knowledge for data.",
-     "All data come from the knowledge graph (KG); gaps are flagged, not filled"),
+     "Data come from the knowledge graph (KG); gaps are flagged, not filled"),
     ("PLAN", "Criteria fitted to the result",
      "success is defined after seeing the data, so any outcome can pass",
      "Criteria set first", SLATE, "lock",
