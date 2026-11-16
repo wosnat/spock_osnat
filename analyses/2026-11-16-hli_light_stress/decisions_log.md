@@ -47,4 +47,30 @@ KG facts (`list_experiments`, treatment = light, darkness or diel): 22 experimen
 
 | # | Decision | Who | Why |
 |---|---|---|---|
+## Step 2 — What the KG holds (MED4)
+
+Source: `spike/step2_med4_inventory.py` → `spike/step2_med4_inventory.csv`. It records coverage only (genes measured per experiment); no direction or significance was read.
+
+KG facts:
+- Gene sets in MED4: hli 23; chaperones 13; oxidative stress 25; photosystem II 31. None overlaps hli.
+- 45 MED4 experiments. 8 are excluded because they have no stressed-vs-control fold changes (vesicles, transcription-start mapping, RNA decay, annotation survey, the two diel series, steady-state profiling).
+- Proposed groups: light 12; non-light stress 15 (nitrogen 6, CO2 3, phage 3, iron 1, phosphorus 1, salt 1); non-stress 10 (all borderline).
+- **hli coverage is incomplete even in full tables.** RNA-seq full tables hold 15–22 of 23 hli genes; the N-deprivation microarray holds 17. Likely cause: near-identical paralogs lose reads that map to several copies. Missing hli in a full table means "not measured", not "not changed".
+- **Neither MED4 high-vs-low-light proteomics pair measured any hli protein** (0 of 23). The glucose proteomics also have 0. The N-starvation proteomics have 6.
+- Reduced tables: the six light microarrays and the CO2 microarrays list genes significant in any condition of their study, so the approximate rule applies. The N-depleted RNA-seq table is the top 50% by expression level (no significance filter), so it is descriptive only. The phosphate table is filtered at 48 h only, so it is approximate at 48 h and descriptive at other times.
+- Direction: the extended-darkness and constant-dark experiments have darkness as the treatment, so "more light" corresponds to their *down* arm.
+
+### Reframing (researcher, 2026-11-16)
+
+KG facts (experiment counts only, no hli values looked at): Prochlorococcus has experiments for carbon (19), nitrogen (12), phosphorus (9), iron (4), salt (3), temperature (1), plastic (4), phage (3), growth phase (6) and chemical (2). Synechococcus has carbon (15), phage (5), phosphorus (1), growth phase (1).
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| 1.7 | Question becomes two parts: (1) do hli genes respond to light? (2) is their response a general stress response unrelated to light? | R | "a more interesting question to me" |
+| 1.8 | hli values in non-light stress experiments are kept unseen until the plan is set | C (default, researcher may change) | Keeps part 2 a tested answer |
+| 1.9 | One analysis with two parts, not two analyses: part 1 is the light reference that part 2 is compared against | pending | |
+| 1.10 | Start with MED4 (45 experiments, most stress types); other strains as a check on shared genes | pending | |
+
+| # | Decision | Who | Why |
+|---|---|---|---|
 | 1.6 | Seed: the curated Cyanorak hli ortholog groups, plus hli-named genes (with eggNOG hli groups) in strains Cyanorak does not cover; exclude the radical SAM protein and hemH | pending | Name, product and curated group agree completely in MED4; the domain route misses 18 of 23 |
