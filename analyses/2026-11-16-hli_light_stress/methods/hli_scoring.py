@@ -28,27 +28,53 @@ import pandas as pd
 MIN_SIG_GENES = 10          # "too few changed genes": fewer than this many significant in a direction
 GENOME_WIDE_FRACTION = 0.30  # "genome-wide response": more than this share of measured genes significant
 ALPHA = 0.05
+NULL_TIMEPOINT = "single"  # label for experiments whose DE rows carry no timepoint
 
 # ---------------------------------------------------------------- light levels
 
+# a number with a light unit; a true range only with a hyphen / en dash ("10-25 umol")
 _NUM_UNIT = re.compile(
-    r"(?P<a>\d+(?:\.\d+)?)\s*(?:-|–|to)?\s*(?P<b>\d+(?:\.\d+)?)?\s*"
+    r"(?P<a>\d+(?:\.\d+)?)\s*(?:(?:-|–)\s*(?P<b>\d+(?:\.\d+)?))?\s*"
     r"(?:umol|µmol|uE|µE|μE|μmol)",
     re.IGNORECASE,
 )
-_DARK_WORD = re.compile(r"\bdark(ness)?\b", re.IGNORECASE)
+# "X to Y" (a transition such as "from 10 to 400 umol", or an ambiguous span): not parsed, flagged
+_TO_SPAN = re.compile(
+    r"\d+(?:\.\d+)?\s*(?:umol|µmol|uE|µE|μE|μmol)?[^\d]{0,30}?\bto\b\s*\d", re.IGNORECASE)
+# an arm is dark only when its text names darkness itself
+_DARK_ARM = re.compile(
+    r"\b(?:constant|complete|continuous|extended|total)\s+dark(?:ness)?\b"
+    r"|\bdarkness\b"
+    r"|\bdark\s+(?:period|control|phase|treatment|incubation|adapted|adaptation)\b"
+    r"|^\s*dark\s*$|\bin\s+(?:the\s+)?dark\b",
+    re.IGNORECASE,
+)
+# phrases that mention dark but describe a cycle or a transition, not a dark arm
+_DARK_NOT_ARM = re.compile(
+    r"light\s*[:/-]\s*dark|dark\s*[:/-]\s*light|dark(?:ness)?[\s-]+to[\s-]+light|light[\s-]+to[\s-]+dark",
+    re.IGNORECASE,
+)
+
+
+def is_dark_arm(text: str | None) -> bool:
+    """True when an arm's text names darkness itself (not a light:dark cycle or a dark-to-light shift)."""
+    t = str(text or "")
+    return bool(_DARK_ARM.search(t)) and not _DARK_NOT_ARM.search(t)
 
 
 def parse_light_umol(text: str | None) -> tuple[float, str]:
     """Parse a light-intensity string to a number (umol photons m-2 s-1).
 
     Returns (value, note). note is "" for a clean single number, "range_midpoint"
-    for "10-25 umol", "bare_number" for a unit-less number such as "0",
+    for "10-25 umol" (hyphen / en dash only), "transition_or_span_unparsed" (value NaN) for
+    "from 10 to 400 umol" or "10 to 25 umol", "bare_number" for a unit-less number such as "0",
     "unparseable" (value NaN) otherwise. "~45 umol" parses to 45.
     """
     if text is None or (isinstance(text, float) and np.isnan(text)):
         return float("nan"), "unparseable"
     s = str(text).strip()
+    if _TO_SPAN.search(s):
+        return float("nan"), "transition_or_span_unparsed"
     m = _NUM_UNIT.search(s)
     if m:
         a = float(m.group("a"))
@@ -65,7 +91,7 @@ def arm_light_levels(treatment: str, control: str, light_condition: str,
     """Light level of the treatment and control arms.
 
     Rules (each arm): a number with a light unit in the arm's own text wins;
-    else the word dark/darkness in the arm text means 0; else the experiment's
+    else an arm text that names darkness itself (is_dark_arm) means 0; else the experiment's
     light_intensity (0 when light_condition says constant darkness).
     """
     base, base_note = parse_light_umol(light_intensity)
@@ -74,11 +100,11 @@ def arm_light_levels(treatment: str, control: str, light_condition: str,
     out = {}
     for arm, text in (("treatment", treatment), ("control", control)):
         text = str(text or "")
-        m = _NUM_UNIT.search(text)
+        m = _NUM_UNIT.search(text) or _TO_SPAN.search(text)
         if m:
             v, note = parse_light_umol(text)
             src = "arm_text"
-        elif _DARK_WORD.search(text):
+        elif is_dark_arm(text):
             v, note, src = 0.0, "", "arm_text_dark"
         else:
             v, note, src = base, base_note, "light_intensity"
@@ -96,12 +122,12 @@ def build_test_grid(de: pd.DataFrame) -> pd.DataFrame:
     """One row per experiment x timepoint x direction.
 
     de columns: experiment_id, timepoint, timepoint_order, locus_tag, expression_status.
-    Null timepoints become "NA". Returns columns experiment_id, timepoint,
+    Null timepoints become "single" (not "NA", which pandas reads back as NaN). Returns columns experiment_id, timepoint,
     timepoint_order, direction, sig_genes (sorted list), measured_genes (sorted
     list of every gene with a row at that timepoint), n_sig_total, n_rows.
     """
     d = de.copy()
-    d["timepoint"] = d["timepoint"].fillna("NA").astype(str)
+    d["timepoint"] = d["timepoint"].fillna(NULL_TIMEPOINT).astype(str)
     d["timepoint_order"] = d["timepoint_order"].fillna(0)
     rows = []
     for (eid, tp), g in d.groupby(["experiment_id", "timepoint"], sort=False):

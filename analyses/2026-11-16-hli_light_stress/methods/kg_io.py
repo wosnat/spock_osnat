@@ -39,6 +39,36 @@ REFERENCE_SETS = {
     "chaperones": ("cyanorak.role:D.4", "failed_reference"),
     "oxidative_stress": ("cyanorak.role:D.1.4", "failed_reference"),
 }
+SET_LABEL = {
+    "ribosomal_proteins": "Ribosomal proteins", "protein_folding": "Protein folding",
+    "protein_degradation": "Protein degradation", "adaptation_N": "Adaptation: N", "adaptation_P": "Adaptation: P",
+    "adaptation_Fe": "Adaptation: Fe", "adaptation_light_minus_hli": "Adaptation: light minus hli",
+    "photosystem_I": "Photosystem I", "co2_fixation": "CO2 fixation", "photosystem_II": "Photosystem II",
+    "chaperones": "Chaperones", "oxidative_stress": "Oxidative stress",
+}
+# figure / report row bands, in display order
+ROLE_BAND = {
+    "broad_stress_growth": "Broad stress", "broad_stress": "Broad stress",
+    "specific_N": "Specific", "specific_P": "Specific", "specific_Fe": "Specific",
+    "light_specific": "Light", "photosynthesis": "Photosynthesis", "failed_reference": "Failed references",
+}
+BAND_ORDER = ["Broad stress", "Specific", "Light", "Photosynthesis", "Failed references"]
+
+
+def set_rows() -> list[tuple[str, str, str]]:
+    """(set, display label with Cyanorak code, band) for every reference set, in display order.
+
+    Derived from REFERENCE_SETS so figures and reports cannot drift from the scored sets.
+    """
+    rows = []
+    for band in BAND_ORDER:
+        for name, (term, role) in REFERENCE_SETS.items():
+            if ROLE_BAND[role] == band:
+                rows.append((name, f"{SET_LABEL[name]} ({term.split(':')[-1]})", band))
+    assert len(rows) == len(REFERENCE_SETS)
+    return rows
+
+
 COMPARISON_ROLES = {k: v[0] for k, v in REFERENCE_SETS.items()}
 SET_ROLE = {k: v[1] for k, v in REFERENCE_SETS.items()}
 COMPARISON_SETS = list(COMPARISON_ROLES)

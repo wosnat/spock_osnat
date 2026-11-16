@@ -26,7 +26,7 @@ def test_type_for(exp: Mapping, timepoint: str) -> str:
 def de_qc(de: pd.DataFrame) -> dict:
     """Counts only: duplicated gene rows within a timepoint, genes both up and down."""
     d = de.copy()
-    d["timepoint"] = d["timepoint"].fillna("NA")
+    d["timepoint"] = d["timepoint"].fillna(hs.NULL_TIMEPOINT)
     dup = d.duplicated(["timepoint", "locus_tag"], keep=False)
     both = (d[d.expression_status.str.startswith("significant")]
             .groupby(["timepoint", "locus_tag"])["expression_status"].nunique())

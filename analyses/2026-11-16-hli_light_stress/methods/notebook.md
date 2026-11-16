@@ -94,3 +94,11 @@ Testable tests with BH padj < 0.05:
     - the dark/range regexes in light parsing could misread arm text (latent; the current 29 are unaffected per the reviewer);
     - the set list is duplicated across scripts.
   - **The reviewer also flagged that 07 runs KG queries on the main thread.** Kept deliberately: an independent check has to be written outside the coder's code. The researcher asked for spot checks.
+
+## Run 3 (kg-coder): code-review fixes
+
+- **Fixes:**
+  - null timepoints are labelled "single" (no row was affected);
+  - `is_dark_arm()` replaces the "dark" regex, and a midpoint is taken only for true ranges;
+  - the set list is derived from `kg_io.REFERENCE_SETS`.
+- **Checks:** pytest 38 passed (21 before). All 14 data CSVs are byte-identical to run 2; `git status` shows no data file changed.

@@ -14,6 +14,7 @@ and methods/figures/controls_heatmap_by_light.{png,svg}.
 Run from the repo root:
     PYTHONUTF8=1 uv run python analyses/2026-11-16-hli_light_stress/methods/scripts/05_figures.py
 """
+import sys
 from pathlib import Path
 
 import matplotlib
@@ -26,6 +27,8 @@ from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm  # noqa: E40
 from matplotlib.patches import Rectangle  # noqa: E402
 
 METHODS = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(METHODS))
+import kg_io  # noqa: E402
 DATA, FIG = METHODS / "data", METHODS / "figures"
 FIG.mkdir(exist_ok=True)
 
@@ -37,21 +40,7 @@ GROUP_ORDER = ["light_onset_photoperiod", "electron_transport_DCMU", "phage_dark
 GROUP_LABEL = {"light_onset_photoperiod": "Light onset / photoperiod", "electron_transport_DCMU": "DCMU",
                "phage_dark": "Phage, dark", "nonlight_stress": "Non-light stress",
                "nonstress_possible_relief": "Non-stress / possible relief"}
-# (set, row label, role band); failed references in a lower band
-SET_ROWS = [
-    ("ribosomal_proteins", "Ribosomal proteins (K.2)", "Broad stress"),
-    ("protein_folding", "Protein folding (L.3)", "Broad stress"),
-    ("protein_degradation", "Protein degradation (L.4)", "Broad stress"),
-    ("adaptation_N", "Adaptation: N (D.1.3)", "Specific"),
-    ("adaptation_P", "Adaptation: P (D.1.5)", "Specific"),
-    ("adaptation_Fe", "Adaptation: Fe (D.1.1)", "Specific"),
-    ("adaptation_light_minus_hli", "Adaptation: light minus hli (D.1.2)", "Light"),
-    ("photosystem_I", "Photosystem I (J.7)", "Photosynthesis"),
-    ("co2_fixation", "CO2 fixation (J.2)", "Photosynthesis"),
-    ("photosystem_II", "Photosystem II (J.8)", "Photosynthesis"),
-    ("chaperones", "Chaperones (D.4)", "Failed references"),
-    ("oxidative_stress", "Oxidative stress (D.1.4)", "Failed references"),
-]
+SET_ROWS = kg_io.set_rows()   # derived from kg_io.REFERENCE_SETS; failed references last
 SETS = [(a, b) for a, b, _ in SET_ROWS]
 ROLE_OF = {a: c for a, _, c in SET_ROWS}
 

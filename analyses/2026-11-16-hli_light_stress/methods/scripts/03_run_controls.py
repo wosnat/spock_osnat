@@ -93,6 +93,10 @@ def main():
             "n_measured_in_table", "pvalue_in_table", "padj_in_table_bh", "light_treatment_umol",
             "light_control_umol"]
     tests = tests[cols].sort_values(["group", "label", "timepoint_order", "direction", "set"])
+    # timepoint labels must survive a pandas round trip (no "NA"-like strings)
+    from pandas._libs.parsers import STR_NA_VALUES
+    bad = set(tests.timepoint) & set(STR_NA_VALUES)
+    assert not bad, f"timepoint labels read back as NaN: {bad}"
     tests.to_csv(DATA / "control_tests.csv", index=False, encoding="utf-8")
 
     # per-experiment aggregate

@@ -53,7 +53,7 @@ def test_build_test_grid():
     assert g.loc[("1h", "up"), "sig_genes"] == ["a"]
     assert g.loc[("1h", "down"), "sig_genes"] == ["b"]
     assert g.loc[("1h", "up"), "measured_genes"] == ["a", "b", "c"]
-    assert g.loc[("NA", "up"), "n_sig_total"] == 2
+    assert g.loc[("single", "up"), "n_sig_total"] == 2
     assert len(g) == 4
 
 
@@ -165,3 +165,41 @@ def test_arm_light_levels():
     phage_dark = hs.arm_light_levels("Phage (P-HM2) lysate", "Spent medium (uninfected)",
                                      "constant darkness", "0")
     assert (phage_dark["light_treatment_umol"], phage_dark["light_control_umol"]) == (0, 0)
+
+
+# ---------------------------------------------------------------- light parsing edge cases (iteration 3)
+@pytest.mark.parametrize("text,dark", [
+    ("Constant dark", True), ("constant darkness", True), ("Darkness control", True),
+    ("Extended darkness across dawn", True), ("Normal diel dark period (time-matched controls)", True),
+    ("12:12 light:dark cycle", False), ("dark-to-light shift", False), ("darkness to light transfer", False),
+    ("Light-dark cycle", False), ("High light", False), ("Phage (P-HM2) lysate", False)])
+def test_is_dark_arm(text, dark):
+    assert hs.is_dark_arm(text) is dark
+
+
+def test_light_cycle_arm_not_set_to_zero():
+    out = hs.arm_light_levels("Grown on a 14:10 light:dark cycle", "Continuous light",
+                              "14:10 light:dark cycle", "40 umol photons m-2 s-1")
+    assert (out["light_treatment_umol"], out["light_control_umol"]) == (40, 40)
+    out = hs.arm_light_levels("dark-to-light shift", "Darkness control", "light shift", "30 umol photons m-2 s-1")
+    assert (out["light_treatment_umol"], out["light_control_umol"]) == (30, 0)
+
+
+@pytest.mark.parametrize("text,note", [
+    ("from 10 to 400 umol photons m-2 s-1", "transition_or_span_unparsed"),
+    ("10 to 25 umol photons m-2 s-1", "transition_or_span_unparsed"),
+    ("shift from 10 umol to 400 umol photons", "transition_or_span_unparsed")])
+def test_transition_not_midpoint(text, note):
+    v, n = hs.parse_light_umol(text)
+    assert n == note and math.isnan(v)
+
+
+def test_true_range_midpoint_en_dash():
+    assert hs.parse_light_umol("10\u201325 umol photons m-2 s-1") == (17.5, "range_midpoint")
+
+
+def test_transition_arm_flagged_unparseable():
+    out = hs.arm_light_levels("Shift from 10 to 400 umol photons m-2 s-1", "10 umol photons m-2 s-1",
+                              "light shift", "10 umol photons m-2 s-1")
+    assert math.isnan(out["light_treatment_umol"]) and out["light_parse_flag"] == "unparseable"
+    assert out["light_control_umol"] == 10

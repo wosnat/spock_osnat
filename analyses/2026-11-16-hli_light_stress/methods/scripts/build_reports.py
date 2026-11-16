@@ -9,12 +9,15 @@ Run from the repo root:
 import html
 import json
 import re
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
 METHODS = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(METHODS))
+import kg_io  # noqa: E402
 DATA, REP = METHODS / "data", METHODS / "reports"
 REP.mkdir(exist_ok=True)
 
@@ -95,20 +98,7 @@ def codefine_text() -> str:
     return "<ol>" + "".join(out) + "</ol>"
 
 
-SET_ROWS = [
-    ("ribosomal_proteins", "Ribosomal proteins (K.2)", "Broad stress"),
-    ("protein_folding", "Protein folding (L.3)", "Broad stress"),
-    ("protein_degradation", "Protein degradation (L.4)", "Broad stress"),
-    ("adaptation_N", "Adaptation: N (D.1.3)", "Specific"),
-    ("adaptation_P", "Adaptation: P (D.1.5)", "Specific"),
-    ("adaptation_Fe", "Adaptation: Fe (D.1.1)", "Specific"),
-    ("adaptation_light_minus_hli", "Adaptation: light minus hli (D.1.2)", "Light"),
-    ("photosystem_I", "Photosystem I (J.7)", "Photosynthesis"),
-    ("co2_fixation", "CO2 fixation (J.2)", "Photosynthesis"),
-    ("photosystem_II", "Photosystem II (J.8)", "Photosynthesis"),
-    ("chaperones", "Chaperones (D.4)", "Failed references"),
-    ("oxidative_stress", "Oxidative stress (D.1.4)", "Failed references"),
-]
+SET_ROWS = kg_io.set_rows()   # derived from kg_io.REFERENCE_SETS; failed references last
 SET_ORDER = [a for a, _, _ in SET_ROWS]
 
 
