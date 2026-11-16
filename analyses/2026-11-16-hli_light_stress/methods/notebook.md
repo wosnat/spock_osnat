@@ -189,4 +189,4 @@ Earlier sections of this notebook (Run 1/2 "Explore") were written with the ligh
 - [x] Critic first pass (`critical_review.md`) and delta pass: no Blocker; all dispositions applied.
 - [x] No hli result computed. Two disclosed probe-console incidents only (one hli row, extended light 14 h, already seen in planning).
 - [x] Changes to the plan logged (M.1–M.4).
-- [ ] Researcher approval.
+- [x] Researcher approval (2026-11-16).
