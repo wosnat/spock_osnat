@@ -129,3 +129,4 @@ The delta critic confirmed 9 of the 12 dispositions and found 2 Concerns and 5 N
 | M.1 | Drop the light orientation flip (proposal Approach 4). Report treatment vs control; read light by per-group rules (methods/notebook.md) | R (C proposed the rules) | Extended light and extended darkness move the references the same raw way (critic, verified in `control_tests.csv`) |
 | M.2 | Extended light and extended darkness form their own reading group, "schedule extension" | C→R | Same reason |
 | M.3 | Pooled "days 60+89" is descriptive | C→R | Duplicates day 60 and day 89 |
+| M.4 | The schedule-extension reading for hli is made on the unflagged pair (extended darkness 2 h, extended light 14 h); the genome-wide-flagged 4 h / 16 h are context only | C (default; researcher may change) | Delta critic: two of the four contrasts are flagged genome-wide |

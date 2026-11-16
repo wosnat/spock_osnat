@@ -140,3 +140,27 @@ Testable tests with BH padj < 0.05:
   - **CO2 fixation** is down in both: extended darkness 14/21 and 15/21; extended light 5/21 and 13/21; all padj < 0.014.
 
   The lit arm is opposite in the two experiments, so these references respond to being off-schedule, not to light. The reading rule for hli in this group is fixed above.
+
+## Corrections after the delta review (2026-11-16): these supersede earlier numbers in this notebook
+
+The delta critic found no Blocker. It confirmed:
+- `more_light_arm` is correct for all 29 experiments;
+- the labels are faithful to the KG arm text;
+- the pooled time point is out of both BH and Bonferroni;
+- the concordance table matches `control_tests.csv` exactly.
+
+Earlier sections of this notebook (Run 1/2 "Explore") were written with the light flip and with "days 60+89" included. The current, raw (treatment vs control) numbers are:
+- **N set:** up at 2 of **18** testable nitrogen tests (not 20). It is also up in 2 of 11 non-stress tests, so it is weak and not specific.
+- **Ribosomal proteins:** down in 7 of **36** non-light stress tests (not 38). Up in 4 contrasts: two coculture (lowN coculture day 31, coculture vs axenic day 18), extended light 16 h, and phage array 1 h. None is a recovery contrast; "recovery" is withdrawn.
+- **The "light group" counts in Run 2** (PSI 2 up/4 down, CO2 fixation 2/2, PSII 0) were oriented. **Pooled light-group counts are not read for direction**, because the lit arm differs between experiments. References are read per light reading group (`reference_behaviour.csv` scope `light_reading_group`).
+- **The PSII sign-check line "including the orientation flip"** refers to the earlier pipeline; no flip exists now.
+- **The schedule-extension reading holds on the unflagged contrasts alone:**
+  - extended darkness 2 h: PSI up padj 2.7e-5; CO2 fixation down padj 7.8e-4;
+  - extended light 14 h: PSI up padj 0.017; CO2 fixation down padj 0.0026.
+
+  Extended darkness 4 h and extended light 16 h are flagged genome-wide response (both-direction share 0.67 and 0.62).
+- **Rule for hli in schedule extension (fixed now, before hli is opened):** the reading is made on the unflagged pair (extended darkness 2 h, extended light 14 h). The flagged pair (4 h, 16 h) is shown as supporting context only.
+- **Background caveat:** the extended light and extended darkness KG tables hold 1876 genes, while the study reports about 1920 detected. The full-table background is the 1876 the KG holds.
+- **Deferred to the analysis milestone:**
+  - wire `gene_calls_from_background()` into the ortholog-group counts;
+  - report `n_groups_down` as n/a for the up-only Lindell table.
