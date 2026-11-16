@@ -11,7 +11,7 @@ KG facts known at this point (from a quick look before the analysis was opened):
 | # | Decision | Who | Why |
 |---|---|---|---|
 | 1.1 | Question: do cyanobacterial hli genes respond to light stress (excess light, UV), gene by gene? | C→R | Researcher's question, "are hli proteins related to light stress?" |
-| 1.2 | Mode: tested answer (prediction, positive and negative controls, decision rule fixed before scoring) | R | Wants a defensible answer, not only a map |
+| 1.2 | Mode: tested answer (prediction, positive and negative controls, decision rule fixed before scoring) — **superseded by 3.1 (exploratory)** | R | Wants a defensible answer, not only a map |
 | 1.3 | Scope: all cyanobacteria in the KG with relevant data, hli genes matched across strains by ortholog group | R | |
 | 1.4 | Purpose: standalone result | R | |
 | 1.5 | Folder name `2026-11-16-hli_light_stress` | C→R | |
@@ -71,13 +71,13 @@ KG facts (experiment counts only, no hli values looked at): Prochlorococcus has 
 | # | Decision | Who | Why |
 |---|---|---|---|
 | 1.7 | Question becomes two parts: (1) do hli genes respond to light? (2) is their response a general stress response unrelated to light? | R | "a more interesting question to me" |
-| 1.8 | hli values in non-light stress experiments are kept unseen until the plan is set | C (default, researcher may change) | Keeps part 2 a tested answer |
-| 1.9 | One analysis with two parts, not two analyses: part 1 is the light reference that part 2 is compared against | pending | |
-| 1.10 | Start with MED4 (45 experiments, most stress types); other strains as a check on shared genes | pending | |
+| 1.8 | hli values in non-light stress experiments are kept unseen until the plan is set — **partly broken (see "What was seen early"); moot after 3.1** | C | Keeps part 2 a tested answer |
+| 1.9 | One analysis with two parts, not two analyses: part 1 is the light reference that part 2 is compared against | C→R | |
+| 1.10 | Start with MED4 (45 experiments, most stress types); other strains as a quick same-method check | R | |
 
 | # | Decision | Who | Why |
 |---|---|---|---|
-| 1.6 | Seed: the curated Cyanorak hli ortholog groups, plus hli-named genes (with eggNOG hli groups) in strains Cyanorak does not cover; exclude the radical SAM protein and hemH | pending | Name, product and curated group agree completely in MED4; the domain route misses 18 of 23 |
+| 1.6 | Seed: the curated Cyanorak hli ortholog groups, plus hli-named genes (with eggNOG hli groups) in strains Cyanorak does not cover; exclude the radical SAM protein and hemH | C→R | Name, product and curated group agree completely in MED4; the domain route misses 18 of 23 |
 
 ### Agreed after step 2 (2026-11-16)
 
@@ -97,3 +97,12 @@ KG facts (experiment counts only, no hli values looked at): Prochlorococcus has 
 | 3.2 | Approach as written in `proposal.md` (per-test Fisher, background by table type, light orientation, "too few changes", comparison sets, combining by study) | C→R | Agreed step by step above |
 | 4.1 | No separate feasibility spike: the comparison sets are run first in the methods milestone, and the test grid is spot-checked against `pathway_enrichment` | C | Exploratory mode, one-day budget; per-experiment tests avoid cross-platform comparison |
 | 5.1 | No framing (exploratory mode); the descriptive label per stress type is a summary, not a decision rule | C | |
+
+### Proposal review, first pass (2026-11-16)
+
+The proposal critic returned 1 Blocker, 8 Concerns and 3 Notes (`proposal_critical_review.md`). The researcher accepted all of the proposed dispositions, and changed the "too few changes" threshold.
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| R.1 | Apply all proposed dispositions; proposal revised | R | |
+| R.2 | "Too few changed genes" threshold is **10** (not 20) | R | Fewer tests lost; Fisher can still reach significance with 10 changed genes |

@@ -2,7 +2,7 @@
 
 Reviewer: `proposal-critic`, cold read of `proposal.md` (context: `decisions_log.md`, `spike/step2_med4_inventory.csv`). It used experiment-level KG facts only and looked up no hli expression data.
 
-Dispositions are **proposed**, awaiting the researcher's choice.
+Dispositions: **all accepted by the researcher (2026-11-16)**. Finding 3 was changed by the researcher: the threshold is 10 changed genes, not 20. Proposal revised accordingly.
 
 | # | Severity | Finding (short) | Proposed disposition |
 |---|---|---|---|
