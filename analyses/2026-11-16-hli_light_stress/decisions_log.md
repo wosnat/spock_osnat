@@ -35,4 +35,16 @@ KG facts (2026-11-16, interactive queries):
 
 | # | Decision | Who | Why |
 |---|---|---|---|
+### Which strains have light experiments (researcher's question)
+
+KG facts (`list_experiments`, treatment = light, darkness or diel): 22 experiments; 20 are in cyanobacteria (the other 2 are Alteromonas).
+- MED4: 14. These are 6 microarray light shifts, each vs darkness or vs white light with DCMU added; 2 proteomics (high 100 or medium 60 vs low 20 µE, about 180 proteins); 2 constant dark vs constant light (one with phage, one without; significant genes only); extended light and extended darkness (RNA-seq, same time-of-day control); and 2 diel series (microarray clusters; paired transcript-protein metrics).
+- NATL2A: 3. Extended darkness vs diel cycle (axenic and in coculture); dark-tolerant vs parental in coculture.
+- MIT0604: 1. UV shock vs untreated (all genes).
+- Thermosynechococcus BP-1: 1. Light and oxygen levels in coculture; clusters only, no fold changes.
+- Synechococcus WH8102: 1. Exoproteome after 10 h dark vs light.
+- The 6 MED4 microarray "light stress" experiments compare light with *darkness* (dark-to-light shift). They are not high light vs normal light. The only true high-vs-low light contrast is the MED4 proteomics pair.
+
+| # | Decision | Who | Why |
+|---|---|---|---|
 | 1.6 | Seed: the curated Cyanorak hli ortholog groups, plus hli-named genes (with eggNOG hli groups) in strains Cyanorak does not cover; exclude the radical SAM protein and hemH | pending | Name, product and curated group agree completely in MED4; the domain route misses 18 of 23 |
