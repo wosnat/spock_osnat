@@ -88,3 +88,12 @@ KG facts (experiment counts only, no hli values looked at): Prochlorococcus has 
 | 2.3 | Experiments whose significant-only tables were partly seen are labelled exploratory | C→R | See "What was seen early" |
 | 2.4 | Add the reading "too few changed genes to tell" (fewer than 20 significant genes in that direction) | C→R | A non-enrichment there is uninformative |
 | 2.5 | Test per experiment × time point × direction, correcting across all tests; an experiment is "up" if enriched up at any time point; a stress type is read by study, not by assay | C→R | Stops one multi-assay study outvoting the others |
+
+## Steps 3–5 — Approach, feasibility, framing
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| 3.1 | Mode changed to **exploratory** (option B) | R | The tested part would rest on nitrogen and salt only; most of the stress range was seen or has only significant-only tables; one-day budget |
+| 3.2 | Approach as written in `proposal.md` (per-test Fisher, background by table type, light orientation, "too few changes", comparison sets, combining by study) | C→R | Agreed step by step above |
+| 4.1 | No separate feasibility spike: the comparison sets are run first in the methods milestone, and the test grid is spot-checked against `pathway_enrichment` | C | Exploratory mode, one-day budget; per-experiment tests avoid cross-platform comparison |
+| 5.1 | No framing (exploratory mode); the descriptive label per stress type is a summary, not a decision rule | C | |
