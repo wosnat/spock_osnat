@@ -23,12 +23,26 @@ HLI_GROUPS = [
     "CK_00002025", "CK_00002168", "CK_00002332", "CK_00002661", "CK_00043616",
     "CK_00003573", "CK_00002103", "CK_00003421", "CK_00003510",
 ]
-COMPARISON_ROLES = {
-    "chaperones": "cyanorak.role:D.4",
-    "oxidative_stress": "cyanorak.role:D.1.4",
-    "photosystem_II": "cyanorak.role:J.8",
+# reference set -> (Cyanorak role term, reference role). Iteration 2 (coordinator, 2026-11-16):
+# nine Cyanorak reference categories; chaperones and oxidative stress kept as failed references.
+REFERENCE_SETS = {
+    "ribosomal_proteins": ("cyanorak.role:K.2", "broad_stress_growth"),
+    "protein_folding": ("cyanorak.role:L.3", "broad_stress"),
+    "protein_degradation": ("cyanorak.role:L.4", "broad_stress"),
+    "adaptation_N": ("cyanorak.role:D.1.3", "specific_N"),
+    "adaptation_P": ("cyanorak.role:D.1.5", "specific_P"),
+    "adaptation_Fe": ("cyanorak.role:D.1.1", "specific_Fe"),
+    "adaptation_light_minus_hli": ("cyanorak.role:D.1.2", "light_specific"),   # minus the 23 hli genes
+    "photosystem_I": ("cyanorak.role:J.7", "photosynthesis"),
+    "co2_fixation": ("cyanorak.role:J.2", "photosynthesis"),
+    "photosystem_II": ("cyanorak.role:J.8", "photosynthesis"),
+    "chaperones": ("cyanorak.role:D.4", "failed_reference"),
+    "oxidative_stress": ("cyanorak.role:D.1.4", "failed_reference"),
 }
+COMPARISON_ROLES = {k: v[0] for k, v in REFERENCE_SETS.items()}
+SET_ROLE = {k: v[1] for k, v in REFERENCE_SETS.items()}
 COMPARISON_SETS = list(COMPARISON_ROLES)
+MINUS_HLI = {"adaptation_light_minus_hli"}
 
 
 def fetch_hli(conn=None) -> pd.DataFrame:

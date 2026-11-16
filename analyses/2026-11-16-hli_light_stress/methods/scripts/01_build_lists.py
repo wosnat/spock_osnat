@@ -111,21 +111,32 @@ def main():
         hli_tags = sorted(set(hli["locus_tag"]))
         assert len(hli_tags) == 23, len(hli_tags)
         assert hli.groupby("locus_tag")["group_id"].nunique().max() == 1, "hli gene in >1 group"
-        rows = [dict(locus_tag=r.locus_tag, set="hli", gene_name=r.gene_name, product=r.product)
-                for r in hli.drop_duplicates("locus_tag").itertuples()]
-        rows += [dict(locus_tag=r.locus_tag, set=f"hli_group:{r.group_id}", gene_name=r.gene_name,
-                      product=r.product) for r in hli.itertuples()]
+        rows = [dict(locus_tag=r.locus_tag, set="hli", role="target", term_id="", gene_name=r.gene_name,
+                     product=r.product) for r in hli.drop_duplicates("locus_tag").itertuples()]
+        rows += [dict(locus_tag=r.locus_tag, set=f"hli_group:{r.group_id}", role="target_group", term_id="",
+                      gene_name=r.gene_name, product=r.product) for r in hli.itertuples()]
         for name, term in kg_io.COMPARISON_ROLES.items():
             df = kg_io.fetch_role_set(term, conn)
+            if name in kg_io.MINUS_HLI:
+                n_before = len(df)
+                df = df[~df.locus_tag.isin(hli_tags)]
+                print(f"{name}: {term} has {n_before} genes; {n_before - len(df)} hli removed -> {len(df)}")
+                assert len(df) == 12, len(df)
             assert not set(df["locus_tag"]) & set(hli_tags), f"{name} overlaps hli"
-            rows += [dict(locus_tag=r.locus_tag, set=name, gene_name=r.gene_name, product=r.product)
-                     for r in df.itertuples()]
+            rows += [dict(locus_tag=r.locus_tag, set=name, role=kg_io.SET_ROLE[name], term_id=term,
+                          gene_name=r.gene_name, product=r.product) for r in df.itertuples()]
         gs = pd.DataFrame(rows).sort_values(["set", "locus_tag"])
         gs.to_csv(DATA / "gene_sets.csv", index=False, encoding="utf-8")
         print("gene sets:", gs.groupby("set").size().to_dict())
-        comp = gs[gs.set.isin(kg_io.COMPARISON_SETS)]
-        dup = comp.groupby("locus_tag")["set"].nunique()
-        print("comparison genes in >1 comparison set:", dup[dup > 1].to_dict())
+        # pairwise overlaps among hli + reference sets (reported, not removed)
+        names = ["hli"] + kg_io.COMPARISON_SETS
+        mem = {s: set(gs.loc[gs.set == s, "locus_tag"]) for s in names}
+        ov = pd.DataFrame([dict(set_a=a, set_b=b, size_a=len(mem[a]), size_b=len(mem[b]),
+                                n_overlap=len(mem[a] & mem[b]),
+                                overlap_genes=" ".join(sorted(mem[a] & mem[b])))
+                           for i, a in enumerate(names) for b in names[i + 1:]])
+        ov.to_csv(DATA / "gene_set_overlaps.csv", index=False, encoding="utf-8")
+        print(ov[ov.n_overlap > 0].to_string())
 
         # ---- experiments
         inv = pd.read_csv(SPIKE, encoding="utf-8")

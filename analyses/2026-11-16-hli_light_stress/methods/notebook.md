@@ -51,3 +51,29 @@ No hli results are produced or shown in this milestone.
 
   Chaperones and oxidative stress are kept only as reported failed references.
 - **Purpose:** hli is read by which reference pattern it resembles (broad, specific, light). References are kept or reported as failed by how they behave in the controls (no hli involved).
+
+## Run 2 (kg-coder), 2026-11-16 — reference sets
+
+- **12 sets.** Sizes: K.2 61, L.3 28, L.4 23, D.1.3 16, D.1.5 31, D.1.1 30, D.1.2 minus hli 12 (all 23 hli were inside D.1.2), J.7 17, J.2 22, J.8 31, D.4 13, D.1.4 25. Overlaps are listed in `data/gene_set_overlaps.csv`; none involves hli.
+- **Outputs:** `data/reference_behaviour.csv` (130 rows). Random sets unchanged (2.6%). Flags unchanged. pytest: 21 pass.
+
+## Explore — reference behaviour (main thread, checked against `control_tests.csv`)
+
+Testable tests with BH padj < 0.05:
+
+- **Specific sets work.**
+  - Fe: up at 3 of 4 iron-starvation tests (12, 24, 48 h); 0 in other non-light stresses. It also moves in the iron re-added and extended-light 16 h (genome-wide) tests.
+  - P: up at its only testable test (48 h, padj 4e-7); 0 elsewhere.
+  - N: up at 2 of 20 nitrogen tests (N deprivation 6 h and 12 h); 0 in other stresses. It is also up in air vs time 0 and coculture day 11 (both non-stress). Weak but specific.
+- **Ribosomal proteins (broad, growth).**
+  - Down in 7 of 38 non-light stress tests: CO2 ×2, N deprivation 6/12/24 h, lowN axenic day 14, phage lysate in the light 8.5 h.
+  - Up in 4: extended light 16 h, lowN coculture day 31, phage array 1 h, coculture 2025 day 18.
+  - Tracks growth in both directions; the only broad reference that responds at all.
+- **Failed (never padj < 0.05):** protein folding L.3, protein degradation L.4, chaperones D.4, oxidative stress D.1.4. Light-adaptation-minus-hli has 0 in the light group and 1 down in nitrogen.
+- **Light group (16 testable tests):**
+  - no reference responds consistently;
+  - PSI: 2 up, 4 down;
+  - CO2 fixation: 2 up, 2 down;
+  - PSII and ribosomal proteins: 0 and 1.
+
+  There is no clean "light pattern" to compare hli against. The light reading will rest on hli's own enrichment vs the random baseline.

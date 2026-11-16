@@ -1,116 +1,356 @@
-locus_tag,set,gene_name,product
-PMM0016,chaperones,grpE,chaperone protein GrpE
-PMM0211,chaperones,trxB,thioredoxin-disulfide reductase (NTR system)
-PMM0447,chaperones,ctaA,cytochrome oxidase biogenesis protein
-PMM0556,chaperones,raf,alpha-carboxysome RuBisCO assembly factor
-PMM0580,chaperones,clpB1,ATP-dependent Clp protease ATP-binding subunit ClpB
-PMM0901,chaperones,htpG,molecular chaperone HtpG
-PMM0966,chaperones,ureD,urease accessory protein UreD
-PMM0967,chaperones,ureE,urease accessory protein UreE
-PMM0968,chaperones,ureF,urease accessory protein UreF
-PMM0969,chaperones,ureG,urease accessory protein UreG
-PMM1436,chaperones,groL1,chaperonin GroEL
-PMM1437,chaperones,groES,co-chaperonin GroES
-PMM1657,chaperones,clpX,"ATP-dependent Clp protease ATP-binding subunit, ClpX"
-PMM0064,hli,hli,high light inducible protein
-PMM0093,hli,hli,high light inducible protein
-PMM0471,hli,hli,high light inducible protein
-PMM0689,hli,hli,high light inducible protein
-PMM0690,hli,hli,high light inducible protein
-PMM0815,hli,hli,high light inducible protein
-PMM0816,hli,hli,high light inducible protein
-PMM0817,hli,hli,high light inducible protein
-PMM0818,hli,hli,high light inducible protein
-PMM1118,hli,hli,high light inducible protein
-PMM1128,hli,hli15,high light inducible protein
-PMM1135,hli,hli,high light inducible protein
-PMM1317,hli,hli6,high light inducible protein
-PMM1384,hli,hli,high light inducible protein
-PMM1385,hli,hli,high light inducible protein
-PMM1390,hli,hli,high light inducible protein
-PMM1396,hli,hli,high light inducible protein
-PMM1397,hli,hli,high light inducible protein
-PMM1398,hli,hli,high light inducible protein
-PMM1399,hli,hli,high light inducible protein
-PMM1404,hli,hli,high light inducible protein
-PMM1482,hli,hli,high light inducible protein
-TX50_RS09730,hli,hli,possible high light inducible protein
-PMM0093,hli_group:cyanorak:CK_00000050,hli,high light inducible protein
-PMM1482,hli_group:cyanorak:CK_00001058,hli,high light inducible protein
-PMM0064,hli_group:cyanorak:CK_00001313,hli,high light inducible protein
-PMM0471,hli_group:cyanorak:CK_00001414,hli,high light inducible protein
-PMM0690,hli_group:cyanorak:CK_00002025,hli,high light inducible protein
-PMM1385,hli_group:cyanorak:CK_00002025,hli,high light inducible protein
-PMM1404,hli_group:cyanorak:CK_00002025,hli,high light inducible protein
-PMM0817,hli_group:cyanorak:CK_00002026,hli,high light inducible protein
-PMM1135,hli_group:cyanorak:CK_00002026,hli,high light inducible protein
-PMM1398,hli_group:cyanorak:CK_00002026,hli,high light inducible protein
-TX50_RS09730,hli_group:cyanorak:CK_00002103,hli,possible high light inducible protein
-PMM0818,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
-PMM1118,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
-PMM1384,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
-PMM1399,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
-PMM0815,hli_group:cyanorak:CK_00002332,hli,high light inducible protein
-PMM1396,hli_group:cyanorak:CK_00002332,hli,high light inducible protein
-PMM1317,hli_group:cyanorak:CK_00002661,hli6,high light inducible protein
-PMM0689,hli_group:cyanorak:CK_00003421,hli,high light inducible protein
-PMM1128,hli_group:cyanorak:CK_00003510,hli15,high light inducible protein
-PMM1390,hli_group:cyanorak:CK_00003573,hli,high light inducible protein
-PMM0816,hli_group:cyanorak:CK_00043616,hli,high light inducible protein
-PMM1397,hli_group:cyanorak:CK_00043616,hli,high light inducible protein
-PMM0070,oxidative_stress,sufS1,cysteine desulfurase / selenocysteine lyase
-PMM0079,oxidative_stress,prxQ,2-Cys peroxiredoxin
-PMM0110,oxidative_stress,gst,"glutathione S-transferase, rho class"
-PMM0178,oxidative_stress,gshB,glutathione synthetase
-PMM0211,oxidative_stress,trxB,thioredoxin-disulfide reductase (NTR system)
-PMM0221,oxidative_stress,yqjG,glutathionyl-hydroquinone reductase
-PMM0283,oxidative_stress,,thioredoxin domain-containing protein
-PMM0559,oxidative_stress,glx2,hydroxyacylglutathione hydrolase
-PMM0567,oxidative_stress,gor,glutathione reductase
-PMM0653,oxidative_stress,glx1,lactoylglutathione lyase
-PMM0856,oxidative_stress,ahpC,2-Cys peroxiredoxin
-PMM0976,oxidative_stress,evrA,ATP-binding cassette-type viologen exporter
-PMM0977,oxidative_stress,evrB,"ATP-binding cassette-type viologen exporter, permease component"
-PMM0978,oxidative_stress,evrC,ATP-binding cassette-type viologen exporter
-PMM1001,oxidative_stress,,metallo-hydrolase/oxidoreductase
-PMM1025,oxidative_stress,,OsmC/Ohr family domain-containing protein
-PMM1052,oxidative_stress,sufE,sulfur acceptor for SufS cysteine desulfurase
-PMM1061,oxidative_stress,trxA,m-type thioredoxin
-PMM1111,oxidative_stress,grx3,monothiol glutaredoxin
-PMM1150,oxidative_stress,trxB,thioredoxin reductase fused with a thioredoxin domain (large NTR System or NTRC)
-PMM1172,oxidative_stress,,AhpC/TSA antioxidant enzyme domain-containing protein
-PMM1294,oxidative_stress,sodN,superoxide dismutase [Ni]
-PMM1295,oxidative_stress,sodX,nickel-type superoxide dismutase maturation protease
-PMM1333,oxidative_stress,msrA2,peptide methionine sulfoxide reductase
-PMM1459,oxidative_stress,ccsC1,cytochrome c-type biogenesis protein
-PMM0062,photosystem_II,psbX,photosystem II PsbX protein
-PMM0223,photosystem_II,psbA,photosystem II protein D1.1
-PMM0228,photosystem_II,psbO,photosystem II manganese-stabilizing protein PsbO
-PMM0251,photosystem_II,psbH,photosystem II reaction center protein PsbH
-PMM0252,photosystem_II,psbN,photosystem II reaction center assembly factor
-PMM0253,photosystem_II,psbI,photosystem II reaction center protein PsbI
-PMM0272,photosystem_II,psbK,photosystem II reaction center protein PsbK
-PMM0296,photosystem_II,ycf48,photosystem II stability/assembly factor
-PMM0297,photosystem_II,psbE,"cytochrome b559, alpha subunit"
-PMM0298,photosystem_II,psbF1,"cytochrome b559, beta subunit"
-PMM0299,photosystem_II,psbL,photosystem II reaction center protein PsbL
-PMM0300,photosystem_II,psbJ,photosystem II reaction center protein PsbJ
-PMM0314,photosystem_II,psbT,photosystem II reaction center T protein
-PMM0315,photosystem_II,psbB,photosystem II chlorophyll-binding protein CP47
-PMM0317,photosystem_II,psbM,photosystem II reaction center protein PsbM
-PMM0500,photosystem_II,APE1,acclimation of photosynthesis to environment protein
-PMM0507,photosystem_II,psb27,photosystem II manganese cluster assembly protein Psb27
-PMM0741,photosystem_II,psb29,photosystem II repair protein Psb29
-PMM0840,photosystem_II,terC,putative photosystem II assembly factor TerC
-PMM0926,photosystem_II,psb28,photosystem II reaction centre Psb28 protein
-PMM0944,photosystem_II,,"photosystem II assembly factor, PAM68-like protein"
-PMM1098,photosystem_II,cyanoP,photosystem II protein CyanoP
-PMM1117,photosystem_II,psbY,photosystem II PsbY protein
-PMM1152,photosystem_II,ycf39,photosystem II assembly factor Ycf39
-PMM1157,photosystem_II,psbD,photosystem II D2 protein
-PMM1158,photosystem_II,psbC,photosystem II CP43 protein
-PMM1186,photosystem_II,ALB3,photosystem II assembly factor
-PMM1356,photosystem_II,,photosystem II S4 domain protein
-PMM1490,photosystem_II,deg1,photosystem II assembly factor
-PMM1644,photosystem_II,psbZ,photosystem II protein PsbZ (Ycf9)
-PMM1900,photosystem_II,psb30,photosystem II biogenesis protein Psb30
+locus_tag,set,role,term_id,gene_name,product
+PMM0070,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,sufS1,cysteine desulfurase / selenocysteine lyase
+PMM0071,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,sufD,"ABC transporter involved in Fe-S cluster assembly, permease component"
+PMM0072,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,sufC,"ABC transporter involved in Fe-S cluster assembly, ATPase component"
+PMM0073,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,sufB,"ABC transporter involved in Fe-S cluster assembly, permease component"
+PMM0316,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,petF,2Fe-2S ferredoxin
+PMM0489,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,futB,"ABC-type Fe3+ transport system, membrane component"
+PMM0540,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,psaM,photosystem I reaction centre subunit XII
+PMM0581,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,petE,plastocyanin
+PMM0637,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,fur,ferric uptake regulator
+PMM0638,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,arsS,radical SAM/Cys-rich domain protein
+PMM0758,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,sir,sulfite reductase (ferredoxin)
+PMM0768,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,hemA,glutamyl-tRNA reductase
+PMM0803,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,futC,iron(III) transport system ATP-binding protein
+PMM0805,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,,"iron stress-induced protein, Prochlorococcus-specific"
+PMM0806,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,,"possible transcriptional regulator of iron metabolism, Crp/Fnr family protein"
+PMM0850,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,,zinc- or iron-chelating domain-containing protein
+PMM0898,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,petF,2Fe-2S ferredoxin
+PMM1010,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,,FMN-binding split barrel domain-containing protein
+PMM1032,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,lraI,"ABC-type Mn2+/Zn2+ transport system, periplasmic component"
+PMM1052,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,sufE,sulfur acceptor for SufS cysteine desulfurase
+PMM1075,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,petH,ferredoxin--NADP+ reductase (FNR)
+PMM1161,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,petF,2Fe-2S ferredoxin
+PMM1164,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,idiA2,iron deficiency-induced protein A
+PMM1171,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,isiB,flavodoxin
+PMM1283,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,,uncharacterized membrane protein
+PMM1352,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,petF,2Fe-2S ferredoxin
+PMM1449,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,petF,2Fe-2S ferredoxin
+PMM1477,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,fer,3Fe-4S ferredoxin
+PMM1519,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,psaL,photosystem I reaction centre subunit XI
+PMM1520,adaptation_Fe,specific_Fe,cyanorak.role:D.1.1,psaI,photosystem I reaction center subunit VIII
+PMM0246,adaptation_N,specific_N,cyanorak.role:D.1.3,ntcA,global nitrogen regulatory protein
+PMM0963,adaptation_N,specific_N,cyanorak.role:D.1.3,ureC,urease alpha subunit
+PMM0964,adaptation_N,specific_N,cyanorak.role:D.1.3,ureB,urease beta subunit
+PMM0965,adaptation_N,specific_N,cyanorak.role:D.1.3,ureA,urease gamma subunit
+PMM0966,adaptation_N,specific_N,cyanorak.role:D.1.3,ureD,urease accessory protein UreD
+PMM0967,adaptation_N,specific_N,cyanorak.role:D.1.3,ureE,urease accessory protein UreE
+PMM0968,adaptation_N,specific_N,cyanorak.role:D.1.3,ureF,urease accessory protein UreF
+PMM0969,adaptation_N,specific_N,cyanorak.role:D.1.3,ureG,urease accessory protein UreG
+PMM0970,adaptation_N,specific_N,cyanorak.role:D.1.3,urtA,"ABC-type urea transporter, substrate binding component"
+PMM0971,adaptation_N,specific_N,cyanorak.role:D.1.3,urtB,"ABC-type urea transporter, permease component"
+PMM0972,adaptation_N,specific_N,cyanorak.role:D.1.3,urtC,"ABC-type urea transporter, membrane component"
+PMM0973,adaptation_N,specific_N,cyanorak.role:D.1.3,urtD,"ABC-type urea transporter, ATP-binding component UrtD"
+PMM0974,adaptation_N,specific_N,cyanorak.role:D.1.3,urtE,"ABC-type urea transporter, ATPase component UrtE"
+PMM1463,adaptation_N,specific_N,cyanorak.role:D.1.3,glnB,nitrogen regulatory protein P-II
+PMM1512,adaptation_N,specific_N,cyanorak.role:D.1.3,glsF,ferredoxin-dependent glutamate synthase
+PMM1569,adaptation_N,specific_N,cyanorak.role:D.1.3,moeB,molybdopterin biosynthesis protein MoeB
+PMM0201,adaptation_P,specific_P,cyanorak.role:D.1.5,rplL,50S ribosomal protein L7/L12
+PMM0202,adaptation_P,specific_P,cyanorak.role:D.1.5,rplJ,50S ribosomal protein L10
+PMM0340,adaptation_P,specific_P,cyanorak.role:D.1.5,,uncharacterized conserved membrane protein
+PMM0663,adaptation_P,specific_P,cyanorak.role:D.1.5,prfC,peptide chain release factor 3
+PMM0671,adaptation_P,specific_P,cyanorak.role:D.1.5,phnE,"phosphate/phosphonate ABC type transporter, permease component"
+PMM0672,adaptation_P,specific_P,cyanorak.role:D.1.5,phnC,"phosphonate ABC type transporter, ATPase component"
+PMM0673,adaptation_P,specific_P,cyanorak.role:D.1.5,phnD,"phosphonate ABC type transporter, substrate binding component"
+PMM0705,adaptation_P,specific_P,cyanorak.role:D.1.5,phoB,two-component system response regulator RR class II (RRII)-CheY-OmpR
+PMM0706,adaptation_P,specific_P,cyanorak.role:D.1.5,phoR,"two-component system sensor histidine kinase, phosphate sensing PhoR"
+PMM0709,adaptation_P,specific_P,cyanorak.role:D.1.5,som,outer membrane porin
+PMM0710,adaptation_P,specific_P,cyanorak.role:D.1.5,pstS,"phosphate ABC transporter, phosphate-binding protein PstS"
+PMM0711,adaptation_P,specific_P,cyanorak.role:D.1.5,chrA,chromate transporter
+PMM0713,adaptation_P,specific_P,cyanorak.role:D.1.5,gap3,glyceraldehyde-3-phosphate dehydrogenase
+PMM0723,adaptation_P,specific_P,cyanorak.role:D.1.5,pstC,ABC-type phosphate transport system permease component
+PMM0724,adaptation_P,specific_P,cyanorak.role:D.1.5,pstA,ABC-type phosphate transport system permease component
+PMM0725,adaptation_P,specific_P,cyanorak.role:D.1.5,pstB,ABC-type phosphate transport system ATPase component
+PMM0770,adaptation_P,specific_P,cyanorak.role:D.1.5,gnd,6-phosphogluconate dehydrogenase
+PMM0771,adaptation_P,specific_P,cyanorak.role:D.1.5,pgl,6-phosphogluconolactonase
+PMM0856,adaptation_P,specific_P,cyanorak.role:D.1.5,ahpC,2-Cys peroxiredoxin
+PMM0996,adaptation_P,specific_P,cyanorak.role:D.1.5,,conserved hypothetical protein (DUF3303)
+PMM1071,adaptation_P,specific_P,cyanorak.role:D.1.5,,possible phosphatidic acid phosphatase
+PMM1119,adaptation_P,specific_P,cyanorak.role:D.1.5,som,outer membrane porin
+PMM1121,adaptation_P,specific_P,cyanorak.role:D.1.5,som,outer membrane porin
+PMM1284,adaptation_P,specific_P,cyanorak.role:D.1.5,phoH,phosphate starvation-inducible protein
+PMM1416,adaptation_P,specific_P,cyanorak.role:D.1.5,PsiP1,phosphate starvation inducible protein 1
+PMM1543,adaptation_P,specific_P,cyanorak.role:D.1.5,rplR,50S ribosomal protein L18
+PMM1588,adaptation_P,specific_P,cyanorak.role:D.1.5,,conserved hypothetical protein
+PMM1598,adaptation_P,specific_P,cyanorak.role:D.1.5,galM,aldose 1-epimerase family protein
+PMM1601,adaptation_P,specific_P,cyanorak.role:D.1.5,glgP,glycogen phosphorylase
+PMM1665,adaptation_P,specific_P,cyanorak.role:D.1.5,sqdB,UDP-sulfoquinovose synthase
+PMM1704,adaptation_P,specific_P,cyanorak.role:D.1.5,dnaK3,chaperone protein DnaK
+PMM0285,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,phrA,deoxyribodipyrimidine photolyase (DNA photolyase) (photoreactivating enzyme)
+PMM0336,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,PTOX,plastoquinol terminal oxidase
+PMM0425,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,,"deoxyribodipyrimidine photolyase-like, FAD-domain containing protein"
+PMM0500,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,APE1,acclimation of photosynthesis to environment protein
+PMM0540,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,psaM,photosystem I reaction centre subunit XII
+PMM0580,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,clpB1,ATP-dependent Clp protease ATP-binding subunit ClpB
+PMM0627,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,pcb,"divinyl-chlorophyll a/b binding light harvesting protein, photosystem II-associated"
+PMM0645,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,,FAD domain-containing protein
+PMM0741,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,psb29,photosystem II repair protein Psb29
+PMM1356,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,,photosystem II S4 domain protein
+PMM1519,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,psaL,photosystem I reaction centre subunit XI
+PMM1520,adaptation_light_minus_hli,light_specific,cyanorak.role:D.1.2,psaI,photosystem I reaction center subunit VIII
+PMM0016,chaperones,failed_reference,cyanorak.role:D.4,grpE,chaperone protein GrpE
+PMM0211,chaperones,failed_reference,cyanorak.role:D.4,trxB,thioredoxin-disulfide reductase (NTR system)
+PMM0447,chaperones,failed_reference,cyanorak.role:D.4,ctaA,cytochrome oxidase biogenesis protein
+PMM0556,chaperones,failed_reference,cyanorak.role:D.4,raf,alpha-carboxysome RuBisCO assembly factor
+PMM0580,chaperones,failed_reference,cyanorak.role:D.4,clpB1,ATP-dependent Clp protease ATP-binding subunit ClpB
+PMM0901,chaperones,failed_reference,cyanorak.role:D.4,htpG,molecular chaperone HtpG
+PMM0966,chaperones,failed_reference,cyanorak.role:D.4,ureD,urease accessory protein UreD
+PMM0967,chaperones,failed_reference,cyanorak.role:D.4,ureE,urease accessory protein UreE
+PMM0968,chaperones,failed_reference,cyanorak.role:D.4,ureF,urease accessory protein UreF
+PMM0969,chaperones,failed_reference,cyanorak.role:D.4,ureG,urease accessory protein UreG
+PMM1436,chaperones,failed_reference,cyanorak.role:D.4,groL1,chaperonin GroEL
+PMM1437,chaperones,failed_reference,cyanorak.role:D.4,groES,co-chaperonin GroES
+PMM1657,chaperones,failed_reference,cyanorak.role:D.4,clpX,"ATP-dependent Clp protease ATP-binding subunit, ClpX"
+PMM0023,co2_fixation,photosynthesis,cyanorak.role:J.2,gap2,glyceraldehyde-3-phosphate dehydrogenase
+PMM0147,co2_fixation,photosynthesis,cyanorak.role:J.2,rbcR,possible RuBisCO operon transcriptional regulator
+PMM0220,co2_fixation,photosynthesis,cyanorak.role:J.2,cp12,CP12 polypeptide
+PMM0547,co2_fixation,photosynthesis,cyanorak.role:J.2,csoS1D,carboxysome shell component
+PMM0549,co2_fixation,photosynthesis,cyanorak.role:J.2,csoS1A,carboxysome shell protein CsoS1A
+PMM0550,co2_fixation,photosynthesis,cyanorak.role:J.2,rbcL,"ribulose bisphosphate carboxylase, large subunit"
+PMM0551,co2_fixation,photosynthesis,cyanorak.role:J.2,rbcS,"ribulose bisphosphate carboxylase, small subunit"
+PMM0552,co2_fixation,photosynthesis,cyanorak.role:J.2,csoS2,carboxysome shell protein CsoS2
+PMM0553,co2_fixation,photosynthesis,cyanorak.role:J.2,csoSCA,carboxysomal carbonic anhydrase
+PMM0554,co2_fixation,photosynthesis,cyanorak.role:J.2,csoS4A,pentameric carboxysome shell protein Csos4A (peptide A)
+PMM0555,co2_fixation,photosynthesis,cyanorak.role:J.2,csos4B,pentameric carboxysome shell protein Csos4B (peptide B)
+PMM0556,co2_fixation,photosynthesis,cyanorak.role:J.2,raf,alpha-carboxysome RuBisCO assembly factor
+PMM0573,co2_fixation,photosynthesis,cyanorak.role:J.2,cyabrB2,AbrB-like transcriptional regulator involved in photosynthesis regulation
+PMM0767,co2_fixation,photosynthesis,cyanorak.role:J.2,fbp-sbp,"bifunctional fructose-1,6-biphosphatase/sedoheptulose1,7-biphosphate phosphatase"
+PMM0781,co2_fixation,photosynthesis,cyanorak.role:J.2,fbaA,"fructose-1,6-bisphosphate aldolase, class II"
+PMM0785,co2_fixation,photosynthesis,cyanorak.role:J.2,prkB,phosphoribulokinase
+PMM0829,co2_fixation,photosynthesis,cyanorak.role:J.2,tpiA,triosephosphate isomerase
+PMM1187,co2_fixation,photosynthesis,cyanorak.role:J.2,ycf46,ATPase potentially involved in the regulation of CO2 uptake
+PMM1478,co2_fixation,photosynthesis,cyanorak.role:J.2,ycf35,regulator of CO2 utilization Ycf35
+PMM1489,co2_fixation,photosynthesis,cyanorak.role:J.2,rpiA,ribose 5-phosphate isomerase A
+PMM1575,co2_fixation,photosynthesis,cyanorak.role:J.2,ppc,phosphoenol pyruvate carboxylase
+PMM1610,co2_fixation,photosynthesis,cyanorak.role:J.2,tktA,transketolase
+PMM0064,hli,target,,hli,high light inducible protein
+PMM0093,hli,target,,hli,high light inducible protein
+PMM0471,hli,target,,hli,high light inducible protein
+PMM0689,hli,target,,hli,high light inducible protein
+PMM0690,hli,target,,hli,high light inducible protein
+PMM0815,hli,target,,hli,high light inducible protein
+PMM0816,hli,target,,hli,high light inducible protein
+PMM0817,hli,target,,hli,high light inducible protein
+PMM0818,hli,target,,hli,high light inducible protein
+PMM1118,hli,target,,hli,high light inducible protein
+PMM1128,hli,target,,hli15,high light inducible protein
+PMM1135,hli,target,,hli,high light inducible protein
+PMM1317,hli,target,,hli6,high light inducible protein
+PMM1384,hli,target,,hli,high light inducible protein
+PMM1385,hli,target,,hli,high light inducible protein
+PMM1390,hli,target,,hli,high light inducible protein
+PMM1396,hli,target,,hli,high light inducible protein
+PMM1397,hli,target,,hli,high light inducible protein
+PMM1398,hli,target,,hli,high light inducible protein
+PMM1399,hli,target,,hli,high light inducible protein
+PMM1404,hli,target,,hli,high light inducible protein
+PMM1482,hli,target,,hli,high light inducible protein
+TX50_RS09730,hli,target,,hli,possible high light inducible protein
+PMM0093,hli_group:cyanorak:CK_00000050,target_group,,hli,high light inducible protein
+PMM1482,hli_group:cyanorak:CK_00001058,target_group,,hli,high light inducible protein
+PMM0064,hli_group:cyanorak:CK_00001313,target_group,,hli,high light inducible protein
+PMM0471,hli_group:cyanorak:CK_00001414,target_group,,hli,high light inducible protein
+PMM0690,hli_group:cyanorak:CK_00002025,target_group,,hli,high light inducible protein
+PMM1385,hli_group:cyanorak:CK_00002025,target_group,,hli,high light inducible protein
+PMM1404,hli_group:cyanorak:CK_00002025,target_group,,hli,high light inducible protein
+PMM0817,hli_group:cyanorak:CK_00002026,target_group,,hli,high light inducible protein
+PMM1135,hli_group:cyanorak:CK_00002026,target_group,,hli,high light inducible protein
+PMM1398,hli_group:cyanorak:CK_00002026,target_group,,hli,high light inducible protein
+TX50_RS09730,hli_group:cyanorak:CK_00002103,target_group,,hli,possible high light inducible protein
+PMM0818,hli_group:cyanorak:CK_00002168,target_group,,hli,high light inducible protein
+PMM1118,hli_group:cyanorak:CK_00002168,target_group,,hli,high light inducible protein
+PMM1384,hli_group:cyanorak:CK_00002168,target_group,,hli,high light inducible protein
+PMM1399,hli_group:cyanorak:CK_00002168,target_group,,hli,high light inducible protein
+PMM0815,hli_group:cyanorak:CK_00002332,target_group,,hli,high light inducible protein
+PMM1396,hli_group:cyanorak:CK_00002332,target_group,,hli,high light inducible protein
+PMM1317,hli_group:cyanorak:CK_00002661,target_group,,hli6,high light inducible protein
+PMM0689,hli_group:cyanorak:CK_00003421,target_group,,hli,high light inducible protein
+PMM1128,hli_group:cyanorak:CK_00003510,target_group,,hli15,high light inducible protein
+PMM1390,hli_group:cyanorak:CK_00003573,target_group,,hli,high light inducible protein
+PMM0816,hli_group:cyanorak:CK_00043616,target_group,,hli,high light inducible protein
+PMM1397,hli_group:cyanorak:CK_00043616,target_group,,hli,high light inducible protein
+PMM0070,oxidative_stress,failed_reference,cyanorak.role:D.1.4,sufS1,cysteine desulfurase / selenocysteine lyase
+PMM0079,oxidative_stress,failed_reference,cyanorak.role:D.1.4,prxQ,2-Cys peroxiredoxin
+PMM0110,oxidative_stress,failed_reference,cyanorak.role:D.1.4,gst,"glutathione S-transferase, rho class"
+PMM0178,oxidative_stress,failed_reference,cyanorak.role:D.1.4,gshB,glutathione synthetase
+PMM0211,oxidative_stress,failed_reference,cyanorak.role:D.1.4,trxB,thioredoxin-disulfide reductase (NTR system)
+PMM0221,oxidative_stress,failed_reference,cyanorak.role:D.1.4,yqjG,glutathionyl-hydroquinone reductase
+PMM0283,oxidative_stress,failed_reference,cyanorak.role:D.1.4,,thioredoxin domain-containing protein
+PMM0559,oxidative_stress,failed_reference,cyanorak.role:D.1.4,glx2,hydroxyacylglutathione hydrolase
+PMM0567,oxidative_stress,failed_reference,cyanorak.role:D.1.4,gor,glutathione reductase
+PMM0653,oxidative_stress,failed_reference,cyanorak.role:D.1.4,glx1,lactoylglutathione lyase
+PMM0856,oxidative_stress,failed_reference,cyanorak.role:D.1.4,ahpC,2-Cys peroxiredoxin
+PMM0976,oxidative_stress,failed_reference,cyanorak.role:D.1.4,evrA,ATP-binding cassette-type viologen exporter
+PMM0977,oxidative_stress,failed_reference,cyanorak.role:D.1.4,evrB,"ATP-binding cassette-type viologen exporter, permease component"
+PMM0978,oxidative_stress,failed_reference,cyanorak.role:D.1.4,evrC,ATP-binding cassette-type viologen exporter
+PMM1001,oxidative_stress,failed_reference,cyanorak.role:D.1.4,,metallo-hydrolase/oxidoreductase
+PMM1025,oxidative_stress,failed_reference,cyanorak.role:D.1.4,,OsmC/Ohr family domain-containing protein
+PMM1052,oxidative_stress,failed_reference,cyanorak.role:D.1.4,sufE,sulfur acceptor for SufS cysteine desulfurase
+PMM1061,oxidative_stress,failed_reference,cyanorak.role:D.1.4,trxA,m-type thioredoxin
+PMM1111,oxidative_stress,failed_reference,cyanorak.role:D.1.4,grx3,monothiol glutaredoxin
+PMM1150,oxidative_stress,failed_reference,cyanorak.role:D.1.4,trxB,thioredoxin reductase fused with a thioredoxin domain (large NTR System or NTRC)
+PMM1172,oxidative_stress,failed_reference,cyanorak.role:D.1.4,,AhpC/TSA antioxidant enzyme domain-containing protein
+PMM1294,oxidative_stress,failed_reference,cyanorak.role:D.1.4,sodN,superoxide dismutase [Ni]
+PMM1295,oxidative_stress,failed_reference,cyanorak.role:D.1.4,sodX,nickel-type superoxide dismutase maturation protease
+PMM1333,oxidative_stress,failed_reference,cyanorak.role:D.1.4,msrA2,peptide methionine sulfoxide reductase
+PMM1459,oxidative_stress,failed_reference,cyanorak.role:D.1.4,ccsC1,cytochrome c-type biogenesis protein
+PMM0132,photosystem_I,photosynthesis,cyanorak.role:J.7,ycf3,photosystem I assembly protein Ycf3
+PMM0329,photosystem_I,photosynthesis,cyanorak.role:J.7,psaE,photosystem I reaction centre subunit IV
+PMM0468,photosystem_I,photosynthesis,cyanorak.role:J.7,psaJ,photosystem I reaction centre subunit IX
+PMM0469,photosystem_I,photosynthesis,cyanorak.role:J.7,psaF,photosystem I reaction centre PsaF protein
+PMM0474,photosystem_I,photosynthesis,cyanorak.role:J.7,,Prochlorococcus/marine Synechococcus Hyper-Conserved Protein (PSHCP)
+PMM0540,photosystem_I,photosynthesis,cyanorak.role:J.7,psaM,photosystem I reaction centre subunit XII
+PMM0794,photosystem_I,photosynthesis,cyanorak.role:J.7,,thioredoxin-like regulatory factor of photosystem I titer
+PMM0906,photosystem_I,photosynthesis,cyanorak.role:J.7,psaK,photosystem I reaction center subunit X
+PMM1156,photosystem_I,photosynthesis,cyanorak.role:J.7,ycf4,photosytem I complex assembly protein Ycf4
+PMM1519,photosystem_I,photosynthesis,cyanorak.role:J.7,psaL,photosystem I reaction centre subunit XI
+PMM1520,photosystem_I,photosynthesis,cyanorak.role:J.7,psaI,photosystem I reaction center subunit VIII
+PMM1523,photosystem_I,photosynthesis,cyanorak.role:J.7,psaB,photosystem I core protein PsaB
+PMM1524,photosystem_I,photosynthesis,cyanorak.role:J.7,psaA,photosystem I core protein PsaA
+PMM1578,photosystem_I,photosynthesis,cyanorak.role:J.7,psaD,photosystem I reaction center subunit II
+PMM1604,photosystem_I,photosynthesis,cyanorak.role:J.7,ndhS,NADH dehydrogenase I subunit NdhS
+PMM1607,photosystem_I,photosynthesis,cyanorak.role:J.7,psaC,photosystem I iron-sulfur center subunit VII PsaC
+PMM1663,photosystem_I,photosynthesis,cyanorak.role:J.7,ycf37,photosystem I assembly protein Ycf37
+PMM0062,photosystem_II,photosynthesis,cyanorak.role:J.8,psbX,photosystem II PsbX protein
+PMM0223,photosystem_II,photosynthesis,cyanorak.role:J.8,psbA,photosystem II protein D1.1
+PMM0228,photosystem_II,photosynthesis,cyanorak.role:J.8,psbO,photosystem II manganese-stabilizing protein PsbO
+PMM0251,photosystem_II,photosynthesis,cyanorak.role:J.8,psbH,photosystem II reaction center protein PsbH
+PMM0252,photosystem_II,photosynthesis,cyanorak.role:J.8,psbN,photosystem II reaction center assembly factor
+PMM0253,photosystem_II,photosynthesis,cyanorak.role:J.8,psbI,photosystem II reaction center protein PsbI
+PMM0272,photosystem_II,photosynthesis,cyanorak.role:J.8,psbK,photosystem II reaction center protein PsbK
+PMM0296,photosystem_II,photosynthesis,cyanorak.role:J.8,ycf48,photosystem II stability/assembly factor
+PMM0297,photosystem_II,photosynthesis,cyanorak.role:J.8,psbE,"cytochrome b559, alpha subunit"
+PMM0298,photosystem_II,photosynthesis,cyanorak.role:J.8,psbF1,"cytochrome b559, beta subunit"
+PMM0299,photosystem_II,photosynthesis,cyanorak.role:J.8,psbL,photosystem II reaction center protein PsbL
+PMM0300,photosystem_II,photosynthesis,cyanorak.role:J.8,psbJ,photosystem II reaction center protein PsbJ
+PMM0314,photosystem_II,photosynthesis,cyanorak.role:J.8,psbT,photosystem II reaction center T protein
+PMM0315,photosystem_II,photosynthesis,cyanorak.role:J.8,psbB,photosystem II chlorophyll-binding protein CP47
+PMM0317,photosystem_II,photosynthesis,cyanorak.role:J.8,psbM,photosystem II reaction center protein PsbM
+PMM0500,photosystem_II,photosynthesis,cyanorak.role:J.8,APE1,acclimation of photosynthesis to environment protein
+PMM0507,photosystem_II,photosynthesis,cyanorak.role:J.8,psb27,photosystem II manganese cluster assembly protein Psb27
+PMM0741,photosystem_II,photosynthesis,cyanorak.role:J.8,psb29,photosystem II repair protein Psb29
+PMM0840,photosystem_II,photosynthesis,cyanorak.role:J.8,terC,putative photosystem II assembly factor TerC
+PMM0926,photosystem_II,photosynthesis,cyanorak.role:J.8,psb28,photosystem II reaction centre Psb28 protein
+PMM0944,photosystem_II,photosynthesis,cyanorak.role:J.8,,"photosystem II assembly factor, PAM68-like protein"
+PMM1098,photosystem_II,photosynthesis,cyanorak.role:J.8,cyanoP,photosystem II protein CyanoP
+PMM1117,photosystem_II,photosynthesis,cyanorak.role:J.8,psbY,photosystem II PsbY protein
+PMM1152,photosystem_II,photosynthesis,cyanorak.role:J.8,ycf39,photosystem II assembly factor Ycf39
+PMM1157,photosystem_II,photosynthesis,cyanorak.role:J.8,psbD,photosystem II D2 protein
+PMM1158,photosystem_II,photosynthesis,cyanorak.role:J.8,psbC,photosystem II CP43 protein
+PMM1186,photosystem_II,photosynthesis,cyanorak.role:J.8,ALB3,photosystem II assembly factor
+PMM1356,photosystem_II,photosynthesis,cyanorak.role:J.8,,photosystem II S4 domain protein
+PMM1490,photosystem_II,photosynthesis,cyanorak.role:J.8,deg1,photosystem II assembly factor
+PMM1644,photosystem_II,photosynthesis,cyanorak.role:J.8,psbZ,photosystem II protein PsbZ (Ycf9)
+PMM1900,photosystem_II,photosynthesis,cyanorak.role:J.8,psb30,photosystem II biogenesis protein Psb30
+PMM0069,protein_degradation,broad_stress,cyanorak.role:L.4,dap2,prolyl oligopeptidase/peptidase S9-like domain containing protein
+PMM0324,protein_degradation,broad_stress,cyanorak.role:L.4,ctp,carboxy-terminal processing peptidase
+PMM0455,protein_degradation,broad_stress,cyanorak.role:L.4,ldcA,muramoyltetrapeptide carboxypeptidase
+PMM0493,protein_degradation,broad_stress,cyanorak.role:L.4,cxp,carboxypeptidase Taq (M32) metallopeptidase
+PMM0585,protein_degradation,broad_stress,cyanorak.role:L.4,,"X-Pro dipeptidyl-peptidase, S15 family"
+PMM0593,protein_degradation,broad_stress,cyanorak.role:L.4,prlC,oligopeptidase A
+PMM0686,protein_degradation,broad_stress,cyanorak.role:L.4,clpS1,ATP-dependent Clp protease adaptor protein ClpS
+PMM0742,protein_degradation,broad_stress,cyanorak.role:L.4,clpP1,"ATP-dependent Clp protease, protease subunit"
+PMM0993,protein_degradation,broad_stress,cyanorak.role:L.4,,peptidase S51
+PMM1002,protein_degradation,broad_stress,cyanorak.role:L.4,pepN,aminopeptidase N
+PMM1040,protein_degradation,broad_stress,cyanorak.role:L.4,,transglutaminase-like superfamily protein
+PMM1180,protein_degradation,broad_stress,cyanorak.role:L.4,sppA,signal peptide peptidase SppA (protease IV)
+PMM1189,protein_degradation,broad_stress,cyanorak.role:L.4,rseP,RIP metalloprotease RseP
+PMM1264,protein_degradation,broad_stress,cyanorak.role:L.4,ftsH4,cell division protein FtsH
+PMM1313,protein_degradation,broad_stress,cyanorak.role:L.4,clpP4,"ATP-dependent Clp protease, protease subunit"
+PMM1314,protein_degradation,broad_stress,cyanorak.role:L.4,clpP3,"ATP-dependent Clp protease, protease subunit"
+PMM1381,protein_degradation,broad_stress,cyanorak.role:L.4,yedK,putative SOS response associated peptidase
+PMM1425,protein_degradation,broad_stress,cyanorak.role:L.4,,peptidase S1C
+PMM1442,protein_degradation,broad_stress,cyanorak.role:L.4,pepP,Xaa-Pro aminopeptidase
+PMM1499,protein_degradation,broad_stress,cyanorak.role:L.4,clpS2,ATP-dependent Clp protease adaptor protein ClpS
+PMM1506,protein_degradation,broad_stress,cyanorak.role:L.4,lon,ATP-dependent protease
+PMM1613,protein_degradation,broad_stress,cyanorak.role:L.4,ama,N-acyl-L-amino acid amidohydrolase
+PMM1656,protein_degradation,broad_stress,cyanorak.role:L.4,clpP2,"ATP-dependent Clp protease, protease subunit"
+PMM0016,protein_folding,broad_stress,cyanorak.role:L.3,grpE,chaperone protein GrpE
+PMM0017,protein_folding,broad_stress,cyanorak.role:L.3,dnaJ1,DnaJ type I chaperone protein
+PMM0122,protein_folding,broad_stress,cyanorak.role:L.3,dnaJ4,DnaJ type III chaperone protein
+PMM0132,protein_folding,broad_stress,cyanorak.role:L.3,ycf3,photosystem I assembly protein Ycf3
+PMM0207,protein_folding,broad_stress,cyanorak.role:L.3,clpB2,ATP-dependent Clp protease ATP-binding subunit ClpB
+PMM0296,protein_folding,broad_stress,cyanorak.role:L.3,ycf48,photosystem II stability/assembly factor
+PMM0452,protein_folding,broad_stress,cyanorak.role:L.3,groL2,chaperonin GroEL
+PMM0474,protein_folding,broad_stress,cyanorak.role:L.3,,Prochlorococcus/marine Synechococcus Hyper-Conserved Protein (PSHCP)
+PMM0482,protein_folding,broad_stress,cyanorak.role:L.3,phb,prohibitin-like protein
+PMM0580,protein_folding,broad_stress,cyanorak.role:L.3,clpB1,ATP-dependent Clp protease ATP-binding subunit ClpB
+PMM0873,protein_folding,broad_stress,cyanorak.role:L.3,,DnaJ type IV chaperone protein
+PMM0894,protein_folding,broad_stress,cyanorak.role:L.3,ppiB,peptidyl-prolyl cis-trans isomerase
+PMM0896,protein_folding,broad_stress,cyanorak.role:L.3,dnaJ3,DnaJ type II chaperone protein
+PMM0897,protein_folding,broad_stress,cyanorak.role:L.3,dnaK2,chaperone protein DnaK
+PMM0901,protein_folding,broad_stress,cyanorak.role:L.3,htpG,molecular chaperone HtpG
+PMM1088,protein_folding,broad_stress,cyanorak.role:L.3,clpC,ATP-dependent Clp protease ATP-binding subunit ClpC
+PMM1106,protein_folding,broad_stress,cyanorak.role:L.3,ycf54,protochlorophyllide synthesis factor Ycf54
+PMM1156,protein_folding,broad_stress,cyanorak.role:L.3,ycf4,photosytem I complex assembly protein Ycf4
+PMM1293,protein_folding,broad_stress,cyanorak.role:L.3,fkpA,FKBP-type peptidyl-prolyl cis-trans isomerase
+PMM1295,protein_folding,broad_stress,cyanorak.role:L.3,sodX,nickel-type superoxide dismutase maturation protease
+PMM1432,protein_folding,broad_stress,cyanorak.role:L.3,dnaK1,chaperone protein DnaK
+PMM1436,protein_folding,broad_stress,cyanorak.role:L.3,groL1,chaperonin GroEL
+PMM1437,protein_folding,broad_stress,cyanorak.role:L.3,groES,co-chaperonin GroES
+PMM1474,protein_folding,broad_stress,cyanorak.role:L.3,dnaJ5,DnaJ type III chaperone protein
+PMM1480,protein_folding,broad_stress,cyanorak.role:L.3,iaiH,PBS lyase HEAT-like repeat domain-containing protein
+PMM1655,protein_folding,broad_stress,cyanorak.role:L.3,tig,trigger factor
+PMM1657,protein_folding,broad_stress,cyanorak.role:L.3,clpX,"ATP-dependent Clp protease ATP-binding subunit, ClpX"
+PMM1704,protein_folding,broad_stress,cyanorak.role:L.3,dnaK3,chaperone protein DnaK
+PMM0102,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rimO,ribosomal protein S12 methylthiotransferase
+PMM0194,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rbgA,ribosome biogenesis GTPase A
+PMM0201,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplL,50S ribosomal protein L7/L12
+PMM0202,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplJ,50S ribosomal protein L10
+PMM0203,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplA,50S ribosomal protein L1
+PMM0204,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplK,50S ribosomal protein L11
+PMM0312,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsA1,30S ribosomal protein S1
+PMM0406,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,queA,S-adenosylmethionine:tRNA ribosyltransferase-isomerase
+PMM0410,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsD,30S ribosomal protein S4
+PMM0475,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplS,50S ribosomal protein L19
+PMM0530,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsA2,30S ribosomal protein S1
+PMM0753,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsB,30S ribosomal protein S2
+PMM0853,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmF,50S ribosomal protein L32
+PMM0869,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsR,30S ribosomal protein S18
+PMM0870,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmG,50S ribosomal protein L33
+PMM0902,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmB,50S ribosomal protein L28
+PMM0943,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsO,30S ribosomal protein S15
+PMM0987,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsU,30S ribosomal protein S21
+PMM1089,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rimI,ribosomal-protein-alanine acetyltransferase
+PMM1138,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,ychf,ribosome-binding ATPase
+PMM1183,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmH,50S ribosomal protein L34
+PMM1190,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsN,30S ribosomal protein S14
+PMM1193,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rsmI,2-O-methyltransferase
+PMM1285,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsP,30S ribosomal protein S16
+PMM1344,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplU,50S ribosomal protein L21
+PMM1345,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmA,50S ribosomal protein L27
+PMM1440,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,ycf65,ribosomal protein Ycf65
+PMM1487,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsT,30S ribosomal protein S20
+PMM1491,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rimP,ribosome maturation factor RimP
+PMM1507,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsJ,30S ribosomal protein S10
+PMM1510,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsG,30S ribosomal protein S7
+PMM1511,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsL,30S ribosomal protein S12
+PMM1530,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmE,50S ribosomal protein L31
+PMM1531,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsI,30S ribosomal protein S9
+PMM1532,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplM,50S ribosomal protein L13
+PMM1534,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplQ,50S ribosomal protein L17
+PMM1536,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsK,30S ribosomal protein S11
+PMM1537,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsM,30S ribosomal protein S13
+PMM1538,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmJ,50S ribosomal protein L36
+PMM1541,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplO,50S ribosomal protein L15
+PMM1542,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsE,30S ribosomal protein S5
+PMM1543,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplR,50S ribosomal protein L18
+PMM1544,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplF,50S ribosomal protein L6
+PMM1545,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsH,30S ribosomal protein S8
+PMM1546,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplE,50S ribosomal protein L5
+PMM1547,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplX,50S ribosomal protein L24
+PMM1548,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplN,50S ribosomal protein L14
+PMM1549,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsQ,30S ribosomal protein S17
+PMM1550,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmC,50S ribosomal protein L29
+PMM1551,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplP,50S ribosomal protein L16
+PMM1552,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsC,30S ribosomal protein S3
+PMM1553,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplV,50S ribosomal protein L22
+PMM1554,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsS,30S ribosomal protein S19
+PMM1555,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplB,50S ribosomal protein L2
+PMM1556,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplW,50S ribosomal protein L23
+PMM1557,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplD,50S ribosomal protein L4
+PMM1558,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplC,50S ribosomal protein L3
+PMM1661,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpmI,50S ribosomal protein L35
+PMM1662,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplT,50S ribosomal protein L20
+PMM1673,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rplI,50S ribosomal protein L9
+PMM1706,ribosomal_proteins,broad_stress_growth,cyanorak.role:K.2,rpsF,30S ribosomal protein S6

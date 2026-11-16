@@ -95,6 +95,23 @@ def codefine_text() -> str:
     return "<ol>" + "".join(out) + "</ol>"
 
 
+SET_ROWS = [
+    ("ribosomal_proteins", "Ribosomal proteins (K.2)", "Broad stress"),
+    ("protein_folding", "Protein folding (L.3)", "Broad stress"),
+    ("protein_degradation", "Protein degradation (L.4)", "Broad stress"),
+    ("adaptation_N", "Adaptation: N (D.1.3)", "Specific"),
+    ("adaptation_P", "Adaptation: P (D.1.5)", "Specific"),
+    ("adaptation_Fe", "Adaptation: Fe (D.1.1)", "Specific"),
+    ("adaptation_light_minus_hli", "Adaptation: light minus hli (D.1.2)", "Light"),
+    ("photosystem_I", "Photosystem I (J.7)", "Photosynthesis"),
+    ("co2_fixation", "CO2 fixation (J.2)", "Photosynthesis"),
+    ("photosystem_II", "Photosystem II (J.8)", "Photosynthesis"),
+    ("chaperones", "Chaperones (D.4)", "Failed references"),
+    ("oxidative_stress", "Oxidative stress (D.1.4)", "Failed references"),
+]
+SET_ORDER = [a for a, _, _ in SET_ROWS]
+
+
 def main():
     t = pd.read_csv(DATA / "control_tests.csv", encoding="utf-8")
     t["flags"] = t["flags"].fillna("")
@@ -106,6 +123,10 @@ def main():
     spot = pd.read_csv(DATA / "spot_check_pathway_enrichment.csv", encoding="utf-8")
     ex = pd.read_csv(DATA / "experiments.csv", encoding="utf-8")
     gs = pd.read_csv(DATA / "gene_sets.csv", encoding="utf-8")
+    ov = pd.read_csv(DATA / "gene_set_overlaps.csv", encoding="utf-8")
+    rb = pd.read_csv(DATA / "reference_behaviour.csv", encoding="utf-8")
+    global ROLE
+    ROLE = gs.drop_duplicates("set").set_index("set")["role"].to_dict()
 
     n_tests = t[["experiment_id", "timepoint", "direction"]].drop_duplicates().shape[0]
     one = t[t.set == "photosystem_II"]
@@ -119,13 +140,14 @@ def main():
         ("Tests not testable (down, up-only table)", int(one["flags"].str.contains("not_testable").sum())),
         ("Tests descriptive (no test)", int(one["flags"].str.contains("descriptive").sum())),
         ("Too-few flags differing from proposal Known limits", int(fl.mismatch.sum())),
-        ("Comparison-set tests with BH padj < 0.05 (chaperones / oxidative / PSII)",
-         " / ".join(str(int((sig.set == s).sum())) for s in ["chaperones", "oxidative_stress", "photosystem_II"])),
+        *[(f"Reference tests with BH padj < 0.05 (up / down, oriented): {s} [{ROLE[s]}]",
+           f"{int(((sig.set == s) & (sig.direction_oriented == 'up')).sum())} / "
+           f"{int(((sig.set == s) & (sig.direction_oriented == 'down')).sum())}") for s in SET_ORDER],
         ("Random-set tests with raw p < 0.05, testable tests",
          f"{fp[(fp.scope == 'testable_tests') & (fp.group == 'ALL')].frac_p_lt_05.iloc[0]:.3f}"),
         ("Spot check vs pathway_enrichment: max |Δp|", f"{spot.abs_diff.max():.1e}"),
-        ("Gene sets: hli / chaperones / oxidative / PSII",
-         " / ".join(str(int((gs.set == s).sum())) for s in ["hli", "chaperones", "oxidative_stress", "photosystem_II"])),
+        ("Gene-set sizes: " + ", ".join(["hli"] + SET_ORDER),
+         ", ".join(str(int((gs.set == s).sum())) for s in ["hli"] + SET_ORDER)),
     ], columns=["Item", "Value"])
 
     files = sorted([f"../data/{p.name}" for p in DATA.glob("*.csv")] +
@@ -135,15 +157,15 @@ def main():
     summary = f"""
 <h1>Methods milestone — summary</h1>
 <p class="lead">hli genes: light response or broad stress response? Methods: gene and experiment lists, scoring module,
-checks on comparison gene sets. No hli result is computed or shown in this milestone.</p>
+checks on reference gene sets. No hli result is computed or shown in this milestone.</p>
 <h2>What this milestone asked</h2>{codefine_text()}
 <h2>Run facts (counts from methods/data)</h2>{table(facts)}
 <p class="note">Counts only; what they mean is written in the milestone notebook.</p>
-<h2>Pages</h2><ul><li><a href="controls.html">Comparison-set and random-set checks</a> — heatmap of every test,
+<h2>Pages</h2><ul><li><a href="controls.html">Reference-set and random-set checks</a> — heatmap of every test, reference behaviour by group and stress type, gene-set sizes and overlaps,
 flags vs the proposal, photosystem II direction check, spot check against pathway_enrichment, random-set rates, experiment list.</li></ul>
 <h2>Files</h2><ul>{''.join(f'<li><a href="{f}">{html.escape(f)}</a></li>' for f in files)}</ul>"""
     (REP / "summary.html").write_text(page("Methods summary",
-                                           "Methods milestone: gene/experiment lists, scoring module, comparison-set checks (no hli results).",
+                                           "Methods milestone: gene/experiment lists, scoring module, reference-set checks (no hli results).",
                                            summary), encoding="utf-8")
 
     # ---------------- controls page
@@ -152,11 +174,11 @@ flags vs the proposal, photosystem II direction check, spot check against pathwa
     cells = t[["experiment_id", "timepoint", "set", "direction", "direction_oriented", "n_sig_in_set",
                "n_measured_in_background", "n_sig_total", "background_size", "background_type", "pvalue", "padj_bh",
                "flags", "pvalue_in_table"]].copy()
-    hm = dict(cols=json.loads(cols.to_json(orient="records")), cells=json.loads(cells.to_json(orient="records")))
+    hm = dict(cols=json.loads(cols.to_json(orient="records")), cells=json.loads(cells.to_json(orient="records")), sets=[list(x) for x in SET_ROWS])
     hm_js = "const HM=" + json.dumps(hm) + ";" + """
 const GROUPS=['light_onset_photoperiod','electron_transport_DCMU','phage_dark','nonlight_stress','nonstress_possible_relief'];
 const GL={light_onset_photoperiod:'Light onset / photoperiod',electron_transport_DCMU:'DCMU',phage_dark:'Phage dark',nonlight_stress:'Non-light stress',nonstress_possible_relief:'Non-stress'};
-const SETS=[['chaperones','Chaperones'],['oxidative_stress','Oxidative stress'],['photosystem_II','Photosystem II']];
+const SETS=HM.sets;
 const idx={};HM.cells.forEach(c=>{idx[[c.experiment_id,c.timepoint,c.set,c.direction_oriented].join('|')]=c});
 function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
 function mix(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const A=p(a),B=p(b);return 'rgb('+A.map((x,i)=>Math.round(x+(B[i]-x)*t)).join(',')+')'}
@@ -165,24 +187,24 @@ function draw(){
  let cols=[...HM.cols];
  if(order==='group')cols.sort((a,b)=>GROUPS.indexOf(a.group)-GROUPS.indexOf(b.group)||a.label.localeCompare(b.label)||a.timepoint_order-b.timepoint_order);
  else cols.sort((a,b)=>a.light_treatment_umol-b.light_treatment_umol||a.light_control_umol-b.light_control_umol||GROUPS.indexOf(a.group)-GROUPS.indexOf(b.group)||a.label.localeCompare(b.label)||a.timepoint_order-b.timepoint_order);
- const cw=16,ch=26,left=150,top=40,rows=[];SETS.forEach(s=>['up','down'].forEach(d=>rows.push([s,d])));
+ const cw=16,ch=20,left=420,top=80,rows=[];SETS.forEach(s=>['up','down'].forEach(d=>rows.push([s,d])));
  const W=left+cols.length*cw+10,H=top+rows.length*ch+10;
- let lim=2;HM.cells.forEach(c=>{if(c.padj_bh!=null&&!c.flags.match(/too_few|not_testable|descriptive/))lim=Math.max(lim,-Math.log10(Math.max(c.padj_bh,1e-300)))});
+ const lim=6; // colour saturates at padj 1e-6
  const up=css('--up'),dn=css('--down'),mid=css('--mid'),na=css('--na'),ink=css('--ink'),mut=css('--muted');
  let s=`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" font-size="10" font-family="system-ui">`;
  s+=`<defs><pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" stroke="${mut}" stroke-width="1"/></pattern></defs>`;
- rows.forEach((r,i)=>{s+=`<text x="${left-6}" y="${top+i*ch+ch/2+3}" text-anchor="end" fill="${ink}">${r[0][1]} — ${r[1]}</text>`});
- let prev=null,start=0;const key=c=>order==='group'?c.group:String(c.light_treatment_umol);
- cols.forEach((c,j)=>{const k=key(c);if(prev!==null&&k!==prev){s+=`<line x1="${left+j*cw}" x2="${left+j*cw}" y1="${top-14}" y2="${top+rows.length*ch}" stroke="${ink}"/>`;
-   s+=`<text x="${left+(start+j)/2*cw}" y="${top-18}" text-anchor="middle" fill="${ink}" font-size="9">${order==='group'?GL[prev]:prev+' µmol'}</text>`;start=j}prev=k});
- s+=`<text x="${left+(start+cols.length)/2*cw}" y="${top-18}" text-anchor="middle" fill="${ink}" font-size="9">${order==='group'?GL[prev]:prev+' µmol'}</text>`;
+ rows.forEach((r,i)=>{if(i===0||rows[i-1][0][2]!==r[0][2])s+=`<text x="6" y="${top+i*ch+12}" fill="${ink}" font-weight="bold">${r[0][2]}</text>`;s+=`<text x="${left-6}" y="${top+i*ch+ch/2+3}" text-anchor="end" fill="${ink}">${r[0][1]} — ${r[1]}</text>`});
+ const blk=(a,b,v)=>{const t=order==='group'?GL[v]:v+' µmol',x=left+(a+b)/2*cw;return (b-a)<5&&order==='group'?`<text transform="translate(${x+3},${top-6}) rotate(-90)" fill="${ink}" font-size="9">${t}</text>`:`<text x="${x}" y="${top-8}" text-anchor="middle" fill="${ink}" font-size="9">${t}</text>`};let prev=null,start=0;const key=c=>order==='group'?c.group:String(c.light_treatment_umol);
+ cols.forEach((c,j)=>{const k=key(c);if(prev!==null&&k!==prev){s+=`<line x1="${left+j*cw}" x2="${left+j*cw}" y1="${top-4}" y2="${top+rows.length*ch}" stroke="${ink}"/>`;
+   s+=blk(start,j,prev);start=j}prev=k});
+ s+=blk(start,cols.length,prev);
  cols.forEach((c,j)=>rows.forEach((r,i)=>{const cell=idx[[c.experiment_id,c.timepoint,r[0][0],r[1]].join('|')];if(!cell)return;
    const x=left+j*cw,y=top+i*ch;let fill,mark='';
    if(cell.flags.match(/not_testable|descriptive/))fill=na;else if(cell.flags.match(/too_few/))fill='url(#hatch)';
    else{const v=-Math.log10(Math.max(cell.padj_bh,1e-300));fill=mix(mid,r[1]==='up'?up:dn,Math.min(1,v/lim));if(cell.padj_bh<0.05)mark=`<text x="${x+cw/2}" y="${y+ch/2+4}" text-anchor="middle" fill="${ink}">*</text>`}
    if(cell.flags.match(/genome_wide/))mark+=`<circle cx="${x+cw-4}" cy="${y+4}" r="1.8" fill="${ink}"/>`;
    s+=`<rect class="c" data-k="${[c.experiment_id,c.timepoint,r[0][0],r[1]].join('|')}" data-l="${c.label}" x="${x+1}" y="${y+1}" width="${cw-2}" height="${ch-2}" fill="${fill}" stroke="${css('--rule')}" stroke-width="0.3"/>${mark}`}));
- for(let k=1;k<3;k++)s+=`<line x1="${left}" x2="${left+cols.length*cw}" y1="${top+k*2*ch}" y2="${top+k*2*ch}" stroke="${ink}"/>`;
+ for(let k=1;k<rows.length;k++)if(rows[k][0][2]!==rows[k-1][0][2])s+=`<line x1="6" x2="${left+cols.length*cw}" y1="${top+k*ch}" y2="${top+k*ch}" stroke="${ink}" stroke-width="${rows[k][0][2]==='Failed references'?3:1}"/>`;
  s+='</svg>';document.getElementById('hm').innerHTML=s;
  const tip=document.getElementById('tip');
  document.querySelectorAll('#hm rect.c').forEach(el=>{el.addEventListener('mousemove',e=>{const c=idx[el.dataset.k];
@@ -195,13 +217,14 @@ function draw(){
 document.getElementById('order').addEventListener('change',draw);draw();
 function filt(){const s=document.getElementById('fset').value,q=document.getElementById('fq').value.toLowerCase();
  document.querySelectorAll('#tests tbody tr').forEach(r=>{const t=r.textContent.toLowerCase();r.style.display=((!s||r.cells[6].textContent===s)&&(!q||t.includes(q)))?'':'none'})}
-document.getElementById('fset').addEventListener('change',filt);document.getElementById('fq').addEventListener('input',filt);
+document.getElementById('fset').addEventListener('change',filt);
+document.getElementById('rbscope').addEventListener('change',e=>{const v=e.target.value;document.querySelectorAll('#rb tbody tr').forEach(r=>{r.style.display=(!v||r.cells[2].textContent===v)?'':'none'})});document.getElementById('fq').addEventListener('input',filt);
 """
-    test_cols = ["label", "group", "timepoint", "direction", "orientation", "direction_oriented", "set", "test_type",
+    test_cols = ["label", "group", "timepoint", "direction", "orientation", "direction_oriented", "set", "set_role", "test_type",
                  "background_type", "background_size", "n_measured_in_background", "n_sig_in_set", "n_sig_total",
                  "genome_share_sig", "set_share_sig", "pvalue", "padj_bh", "flags", "pvalue_in_table",
                  "padj_in_table_bh", "experiment_id"]
-    agg_cols = ["label", "group", "set", "direction", "direction_oriented", "timepoint_count", "p_exp_bonferroni",
+    agg_cols = ["label", "group", "set", "set_role", "direction", "direction_oriented", "timepoint_count", "p_exp_bonferroni",
                 "padj_exp_bh", "experiment_call_oriented", "experiment_id"]
     ex_cols = ["label", "group", "study", "stress_type", "omics", "table_scope", "test_type", "test_type_note",
                "up_only", "orientation", "in_table_group", "control_timing", "light_treatment_umol",
@@ -210,20 +233,31 @@ document.getElementById('fset').addEventListener('change',filt);document.getElem
     fl_cols = ["label", "timepoint", "direction", "n_sig_total", "background_size", "genome_share_sig", "flags",
                "too_few_in_proposal", "mismatch"]
     body = f"""
-<h1>Comparison-set and random-set checks</h1>
-<p class="lead">Chaperones (Cyanorak D.4), oxidative stress (D.1.4), photosystem II (J.8) and size-matched random sets,
+<h1>Reference-set and random-set checks</h1>
+<p class="lead">Ten Cyanorak reference sets (broad stress, nitrogen / phosphorus / iron / light adaptation, photosynthesis),
+the two failed references from the first iteration (chaperones D.4, oxidative stress D.1.4), and size-matched random sets,
 tested in every MED4 experiment × timepoint × direction. No hli results.</p>
 <h2>Heatmap</h2>
 <div class="controls"><label>Column order <select id="order"><option value="group">by experiment group</option>
 <option value="light">by treatment-arm light level</option></select></label></div>
 <div class="wrap" style="max-height:none" id="hm"></div>
-<p class="note">Cell colour = −log10(BH padj), orange for up rows, blue for down rows (BH per gene set across all testable tests).
+<p class="note">Cell colour = −log10(BH padj) (saturates at 6), orange for up rows, blue for down rows (BH per gene set across all testable tests).
 Direction is oriented: for extended darkness and both constant-dark experiments up/down are swapped so up = higher with more light.
 Hatched = fewer than 10 genes significant in that direction. Gray = not testable (down, up-only table) or descriptive.
 Dot = more than 30% of measured genes significant. * = padj &lt; 0.05. Hover a cell for counts and p-values.
 Static versions: <a href="../figures/controls_heatmap_by_group.png">by group</a>, <a href="../figures/controls_heatmap_by_light.png">by light level</a>.</p>
+<h2>Reference behaviour</h2>
+<p class="note">Per set × scope: testable tests and tests with BH padj &lt; 0.05 by oriented direction. Scopes: experiment group;
+stress type inside the non-light stress group; for the N / P / Fe adaptation sets, the set's own stress vs other non-light stresses vs all other tests;
+for ribosomal proteins, the non-light stress tests (frac_sig_down). Counts only.</p>
+<div class="controls"><label>Scope type <select id="rbscope"><option value="">all</option>{"".join(f"<option>{x}</option>" for x in rb.scope_type.unique())}</select></label></div>
+{table(rb, "rb")}
+<h2>Gene sets: sizes and overlaps</h2>
+<p class="note">Overlapping genes are kept in both sets (reported, not removed). Only pairs with at least one shared gene are listed.</p>
+{table(gs[~gs.set.str.startswith("hli_group")].groupby(["set", "role"]).size().reset_index(name="n_genes"))}
+{table(ov[ov.n_overlap > 0])}
 <h2>All tests</h2>
-<div class="controls"><label>Set <select id="fset"><option value="">all</option><option>chaperones</option><option>oxidative_stress</option><option>photosystem_II</option></select></label>
+<div class="controls"><label>Set <select id="fset"><option value="">all</option>{"".join(f"<option>{x}</option>" for x in SET_ORDER)}</select></label>
 <label>Search <input id="fq" placeholder="label, flag, timepoint"></label></div>
 {table(t[test_cols], "tests")}
 <h2>Per-experiment aggregate</h2>
@@ -245,8 +279,8 @@ Static versions: <a href="../figures/controls_heatmap_by_group.png">by group</a>
 {table(fp)}
 <h2>Experiments</h2>{table(ex[ex_cols])}
 """
-    (REP / "controls.html").write_text(page("Comparison-set checks",
-                                            "Comparison and random gene sets across all 29 MED4 experiments: heatmap, flags vs proposal, PSII sign check, pathway_enrichment spot check.",
+    (REP / "controls.html").write_text(page("Reference-set checks",
+                                            "Reference and random gene sets across all 29 MED4 experiments: heatmap, reference behaviour, flags vs proposal, PSII sign check, pathway_enrichment spot check.",
                                             body, hm_js), encoding="utf-8")
     print("wrote", [p.name for p in REP.glob("*.html")])
 

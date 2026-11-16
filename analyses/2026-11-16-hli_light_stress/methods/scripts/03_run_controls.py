@@ -1,6 +1,6 @@
 """Methods step 5: comparison sets and random sets across all 29 MED4 experiments.
 
-Scores chaperones, oxidative_stress and photosystem_II (never hli). Random sets are
+Scores the reference sets in kg_io.REFERENCE_SETS (never hli). Random sets are
 sized to the number of hli genes inside each timepoint's MAIN background (a
 coverage count: full tables = genes measured; significant-only tables = genome).
 No hli expression status is read, counted, printed or saved.
@@ -85,8 +85,9 @@ def main():
         tests.loc[m, "padj_bh"] = hs.bh(tests.loc[m, "pvalue"].values)
         m2 = m & tests.pvalue_in_table.notna()
         tests.loc[m2, "padj_in_table_bh"] = hs.bh(tests.loc[m2, "pvalue_in_table"].values)
+    tests["set_role"] = tests["set"].map(kg_io.SET_ROLE)
     cols = ["experiment_id", "label", "group", "study", "stress_type", "omics", "timepoint", "timepoint_order",
-            "direction", "orientation", "direction_oriented", "set", "test_type", "background_type",
+            "direction", "orientation", "direction_oriented", "set", "set_role", "test_type", "background_type",
             "background_size", "n_measured_in_background", "n_sig_in_set", "n_sig_total", "genome_share_sig",
             "set_share_sig", "pvalue", "padj_bh", "flags", "testable", "in_table_background_size",
             "n_measured_in_table", "pvalue_in_table", "padj_in_table_bh", "light_treatment_umol",
@@ -97,13 +98,14 @@ def main():
     # per-experiment aggregate
     agg = hs.experiment_aggregate(tests[["experiment_id", "set", "direction", "pvalue", "padj_bh", "testable"]])
     agg = agg.join(meta, on="experiment_id")
+    agg["set_role"] = agg["set"].map(kg_io.SET_ROLE)
     agg["direction_oriented"] = [hs.orient_direction(d, o) for d, o in zip(agg.direction, agg.orientation)]
     calls = {}
     for (eid, s), g in agg.groupby(["experiment_id", "set"]):
         p = g.set_index("direction_oriented")["padj_exp_bh"]
         calls[(eid, s)] = hs.call_from_padj(p.get("up", np.nan), p.get("down", np.nan))
     agg["experiment_call_oriented"] = [calls[(e, s)] for e, s in zip(agg.experiment_id, agg.set)]
-    agg = agg[["experiment_id", "label", "group", "study", "stress_type", "set", "direction", "orientation",
+    agg = agg[["experiment_id", "label", "group", "study", "stress_type", "set", "set_role", "direction", "orientation",
                "direction_oriented", "n_timepoints", "n_testable", "n_sig_timepoints", "timepoint_count",
                "p_exp_bonferroni", "padj_exp_bh", "experiment_call_oriented"]]
     agg.to_csv(DATA / "control_experiment_calls.csv", index=False, encoding="utf-8")

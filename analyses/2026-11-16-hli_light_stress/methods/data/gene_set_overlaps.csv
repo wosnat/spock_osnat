@@ -1,0 +1,79 @@
+set_a,set_b,size_a,size_b,n_overlap,overlap_genes
+hli,ribosomal_proteins,23,61,0,
+hli,protein_folding,23,28,0,
+hli,protein_degradation,23,23,0,
+hli,adaptation_N,23,16,0,
+hli,adaptation_P,23,31,0,
+hli,adaptation_Fe,23,30,0,
+hli,adaptation_light_minus_hli,23,12,0,
+hli,photosystem_I,23,17,0,
+hli,co2_fixation,23,22,0,
+hli,photosystem_II,23,31,0,
+hli,chaperones,23,13,0,
+hli,oxidative_stress,23,25,0,
+ribosomal_proteins,protein_folding,61,28,0,
+ribosomal_proteins,protein_degradation,61,23,0,
+ribosomal_proteins,adaptation_N,61,16,0,
+ribosomal_proteins,adaptation_P,61,31,3,PMM0201 PMM0202 PMM1543
+ribosomal_proteins,adaptation_Fe,61,30,0,
+ribosomal_proteins,adaptation_light_minus_hli,61,12,0,
+ribosomal_proteins,photosystem_I,61,17,0,
+ribosomal_proteins,co2_fixation,61,22,0,
+ribosomal_proteins,photosystem_II,61,31,0,
+ribosomal_proteins,chaperones,61,13,0,
+ribosomal_proteins,oxidative_stress,61,25,0,
+protein_folding,protein_degradation,28,23,0,
+protein_folding,adaptation_N,28,16,0,
+protein_folding,adaptation_P,28,31,1,PMM1704
+protein_folding,adaptation_Fe,28,30,0,
+protein_folding,adaptation_light_minus_hli,28,12,1,PMM0580
+protein_folding,photosystem_I,28,17,3,PMM0132 PMM0474 PMM1156
+protein_folding,co2_fixation,28,22,0,
+protein_folding,photosystem_II,28,31,1,PMM0296
+protein_folding,chaperones,28,13,6,PMM0016 PMM0580 PMM0901 PMM1436 PMM1437 PMM1657
+protein_folding,oxidative_stress,28,25,1,PMM1295
+protein_degradation,adaptation_N,23,16,0,
+protein_degradation,adaptation_P,23,31,0,
+protein_degradation,adaptation_Fe,23,30,0,
+protein_degradation,adaptation_light_minus_hli,23,12,0,
+protein_degradation,photosystem_I,23,17,0,
+protein_degradation,co2_fixation,23,22,0,
+protein_degradation,photosystem_II,23,31,0,
+protein_degradation,chaperones,23,13,0,
+protein_degradation,oxidative_stress,23,25,0,
+adaptation_N,adaptation_P,16,31,0,
+adaptation_N,adaptation_Fe,16,30,0,
+adaptation_N,adaptation_light_minus_hli,16,12,0,
+adaptation_N,photosystem_I,16,17,0,
+adaptation_N,co2_fixation,16,22,0,
+adaptation_N,photosystem_II,16,31,0,
+adaptation_N,chaperones,16,13,4,PMM0966 PMM0967 PMM0968 PMM0969
+adaptation_N,oxidative_stress,16,25,0,
+adaptation_P,adaptation_Fe,31,30,0,
+adaptation_P,adaptation_light_minus_hli,31,12,0,
+adaptation_P,photosystem_I,31,17,0,
+adaptation_P,co2_fixation,31,22,0,
+adaptation_P,photosystem_II,31,31,0,
+adaptation_P,chaperones,31,13,0,
+adaptation_P,oxidative_stress,31,25,1,PMM0856
+adaptation_Fe,adaptation_light_minus_hli,30,12,3,PMM0540 PMM1519 PMM1520
+adaptation_Fe,photosystem_I,30,17,3,PMM0540 PMM1519 PMM1520
+adaptation_Fe,co2_fixation,30,22,0,
+adaptation_Fe,photosystem_II,30,31,0,
+adaptation_Fe,chaperones,30,13,0,
+adaptation_Fe,oxidative_stress,30,25,2,PMM0070 PMM1052
+adaptation_light_minus_hli,photosystem_I,12,17,3,PMM0540 PMM1519 PMM1520
+adaptation_light_minus_hli,co2_fixation,12,22,0,
+adaptation_light_minus_hli,photosystem_II,12,31,3,PMM0500 PMM0741 PMM1356
+adaptation_light_minus_hli,chaperones,12,13,1,PMM0580
+adaptation_light_minus_hli,oxidative_stress,12,25,0,
+photosystem_I,co2_fixation,17,22,0,
+photosystem_I,photosystem_II,17,31,0,
+photosystem_I,chaperones,17,13,0,
+photosystem_I,oxidative_stress,17,25,0,
+co2_fixation,photosystem_II,22,31,0,
+co2_fixation,chaperones,22,13,1,PMM0556
+co2_fixation,oxidative_stress,22,25,0,
+photosystem_II,chaperones,31,13,0,
+photosystem_II,oxidative_stress,31,25,0,
+chaperones,oxidative_stress,13,25,1,PMM0211
