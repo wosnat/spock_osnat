@@ -20,3 +20,19 @@ What was looked at before the plan: hli values in MED4 for all 8 light-treatment
 
 Open questions:
 - Is one analysis the right size, or should MED4 and the other strains be split?
+
+### Counting the hli genes (researcher's question: how many, by name, by orthologs, what is the seed?)
+
+KG facts (2026-11-16, interactive queries):
+- Across the whole KG: 1,288 genes in 102 organisms match an hli name (gene name starting "hli") or an hli product description. 1,222 match by name, 1,266 by product, 1,203 sit in a curated Cyanorak hli ortholog group.
+- There are 39 curated Cyanorak hli ortholog groups. Several hold more than one gene per strain: one group holds 4 MED4 genes (PMM0818, PMM1118, PMM1384, PMM1399), and two groups hold 3 each. Ortholog matching is therefore group to group, not gene to gene.
+- Per strain with light-stress data (hli name / product / curated group / any route):
+  - MED4: 23 / 23 / 23 / 23. All three routes agree on every gene.
+  - MIT0604: 15 / 16 / 15 / 16. EW14_RS05945 has an hli product but no name and no curated group; it is in an eggNOG hli group.
+  - Thermosynechococcus BP-1: hliA tsl2208, hli2 tsr1755, hli3 TLL_RS12660. This strain is not in Cyanorak, so none are in curated groups; each is in an eggNOG Cyanobacteria-level hli group.
+- False hits to exclude: "photosystem II high light acclimation radical SAM protein" (tll1467, SYNPCC7002_A0894, H6G84_12355) matches "high light" but is not an hli; tsr0446 and SYNPCC7002_A0186 are ferrochelatase (hemH), which carries an hli-like domain.
+- The domain annotation is not a usable seed: the InterPro family "High light-inducible protein HliA-D-like" covers only 5 of the 23 MED4 hli genes (PMM0064, PMM0817, PMM1135, PMM1398, PMM1482).
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| 1.6 | Seed: the curated Cyanorak hli ortholog groups, plus hli-named genes (with eggNOG hli groups) in strains Cyanorak does not cover; exclude the radical SAM protein and hemH | pending | Name, product and curated group agree completely in MED4; the domain route misses 18 of 23 |
