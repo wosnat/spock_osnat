@@ -23,6 +23,7 @@ START, END = "<!-- INFOGRAPHIC START -->", "<!-- INFOGRAPHIC END -->"
 
 df = pd.read_csv(CSV, encoding="utf-8")
 df.loc[df.experiment_name.str.contains("glucose", case=False), "proposed_group"] = "dropped"
+df.loc[df.omics_type == "PROTEOMICS", "proposed_group"] = "dropped"  # researcher: drop all proteomics
 excluded = df[df.proposed_group.isin(["excluded", "dropped"])]
 df = df[~df.proposed_group.isin(["excluded", "dropped"])].copy()
 
@@ -221,7 +222,7 @@ details.ig-table{{margin-top:10px;font-size:.85rem}} details.ig-table summary{{c
 <p><b>hli genes measured in each experiment.</b> Bar length = how many of the {N_HLI} hli genes the experiment measured; colour = how soundly it can be tested. Hover a row for details. In a full table a missing hli gene means "not measured", not "not changed". Tables that list only significant genes show a full bar marked "genome": the platform measured the whole genome, and the table cannot tell us more.</p>
 <div class="ig-legend">{legend}</div>
 <div class="ig-wrap" id="ig-wrap">{svg}<div class="ig-tip" id="ig-tip"></div></div>
-<p class="sub" style="margin-top:8px">Left out: {len(excluded)} experiments — no stressed-vs-control comparison (vesicles, start-site mapping, RNA decay, annotation survey, day–night series, steady-state profiling), and 4 glucose-addition proteomics with no hli measured. In the darkness experiments the treatment is darkness, so they are read as "less light".</p>
+<p class="sub" style="margin-top:8px">Left out: {len(excluded)} experiments — no stressed-vs-control comparison (vesicles, start-site mapping, RNA decay, annotation survey, day–night series, steady-state profiling), and all 8 proteomics experiments (dropped by decision; 4 of them measured no hli). In the darkness experiments the treatment is darkness, so they are read as "less light".</p>
 <h3 style="font-size:1rem;margin:18px 0 6px">Gene sets</h3>
 <table><tr><th>Set</th><th>MED4 genes</th><th>Role / expected result</th></tr>{sets_html}</table>
 <h3 style="font-size:1rem;margin:18px 0 6px">Coverage of each gene set (full tables only)</h3>

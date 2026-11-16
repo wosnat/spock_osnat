@@ -78,3 +78,13 @@ KG facts (experiment counts only, no hli values looked at): Prochlorococcus has 
 | # | Decision | Who | Why |
 |---|---|---|---|
 | 1.6 | Seed: the curated Cyanorak hli ortholog groups, plus hli-named genes (with eggNOG hli groups) in strains Cyanorak does not cover; exclude the radical SAM protein and hemH | pending | Name, product and curated group agree completely in MED4; the domain route misses 18 of 23 |
+
+### Agreed after step 2 (2026-11-16)
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| 2.1 | Experiment groups as proposed; 4 glucose experiments dropped | C→R | No hli measured |
+| 2.2 | Drop all proteomics (8 experiments) | R | Leaves 29 transcript experiments: light 10, non-light stress 13, non-stress 6 |
+| 2.3 | Experiments whose significant-only tables were partly seen are labelled exploratory | C→R | See "What was seen early" |
+| 2.4 | Add the reading "too few changed genes to tell" (fewer than 20 significant genes in that direction) | C→R | A non-enrichment there is uninformative |
+| 2.5 | Test per experiment × time point × direction, correcting across all tests; an experiment is "up" if enriched up at any time point; a stress type is read by study, not by assay | C→R | Stops one multi-assay study outvoting the others |
