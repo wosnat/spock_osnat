@@ -112,3 +112,5 @@ The delta critic confirmed 9 of the 12 dispositions and found 2 Concerns and 5 N
 | R.3 | MIT0604 hli set includes EW14_RS05945 (16 genes) | C (default; researcher may change) | hli by product, in an eggNOG hli group |
 | R.4 | Report time-point counts AND an aggregate per experiment: smallest time-point p × number of testable time points (Bonferroni within experiment), then BH across experiments per gene set | R asked for aggregation; C proposed the method | Avoids the many-time-points bias of "any time point" |
 | R.5 | Keep the Fisher test where more than 30% of genes changed; show the hli and genome shares beside it as context | R | Fisher already accounts for the background rate; skipping it was over-cautious |
+
+**Plan approved by the researcher, 2026-11-16.**
