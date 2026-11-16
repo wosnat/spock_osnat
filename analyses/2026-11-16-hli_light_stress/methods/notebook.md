@@ -164,3 +164,29 @@ Earlier sections of this notebook (Run 1/2 "Explore") were written with the ligh
 - **Deferred to the analysis milestone:**
   - wire `gene_calls_from_background()` into the ortholog-group counts;
   - report `n_groups_down` as n/a for the up-only Lindell table.
+
+## Run 5 (kg-coder): delta-review fixes
+
+- **Fixes:**
+  - `reference_behaviour.csv` gains a `light_reading_group` scope and a `direction_meaning` column (pooled light-group rows are marked "mixed lit arms - do not read direction");
+  - flags added to the concordance table;
+  - orientation code removed;
+  - time-point labels read via a distinct-label query.
+- **Checks:** control_tests and control_experiment_calls byte-identical to Run 4; pytest 39 passed.
+- **References per light reading group (BH padj < 0.05):**
+  - **light onset** (6 testable tests, 4 experiments): only PSI responds, down in 2 (the lit arm is the treatment). No reference goes up with light at 45 min.
+  - **schedule extension:** PSI up 4/8 and CO2 fixation down 4/8 (off-schedule, as above).
+  - **constant dark vs light** (2 testable) and **phage dark** (1 testable): no reference responds.
+  - **DCMU:** nothing testable.
+
+## Decide-gate checklist
+
+- [x] Gene sets built and asserted (hli 23; references with overlaps listed; no hli overlap).
+- [x] Toy tests pass (39).
+- [x] Pipeline matches `pathway_enrichment` (max |Δp| 8e-17).
+- [x] Independent main-thread spot checks: ALL MATCH (6 Fisher, 4 flags, 1 aggregate).
+- [x] Code review (code-review skill) done; findings fixed; outputs unchanged.
+- [x] Critic first pass (`critical_review.md`) and delta pass: no Blocker; all dispositions applied.
+- [x] No hli result computed. Two disclosed probe-console incidents only (one hli row, extended light 14 h, already seen in planning).
+- [x] Changes to the plan logged (M.1–M.4).
+- [ ] Researcher approval.

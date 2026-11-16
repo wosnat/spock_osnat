@@ -110,6 +110,19 @@ def fetch_de(experiment_id: str, conn=None) -> pd.DataFrame:
     return df[cols]
 
 
+def fetch_timepoint_labels(experiment_id: str, conn=None) -> list[str]:
+    """Distinct timepoint labels on an experiment's expression edges (labels only, no values).
+
+    The API has no distinct-timepoint call (differential_expression_by_gene returns full rows and
+    its summary envelope has no timepoint breakdown), so this is a one-line read-only Cypher.
+    """
+    assert "'" not in experiment_id
+    res = run_cypher(
+        f"MATCH (e:Experiment {{id: '{experiment_id}'}})-[r:Changes_expression_of]->(:Gene) "
+        "RETURN DISTINCT r.time_point AS tp, r.time_point_order AS o ORDER BY o", conn=conn)
+    return [r["tp"] for r in res["results"] if r["tp"] is not None]
+
+
 def load_gene_sets() -> dict[str, list[str]]:
     gs = pd.read_csv(DATA / "gene_sets.csv", encoding="utf-8")
     return {s: sorted(g["locus_tag"]) for s, g in gs.groupby("set")}

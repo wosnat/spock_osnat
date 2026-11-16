@@ -20,3 +20,23 @@ Dispositions are proposed and await the researcher's choice.
 | 6 | Note | The genome-wide flag is per direction, so contrasts with about 50–60% of genes significant across both directions go unflagged (extended darkness 2 h; coculture day 18; lowN axenic day 14 up). | **Accept.** Add the total share (both directions) as a column in the enrichment table. |
 | 7 | Note | `ortholog_group_counts` treats genes absent from significant-only tables as "not measured"; the plan says "not significant". | **Accept.** Build gene calls from the main background before the hli run, and add a toy test. |
 | 8 | Note | `experiments.csv` `timepoints` is blank for single-time-point experiments. The photoperiod KG tables hold 1876 genes, while the paper reports 1920 detected. | **Accept.** Fill the labels from the DE rows; mention 1876 vs 1920 in the background caveat. |
+
+## Researcher decisions and outcome
+
+- **All 8 dispositions accepted.** Finding 1 was implemented as "no light flip" (researcher decision M.1) plus a separate schedule-extension reading group (M.2).
+
+## Delta pass (data-integrity + interpretation)
+
+No Blocker. The pass confirmed that `more_light_arm`, `label_detailed`, the pooled-time-point removal, the share column and the concordance table are correct.
+
+| # | Severity | Finding | Disposition |
+|---|---|---|---|
+| D1 | Concern | Notebook still carried flip-era and pooled-era numbers. | **Fixed:** corrections section supersedes them. |
+| D2 | Concern | Pooled light-group counts have no direction meaning without the flip. | **Fixed:** `light_reading_group` scope and `direction_meaning` column. |
+| D3 | Concern | N wording was stale (2/20). | **Fixed:** 2/18. |
+| D4 | Note | Ribosomal "recovery" wording. | **Fixed:** withdrawn. |
+| D5 | Note | Concordance table had no flags; two of the four contrasts are genome-wide. | **Fixed:** flags added; reading made on the unflagged pair (M.4). |
+| D6 | Note | 1876 vs 1920 caveat missing. | **Fixed:** added to the notebook. |
+| D7 | Note | Dead orientation code. | **Fixed:** removed. |
+| D8 | Note | `gene_calls_from_background` not yet wired in. | **Deferred** to the analysis milestone. |
+| D9 | Note | 01 docstring. | **Fixed.** |

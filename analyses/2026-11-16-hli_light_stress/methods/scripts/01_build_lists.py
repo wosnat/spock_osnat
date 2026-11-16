@@ -1,7 +1,10 @@
 """Methods step 1: gene sets and the 29 MED4 experiments.
 
-Writes methods/data/gene_sets.csv and methods/data/experiments.csv.
-No expression values are read here (metadata and gene lists only).
+Writes methods/data/gene_sets.csv, methods/data/gene_set_overlaps.csv and methods/data/experiments.csv.
+No expression values are read here: gene lists, experiment metadata, and, for the experiments whose
+list_experiments entry carries no timepoints, the DISTINCT timepoint labels on their expression edges
+(kg_io.fetch_timepoint_labels, a read-only Cypher returning labels only; the API has no
+distinct-timepoint call). label_detailed is built from experiments.csv columns.
 
 Run from the repo root:
     PYTHONUTF8=1 uv run python analyses/2026-11-16-hli_light_stress/methods/scripts/01_build_lists.py
@@ -192,13 +195,9 @@ def main():
         assert set(ids) == set(GROUP), set(ids) ^ set(GROUP)
         meta = list_experiments(experiment_ids=ids, verbose=True, limit=None, conn=conn)
         assert meta["total_matching"] == len(meta["results"]) == 29
-        # timepoint labels for experiments whose list_experiments entry has none: from the DE rows
-        # (only the timepoint column is read)
-        de_tp = {}
-        for e in meta["results"]:
-            if not e.get("timepoints"):
-                de = kg_io.fetch_de(e["experiment_id"], conn)
-                de_tp[e["experiment_id"]] = sorted(de["timepoint"].dropna().astype(str).unique())
+        # timepoint labels for experiments whose list_experiments entry has none: distinct labels only
+        de_tp = {e["experiment_id"]: kg_io.fetch_timepoint_labels(e["experiment_id"], conn)
+                 for e in meta["results"] if not e.get("timepoints")}
         pubs = list_publications(organism="MED4", limit=None, conn=conn)
         study = {p["doi"]: f"{p['authors'][0].split()[-1]} {p['year']}" for p in pubs["results"]}
 

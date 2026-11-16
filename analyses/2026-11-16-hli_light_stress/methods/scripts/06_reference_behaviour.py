@@ -7,7 +7,9 @@ Facts only; no pass/fail. Reads methods/data/control_tests.csv; writes
 methods/data/reference_behaviour.csv.
 
 Scopes (scope_type):
-  group                 each experiment group
+  group                 each experiment group (direction_meaning flags light_onset_photoperiod: mixed lit arms)
+  light_reading_group   each light reading (light_onset, constant_dark_vs_light, schedule_extension,
+                        electron_transport_DCMU, phage_dark)
   nonlight_stress_type  each stress type inside the non-light stress group
   own_stress            specific sets only: non-light stress tests of the set's own stress type
   other_nonlight_stress specific sets only: non-light stress tests of every other stress type
@@ -23,6 +25,8 @@ import pandas as pd
 
 DATA = Path(__file__).resolve().parents[1] / "data"
 OWN = {"adaptation_N": "nitrogen", "adaptation_P": "phosphorus", "adaptation_Fe": "iron"}
+LIGHT_READING_GROUPS = ["light_onset", "constant_dark_vs_light", "schedule_extension", "electron_transport_DCMU",
+                        "phage_dark"]
 ROLE_ORDER = ["broad_stress_growth", "broad_stress", "specific_N", "specific_P", "specific_Fe", "light_specific",
               "photosynthesis", "failed_reference"]
 
@@ -47,6 +51,9 @@ def main():
         base = dict(set=s, set_role=role)
         for grp, g in gs.groupby("group"):
             rows.append({**base, "scope_type": "group", "scope": grp, **summarise(g)})
+        for lr in LIGHT_READING_GROUPS:   # one row per light reading, even with no testable test
+            rows.append({**base, "scope_type": "light_reading_group", "scope": lr,
+                         **summarise(gs[gs.light_reading_group == lr])})
         nl = gs[gs.group == "nonlight_stress"]
         for st, g in nl.groupby("stress_type"):
             rows.append({**base, "scope_type": "nonlight_stress_type", "scope": st, **summarise(g)})
@@ -61,6 +68,10 @@ def main():
         if s == "ribosomal_proteins":
             rows.append({**base, "scope_type": "K2_nonlight_down", "scope": "nonlight_stress", **summarise(nl)})
     out = pd.DataFrame(rows)
+    # the light_onset_photoperiod group mixes experiments whose lit arm is the treatment and the control
+    out.insert(4, "direction_meaning", ["mixed lit arms - do not read direction"
+                                        if (st == "group" and sc == "light_onset_photoperiod") else "treatment vs control"
+                                        for st, sc in zip(out.scope_type, out.scope)])
     out["role_rank"] = out.set_role.map({r: i for i, r in enumerate(ROLE_ORDER)})
     out = out.sort_values(["role_rank", "set", "scope_type", "scope"]).drop(columns="role_rank")
     out.to_csv(DATA / "reference_behaviour.csv", index=False, encoding="utf-8")
@@ -70,9 +81,10 @@ def main():
 
     # schedule-extension concordance (critic finding 1): raw counts, all tests (incl. flagged)
     allt = pd.read_csv(DATA / "control_tests.csv", encoding="utf-8")
-    se = allt[allt.light_reading_group == "schedule_extension"]
+    se = allt[allt.light_reading_group == "schedule_extension"].copy()
+    se["flags"] = se["flags"].fillna("").replace("", "none")
     piv = se.pivot_table(index=["set", "set_role", "label", "timepoint"], columns="direction",
-                         values=["n_sig_in_set", "padj_bh"], aggfunc="first")
+                         values=["n_sig_in_set", "padj_bh", "flags", "testable"], aggfunc="first")
     piv.columns = [f"{a}_{b}" for a, b in piv.columns]
     meas = se.drop_duplicates(["set", "label", "timepoint"]).set_index(["set", "set_role", "label", "timepoint"])[
         ["n_measured_in_background", "more_light_arm", "share_sig_both_directions"]]
@@ -80,7 +92,8 @@ def main():
     conc["role_rank"] = conc.set_role.map({r: i for i, r in enumerate(ROLE_ORDER)})
     conc = conc.sort_values(["role_rank", "set", "label", "timepoint"]).drop(columns="role_rank")
     conc = conc[["set", "set_role", "label", "more_light_arm", "timepoint", "n_measured_in_background",
-                 "n_sig_in_set_up", "n_sig_in_set_down", "padj_bh_up", "padj_bh_down", "share_sig_both_directions"]]
+                 "n_sig_in_set_up", "n_sig_in_set_down", "padj_bh_up", "padj_bh_down", "flags_up", "flags_down",
+                 "testable_up", "testable_down", "share_sig_both_directions"]]
     conc.to_csv(DATA / "schedule_extension_concordance.csv", index=False, encoding="utf-8")
     print(conc.to_string(index=False, float_format=lambda v: f"{v:.3g}"))
 

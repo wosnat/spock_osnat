@@ -78,15 +78,6 @@ def test_not_testable_descriptive_approximate():
     assert f == ["approximate"] and hs.is_testable(f)
 
 
-# ---------------------------------------------------------------- orientation
-def test_orientation_flip():
-    assert hs.orient_direction("up", 1) == "up"
-    assert hs.orient_direction("up", -1) == "down"
-    assert hs.orient_direction("down", -1) == "up"
-    with pytest.raises(ValueError):
-        hs.orient_direction("up", 0)
-
-
 # ---------------------------------------------------------------- BH and aggregate
 def test_bh_hand_computed():
     # p = .01 .02 .03 .5, m=4 -> .04 .04 .04 .5

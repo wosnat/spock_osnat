@@ -6,7 +6,6 @@ Small, pure functions (no KG access) so they can be toy-tested:
 - build_test_grid      : DE rows -> one test per experiment x timepoint x direction
 - main_background      : background gene list per table type
 - test_flags           : too_few / genome_wide_response / not_testable / approximate / descriptive
-- orient_direction     : flip up/down where darkness is the treatment
 - run_fisher           : the package's fisher_ora over our own gene sets (no hand-rolled Fisher)
 - bh                   : Benjamini-Hochberg, applied by us per gene set
 - experiment_aggregate : min timepoint p x n testable timepoints (cap 1), BH across experiments
@@ -179,15 +178,6 @@ def test_flags(n_sig_total: int, background_size: int, direction: str, *,
 def is_testable(flags: Iterable[str]) -> bool:
     """A test enters BH and the per-experiment aggregate only if none of these flags is set."""
     return not (set(flags) & {"too_few", "not_testable", "descriptive"})
-
-
-def orient_direction(direction: str, orientation: int) -> str:
-    """Oriented direction: orientation -1 (darkness is the treatment) swaps up and down."""
-    if orientation not in (1, -1):
-        raise ValueError(f"orientation must be +1 or -1, got {orientation}")
-    if orientation == 1:
-        return direction
-    return {"up": "down", "down": "up"}[direction]
 
 
 # ---------------------------------------------------------------- Fisher via the package

@@ -246,7 +246,9 @@ Hatched = fewer than 10 genes significant in that direction. Gray = not testable
 Dot = more than 30% of measured genes significant. * = padj &lt; 0.05. Hover a cell for counts and p-values.
 Static versions: <a href="../figures/controls_heatmap_by_group.png">by group</a>, <a href="../figures/controls_heatmap_by_light.png">by light level</a>.</p>
 <h2>Reference behaviour</h2>
-<p class="note">Per set × scope: testable tests and tests with BH padj &lt; 0.05 by direction (treatment vs control). Scopes: experiment group;
+<p class="note">Per set × scope: testable tests and tests with BH padj &lt; 0.05 by direction (treatment vs control).
+The light_reading_group scopes split the light experiments by reading (light onset, constant dark vs light, schedule extension, DCMU, phage dark);
+the old group scope light_onset_photoperiod mixes experiments whose lit arm is the treatment and the control, so its direction_meaning column says not to read direction there. Scopes: experiment group;
 stress type inside the non-light stress group; for the N / P / Fe adaptation sets, the set's own stress vs other non-light stresses vs all other tests;
 for ribosomal proteins, the non-light stress tests (frac_sig_down). Counts only.</p>
 <div class="controls"><label>Scope type <select id="rbscope"><option value="">all</option>{"".join(f"<option>{x}</option>" for x in rb.scope_type.unique())}</select></label></div>
@@ -258,7 +260,7 @@ for ribosomal proteins, the non-light stress tests (frac_sig_down). Counts only.
 <h2>Schedule extension: reference concordance</h2>
 <p class="note">Extended light past dusk (treatment lit, ~45 µmol) and extended darkness past dawn (control lit, ~45 µmol), each vs the
 same time of day on the normal schedule. Number of genes in each reference set significant up / down per timepoint, raw direction
-(treatment vs control), with BH padj. Counts only.</p>
+(treatment vs control), with BH padj, flags and testable per direction. Counts only.</p>
 {table(conc)}
 <h2>All tests</h2>
 <div class="controls"><label>Set <select id="fset"><option value="">all</option>{"".join(f"<option>{x}</option>" for x in SET_ORDER)}</select></label>
