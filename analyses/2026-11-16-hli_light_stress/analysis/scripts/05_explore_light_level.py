@@ -82,8 +82,9 @@ def main():
             ax.axhline(yv, color=MUTED, lw=0.6, ls=":")
         ax.axhline(0, color=INK, lw=0.6)
         r = sp[(sp.set == s) & (sp.y.str.startswith("-log10"))].set_index("direction")
-        ax.set_title(f"{lab}\nSpearman, light vs −log10 padj (testable): up ρ={r.at['up', 'spearman_rho']:.2f} (n={r.at['up', 'n_tests']}), "
-                     f"down ρ={r.at['down', 'spearman_rho']:.2f} (n={r.at['down', 'n_tests']})", fontsize=8.5, loc="left")
+        ax.set_title(f"{lab}\nSpearman, light vs −log10 padj (testable tests):\n"
+                     f"up ρ={r.at['up', 'spearman_rho']:.2f} (n={r.at['up', 'n_tests']}); "
+                     f"down ρ={r.at['down', 'spearman_rho']:.2f} (n={r.at['down', 'n_tests']})", fontsize=8, loc="left")
         ax.set_xlabel("light level, µmol photons m⁻² s⁻¹ (both arms)", fontsize=8)
         ax.tick_params(labelsize=7)
         for spn in ("top", "right"):

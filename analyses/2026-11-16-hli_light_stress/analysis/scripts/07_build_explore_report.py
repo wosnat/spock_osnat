@@ -44,6 +44,35 @@ def main():
                  f"<br>test type: {r.test_type}"))
     a1 = dict(el="a1", rows=rows, cols=cols, cells=cells, blockLabel=br.BLOCK_LABEL, colLabels=True, left=300, top=120)
 
+    # B2 interactive: continuous-light experiments only (light_reading_group none), ordered by light level
+    clx = br.read("explore_continuous_light_experiments.csv")
+    keep = set(clx.experiment_id)
+    t_cl = t[t.experiment_id.isin(keep)]
+    cols_cl = br.col_specs(t_cl)
+    gc = br.read("hli_gene_calls.csv")
+    gc = gc[gc.experiment_id.isin(keep)]
+    genes = gc[["locus_tag", "ck_group"]].drop_duplicates("locus_tag").sort_values(["ck_group", "locus_tag"])
+    g_rows = [dict(k=r.locus_tag, label=f"{r.locus_tag} ({r.ck_group.replace('cyanorak:', '')})") for r in genes.itertuples()]
+    g_cells = {f"{r.locus_tag}|{r.experiment_id}|{r.timepoint}": dict(
+        t="cat", v={"not_measured": "nm"}.get(r.call, r.call),
+        tip=(f"<b>{br.html.escape(r.locus_tag)}</b> ({br.html.escape(r.ck_group)})<br>{br.html.escape(r.label_detailed)} · "
+             f"{br.html.escape(r.timepoint)}<br>light {r.light_treatment_umol:g} µmol (both arms)<br>call: <b>{r.call}</b> "
+             f"({r.call_source})<br>log2FC {br.p_(r.log2fc)} · padj {br.p_(r.padj)}")) for r in gc.itertuples()}
+    b2g = dict(el="b2g", rows=g_rows, cols=cols_cl, cells=g_cells, blockLabel=br.BLOCK_LABEL, colLabels=True, left=200, top=120)
+    s_rows = [dict(k=f"{s}|{d}", label=f"{l} — {d}", band=b, dir=d) for s, l, b in br.SET_ROWS for d in ("up", "down")]
+    s_cells = {}
+    for r in t_cl.itertuples():
+        fl = r.flags if isinstance(r.flags, str) else ""
+        s_cells[f"{r.set}|{r.direction}|{r.experiment_id}|{r.timepoint}"] = dict(
+            t="val", na=("not_testable" in fl or "descriptive" in fl), few=("too_few" in fl),
+            v=(-br.np.log10(max(r.padj_bh, 1e-300)) if not br.np.isnan(r.padj_bh) else 0.0),
+            sig=bool(r.padj_bh < 0.05) if not br.np.isnan(r.padj_bh) else False, gw="genome_wide" in fl,
+            tip=(f"<b>{br.html.escape(r.set)}</b> · {r.direction}<br>{br.html.escape(r.label_detailed)} · "
+                 f"{br.html.escape(r.timepoint)}<br>light {r.light_treatment_umol:g} µmol (both arms)<br>"
+                 f"{br.fmt(r.n_sig_in_set)} of {r.n_measured_in_background} set genes significant<br>"
+                 f"p {br.p_(r.pvalue)} · BH padj {br.p_(r.padj_bh)}<br>flags: {fl or 'none'}"))
+    b2s = dict(el="b2s", rows=s_rows, cols=cols_cl, cells=s_cells, blockLabel=br.BLOCK_LABEL, colLabels=True, left=420, top=120)
+
     cc = fsc[fsc.family_type == "copy_class"]
     body = f"""<h1>Exploration: gene families, light level, timing</h1>
 <p class="lead">MED4, hli genes. Exploratory. Treatment vs control as stored in the KG (no flip); the same significance calls as the
@@ -69,6 +98,17 @@ share of the set significant.</p>
 <img src="../figures/explore_B1_light_level.png" alt="Light level vs set-level result for hli and ribosomal proteins">
 {br.table(sp, "tb1")}
 <div class="controls"><input id="fb" placeholder="filter"></div>{br.table(ll, "tb2")}
+<h2>B2. Continuous-light experiments only, ordered by light level</h2>
+<p class="note">The 18 experiments with no light-reading role (non-light stress and non-stress); all 18 have light condition
+"continuous light", both arms at the same level. Columns ordered by light level (block label); no day-night cycle and no light/dark
+treatments. Same calls and colours as the main heatmaps. Hover for detail.</p>
+{br.table(clx[["light_treatment_umol", "label", "group", "stress_type", "light_condition_raw", "experiment_id"]], "tb3")}
+<p class="note">Gene level (23 hli genes):</p><div class="wrap" style="max-height:none" id="b2g"></div>
+<p class="note">Set level (hli and all reference sets):</p><div class="wrap" style="max-height:none" id="b2s"></div>
+<p class="note">Static: <a href="../figures/explore_B2_gene_heatmap_continuous_light_by_level.png">genes</a>,
+<a href="../figures/explore_B2_set_band_continuous_light_by_level.png">sets</a>,
+<a href="../figures/explore_B2_experiment_calls_continuous_light_by_level.png">per-experiment calls</a></p>
+<img src="../figures/explore_B2_experiment_calls_continuous_light_by_level.png" alt="Per-experiment calls, continuous-light experiments, by light level">
 <h2>C. Timing</h2>
 <p class="note">Experiments with ≥3 time points on a time axis, plus extended light and extended darkness (2 time points each).
 Time labels parsed to hours (h, min, day × 24); labels that are not a time are kept off the axis (listed below).
@@ -81,6 +121,7 @@ Grey lines: ribosomal proteins.</p>
 {br.table(tm, "tc2")}
 <p class="note">Time-label parsing (all experiment × time points; hours empty = kept off the time axis):</p>{br.table(tl, "tc3")}"""
     js = (f"const A1={json.dumps(a1)};wireGrid(A1,'ordA');"
+          f"const B2G={json.dumps(b2g)};const B2S={json.dumps(b2s)};grid(B2G,'light');grid(B2S,'light');"
           "filterTable('fa','ta3');filterTable('fa4','ta4');filterTable('fb','tb2');filterTable('fc','tc2');")
     (REP / "explore.html").write_text(br.page("Exploration", "Exploration of hli in MED4: gene families (copy class), background light level, and timing in time-course experiments.", body, js), encoding="utf-8")
     print("wrote explore.html")

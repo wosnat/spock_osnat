@@ -105,3 +105,9 @@ The single-copy genes respond less, and differently.
 - Ribosomal up tends the other way (ρ = −0.34, p = 0.07).
 
 The light levels are tied to study, platform and stress type, so this is suggestive only.
+
+## Run 3 (kg-coder): B2, continuous light only (researcher request)
+
+- **Scope:** the 18 non-light-reading experiments, all asserted to be continuous light with equal light in both arms. They are ordered by light level: 10, 17.5, 20, 27, 30, 50, 55, 60 and 90 µmol.
+- **New figures:** gene heatmap, set band and call grid (`explore_B2_*`), plus an interactive section B2 in `explore.html`.
+- **Other changes:** the B1 subtitle overlap is fixed (data byte-identical). No values were recomputed.
