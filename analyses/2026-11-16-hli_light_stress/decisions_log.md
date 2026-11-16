@@ -121,3 +121,11 @@ The delta critic confirmed 9 of the 12 dispositions and found 2 Concerns and 5 N
 |---|---|---|---|
 | A.1 | Keep Bonferroni-within-experiment for the per-experiment call (BH across tests is applied by us, because `fisher_ora` corrects only across the gene sets within one test) | R | |
 | A.2 | Extra plots: results ordered by each experiment's background light level (treatment and control arm levels recorded) | R | |
+
+### Run phase change to the plan (methods review, 2026-11-16)
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| M.1 | Drop the light orientation flip (proposal Approach 4). Report treatment vs control; read light by per-group rules (methods/notebook.md) | R (C proposed the rules) | Extended light and extended darkness move the references the same raw way (critic, verified in `control_tests.csv`) |
+| M.2 | Extended light and extended darkness form their own reading group, "schedule extension" | C→R | Same reason |
+| M.3 | Pooled "days 60+89" is descriptive | C→R | Duplicates day 60 and day 89 |

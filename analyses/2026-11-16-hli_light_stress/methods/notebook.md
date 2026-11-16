@@ -102,3 +102,22 @@ Testable tests with BH padj < 0.05:
   - `is_dark_arm()` replaces the "dark" regex, and a midpoint is taken only for true ranges;
   - the set list is derived from `kg_io.REFERENCE_SETS`.
 - **Checks:** pytest 38 passed (21 before). All 14 data CSVs are byte-identical to run 2; `git status` shows no data file changed.
+
+## Decisions after the methods review (researcher, 2026-11-16)
+
+- **All critic dispositions accepted** (`critical_review.md`).
+- **No light flip (changes proposal Approach 4).** Every result is reported as treatment vs control, as stored. Each experiment carries `more_light_arm` and a `light_reading_group`. Reason: the critic showed the extended light and extended darkness experiments move the references the same raw way, so a flip turns a consistent off-schedule signal into an apparent contradiction.
+- **Light reading rules, fixed before hli is opened:**
+  - **light onset** (Steglich, treatment lit): up = up with light;
+  - **constant dark vs light** (control lit): down = up with light;
+  - **schedule extension** (extended light: treatment lit; extended darkness: control lit): the same raw direction in both = schedule-extension response, not light; opposite raw directions = light response;
+  - **DCMU:** electron-transport effect at constant light;
+  - **phage in the dark:** up = phage response without light.
+- **"days 60+89"** (pooled) becomes descriptive.
+- **Wording of the references:**
+  - Fe responds in iron (3 of 4, approximate);
+  - P responds at its only testable test;
+  - N responds weakly and not specifically (2/20 in nitrogen vs 2/11 in non-stress);
+  - light-minus-hli is kept but did not respond in the light tests;
+  - ribosomal proteins are down in N/CO2 limitation and up in some coculture/recovery contrasts.
+- **Random-set baseline:** calibrates independent-gene sets only.
