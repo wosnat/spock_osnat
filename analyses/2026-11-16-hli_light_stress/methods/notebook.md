@@ -40,3 +40,14 @@ No hli results are produced or shown in this milestone.
 - **The general-stress references do not behave as general-stress references.** Chaperones and oxidative stress are never significant after correction, and their nominal hits go up and down. They cannot show "what a general stress gene looks like" in these data, so the planned contrast "hli vs general-stress references" is uninformative as designed. This needs a decision before the analysis.
 - **Photosystem II behaves as expected for nutrient stress** (down in N and CO2 limitation). Its light response is mixed in the photoperiod contrasts.
 - **The random-set rate (2.6%) is below 5%,** so the test is not anti-conservative.
+
+## Decide-in-progress (researcher, 2026-11-16)
+
+- **Reference sets replaced.** Nine Cyanorak categories are added as references:
+  - broad stress: ribosomal proteins K.2, protein folding L.3, protein degradation L.4;
+  - stress-specific: N D.1.3, P D.1.5, Fe D.1.1;
+  - light-specific: D.1.2 minus hli;
+  - photosynthesis: photosystem I J.7, CO2 fixation J.2, with photosystem II kept.
+
+  Chaperones and oxidative stress are kept only as reported failed references.
+- **Purpose:** hli is read by which reference pattern it resembles (broad, specific, light). References are kept or reported as failed by how they behave in the controls (no hli involved).
