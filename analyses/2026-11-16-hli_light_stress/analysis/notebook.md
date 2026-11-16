@@ -58,3 +58,10 @@
   - Steglich significance is list-based on a filtered table;
   - near-identical paralogs may cross-hybridise;
   - "up in N/CO2/Fe" is consistent with relative excess light under limitation (see Known limits); it is not light-independent.
+
+## Exploration chosen by the researcher (2026-11-16)
+
+- **A. Gene families:** CK group and multi- vs single-copy, across all experiments.
+- **B. Light level:** hli response vs background light intensity (cross-study; confounded by platform and design).
+- **C. Timing:** in the time series, are hli responses mostly at the start of a stress?
+- **Graphics for each;** a new page `reports/explore.html`.
