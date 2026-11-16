@@ -1,0 +1,12 @@
+scope,group,n_tests,n_p_lt_05,frac_p_lt_05
+testable_tests,ALL,13200,344,0.026060606060606062
+testable_tests,light_onset_photoperiod,3200,109,0.0340625
+testable_tests,nonlight_stress,7600,185,0.024342105263157894
+testable_tests,nonstress_possible_relief,2200,45,0.020454545454545454
+testable_tests,phage_dark,200,5,0.025
+all_run_tests,ALL,23200,526,0.02267241379310345
+all_run_tests,electron_transport_DCMU,400,6,0.015
+all_run_tests,light_onset_photoperiod,7200,169,0.02347222222222222
+all_run_tests,nonlight_stress,11600,251,0.02163793103448276
+all_run_tests,nonstress_possible_relief,2800,65,0.023214285714285715
+all_run_tests,phage_dark,1200,35,0.029166666666666667

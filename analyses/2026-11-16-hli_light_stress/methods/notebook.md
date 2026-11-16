@@ -12,3 +12,31 @@
 5. Produce a report (summary + comparison-set checks), followed by the critic (data-integrity + interpretation) and the researcher's approval.
 
 No hli results are produced or shown in this milestone.
+
+## Run 1 (kg-coder), 2026-11-16 — run-manifest summary
+
+- **Tests:** 21 toy tests pass. `fisher_ora` matches `scipy` on a hand case (p = 0.162023). The pipeline matches `pathway_enrichment` on the N-deprivation microarray (20 tests, max |Δp| 8.2e-17).
+- **Platform backgrounds:** the KG holds no per-platform gene lists. Significant-only tables use the MED4 genome (1973 genes), marked `genome_assumption`.
+- **Test grid:** 138 experiment × timepoint × direction tests. 66 are testable; 57 too_few, 5 genome-wide (>30%), 8 not_testable (Lindell down), 14 descriptive (N-depleted top-50%; phosphate non-48h).
+- **Flags vs proposal:** every too_few listed in Known limits matches. Seven more full-table tests are too_few (N-deprivation 0h/3h, coculture 2025 day 11 down, cyanate down, urea down).
+- **Phosphate:** treated as descriptive at 0/4/12/24 h, because the table is filtered on q < 0.05 at 48 h. Known limits had implied 24 h up was testable; the kg-coder rule is the correct one (a gene significant only at 24 h would be missing).
+- **Comparison sets (BH padj < 0.05, 66 testable tests each):**
+  - chaperones 0 (raw p < 0.05 in 5; 3 of them up);
+  - oxidative stress 0 (raw p < 0.05 in 3; 1 up);
+  - photosystem II 5 (4 down: low CO2, N deprivation 48 h, lowN axenic day 14, lowN coculture day 60; 1 up: coculture vs axenic day 18).
+- **Random size-matched sets:** raw p < 0.05 in 2.6% of testable tests. Fisher on discrete counts is conservative.
+- **PSII direction check:**
+  - consistent with light → PSII up for extended light 14 h (4 up / 0 down) and high white light (4 / 0);
+  - extended darkness 2 h raw is 12 up / 6 down (darkness vs light), i.e. PSII lower with more light;
+  - 16 h and 4 h are balanced.
+
+  KG design notes say the stored log2FC reproduce the same-time-of-day contrast (r = 1.00), so the sign convention itself is documented.
+- **Incident:** a probe script printed one hli DE row (extended light 14 h, PMM1404) to the coder's console. It was not saved, and this contrast was already seen during planning.
+- **Gene sets:** PMM0211 (trxB) is in both chaperones and oxidative stress; neither overlaps hli.
+- **Reports:** `reports/summary.html` and `reports/controls.html` render (checked by screenshot).
+
+## Explore — what the controls show (main thread)
+
+- **The general-stress references do not behave as general-stress references.** Chaperones and oxidative stress are never significant after correction, and their nominal hits go up and down. They cannot show "what a general stress gene looks like" in these data, so the planned contrast "hli vs general-stress references" is uninformative as designed. This needs a decision before the analysis.
+- **Photosystem II behaves as expected for nutrient stress** (down in N and CO2 limitation). Its light response is mixed in the photoperiod contrasts.
+- **The random-set rate (2.6%) is below 5%,** so the test is not anti-conservative.

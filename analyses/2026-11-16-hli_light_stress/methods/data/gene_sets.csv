@@ -1,0 +1,116 @@
+locus_tag,set,gene_name,product
+PMM0016,chaperones,grpE,chaperone protein GrpE
+PMM0211,chaperones,trxB,thioredoxin-disulfide reductase (NTR system)
+PMM0447,chaperones,ctaA,cytochrome oxidase biogenesis protein
+PMM0556,chaperones,raf,alpha-carboxysome RuBisCO assembly factor
+PMM0580,chaperones,clpB1,ATP-dependent Clp protease ATP-binding subunit ClpB
+PMM0901,chaperones,htpG,molecular chaperone HtpG
+PMM0966,chaperones,ureD,urease accessory protein UreD
+PMM0967,chaperones,ureE,urease accessory protein UreE
+PMM0968,chaperones,ureF,urease accessory protein UreF
+PMM0969,chaperones,ureG,urease accessory protein UreG
+PMM1436,chaperones,groL1,chaperonin GroEL
+PMM1437,chaperones,groES,co-chaperonin GroES
+PMM1657,chaperones,clpX,"ATP-dependent Clp protease ATP-binding subunit, ClpX"
+PMM0064,hli,hli,high light inducible protein
+PMM0093,hli,hli,high light inducible protein
+PMM0471,hli,hli,high light inducible protein
+PMM0689,hli,hli,high light inducible protein
+PMM0690,hli,hli,high light inducible protein
+PMM0815,hli,hli,high light inducible protein
+PMM0816,hli,hli,high light inducible protein
+PMM0817,hli,hli,high light inducible protein
+PMM0818,hli,hli,high light inducible protein
+PMM1118,hli,hli,high light inducible protein
+PMM1128,hli,hli15,high light inducible protein
+PMM1135,hli,hli,high light inducible protein
+PMM1317,hli,hli6,high light inducible protein
+PMM1384,hli,hli,high light inducible protein
+PMM1385,hli,hli,high light inducible protein
+PMM1390,hli,hli,high light inducible protein
+PMM1396,hli,hli,high light inducible protein
+PMM1397,hli,hli,high light inducible protein
+PMM1398,hli,hli,high light inducible protein
+PMM1399,hli,hli,high light inducible protein
+PMM1404,hli,hli,high light inducible protein
+PMM1482,hli,hli,high light inducible protein
+TX50_RS09730,hli,hli,possible high light inducible protein
+PMM0093,hli_group:cyanorak:CK_00000050,hli,high light inducible protein
+PMM1482,hli_group:cyanorak:CK_00001058,hli,high light inducible protein
+PMM0064,hli_group:cyanorak:CK_00001313,hli,high light inducible protein
+PMM0471,hli_group:cyanorak:CK_00001414,hli,high light inducible protein
+PMM0690,hli_group:cyanorak:CK_00002025,hli,high light inducible protein
+PMM1385,hli_group:cyanorak:CK_00002025,hli,high light inducible protein
+PMM1404,hli_group:cyanorak:CK_00002025,hli,high light inducible protein
+PMM0817,hli_group:cyanorak:CK_00002026,hli,high light inducible protein
+PMM1135,hli_group:cyanorak:CK_00002026,hli,high light inducible protein
+PMM1398,hli_group:cyanorak:CK_00002026,hli,high light inducible protein
+TX50_RS09730,hli_group:cyanorak:CK_00002103,hli,possible high light inducible protein
+PMM0818,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
+PMM1118,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
+PMM1384,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
+PMM1399,hli_group:cyanorak:CK_00002168,hli,high light inducible protein
+PMM0815,hli_group:cyanorak:CK_00002332,hli,high light inducible protein
+PMM1396,hli_group:cyanorak:CK_00002332,hli,high light inducible protein
+PMM1317,hli_group:cyanorak:CK_00002661,hli6,high light inducible protein
+PMM0689,hli_group:cyanorak:CK_00003421,hli,high light inducible protein
+PMM1128,hli_group:cyanorak:CK_00003510,hli15,high light inducible protein
+PMM1390,hli_group:cyanorak:CK_00003573,hli,high light inducible protein
+PMM0816,hli_group:cyanorak:CK_00043616,hli,high light inducible protein
+PMM1397,hli_group:cyanorak:CK_00043616,hli,high light inducible protein
+PMM0070,oxidative_stress,sufS1,cysteine desulfurase / selenocysteine lyase
+PMM0079,oxidative_stress,prxQ,2-Cys peroxiredoxin
+PMM0110,oxidative_stress,gst,"glutathione S-transferase, rho class"
+PMM0178,oxidative_stress,gshB,glutathione synthetase
+PMM0211,oxidative_stress,trxB,thioredoxin-disulfide reductase (NTR system)
+PMM0221,oxidative_stress,yqjG,glutathionyl-hydroquinone reductase
+PMM0283,oxidative_stress,,thioredoxin domain-containing protein
+PMM0559,oxidative_stress,glx2,hydroxyacylglutathione hydrolase
+PMM0567,oxidative_stress,gor,glutathione reductase
+PMM0653,oxidative_stress,glx1,lactoylglutathione lyase
+PMM0856,oxidative_stress,ahpC,2-Cys peroxiredoxin
+PMM0976,oxidative_stress,evrA,ATP-binding cassette-type viologen exporter
+PMM0977,oxidative_stress,evrB,"ATP-binding cassette-type viologen exporter, permease component"
+PMM0978,oxidative_stress,evrC,ATP-binding cassette-type viologen exporter
+PMM1001,oxidative_stress,,metallo-hydrolase/oxidoreductase
+PMM1025,oxidative_stress,,OsmC/Ohr family domain-containing protein
+PMM1052,oxidative_stress,sufE,sulfur acceptor for SufS cysteine desulfurase
+PMM1061,oxidative_stress,trxA,m-type thioredoxin
+PMM1111,oxidative_stress,grx3,monothiol glutaredoxin
+PMM1150,oxidative_stress,trxB,thioredoxin reductase fused with a thioredoxin domain (large NTR System or NTRC)
+PMM1172,oxidative_stress,,AhpC/TSA antioxidant enzyme domain-containing protein
+PMM1294,oxidative_stress,sodN,superoxide dismutase [Ni]
+PMM1295,oxidative_stress,sodX,nickel-type superoxide dismutase maturation protease
+PMM1333,oxidative_stress,msrA2,peptide methionine sulfoxide reductase
+PMM1459,oxidative_stress,ccsC1,cytochrome c-type biogenesis protein
+PMM0062,photosystem_II,psbX,photosystem II PsbX protein
+PMM0223,photosystem_II,psbA,photosystem II protein D1.1
+PMM0228,photosystem_II,psbO,photosystem II manganese-stabilizing protein PsbO
+PMM0251,photosystem_II,psbH,photosystem II reaction center protein PsbH
+PMM0252,photosystem_II,psbN,photosystem II reaction center assembly factor
+PMM0253,photosystem_II,psbI,photosystem II reaction center protein PsbI
+PMM0272,photosystem_II,psbK,photosystem II reaction center protein PsbK
+PMM0296,photosystem_II,ycf48,photosystem II stability/assembly factor
+PMM0297,photosystem_II,psbE,"cytochrome b559, alpha subunit"
+PMM0298,photosystem_II,psbF1,"cytochrome b559, beta subunit"
+PMM0299,photosystem_II,psbL,photosystem II reaction center protein PsbL
+PMM0300,photosystem_II,psbJ,photosystem II reaction center protein PsbJ
+PMM0314,photosystem_II,psbT,photosystem II reaction center T protein
+PMM0315,photosystem_II,psbB,photosystem II chlorophyll-binding protein CP47
+PMM0317,photosystem_II,psbM,photosystem II reaction center protein PsbM
+PMM0500,photosystem_II,APE1,acclimation of photosynthesis to environment protein
+PMM0507,photosystem_II,psb27,photosystem II manganese cluster assembly protein Psb27
+PMM0741,photosystem_II,psb29,photosystem II repair protein Psb29
+PMM0840,photosystem_II,terC,putative photosystem II assembly factor TerC
+PMM0926,photosystem_II,psb28,photosystem II reaction centre Psb28 protein
+PMM0944,photosystem_II,,"photosystem II assembly factor, PAM68-like protein"
+PMM1098,photosystem_II,cyanoP,photosystem II protein CyanoP
+PMM1117,photosystem_II,psbY,photosystem II PsbY protein
+PMM1152,photosystem_II,ycf39,photosystem II assembly factor Ycf39
+PMM1157,photosystem_II,psbD,photosystem II D2 protein
+PMM1158,photosystem_II,psbC,photosystem II CP43 protein
+PMM1186,photosystem_II,ALB3,photosystem II assembly factor
+PMM1356,photosystem_II,,photosystem II S4 domain protein
+PMM1490,photosystem_II,deg1,photosystem II assembly factor
+PMM1644,photosystem_II,psbZ,photosystem II protein PsbZ (Ycf9)
+PMM1900,photosystem_II,psb30,photosystem II biogenesis protein Psb30
