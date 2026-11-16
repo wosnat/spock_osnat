@@ -6,6 +6,7 @@ No expression values are read here (metadata and gene lists only).
 Run from the repo root:
     PYTHONUTF8=1 uv run python analyses/2026-11-16-hli_light_stress/methods/scripts/01_build_lists.py
 """
+import re
 import sys
 from pathlib import Path
 
@@ -84,12 +85,21 @@ LABEL = {
     "10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray": "Cyanate as N source",
     "10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray": "Urea as N source",
 }
-# darkness is the treatment -> flip so that "up" reads "more light"
-ORIENTATION_NEG = {
-    "10.64898/2026.04.15.718746_extended_darkness_med4",
-    "10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark",
-    "10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected",
-}
+# Iteration 4 (researcher): no light flip; results are treatment vs control as stored in the KG.
+# Which arm got more light, and which light reading an experiment belongs to.
+STEGLICH_LIGHT = [e for e in GROUP if e.startswith("10.1128/JB.01097-06") and "dcmu" not in e]
+CONST_DARK = ["10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark",
+              "10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected"]
+EXT_LIGHT = "10.64898/2026.04.15.718746_extended_light_med4"
+EXT_DARK = "10.64898/2026.04.15.718746_extended_darkness_med4"
+DCMU = "10.1128/JB.01097-06_light_stress_dcmu_white_light_13_med4_microarray"
+PHAGE_DARK = "10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark"
+MORE_LIGHT_ARM = {**{e: "treatment" for e in STEGLICH_LIGHT}, DCMU: "same",
+                  **{e: "control" for e in CONST_DARK}, EXT_LIGHT: "treatment", EXT_DARK: "control",
+                  PHAGE_DARK: "both_dark"}
+LIGHT_READING_GROUP = {**{e: "light_onset" for e in STEGLICH_LIGHT}, DCMU: "electron_transport_DCMU",
+                       **{e: "constant_dark_vs_light" for e in CONST_DARK},
+                       EXT_LIGHT: "schedule_extension", EXT_DARK: "schedule_extension", PHAGE_DARK: "phage_dark"}
 UP_ONLY = {"10.1038/nature06130_viral_phage_infected_med4_microarray"}
 # in-table sensitivity background: union of genes over one multi-condition significance table
 IN_TABLE_GROUP = {
@@ -102,6 +112,41 @@ IN_TABLE_GROUP = {
 DESCRIPTIVE = {"10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq"}
 # phosphate table holds genes with q<0.05 at 48 h only: approximate at 48 h, descriptive at other times
 PHOSPHATE = "10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray"
+
+
+def _strip(text) -> str:
+    """Arm text without parentheticals or anything after a colon."""
+    t = re.sub(r"\s*\([^)]*\)", "", str(text or "")).split(":")[0]
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def _umol(v, raw="") -> str:
+    return ("~" if str(raw).strip().startswith("~") else "") + f"{v:g} µmol"
+
+
+def detailed_label(r: dict) -> str:
+    """Both arms, their light level and which arm is lit (treatment vs control), built from experiments.csv
+    columns; experiments outside the light readings keep the short label."""
+    g, tr, ct = r["light_reading_group"], r["treatment_text"], r["control_text"]
+    T, C, raw = r["light_treatment_umol"], r["light_control_umol"], r["light_intensity_raw"]
+    if g == "light_onset":
+        m = re.search(r"after\s*(\d+\s*h)\s*dark", r["experimental_context"] or "", re.I)
+        when = f" ({r['timepoints']} after {m.group(1).replace(' ', '')} dark)" if m else ""
+        ctrl = "dark" if hs.is_dark_arm(ct) else f"{_strip(ct).lower()} {_umol(C)}"
+        return f"{_strip(tr)} {_umol(T)} vs {ctrl}{when}"
+    if g == "electron_transport_DCMU":
+        return f"{_strip(tr)} {_umol(T)} vs {_strip(ct).lower()} {_umol(C)}"
+    if g == "constant_dark_vs_light":
+        phage = "no phage" if "no phage" in r["experiment_name"].lower() else "phage-infected"
+        return f"{_strip(tr)} vs {_strip(ct).lower()} {_umol(C)} ({phage})"
+    if g == "schedule_extension":
+        lit_t = T > 0
+        a = f"{_strip(tr)} ({_umol(T, raw)})" if lit_t else _strip(tr)
+        b = f"{_strip(ct).lower()} ({_umol(C, raw)})" if C > 0 else _strip(ct).lower()
+        return f"{a} vs {b}, same time of day"
+    if g == "phage_dark":
+        return f"{_strip(tr)} vs {_strip(ct).lower()}, both in {r['light_condition_raw']}"
+    return r["label"]
 
 
 def main():
@@ -147,6 +192,13 @@ def main():
         assert set(ids) == set(GROUP), set(ids) ^ set(GROUP)
         meta = list_experiments(experiment_ids=ids, verbose=True, limit=None, conn=conn)
         assert meta["total_matching"] == len(meta["results"]) == 29
+        # timepoint labels for experiments whose list_experiments entry has none: from the DE rows
+        # (only the timepoint column is read)
+        de_tp = {}
+        for e in meta["results"]:
+            if not e.get("timepoints"):
+                de = kg_io.fetch_de(e["experiment_id"], conn)
+                de_tp[e["experiment_id"]] = sorted(de["timepoint"].dropna().astype(str).unique())
         pubs = list_publications(organism="MED4", limit=None, conn=conn)
         study = {p["doi"]: f"{p['authors'][0].split()[-1]} {p['year']}" for p in pubs["results"]}
 
@@ -172,18 +224,23 @@ def main():
             test_type_note=("approximate at 48h; descriptive at other timepoints (table filtered on 48h q<0.05)"
                             if eid == PHOSPHATE else ""),
             up_only=eid in UP_ONLY,
-            orientation=-1 if eid in ORIENTATION_NEG else 1,
+            more_light_arm=MORE_LIGHT_ARM.get(eid, "same"),
+            light_reading_group=LIGHT_READING_GROUP.get(eid, "none"),
             in_table_group=IN_TABLE_GROUP.get(eid, ""),
             control_timing=e.get("control_timing"),
             treatment_text=e.get("treatment"), control_text=e.get("control"),
             light_condition_raw=e.get("light_condition"), light_intensity_raw=e.get("light_intensity"),
             **light,
-            n_timepoints=len(tps) or 1,
-            timepoints=" | ".join(t["timepoint"] for t in sorted(tps, key=lambda t: t["timepoint_order"])) or "NA",
+            n_timepoints=len(tps) or len(de_tp.get(eid, [])) or 1,
+            timepoints=(" | ".join(t["timepoint"] for t in sorted(tps, key=lambda t: t["timepoint_order"]))
+                        or " | ".join(de_tp.get(eid, [])) or hs.NULL_TIMEPOINT),
+            timepoints_source="list_experiments" if tps else "de_rows",
+            experimental_context=e.get("experimental_context") or "",
             distinct_gene_count=e["distinct_gene_count"],
             experiment_name=e["experiment_name"],
         ))
     ex = pd.DataFrame(out)
+    ex["label_detailed"] = [detailed_label(r) for r in ex.to_dict("records")]
     order = ["light_onset_photoperiod", "electron_transport_DCMU", "phage_dark", "nonlight_stress",
              "nonstress_possible_relief"]
     ex["group_rank"] = ex.group.map({g: i for i, g in enumerate(order)})
@@ -191,6 +248,8 @@ def main():
     ex.to_csv(DATA / "experiments.csv", index=False, encoding="utf-8")
     print(f"experiments: {len(ex)}")
     print(ex.groupby("group").size().to_string())
+    print(ex[ex.light_reading_group != "none"][["light_reading_group", "more_light_arm", "label_detailed"]].to_string())
+    print(ex[["label", "timepoints", "n_timepoints"]].to_string())
     print(ex[["label", "light_treatment_umol", "light_control_umol", "light_treatment_source",
               "light_control_source", "light_treatment_note", "light_control_note",
               "light_parse_flag"]].to_string())

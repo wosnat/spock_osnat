@@ -115,6 +115,7 @@ def main():
     gs = pd.read_csv(DATA / "gene_sets.csv", encoding="utf-8")
     ov = pd.read_csv(DATA / "gene_set_overlaps.csv", encoding="utf-8")
     rb = pd.read_csv(DATA / "reference_behaviour.csv", encoding="utf-8")
+    conc = pd.read_csv(DATA / "schedule_extension_concordance.csv", encoding="utf-8")
     global ROLE
     ROLE = gs.drop_duplicates("set").set_index("set")["role"].to_dict()
 
@@ -130,9 +131,9 @@ def main():
         ("Tests not testable (down, up-only table)", int(one["flags"].str.contains("not_testable").sum())),
         ("Tests descriptive (no test)", int(one["flags"].str.contains("descriptive").sum())),
         ("Too-few flags differing from proposal Known limits", int(fl.mismatch.sum())),
-        *[(f"Reference tests with BH padj < 0.05 (up / down, oriented): {s} [{ROLE[s]}]",
-           f"{int(((sig.set == s) & (sig.direction_oriented == 'up')).sum())} / "
-           f"{int(((sig.set == s) & (sig.direction_oriented == 'down')).sum())}") for s in SET_ORDER],
+        *[(f"Reference tests with BH padj < 0.05 (up / down, treatment vs control): {s} [{ROLE[s]}]",
+           f"{int(((sig.set == s) & (sig.direction == 'up')).sum())} / "
+           f"{int(((sig.set == s) & (sig.direction == 'down')).sum())}") for s in SET_ORDER],
         ("Random-set tests with raw p < 0.05, testable tests",
          f"{fp[(fp.scope == 'testable_tests') & (fp.group == 'ALL')].frac_p_lt_05.iloc[0]:.3f}"),
         ("Spot check vs pathway_enrichment: max |Δp|", f"{spot.abs_diff.max():.1e}"),
@@ -159,32 +160,35 @@ flags vs the proposal, photosystem II direction check, spot check against pathwa
                                            summary), encoding="utf-8")
 
     # ---------------- controls page
-    cols = (t[["experiment_id", "label", "group", "timepoint", "timepoint_order", "orientation",
-               "light_treatment_umol", "light_control_umol"]].drop_duplicates(["experiment_id", "timepoint"]))
-    cells = t[["experiment_id", "timepoint", "set", "direction", "direction_oriented", "n_sig_in_set",
+    cols = (t[["experiment_id", "label", "label_detailed", "group", "light_reading_group", "more_light_arm",
+               "timepoint", "timepoint_order", "light_treatment_umol", "light_control_umol"]]
+            .drop_duplicates(["experiment_id", "timepoint"]).copy())
+    cols["block"] = [lr if lr != "none" else g for lr, g in zip(cols.light_reading_group, cols.group)]
+    cells = t[["experiment_id", "timepoint", "set", "direction", "n_sig_in_set",
                "n_measured_in_background", "n_sig_total", "background_size", "background_type", "pvalue", "padj_bh",
-               "flags", "pvalue_in_table"]].copy()
+               "flags", "pvalue_in_table", "share_sig_both_directions"]].copy()
     hm = dict(cols=json.loads(cols.to_json(orient="records")), cells=json.loads(cells.to_json(orient="records")), sets=[list(x) for x in SET_ROWS])
     hm_js = "const HM=" + json.dumps(hm) + ";" + """
-const GROUPS=['light_onset_photoperiod','electron_transport_DCMU','phage_dark','nonlight_stress','nonstress_possible_relief'];
-const GL={light_onset_photoperiod:'Light onset / photoperiod',electron_transport_DCMU:'DCMU',phage_dark:'Phage dark',nonlight_stress:'Non-light stress',nonstress_possible_relief:'Non-stress'};
+const GROUPS=['light_onset','constant_dark_vs_light','schedule_extension','electron_transport_DCMU','phage_dark','nonlight_stress','nonstress_possible_relief'];
+const GL={light_onset:'Light onset',constant_dark_vs_light:'Constant dark vs light',schedule_extension:'Schedule extension',electron_transport_DCMU:'DCMU',phage_dark:'Phage dark',nonlight_stress:'Non-light stress',nonstress_possible_relief:'Non-stress'};
+const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const SETS=HM.sets;
-const idx={};HM.cells.forEach(c=>{idx[[c.experiment_id,c.timepoint,c.set,c.direction_oriented].join('|')]=c});
+const idx={};HM.cells.forEach(c=>{idx[[c.experiment_id,c.timepoint,c.set,c.direction].join('|')]=c});
 function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim()}
 function mix(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const A=p(a),B=p(b);return 'rgb('+A.map((x,i)=>Math.round(x+(B[i]-x)*t)).join(',')+')'}
 function draw(){
  const order=document.getElementById('order').value;
  let cols=[...HM.cols];
- if(order==='group')cols.sort((a,b)=>GROUPS.indexOf(a.group)-GROUPS.indexOf(b.group)||a.label.localeCompare(b.label)||a.timepoint_order-b.timepoint_order);
- else cols.sort((a,b)=>a.light_treatment_umol-b.light_treatment_umol||a.light_control_umol-b.light_control_umol||GROUPS.indexOf(a.group)-GROUPS.indexOf(b.group)||a.label.localeCompare(b.label)||a.timepoint_order-b.timepoint_order);
- const cw=16,ch=20,left=420,top=80,rows=[];SETS.forEach(s=>['up','down'].forEach(d=>rows.push([s,d])));
- const W=left+cols.length*cw+10,H=top+rows.length*ch+10;
+ if(order==='group')cols.sort((a,b)=>GROUPS.indexOf(a.block)-GROUPS.indexOf(b.block)||a.label.localeCompare(b.label)||a.timepoint_order-b.timepoint_order);
+ else cols.sort((a,b)=>a.light_treatment_umol-b.light_treatment_umol||a.light_control_umol-b.light_control_umol||GROUPS.indexOf(a.block)-GROUPS.indexOf(b.block)||a.label.localeCompare(b.label)||a.timepoint_order-b.timepoint_order);
+ const cw=16,ch=20,left=420,top=140,rows=[];SETS.forEach(s=>['up','down'].forEach(d=>rows.push([s,d])));
+ const LB=420,W=left+cols.length*cw+10,H=top+rows.length*ch+LB;
  const lim=6; // colour saturates at padj 1e-6
  const up=css('--up'),dn=css('--down'),mid=css('--mid'),na=css('--na'),ink=css('--ink'),mut=css('--muted');
  let s=`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" font-size="10" font-family="system-ui">`;
  s+=`<defs><pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" stroke="${mut}" stroke-width="1"/></pattern></defs>`;
  rows.forEach((r,i)=>{if(i===0||rows[i-1][0][2]!==r[0][2])s+=`<text x="6" y="${top+i*ch+12}" fill="${ink}" font-weight="bold">${r[0][2]}</text>`;s+=`<text x="${left-6}" y="${top+i*ch+ch/2+3}" text-anchor="end" fill="${ink}">${r[0][1]} — ${r[1]}</text>`});
- const blk=(a,b,v)=>{const t=order==='group'?GL[v]:v+' µmol',x=left+(a+b)/2*cw;return (b-a)<5&&order==='group'?`<text transform="translate(${x+3},${top-6}) rotate(-90)" fill="${ink}" font-size="9">${t}</text>`:`<text x="${x}" y="${top-8}" text-anchor="middle" fill="${ink}" font-size="9">${t}</text>`};let prev=null,start=0;const key=c=>order==='group'?c.group:String(c.light_treatment_umol);
+ const blk=(a,b,v)=>{const t=order==='group'?GL[v]:v+' µmol',x=left+(a+b)/2*cw;return (b-a)<5&&order==='group'?`<text transform="translate(${x+3},${top-6}) rotate(-90)" fill="${ink}" font-size="9">${t}</text>`:`<text x="${x}" y="${top-8}" text-anchor="middle" fill="${ink}" font-size="9">${t}</text>`};let prev=null,start=0;const key=c=>order==='group'?c.block:String(c.light_treatment_umol);
  cols.forEach((c,j)=>{const k=key(c);if(prev!==null&&k!==prev){s+=`<line x1="${left+j*cw}" x2="${left+j*cw}" y1="${top-4}" y2="${top+rows.length*ch}" stroke="${ink}"/>`;
    s+=blk(start,j,prev);start=j}prev=k});
  s+=blk(start,cols.length,prev);
@@ -193,15 +197,17 @@ function draw(){
    if(cell.flags.match(/not_testable|descriptive/))fill=na;else if(cell.flags.match(/too_few/))fill='url(#hatch)';
    else{const v=-Math.log10(Math.max(cell.padj_bh,1e-300));fill=mix(mid,r[1]==='up'?up:dn,Math.min(1,v/lim));if(cell.padj_bh<0.05)mark=`<text x="${x+cw/2}" y="${y+ch/2+4}" text-anchor="middle" fill="${ink}">*</text>`}
    if(cell.flags.match(/genome_wide/))mark+=`<circle cx="${x+cw-4}" cy="${y+4}" r="1.8" fill="${ink}"/>`;
-   s+=`<rect class="c" data-k="${[c.experiment_id,c.timepoint,r[0][0],r[1]].join('|')}" data-l="${c.label}" x="${x+1}" y="${y+1}" width="${cw-2}" height="${ch-2}" fill="${fill}" stroke="${css('--rule')}" stroke-width="0.3"/>${mark}`}));
+   s+=`<rect class="c" data-k="${[c.experiment_id,c.timepoint,r[0][0],r[1]].join('|')}" data-l="${esc(c.label_detailed)}" x="${x+1}" y="${y+1}" width="${cw-2}" height="${ch-2}" fill="${fill}" stroke="${css('--rule')}" stroke-width="0.3"/>${mark}`}));
  for(let k=1;k<rows.length;k++)if(rows[k][0][2]!==rows[k-1][0][2])s+=`<line x1="6" x2="${left+cols.length*cw}" y1="${top+k*ch}" y2="${top+k*ch}" stroke="${ink}" stroke-width="${rows[k][0][2]==='Failed references'?3:1}"/>`;
+ cols.forEach((c,j)=>{const x=left+j*cw+cw/2+3,y=top+rows.length*ch+6;
+   s+=`<text transform="translate(${x},${y}) rotate(90)" fill="${ink}" font-size="8">${esc(c.label_detailed)} · ${esc(c.timepoint)}</text>`});
  s+='</svg>';document.getElementById('hm').innerHTML=s;
  const tip=document.getElementById('tip');
  document.querySelectorAll('#hm rect.c').forEach(el=>{el.addEventListener('mousemove',e=>{const c=idx[el.dataset.k];
    const f=v=>v==null?'—':(v<1e-3?v.toExponential(2):v.toPrecision(3));
-   tip.innerHTML=`<b>${el.dataset.l}</b> · ${c.timepoint}<br>${c.set} · oriented ${c.direction_oriented} (raw ${c.direction})<br>`+
+   tip.innerHTML=`<b>${el.dataset.l}</b> · ${esc(c.timepoint)}<br>${c.set} · ${c.direction} (treatment vs control)<br>`+
     `in set & significant: ${c.n_sig_in_set??'—'} of ${c.n_measured_in_background} measured<br>significant genome-wide: ${c.n_sig_total} of ${c.background_size} (${c.background_type})<br>`+
-    `p = ${f(c.pvalue)} · BH padj = ${f(c.padj_bh)}${c.pvalue_in_table!=null?' · in-table p = '+f(c.pvalue_in_table):''}<br>flags: ${c.flags||'none'}`;
+    `significant in either direction: ${f(c.share_sig_both_directions)} of background<br>p = ${f(c.pvalue)} · BH padj = ${f(c.padj_bh)}${c.pvalue_in_table!=null?' · in-table p = '+f(c.pvalue_in_table):''}<br>flags: ${c.flags||'none'}`;
    tip.style.display='block';tip.style.left=Math.min(e.clientX+12,innerWidth-370)+'px';tip.style.top=(e.clientY+12)+'px'});
   el.addEventListener('mouseleave',()=>tip.style.display='none')})}
 document.getElementById('order').addEventListener('change',draw);draw();
@@ -210,15 +216,17 @@ function filt(){const s=document.getElementById('fset').value,q=document.getElem
 document.getElementById('fset').addEventListener('change',filt);
 document.getElementById('rbscope').addEventListener('change',e=>{const v=e.target.value;document.querySelectorAll('#rb tbody tr').forEach(r=>{r.style.display=(!v||r.cells[2].textContent===v)?'':'none'})});document.getElementById('fq').addEventListener('input',filt);
 """
-    test_cols = ["label", "group", "timepoint", "direction", "orientation", "direction_oriented", "set", "set_role", "test_type",
+    test_cols = ["label", "label_detailed", "group", "light_reading_group", "timepoint", "direction", "set",
+                 "set_role", "test_type",
                  "background_type", "background_size", "n_measured_in_background", "n_sig_in_set", "n_sig_total",
-                 "genome_share_sig", "set_share_sig", "pvalue", "padj_bh", "flags", "pvalue_in_table",
+                 "genome_share_sig", "share_sig_both_directions", "set_share_sig", "pvalue", "padj_bh", "flags", "pvalue_in_table",
                  "padj_in_table_bh", "experiment_id"]
-    agg_cols = ["label", "group", "set", "set_role", "direction", "direction_oriented", "timepoint_count", "p_exp_bonferroni",
-                "padj_exp_bh", "experiment_call_oriented", "experiment_id"]
-    ex_cols = ["label", "group", "study", "stress_type", "omics", "table_scope", "test_type", "test_type_note",
-               "up_only", "orientation", "in_table_group", "control_timing", "light_treatment_umol",
+    agg_cols = ["label", "label_detailed", "group", "light_reading_group", "set", "set_role", "direction",
+                "timepoint_count", "p_exp_bonferroni", "padj_exp_bh", "experiment_call", "experiment_id"]
+    ex_cols = ["label", "label_detailed", "group", "light_reading_group", "more_light_arm", "study", "stress_type",
+               "omics", "table_scope", "test_type", "test_type_note", "up_only", "in_table_group", "control_timing", "light_treatment_umol",
                "light_control_umol", "light_intensity_raw", "treatment_text", "control_text", "timepoints",
+               "n_timepoints", "timepoints_source",
                "experiment_id"]
     fl_cols = ["label", "timepoint", "direction", "n_sig_total", "background_size", "genome_share_sig", "flags",
                "too_few_in_proposal", "mismatch"]
@@ -228,16 +236,17 @@ document.getElementById('rbscope').addEventListener('change',e=>{const v=e.targe
 the two failed references from the first iteration (chaperones D.4, oxidative stress D.1.4), and size-matched random sets,
 tested in every MED4 experiment × timepoint × direction. No hli results.</p>
 <h2>Heatmap</h2>
-<div class="controls"><label>Column order <select id="order"><option value="group">by experiment group</option>
+<div class="controls"><label>Column order <select id="order"><option value="group">by light reading / experiment group</option>
 <option value="light">by treatment-arm light level</option></select></label></div>
 <div class="wrap" style="max-height:none" id="hm"></div>
 <p class="note">Cell colour = −log10(BH padj) (saturates at 6), orange for up rows, blue for down rows (BH per gene set across all testable tests).
-Direction is oriented: for extended darkness and both constant-dark experiments up/down are swapped so up = higher with more light.
+Direction is treatment vs control, as stored in the KG (no light flip): see more_light_arm in the experiment table for which arm got more light.
+Column labels and hover give both arms and their light levels.
 Hatched = fewer than 10 genes significant in that direction. Gray = not testable (down, up-only table) or descriptive.
 Dot = more than 30% of measured genes significant. * = padj &lt; 0.05. Hover a cell for counts and p-values.
 Static versions: <a href="../figures/controls_heatmap_by_group.png">by group</a>, <a href="../figures/controls_heatmap_by_light.png">by light level</a>.</p>
 <h2>Reference behaviour</h2>
-<p class="note">Per set × scope: testable tests and tests with BH padj &lt; 0.05 by oriented direction. Scopes: experiment group;
+<p class="note">Per set × scope: testable tests and tests with BH padj &lt; 0.05 by direction (treatment vs control). Scopes: experiment group;
 stress type inside the non-light stress group; for the N / P / Fe adaptation sets, the set's own stress vs other non-light stresses vs all other tests;
 for ribosomal proteins, the non-light stress tests (frac_sig_down). Counts only.</p>
 <div class="controls"><label>Scope type <select id="rbscope"><option value="">all</option>{"".join(f"<option>{x}</option>" for x in rb.scope_type.unique())}</select></label></div>
@@ -246,12 +255,17 @@ for ribosomal proteins, the non-light stress tests (frac_sig_down). Counts only.
 <p class="note">Overlapping genes are kept in both sets (reported, not removed). Only pairs with at least one shared gene are listed.</p>
 {table(gs[~gs.set.str.startswith("hli_group")].groupby(["set", "role"]).size().reset_index(name="n_genes"))}
 {table(ov[ov.n_overlap > 0])}
+<h2>Schedule extension: reference concordance</h2>
+<p class="note">Extended light past dusk (treatment lit, ~45 µmol) and extended darkness past dawn (control lit, ~45 µmol), each vs the
+same time of day on the normal schedule. Number of genes in each reference set significant up / down per timepoint, raw direction
+(treatment vs control), with BH padj. Counts only.</p>
+{table(conc)}
 <h2>All tests</h2>
 <div class="controls"><label>Set <select id="fset"><option value="">all</option>{"".join(f"<option>{x}</option>" for x in SET_ORDER)}</select></label>
 <label>Search <input id="fq" placeholder="label, flag, timepoint"></label></div>
 {table(t[test_cols], "tests")}
 <h2>Per-experiment aggregate</h2>
-<p class="note">p_exp = smallest testable-timepoint p × number of testable timepoints (cap 1); BH across experiment × direction rows, per set. Call uses oriented direction.</p>
+<p class="note">p_exp = smallest testable-timepoint p × number of testable timepoints (cap 1); BH across experiment × direction rows, per set. Call is treatment vs control. Pooled "days 60+89" is descriptive and not counted.</p>
 {table(agg[agg_cols])}
 <h2>Flags vs proposal Known limits</h2>
 <p class="note">Tests flagged too few, genome-wide, not testable or descriptive, or listed as too few in the proposal. mismatch = computed too-few flag differs from the proposal list.</p>
@@ -259,7 +273,7 @@ for ribosomal proteins, the non-light stress tests (frac_sig_down). Counts only.
 <p class="note">Totals per group:</p>
 {table(flall.groupby("group")[["too_few", "genome_wide_response", "not_testable", "descriptive", "approximate", "testable"]].sum().reset_index())}
 <h2>Photosystem II direction check</h2>
-<p class="note">PSII genes (31) by call per timepoint, raw (unoriented) direction. High white light: a significant-only table (genes not in the table are counted separately).</p>
+<p class="note">PSII genes (31) by call per timepoint, treatment vs control. High white light: a significant-only table (genes not in the table are counted separately).</p>
 {table(sign.drop(columns=["experiment_id"]))}
 <h2>Spot check against pathway_enrichment</h2>
 <p class="note">N deprivation microarray (Tolonen 2006, full table). pathway_enrichment: cyanorak_role, term_ids J.8 and D.4, background table_scope. Empty rows: pathway_enrichment skips gene sets with no significant genes.</p>

@@ -1,6 +1,8 @@
 """Methods iteration 2: how each reference set behaves, per experiment group and per stress type.
 
-Counts testable tests and tests with BH padj < 0.05 (oriented direction) per set x scope.
+Counts testable tests and tests with BH padj < 0.05 (treatment vs control, as stored) per set x scope.
+Also writes methods/data/schedule_extension_concordance.csv: per reference set, n_sig_in_set
+up / down per timepoint in extended light and extended darkness (raw direction).
 Facts only; no pass/fail. Reads methods/data/control_tests.csv; writes
 methods/data/reference_behaviour.csv.
 
@@ -28,8 +30,8 @@ ROLE_ORDER = ["broad_stress_growth", "broad_stress", "specific_N", "specific_P",
 def summarise(g: pd.DataFrame) -> dict:
     n = len(g)
     sig = g[g.padj_bh < 0.05]
-    up = int((sig.direction_oriented == "up").sum())
-    down = int((sig.direction_oriented == "down").sum())
+    up = int((sig.direction == "up").sum())
+    down = int((sig.direction == "down").sum())
     return dict(n_testable=n, n_sig_up=up, n_sig_down=down,
                 frac_sig_any=(up + down) / n if n else float("nan"),
                 frac_sig_up=up / n if n else float("nan"), frac_sig_down=down / n if n else float("nan"),
@@ -65,6 +67,22 @@ def main():
     pd.set_option("display.width", 260)
     pd.set_option("display.max_rows", 500)
     print(out.to_string(index=False, float_format=lambda v: f"{v:.3f}"))
+
+    # schedule-extension concordance (critic finding 1): raw counts, all tests (incl. flagged)
+    allt = pd.read_csv(DATA / "control_tests.csv", encoding="utf-8")
+    se = allt[allt.light_reading_group == "schedule_extension"]
+    piv = se.pivot_table(index=["set", "set_role", "label", "timepoint"], columns="direction",
+                         values=["n_sig_in_set", "padj_bh"], aggfunc="first")
+    piv.columns = [f"{a}_{b}" for a, b in piv.columns]
+    meas = se.drop_duplicates(["set", "label", "timepoint"]).set_index(["set", "set_role", "label", "timepoint"])[
+        ["n_measured_in_background", "more_light_arm", "share_sig_both_directions"]]
+    conc = piv.join(meas).reset_index()
+    conc["role_rank"] = conc.set_role.map({r: i for i, r in enumerate(ROLE_ORDER)})
+    conc = conc.sort_values(["role_rank", "set", "label", "timepoint"]).drop(columns="role_rank")
+    conc = conc[["set", "set_role", "label", "more_light_arm", "timepoint", "n_measured_in_background",
+                 "n_sig_in_set_up", "n_sig_in_set_down", "padj_bh_up", "padj_bh_down", "share_sig_both_directions"]]
+    conc.to_csv(DATA / "schedule_extension_concordance.csv", index=False, encoding="utf-8")
+    print(conc.to_string(index=False, float_format=lambda v: f"{v:.3g}"))
 
 
 if __name__ == "__main__":

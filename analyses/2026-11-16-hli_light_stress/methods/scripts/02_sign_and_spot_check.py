@@ -50,7 +50,7 @@ def main():
                                  treatment=ex.at[eid, "treatment_text"], control=ex.at[eid, "control_text"],
                                  light_treatment_umol=ex.at[eid, "light_treatment_umol"],
                                  light_control_umol=ex.at[eid, "light_control_umol"],
-                                 orientation=ex.at[eid, "orientation"], psii_set_size=len(psii),
+                                 more_light_arm=ex.at[eid, "more_light_arm"], psii_set_size=len(psii),
                                  n_up=up, n_down=down, n_ns_in_table=ns,
                                  n_not_in_table=len(psii) - g.locus_tag.nunique(),
                                  median_log2fc=float(g.log2fc.median())))

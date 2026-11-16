@@ -121,3 +121,22 @@ Testable tests with BH padj < 0.05:
   - light-minus-hli is kept but did not respond in the light tests;
   - ribosomal proteins are down in N/CO2 limitation and up in some coculture/recovery contrasts.
 - **Random-set baseline:** calibrates independent-gene sets only.
+
+## Run 4 (kg-coder): review dispositions, no flip, detailed labels
+
+- **Outputs:**
+  - orientation removed;
+  - `more_light_arm` and `light_reading_group` added (light onset 5, constant dark vs light 2, schedule extension 2, DCMU 1, phage dark 1, none 18);
+  - `label_detailed` for the 11 light-reading experiments, built from KG arm text;
+  - "days 60+89" made descriptive;
+  - `share_sig_both_directions` added;
+  - `gene_calls_from_background()` (absent genes in significant-only tables count as ns);
+  - time-point labels filled;
+  - `schedule_extension_concordance.csv` (48 rows).
+- **Effects:** testable tests 66 → 64; test-level BH hits 61 → 60 (only the dropped pooled test); no experiment-level call changed. The random-set rate is 2.7% (the seeded stream shifted).
+- **Checks (main thread re-run):** 07 independent spot checks ALL MATCH; pytest 40 passed.
+- **Schedule-extension concordance confirms the critic's point (raw treatment vs control):**
+  - **PSI** is up in both experiments: extended darkness 2 h 14/17 (padj 2.7e-5) and 4 h 15/17; extended light 14 h 4/17 and 16 h 13/17 (padj 7.8e-4).
+  - **CO2 fixation** is down in both: extended darkness 14/21 and 15/21; extended light 5/21 and 13/21; all padj < 0.014.
+
+  The lit arm is opposite in the two experiments, so these references respond to being off-schedule, not to light. The reading rule for hli in this group is fixed above.

@@ -15,9 +15,15 @@ import pandas as pd
 import hli_scoring as hs
 
 PHOSPHATE = "10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray"
+# pooled timepoint duplicating day 60 and day 89 (critic finding 2): descriptive, kept out of BH and Bonferroni
+POOLED_TIMEPOINTS = {
+    ("10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture", "days 60+89"),
+}
 
 
 def test_type_for(exp: Mapping, timepoint: str) -> str:
+    if (exp["experiment_id"], timepoint) in POOLED_TIMEPOINTS:
+        return "descriptive"
     if exp["experiment_id"] == PHOSPHATE:
         return "approximate" if timepoint == "48h" else "descriptive"
     return exp["test_type"]

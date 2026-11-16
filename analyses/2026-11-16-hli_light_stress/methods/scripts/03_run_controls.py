@@ -72,10 +72,15 @@ def main():
     tests = pd.concat(tests, ignore_index=True)
     rand = pd.concat(rands, ignore_index=True)
 
-    meta = ex.set_index("experiment_id")[["label", "group", "study", "stress_type", "omics", "orientation",
+    meta = ex.set_index("experiment_id")[["label", "label_detailed", "group", "light_reading_group",
+                                          "more_light_arm", "study", "stress_type", "omics",
                                           "light_treatment_umol", "light_control_umol"]]
     tests = tests.join(meta, on="experiment_id")
-    tests["direction_oriented"] = [hs.orient_direction(d, o) for d, o in zip(tests.direction, tests.orientation)]
+    # share of the background significant in either direction at that experiment x timepoint (critic note 6)
+    both = (tests.drop_duplicates(["experiment_id", "timepoint", "direction"])
+            .groupby(["experiment_id", "timepoint"])["n_sig_total"].sum().rename("n_sig_both_directions"))
+    tests = tests.join(both, on=["experiment_id", "timepoint"])
+    tests["share_sig_both_directions"] = tests.n_sig_both_directions / tests.background_size
 
     # BH per set across testable tests (main background); separately for the in-table p
     tests["padj_bh"] = np.nan
@@ -86,10 +91,11 @@ def main():
         m2 = m & tests.pvalue_in_table.notna()
         tests.loc[m2, "padj_in_table_bh"] = hs.bh(tests.loc[m2, "pvalue_in_table"].values)
     tests["set_role"] = tests["set"].map(kg_io.SET_ROLE)
-    cols = ["experiment_id", "label", "group", "study", "stress_type", "omics", "timepoint", "timepoint_order",
-            "direction", "orientation", "direction_oriented", "set", "set_role", "test_type", "background_type",
+    cols = ["experiment_id", "label", "label_detailed", "group", "light_reading_group", "more_light_arm", "study",
+            "stress_type", "omics", "timepoint", "timepoint_order",
+            "direction", "set", "set_role", "test_type", "background_type",
             "background_size", "n_measured_in_background", "n_sig_in_set", "n_sig_total", "genome_share_sig",
-            "set_share_sig", "pvalue", "padj_bh", "flags", "testable", "in_table_background_size",
+            "share_sig_both_directions", "set_share_sig", "pvalue", "padj_bh", "flags", "testable", "in_table_background_size",
             "n_measured_in_table", "pvalue_in_table", "padj_in_table_bh", "light_treatment_umol",
             "light_control_umol"]
     tests = tests[cols].sort_values(["group", "label", "timepoint_order", "direction", "set"])
@@ -103,15 +109,14 @@ def main():
     agg = hs.experiment_aggregate(tests[["experiment_id", "set", "direction", "pvalue", "padj_bh", "testable"]])
     agg = agg.join(meta, on="experiment_id")
     agg["set_role"] = agg["set"].map(kg_io.SET_ROLE)
-    agg["direction_oriented"] = [hs.orient_direction(d, o) for d, o in zip(agg.direction, agg.orientation)]
     calls = {}
     for (eid, s), g in agg.groupby(["experiment_id", "set"]):
-        p = g.set_index("direction_oriented")["padj_exp_bh"]
+        p = g.set_index("direction")["padj_exp_bh"]
         calls[(eid, s)] = hs.call_from_padj(p.get("up", np.nan), p.get("down", np.nan))
-    agg["experiment_call_oriented"] = [calls[(e, s)] for e, s in zip(agg.experiment_id, agg.set)]
-    agg = agg[["experiment_id", "label", "group", "study", "stress_type", "set", "set_role", "direction", "orientation",
-               "direction_oriented", "n_timepoints", "n_testable", "n_sig_timepoints", "timepoint_count",
-               "p_exp_bonferroni", "padj_exp_bh", "experiment_call_oriented"]]
+    agg["experiment_call"] = [calls[(e, s)] for e, s in zip(agg.experiment_id, agg.set)]
+    agg = agg[["experiment_id", "label", "label_detailed", "group", "light_reading_group", "more_light_arm", "study",
+               "stress_type", "set", "set_role", "direction", "n_timepoints", "n_testable", "n_sig_timepoints",
+               "timepoint_count", "p_exp_bonferroni", "padj_exp_bh", "experiment_call"]]
     agg.to_csv(DATA / "control_experiment_calls.csv", index=False, encoding="utf-8")
 
     # random sets

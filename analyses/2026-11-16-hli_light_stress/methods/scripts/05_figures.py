@@ -1,10 +1,11 @@
 """Methods step 6: reference-set heatmaps (static PNG + SVG); rows grouped by reference role.
 
-(a) rows = comparison set x oriented direction, columns = experiment x timepoint grouped by
-    experiment group; (b) the same columns ordered by the treatment arm's light level.
+(a) rows = reference set x direction, columns = experiment x timepoint grouped by light reading
+    (light onset / constant dark vs light / schedule extension / DCMU / phage dark) and, for the
+    rest, experiment group; (b) the same columns ordered by the treatment arm's light level.
 Cell = -log10(BH padj), signed: up rows positive (orange), down rows negative (blue).
-Direction is ORIENTED: for the three darkness-treatment experiments, up/down are swapped
-so that "up" reads "higher with more light"; those columns carry a "(flipped)" label.
+Direction is treatment vs control as stored in the KG (no light flip, iteration 4).
+A key under each figure gives the detailed two-arm label of every light-reading experiment.
 Flagged cells: too few significant genes = hatched, no value; not testable / descriptive =
 gray "n/a"; genome-wide response (>30%) = small black dot.
 
@@ -35,9 +36,10 @@ FIG.mkdir(exist_ok=True)
 UP, DOWN, MID = "#eb6834", "#2a78d6", "#f0efec"
 CMAP = LinearSegmentedColormap.from_list("spock_diverging", [DOWN, MID, UP])
 INK, MUTED, GRID = "#1f1f1d", "#6b6b66", "#d9d8d4"
-GROUP_ORDER = ["light_onset_photoperiod", "electron_transport_DCMU", "phage_dark", "nonlight_stress",
-               "nonstress_possible_relief"]
-GROUP_LABEL = {"light_onset_photoperiod": "Light onset / photoperiod", "electron_transport_DCMU": "DCMU",
+GROUP_ORDER = ["light_onset", "constant_dark_vs_light", "schedule_extension", "electron_transport_DCMU",
+               "phage_dark", "nonlight_stress", "nonstress_possible_relief"]
+GROUP_LABEL = {"light_onset": "Light onset", "constant_dark_vs_light": "Constant dark vs light",
+               "schedule_extension": "Schedule extension", "electron_transport_DCMU": "DCMU",
                "phage_dark": "Phage, dark", "nonlight_stress": "Non-light stress",
                "nonstress_possible_relief": "Non-stress / possible relief"}
 SET_ROWS = kg_io.set_rows()   # derived from kg_io.REFERENCE_SETS; failed references last
@@ -51,21 +53,23 @@ def save_figure(fig, stem: Path) -> None:
 
 
 def build_columns(t: pd.DataFrame) -> pd.DataFrame:
-    cols = (t[["experiment_id", "label", "group", "timepoint", "timepoint_order", "orientation",
-               "light_treatment_umol", "light_control_umol"]].drop_duplicates(["experiment_id", "timepoint"]))
-    cols["group_rank"] = cols.group.map({g: i for i, g in enumerate(GROUP_ORDER)})
-    cols["col_label"] = [f"{lab} · {tp}" + (" (flipped)" if o == -1 else "")
-                         for lab, tp, o in zip(cols.label, cols.timepoint, cols.orientation)]
+    cols = (t[["experiment_id", "label", "label_detailed", "group", "light_reading_group", "timepoint",
+               "timepoint_order", "light_treatment_umol", "light_control_umol"]]
+            .drop_duplicates(["experiment_id", "timepoint"]))
+    cols["block"] = [lr if lr != "none" else g for lr, g in zip(cols.light_reading_group, cols.group)]
+    cols["group_rank"] = cols.block.map({g: i for i, g in enumerate(GROUP_ORDER)})
+    cols["col_label"] = [f"{lab} · {tp}" for lab, tp in zip(cols.label, cols.timepoint)]
     return cols
 
 
-def draw(t: pd.DataFrame, cols: pd.DataFrame, stem: Path, title: str, block_col: str, block_label) -> None:
+def draw(t: pd.DataFrame, cols: pd.DataFrame, stem: Path, title: str, block_col: str, block_label,
+         key: str = "") -> None:
     rows = [(s, d) for s, _ in SETS for d in ("up", "down")]
     n_r, n_c = len(rows), len(cols)
     val = np.full((n_r, n_c), np.nan)
     state = np.full((n_r, n_c), "", dtype=object)
     gw = np.zeros((n_r, n_c), dtype=bool)
-    idx = t.set_index(["experiment_id", "timepoint", "set", "direction_oriented"])
+    idx = t.set_index(["experiment_id", "timepoint", "set", "direction"])
     for j, c in enumerate(cols.itertuples()):
         for i, (s, d) in enumerate(rows):
             r = idx.loc[(c.experiment_id, c.timepoint, s, d)]
@@ -102,7 +106,8 @@ def draw(t: pd.DataFrame, cols: pd.DataFrame, stem: Path, title: str, block_col:
     ax.set_xlim(0, n_c)
     ax.set_ylim(n_r, 0)
     ax.set_yticks(np.arange(n_r) + 0.5)
-    ax.set_yticklabels([f"{dict(SETS)[s]} — {'up' if d == 'up' else 'down'}" for s, d in rows], fontsize=6.2, color=INK)
+    ax.set_yticklabels([f"{dict(SETS)[s]} — {d}".replace(" (kept;", "\n(kept;") for s, d in rows],
+                       fontsize=6.2, color=INK)
     ax.set_xticks(np.arange(n_c) + 0.5)
     ax.set_xticklabels(cols.col_label, rotation=90, fontsize=5.2, color=INK)
     for sp in ax.spines.values():
@@ -141,7 +146,7 @@ def draw(t: pd.DataFrame, cols: pd.DataFrame, stem: Path, title: str, block_col:
              "Hatched = fewer than 10 genes significant in that direction (no test reported). "
              "n/a = not testable (up-only table) or descriptive table.\n• = more than 30% of measured genes "
              "significant in that direction. * = BH padj < 0.05 (BH per gene set across all testable tests). "
-             "(flipped) = darkness is the treatment; up/down swapped so up = higher with more light.",
+             "Direction = treatment vs control, as stored in the KG.\n" + key,
              xy=(0, 0), xycoords="axes fraction", xytext=(0, -215), textcoords="offset points",
              fontsize=6, color=MUTED, va="top")
     save_figure(fig, stem)
@@ -152,17 +157,21 @@ def main():
     t = pd.read_csv(DATA / "control_tests.csv", encoding="utf-8")
     t = t[t.set.isin([s for s, _ in SETS])]
     cols = build_columns(t)
+    lr = cols[cols.light_reading_group != "none"].drop_duplicates("experiment_id")
+    lr = lr.sort_values(["group_rank", "label"])
+    key = "Light-reading experiments (treatment vs control):\n" + "\n".join(
+        f"  {r.label} = {r.label_detailed}" for r in lr.itertuples())
     a = cols.sort_values(["group_rank", "label", "timepoint_order"])
     draw(t, a, FIG / "controls_heatmap_by_group",
          f"Reference gene sets across {a.experiment_id.nunique()} MED4 transcript experiments "
-         f"({len(a)} experiment × timepoints), grouped by experiment group", "group",
-         lambda g: GROUP_LABEL[g])
+         f"({len(a)} experiment × timepoints), grouped by light reading and experiment group", "block",
+         lambda g: GROUP_LABEL[g], key)
     b = cols.sort_values(["light_treatment_umol", "light_control_umol", "group_rank", "label", "timepoint_order"])
     b["light_block"] = [f"{tr:g}" for tr in b.light_treatment_umol]
     draw(t, b, FIG / "controls_heatmap_by_light",
          "Reference gene sets, columns ordered by the treatment arm's light level "
          "(µmol photons m⁻² s⁻¹; block label = treatment-arm level)", "light_block",
-         lambda v: f"{v}")
+         lambda v: f"{v}", key)
     print("figures written:", sorted(p.name for p in FIG.iterdir()))
 
 

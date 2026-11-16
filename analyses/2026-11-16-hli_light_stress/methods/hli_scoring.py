@@ -298,6 +298,25 @@ def call_from_padj(padj_up: float, padj_down: float, alpha: float = ALPHA) -> st
 
 # ---------------------------------------------------------------- ortholog groups
 
+def gene_calls_from_background(sig_up: Sequence[str], sig_down: Sequence[str],
+                               background: Sequence[str]) -> dict[str, str]:
+    """Gene calls over a test's MAIN background.
+
+    Genes in the background are 'up' / 'down' / 'ns'; genes outside it are left out (and so
+    read as 'not_measured' by ortholog_group_counts). For a significant-only table the main
+    background is the genome, so a gene absent from the table is 'ns', not 'not_measured'.
+    """
+    bg = set(background)
+    calls = {g: "ns" for g in bg}
+    for g in sig_up:
+        if g in bg:
+            calls[g] = "up"
+    for g in sig_down:
+        if g in bg:
+            calls[g] = "down"
+    return calls
+
+
 def ortholog_group_counts(gene_calls: Mapping[str, str],
                           gene_to_group: Mapping[str, str]) -> dict:
     """Count ortholog groups by their members' calls.

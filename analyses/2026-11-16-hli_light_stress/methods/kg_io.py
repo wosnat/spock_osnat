@@ -42,7 +42,8 @@ REFERENCE_SETS = {
 SET_LABEL = {
     "ribosomal_proteins": "Ribosomal proteins", "protein_folding": "Protein folding",
     "protein_degradation": "Protein degradation", "adaptation_N": "Adaptation: N", "adaptation_P": "Adaptation: P",
-    "adaptation_Fe": "Adaptation: Fe", "adaptation_light_minus_hli": "Adaptation: light minus hli",
+    "adaptation_Fe": "Adaptation: Fe",
+    "adaptation_light_minus_hli": "Light adaptation minus hli (kept; no response in light tests)",
     "photosystem_I": "Photosystem I", "co2_fixation": "CO2 fixation", "photosystem_II": "Photosystem II",
     "chaperones": "Chaperones", "oxidative_stress": "Oxidative stress",
 }

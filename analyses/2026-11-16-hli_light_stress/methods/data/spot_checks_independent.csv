@@ -1,10 +1,10 @@
 kind,check,timepoint,independent,pipeline,match
-fisher,"Fe set, iron starvation 12h up",12h,N=1973 K=30 n=19 k=4 p=0.0001439,N=1973 K=30 n=19 k=4 p=0.0001439; orientation 1 -> up,True
-fisher,"Ribosomal, N deprivation 12h down",12h,N=1696 K=61 n=129 k=39 p=3.896e-31,N=1696 K=61 n=129 k=39 p=3.896e-31; orientation 1 -> down,True
-fisher,"P set, phosphate 48h up",48h,N=1973 K=31 n=30 k=8 p=6.528e-09,N=1973 K=31 n=30 k=8 p=6.528e-09; orientation 1 -> up,True
-fisher,"PSII, extended darkness 2h up (raw)",2h,N=1876 K=30 n=487 k=12 p=0.06381,N=1876 K=30 n=487 k=12 p=0.06381; orientation -1 -> down,True
-fisher,"Ribosomal, salt down",acclimated,N=1953 K=61 n=14 k=0 p=1,N=1953 K=61 n=14 k=0 p=1; orientation 1 -> down,True
-fisher,"Light minus hli, N deprivation 48h down",48h,N=1696 K=12 n=32 k=4 p=4.658e-05,N=1696 K=12 n=32 k=4 p=4.658e-05; orientation 1 -> down,True
+fisher,"Fe set, iron starvation 12h up",12h,N=1973 K=30 n=19 k=4 p=0.0001439,N=1973 K=30 n=19 k=4 p=0.0001439,True
+fisher,"Ribosomal, N deprivation 12h down",12h,N=1696 K=61 n=129 k=39 p=3.896e-31,N=1696 K=61 n=129 k=39 p=3.896e-31,True
+fisher,"P set, phosphate 48h up",48h,N=1973 K=31 n=30 k=8 p=6.528e-09,N=1973 K=31 n=30 k=8 p=6.528e-09,True
+fisher,"PSII, extended darkness 2h up (raw)",2h,N=1876 K=30 n=487 k=12 p=0.06381,N=1876 K=30 n=487 k=12 p=0.06381,True
+fisher,"Ribosomal, salt down",acclimated,N=1953 K=61 n=14 k=0 p=1,N=1953 K=61 n=14 k=0 p=1,True
+fisher,"Light minus hli, N deprivation 48h down",48h,N=1696 K=12 n=32 k=4 p=4.658e-05,N=1696 K=12 n=32 k=4 p=4.658e-05,True
 flag,light_stress_green_light_13_umol_med4_microar 45 min up,45 min,n=1 share=0.001 -> ['too_few'],too_few;approximate,True
 flag,extended_light_med4 16h up,16h,n=579 share=0.309 -> ['genome_wide_response'],genome_wide_response,True
 flag,extended_darkness_med4 2h up,2h,n=487 share=0.260 -> none,nan,True

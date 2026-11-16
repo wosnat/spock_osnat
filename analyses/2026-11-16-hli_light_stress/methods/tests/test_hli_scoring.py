@@ -203,3 +203,23 @@ def test_transition_arm_flagged_unparseable():
                               "light shift", "10 umol photons m-2 s-1")
     assert math.isnan(out["light_treatment_umol"]) and out["light_parse_flag"] == "unparseable"
     assert out["light_control_umol"] == 10
+
+
+# ---------------------------------------------------------------- gene calls from the main background (iteration 4)
+def test_gene_calls_significant_only_table_absent_gene_is_ns():
+    genome = ["a1", "a2", "b1", "c1", "d1"]
+    table_rows_sig_up = ["a2"]                 # significant-only table: only a2 is in the table
+    bg, kind = hs.main_background("approximate", table_rows_sig_up, genome)
+    calls = hs.gene_calls_from_background(table_rows_sig_up, [], bg)
+    assert calls == {"a1": "ns", "a2": "up", "b1": "ns", "c1": "ns", "d1": "ns"}
+    g2g = {"a1": "G1", "a2": "G1", "b1": "G2", "c1": "G3", "d1": "G4"}
+    out = hs.ortholog_group_counts(calls, g2g)
+    assert out == dict(n_groups=4, n_groups_measured=4, n_groups_up=1, n_groups_down=0)
+
+
+def test_gene_calls_full_table_unmeasured_gene_not_measured():
+    bg, _ = hs.main_background("sound", ["a1", "a2", "b1"], ["a1", "a2", "b1", "c1"])
+    calls = hs.gene_calls_from_background([], ["b1"], bg)
+    assert "c1" not in calls and calls["b1"] == "down"
+    out = hs.ortholog_group_counts(calls, {"a1": "G1", "b1": "G2", "c1": "G3"})
+    assert out["n_groups_measured"] == 2 and out["n_groups_down"] == 1
