@@ -49,7 +49,7 @@ Both are small significant-only tables, and at the "too few changes" threshold a
    - **Top-N or expression-filtered table** (the N-depleted RNA-seq): no test, description only.
 4. **Light orientation:** where darkness is the treatment (extended darkness, constant dark), the contrast is turned around so that every light-onset/photoperiod comparison reads "more light vs less light". DCMU is not turned around; it has its own row. Before any hli result is read, the direction convention of the extended light/dark contrasts is checked on photosystem II genes.
 5. **Too few changes:** if fewer than **10** genes in the genome are significant in a direction at a time point, that test is reported as "too few changed genes to tell", with the gene-level hli calls shown instead. Before running, the number of tests this flags in each group is counted from genome-wide counts. The stress types left with no testable contrast are listed in Known limits.
-6. **Genome-wide response flag:** if more than **30%** of measured genes are significant in a direction at a time point, the test is flagged "genome-wide response (>30%)", because the Fisher test has little power there. The share of hli genes called significant is shown next to the genome-wide share. This applies, for example, to extended light and extended darkness.
+6. **Genome-wide response flag:** if more than **30%** of measured genes are significant in a direction at a time point, the Fisher test is still run and reported. Fisher already compares the hli share with the background share. The test is flagged "genome-wide response (>30%)", and the hli share is shown next to the genome-wide share, so the reader can see why a real but partial hli response may not reach significance there. This applies, for example, to extended light and extended darkness.
 7. **Comparison gene sets**, tested the same way in every experiment:
    - **Chaperones** (Cyanorak D.4, 13 genes) and **oxidative stress** (Cyanorak D.1.4, 25 genes): general-stress references. They are themselves light/redox-responsive.
    - **Photosystem II** (Cyanorak J.8, 31 genes): expected to follow light; often down in nutrient stress.
@@ -58,7 +58,9 @@ Both are small significant-only tables, and at the "too few changes" threshold a
    - **References uninformative** is a flag on the comparison column, not a label for the stress type. If the general-stress references are not enriched up in a non-light stress test, that test carries the flag, and the hli reading is kept beside it. The flag applies only to non-light stress tests that are not already flagged "too few changes".
 8. **Paralog correlation:** hli copies are near-identical, so their calls are not independent and the Fisher p-values overstate the evidence. Next to every gene-level test, a count at the level of the 14 ortholog groups is shown (a group counts as changed if any member changes).
 9. **Combining:**
-   - Per experiment: significant time points out of the total, per direction (e.g. "up at 3 of 6, down at 0 of 6").
+   - Per experiment, both of these are reported:
+     - significant time points out of the total, per direction (e.g. "up at 3 of 6, down at 0 of 6");
+     - one aggregate call per direction. The smallest time-point p-value is multiplied by the number of testable time points (Bonferroni within the experiment), so experiments with many time points do not get extra chances. BH correction is then applied across experiments within each gene set, and the call is "up" / "down" / "both" / "neither".
    - The six Steglich conditions are shown side by side, not combined; the wavelength and DCMU pattern is the point.
    - Across studies within a stress type: by study, not by assay.
    - A descriptive label per stress type summarises the pattern; it is not a test. The labels are:
