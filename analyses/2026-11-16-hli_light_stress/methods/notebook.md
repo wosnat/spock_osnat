@@ -77,3 +77,20 @@ Testable tests with BH padj < 0.05:
   - PSII and ribosomal proteins: 0 and 1.
 
   There is no clean "light pattern" to compare hli against. The light reading will rest on hli's own enrichment vs the random baseline.
+
+## Researcher requests (2026-11-16): code review, spot checks, keep light-minus-hli
+
+- **Light minus hli:** kept as the light-specific reference (researcher), even though it had no significant tests in the light group.
+- **Independent spot checks (main thread):** `scripts/07_spot_checks_independent.py` → `data/spot_checks_independent.csv`. The script does not import the pipeline module. It uses the KG API and scipy only.
+  - **Fisher tests (6):** Fe in iron starvation 12 h; ribosomal proteins in N deprivation 12 h and salt; P at 48 h; PSII in extended darkness 2 h, including the orientation flip; light-minus-hli in N deprivation 48 h. Every background size, set size, total-significant count, set-significant count and p-value matches.
+  - **Flags (4):** too_few, genome_wide_response, no flag, descriptive. All computed from the thresholds, and all match.
+  - **Per-experiment Bonferroni aggregate (1):** from independently computed time-point p-values. Matches (1.558e-30, testable at 4 time points).
+
+  ALL MATCH. The genome size of 1973 is confirmed from the organism record.
+- **Code review** (code-review skill, high, over methods/):
+  - **Most findings were in the first version of 07:** checks that re-read the pipeline's own flags, results not saved, a hard-coded genome size, an incomplete match, dead code. All fixed in the version above.
+  - **Pipeline findings, sent to kg-coder:**
+    - the "NA" timepoint label is read back as NaN (latent);
+    - the dark/range regexes in light parsing could misread arm text (latent; the current 29 are unaffected per the reviewer);
+    - the set list is duplicated across scripts.
+  - **The reviewer also flagged that 07 runs KG queries on the main thread.** Kept deliberately: an independent check has to be written outside the coder's code. The researcher asked for spot checks.
