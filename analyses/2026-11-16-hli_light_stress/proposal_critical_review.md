@@ -18,3 +18,17 @@ Dispositions: **all accepted by the researcher (2026-11-16)**. Finding 3 was cha
 | 10 | Note | The orientation step depends on the extended-light sign being right. | **Accept.** In methods, check the sign of the extended light/dark contrasts on photosystem II genes before hli is read. |
 | 11 | Note | The non-stress group may be stress relief, not neutral. | **Accept in part.** Keep the group, because it still shows whether hli changes in nearly everything. Label it "non-stress / possible relief", and don't call it a negative control. |
 | 12 | Note | The decisions log is out of date (pending items; tested mode; "kept unseen"). | **Accept.** Update the log. |
+
+## Delta pass (interpretation)
+
+Dispositions 2, 3, 4, 6, 7, 8, 9, 10 and 11 were confirmed implemented. All the findings below were **fixed in wording** in `proposal.md`.
+
+| # | Severity | Finding | Disposition |
+|---|---|---|---|
+| D1 | Concern | The light-independence check named the wrong phage contrast. The direct check is phage lysate vs spent medium in the dark. "All non-light stresses in the light" was wrong, and there was no reading for "induced without light". | **Fixed.** The dark phage experiment has its own row, with a stated reading. The limit now says "all but one". |
+| D2 | Concern | "Comparison uninformative" had become a stress-type label that could override the hli reading. | **Fixed.** It is now the flag "references uninformative" on the comparison column, for non-light stress tests not already flagged "too few". |
+| D3 | Note | The threshold-10 counts were already available. | **Fixed.** Counts written into Known limits, verified against the KG genome-wide counts (spike/med4_experiments_raw.json). |
+| D4 | Note | "Changes in nearly everything" had two meanings. | **Fixed.** The flag is now "genome-wide response (>30%)"; the label is "hli changes in nearly every comparison". |
+| D5 | Note | The phage microarray is up-only per the KG, with mixed control timing. | **Fixed.** Stated in the proposal. |
+| D6 | Note | It was unclear whether the MIT0604 seed included EW14_RS05945. | **Fixed.** Included (16 genes); decisions log R.3. |
+| D7 | Note | The decisions log was not fully tidied. | **Fixed.** 2.4 and 2.5 marked superseded; empty table stubs removed. |

@@ -33,8 +33,6 @@ KG facts (2026-11-16, interactive queries):
 - False hits to exclude: "photosystem II high light acclimation radical SAM protein" (tll1467, SYNPCC7002_A0894, H6G84_12355) matches "high light" but is not an hli; tsr0446 and SYNPCC7002_A0186 are ferrochelatase (hemH), which carries an hli-like domain.
 - The domain annotation is not a usable seed: the InterPro family "High light-inducible protein HliA-D-like" covers only 5 of the 23 MED4 hli genes (PMM0064, PMM0817, PMM1135, PMM1398, PMM1482).
 
-| # | Decision | Who | Why |
-|---|---|---|---|
 ### Which strains have light experiments (researcher's question)
 
 KG facts (`list_experiments`, treatment = light, darkness or diel): 22 experiments; 20 are in cyanobacteria (the other 2 are Alteromonas).
@@ -45,8 +43,6 @@ KG facts (`list_experiments`, treatment = light, darkness or diel): 22 experimen
 - Synechococcus WH8102: 1. Exoproteome after 10 h dark vs light.
 - The 6 MED4 microarray "light stress" experiments compare light with *darkness* (dark-to-light shift). They are not high light vs normal light. The only true high-vs-low light contrast is the MED4 proteomics pair.
 
-| # | Decision | Who | Why |
-|---|---|---|---|
 ## Step 2 — What the KG holds (MED4)
 
 Source: `spike/step2_med4_inventory.py` → `spike/step2_med4_inventory.csv`. It records coverage only (genes measured per experiment); no direction or significance was read.
@@ -86,8 +82,8 @@ KG facts (experiment counts only, no hli values looked at): Prochlorococcus has 
 | 2.1 | Experiment groups as proposed; 4 glucose experiments dropped | C→R | No hli measured |
 | 2.2 | Drop all proteomics (8 experiments) | R | Leaves 29 transcript experiments: light 10, non-light stress 13, non-stress 6 |
 | 2.3 | Experiments whose significant-only tables were partly seen are labelled exploratory | C→R | See "What was seen early" |
-| 2.4 | Add the reading "too few changed genes to tell" (fewer than 20 significant genes in that direction) | C→R | A non-enrichment there is uninformative |
-| 2.5 | Test per experiment × time point × direction, correcting across all tests; an experiment is "up" if enriched up at any time point; a stress type is read by study, not by assay | C→R | Stops one multi-assay study outvoting the others |
+| 2.4 | (Superseded by R.2: threshold 10) Add the reading "too few changed genes to tell" (fewer than 20 significant genes in that direction) | C→R | A non-enrichment there is uninformative |
+| 2.5 | (Superseded by R.1: time-point counts, BH per gene set) Test per experiment × time point × direction, correcting across all tests; an experiment is "up" if enriched up at any time point; a stress type is read by study, not by assay | C→R | Stops one multi-assay study outvoting the others |
 
 ## Steps 3–5 — Approach, feasibility, framing
 
@@ -106,3 +102,11 @@ The proposal critic returned 1 Blocker, 8 Concerns and 3 Notes (`proposal_critic
 |---|---|---|---|
 | R.1 | Apply all proposed dispositions; proposal revised | R | |
 | R.2 | "Too few changed genes" threshold is **10** (not 20) | R | Fewer tests lost; Fisher can still reach significance with 10 changed genes |
+
+### Proposal review, delta pass (2026-11-16)
+
+The delta critic confirmed 9 of the 12 dispositions and found 2 Concerns and 5 Notes. All were fixed in wording (details in `proposal_critical_review.md`).
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| R.3 | MIT0604 hli set includes EW14_RS05945 (16 genes) | C (default; researcher may change) | hli by product, in an eggNOG hli group |
