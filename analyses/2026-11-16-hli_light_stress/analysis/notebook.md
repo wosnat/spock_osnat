@@ -65,3 +65,43 @@
 - **B. Light level:** hli response vs background light intensity (cross-study; confounded by platform and design).
 - **C. Timing:** in the time series, are hli responses mostly at the start of a stress?
 - **Graphics for each;** a new page `reports/explore.html`.
+
+## Run 2 (kg-coder): exploration A/B/C — facts
+
+- **New outputs:** scripts 04–07; `data/explore_*.csv`; figures `explore_A1/A2/B1/C1/C2`; `reports/explore.html`. Existing data are unchanged.
+- **Timing:** hli gene-level counts are asserted equal to `hli_gene_calls.csv`.
+
+## Explore — what A/B/C show (main thread, provisional)
+
+**C. Timing: not mostly at the start.** It depends on the stress.
+- **Phage (with light):** early and short-lived.
+  - Phage infection array: 39% of hli up at 1 h (set-level hit), 0% from 2 h to 8 h.
+  - Phage lysate in the light: 22% up at 0.5 h, then 0 (untestable).
+  - Constant dark with phage: 30% down at 0.5 h, then 0 (untestable).
+- **Nutrient limitation:** builds up and is late.
+  - N deprivation: 0% at 0–3 h, 12% at 6 h, 18% at 12 h, 24% at 24 h, 59% at 48 h. Set-level hits at 24 h and 48 h. Ribosomal-protein down peaks earlier (about 12 h), so the hli rise follows the growth shutdown.
+  - Iron starvation: 0%, 4%, 26% at 12/24/48 h; hit at 48 h only.
+  - N-depleted RNA-seq (descriptive): 5% at 3 h, 71% at 12 h, 73% at 24 h.
+  - lowN coculture (vs day 11): 13% at day 18, 53% at day 31, 47% at day 60, 13% at day 89. It rises, then falls.
+- **Light onset** is a single 45-min point, so its timing is not resolved.
+
+**A. Families: the multi-copy cluster genes carry most of the response.** Share of measured gene × time observations, multi-copy vs single-copy:
+
+| Scope | Multi-copy | Single-copy |
+|---|---|---|
+| Light onset up | 46% | 13% |
+| CO2 up | 50% | 4% |
+| Nitrogen up | 38% | 17% |
+| Iron up | 17% | 0% |
+| Phage (light) up | 8% | 0% |
+| Schedule extension | 17% up / 50% down | 33% up / 14% down |
+| Non-stress | 21% up / 33% down | 8% up / 10% down |
+
+The single-copy genes respond less, and differently.
+
+**B. Light level (cross-study, confounded):**
+- hli up strength rises with background light: Spearman ρ = 0.49 (p = 0.007; 29 tests, 15 experiments, 7 distinct light levels).
+- hli down shows no relation.
+- Ribosomal up tends the other way (ρ = −0.34, p = 0.07).
+
+The light levels are tied to study, platform and stress type, so this is suggestive only.

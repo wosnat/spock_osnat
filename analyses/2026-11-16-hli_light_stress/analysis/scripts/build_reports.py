@@ -94,6 +94,7 @@ function grid(spec, order){
    else if(cell.t==='val'){let f,m='';if(cell.na)f=na;else if(cell.few)f=`url(#h_${spec.el})`;
      else{f=mix(mid,r.dir==='up'?up:dn,Math.min(1,cell.v/6));if(cell.sig)m=`<text x="${x+cw/2}" y="${y+ch/2+4}" text-anchor="middle" fill="${ink}">*</text>`}
      if(cell.gw)m+=`<circle cx="${x+cw-4}" cy="${y+4}" r="1.6" fill="${ink}"/>`;body=`<rect x="${x+1}" y="${y+1}" width="${w}" height="${h}" fill="${f}" stroke="${rule}" stroke-width="0.3"/>${m}`}
+   else if(cell.t==='net'){if(cell.nm)body=`<rect x="${x+1}" y="${y+1}" width="${w}" height="${h}" fill="url(#h_${spec.el})" stroke="${rule}" stroke-width="0.3"/>`;else body=`<rect x="${x+1}" y="${y+1}" width="${w}" height="${h}" fill="${mix(mid,cell.v>=0?up:dn,Math.abs(cell.v))}" stroke="${rule}" stroke-width="0.3"/>`}
    else if(cell.t==='split'){if(cell.n===0)body=`<rect x="${x+1}" y="${y+1}" width="${w}" height="${h}" fill="none" stroke="${rule}"/><text x="${x+cw/2}" y="${y+ch/2+3}" text-anchor="middle" fill="${mut}" font-size="8">no test</text>`;
      else body=`<rect x="${x+1}" y="${y+1}" width="${w/2}" height="${h}" fill="${mix(mid,up,cell.fu)}"/><rect x="${x+1+w/2}" y="${y+1}" width="${w/2}" height="${h}" fill="${mix(mid,dn,cell.fd)}"/>`+
       `<text x="${x+1+w/4}" y="${y+ch/2+2}" text-anchor="middle" fill="${ink}" font-size="11">${cell.nu}</text><text x="${x+1+3*w/4}" y="${y+ch/2+2}" text-anchor="middle" fill="${ink}" font-size="11">${cell.nd}</text>`+
@@ -329,7 +330,8 @@ response, otherwise unclear; 4 h / 16 h pair (flagged genome-wide) shown as cont
 <h2>Run facts</h2>{table(facts)}
 <h2>Pages</h2><ul><li><a href="hli_heatmaps.html">hli heatmaps</a> — gene-level and set-level heatmaps, hli tests, random baseline, gene calls</li>
 <li><a href="aggregate.html">Aggregated results</a> — per set × reading scope, per-experiment calls, resemblance table</li>
-<li><a href="light_readings.html">Light readings</a> — the fixed light rules applied to hli</li></ul>
+<li><a href="light_readings.html">Light readings</a> — the fixed light rules applied to hli</li>
+<li><a href="explore.html">Exploration</a> — A gene families, B light level, C timing (built by 07_build_explore_report.py)</li></ul>
 <h2>QC</h2>{table(qcbh)}<p class="note">hli coverage per experiment × timepoint:</p>{table(cov)}
 <p class="note">Sign distribution of full DE tables:</p>{table(sign)}<p class="note">DE row checks:</p>{table(qcde)}
 <h2>Files</h2><ul>{''.join(f'<li><a href="{f}">{html.escape(f)}</a></li>' for f in files)}</ul>"""

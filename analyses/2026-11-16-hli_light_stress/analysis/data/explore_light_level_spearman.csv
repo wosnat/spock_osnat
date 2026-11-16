@@ -1,0 +1,9 @@
+set,direction,y,n_tests,n_experiments,n_distinct_light_levels,spearman_rho,p_value,note
+hli,up,"-log10 BH padj (unsigned, within direction)",29,15,7,0.4870217451885896,0.007375737101929323,"cross-study; platform, design and stress confounded"
+hli,up,share of set significant,29,15,7,0.4857155102716327,0.007559541122043978,"cross-study; platform, design and stress confounded"
+hli,down,"-log10 BH padj (unsigned, within direction)",18,12,6,-0.08661917951407527,0.7325357008843828,"cross-study; platform, design and stress confounded"
+hli,down,share of set significant,18,12,6,0.0017020986879284722,0.9946518891528486,"cross-study; platform, design and stress confounded"
+ribosomal_proteins,up,"-log10 BH padj (unsigned, within direction)",29,15,7,-0.3423069572503251,0.06911749596922132,"cross-study; platform, design and stress confounded"
+ribosomal_proteins,up,share of set significant,29,15,7,-0.2460793650050811,0.19817034058450286,"cross-study; platform, design and stress confounded"
+ribosomal_proteins,down,"-log10 BH padj (unsigned, within direction)",18,12,6,0.5149506676692037,0.02875355741389586,"cross-study; platform, design and stress confounded"
+ribosomal_proteins,down,share of set significant,18,12,6,0.2992006298216523,0.22776260125771,"cross-study; platform, design and stress confounded"
