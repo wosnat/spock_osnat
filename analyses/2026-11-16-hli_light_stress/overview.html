@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="refresh" content="30">
+<title>hli and light stress</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5d646d;--line:#dcd8cf;--accent:#c4622d;--done:#2f7d4f;--card:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#16181b;--fg:#e6e6e3;--muted:#a0a6ad;--line:#33373c;--accent:#e08a55;--done:#5fbf86;--card:#1d2024}}
+body{background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;padding:24px 16px}
+main{max-width:820px;margin:0 auto}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.1rem;margin:28px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.sub{color:var(--muted);margin:0 0 18px}
+.map{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.map span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:.85rem;color:var(--muted);background:var(--card)}
+.map .done{color:var(--done);border-color:var(--done)}
+.map .now{color:var(--accent);border-color:var(--accent);font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:.92rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}
+.who{white-space:nowrap;color:var(--muted)}
+</style>
+</head>
+<body><main>
+<h1>Do hli genes respond to light stress?</h1>
+<p class="sub">Plan phase · tested answer · all cyanobacteria in the KG · standalone result</p>
+
+<div class="map">
+<span class="now">1 · question</span><span>2 · what the KG holds</span><span>3 · approach</span><span>4 · can it work?</span><span>5 · framing</span><span>Methods</span><span>Analysis</span><span>Evaluation</span>
+</div>
+
+<h2>The question</h2>
+<p>Are the high-light-inducible (hli) genes of cyanobacteria part of the response to light stress (excess light, UV)? We answer gene by gene, across every strain in the knowledge graph that has suitable data.</p>
+<p>The analysis is in <b>tested</b> mode: the prediction, the control genes and the rule for reading each result are fixed before the hli genes are scored.</p>
+
+<h2>Decisions so far</h2>
+<table>
+<tr><th>Decision</th><th>Who</th></tr>
+<tr><td>Tested answer, not an exploratory map</td><td class="who">you</td></tr>
+<tr><td>Cover all cyanobacteria in the KG, matching hli genes across strains</td><td class="who">you</td></tr>
+<tr><td>Standalone result (not for a paper)</td><td class="who">you</td></tr>
+<tr><td>The MED4 high-light microarray results were seen before planning, so they count as exploratory</td><td class="who">noted</td></tr>
+</table>
+
+<h2>Open questions</h2>
+<ul><li>Is one analysis the right size, or should MED4 and the other strains be split?</li></ul>
+</main></body>
+</html>
