@@ -14,3 +14,47 @@
 - **Then exploration** (directions to be agreed on seeing the results).
 - **Part B (other strains):** later.
 - **Mode:** all results exploratory.
+
+## Run 1 (kg-coder): part A scored — run-manifest summary
+
+- **Setup:** the approved methods module was imported unchanged.
+- **QC:**
+  - BH recompute (statsmodels) Δ = 0;
+  - the reference rows are identical to the methods run;
+  - random draws are identical;
+  - no truncation, duplicates or both-direction genes;
+  - every full DE table has both signs.
+- **hli coverage:** 23 in significant-only tables (genome background; Steglich tables hold 11, so the other 12 count as ns); 15–22 in full tables.
+- **Experiment calls for hli** (29 experiments; main thread recounted from `experiment_calls.csv`): up 13, down 4, neither 8, not tested 4.
+  - **Up:**
+    - light onset: blue, high white, red, white;
+    - CO2 low ×2;
+    - iron starvation;
+    - N deprivation array, lowN axenic, lowN coculture;
+    - phage infection array;
+    - cyanate; urea.
+  - **Down:** extended light, air vs time 0, coculture 2016, iron re-added.
+  - **Neither:** extended darkness, constant dark ×2, salt, phage lysate in the light, phosphate (48 h), coculture 2025, phage lysate in the dark.
+- **Light readings (mechanical):**
+  - light onset: up with light in 4 of 4 testable (green untestable);
+  - constant dark vs light: too few, or no set-level change;
+  - schedule extension, reading pair (dark 2 h neither, light 14 h down): "unclear" by rule;
+  - DCMU: 3 hli down, gene level only;
+  - phage in the dark: 1 gene down.
+- **Resemblance:** hli is significant in light onset, CO2, iron, nitrogen and phage (light), and in non-stress (2 up, 3 down). No reference set responds in light onset; the specific sets respond only in their own stress.
+
+## Explore (main thread) — first look, provisional
+
+- **Light onset:** hli is the only set that goes up. 8–11 of the 11 hli genes in the Steglich table are up, at 5–8 CK groups.
+- **Breadth:** hli is up in 4 of the 6 non-light stress types (CO2, Fe, N, phage), with no stress-type down call. It goes down in two relief or return contrasts (iron re-added; air vs time 0) and in coculture 2016. It is up in urea and cyanate, which are N-source changes, not starvation.
+- **Not up:** salt, phosphate at 48 h, phage lysate in either light condition, constant dark vs light at set level.
+- **Schedule extension at gene level** (`hli_gene_calls.csv`) splits by family:
+  - **Multi-copy cluster genes** (CK_00002168/2025/2026/43616, e.g. PMM1118, PMM1399, PMM1390, PMM1398, PMM1385, PMM0818) are up in extended darkness (2 h/4 h) and down in extended light (14 h/16 h). In both experiments they are higher in the *dark* arm: a light-linked difference in the reverse direction to light onset.
+  - **Single-copy genes PMM0064 and PMM0093** are up in both arms: a schedule-type response.
+  - **PMM1404, PMM0690 and PMM1482** are down in extended darkness.
+
+  The set-level rule calls the reading pair "unclear" because the gene directions cancel.
+- **Alternatives to keep in mind:**
+  - Steglich significance is list-based on a filtered table;
+  - near-identical paralogs may cross-hybridise;
+  - "up in N/CO2/Fe" is consistent with relative excess light under limitation (see Known limits); it is not light-independent.

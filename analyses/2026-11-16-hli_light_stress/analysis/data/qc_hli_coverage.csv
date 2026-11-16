@@ -1,0 +1,70 @@
+experiment_id,label,timepoint,table_scope,background_type,hli_in_background,hli_with_table_row,hli_groups_measured
+10.64898/2026.04.15.718746_extended_darkness_med4,Extended darkness,4h,all_detected_genes,table_measured,21,21,13
+10.64898/2026.04.15.718746_extended_darkness_med4,Extended darkness,2h,all_detected_genes,table_measured,21,21,13
+10.1128/JB.01097-06_light_stress_blue_light_13_umol_med4_microarray,Blue 13 vs dark,45 min,filtered_subset,genome_assumption,23,11,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark,Const dark vs light (no phage),8.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark,Const dark vs light (no phage),2.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark,Const dark vs light (no phage),4.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark,Const dark vs light (no phage),1.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,Const dark vs light (phage),4.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,Const dark vs light (phage),8.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,Const dark vs light (phage),2.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,Const dark vs light (phage),0.5h post-inoculation,significant_only,genome_assumption,23,7,14
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,Const dark vs light (phage),1.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.64898/2026.04.15.718746_extended_light_med4,Extended light,14h,all_detected_genes,table_measured,21,21,13
+10.64898/2026.04.15.718746_extended_light_med4,Extended light,16h,all_detected_genes,table_measured,21,21,13
+10.1128/JB.01097-06_light_stress_green_light_13_umol_med4_microarray,Green 13 vs dark,45 min,filtered_subset,genome_assumption,23,11,14
+10.1128/JB.01097-06_light_stress_high_white_light_55_med4_microarray,High white 55 vs dark,45 min,filtered_subset,genome_assumption,23,11,14
+10.1128/JB.01097-06_light_stress_red_light_13_umol_med4_microarray,Red 13 vs dark,45 min,filtered_subset,genome_assumption,23,11,14
+10.1128/JB.01097-06_light_stress_white_light_13_umol_med4_microarray,White 13 vs dark,45 min,filtered_subset,genome_assumption,23,11,14
+10.1128/JB.01097-06_light_stress_dcmu_white_light_13_med4_microarray,DCMU + white 13 vs white 13,45 min,filtered_subset,genome_assumption,23,11,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark,Phage lysate (dark),4.5h post-inoculation,significant_only,genome_assumption,23,1,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark,Phage lysate (dark),2.5h post-inoculation,significant_only,genome_assumption,23,1,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark,Phage lysate (dark),8.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1038/ismej.2015.36_carbon_ambient_co2_no_o2_med4_microarray,"CO2: ambient, no O2",max across 70min-24h,filtered_subset,genome_assumption,23,1,14
+10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray,CO2: low,max across 70min-24h,filtered_subset,genome_assumption,23,12,14
+10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray,"CO2: low, no O2",max across 70min-24h,filtered_subset,genome_assumption,23,11,14
+10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,48h,significant_any_timepoint,genome_assumption,23,7,14
+10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,24h,significant_any_timepoint,genome_assumption,23,7,14
+10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,12h,significant_any_timepoint,genome_assumption,23,7,14
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),6h,all_detected_genes,table_measured,17,17,13
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),3h,all_detected_genes,table_measured,17,17,13
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),12h,all_detected_genes,table_measured,17,17,13
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),48h,all_detected_genes,table_measured,17,17,13
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),24h,all_detected_genes,table_measured,17,17,13
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),0h,all_detected_genes,table_measured,17,17,13
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic,N starvation lowN (axenic),day 14,all_detected_genes,table_measured,15,15,12
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 31,all_detected_genes,table_measured,15,15,12
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 89,all_detected_genes,table_measured,15,15,12
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 60,all_detected_genes,table_measured,15,15,12
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),days 60+89,all_detected_genes,table_measured,15,15,12
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 18,all_detected_genes,table_measured,15,15,12
+10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,"N-depleted (RNA-seq, top 50%)",12h,filtered_subset,table_measured,21,21,13
+10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,"N-depleted (RNA-seq, top 50%)",24h,filtered_subset,table_measured,22,22,13
+10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,"N-depleted (RNA-seq, top 50%)",3h,filtered_subset,table_measured,21,21,12
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,48h,filtered_subset,genome_assumption,23,1,14
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,24h,filtered_subset,genome_assumption,23,1,14
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,12h,filtered_subset,genome_assumption,23,1,14
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,0h,filtered_subset,genome_assumption,23,1,14
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,4h,filtered_subset,genome_assumption,23,1,14
+10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,acclimated,all_detected_genes,table_measured,22,22,13
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",4h,significant_only,genome_assumption,23,9,14
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",5h,significant_only,genome_assumption,23,9,14
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",7h,significant_only,genome_assumption,23,9,14
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",3h,significant_only,genome_assumption,23,9,14
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",8h,significant_only,genome_assumption,23,9,14
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",6h,significant_only,genome_assumption,23,9,14
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",2h,significant_only,genome_assumption,23,9,14
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",1h,significant_only,genome_assumption,23,9,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),0.5h post-inoculation,significant_only,genome_assumption,23,5,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),8.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),4.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),2.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),1.5h post-inoculation,significant_only,genome_assumption,23,0,14
+10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,max across 70min-24h,filtered_subset,genome_assumption,23,8,14
+10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 (2016),20h,all_detected_genes,table_measured,22,22,13
+10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 18,all_detected_genes,table_measured,15,15,12
+10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 11,all_detected_genes,table_measured,15,15,12
+10.1038/ismej.2011.49_iron_rescue_med4_microarray,Iron re-added,R (rescue: 70h vs 48h),significant_any_timepoint,genome_assumption,23,7,14
+10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,Cyanate as N source,steady state,all_detected_genes,table_measured,17,17,13
+10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,Urea as N source,steady state,all_detected_genes,table_measured,17,17,13

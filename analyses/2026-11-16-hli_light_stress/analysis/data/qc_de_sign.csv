@@ -1,0 +1,23 @@
+experiment_id,label,timepoint,n_rows,n_log2fc_pos,n_log2fc_neg,n_log2fc_zero,n_log2fc_nan
+10.64898/2026.04.15.718746_extended_darkness_med4,Extended darkness,4h,1876,917,959,0,0
+10.64898/2026.04.15.718746_extended_darkness_med4,Extended darkness,2h,1876,933,943,0,0
+10.64898/2026.04.15.718746_extended_light_med4,Extended light,14h,1876,875,1001,0,0
+10.64898/2026.04.15.718746_extended_light_med4,Extended light,16h,1875,962,913,0,0
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),6h,1696,814,882,0,0
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),3h,1696,612,1084,0,0
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),12h,1696,747,949,0,0
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),48h,1696,624,1072,0,0
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),24h,1696,631,1065,0,0
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),0h,1696,406,1290,0,0
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic,N starvation lowN (axenic),day 14,1849,957,892,0,0
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 31,1849,837,1012,0,0
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 89,1849,760,1089,0,0
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 60,1849,822,1027,0,0
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),days 60+89,1849,810,1039,0,0
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 18,1849,800,1049,0,0
+10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,acclimated,1953,948,1005,0,0
+10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 (2016),20h,1714,238,1412,64,0
+10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 18,1849,927,922,0,0
+10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 11,1849,970,879,0,0
+10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,Cyanate as N source,steady state,1696,941,755,0,0
+10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,Urea as N source,steady state,1696,810,886,0,0
