@@ -98,7 +98,7 @@ for label, exp, tp, d, setname, term, minus_hli, bgkind in FISHER:
              and k == m.n_sig_in_set and abs(p - m.pvalue) < 1e-9)
     rows.append(dict(kind="fisher", check=label, timepoint=tp, independent=f"N={N} K={K} n={n} k={k} p={p:.4g}",
                      pipeline=f"N={m.background_size} K={m.n_measured_in_background} n={m.n_sig_total} "
-                              f"k={int(m.n_sig_in_set)} p={m.pvalue:.4g}; orientation {m.orientation} -> {m.direction_oriented}",
+                              f"k={int(m.n_sig_in_set)} p={m.pvalue:.4g}",
                      match=match))
 
 # 2. Flags: computed here from the thresholds, compared with the pipeline's flag string.
