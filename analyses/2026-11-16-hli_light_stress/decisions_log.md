@@ -60,6 +60,10 @@ KG facts:
 - Reduced tables: the six light microarrays and the CO2 microarrays list genes significant in any condition of their study, so the approximate rule applies. The N-depleted RNA-seq table is the top 50% by expression level (no significance filter), so it is descriptive only. The phosphate table is filtered at 48 h only, so it is approximate at 48 h and descriptive at other times.
 - Direction: the extended-darkness and constant-dark experiments have darkness as the treatment, so "more light" corresponds to their *down* arm.
 
+- **What was seen early (2026-11-16):** the first version of the step 2 chart showed, for tables that list only significant genes, how many hli genes were in the table. In those tables, being in the table means being significant (direction not shown). So the researcher saw how many hli were significant, direction unknown, in: CO2 (12, 11, 1), iron starvation (7), phosphate (1 at 48 h), phage (9, 5, 1), air vs time 0 (8), iron rescue (7). The chart now shows "genome" for those rows. Full-table experiments were not affected.
+- Comparison-set coverage in full tables (median measured / set size): light 10/23 hli, 8/13 chaperones, 14/25 oxidative, 18/31 photosystem II (low because the proteomics are included); non-light stress 15/23, 13/13, 25/25, 28/31; non-stress 17/23, 13/13, 25/25, 29/31.
+- Publications used: 13 (list on the overview page).
+
 ### Reframing (researcher, 2026-11-16)
 
 KG facts (experiment counts only, no hli values looked at): Prochlorococcus has experiments for carbon (19), nitrogen (12), phosphorus (9), iron (4), salt (3), temperature (1), plastic (4), phage (3), growth phase (6) and chemical (2). Synechococcus has carbon (15), phage (5), phosphorus (1), growth phase (1).
