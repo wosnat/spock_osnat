@@ -114,3 +114,10 @@ The delta critic confirmed 9 of the 12 dispositions and found 2 Concerns and 5 N
 | R.5 | Keep the Fisher test where more than 30% of genes changed; show the hli and genome shares beside it as context | R | Fisher already accounts for the background rate; skipping it was over-cautious |
 
 **Plan approved by the researcher, 2026-11-16.**
+
+### After approval (2026-11-16)
+
+| # | Decision | Who | Why |
+|---|---|---|---|
+| A.1 | Keep Bonferroni-within-experiment for the per-experiment call (BH across tests is applied by us, because `fisher_ora` corrects only across the gene sets within one test) | R | |
+| A.2 | Extra plots: results ordered by each experiment's background light level (treatment and control arm levels recorded) | R | |
