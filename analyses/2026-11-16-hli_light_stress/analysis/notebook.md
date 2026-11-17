@@ -203,3 +203,14 @@ The light levels are tied to study, platform and stress type. The p-values treat
   | Other non-stress / relief | 13/54 | 19/54 | 3/42 | 4/42 |
 
   This supersedes the earlier A table and the earlier "Iron: only C4" line.
+
+## Explore (researcher question): how conserved are the hli ortholog groups? (`scripts/15_og_conservation.py`, `data/og_conservation.csv`)
+
+The KG holds 123 organisms. In these 14 groups the organism counts reach at most 43 *Prochlorococcus*, 50 *Synechococcus* and 3 *Cyanobium*.
+
+- **Core picocyanobacterial (95–96 organisms):** CK_00000050 (PMM0093), CK_00001058 (PMM1482), CK_00001414 (PMM0471) and CK_00001313 (PMM0064). Each is present in 42–43 *Prochlorococcus*, 50 *Synechococcus* and 3 *Cyanobium*. All four are single-copy in MED4, and all sit in cluster C2 (the quiet / schedule group).
+- **Prochlorococcus-wide (42–43 organisms, Prochlorococcus only):** CK_00002025 and CK_00002026, multi-copy in MED4 (3 each), in clusters C4 and C3.
+- **Prochlorococcus subsets (21–36 organisms):**
+  - CK_00002661, CK_00002332, CK_00002168 and CK_00003573 include LL-type strain names (NATL, SS120).
+  - CK_00002103, CK_00043616, CK_00003510 and CK_00003421 (21–23 organisms) contain only HL-type strain names (MED4, MIT9312, AS9601, MIT9515…). [interpretation: strain-to-clade from strain names, not from the KG]
+- **Pattern:** the conserved, single-copy hli are the ones that respond little to stress. The broad stress responders (C4) are *Prochlorococcus*-specific, expanded multi-copy groups. [KG counts; the link to response is exploratory]
