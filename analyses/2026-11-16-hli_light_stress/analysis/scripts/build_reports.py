@@ -19,6 +19,8 @@ ANALYSIS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ANALYSIS.parent / "methods"))
 import kg_io  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 DATA, REP, FIG = ANALYSIS / "data", ANALYSIS / "reports", ANALYSIS / "figures"
 REP.mkdir(exist_ok=True)
 SET_ROWS = [("hli", "hli (23 genes, 14 CK groups)", "Target")] + kg_io.set_rows()
@@ -109,7 +111,9 @@ function wireGrid(spec,selId){const sel=selId?document.getElementById(selId):nul
 
 
 def read(name):
-    return pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""])
+    """Read an analysis CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory."""
+    import display_overrides as dov
+    return dov.apply(pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""]))
 
 
 def fmt(v):
@@ -181,6 +185,18 @@ def main():
     sign = read("qc_de_sign.csv")
     qcde = read("qc_de.csv")
     h = t[t.set == "hli"]
+    import display_overrides as dov
+    pc = t[t.experiment_id == dov.COCULT25].copy()
+    pc["sig"] = pc.testable & (pc.padj_bh < 0.05)
+    rows_ = []
+    for (st, tp), g in pc.groupby(["set", "timepoint"], sort=False):
+        gi = g.set_index("direction")
+        u, d_ = gi.loc["up"], gi.loc["down"]
+        call = ("both" if u.sig and d_.sig else "up" if u.sig else "down" if d_.sig else
+                "not testable" if not (u.testable or d_.testable) else "neither")
+        rows_.append(dict(set=st, timepoint=tp, label_detailed=u.label_detailed, display_group=u.group, call=call,
+                          padj_up=u.padj_bh, flags_up=u.flags, padj_down=d_.padj_bh, flags_down=d_.flags))
+    pt_calls = pd.DataFrame(rows_)
     cols = col_specs(t)
 
     # ---------------- hli_heatmaps.html
@@ -288,13 +304,19 @@ per set, padj &lt; 0.05. Hatched = no testable time point. Hover for time-point 
 <div class="wrap" style="max-height:none" id="ecall"></div>
 <p class="note">Static: <a href="../figures/experiment_calls_by_group.png">by group</a>, <a href="../figures/experiment_calls_by_light.png">by light level</a></p>
 <h2>Resemblance table</h2><div class="controls"><input id="fr" placeholder="filter (set, scope)"></div>{table(res, "tr")}
-<h2>Experiment calls (all sets)</h2><div class="controls"><input id="fc" placeholder="filter"></div>
-{table(calls[["label", "label_detailed", "light_reading_group", "set", "set_role", "direction", "timepoint_count", "p_exp_bonferroni", "padj_exp_bh", "experiment_call", "experiment_id"]], "tc")}"""
+<h2>Experiment calls (all sets)</h2>
+<p class="note">Coculture HOT1A3 vs axenic (2025) keeps one experiment-level row; per decisions A.3–A.6 its day 11 is non-stress
+(both arms exponential) and its day 18 is N stress from the control side (the axenic control is N-starving and dying). Its
+per-time-point set-level calls are shown below the table.</p>
+<div class="controls"><input id="fc" placeholder="filter"></div>
+{table(calls[["label", "label_detailed", "display_note", "light_reading_group", "set", "set_role", "direction", "timepoint_count", "p_exp_bonferroni", "padj_exp_bh", "experiment_call", "experiment_id"]], "tc")}
+<p class="note">Coculture HOT1A3 vs axenic (2025), per time point (set level, BH padj &lt; 0.05 among testable tests):</p>
+{table(pt_calls, "tpc")}"""
     js = (f"const AS={json.dumps(aspec)};const ES={json.dumps(espec)};grid(AS,'group');wireGrid(ES,'eord');"
           "filterTable('fr','tr');filterTable('fc','tc');")
     (REP / "aggregate.html").write_text(page("Aggregated results", "Per gene set and reading scope: tests significant up and down, plus per-experiment calls, for hli and all reference sets.", body, js), encoding="utf-8")
 
-    # ---------------- light_readings.html
+    # ---------------- light_readings.html (pt_calls defined before aggregate page below)
     body = f"""<h1>Light readings</h1>
 <p class="lead">hli read by the light rules fixed before hli was scored (methods notebook). {DIRECTION_NOTE}</p>
 <ul class="note"><li>light onset (treatment lit): up = up with light</li><li>constant dark vs light (control lit): down = up with light</li>
@@ -325,6 +347,10 @@ response, otherwise unclear; 4 h / 16 h pair (flagged genome-wide) shown as cont
                    + [f"../figures/{p.name}" for p in FIG.glob("*.png")])
     body = f"""<h1>Analysis part A (MED4) — summary</h1>
 <p class="lead">hli scored with the approved methods pipeline. Counts only; meanings are in the analysis notebook. All results exploratory.</p>
+<p class="note">Display decisions A.3–A.6: Coculture HOT1A3 vs axenic (2025) is shown per time point (day 11 non-stress, both
+exponential; day 18 N stress from the control side); its experiment-level call stays one row ("day 11 non-stress; day 18 N stress
+from the control side; see A.3–A.6"). PRO99-lowN starvation labels add "vs the same culture in exponential growth (day 11)".
+Labels and grouping only; no test changed.</p>
 <h2>What this milestone asked</h2>{codefine()}
 <h2>Run facts</h2>{table(facts)}
 <h2>Pages</h2><ul><li><a href="hli_heatmaps.html">hli heatmaps</a> — gene-level and set-level heatmaps, hli tests, random baseline, gene calls</li>

@@ -128,7 +128,8 @@ def match_labels(ref, other):
 
 
 def main():
-    gc = pd.read_csv(DATA / "hli_gene_calls.csv", encoding="utf-8", keep_default_na=False, na_values=[""])
+    import display_overrides as dov   # A.3-A.6: labels and grouping only
+    gc = dov.apply(pd.read_csv(DATA / "hli_gene_calls.csv", encoding="utf-8", keep_default_na=False, na_values=[""]))
     gc = gc[~((gc.experiment_id == POOLED[0]) & (gc.timepoint == POOLED[1]))].copy()
     gc["value"] = [code(r) for r in gc.to_dict("records")]
     gc["col"] = gc.experiment_id + "|" + gc.timepoint

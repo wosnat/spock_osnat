@@ -32,7 +32,10 @@ SETS = [("hli", "hli (23 genes)"), ("ribosomal_proteins", "Ribosomal proteins (K
 
 
 def main():
-    t = pd.read_csv(DATA / "hli_tests.csv", encoding="utf-8", keep_default_na=False, na_values=[""])
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import display_overrides as dov   # A.3-A.6: labels and grouping only
+    t = dov.apply(pd.read_csv(DATA / "hli_tests.csv", encoding="utf-8", keep_default_na=False, na_values=[""]))
     t = t[(t.light_reading_group == "none") & t.set.isin([s for s, _ in SETS])].copy()
     t["flags"] = t["flags"].fillna("")
     t["status"] = np.select(

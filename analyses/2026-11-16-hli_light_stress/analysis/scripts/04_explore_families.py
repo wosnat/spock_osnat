@@ -47,7 +47,11 @@ SCOPES = [("light_reading_group", "light_onset", "Light onset"),
 
 
 def read(p):
-    return pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""])
+    """Read a CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory."""
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    import display_overrides as dov
+    return dov.apply(pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""]))
 
 
 def save(fig, stem):

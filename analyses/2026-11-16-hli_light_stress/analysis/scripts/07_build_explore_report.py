@@ -28,6 +28,7 @@ const SYM={o:(x,y,r)=>`<circle cx="${x}" cy="${y}" r="${r}"/>`,
  '^':(x,y,r)=>`<path d="M${x},${y-r*1.2}L${x+r*1.1},${y+r*.8}L${x-r*1.1},${y+r*.8}Z"/>`,
  v:(x,y,r)=>`<path d="M${x},${y+r*1.2}L${x+r*1.1},${y-r*.8}L${x-r*1.1},${y-r*.8}Z"/>`,
  D:(x,y,r)=>`<path d="M${x},${y-r*1.3}L${x+r},${y}L${x},${y+r*1.3}L${x-r},${y}Z"/>`,
+ X:(x,y,r)=>`<path d="M${x-r},${y-r*.6}L${x-r*.6},${y-r}L${x},${y-r*.4}L${x+r*.6},${y-r}L${x+r},${y-r*.6}L${x+r*.4},${y}L${x+r},${y+r*.6}L${x+r*.6},${y+r}L${x},${y+r*.4}L${x-r*.6},${y+r}L${x-r},${y+r*.6}L${x-r*.4},${y}Z"/>`,
  P:(x,y,r)=>`<path d="M${x-r*.4},${y-r}h${r*.8}v${r*.6}h${r*.6}v${r*.8}h${-r*.6}v${r*.6}h${-r*.8}v${-r*.6}h${-r*.6}v${-r*.8}h${r*.6}Z"/>`};
 const CALLCOL={up:'#eb6834',down:'#2a78d6',ns:'#d9d8d4'};
 function hov(host,sel,tips){const tip=document.getElementById('tip');host.querySelectorAll(sel).forEach(el=>{
@@ -84,7 +85,8 @@ def _shape(m, c, dx=0):
             "^": f'<path d="M{x},1L{x + 6},12L{x - 6},12Z" fill="{c}"/>',
             "v": f'<path d="M{x},13L{x + 6},2L{x - 6},2Z" fill="{c}"/>',
             "D": f'<path d="M{x},0L{x + 6},7L{x},14L{x - 6},7Z" fill="{c}"/>',
-            "P": f'<path d="M{x - 2},1h4v4h4v4h-4v4h-4v-4h-4v-4h4Z" fill="{c}"/>'}[m]
+            "P": f'<path d="M{x - 2},1h4v4h4v4h-4v4h-4v-4h-4v-4h4Z" fill="{c}"/>',
+            "X": f'<path d="M{x - 6},3L{x - 3},0L{x},4L{x + 3},0L{x + 6},3L{x + 2},7L{x + 6},11L{x + 3},14L{x},10L{x - 3},14L{x - 6},11L{x - 2},7Z" fill="{c}"/>'}[m]
 
 
 def legend_html(types_present=None, clusters=None):

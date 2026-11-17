@@ -142,3 +142,18 @@ The light levels are tied to study, platform and stress type, so this is suggest
   - Phage (array and lysate in light): C2/C4 up at the first time point only (1 h / 0.5 h).
   - Phosphate: no up.
   - C1 is never up in any time course.
+
+## Run 6 (kg-coder): display decisions A.3–A.6
+
+- **How it's applied:** `scripts/display_overrides.py` changes labels and categories at display time only. Part A CSVs are untouched, and no test was recomputed.
+- **2025 coculture split:**
+  - day 11 → non-stress "coculture, both exponential";
+  - day 18 → stress "N stress, control side" (down = higher in the starving control).
+- **lowN series labels** now say "vs the same culture in exponential growth (day 11), PRO99-lowN".
+- **Day 18 per cluster:**
+  - C2, C3 and C4 are 60%, 100% and 67% down, i.e. higher in the starving control.
+  - C1 is 40% up (PMM0064 and PMM0471 higher in coculture).
+- **Day 11 per cluster:** C2 20% up, C4 33% up, nothing down.
+- **Not updated:**
+  - `06_explore_timing.py` was not rerun (the KG is down), so the C labels lack the lowN suffix.
+  - `resemblance.csv` and the part A aggregate tables keep the original grouping, with an annotation.

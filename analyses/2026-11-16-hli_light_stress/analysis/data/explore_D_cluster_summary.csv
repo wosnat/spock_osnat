@@ -6,8 +6,10 @@ cluster,category,n_genes,n_measured_cells,pct_up,pct_down
 1,light / dark: schedule extension,5,20,40.0,15.0
 1,non-stress: air vs time 0,5,5,20.0,0.0
 1,non-stress: alternative N source,5,10,0.0,0.0
-1,non-stress: coculture,5,15,13.333333333333334,20.0
+1,non-stress: coculture,5,5,0.0,60.0
+1,"non-stress: coculture, both exponential",5,5,0.0,0.0
 1,non-stress: iron re-added,5,5,0.0,0.0
+1,"stress: N stress, control side",5,5,40.0,0.0
 1,stress: carbon (CO2),5,15,0.0,13.333333333333334
 1,stress: iron,5,15,0.0,0.0
 1,stress: nitrogen,5,69,2.898550724637681,11.594202898550725
@@ -21,8 +23,10 @@ cluster,category,n_genes,n_measured_cells,pct_up,pct_down
 2,light / dark: schedule extension,9,32,25.0,31.25
 2,non-stress: air vs time 0,9,9,0.0,22.22222222222222
 2,non-stress: alternative N source,9,8,62.5,0.0
-2,non-stress: coculture,9,18,5.555555555555555,33.33333333333333
+2,non-stress: coculture,9,8,0.0,37.5
+2,"non-stress: coculture, both exponential",9,5,20.0,0.0
 2,non-stress: iron re-added,9,9,0.0,0.0
+2,"stress: N stress, control side",9,5,0.0,60.0
 2,stress: carbon (CO2),9,27,14.814814814814813,0.0
 2,stress: iron,9,27,0.0,0.0
 2,stress: nitrogen,9,73,46.57534246575342,0.0
@@ -36,8 +40,10 @@ cluster,category,n_genes,n_measured_cells,pct_up,pct_down
 3,light / dark: schedule extension,2,8,12.5,37.5
 3,non-stress: air vs time 0,2,2,0.0,0.0
 3,non-stress: alternative N source,2,4,0.0,0.0
-3,non-stress: coculture,2,6,0.0,33.33333333333333
+3,non-stress: coculture,2,2,0.0,0.0
+3,"non-stress: coculture, both exponential",2,2,0.0,0.0
 3,non-stress: iron re-added,2,2,0.0,0.0
+3,"stress: N stress, control side",2,2,0.0,100.0
 3,stress: carbon (CO2),2,6,50.0,0.0
 3,stress: iron,2,6,0.0,0.0
 3,stress: nitrogen,2,27,51.85185185185185,0.0
@@ -51,8 +57,10 @@ cluster,category,n_genes,n_measured_cells,pct_up,pct_down
 4,light / dark: schedule extension,7,24,12.5,54.166666666666664
 4,non-stress: air vs time 0,7,7,0.0,71.42857142857143
 4,non-stress: alternative N source,7,12,83.33333333333334,0.0
-4,non-stress: coculture,7,13,7.6923076923076925,38.46153846153847
+4,non-stress: coculture,7,7,0.0,42.857142857142854
+4,"non-stress: coculture, both exponential",7,3,33.33333333333333,0.0
 4,non-stress: iron re-added,7,7,0.0,100.0
+4,"stress: N stress, control side",7,3,0.0,66.66666666666666
 4,stress: carbon (CO2),7,21,71.42857142857143,0.0
 4,stress: iron,7,21,33.33333333333333,0.0
 4,stress: nitrogen,7,72,41.66666666666667,0.0

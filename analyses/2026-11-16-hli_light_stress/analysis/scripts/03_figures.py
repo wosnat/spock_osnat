@@ -26,6 +26,8 @@ ANALYSIS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ANALYSIS.parent / "methods"))
 import kg_io  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 DATA, FIG = ANALYSIS / "data", ANALYSIS / "figures"
 FIG.mkdir(exist_ok=True)
 UP, DOWN, MID = "#eb6834", "#2a78d6", "#f0efec"
@@ -51,7 +53,9 @@ DIRECTION_NOTE = "Direction = treatment vs control, as stored in the KG (no ligh
 
 
 def read(name):
-    return pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""])
+    """Read an analysis CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory."""
+    import display_overrides as dov
+    return dov.apply(pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""]))
 
 
 def save(fig, stem):

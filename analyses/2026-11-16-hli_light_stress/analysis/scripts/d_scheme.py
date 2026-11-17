@@ -10,8 +10,13 @@ experiment). Within a family, types differ by shade and marker shape. Gene clust
 (black border / line styles + "C1".."C4" labels), never with a hue.
 """
 import re
+import sys
+from pathlib import Path
 
 import numpy as np
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import display_overrides as dov  # noqa: E402
 
 FAMILY_ORDER = ["light / dark", "stress", "non-stress"]
 FAMILY_ANCHOR = {"light / dark": "#5b3fd1", "stress": "#1baf7a", "non-stress": "#9a5b2a"}
@@ -23,12 +28,14 @@ TYPES = {
     ("light / dark", "DCMU"): ("#7a2fa8", "D"),
     ("light / dark", "phage in the dark"): ("#c79cf2", "v"),
     ("stress", "nitrogen"): ("#1baf7a", "o"),
+    ("stress", "N stress, control side"): ("#7ad6b0", "X"),   # A.3-A.6: coculture 2025 day 18
     ("stress", "carbon (CO2)"): ("#007a3d", "s"),
     ("stress", "iron"): ("#5c9a1b", "^"),
     ("stress", "phosphorus"): ("#8fc65a", "D"),
     ("stress", "salt"): ("#00a087", "v"),
     ("stress", "phage"): ("#3d7a00", "P"),
     ("non-stress", "coculture"): ("#9a5b2a", "o"),
+    ("non-stress", "coculture, both exponential"): ("#d4a373", "v"),   # A.3-A.6: coculture 2025 day 11
     ("non-stress", "alternative N source"): ("#c08a52", "s"),
     ("non-stress", "iron re-added"): ("#7d4a22", "^"),
     ("non-stress", "air vs time 0"): ("#b3713a", "D"),
@@ -60,7 +67,12 @@ POOLED = ("10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_
 
 
 def category(r) -> tuple[str, str]:
-    """(family, type) for an experiment row (dict-like with light_reading_group, group, stress_type)."""
+    """(family, type) for an experiment row (dict-like with light_reading_group, group, stress_type).
+    Per-time-point display overrides (display_overrides.TP, decisions A.3-A.6) win when the row has a time point."""
+    if "experiment_id" in r and "timepoint" in r:
+        o = dov.override_for(r["experiment_id"], r["timepoint"])
+        if o:
+            return o["family"], o["type"]
     if r["light_reading_group"] != "none":
         return "light / dark", LIGHT_TYPE[r["light_reading_group"]]
     if r["group"] == "nonstress_possible_relief":
