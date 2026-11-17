@@ -94,7 +94,7 @@ def main():
             # twin rule (critic #1): in a significant-only table, an absent twin of a listed twin is not defined
             listed = set(gu.at["up", "measured_genes"])
             hli_calls = dict(calls)
-            if _ == "genome_assumption":
+            if _ == "genome_assumption" and exp.omics == "MICROARRAY":   # delta critic: twin rule in microarray tables only
                 for a_, b_ in TWINS:
                     for x, y in ((a_, b_), (b_, a_)):
                         if x in listed and y not in listed:

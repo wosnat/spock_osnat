@@ -377,6 +377,9 @@ Labels and grouping only; no test changed.</p>
 <p class="note">Decision A.8: Coculture HOT1A3 (2016) is dropped (unreliable table). It is left out of every figure, every
 exploration and the counts below (each changed count shows its value before A.8); its rows stay in the part A tables, marked
 "{dov.DROPPED_NOTE}". No test, p-value or BH correction was recomputed.</p>
+<p class="note">Footnote: padj not recomputed after A.8 (BH family still includes the 2 dropped tests; no call flips). Checked by
+18_check_A8_bh.py (qc_A8_bh_recompute.csv): BH and the per-experiment calls recomputed without the 2016 coculture change no test call and
+no experiment call.</p>
 <h2>What this milestone asked</h2>{codefine()}
 <h2>Run facts</h2>{table(facts)}
 <h2>Pages</h2><ul><li><a href="hli_heatmaps.html">hli heatmaps</a> — gene-level and set-level heatmaps, hli tests, random baseline, gene calls</li>

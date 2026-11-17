@@ -10,7 +10,10 @@ Marker shape = D1 gene cluster; filled = multi-copy CK group, hollow = single-co
 Tier = grey rug square under each point (conservation.py). Deterministic dodge: points sharing an x are
 spread by 0.9 organisms, ordered by cluster then locus tag.
 
-Writes analysis/data/explore_D5_conservation.csv; figures explore_D5_conservation.{png,svg}.
+Delta critic: RNA-seq-only and array-only % up / % down per gene (omics from methods/data/experiments.csv), and
+per-tier medians (pooled / RNA-seq / array) in explore_D5_tier_medians.csv.
+
+Writes analysis/data/explore_D5_conservation.csv, explore_D5_tier_medians.csv; figures explore_D5_conservation.{png,svg}.
 Run from the repo root:
     PYTHONUTF8=1 uv run python analyses/2026-11-16-hli_light_stress/analysis/scripts/17_explore_D5_conservation.py
 """
@@ -63,12 +66,18 @@ def main():
     pts = pd.read_csv(DATA / "explore_D_trajectory_points.csv", encoding="utf-8", keep_default_na=False, na_values=[""])
     for c in ("up_defined", "down_defined"):
         pts[c] = pts[c].astype(str) == "True"
+    ex = pd.read_csv(HERE.parents[1] / "methods" / "data" / "experiments.csv", encoding="utf-8")
+    pts["omics"] = pts.experiment_id.map(dict(zip(ex.experiment_id, ex.omics)))
+    assert pts.omics.notna().all()
     scope = (pts.family == "stress") | (pts.type == "light onset")
     p = pts[scope]
     cl = pd.read_csv(DATA / "explore_D_gene_clusters.csv", encoding="utf-8")[["locus_tag", "cluster", "copy_class", "ck_group"]]
     a = per_gene(p)
     b = per_gene(p[p.type != CTRL_SIDE]).add_suffix("_without_control_side").rename(
         columns={"locus_tag_without_control_side": "locus_tag"})
+    for om, suf in (("RNASEQ", "_rnaseq"), ("MICROARRAY", "_array")):
+        x = per_gene(p[p.omics == om])[["locus_tag", "n_up", "n_up_defined", "pct_up", "n_down", "n_down_defined", "pct_down"]]
+        a = a.merge(x.rename(columns={c: c + suf for c in x.columns if c != "locus_tag"}), on="locus_tag", how="left")
     cg = cons.by_gene()
     d = cl.merge(cg, on="locus_tag").merge(a, on="locus_tag").merge(
         b[["locus_tag", "n_up_without_control_side", "n_up_defined_without_control_side", "pct_up_without_control_side",
@@ -81,8 +90,23 @@ def main():
                 "n_synechococcus", "n_other", "med4_genes_in_group", "n_up", "n_up_defined", "pct_up", "n_down", "n_down_defined",
                 "pct_down", "n_up_without_control_side", "n_up_defined_without_control_side", "pct_up_without_control_side",
                 "n_down_without_control_side", "n_down_defined_without_control_side", "pct_down_without_control_side",
-                "xj", "n_columns_in_scope", "n_experiments_in_scope"]
+                "n_up_rnaseq", "n_up_defined_rnaseq", "pct_up_rnaseq", "n_down_rnaseq", "n_down_defined_rnaseq", "pct_down_rnaseq",
+                "n_up_array", "n_up_defined_array", "pct_up_array", "n_down_array", "n_down_defined_array", "pct_down_array",
+                "xj", "n_columns_in_scope", "n_experiments_in_scope", "n_columns_rnaseq", "n_columns_array"]
+    cols_ = p.drop_duplicates(["experiment_id", "timepoint"])
+    d["n_columns_rnaseq"] = int((cols_.omics == "RNASEQ").sum())
+    d["n_columns_array"] = int((cols_.omics == "MICROARRAY").sum())
     d[out_cols].to_csv(DATA / "explore_D5_conservation.csv", index=False, encoding="utf-8")
+    med = []
+    for t_, g in d.groupby("tier"):
+        row = dict(tier=t_, tier_name=cons.TIER_NAME[t_], n_genes=len(g), n_multi_copy=int((g.copy_class == "multi").sum()),
+                   n_single_copy=int((g.copy_class == "single").sum()))
+        for lab, suf in (("pooled", ""), ("rnaseq", "_rnaseq"), ("array", "_array")):
+            row[f"median_pct_up_{lab}"] = float(g[f"pct_up{suf}"].median())
+            row[f"median_pct_down_{lab}"] = float(g[f"pct_down{suf}"].median())
+        med.append(row)
+    med = pd.DataFrame(med)
+    med.to_csv(DATA / "explore_D5_tier_medians.csv", index=False, encoding="utf-8")
 
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), sharey=True)
     for ax, (yc, lab) in zip(axes, (("pct_up", "(a) % of defined cells called up"), ("pct_down", "(b) % of defined cells called down"))):
@@ -117,12 +141,16 @@ def main():
              f"Pool: {int(d.n_experiments_in_scope.iloc[0])} experiments, {int(d.n_columns_in_scope.iloc[0])} experiment × time points "
              f"(non-light stress family incl. coculture 2025 day 18 'N stress, control side', where down = higher under stress; + light onset).\n"
              f"Points sharing an x are dodged by {STEP} organisms (cluster, then locus tag). Grey squares under the points = ortholog-group "
-             f"breadth tier. Treatment vs control as stored (no flip).", fontsize=6.5, color=MUTED)
+             f"breadth tier. Treatment vs control as stored (no flip).\n"
+             f"Caveats: tier is confounded with copy number (tier 1 all single-copy, tier 2 all multi-copy); significant-only arrays code "
+             f"absent genes as not significant; the twin rule (arrays only) reduces twin-gene denominators; tiers were viewed after clustering.",
+             fontsize=6.5, color=MUTED)
     fig.subplots_adjust(right=0.9, wspace=0.08)
     fig.savefig(FIG / "explore_D5_conservation.png", dpi=300, bbox_inches="tight")
     fig.savefig(FIG / "explore_D5_conservation.svg", bbox_inches="tight")
     plt.close(fig)
     pd.set_option("display.width", 250)
+    print(med.to_string(index=False))
     print(d[["locus_tag", "ck_group", "copy_class", "cluster", "tier", "n_organisms", "n_up", "n_up_defined", "pct_up", "n_down",
              "n_down_defined", "pct_down", "pct_up_without_control_side", "pct_down_without_control_side"]].to_string(index=False))
 

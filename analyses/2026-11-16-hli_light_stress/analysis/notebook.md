@@ -231,4 +231,11 @@ The KG holds 123 organisms. In these 14 groups the organism counts reach at most
   - the 4 picocyanobacteria-wide single-copy genes are at 0–2% up;
   - 17 of the 19 genes in *Prochlorococcus*-only groups are at 16–44% up. PMM1317 (2%) and TX50_RS09730 (6%) are as quiet as the core genes;
   - % down is at most 17%, and highest in the conserved genes.
-  - Exploratory; seen after clustering. **Confounded:** tier 1 is all single-copy and tier 2 all multi-copy. Most of the core genes' quiet cells are ns-by-absence in significant-only arrays. The twin rule shrinks twin-gene denominators. The tiers are partly circular with the clustering. RNA-seq-only percentages: pending rerun.
+  - Exploratory; seen after clustering. **Confounded:** tier 1 is all single-copy and tier 2 all multi-copy. Most of the core genes' quiet cells are ns-by-absence in significant-only arrays. The twin rule shrinks twin-gene denominators. The tiers are partly circular with the clustering. RNA-seq-only medians per tier (`explore_D5_tier_medians.csv`, % up): tier 1 6.7, tier 2 36.7, tiers 3–4 22.2. The ordering holds on RNA-seq, where absence is not coded ns.
+
+## Run 9 (kg-coder): delta-critic fixes D3, D4, D9
+
+- **Twin rule** restricted to microarray tables: 50 cells recoded. No gene changes cluster; robustness is unchanged (16/23, 19/23).
+- **Collapsed ORA**, microarray only, coculture 2016 excluded: 20 → 20 significant tests. No test call and no experiment call changes. Phage array 1 h up stays significant (k 9 → 5, padj 1.0e-6). The earlier "extended light 16 h lost" came from collapsing distinct RNA-seq signals and is withdrawn.
+- **BH without coculture 2016** (`qc_A8_bh_recompute.csv`): 0 call flips across 806 tests and 364 experiment calls. The footnote is on summary.html.
+- **D5 per-tier medians** (% up): tier 1 is 2.4 pooled, 6.7 on RNA-seq and 0 on arrays; tier 2 is 32.0, 36.7 and 34.6. The quiet-conserved pattern holds on RNA-seq alone.

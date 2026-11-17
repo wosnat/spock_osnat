@@ -6,6 +6,8 @@ Rule: in a significant-only table, where one member of a detected pair is listed
 other is 'absent_from_significant_only_table', the absent twin is recoded as not defined
 (call 'not_defined', call_source 'shared_signal_reported_under_twin'). Cells where both are listed or both absent
 are not changed. Display/exploration only: the part A CSVs on disk are not altered.
+Delta critic fix: the rule is applied in MICROARRAY tables only (omics from methods/data/experiments.csv), where
+the pairs share array probes; RNA-seq tables are never recoded. Pair detection is unchanged.
 """
 from itertools import combinations
 
@@ -16,6 +18,16 @@ MIN_IDENTICAL = 3
 TWIN_SOURCE = "shared_signal_reported_under_twin"
 TWIN_CALL = "not_defined"
 POOLED = ("10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture", "days 60+89")
+
+
+def microarray_experiments() -> set:
+    from pathlib import Path
+    ex = pd.read_csv(Path(__file__).resolve().parents[2] / "methods" / "data" / "experiments.csv", encoding="utf-8")
+    assert set(ex.omics) <= {"MICROARRAY", "RNASEQ"}, set(ex.omics)
+    return set(ex[ex.omics == "MICROARRAY"].experiment_id)
+
+
+MICROARRAY = microarray_experiments()
 
 
 def detect_pairs(gc: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -63,6 +75,8 @@ def apply(gc: pd.DataFrame, pairs: pd.DataFrame) -> pd.DataFrame:
     src = d.call_source.values
     for a, b in zip(pairs.gene_a, pairs.gene_b):
         for (e, tp) in d[["experiment_id", "timepoint"]].drop_duplicates().itertuples(index=False):
+            if e not in MICROARRAY:   # delta critic: microarray tables only
+                continue
             ia, ib = pos.get((e, tp, a)), pos.get((e, tp, b))
             if ia is None or ib is None:
                 continue

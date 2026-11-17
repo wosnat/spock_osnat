@@ -218,6 +218,8 @@ def section_d5(tierkey):
             tip = (f"<b>{r.locus_tag}</b> · {r.ck_group} · {r.copy_class}-copy · cluster C{r.cluster}<br>"
                    f"{getattr(r, nc_)} of {getattr(r, dc_)} defined cells {'up' if yc == 'pct_up' else 'down'} "
                    f"({getattr(r, yc):.1f}%)<br>without coculture 2025 day 18: {getattr(r, yc + '_without_control_side'):.1f}%<br>"
+                   f"RNA-seq only: {getattr(r, nc_ + '_rnaseq')} of {getattr(r, dc_ + '_rnaseq')} ({getattr(r, yc + '_rnaseq'):.1f}%) · "
+                   f"array only: {getattr(r, nc_ + '_array')} of {getattr(r, dc_ + '_array')} ({getattr(r, yc + '_array'):.1f}%)<br>"
                    + cons.hover(cg.loc[r.locus_tag].to_dict() | {"ck": cg.at[r.locus_tag, "ck"]}))
             multi = r.copy_class == "multi"
             ser.append(dict(line=False, pts=[dict(x=float(r.xj), y=float(getattr(r, yc)), m=ds.CLUSTER_STYLE[int(r.cluster)][1],
@@ -239,11 +241,15 @@ def section_d5(tierkey):
 CK group; y = % of its defined cells called up (a) and down (b), pooled over the non-light stress family and light onset ({pool}; the
 non-light stress family includes coculture 2025 day 18, "N stress, control side", where down = higher under stress — the hover gives the
 % without it). Cells and definedness as in D1 (twin rule applied: multi-copy twins share signal on arrays). Points sharing an x are
-dodged by 0.9 organisms (cluster, then locus tag). Ink only; no category colour.</p>
+dodged by 0.9 organisms (cluster, then locus tag). Ink only; no category colour. The hover and the table also give RNA-seq-only and
+array-only percentages ({int(d5.n_columns_rnaseq.iloc[0])} RNA-seq and {int(d5.n_columns_array.iloc[0])} array experiment × time points).</p>
+<p class="note">Caveats: tier is confounded with copy number (tier 1 all single-copy, tier 2 all multi-copy); significant-only arrays code
+absent genes as not significant; the twin rule (arrays only) reduces twin-gene denominators; tiers were viewed after clustering.</p>
 {key}{tierkey}
 <div class="wrap" style="max-height:none" id="d5"></div>
 <p class="note">Download: <a href="../figures/explore_D5_conservation.png">PNG</a> · <a href="../figures/explore_D5_conservation.svg">SVG</a></p>
-{br.table(d5.drop(columns=["xj"]), "td5")}"""
+{br.table(d5.drop(columns=["xj"]), "td5")}
+<p class="note">Per-tier medians of the gene percentages (pooled / RNA-seq only / array only):</p>{br.table(br.read("explore_D5_tier_medians.csv"), "td5m")}"""
     return html_, f"window.addEventListener('load',()=>{{dmult({json.dumps(spec)});}});"
 
 

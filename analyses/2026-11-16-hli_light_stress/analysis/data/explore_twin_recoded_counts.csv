@@ -2,13 +2,11 @@ experiment_id,label,n_cells_recoded
 10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,12
 10.1038/ismej.2011.49_iron_rescue_med4_microarray,Iron re-added,4
 10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray,CO2: low,4
+10.1128/JB.01097-06_light_stress_green_light_13_umol_med4_microarray,Green 13 vs dark,4
 10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray,"CO2: low, no O2",4
 10.1128/JB.01097-06_light_stress_blue_light_13_umol_med4_microarray,Blue 13 vs dark,4
-10.1128/JB.01097-06_light_stress_red_light_13_umol_med4_microarray,Red 13 vs dark,4
 10.1128/JB.01097-06_light_stress_dcmu_white_light_13_med4_microarray,DCMU + white 13 vs white 13,4
-10.1128/JB.01097-06_light_stress_green_light_13_umol_med4_microarray,Green 13 vs dark,4
+10.1128/JB.01097-06_light_stress_red_light_13_umol_med4_microarray,Red 13 vs dark,4
 10.1128/JB.01097-06_light_stress_high_white_light_55_med4_microarray,High white 55 vs dark,4
 10.1128/JB.01097-06_light_stress_white_light_13_umol_med4_microarray,White 13 vs dark,4
 10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,2
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,Const dark vs light (phage),2
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),2

@@ -1,0 +1,3 @@
+version,agree_correlation,agree_no_steglich,cluster_sizes,cut_height_agreement,cut_height_correlation,cut_height_no_steglich,n_columns,k_col,cut_height_columns,column_cluster_sizes
+all sig-only tables,16,19,C1:1 C2:7 C3:2 C4:13,0.2043,0.3582,0.2027,60,4,0.4546,K0:5 K1:2 K2:2 K3:18 K4:33
+microarray only,16,19,C1:1 C2:7 C3:2 C4:13,0.2043,0.3581,0.2027,60,4,0.4625,K0:5 K1:2 K2:2 K3:16 K4:35

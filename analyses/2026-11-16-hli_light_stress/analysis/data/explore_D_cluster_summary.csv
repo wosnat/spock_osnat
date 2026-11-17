@@ -48,7 +48,7 @@ cluster,category,n_genes,n_measured_cells,n_up,n_down,pct_up,pct_down
 3,stress: phosphorus,2,2,0,0,0.0,0.0
 3,stress: salt,2,2,0,0,0.0,0.0
 4,light / dark: DCMU,13,9,0,3,0.0,33.33333333333333
-4,light / dark: constant dark vs light,13,115,0,7,0.0,6.086956521739131
+4,light / dark: constant dark vs light,13,117,0,7,0.0,5.982905982905983
 4,light / dark: light onset,13,45,28,0,62.22222222222222,0.0
 4,light / dark: phage in the dark,13,39,0,0,0.0,0.0
 4,light / dark: schedule extension,13,44,8,22,18.181818181818183,50.0
@@ -60,6 +60,6 @@ cluster,category,n_genes,n_measured_cells,n_up,n_down,pct_up,pct_down
 4,stress: carbon (CO2),13,31,19,0,61.29032258064516,0.0
 4,stress: iron,13,27,7,0,25.925925925925924,0.0
 4,stress: nitrogen,13,112,50,0,44.642857142857146,0.0
-4,stress: phage,13,72,14,0,19.444444444444446,0.0
+4,stress: phage,13,74,14,0,18.91891891891892,0.0
 4,stress: phosphorus,13,13,0,0,0.0,0.0
 4,stress: salt,13,13,0,0,0.0,0.0

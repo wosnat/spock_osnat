@@ -50,11 +50,11 @@ No Blocker. The pass confirmed against the files:
 | # | Severity | Finding | Disposition |
 |---|---|---|---|
 | D1 | Concern | D5 read-off "15–45%" is wrong for PMM1317 (2%) and TX50_RS09730 (6%); the "Pattern" line overstates. | **Fixed wording.** |
-| D2 | Concern | "Conserved = quiet" is confounded with copy number, with ns-by-absence in significant-only arrays, with twin-shrunk denominators, and with the clustering itself. | **Fixed.** Caveat added. RNA-seq-only and array-only % per gene are being added to D5. |
-| D3 | Concern | The twin rule was applied to 2 RNA-seq tables (pone.0165375) where twins differ. | **Fixing:** rule restricted to microarray tables; rerun. |
-| D4 | Concern | Collapsed ORA merged pairs in RNA-seq tables where they differ, so "extended light 16 h lost" is not a fair twin result. | **Fixing:** collapse restricted to microarray tables; rerun. |
+| D2 | Concern | "Conserved = quiet" is confounded with copy number, with ns-by-absence in significant-only arrays, with twin-shrunk denominators, and with the clustering itself. | **Fixed.** Caveat added. RNA-seq-only and array-only % per gene added to D5; the tier ordering holds on RNA-seq. |
+| D3 | Concern | The twin rule was applied to 2 RNA-seq tables (pone.0165375) where twins differ. | **Fixed:** rule restricted to microarray tables; 50 cells recoded; no cluster change. |
+| D4 | Concern | Collapsed ORA merged pairs in RNA-seq tables where they differ, so "extended light 16 h lost" is not a fair twin result. | **Fixed:** collapse restricted to microarray tables; 20 → 20 significant, no call changes. |
 | D5 | Concern | A-table non-stress row was pre-A.8. | **Fixed:** 13/40, 14/40 \| 3/34, 0/34. |
 | D6 | Note | "C2/C4 split was a twin artifact" is too strong; C2 is not robust to correlation distance. | **Fixed wording.** |
 | D7 | Note | Repeated-value counts misquoted. | **Fixed:** 18 values ≥10 times, 403 genes. |
 | D8 | Note | "HL plus some LL" should be "patchy across HL and LL". | **Fixed.** |
-| D9 | Note | padj not recomputed after A.8. | **Fixing:** footnote, and a check that no call flips. |
+| D9 | Note | padj not recomputed after A.8. | **Fixed:** footnote added; 0 flips (`qc_A8_bh_recompute.csv`). |
