@@ -7,3 +7,4 @@
 - [kg] PRO99-lowN starvation series: the node names and `control_timing: baseline` do say "vs PRO99-lowN exponential growth", but they don't say that the baseline is the same culture at day 11. The axenic RNA-seq node has `is_time_course: false` and no time points or growth phase, while the matching proteomics node has day 14/31/89 "death". Researcher-supplied (A.5). (analysis)
 - [pitfall] I asked the researcher for the lowN control arm before checking the experiment node, which already partly answered it. (analysis)
 - [pitfall] I labelled hli groups "HL-only" from strain names before checking `list_organisms`, which has a `clade` field (HLI–HLIV, LLI–LLIV). The researcher pointed it out. (analysis)
+- [kg] The publication title for 10.1128/JB.01097-06 (Steglich et al. 2006) reads "...Light Sensing in Prochlorococcus/H17188" in the KG, which looks like an encoding error in the strain name. It is cited as stored. (analysis)
