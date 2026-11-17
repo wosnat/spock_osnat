@@ -130,3 +130,9 @@ The delta critic confirmed 9 of the 12 dispositions and found 2 Concerns and 5 N
 | M.2 | Extended light and extended darkness form their own reading group, "schedule extension" | C→R | Same reason |
 | M.3 | Pooled "days 60+89" is descriptive | C→R | Duplicates day 60 and day 89 |
 | M.4 | The schedule-extension reading for hli is made on the unflagged pair (extended darkness 2 h, extended light 14 h); the genome-wide-flagged 4 h / 16 h are context only | C (default; researcher may change) | Delta critic: two of the four contrasts are flagged genome-wide |
+
+## Analysis milestone — design facts from the researcher
+
+| # | Decision / fact | Who | Why |
+|---|---|---|---|
+| A.3 | **Coculture HOT1A3 vs axenic (2025), days 11 and 18:** both arms are in lowN medium. The axenic control declines and dies at very low NH4; the coculture survives the whole 90 days. So the reference arm is an N-starving, dying culture, and "down in coculture" means "higher in the starving axenic control". This contrast is therefore not a non-stress comparison: it reads as N-stress relief, or N stress seen from the control side. | R (design fact) | Researcher knowledge of the experiment; the KG does not hold the culture state. hli calls at day 18 were seen before this fact was recorded: 7 down (C2/C3/C4), 2 up (C1 PMM0064, PMM0471). |
