@@ -1,5 +1,4 @@
 experiment_id,label,group,stress_type,light_condition_raw,light_treatment_umol,light_control_umol
-10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 (2016),nonstress_possible_relief,coculture,continuous light,10.0,10.0
 10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,nonlight_stress,salt,continuous light,10.0,10.0
 10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",nonlight_stress,viral,continuous light,17.5,17.5
 10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),nonstress_possible_relief,coculture,continuous light,20.0,20.0

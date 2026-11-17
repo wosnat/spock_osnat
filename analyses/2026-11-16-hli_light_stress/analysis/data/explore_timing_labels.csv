@@ -59,7 +59,6 @@ experiment_id,timepoint,hours,label
 10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,24h,24.0,Phosphate starvation
 10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,48h,48.0,Phosphate starvation
 10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,max across 70min-24h,,Air vs time 0
-10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,20h,20.0,Coculture HOT1A3 (2016)
 10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,day 11,264.0,Coculture HOT1A3 vs axenic (2025)
 10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,day 18,432.0,Coculture HOT1A3 vs axenic (2025)
 10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,steady state,,Cyanate as N source

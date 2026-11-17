@@ -214,3 +214,21 @@ The KG holds 123 organisms. In these 14 groups the organism counts reach at most
 - **Prochlorococcus, partial:** CK_00002661, CK_00002332, CK_00002168 and CK_00003573. These are present in HL strains plus some LL strains (`n_pro_LL` 7–14).
 - **HL Prochlorococcus only (21–23 organisms, `n_pro_LL` = 0):** CK_00002103, CK_00043616, CK_00003510 and CK_00003421. Clade comes from the KG `organism.clade` field. (Corrected: an earlier version of this entry inferred HL from strain names.)
 - **Pattern:** the conserved, single-copy hli are the ones that respond little to stress. The broad stress responders (C4) are *Prochlorococcus*-specific, expanded multi-copy groups. [KG counts; the link to response is exploratory]
+
+## Run 8 (kg-coder): A.8 drop coculture 2016; A.9 conservation strip and D5
+
+- **A.8, how it is applied:** `display_overrides.DROPPED`. Part A CSVs are unchanged, and their rows are marked "dropped" in the tables.
+- **Headline counts on summary.html:**
+  - experiments 29 → 28;
+  - tests 138 → 136 (testable 64 → 62);
+  - significant tests up 16, down 5 → 4;
+  - experiment calls 13 up / 4 down / 8 neither / 4 not tested → 13 / 3 / 8 / 4.
+- **Clusters:** every gene keeps its cluster; robustness is unchanged (16/23, 19/23).
+- **Light level:** hli up ρ = 0.455 (p = 0.015); ribosomal down ρ = 0.483 (p = 0.0496). Same reading as before: no hli-specific light-level signal.
+- **Not updated:** the twin-collapsed ORA files (`hli_tests_twin_collapsed.csv`, `twin_collapsed_comparison*.csv`) still hold the 2016 rows. They are a sensitivity record and are not marked.
+- **A.9:** a grey 4-tier ortholog-group breadth strip, using the KG `organism.clade` field, on D1, D2/D3 companions and D4. New figure D5 (`explore_D5_conservation.csv`).
+- **D5 read-off** (% of defined stress + light-onset cells called up; `explore_D5_conservation.csv`):
+  - the 4 picocyanobacteria-wide single-copy genes are at 0–2% up;
+  - genes in *Prochlorococcus*-only groups are at about 15–45% up, highest in the *Prochlorococcus*-wide multi-copy groups;
+  - % down is at most 17%, and highest in the conserved genes.
+  - Exploratory; seen after clustering.

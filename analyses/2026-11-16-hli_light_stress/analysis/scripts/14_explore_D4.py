@@ -165,6 +165,9 @@ def main():
     nr = int(np.ceil(len(genes) / nc))
     fig, axes = plt.subplots(nr, nc, figsize=(2.9 * nc + 2.6, 2.0 * nr + 1.2), sharey=True, squeeze=False)
     info = cl.set_index("locus_tag")
+    import conservation as cons
+    from matplotlib.patches import Rectangle
+    cons_g = cons.by_gene().set_index("locus_tag")
     for ax, g in zip(axes.flat, genes):
         d = gp[gp.locus_tag == g]
         axes_x(ax)
@@ -178,12 +181,16 @@ def main():
             ax.axhline(yv, color="#eeede9", lw=0.6)
         ax.set_title(f"C{info.at[g, 'cluster']} · {g} · {info.at[g, 'ck_group']} ({info.at[g, 'copy_class']})", fontsize=6.6,
                      loc="left", color=INK)
+        tg = int(cons_g.at[g, "tier"])   # A.9: ortholog-group breadth swatch, top right (exploratory)
+        ax.add_patch(Rectangle((0.90, 1.03), 0.10, 0.09, transform=ax.transAxes, facecolor=cons.TIER_GREY[tg], clip_on=False))
         for sp in ax.spines.values():
             sp.set_edgecolor(INK)
             sp.set_linewidth(0.8)
     for ax in list(axes.flat)[len(genes):]:
         ax.set_visible(False)
-    fig.legend(handles=fam_h, loc="center left", bbox_to_anchor=(1.0, 0.5), fontsize=7, frameon=False)
+    from matplotlib.lines import Line2D as _L2
+    fig.legend(handles=fam_h + [_L2([], [], ls="", label=" ")] + cons.mpl_handles(), loc="center left", bbox_to_anchor=(1.0, 0.5),
+               fontsize=7, frameon=False)
     fig.suptitle("hli genes vs time, all experiment × time points: published call (up / ns / down), D1 cluster order", fontsize=9.5,
                  x=0.01, ha="left")
     fig.text(0.01, -0.03, "Rows dodged vertically by category (fixed offsets), points sharing an x dodged in log-x. Undefined cells omitted "

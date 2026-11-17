@@ -35,6 +35,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
+from matplotlib.lines import Line2D  # noqa: E402
 from matplotlib.patches import Patch, Rectangle  # noqa: E402
 from scipy.cluster.hierarchy import dendrogram, fcluster, linkage  # noqa: E402
 from scipy.spatial.distance import squareform  # noqa: E402
@@ -42,6 +43,7 @@ from scipy.spatial.distance import squareform  # noqa: E402
 ANALYSIS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import d_scheme as ds  # noqa: E402
+import conservation as cons  # noqa: E402  (A.9, exploratory)
 DATA, FIG = ANALYSIS / "data", ANALYSIS / "figures"
 UP, DOWN, NS, INK, MUTED = "#eb6834", "#2a78d6", "#d9d8d4", "#1f1f1d", "#6b6b66"
 MIN_SHARED = 10
@@ -315,6 +317,7 @@ def main():
     ax.set_yticklabels([f"C{cl[g]}  {g}  {ck[g]}  {'■ multi' if ck[g] in MULTI else '□ single'}" for g in order_g],
                        fontsize=6.3)
     ax.yaxis.tick_right()
+    cons.mpl_strip(ax, order_g, side="right", pad=11)   # A.9: ortholog-group breadth (exploratory)
     for i in range(n_r):
         if i == 0 or cl_order[i] != cl_order[i - 1]:
             ax.text(-0.6, i + 0.2, f"C{cl_order[i]}", ha="right", va="top", fontsize=8, fontweight="bold", color=INK)
@@ -341,8 +344,9 @@ def main():
     fig.legend(handles=[Patch(facecolor=UP, label="up (+1)"), Patch(facecolor=DOWN, label="down (−1)"),
                         Patch(facecolor=NS, label="not significant (0)"),
                         Patch(facecolor="white", edgecolor="#c9c8c3", hatch="////", label="not defined (NaN)")]
-               + [Patch(facecolor=c, label=f"{fam}: {typ}") for (fam, typ), (c, m) in ds.TYPES.items()],
-               loc="upper left", bbox_to_anchor=(left + hw + 0.12, 0.85), fontsize=6.5, frameon=False)
+               + [Patch(facecolor=c, label=f"{fam}: {typ}") for (fam, typ), (c, m) in ds.TYPES.items()]
+               + [Line2D([], [], ls="", label=" ")] + cons.mpl_handles(),
+               loc="upper left", bbox_to_anchor=(left + hw + 0.155, 0.85), fontsize=6.5, frameon=False)
     fig.text(0.01, 1.01, f"hli genes (MED4) clustered by their published calls across {n_c} experiment × time-point columns",
              fontsize=10, va="top")
     fig.text(0.01, 0.99, f"Gene distance = 1 − agreement over cells defined in both genes (≥{MIN_SHARED} shared, else 1); "
@@ -351,7 +355,7 @@ def main():
              fontsize=7, va="top", color=MUTED)
     fig.text(left, 0.035, "Value = published call (+1 / 0 / −1). NaN: not measured; up-only phage array (non-significant could be "
              "down); phosphate 0–24 h genes absent from a table filtered at 48 h.\nPooled 'days 60+89' dropped. "
-             "Treatment vs control as stored (no flip). Multi-copy = CK group with ≥2 MED4 hli members.",
+             "Treatment vs control as stored (no flip). Multi-copy = CK group with ≥2 MED4 hli members.\nGrey strip beside the gene labels = ortholog-group breadth (exploratory; KG organism counts and clades of the gene's CK group; seen after clustering).",
              fontsize=6.3, color=MUTED, va="bottom")
     fig.savefig(FIG / "explore_D1_clustered_heatmap.png", dpi=300, bbox_inches="tight")
     fig.savefig(FIG / "explore_D1_clustered_heatmap.svg", bbox_inches="tight")

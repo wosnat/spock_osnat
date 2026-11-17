@@ -20,6 +20,17 @@ spec = importlib.util.spec_from_file_location("br", HERE / "build_reports.py")
 br = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(br)
 DATA, REP = br.DATA, br.REP
+import conservation as cons  # noqa: E402  (A.9, exploratory)
+import display_overrides as dov  # noqa: E402
+_br_read = br.read
+
+
+def _read_dropped(name):
+    """A.8: every exploration table and grid without the dropped 2016 coculture (and without the 'dropped' marker column)."""
+    return dov.drop(_br_read(name)).drop(columns="dropped", errors="ignore")
+
+
+br.read = _read_dropped
 
 
 D_JS = r"""
@@ -44,7 +55,8 @@ function dheat(spec){
  s+=`<defs><pattern id="hh_${spec.el}" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#b5b4ae" stroke-width="1"/></pattern></defs>`;
  rows.forEach((r,i)=>{const y=top+i*ch;if(i===0||rows[i-1].band!==r.band){s+=`<text x="6" y="${y+13}" font-weight="bold" fill="${ink}">${esc(r.band)}</text>`;
    if(i>0)s+=`<line x1="4" x2="${left+cols.length*cw}" y1="${y}" y2="${y}" stroke="${ink}" stroke-width="2"/>`}
-   s+=`<text x="${left-6}" y="${y+ch/2+4}" text-anchor="end" fill="${ink}">${esc(r.label)}</text>`});
+   if(r.ann){const k=tips.length;tips.push(r.ann.tip);s+=`<rect class="hc" data-i="${k}" x="${left-16}" y="${y+1.5}" width="11" height="${ch-3}" fill="${r.ann.fill}"/>`}
+   s+=`<text x="${left-(r.ann?20:6)}" y="${y+ch/2+4}" text-anchor="end" fill="${ink}">${esc(r.label)}</text>`});
  cols.forEach((c,j)=>{const x=left+j*cw;s+=`<rect x="${x}" y="${top-14}" width="${cw-1}" height="10" fill="${c.colour}"/>`;
    if(j>0&&c.major!==cols[j-1].major)s+=`<line x1="${x}" x2="${x}" y1="${top-40}" y2="${top+rows.length*ch}" stroke="${ink}" stroke-width="2"/>`;
    else if(j>0&&c.minor!==cols[j-1].minor)s+=`<line x1="${x}" x2="${x}" y1="${top-4}" y2="${top+rows.length*ch}" stroke="${mut}" stroke-width="0.8"/>`;
@@ -65,6 +77,7 @@ function dmult(spec){
   const xmin=p.xmin??spec.xmin,xmax=p.xmax??spec.xmax,X=v=>ox+m.l+(fx(v)-fx(xmin))/(fx(xmax)-fx(xmin))*iw,ylo=spec.ylo??-100,yhi=spec.yhi??100,Y=v=>oy+m.t+(1-(v-ylo)/(yhi-ylo))*ih;
   if(spec.band)s+=`<rect x="${X(spec.band[0])}" y="${oy+m.t}" width="${X(spec.band[1])-X(spec.band[0])}" height="${ih}" fill="#f3f2ef"/><line x1="${X(spec.band[0])}" x2="${X(spec.band[0])}" y1="${oy+m.t}" y2="${oy+m.t+ih}" stroke="${mut}" stroke-dasharray="3,2"/>`;
   s+=`<rect x="${ox+m.l}" y="${oy+6}" width="${iw}" height="18" fill="${p.colour}"/><text x="${ox+m.l+5}" y="${oy+19}" fill="${p.headerInk||'white'}" font-weight="bold">${esc(p.title)}</text>`;
+  if(p.swatch){const i=tips.length;tips.push(p.swatchTip);s+=`<g class="mp" data-i="${i}"><rect x="${ox+m.l+iw-30}" y="${oy+9}" width="26" height="12" fill="${p.swatch}"/></g>`}
   s+=`<rect x="${ox+m.l}" y="${oy+m.t}" width="${iw}" height="${ih}" fill="none" stroke="${p.border||rule}" stroke-width="${p.border?1.5:1}"/>`;
   (spec.yticks||[[-100,'100'],[-50,'50'],[0,'0'],[50,'50'],[100,'100']]).forEach(([v,l])=>{s+=`<line x1="${ox+m.l}" x2="${ox+m.l+iw}" y1="${Y(v)}" y2="${Y(v)}" stroke="${v===0?mut:'#eeede9'}"/>`;
     s+=`<text x="${ox+m.l-4}" y="${Y(v)+3}" text-anchor="end" fill="${mut}" font-size="9">${l}</text>`});
@@ -113,7 +126,7 @@ def legend_html(types_present=None, clusters=None):
 
 
 
-def section_d4(cl, ks):
+def section_d4(cl, ks, ann):
     """D4: response vs time over ALL experiment x time points (cluster panels, gene panels); from 14_explore_D4.py."""
     cp = br.read("explore_D4_cluster_points.csv")
     gp = br.read("explore_D4_gene_points.csv")
@@ -157,13 +170,14 @@ def section_d4(cl, ks):
     gpan, gser = [], []
     for g in genes:
         gpan.append(dict(title=f"C{info.at[g, 'cluster']} · {g} · {info.at[g, 'ck_group']} ({info.at[g, 'copy_class']})", colour="#ffffff",
-                         headerInk="#1f1f1d", border="#1f1f1d"))
+                         headerInk="#1f1f1d", border="#1f1f1d", swatch=ann[g]["fill"], swatchTip=ann[g]["tip"]))
         ser = []
         for r in gp[gp.locus_tag == g].itertuples():
             c, mk = ds.TYPES[(r.family, r.type)]
             tip = (f"<b>{g}</b> ({br.html.escape(r.ck_group)}, C{info.at[g, 'cluster']})<br>{br.html.escape(r.label_detailed)}"
                    f"<br>time point: {br.html.escape(r.timepoint)} — {hrs(r)}<br>category: {r.family} — {r.type}"
-                   f"<br>call: <b>{r.call}</b> · log2FC {br.p_(r.log2fc)} · padj {br.p_(r.padj)}{note(r)}")
+                   f"<br>call: <b>{r.call}</b> · log2FC {br.p_(r.log2fc)} · padj {br.p_(r.padj)}{note(r)}"
+                   f"<br>{ann[g]['tip'].split('<br>', 1)[1]}")
             ser.append(dict(line=False, pts=[dict(x=float(r.x), y=float(r.y), m=mk, fill=c, stroke="white", alpha=0.85, r=3.6, tip=tip)]))
         gser.append(ser)
     d4b = dict(el="d4b", panels=gpan, series=gser, nc=4, pw=310, ph=210, ylo=-1.5, yhi=1.5,
@@ -175,7 +189,7 @@ def section_d4(cl, ks):
         f'fill="#6b6b66" fill-opacity="0.7" stroke="white"/></svg> {n}</span>' for n in (1, 3, 5, 9, 13)) + "</div>")
     html_ = f"""<h3>D4. Response vs time, all experiments</h3>
 <p class="note">Every experiment × time point, including single-time-point experiments. x = hours since treatment start (log):
-Steglich 45 min = 0.75 h; coculture 2025 day 11 = 264 h and day 18 = 432 h; lowN axenic day 14 = 336 h; coculture 2016 = 20 h;
+Steglich 45 min = 0.75 h; coculture 2025 day 11 = 264 h and day 18 = 432 h; lowN axenic day 14 = 336 h;
 iron re-added "R (70h vs 48h)" = 70 h; 0 h is drawn at the left edge. "max across 70 min–24 h" (CO2 and air): a bar from 1.17 to 24 h
 with the point at the geometric mean. "steady state" / "acclimated": the shaded band on the right (no time). Points sharing an x
 are dodged by a fixed log-x step (ordered by category); in the gene panels they are also dodged vertically by category within
@@ -189,6 +203,48 @@ the up / ns / down rows. Max points still coinciding after dodging: {int(co[co.v
 <div class="wrap" style="max-height:none" id="d4b"></div>
 <p class="note">Download: <a href="../figures/explore_D4_clusters.png">clusters</a> · <a href="../figures/explore_D4_genes.png">genes</a></p>"""
     return html_, f"window.addEventListener('load',()=>{{dmult({json.dumps(d4a)});dmult({json.dumps(d4b)});}});"
+
+
+def section_d5(tierkey):
+    """D5 (A.9, exploratory): conservation vs response, from 17_explore_D5_conservation.py."""
+    d5 = br.read("explore_D5_conservation.csv")
+    cg = cons.by_gene().set_index("locus_tag")
+    panels, series = [], []
+    for yc, lab, nc_, dc_ in (("pct_up", "(a) % of defined cells called up", "n_up", "n_up_defined"),
+                              ("pct_down", "(b) % of defined cells called down", "n_down", "n_down_defined")):
+        panels.append(dict(title=lab, colour="#ffffff", headerInk="#1f1f1d", border="#1f1f1d"))
+        ser = []
+        for r in d5.itertuples():
+            tip = (f"<b>{r.locus_tag}</b> · {r.ck_group} · {r.copy_class}-copy · cluster C{r.cluster}<br>"
+                   f"{getattr(r, nc_)} of {getattr(r, dc_)} defined cells {'up' if yc == 'pct_up' else 'down'} "
+                   f"({getattr(r, yc):.1f}%)<br>without coculture 2025 day 18: {getattr(r, yc + '_without_control_side'):.1f}%<br>"
+                   + cons.hover(cg.loc[r.locus_tag].to_dict() | {"ck": cg.at[r.locus_tag, "ck"]}))
+            multi = r.copy_class == "multi"
+            ser.append(dict(line=False, pts=[dict(x=float(r.xj), y=float(getattr(r, yc)), m=ds.CLUSTER_STYLE[int(r.cluster)][1],
+                                                  fill="#1f1f1d" if multi else "#ffffff", stroke="#1f1f1d", r=5, tip=tip)]))
+            ser.append(dict(line=False, pts=[dict(x=float(r.xj), y=-7.0, m="s", fill=cons.TIER_GREY[int(r.tier)], stroke="none",
+                                                  r=3, tip=f"<b>{r.locus_tag}</b><br>" + cons.hover(cg.loc[r.locus_tag].to_dict() | {"ck": cg.at[r.locus_tag, "ck"]}))]))
+        series.append(ser)
+    spec = dict(el="d5", panels=panels, series=series, logx=False, xmin=15, xmax=101, xticks=[21, 30, 43, 60, 80, 96], nc=2, pw=520, ph=330,
+                ylo=-11, yhi=100, yticks=[[0, "0"], [20, "20"], [40, "40"], [60, "60"], [80, "80"], [100, "100"]],
+                xlab="organisms in the gene's CK group (KG)")
+    ks = sorted(d5.cluster.unique())
+    key = ('<div class="legend-d"><b>marker shape = gene cluster (D1)</b>: ' + " ".join(
+        f'<span style="white-space:nowrap;margin-right:10px"><svg width="14" height="14" style="vertical-align:middle">'
+        f'{_shape(ds.CLUSTER_STYLE[int(k)][1], "#1f1f1d")}</svg> C{k}</span>' for k in ks)
+           + ' · <b>filled</b> = multi-copy, <b>hollow</b> = single-copy · grey squares under the points = breadth tier</div>')
+    pool = f"{int(d5.n_experiments_in_scope.iloc[0])} experiments, {int(d5.n_columns_in_scope.iloc[0])} experiment × time points"
+    html_ = f"""<h3>D5. Conservation vs response (exploratory)</h3>
+<p class="note">Exploratory; the pattern was seen after clustering. One point per MED4 hli gene: x = number of KG organisms in its Cyanorak
+CK group; y = % of its defined cells called up (a) and down (b), pooled over the non-light stress family and light onset ({pool}; the
+non-light stress family includes coculture 2025 day 18, "N stress, control side", where down = higher under stress — the hover gives the
+% without it). Cells and definedness as in D1 (twin rule applied: multi-copy twins share signal on arrays). Points sharing an x are
+dodged by 0.9 organisms (cluster, then locus tag). Ink only; no category colour.</p>
+{key}{tierkey}
+<div class="wrap" style="max-height:none" id="d5"></div>
+<p class="note">Download: <a href="../figures/explore_D5_conservation.png">PNG</a> · <a href="../figures/explore_D5_conservation.svg">SVG</a></p>
+{br.table(d5.drop(columns=["xj"]), "td5")}"""
+    return html_, f"window.addEventListener('load',()=>{{dmult({json.dumps(spec)});}});"
 
 
 def section_d():
@@ -208,8 +264,11 @@ def section_d():
     tce = br.read("explore_D_timecourse_experiments.csv")
     info = cl.set_index("locus_tag")
     ks = sorted(cl.cluster.unique())
+    cg = cons.by_gene().set_index("locus_tag")
+    ann = {g: dict(fill=cons.TIER_GREY[int(cg.at[g, "tier"])], tip=f"<b>{g}</b><br>" + cons.hover(cg.loc[g].to_dict() | {"ck": cg.at[g, "ck"]}))
+           for g in cg.index}
     rows = [dict(k=r.locus_tag, label=f"{r.locus_tag}  {r.ck_group}  {'■ multi' if r.copy_class == 'multi' else '□ single'}",
-                 band=f"C{r.cluster}") for r in cl.itertuples()]
+                 band=f"C{r.cluster}", ann=ann[r.locus_tag]) for r in cl.itertuples()]
     pidx = pts.set_index(["locus_tag", "experiment_id", "timepoint"])
 
     def cell_tip(g, e, tp):
@@ -331,11 +390,15 @@ def section_d():
     types_all = None
     present2 = set(zip(tce.family, tce.type))
     present3 = set(zip(lc.family, lc.type))
-    callkey = ('<div class="legend-d"><b>cells</b>: <span style="background:#eb6834;padding:0 8px"></span> up '
+    tierkey = ('<div class="legend-d"><b>' + cons.LEGEND_TITLE + '</b> (strip left of the gene labels; hover for organism counts): ' + " ".join(
+        f'<span style="white-space:nowrap;margin-right:10px"><span style="display:inline-block;width:12px;height:12px;vertical-align:middle;'
+        f'background:{cons.TIER_GREY[k]}"></span> {cons.TIER_NAME[k]}</span>' for k in cons.TIER_NAME) + '</div>')
+    callkey = tierkey + ('<div class="legend-d"><b>cells</b>: <span style="background:#eb6834;padding:0 8px"></span> up '
                '<span style="background:#2a78d6;padding:0 8px"></span> down <span style="background:#d9d8d4;padding:0 8px"></span> '
                'not significant <span style="background:repeating-linear-gradient(45deg,#b5b4ae 0 1px,#fff 1px 4px);padding:0 8px;'
                'border:1px solid #e4e3df"></span> not defined</div>')
-    d4_html, d4_js = section_d4(cl, ks)
+    d4_html, d4_js = section_d4(cl, ks, ann)
+    d5_html, d5_js = section_d5(tierkey)
     html_ = f"""<h2>D. Response groups of the 23 hli genes</h2>
 <p class="note">Value per gene × experiment-time point = published call (up, down, not significant). Not defined (hatched): not measured;
 non-significant genes in the up-only phage array; phosphate 0–24 h genes absent from a table filtered at 48 h. Pooled "days 60+89" and the
@@ -368,7 +431,7 @@ Lines are ink, told apart by line style, marker and the direct label. Hover any 
 {''.join(f'<div class="wrap" style="max-height:none;display:inline-block;vertical-align:top;margin:0 6px 6px 0" id="{c["el"]}"></div>' for c in comp2)}
 <p class="note">Download: <a href="../figures/explore_D2_cluster_time.png">clusters over time</a> · <a href="../figures/explore_D2_gene_time.png">gene-level time heatmaps</a>.
 Time points not on a time axis (not a time):</p>{br.table(unp, "td4")}
-<h3>D3. Gene clusters vs background light (18 continuous-light experiments)</h3>
+<h3>D3. Gene clusters vs background light ({len(set(lc.experiment_id))} continuous-light experiments)</h3>
 <p class="note">One panel per gene cluster; each point = one experiment × time point, % of the cluster's genes up (above 0) and down (below 0);
 colour + marker = category; same −100…+100 axis. Cells are acclimated to the background light before the treatment, and DE measures
 change vs a control at that same light, so light level here is context, not a treatment; cross-study, so platform, design and stress are
@@ -379,8 +442,9 @@ confounded. Points sharing a light level are dodged by fixed 1.4 µmol steps (or
 <p class="note">Gene-level companion: genes (cluster order) × continuous-light experiment-time points ordered by light level.</p>{callkey}
 <div class="wrap" style="max-height:none" id="d3c"></div>
 <p class="note">Download: <a href="../figures/explore_D3_cluster_light.png">clusters vs light</a> · <a href="../figures/explore_D3_gene_light.png">gene-level heatmap</a></p>
-{d4_html}"""
-    js_ = D_JS + d4_js + (f"dheat({json.dumps(d1a)});dheat({json.dumps(d1b)});dmult({json.dumps(d2)});"
+{d4_html}
+{d5_html}"""
+    js_ = D_JS + d4_js + d5_js + (f"dheat({json.dumps(d1a)});dheat({json.dumps(d1b)});dmult({json.dumps(d2)});"
                   + "".join(f"dheat({json.dumps(c)});" for c in comp2)
                   + f"dmult({json.dumps(d3)});dheat({json.dumps(d3c)});")
     return html_, js_
@@ -446,6 +510,9 @@ def main():
     body = f"""<h1>Exploration: gene families, light level, timing</h1>
 <p class="lead">MED4, hli genes. Exploratory. Treatment vs control as stored in the KG (no flip); the same significance calls as the
 main analysis. Counts only; meanings are in the analysis notebook.</p>
+<p class="note">Decision A.8: Coculture HOT1A3 (2016) is dropped from every exploration below (unreliable table): families, light level
+(Spearman recomputed), continuous-light views, timing and clustering (D1–D5). Grey strips beside gene rows (D1, D2, D3 companions) and the
+grey swatch on D4 gene panels = {cons.LEGEND_TITLE} (A.9), from KG organism counts and clades of each gene's Cyanorak CK group.</p>
 <h2>A. Gene families</h2>
 <p class="note">Copy class: CK groups with ≥2 MED4 hli members are multi-copy (CK_00002025, 2026, 2168, 2332, 43616: 14 genes); the 9
 other groups have one member each (single-copy, 9 genes). Net share = (up − down) / measured members. Hatched = no member measured.
@@ -468,7 +535,7 @@ share of the set significant.</p>
 {br.table(sp, "tb1")}
 <div class="controls"><input id="fb" placeholder="filter"></div>{br.table(ll, "tb2")}
 <h2>B2. Continuous-light experiments only, ordered by light level</h2>
-<p class="note">The 18 experiments with no light-reading role (non-light stress and non-stress); all 18 have light condition
+<p class="note">The {len(clx)} experiments with no light-reading role (non-light stress and non-stress; the 2016 coculture is dropped, A.8); all {len(clx)} have light condition
 "continuous light", both arms at the same level. Columns ordered by light level (block label); no day-night cycle and no light/dark
 treatments. Same calls and colours as the main heatmaps. Hover for detail.</p>
 {br.table(clx[["light_treatment_umol", "label", "group", "stress_type", "light_condition_raw", "experiment_id"]], "tb3")}

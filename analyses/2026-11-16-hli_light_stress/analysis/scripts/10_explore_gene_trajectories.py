@@ -225,9 +225,11 @@ def main():
     a0 = np.atleast_1d(axes)[0]
     a0.set_yticks(np.arange(len(genes)) + .5)
     a0.set_yticklabels([f"C{cmap[g]} {g}" for g in genes], fontsize=6.3)
+    import conservation as cons   # A.9: ortholog-group breadth strip (exploratory)
+    cons.mpl_strip(a0, genes, pad=11)
     fig.legend(handles=[Patch(facecolor=UP, label="up"), Patch(facecolor=DOWN, label="down"), Patch(facecolor=NS, label="not significant"),
                         Patch(facecolor="white", edgecolor="#c9c8c3", hatch="////", label="not defined"),
-                        Line2D([], [], ls="", label=" ")] + family_handles(present),
+                        Line2D([], [], ls="", label=" ")] + family_handles(present) + [Line2D([], [], ls="", label=" ")] + cons.mpl_handles(),
                loc="center left", bbox_to_anchor=(1.0, 0.5), fontsize=7, frameon=False)
     fig.suptitle("hli genes (D1 cluster order) × time points in time order, per time-course experiment (header colour = category)",
                  fontsize=9.5, x=0.01, ha="left")
@@ -305,6 +307,8 @@ def main():
     ax.set_ylim(len(genes), 0)
     ax.set_yticks(np.arange(len(genes)) + .5)
     ax.set_yticklabels([f"C{cmap[g]} {g}" for g in genes], fontsize=6.3)
+    import conservation as cons   # A.9
+    cons.mpl_strip(ax, genes, pad=11)
     ax.set_xticks(np.arange(len(cols)) + .5)
     ax.set_xticklabels(cols.short, rotation=90, fontsize=6)
     ax.tick_params(length=0)
@@ -312,7 +316,7 @@ def main():
         sp.set_visible(False)
     fig.legend(handles=[Patch(facecolor=UP, label="up"), Patch(facecolor=DOWN, label="down"), Patch(facecolor=NS, label="not significant"),
                         Patch(facecolor="white", edgecolor="#c9c8c3", hatch="////", label="not defined"),
-                        Line2D([], [], ls="", label=" ")] + family_handles(present3),
+                        Line2D([], [], ls="", label=" ")] + family_handles(present3) + [Line2D([], [], ls="", label=" ")] + cons.mpl_handles(),
                loc="center left", bbox_to_anchor=(0.92, 0.5), fontsize=7, frameon=False)
     ax.set_title("hli genes (D1 cluster order) × continuous-light experiment-time points, ordered by background light "
                  "(block label, µmol); strip = category", fontsize=9, loc="left", pad=22)

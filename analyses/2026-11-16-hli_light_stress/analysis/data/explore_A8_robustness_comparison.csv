@@ -1,0 +1,3 @@
+version,agree_correlation,agree_no_steglich,n_genes,cluster_sizes,cut_height_agreement,cut_height_correlation,cut_height_no_steglich,n_columns,n_columns_no_steglich
+twin rule,16,19,23,C1:1 C2:7 C3:2 C4:13,0.208,0.361,0.2077,61,55
+A.8,16,19,23,C1:1 C2:7 C3:2 C4:13,0.2043,0.3582,0.2027,60,54

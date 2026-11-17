@@ -1,0 +1,11 @@
+version,col_cluster,n_columns,n_experiments,k_col,cut_height_columns,by_family
+twin rule,0,5,2,4,0.4719,stress 5
+twin rule,1,2,2,4,0.4719,stress 1 | light / dark 1
+twin rule,2,2,1,4,0.4719,light / dark 2
+twin rule,3,18,15,4,0.4719,stress 11 | light / dark 4 | non-stress 3
+twin rule,4,34,17,4,0.4719,stress 16 | light / dark 15 | non-stress 3
+A.8,0,5,2,4,0.4546,stress 5
+A.8,1,2,2,4,0.4546,stress 1 | light / dark 1
+A.8,2,2,1,4,0.4546,light / dark 2
+A.8,3,18,15,4,0.4546,stress 11 | light / dark 4 | non-stress 3
+A.8,4,33,16,4,0.4546,stress 16 | light / dark 15 | non-stress 2
