@@ -124,3 +124,21 @@ The light levels are tied to study, platform and stress type, so this is suggest
 - **Caveat:** all of C4 is multi-copy and 4 members share a CK group, so cross-hybridisation or multi-mapping may contribute.
 - **D2/D3:** small multiples vs time (log h) and vs light level, coloured by stress type with hover. 8 timepoint labels are not times (CO2 "max across", steady state, acclimated, rescue), so carbon and salt are absent from D2.
 - **Anomaly:** coculture 2016 20 h has hli log2FC down to −14 (median −5), including some genes called ns at padj 1. This dominates the y range.
+
+## Run 5 (kg-coder): D rework (researcher feedback)
+
+- **Column clusters:** agreement distance, average linkage, cut 0.491 → K1–K4 plus K0 (5 sparse columns: phosphate 0–24 h and phage array 1 h, each with <10 defined genes).
+  - Adjacent leaf pairs share an experiment in 21.7% of cases, a category in 38.3% and a time label in 8.3%. So the columns group by response pattern, not by experiment or time.
+  - K3 (14 columns) is the "hli up" block: light onset 45 min (red, white, blue, high white), N (6 columns), CO2 (2), urea and cyanate.
+  - K4 (38 columns) is the quiet / mixed remainder.
+- **Colours:** one scheme across section D, three hue families (light/dark violet, stress green, non-stress brown) with a shade and marker per type. Family anchors pass the validator. Within-family shades fail the normal-vision check, so markers are the secondary encoding. Clusters are shown in ink only.
+- **D2 rebuilt:** % of each cluster's genes up/down per time-course experiment (10 experiments) on a fixed −100…+100 axis, plus per-experiment gene × time heatmaps.
+- **D3 rebuilt** the same way, against light level. The log2FC spaghetti is removed.
+- **Light theme** forced on all analysis reports.
+- **Read-off from D2 (`explore_D_cluster_response.csv`):**
+  - N deprivation: C3 up from 6 h (100% by 12 h), C2 from 6 h, C4 only at 48 h.
+  - lowN coculture: C4 up from day 18, everything peaks day 31 and falls by day 89.
+  - Iron: only C4, rising to 86% at 48 h.
+  - Phage (array and lysate in light): C2/C4 up at the first time point only (1 h / 0.5 h).
+  - Phosphate: no up.
+  - C1 is never up in any time course.

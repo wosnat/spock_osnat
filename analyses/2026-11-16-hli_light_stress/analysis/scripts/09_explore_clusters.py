@@ -25,6 +25,7 @@ explore_D_cluster_summary.csv, explore_D_cluster_ck.csv; figure explore_D1_clust
 Run from the repo root:
     PYTHONUTF8=1 uv run python analyses/2026-11-16-hli_light_stress/analysis/scripts/09_explore_clusters.py
 """
+import sys
 from itertools import permutations
 from pathlib import Path
 
@@ -39,6 +40,8 @@ from scipy.cluster.hierarchy import dendrogram, fcluster, linkage  # noqa: E402
 from scipy.spatial.distance import squareform  # noqa: E402
 
 ANALYSIS = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import d_scheme as ds  # noqa: E402
 DATA, FIG = ANALYSIS / "data", ANALYSIS / "figures"
 UP, DOWN, NS, INK, MUTED = "#eb6834", "#2a78d6", "#d9d8d4", "#1f1f1d", "#6b6b66"
 MIN_SHARED = 10
@@ -54,11 +57,13 @@ MULTI = {"CK_00002025", "CK_00002026", "CK_00002168", "CK_00002332", "CK_0004361
 
 
 def strip_cat(r):
-    if r["light_reading_group"] != "none":
-        return "light / dark"
-    if r["group"] == "nonstress_possible_relief":
-        return "non-stress"
-    return {"viral": "phage"}.get(r["stress_type"], r["stress_type"])
+    fam, typ = ds.category(r)
+    return f"{fam}: {typ}"
+
+
+def strip_colour(cat):
+    fam, typ = cat.split(": ", 1)
+    return ds.TYPES[(fam, typ)][0]
 
 
 def code(r):
@@ -178,16 +183,68 @@ def main():
     rob.to_csv(DATA / "explore_D_cluster_robustness.csv", index=False, encoding="utf-8")
 
     # columns: cluster with agreement over genes
-    Dcol = dist_agreement(X.T)
+    # columns with fewer than MIN_SHARED defined genes cannot meet the shared-cell minimum with any other column
+    # (distance 1 to all); they are set apart as 'K0 sparse' and the rest are clustered
+    n_def = (~np.isnan(X)).sum(0)
+    dense_idx = [i for i in range(X.shape[1]) if n_def[i] >= MIN_SHARED]
+    sparse_idx = [i for i in range(X.shape[1]) if n_def[i] < MIN_SHARED]
+    Xd = X[:, dense_idx]
+    Dcol = dist_agreement(Xd.T)
     Zcol = linkage(squareform(Dcol, checks=False), method="average")
     cleaves = dendrogram(Zcol, no_plot=True)["leaves"]
-    cols = [M.columns[i] for i in cleaves]
+    cols = [M.columns[dense_idx[i]] for i in cleaves] + [M.columns[i] for i in sparse_idx]
     cm = colmeta.loc[cols]
     co = pd.DataFrame(dict(col=cols, experiment_id=cm.experiment_id.values, label=cm.label.values,
                            label_detailed=cm.label_detailed.values, timepoint=cm.timepoint.values,
                            strip=[strip_cat(r) for r in cm.reset_index().to_dict("records")],
                            order=range(len(cols))))
+    # column clusters: cut the column tree; K_COL chosen in 4..8 at the largest gap between merge heights
+    hcol = Zcol[:, 2]
+    gaps = {k: hcol[-k + 1] - hcol[-k] for k in range(4, 9)}
+    k_col = max(gaps, key=gaps.get)
+    cut_col = float((hcol[-k_col] + hcol[-k_col + 1]) / 2)
+    lab_col = fcluster(Zcol, t=k_col, criterion="maxclust")
+    lab_by_col = dict(zip([M.columns[i] for i in dense_idx], lab_col))
+    first_c = {}
+    for c in cols:
+        if c in lab_by_col:
+            first_c.setdefault(lab_by_col[c], len(first_c) + 1)
+    co["col_cluster"] = [first_c[lab_by_col[c]] if c in lab_by_col else 0 for c in co.col]
+    co["n_defined_genes"] = [int(n_def[list(M.columns).index(c)]) for c in co.col]
+    co["short"] = [ds.short_label(a, b) for a, b in zip(co.label, co.timepoint)]
+    co["family"] = [x.split(": ")[0] for x in co.strip]
+    co["type"] = [x.split(": ")[1] for x in co.strip]
     co.to_csv(DATA / "explore_D_column_order.csv", index=False, encoding="utf-8")
+    same_exp_adj = float(np.mean([a == b for a, b in zip(co.experiment_id[:-1], co.experiment_id.values[1:])]))
+    same_type_adj = float(np.mean([a == b for a, b in zip(co.strip[:-1], co.strip.values[1:])]))
+    same_tp_adj = float(np.mean([a == b for a, b in zip(co.timepoint[:-1], co.timepoint.values[1:])]))
+    ccl = []
+    for k, g in co.groupby("col_cluster"):
+        n = len(g)
+        pairs = n * (n - 1) / 2
+
+        def share(col):
+            vc = g[col].value_counts()
+            return float((vc * (vc - 1) / 2).sum() / pairs) if pairs else np.nan
+        ccl.append(dict(col_cluster=k, n_columns=n, n_experiments=g.experiment_id.nunique(),
+                        n_categories=g.strip.nunique(), n_timepoint_labels=g.timepoint.nunique(),
+                        share_pairs_same_experiment=share("experiment_id"), share_pairs_same_category=share("strip"),
+                        share_pairs_same_family=share("family"), share_pairs_same_timepoint_label=share("timepoint"),
+                        by_family=" | ".join(f"{a} {b}" for a, b in g.family.value_counts().items()),
+                        by_category=" | ".join(f"{a} {b}" for a, b in g.strip.value_counts().items()),
+                        by_experiment=" | ".join(f"{a} {b}" for a, b in g.label.value_counts().items()),
+                        columns=" | ".join(g.short)))
+    ccl = pd.DataFrame(ccl)
+    ccl["k_col"] = k_col
+    ccl["note"] = ["K0 = columns with < %d defined genes (not clustered)" % MIN_SHARED if k == 0 else "" for k in ccl.col_cluster]
+    ccl["cut_height_columns"] = round(cut_col, 4)
+    ccl["adjacent_pairs_same_experiment_overall"] = round(same_exp_adj, 4)
+    ccl["adjacent_pairs_same_category_overall"] = round(same_type_adj, 4)
+    ccl["adjacent_pairs_same_timepoint_label_overall"] = round(same_tp_adj, 4)
+    ccl.to_csv(DATA / "explore_D_column_clusters.csv", index=False, encoding="utf-8")
+    print(f"column clusters: k={k_col}, cut={cut_col:.4f}, gaps={ {k: round(v, 4) for k, v in gaps.items()} }")
+    print(f"adjacent pairs same experiment {same_exp_adj:.3f}, same category {same_type_adj:.3f}, same timepoint {same_tp_adj:.3f}")
+    print(ccl.drop(columns=["columns"]).to_string(index=False))
 
     # cluster summary per cluster x category
     cl = dict(zip(genes, la))
@@ -219,17 +276,14 @@ def main():
     ax = fig.add_axes([left, 0.40, hw, 0.45])
     ax_s = fig.add_axes([left, 0.855, hw, 0.02])
     ax_cd = fig.add_axes([left, 0.88, hw, 0.06])
-    from scipy.cluster.hierarchy import set_link_color_palette
-    set_link_color_palette([CLUSTER_COL[i] for i in range(1, K + 1)])
-    dendrogram(Za, orientation="left", ax=ax_d, color_threshold=cut_a, above_threshold_color=MUTED,
-               no_labels=True)
-    set_link_color_palette(None)
+    dendrogram(Za, orientation="left", ax=ax_d, color_threshold=0, above_threshold_color=MUTED, no_labels=True)
     ax_d.axvline(cut_a, color=INK, lw=0.6, ls="--")
     ax_d.invert_yaxis()
     ax_d.set_axis_off()
     ax_d.text(cut_a, 1.0, f"cut {cut_a:.3f}", transform=ax_d.get_xaxis_transform(), fontsize=6, ha="center",
               va="bottom", color=INK)
     dendrogram(Zcol, ax=ax_cd, color_threshold=0, above_threshold_color=MUTED, no_labels=True)
+    ax_cd.set_xlim(0, 10 * len(cols))   # scipy leaf spacing is 10; sparse columns sit to the right without a tree
     ax_cd.set_axis_off()
     colour = {1.0: UP, -1.0: DOWN, 0.0: NS}
     Mo = M.loc[order_g, cols]
@@ -251,27 +305,39 @@ def main():
     ax.set_yticklabels([f"C{cl[g]}  {g}  {ck[g]}  {'■ multi' if ck[g] in MULTI else '□ single'}" for g in order_g],
                        fontsize=6.3)
     ax.yaxis.tick_right()
-    for tl, g in zip(ax.get_yticklabels(), order_g):
-        tl.set_color(CLUSTER_COL[cl[g]])
+    for i in range(n_r):
+        if i == 0 or cl_order[i] != cl_order[i - 1]:
+            ax.text(-0.6, i + 0.2, f"C{cl_order[i]}", ha="right", va="top", fontsize=8, fontweight="bold", color=INK)
+    cc_order = co.col_cluster.tolist()
+    for j in range(1, n_c):
+        if cc_order[j] != cc_order[j - 1]:
+            ax.axvline(j, color=INK, lw=1.2)
+    s0 = 0
+    for j in range(1, n_c + 1):
+        if j == n_c or cc_order[j] != cc_order[s0]:
+            ax_s.text((s0 + j) / 2, 1.15, f"K{cc_order[s0]}" if cc_order[s0] else "K0 sparse", ha="center", va="bottom", fontsize=7, fontweight="bold",
+                      color=INK, transform=ax_s.transData)
+            s0 = j
     ax.set_xticks(np.arange(n_c) + .5)
-    ax.set_xticklabels([f"{d} · {t}" for d, t in zip(co.label_detailed, co.timepoint)], rotation=90, fontsize=4.8)
+    ax.set_xticklabels(co.short, rotation=90, fontsize=5.5)
     ax.tick_params(length=0)
     for sp in ax.spines.values():
         sp.set_visible(False)
     for j, s in enumerate(co.strip):
-        ax_s.add_patch(Rectangle((j, 0), 1, 1, facecolor=STRIP[s], edgecolor="white", lw=0.4))
+        ax_s.add_patch(Rectangle((j, 0), 1, 1, facecolor=strip_colour(s), edgecolor="white", lw=0.4))
     ax_s.set_xlim(0, n_c)
     ax_s.set_ylim(0, 1)
     ax_s.set_axis_off()
     fig.legend(handles=[Patch(facecolor=UP, label="up (+1)"), Patch(facecolor=DOWN, label="down (−1)"),
                         Patch(facecolor=NS, label="not significant (0)"),
                         Patch(facecolor="white", edgecolor="#c9c8c3", hatch="////", label="not defined (NaN)")]
-               + [Patch(facecolor=v, label=f"strip: {k}") for k, v in STRIP.items()],
+               + [Patch(facecolor=c, label=f"{fam}: {typ}") for (fam, typ), (c, m) in ds.TYPES.items()],
                loc="upper left", bbox_to_anchor=(left + hw + 0.12, 0.85), fontsize=6.5, frameon=False)
     fig.text(0.01, 1.01, f"hli genes (MED4) clustered by their published calls across {n_c} experiment × time-point columns",
              fontsize=10, va="top")
     fig.text(0.01, 0.99, f"Gene distance = 1 − agreement over cells defined in both genes (≥{MIN_SHARED} shared, else 1); "
-             f"average linkage; cut at {cut_a:.3f} → {K} clusters (C1–C{K}). Columns clustered the same way.",
+             f"average linkage; cut at {cut_a:.3f} → {K} gene clusters (C1–C{K}). Columns clustered the same way, cut at "
+             f"{cut_col:.3f} → {k_col} column clusters (K1–K{k_col}).",
              fontsize=7, va="top", color=MUTED)
     fig.text(left, 0.035, "Value = published call (+1 / 0 / −1). NaN: not measured; up-only phage array (non-significant could be "
              "down); phosphate 0–24 h genes absent from a table filtered at 48 h.\nPooled 'days 60+89' dropped. "
