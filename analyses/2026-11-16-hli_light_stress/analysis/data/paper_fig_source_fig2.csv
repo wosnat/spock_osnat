@@ -1,0 +1,30 @@
+panel,label,experiment_id,timepoint,hours,x_plotted,x_unit,test_type,n_measured,n_up,n_down,pct_up,pct_down,padj_up,padj_down,sig_up,sig_down,testable_up,testable_down,ribosomal_pct_down
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,1h,1.0,1.0,h,approximate,23,9,0,39.130434782608695,,2.2250212143246894e-12,,True,False,True,False,0.0
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,2h,2.0,2.0,h,approximate,23,0,0,0.0,,1.0,,False,False,True,False,0.0
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,3h,3.0,3.0,h,approximate,23,0,0,0.0,,1.0,,False,False,True,False,0.0
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,4h,4.0,4.0,h,approximate,23,0,0,0.0,,1.0,,False,False,True,False,0.0
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,5h,5.0,5.0,h,approximate,23,0,0,0.0,,1.0,,False,False,True,False,0.0
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,6h,6.0,6.0,h,approximate,23,0,0,0.0,,,,False,False,False,False,0.0
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,7h,7.0,7.0,h,approximate,23,0,0,0.0,,1.0,,False,False,True,False,0.0
+a,"Phage infection (array, up-only)",10.1038/nature06130_viral_phage_infected_med4_microarray,8h,8.0,8.0,h,approximate,23,0,0,0.0,,,,False,False,False,False,0.0
+b,N deprivation (array),10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,0h,0.0,0.0,h,sound,17,0,0,0.0,0.0,,,False,False,False,False,0.0
+b,N deprivation (array),10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,3h,3.0,3.0,h,sound,17,0,0,0.0,0.0,,,False,False,False,False,0.0
+b,N deprivation (array),10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,6h,6.0,6.0,h,sound,17,2,1,11.76470588235294,5.88235294117647,0.4417963942884788,1.0,False,False,True,True,49.18032786885246
+b,N deprivation (array),10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,12h,12.0,12.0,h,sound,17,3,1,17.64705882352941,5.88235294117647,0.1547449593726415,1.0,False,False,True,True,63.934426229508205
+b,N deprivation (array),10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,24h,24.0,24.0,h,sound,17,4,0,23.52941176470588,0.0,0.0018354390900698,1.0,True,False,True,True,57.377049180327866
+b,N deprivation (array),10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,48h,48.0,48.0,h,sound,17,10,0,58.82352941176471,0.0,1.966010746234967e-12,1.0,True,False,True,True,1.63934426229508
+c,Iron starvation,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,12h,12.0,12.0,h,approximate,19,0,0,0.0,0.0,1.0,,False,False,True,False,0.0
+c,Iron starvation,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,24h,24.0,24.0,h,approximate,19,1,0,5.26315789473684,0.0,0.4417963942884788,,False,False,True,False,0.0
+c,Iron starvation,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,48h,48.0,48.0,h,approximate,19,6,0,31.57894736842105,0.0,3.0158072748391988e-05,1.0,True,False,True,True,0.0
+d,N starvation lowN (coculture),10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,day 18,432.0,18.0,d,sound,15,2,0,13.33333333333333,0.0,0.0393890184997759,1.0,True,False,True,True,0.0
+d,N starvation lowN (coculture),10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,day 31,744.0,31.0,d,sound,15,8,0,53.333333333333336,0.0,0.0007720540627774,1.0,True,False,True,True,1.63934426229508
+d,N starvation lowN (coculture),10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,day 60,1440.0,60.0,d,sound,15,7,0,46.666666666666664,0.0,0.0033051837297136,1.0,True,False,True,True,3.27868852459016
+d,N starvation lowN (coculture),10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,day 89,2136.0,89.0,d,sound,15,2,0,13.33333333333333,0.0,0.9128152665679528,1.0,False,False,True,True,4.91803278688524
+e,"N-depleted (RNA-seq, top 50%)",10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,3h,3.0,3.0,h,descriptive,21,1,1,4.76190476190476,4.76190476190476,,,False,False,False,False,0.0
+e,"N-depleted (RNA-seq, top 50%)",10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,12h,12.0,12.0,h,descriptive,21,15,0,71.42857142857143,0.0,,,False,False,False,False,57.407407407407405
+e,"N-depleted (RNA-seq, top 50%)",10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,24h,24.0,24.0,h,descriptive,22,16,2,72.72727272727273,9.09090909090909,,,False,False,False,False,66.0377358490566
+f,Phage lysate (light),10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,0.5h post-inoculation,0.5,0.5,h,approximate,23,5,0,21.7391304347826,0.0,,,False,False,False,False,0.0
+f,Phage lysate (light),10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,1.5h post-inoculation,1.5,1.5,h,approximate,23,0,0,0.0,0.0,,,False,False,False,False,0.0
+f,Phage lysate (light),10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,2.5h post-inoculation,2.5,2.5,h,approximate,23,0,0,0.0,0.0,,,False,False,False,False,0.0
+f,Phage lysate (light),10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,4.5h post-inoculation,4.5,4.5,h,approximate,23,0,0,0.0,0.0,,,False,False,False,False,0.0
+f,Phage lysate (light),10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,8.5h post-inoculation,8.5,8.5,h,approximate,23,0,0,0.0,0.0,,1.0,False,False,False,True,8.1967213114754

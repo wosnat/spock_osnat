@@ -1,0 +1,25 @@
+experiment_id,label,short,scope,experiment_call,padj_up,padj_down,x_up,x_down,capped_up,capped_down
+10.1128/JB.01097-06_light_stress_blue_light_13_umol_med4_microarray,Blue 13 vs dark,Blue light 13,Light onset,up,2.30045966258882e-09,1.0,8.638185377469247,0.0,False,False
+10.1128/JB.01097-06_light_stress_red_light_13_umol_med4_microarray,Red 13 vs dark,Red light 13,Light onset,up,1.6919920441176278e-10,,9.7716016833797,,False,False
+10.1128/JB.01097-06_light_stress_white_light_13_umol_med4_microarray,White 13 vs dark,White light 13,Light onset,up,9.294176499062817e-08,,7.031789084402749,,False,False
+10.1128/JB.01097-06_light_stress_high_white_light_55_med4_microarray,High white 55 vs dark,White light 55,Light onset,up,4.9249348266025816e-08,1.0,7.307599512300206,0.0,False,False
+10.64898/2026.04.15.718746_extended_darkness_med4,Extended darkness,Extended dark,Schedule ext.,neither,0.2378891815379181,1.0,0.6236253078795791,0.0,False,False
+10.64898/2026.04.15.718746_extended_light_med4,Extended light,Extended light,Schedule ext.,down,1.0,1.9680090322912313e-09,-0.0,-8.70597291268047,False,False
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark,Const dark vs light (no phage),Dark vs light,Const. dark/light,neither,,1.0,,0.0,False,False
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,Const dark vs light (phage),"Dark vs light, phage",Const. dark/light,neither,,1.0,,0.0,False,False
+10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray,CO2: low,Low CO2,CO2,up,5.249114261524692e-10,1.0,9.279913973505517,0.0,False,False
+10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray,"CO2: low, no O2","Low CO2, no O2",CO2,up,1.6919920441176278e-10,1.0,9.7716016833797,0.0,False,False
+10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,Iron starvation,Iron,up,5.6546386403234974e-05,1.0,4.247595143440187,0.0,False,False
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),N deprivation (array),Nitrogen,up,4.915026865587418e-12,1.0,11.308474103967251,0.0,False,False
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic,N starvation lowN (axenic),"lowN, axenic",Nitrogen,up,0.0083385120482852,1.0,2.078911439394816,0.0,False,False
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),"lowN, coculture",Nitrogen,up,0.0019301351569435,1.0,2.714412278629762,0.0,False,False
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,P starvation,Phosphorus,neither,1.0,,-0.0,,False,False
+10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,Low salinity,Salt,neither,1.0,1.0,-0.0,0.0,False,False
+10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)","Phage infection, array",Phage (light),up,8.343829553717585e-12,,11.078634576182194,,False,False
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),"Phage lysate, light",Phage (light),neither,,1.0,,0.0,False,False
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark,Phage lysate (dark),"Phage lysate, dark",Phage (dark),neither,,0.2700728220865202,,-0.5685191174479564,False,False
+10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,Air vs time 0,Relief,down,1.0,1.2350141071925427e-06,-0.0,-5.908328081561494,False,False
+10.1038/ismej.2011.49_iron_rescue_med4_microarray,Iron re-added,Iron re-added,Relief,down,1.0,8.70169065988887e-06,-0.0,-5.060396359688579,False,False
+10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,Cyanate as N source,Cyanate,N source,up,1.6994206826547264e-12,,11.769699100506774,,False,False
+10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,Urea as N source,Urea,N source,up,8.136635703156053e-11,,10.089555127982612,,False,False
+10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),Coculture 2025 d11+d18,Coculture d11,neither,0.0987106208387352,0.0987106208387352,1.0056361165958088,-1.0056361165958088,False,False

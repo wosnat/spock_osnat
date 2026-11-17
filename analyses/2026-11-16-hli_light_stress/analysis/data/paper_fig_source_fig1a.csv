@@ -1,0 +1,131 @@
+scope,family,set,set_label,direction,n_testable,n_sig,n_experiments,n_tests_all
+Light onset,light / dark,hli,hli,up,4,4,4,5
+Light onset,light / dark,hli,hli,down,2,0,2,5
+Light onset,light / dark,ribosomal_proteins,Ribosomal,up,4,0,4,5
+Light onset,light / dark,ribosomal_proteins,Ribosomal,down,2,0,2,5
+Light onset,light / dark,photosystem_I,PSI,up,4,0,4,5
+Light onset,light / dark,photosystem_I,PSI,down,2,2,2,5
+Light onset,light / dark,photosystem_II,PSII,up,4,0,4,5
+Light onset,light / dark,photosystem_II,PSII,down,2,0,2,5
+Light onset,light / dark,co2_fixation,CO2 fixation,up,4,0,4,5
+Light onset,light / dark,co2_fixation,CO2 fixation,down,2,0,2,5
+Schedule ext.,light / dark,hli,hli,up,4,0,2,4
+Schedule ext.,light / dark,hli,hli,down,4,2,2,4
+Schedule ext.,light / dark,ribosomal_proteins,Ribosomal,up,4,1,2,4
+Schedule ext.,light / dark,ribosomal_proteins,Ribosomal,down,4,0,2,4
+Schedule ext.,light / dark,photosystem_I,PSI,up,4,4,2,4
+Schedule ext.,light / dark,photosystem_I,PSI,down,4,0,2,4
+Schedule ext.,light / dark,photosystem_II,PSII,up,4,0,2,4
+Schedule ext.,light / dark,photosystem_II,PSII,down,4,0,2,4
+Schedule ext.,light / dark,co2_fixation,CO2 fixation,up,4,0,2,4
+Schedule ext.,light / dark,co2_fixation,CO2 fixation,down,4,4,2,4
+Const. dark/light,light / dark,hli,hli,up,0,0,0,9
+Const. dark/light,light / dark,hli,hli,down,2,0,2,9
+Const. dark/light,light / dark,ribosomal_proteins,Ribosomal,up,0,0,0,9
+Const. dark/light,light / dark,ribosomal_proteins,Ribosomal,down,2,0,2,9
+Const. dark/light,light / dark,photosystem_I,PSI,up,0,0,0,9
+Const. dark/light,light / dark,photosystem_I,PSI,down,2,0,2,9
+Const. dark/light,light / dark,photosystem_II,PSII,up,0,0,0,9
+Const. dark/light,light / dark,photosystem_II,PSII,down,2,0,2,9
+Const. dark/light,light / dark,co2_fixation,CO2 fixation,up,0,0,0,9
+Const. dark/light,light / dark,co2_fixation,CO2 fixation,down,2,0,2,9
+CO2,stress,hli,hli,up,2,2,2,3
+CO2,stress,hli,hli,down,2,0,2,3
+CO2,stress,ribosomal_proteins,Ribosomal,up,2,0,2,3
+CO2,stress,ribosomal_proteins,Ribosomal,down,2,2,2,3
+CO2,stress,photosystem_I,PSI,up,2,0,2,3
+CO2,stress,photosystem_I,PSI,down,2,2,2,3
+CO2,stress,photosystem_II,PSII,up,2,0,2,3
+CO2,stress,photosystem_II,PSII,down,2,1,2,3
+CO2,stress,co2_fixation,CO2 fixation,up,2,0,2,3
+CO2,stress,co2_fixation,CO2 fixation,down,2,2,2,3
+Iron,stress,hli,hli,up,3,1,1,3
+Iron,stress,hli,hli,down,1,0,1,3
+Iron,stress,ribosomal_proteins,Ribosomal,up,3,0,1,3
+Iron,stress,ribosomal_proteins,Ribosomal,down,1,0,1,3
+Iron,stress,photosystem_I,PSI,up,3,0,1,3
+Iron,stress,photosystem_I,PSI,down,1,0,1,3
+Iron,stress,photosystem_II,PSII,up,3,0,1,3
+Iron,stress,photosystem_II,PSII,down,1,0,1,3
+Iron,stress,co2_fixation,CO2 fixation,up,3,0,1,3
+Iron,stress,co2_fixation,CO2 fixation,down,1,0,1,3
+Nitrogen,stress,hli,hli,up,9,6,3,15
+Nitrogen,stress,hli,hli,down,9,0,3,15
+Nitrogen,stress,ribosomal_proteins,Ribosomal,up,9,1,3,15
+Nitrogen,stress,ribosomal_proteins,Ribosomal,down,9,4,3,15
+Nitrogen,stress,photosystem_I,PSI,up,9,0,3,15
+Nitrogen,stress,photosystem_I,PSI,down,9,5,3,15
+Nitrogen,stress,photosystem_II,PSII,up,9,0,3,15
+Nitrogen,stress,photosystem_II,PSII,down,9,3,3,15
+Nitrogen,stress,co2_fixation,CO2 fixation,up,9,2,3,15
+Nitrogen,stress,co2_fixation,CO2 fixation,down,9,5,3,15
+Phosphorus,stress,hli,hli,up,1,0,1,5
+Phosphorus,stress,hli,hli,down,0,0,0,5
+Phosphorus,stress,ribosomal_proteins,Ribosomal,up,1,0,1,5
+Phosphorus,stress,ribosomal_proteins,Ribosomal,down,0,0,0,5
+Phosphorus,stress,photosystem_I,PSI,up,1,0,1,5
+Phosphorus,stress,photosystem_I,PSI,down,0,0,0,5
+Phosphorus,stress,photosystem_II,PSII,up,1,0,1,5
+Phosphorus,stress,photosystem_II,PSII,down,0,0,0,5
+Phosphorus,stress,co2_fixation,CO2 fixation,up,1,0,1,5
+Phosphorus,stress,co2_fixation,CO2 fixation,down,0,0,0,5
+Salt,stress,hli,hli,up,1,0,1,1
+Salt,stress,hli,hli,down,1,0,1,1
+Salt,stress,ribosomal_proteins,Ribosomal,up,1,0,1,1
+Salt,stress,ribosomal_proteins,Ribosomal,down,1,0,1,1
+Salt,stress,photosystem_I,PSI,up,1,0,1,1
+Salt,stress,photosystem_I,PSI,down,1,0,1,1
+Salt,stress,photosystem_II,PSII,up,1,0,1,1
+Salt,stress,photosystem_II,PSII,down,1,0,1,1
+Salt,stress,co2_fixation,CO2 fixation,up,1,0,1,1
+Salt,stress,co2_fixation,CO2 fixation,down,1,0,1,1
+Phage (light),stress,hli,hli,up,6,1,1,13
+Phage (light),stress,hli,hli,down,1,0,1,13
+Phage (light),stress,ribosomal_proteins,Ribosomal,up,6,1,1,13
+Phage (light),stress,ribosomal_proteins,Ribosomal,down,1,1,1,13
+Phage (light),stress,photosystem_I,PSI,up,6,0,1,13
+Phage (light),stress,photosystem_I,PSI,down,1,0,1,13
+Phage (light),stress,photosystem_II,PSII,up,6,0,1,13
+Phage (light),stress,photosystem_II,PSII,down,1,0,1,13
+Phage (light),stress,co2_fixation,CO2 fixation,up,6,3,1,13
+Phage (light),stress,co2_fixation,CO2 fixation,down,1,0,1,13
+Phage (dark),light / dark,hli,hli,up,0,0,0,3
+Phage (dark),light / dark,hli,hli,down,1,0,1,3
+Phage (dark),light / dark,ribosomal_proteins,Ribosomal,up,0,0,0,3
+Phage (dark),light / dark,ribosomal_proteins,Ribosomal,down,1,0,1,3
+Phage (dark),light / dark,photosystem_I,PSI,up,0,0,0,3
+Phage (dark),light / dark,photosystem_I,PSI,down,1,0,1,3
+Phage (dark),light / dark,photosystem_II,PSII,up,0,0,0,3
+Phage (dark),light / dark,photosystem_II,PSII,down,1,0,1,3
+Phage (dark),light / dark,co2_fixation,CO2 fixation,up,0,0,0,3
+Phage (dark),light / dark,co2_fixation,CO2 fixation,down,1,0,1,3
+Relief,non-stress,hli,hli,up,2,0,2,2
+Relief,non-stress,hli,hli,down,2,2,2,2
+Relief,non-stress,ribosomal_proteins,Ribosomal,up,2,0,2,2
+Relief,non-stress,ribosomal_proteins,Ribosomal,down,2,0,2,2
+Relief,non-stress,photosystem_I,PSI,up,2,1,2,2
+Relief,non-stress,photosystem_I,PSI,down,2,0,2,2
+Relief,non-stress,photosystem_II,PSII,up,2,0,2,2
+Relief,non-stress,photosystem_II,PSII,down,2,0,2,2
+Relief,non-stress,co2_fixation,CO2 fixation,up,2,0,2,2
+Relief,non-stress,co2_fixation,CO2 fixation,down,2,0,2,2
+N source,non-stress,hli,hli,up,2,2,2,2
+N source,non-stress,hli,hli,down,0,0,0,2
+N source,non-stress,ribosomal_proteins,Ribosomal,up,2,0,2,2
+N source,non-stress,ribosomal_proteins,Ribosomal,down,0,0,0,2
+N source,non-stress,photosystem_I,PSI,up,2,0,2,2
+N source,non-stress,photosystem_I,PSI,down,0,0,0,2
+N source,non-stress,photosystem_II,PSII,up,2,0,2,2
+N source,non-stress,photosystem_II,PSII,down,0,0,0,2
+N source,non-stress,co2_fixation,CO2 fixation,up,2,0,2,2
+N source,non-stress,co2_fixation,CO2 fixation,down,0,0,0,2
+Coculture d11,non-stress,hli,hli,up,1,0,1,1
+Coculture d11,non-stress,hli,hli,down,0,0,0,1
+Coculture d11,non-stress,ribosomal_proteins,Ribosomal,up,1,0,1,1
+Coculture d11,non-stress,ribosomal_proteins,Ribosomal,down,0,0,0,1
+Coculture d11,non-stress,photosystem_I,PSI,up,1,0,1,1
+Coculture d11,non-stress,photosystem_I,PSI,down,0,0,0,1
+Coculture d11,non-stress,photosystem_II,PSII,up,1,0,1,1
+Coculture d11,non-stress,photosystem_II,PSII,down,0,0,0,1
+Coculture d11,non-stress,co2_fixation,CO2 fixation,up,1,0,1,1
+Coculture d11,non-stress,co2_fixation,CO2 fixation,down,0,0,0,1
