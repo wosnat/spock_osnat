@@ -239,3 +239,15 @@ The KG holds 123 organisms. In these 14 groups the organism counts reach at most
 - **Collapsed ORA**, microarray only, coculture 2016 excluded: 20 → 20 significant tests. No test call and no experiment call changes. Phage array 1 h up stays significant (k 9 → 5, padj 1.0e-6). The earlier "extended light 16 h lost" came from collapsing distinct RNA-seq signals and is withdrawn.
 - **BH without coculture 2016** (`qc_A8_bh_recompute.csv`): 0 call flips across 806 tests and 364 experiment calls. The footnote is on summary.html.
 - **D5 per-tier medians** (% up): tier 1 is 2.4 pooled, 6.7 on RNA-seq and 0 on arrays; tier 2 is 32.0, 36.7 and 34.6. The quiet-conserved pattern holds on RNA-seq alone.
+
+## Decide-gate checklist (analysis milestone)
+
+- [x] Part A deliverables: enrichment table, hli heatmaps, set bands, per-experiment calls, light readings, aggregate by scope (`reports/summary.html`, `hli_heatmaps.html`, `aggregate.html`, `light_readings.html`).
+- [x] Explorations the researcher asked for: A families, B and B2 light level, C timing, D clusters (D1–D4), D5 conservation (`reports/explore.html`). All are labelled exploratory.
+- [x] Every number comes from a script in `scripts/`, its output in `data/` and its figure in `figures/`. KG calls go through the API with truncation asserted.
+- [x] Locus tags are used in all tables.
+- [x] Critical review: first pass had 2 Blockers and 8 Concerns, all fixed. Delta pass had 0 Blockers; 4 Concerns and 4 Notes were fixed, and 1 Note (padj after A.8) got a footnote and a no-flip check. See `critical_review.md`.
+- [x] Researcher design facts and decisions A.3–A.9 are recorded in `decisions_log.md`.
+- [x] `paper.md` Methods and Results are written; `paper.html` is rendered.
+- [x] `gaps_and_friction.md` is updated (KG culture-state gaps; the clade pitfall).
+- [ ] **Researcher approval.**
