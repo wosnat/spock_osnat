@@ -41,16 +41,16 @@
   - schedule extension, reading pair (dark 2 h neither, light 14 h down): "unclear" by rule;
   - DCMU: 3 hli down, gene level only;
   - phage in the dark: 1 gene down.
-- **Resemblance:** hli is significant in light onset, CO2, iron, nitrogen and phage (light), and in non-stress (2 up, 3 down). No reference set responds in light onset; the specific sets respond only in their own stress.
+- **Resemblance:** hli is significant in light onset, CO2, iron, nitrogen and phage (light), and in non-stress (2 up, 3 down). No reference set goes up at light onset; photosystem I goes down in 2 of 6 light-onset tests (`resemblance.csv`; corrected after the critical review). The specific sets respond only in their own stress.
 
 ## Explore (main thread) — first look, provisional
 
 - **Light onset:** hli is the only set that goes up. 8–11 of the 11 hli genes in the Steglich table are up, at 5–8 CK groups.
-- **Breadth:** hli is up in 4 of the 6 non-light stress types (CO2, Fe, N, phage), with no stress-type down call. It goes down in two relief or return contrasts (iron re-added; air vs time 0) and in coculture 2016. It is up in urea and cyanate, which are N-source changes, not starvation.
+- **Breadth:** hli is up in 4 of the 6 non-light stress types (CO2, Fe, N, phage), with no stress-type down call. It goes down in two relief or return contrasts (iron re-added; air vs time 0) and in coculture 2016. The coculture 2016 table is anomalous: 82% of log2FC values are negative, and hli goes down to −14. It is being re-checked (see Corrections). It is up in urea and cyanate, which are N-source changes, not starvation.
 - **Not up:** salt, phosphate at 48 h, phage lysate in either light condition, constant dark vs light at set level.
 - **Schedule extension at gene level** (`hli_gene_calls.csv`) splits by family:
-  - **Multi-copy cluster genes** (CK_00002168/2025/2026/43616, e.g. PMM1118, PMM1399, PMM1390, PMM1398, PMM1385, PMM0818) are up in extended darkness (2 h/4 h) and down in extended light (14 h/16 h). In both experiments they are higher in the *dark* arm: a light-linked difference in the reverse direction to light onset.
-  - **Single-copy genes PMM0064 and PMM0093** are up in both arms: a schedule-type response.
+  - **Six multi-copy genes** (PMM1118, PMM1399, PMM1384, PMM1385, PMM1398, PMM0818) are up in extended darkness (2 h/4 h) and down in extended light (14 h/16 h). They are higher in the *dark* arm in both experiments: a light-linked difference in the reverse direction to light onset. The pattern is not CK-group-wide: CK_00002025 members PMM1404 and PMM0690 go down in extended darkness, and the CK_00043616 genes are ns. (Corrected after the critical review; PMM1390 had been listed and is single-copy.)
+  - **Single-copy genes PMM0064 and PMM0093** are up in extended darkness and in extended light 16 h, but ns at 14 h. The 4 h and 16 h contrasts are flagged genome-wide (>30% of genes significant), so "up in both arms" rests on a flagged time point.
   - **PMM1404, PMM0690 and PMM1482** are down in extended darkness.
 
   The set-level rule calls the reading pair "unclear" because the gene directions cancel.
@@ -97,14 +97,15 @@
 | Schedule extension | 17% up / 50% down | 33% up / 14% down |
 | Non-stress | 21% up / 33% down | 8% up / 10% down |
 
-The single-copy genes respond less, and differently.
+The single-copy genes respond less, and differently. [Table stale; superseded pending the twin-rule rerun with day 18 in its own scope: critic #1, #4]
 
 **B. Light level (cross-study, confounded):**
 - hli up strength rises with background light: Spearman ρ = 0.49 (p = 0.007; 29 tests, 15 experiments, 7 distinct light levels).
 - hli down shows no relation.
 - Ribosomal up tends the other way (ρ = −0.34, p = 0.07).
+- Ribosomal **down** also rises with light: ρ = +0.52, p = 0.03 (`explore_light_level_spearman.csv`; added after the critical review).
 
-The light levels are tied to study, platform and stress type, so this is suggestive only.
+The light levels are tied to study, platform and stress type. The p-values treat 29 tests as independent, but there are only 15 experiments at 7 levels. The ribosomal-down correlation suggests stronger responses overall in the higher-light studies. Reading: no hli-specific light-level signal. (Both arms are acclimated to the same background light, so light level is context, not treatment.)
 
 ## Run 3 (kg-coder): B2, continuous light only (researcher request)
 
@@ -128,7 +129,7 @@ The light levels are tied to study, platform and stress type, so this is suggest
 ## Run 5 (kg-coder): D rework (researcher feedback)
 
 - **Column clusters:** agreement distance, average linkage, cut 0.491 → K1–K4 plus K0 (5 sparse columns: phosphate 0–24 h and phage array 1 h, each with <10 defined genes).
-  - Adjacent leaf pairs share an experiment in 21.7% of cases, a category in 38.3% and a time label in 8.3%. So the columns group by response pattern, not by experiment or time.
+  - Adjacent leaf pairs share an experiment in 21.7% of cases, a category in 38.3% and a time label in 8.3%. So the column clusters mix experiments (no permutation baseline was run, so "grouped by response" is not shown).
   - K3 (14 columns) is the "hli up" block: light onset 45 min (red, white, blue, high white), N (6 columns), CO2 (2), urea and cyanate.
   - K4 (38 columns) is the quiet / mixed remainder.
 - **Colours:** one scheme across section D, three hue families (light/dark violet, stress green, non-stress brown) with a shade and marker per type. Family anchors pass the validator. Within-family shades fail the normal-vision check, so markers are the secondary encoding. Clusters are shown in ink only.
@@ -136,12 +137,12 @@ The light levels are tied to study, platform and stress type, so this is suggest
 - **D3 rebuilt** the same way, against light level. The log2FC spaghetti is removed.
 - **Light theme** forced on all analysis reports.
 - **Read-off from D2 (`explore_D_cluster_response.csv`):**
-  - N deprivation: C3 up from 6 h (100% by 12 h), C2 from 6 h, C4 only at 48 h.
+  - N deprivation: C3 up from 6 h (100% by 12 h), C2 from 6 h, C4 17% at 24 h and 83% at 48 h.
   - lowN coculture: C4 up from day 18, everything peaks day 31 and falls by day 89.
-  - Iron: only C4, rising to 86% at 48 h.
+  - Iron: only C4, rising to 86% at 48 h. [Superseded pending the twin-rule rerun: critic #1]
   - Phage (array and lysate in light): C2/C4 up at the first time point only (1 h / 0.5 h).
   - Phosphate: no up.
-  - C1 is never up in any time course.
+  - C1 is rarely up in a time course: one gene at one time point in two experiments (PMM0093 at lowN day 60; PMM1317 at N-depleted 3 h).
 
 ## Run 6 (kg-coder): display decisions A.3–A.6
 
@@ -152,7 +153,7 @@ The light levels are tied to study, platform and stress type, so this is suggest
 - **lowN series labels** now say "vs the same culture in exponential growth (day 11), PRO99-lowN".
 - **Day 18 per cluster:**
   - C2, C3 and C4 are 60%, 100% and 67% down, i.e. higher in the starving control.
-  - C1 is 40% up (PMM0064 and PMM0471 higher in coculture).
+  - C1 is 40% up (2 of 5: PMM0064 and PMM0471 higher in coculture). C2 is 3 of 5 down, C3 2 of 2, C4 2 of 3.
 - **Day 11 per cluster:** C2 20% up, C4 33% up, nothing down.
 - **Not updated:**
   - `06_explore_timing.py` was not rerun (the KG is down), so the C labels lack the lowN suffix.
