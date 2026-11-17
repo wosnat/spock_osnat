@@ -58,7 +58,10 @@ def parse_hours(label: str):
 
 
 def read(p):
-    return pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""])
+    """Read a CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import display_overrides as dov
+    return dov.apply(pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""]))
 
 
 def main():
@@ -99,7 +102,8 @@ def main():
                                  testable_down=bool(rd.testable), flags_up=ru.flags, flags_down=rd.flags,
                                  sig_up=bool(ru.testable and ru.padj_bh < 0.05),
                                  sig_down=bool(rd.testable and rd.padj_bh < 0.05)))
-    tm = pd.DataFrame(rows).sort_values(["experiment_id", "set", "hours"])
+    import display_overrides as dov   # labels from experiments.csv get the A.3-A.6 display overrides
+    tm = dov.apply(pd.DataFrame(rows)).sort_values(["experiment_id", "set", "hours"])
     # check: hli gene-level counts equal analysis/data/hli_gene_calls.csv
     gc = read(DATA / "hli_gene_calls.csv")
     chk = gc[gc.experiment_id.isin(chosen)].groupby(["experiment_id", "timepoint"]).call.agg(
