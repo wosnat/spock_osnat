@@ -1,0 +1,225 @@
+family_type,family,family_size,scope_type,scope,n_experiment_timepoints,n_gene_observations,n_up,n_down,frac_up,frac_down
+ck_group,CK_00000050,1,light_reading_group,light_onset,5,5,0,0,0.0,0.0
+ck_group,CK_00000050,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00000050,1,light_reading_group,schedule_extension,4,4,3,0,0.75,0.0
+ck_group,CK_00000050,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00000050,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00000050,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
+ck_group,CK_00000050,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00000050,1,nonlight_stress_type,nitrogen,11,11,1,0,0.09090909090909091,0.0
+ck_group,CK_00000050,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00000050,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00000050,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00000050,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
+ck_group,CK_00000050,1,group,nonstress_possible_relief,5,5,0,0,0.0,0.0
+ck_group,CK_00000050,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00001058,1,light_reading_group,light_onset,5,5,0,0,0.0,0.0
+ck_group,CK_00001058,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00001058,1,light_reading_group,schedule_extension,4,4,0,2,0.0,0.5
+ck_group,CK_00001058,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00001058,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00001058,1,nonlight_stress_type,carbon,3,3,0,2,0.0,0.6666666666666666
+ck_group,CK_00001058,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00001058,1,nonlight_stress_type,nitrogen,11,11,0,3,0.0,0.2727272727272727
+ck_group,CK_00001058,1,nonlight_stress_type,phosphorus,1,1,0,1,0.0,1.0
+ck_group,CK_00001058,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00001058,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00001058,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
+ck_group,CK_00001058,1,group,nonstress_possible_relief,5,5,0,1,0.0,0.2
+ck_group,CK_00001058,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00001313,1,light_reading_group,light_onset,5,5,0,0,0.0,0.0
+ck_group,CK_00001313,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00001313,1,light_reading_group,schedule_extension,4,4,3,0,0.75,0.0
+ck_group,CK_00001313,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00001313,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00001313,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
+ck_group,CK_00001313,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00001313,1,nonlight_stress_type,nitrogen,11,11,0,1,0.0,0.09090909090909091
+ck_group,CK_00001313,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00001313,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00001313,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00001313,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,1,0,1.0,0.0
+ck_group,CK_00001313,1,group,nonstress_possible_relief,5,5,0,1,0.0,0.2
+ck_group,CK_00001313,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00001414,1,light_reading_group,light_onset,5,5,0,0,0.0,0.0
+ck_group,CK_00001414,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00001414,1,light_reading_group,schedule_extension,4,4,1,0,0.25,0.0
+ck_group,CK_00001414,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00001414,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00001414,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
+ck_group,CK_00001414,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00001414,1,nonlight_stress_type,nitrogen,11,11,0,1,0.0,0.09090909090909091
+ck_group,CK_00001414,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00001414,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00001414,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00001414,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,1,0,1.0,0.0
+ck_group,CK_00001414,1,group,nonstress_possible_relief,5,5,0,1,0.0,0.2
+ck_group,CK_00001414,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00002025,3,light_reading_group,light_onset,5,15,8,0,0.5333333333333333,0.0
+ck_group,CK_00002025,3,light_reading_group,constant_dark_vs_light,9,27,0,2,0.0,0.07407407407407407
+ck_group,CK_00002025,3,light_reading_group,schedule_extension,4,12,1,8,0.08333333333333333,0.6666666666666666
+ck_group,CK_00002025,3,light_reading_group,electron_transport_DCMU,1,3,0,0,0.0,0.0
+ck_group,CK_00002025,3,light_reading_group,phage_dark,3,9,0,0,0.0,0.0
+ck_group,CK_00002025,3,nonlight_stress_type,carbon,3,9,6,0,0.6666666666666666,0.0
+ck_group,CK_00002025,3,nonlight_stress_type,iron,3,9,1,0,0.1111111111111111,0.0
+ck_group,CK_00002025,3,nonlight_stress_type,nitrogen,11,33,15,0,0.45454545454545453,0.0
+ck_group,CK_00002025,3,nonlight_stress_type,phosphorus,1,3,0,0,0.0,0.0
+ck_group,CK_00002025,3,nonlight_stress_type,salt,1,3,0,0,0.0,0.0
+ck_group,CK_00002025,3,nonlight_stress_type,viral,13,39,2,0,0.05128205128205128,0.0
+ck_group,CK_00002025,3,timepoint_override,"N stress, control side (down = higher under stress)",1,3,0,3,0.0,1.0
+ck_group,CK_00002025,3,group,nonstress_possible_relief,5,15,4,3,0.26666666666666666,0.2
+ck_group,CK_00002025,3,timepoint_override,"coculture, both exponential",1,3,2,0,0.6666666666666666,0.0
+ck_group,CK_00002026,3,light_reading_group,light_onset,5,10,8,0,0.8,0.0
+ck_group,CK_00002026,3,light_reading_group,constant_dark_vs_light,9,27,0,3,0.0,0.1111111111111111
+ck_group,CK_00002026,3,light_reading_group,schedule_extension,4,12,1,5,0.08333333333333333,0.4166666666666667
+ck_group,CK_00002026,3,light_reading_group,electron_transport_DCMU,1,2,0,0,0.0,0.0
+ck_group,CK_00002026,3,light_reading_group,phage_dark,3,9,0,0,0.0,0.0
+ck_group,CK_00002026,3,nonlight_stress_type,carbon,3,7,5,0,0.7142857142857143,0.0
+ck_group,CK_00002026,3,nonlight_stress_type,iron,3,6,3,0,0.5,0.0
+ck_group,CK_00002026,3,nonlight_stress_type,nitrogen,11,17,6,0,0.35294117647058826,0.0
+ck_group,CK_00002026,3,nonlight_stress_type,phosphorus,1,3,0,0,0.0,0.0
+ck_group,CK_00002026,3,nonlight_stress_type,salt,1,3,0,0,0.0,0.0
+ck_group,CK_00002026,3,nonlight_stress_type,viral,13,38,5,0,0.13157894736842105,0.0
+ck_group,CK_00002026,3,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,1,0.0,1.0
+ck_group,CK_00002026,3,group,nonstress_possible_relief,5,11,4,4,0.36363636363636365,0.36363636363636365
+ck_group,CK_00002026,3,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00002103,1,light_reading_group,light_onset,5,5,1,0,0.2,0.0
+ck_group,CK_00002103,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00002103,1,light_reading_group,schedule_extension,4,4,1,0,0.25,0.0
+ck_group,CK_00002103,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00002103,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00002103,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
+ck_group,CK_00002103,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00002103,1,nonlight_stress_type,nitrogen,11,5,1,0,0.2,0.0
+ck_group,CK_00002103,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00002103,1,nonlight_stress_type,salt,1,0,0,0,,
+ck_group,CK_00002103,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00002103,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,1,0.0,1.0
+ck_group,CK_00002103,1,group,nonstress_possible_relief,5,2,0,0,0.0,0.0
+ck_group,CK_00002103,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00002168,4,light_reading_group,light_onset,5,15,8,0,0.5333333333333333,0.0
+ck_group,CK_00002168,4,light_reading_group,constant_dark_vs_light,9,35,0,1,0.0,0.02857142857142857
+ck_group,CK_00002168,4,light_reading_group,schedule_extension,4,16,6,7,0.375,0.4375
+ck_group,CK_00002168,4,light_reading_group,electron_transport_DCMU,1,3,0,1,0.0,0.3333333333333333
+ck_group,CK_00002168,4,light_reading_group,phage_dark,3,12,0,0,0.0,0.0
+ck_group,CK_00002168,4,nonlight_stress_type,carbon,3,10,6,0,0.6,0.0
+ck_group,CK_00002168,4,nonlight_stress_type,iron,3,9,2,0,0.2222222222222222,0.0
+ck_group,CK_00002168,4,nonlight_stress_type,nitrogen,11,22,9,0,0.4090909090909091,0.0
+ck_group,CK_00002168,4,nonlight_stress_type,phosphorus,1,4,0,0,0.0,0.0
+ck_group,CK_00002168,4,nonlight_stress_type,salt,1,4,0,0,0.0,0.0
+ck_group,CK_00002168,4,nonlight_stress_type,viral,13,51,3,0,0.058823529411764705,0.0
+ck_group,CK_00002168,4,timepoint_override,"N stress, control side (down = higher under stress)",1,2,0,1,0.0,0.5
+ck_group,CK_00002168,4,group,nonstress_possible_relief,5,15,2,6,0.13333333333333333,0.4
+ck_group,CK_00002168,4,timepoint_override,"coculture, both exponential",1,2,0,0,0.0,0.0
+ck_group,CK_00002332,2,light_reading_group,light_onset,5,5,4,0,0.8,0.0
+ck_group,CK_00002332,2,light_reading_group,constant_dark_vs_light,9,17,0,1,0.0,0.058823529411764705
+ck_group,CK_00002332,2,light_reading_group,schedule_extension,4,0,0,0,,
+ck_group,CK_00002332,2,light_reading_group,electron_transport_DCMU,1,1,0,1,0.0,1.0
+ck_group,CK_00002332,2,light_reading_group,phage_dark,3,6,0,0,0.0,0.0
+ck_group,CK_00002332,2,nonlight_stress_type,carbon,3,4,2,0,0.5,0.0
+ck_group,CK_00002332,2,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00002332,2,nonlight_stress_type,nitrogen,11,6,1,0,0.16666666666666666,0.0
+ck_group,CK_00002332,2,nonlight_stress_type,phosphorus,1,2,0,0,0.0,0.0
+ck_group,CK_00002332,2,nonlight_stress_type,salt,1,2,0,0,0.0,0.0
+ck_group,CK_00002332,2,nonlight_stress_type,viral,13,26,2,0,0.07692307692307693,0.0
+ck_group,CK_00002332,2,timepoint_override,"N stress, control side (down = higher under stress)",1,0,0,0,,
+ck_group,CK_00002332,2,group,nonstress_possible_relief,5,7,1,2,0.14285714285714285,0.2857142857142857
+ck_group,CK_00002332,2,timepoint_override,"coculture, both exponential",1,0,0,0,,
+ck_group,CK_00002661,1,light_reading_group,light_onset,5,5,0,0,0.0,0.0
+ck_group,CK_00002661,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00002661,1,light_reading_group,schedule_extension,4,4,1,1,0.25,0.25
+ck_group,CK_00002661,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00002661,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00002661,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
+ck_group,CK_00002661,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00002661,1,nonlight_stress_type,nitrogen,11,11,0,0,0.0,0.0
+ck_group,CK_00002661,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00002661,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00002661,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00002661,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
+ck_group,CK_00002661,1,group,nonstress_possible_relief,5,5,1,0,0.2,0.0
+ck_group,CK_00002661,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00003421,1,light_reading_group,light_onset,5,5,3,0,0.6,0.0
+ck_group,CK_00003421,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00003421,1,light_reading_group,schedule_extension,4,4,1,1,0.25,0.25
+ck_group,CK_00003421,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00003421,1,light_reading_group,phage_dark,3,3,0,2,0.0,0.6666666666666666
+ck_group,CK_00003421,1,nonlight_stress_type,carbon,3,3,1,0,0.3333333333333333,0.0
+ck_group,CK_00003421,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00003421,1,nonlight_stress_type,nitrogen,11,11,5,0,0.45454545454545453,0.0
+ck_group,CK_00003421,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00003421,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00003421,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00003421,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,1,0.0,1.0
+ck_group,CK_00003421,1,group,nonstress_possible_relief,5,5,0,0,0.0,0.0
+ck_group,CK_00003421,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00003510,1,light_reading_group,light_onset,5,5,2,0,0.4,0.0
+ck_group,CK_00003510,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00003510,1,light_reading_group,schedule_extension,4,4,0,0,0.0,0.0
+ck_group,CK_00003510,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00003510,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00003510,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
+ck_group,CK_00003510,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00003510,1,nonlight_stress_type,nitrogen,11,11,4,0,0.36363636363636365,0.0
+ck_group,CK_00003510,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00003510,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00003510,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00003510,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
+ck_group,CK_00003510,1,group,nonstress_possible_relief,5,5,0,1,0.0,0.2
+ck_group,CK_00003510,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00003573,1,light_reading_group,light_onset,5,5,0,0,0.0,0.0
+ck_group,CK_00003573,1,light_reading_group,constant_dark_vs_light,9,9,0,0,0.0,0.0
+ck_group,CK_00003573,1,light_reading_group,schedule_extension,4,4,2,1,0.5,0.25
+ck_group,CK_00003573,1,light_reading_group,electron_transport_DCMU,1,1,0,0,0.0,0.0
+ck_group,CK_00003573,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
+ck_group,CK_00003573,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
+ck_group,CK_00003573,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
+ck_group,CK_00003573,1,nonlight_stress_type,nitrogen,11,11,5,0,0.45454545454545453,0.0
+ck_group,CK_00003573,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00003573,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
+ck_group,CK_00003573,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
+ck_group,CK_00003573,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
+ck_group,CK_00003573,1,group,nonstress_possible_relief,5,5,2,0,0.4,0.0
+ck_group,CK_00003573,1,timepoint_override,"coculture, both exponential",1,1,0,0,0.0,0.0
+ck_group,CK_00043616,2,light_reading_group,light_onset,5,5,4,0,0.8,0.0
+ck_group,CK_00043616,2,light_reading_group,constant_dark_vs_light,9,18,0,0,0.0,0.0
+ck_group,CK_00043616,2,light_reading_group,schedule_extension,4,8,0,4,0.0,0.5
+ck_group,CK_00043616,2,light_reading_group,electron_transport_DCMU,1,1,0,1,0.0,1.0
+ck_group,CK_00043616,2,light_reading_group,phage_dark,3,6,0,0,0.0,0.0
+ck_group,CK_00043616,2,nonlight_stress_type,carbon,3,4,2,0,0.5,0.0
+ck_group,CK_00043616,2,nonlight_stress_type,iron,3,3,1,0,0.3333333333333333,0.0
+ck_group,CK_00043616,2,nonlight_stress_type,nitrogen,11,6,1,0,0.16666666666666666,0.0
+ck_group,CK_00043616,2,nonlight_stress_type,phosphorus,1,2,0,0,0.0,0.0
+ck_group,CK_00043616,2,nonlight_stress_type,salt,1,2,0,0,0.0,0.0
+ck_group,CK_00043616,2,nonlight_stress_type,viral,13,26,2,0,0.07692307692307693,0.0
+ck_group,CK_00043616,2,timepoint_override,"N stress, control side (down = higher under stress)",1,0,0,0,,
+ck_group,CK_00043616,2,group,nonstress_possible_relief,5,6,2,4,0.3333333333333333,0.6666666666666666
+ck_group,CK_00043616,2,timepoint_override,"coculture, both exponential",1,0,0,0,,
+copy_class,multi_copy,14,light_reading_group,light_onset,5,50,32,0,0.64,0.0
+copy_class,multi_copy,14,light_reading_group,constant_dark_vs_light,9,124,0,7,0.0,0.056451612903225805
+copy_class,multi_copy,14,light_reading_group,schedule_extension,4,48,8,24,0.16666666666666666,0.5
+copy_class,multi_copy,14,light_reading_group,electron_transport_DCMU,1,10,0,3,0.0,0.3
+copy_class,multi_copy,14,light_reading_group,phage_dark,3,42,0,0,0.0,0.0
+copy_class,multi_copy,14,nonlight_stress_type,carbon,3,34,21,0,0.6176470588235294,0.0
+copy_class,multi_copy,14,nonlight_stress_type,iron,3,30,7,0,0.23333333333333334,0.0
+copy_class,multi_copy,14,nonlight_stress_type,nitrogen,11,84,32,0,0.38095238095238093,0.0
+copy_class,multi_copy,14,nonlight_stress_type,phosphorus,1,14,0,0,0.0,0.0
+copy_class,multi_copy,14,nonlight_stress_type,salt,1,14,0,0,0.0,0.0
+copy_class,multi_copy,14,nonlight_stress_type,viral,13,180,14,0,0.07777777777777778,0.0
+copy_class,multi_copy,14,timepoint_override,"N stress, control side (down = higher under stress)",1,6,0,5,0.0,0.8333333333333334
+copy_class,multi_copy,14,group,nonstress_possible_relief,5,54,13,19,0.24074074074074073,0.35185185185185186
+copy_class,multi_copy,14,timepoint_override,"coculture, both exponential",1,6,2,0,0.3333333333333333,0.0
+copy_class,single_copy,9,light_reading_group,light_onset,5,45,6,0,0.13333333333333333,0.0
+copy_class,single_copy,9,light_reading_group,constant_dark_vs_light,9,81,0,0,0.0,0.0
+copy_class,single_copy,9,light_reading_group,schedule_extension,4,36,12,5,0.3333333333333333,0.1388888888888889
+copy_class,single_copy,9,light_reading_group,electron_transport_DCMU,1,9,0,0,0.0,0.0
+copy_class,single_copy,9,light_reading_group,phage_dark,3,27,0,2,0.0,0.07407407407407407
+copy_class,single_copy,9,nonlight_stress_type,carbon,3,27,1,2,0.037037037037037035,0.07407407407407407
+copy_class,single_copy,9,nonlight_stress_type,iron,3,27,0,0,0.0,0.0
+copy_class,single_copy,9,nonlight_stress_type,nitrogen,11,93,16,5,0.17204301075268819,0.053763440860215055
+copy_class,single_copy,9,nonlight_stress_type,phosphorus,1,9,0,1,0.0,0.1111111111111111
+copy_class,single_copy,9,nonlight_stress_type,salt,1,8,0,0,0.0,0.0
+copy_class,single_copy,9,nonlight_stress_type,viral,13,117,0,0,0.0,0.0
+copy_class,single_copy,9,timepoint_override,"N stress, control side (down = higher under stress)",1,9,2,2,0.2222222222222222,0.2222222222222222
+copy_class,single_copy,9,group,nonstress_possible_relief,5,42,3,4,0.07142857142857142,0.09523809523809523
+copy_class,single_copy,9,timepoint_override,"coculture, both exponential",1,9,0,0,0.0,0.0

@@ -55,7 +55,7 @@ DIRECTION_NOTE = "Direction = treatment vs control, as stored in the KG (no ligh
 def read(name):
     """Read an analysis CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory."""
     import display_overrides as dov
-    return dov.apply(pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""]))
+    return dov.drop(dov.apply(pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""])))   # A.8: 2016 coculture dropped from all figures
 
 
 def save(fig, stem):
@@ -149,7 +149,7 @@ def gene_heatmap(gc, t, by, stem):
                        Patch(facecolor=NS, label="not significant"),
                        Patch(facecolor="white", edgecolor="#c9c8c3", hatch="////", label="not measured")],
               loc="upper left", bbox_to_anchor=(1.005, 1), fontsize=6, frameon=False)
-    ttl = ("hli genes (MED4, 23 locus tags, ordered by Cyanorak CK group) across 29 experiments, "
+    ttl = (f"hli genes (MED4, 23 locus tags, ordered by Cyanorak CK group) across {t.experiment_id.nunique()} experiments, "
            + ("grouped by light reading and experiment group" if by == "group"
               else "columns ordered by treatment-arm light level (block label, µmol photons m⁻² s⁻¹)"))
     ax.set_title(ttl, fontsize=9, loc="left", color=INK, pad=38)
@@ -332,7 +332,8 @@ def experiment_calls(calls, t, by, stem):
 def main():
     t = read("hli_tests.csv")
     gc = read("hli_gene_calls.csv")
-    res = read("resemblance.csv")
+    import display_overrides as dov
+    res = dov.resemblance_without_dropped(DATA)[0]   # A.8: counts without the 2016 coculture (CSV unchanged)
     calls = read("experiment_calls.csv")
     for by in ("group", "light"):
         gene_heatmap(gc, t, by, FIG / f"hli_gene_heatmap_by_{by}")

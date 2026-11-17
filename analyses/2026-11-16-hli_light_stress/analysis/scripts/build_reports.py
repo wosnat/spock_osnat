@@ -111,9 +111,10 @@ function wireGrid(spec,selId){const sel=selId?document.getElementById(selId):nul
 
 
 def read(name):
-    """Read an analysis CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory."""
+    """Read an analysis CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory;
+    A.8: rows of the dropped 2016 coculture are kept and marked in column 'dropped' (use dov.drop for figures)."""
     import display_overrides as dov
-    return dov.apply(pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""]))
+    return dov.mark(dov.apply(pd.read_csv(DATA / name, encoding="utf-8", keep_default_na=False, na_values=[""])))
 
 
 def fmt(v):
@@ -174,18 +175,24 @@ def codefine():
 
 
 def main():
-    t = read("hli_tests.csv")
-    gc = read("hli_gene_calls.csv")
-    calls = read("experiment_calls.csv")
+    import display_overrides as dov
+    t_all = read("hli_tests.csv")          # tables: all rows, 2016 coculture marked (A.8)
+    gc_all = read("hli_gene_calls.csv")
+    calls_all = read("experiment_calls.csv")
+    t, gc, calls = dov.drop(t_all), dov.drop(gc_all), dov.drop(calls_all)   # figures and headline counts (A.8)
     lr = read("light_readings.csv")
-    res = read("resemblance.csv")
-    rb = read("hli_random_baseline.csv")
+    res, res_old = dov.resemblance_without_dropped(DATA)   # A.8 recount; resemblance.csv unchanged
+    res_tbl = res.merge(res_old[["set", "scope_type", "scope", "n_testable", "n_sig_up", "n_sig_down", "n_experiments"]],
+                        on=["set", "scope_type", "scope"], suffixes=("", "_before_A8"))
+    rb_all = read("hli_random_baseline.csv")
+    rb = dov.drop(rb_all)
     cov = read("qc_hli_coverage.csv")
     qcbh = read("qc_bh_recompute.csv")
     sign = read("qc_de_sign.csv")
     qcde = read("qc_de.csv")
     h = t[t.set == "hli"]
-    import display_overrides as dov
+    h_all = t_all[t_all.set == "hli"]
+    n_exp, n_exp_all = t.experiment_id.nunique(), t_all.experiment_id.nunique()
     pc = t[t.experiment_id == dov.COCULT25].copy()
     pc["sig"] = pc.testable & (pc.padj_bh < 0.05)
     rows_ = []
@@ -227,12 +234,14 @@ def main():
             v=(-np.log10(max(r.padj_bh, 1e-300)) if not np.isnan(r.padj_bh) else 0.0),
             sig=bool(r.padj_bh < 0.05) if not np.isnan(r.padj_bh) else False, gw="genome_wide" in fl, tip=tip)
     sspec = dict(el="shm", rows=s_rows, cols=cols, cells=s_cells, blockLabel=BLOCK_LABEL, colLabels=True, left=420, top=120)
-    hcols = ["label", "label_detailed", "light_reading_group", "more_light_arm", "timepoint", "direction",
+    hcols = ["dropped", "label", "label_detailed", "light_reading_group", "more_light_arm", "timepoint", "direction",
              "n_measured_in_background", "n_sig_in_set", "n_sig_total", "background_type", "share_sig_both_directions",
              "pvalue", "padj_bh", "flags", "pvalue_in_table", "padj_in_table_bh", "empirical_p_random",
              "n_groups_measured", "n_groups_up", "n_groups_down_reported", "experiment_id"]
     body = f"""<h1>hli heatmaps</h1>
-<p class="lead">MED4: the 23 hli genes and the hli set-level tests next to every reference set, in 29 experiments. {DIRECTION_NOTE}</p>
+<p class="lead">MED4: the 23 hli genes and the hli set-level tests next to every reference set, in {n_exp} experiments. {DIRECTION_NOTE}</p>
+<p class="note">A.8: Coculture HOT1A3 (2016) is dropped from the heatmaps (unreliable table); its rows stay in the tables below,
+marked "{dov.DROPPED_NOTE}".</p>
 <div class="controls"><label>Column order <select id="ord">
 <option value="group">by light reading / experiment group</option><option value="light">by treatment-arm light level</option></select></label></div>
 <h2>Gene level: 23 hli genes</h2>
@@ -247,15 +256,15 @@ significant genes; gray = not testable or descriptive; dot = more than 30% of me
 <div class="wrap" style="max-height:none" id="shm"></div>
 <p class="note">Static figures: <a href="../figures/hli_gene_heatmap_by_group.png">genes by group</a>, <a href="../figures/hli_gene_heatmap_by_light.png">genes by light</a>,
 <a href="../figures/set_band_by_group.png">sets by group</a>, <a href="../figures/set_band_by_light.png">sets by light</a>.</p>
-<h2>hli tests</h2><div class="controls"><input id="fh" placeholder="filter"></div>{table(h[hcols], "th")}
+<h2>hli tests</h2><div class="controls"><input id="fh" placeholder="filter"></div>{table(h_all[hcols], "th")}
 <h2>hli random baseline</h2><p class="note">Per hli test: fraction of the 200 size-matched random sets (same background) with p ≤ the hli p.</p>
-{table(rb[["label", "timepoint", "direction", "hli_pvalue", "random_set_size", "n_random", "n_random_p_le_hli", "empirical_p_random", "random_frac_p_lt_05", "flags", "testable"]], "trb")}
+{table(rb_all[["dropped", "label", "timepoint", "direction", "hli_pvalue", "random_set_size", "n_random", "n_random_p_le_hli", "empirical_p_random", "random_frac_p_lt_05", "flags", "testable"]], "trb")}
 <h2>hli gene calls</h2><div class="controls"><input id="fg" placeholder="filter (locus tag, label, call)"></div>
-{table(gc[["locus_tag", "ck_group", "label", "label_detailed", "timepoint", "call", "call_source", "log2fc", "padj", "test_type", "experiment_id"]], "tg")}"""
+{table(gc_all[["dropped", "locus_tag", "ck_group", "label", "label_detailed", "timepoint", "call", "call_source", "log2fc", "padj", "test_type", "experiment_id"]], "tg")}"""
     js = (f"const GS={json.dumps(gspec)};const SS={json.dumps(sspec)};"
           "const o=document.getElementById('ord');const d=()=>{grid(GS,o.value);grid(SS,o.value)};o.addEventListener('change',d);d();"
           "filterTable('fh','th');filterTable('fg','tg');")
-    (REP / "hli_heatmaps.html").write_text(page("hli heatmaps", "Gene-level hli calls and set-level tests for hli and all reference sets in 29 MED4 experiments.", body, js), encoding="utf-8")
+    (REP / "hli_heatmaps.html").write_text(page("hli heatmaps", f"Gene-level hli calls and set-level tests for hli and all reference sets in {n_exp} MED4 experiments.", body, js), encoding="utf-8")
 
     # ---------------- aggregate.html
     a_rows = [dict(k=s, label=l, band=b) for s, l, b in SET_ROWS]
@@ -290,6 +299,8 @@ significant genes; gray = not testable or descriptive; dot = more than 30% of me
                  left=330, top=120)
     body = f"""<h1>Aggregated results: hli and the reference sets</h1>
 <p class="lead">Per gene set: how many testable tests reach BH padj &lt; 0.05 in each reading scope, and the per-experiment calls. {DIRECTION_NOTE}</p>
+<p class="note">A.8: Coculture HOT1A3 (2016) is left out of the grids and counts (unreliable table); its rows stay in the experiment
+calls table, marked "{dov.DROPPED_NOTE}".</p>
 <h2>By reading scope</h2>
 <p class="note">Each cell: left half = tests significant up (orange, shade = share of testable tests), right half = significant down (blue);
 n = testable tests. Light onset: treatment lit. Constant dark vs light: control lit. Schedule extension pools extended light (treatment lit)
@@ -303,13 +314,14 @@ per set, padj &lt; 0.05. Hatched = no testable time point. Hover for time-point 
 <option value="light">by treatment-arm light level</option></select></label></div>
 <div class="wrap" style="max-height:none" id="ecall"></div>
 <p class="note">Static: <a href="../figures/experiment_calls_by_group.png">by group</a>, <a href="../figures/experiment_calls_by_light.png">by light level</a></p>
-<h2>Resemblance table</h2><div class="controls"><input id="fr" placeholder="filter (set, scope)"></div>{table(res, "tr")}
+<h2>Resemblance table</h2><p class="note">A.8: counts without Coculture HOT1A3 (2016); the *_before_A8 columns are the counts
+with it (resemblance.csv on disk).</p><div class="controls"><input id="fr" placeholder="filter (set, scope)"></div>{table(res_tbl, "tr")}
 <h2>Experiment calls (all sets)</h2>
 <p class="note">Coculture HOT1A3 vs axenic (2025) keeps one experiment-level row; per decisions A.3–A.6 its day 11 is non-stress
 (both arms exponential) and its day 18 is N stress from the control side (the axenic control is N-starving and dying). Its
 per-time-point set-level calls are shown below the table.</p>
 <div class="controls"><input id="fc" placeholder="filter"></div>
-{table(calls[["label", "label_detailed", "display_note", "light_reading_group", "set", "set_role", "direction", "timepoint_count", "p_exp_bonferroni", "padj_exp_bh", "experiment_call", "experiment_id"]], "tc")}
+{table(calls_all[["dropped", "label", "label_detailed", "display_note", "light_reading_group", "set", "set_role", "direction", "timepoint_count", "p_exp_bonferroni", "padj_exp_bh", "experiment_call", "experiment_id"]], "tc")}
 <p class="note">Coculture HOT1A3 vs axenic (2025), per time point (set level, BH padj &lt; 0.05 among testable tests):</p>
 {table(pt_calls, "tpc")}"""
     js = (f"const AS={json.dumps(aspec)};const ES={json.dumps(espec)};grid(AS,'group');wireGrid(ES,'eord');"
@@ -327,17 +339,28 @@ response, otherwise unclear; 4 h / 16 h pair (flagged genome-wide) shown as cont
     (REP / "light_readings.html").write_text(page("Light readings", "hli in the light experiments, read with the fixed light rules (light onset, constant dark vs light, schedule extension, DCMU, phage dark).", body), encoding="utf-8")
 
     # ---------------- summary.html
-    hs_ = h[h.testable]
+    def headline(hh, cc, gg, rr):
+        hs_ = hh[hh.testable]
+        ce = cc[cc.set == "hli"].drop_duplicates("experiment_id").experiment_call
+        return [len(hh), int(hh.testable.sum()),
+                f"{int(((hs_.padj_bh < 0.05) & (hs_.direction == 'up')).sum())} / {int(((hs_.padj_bh < 0.05) & (hs_.direction == 'down')).sum())}",
+                " / ".join(str(int((ce == c).sum())) for c in ["up", "down", "both", "neither", "not_tested"]),
+                " / ".join(str(int((gg.call == c).sum())) for c in ["up", "down", "ns", "not_measured"]),
+                int((rr[rr.testable == True].empirical_p_random <= 0.05).sum())]  # noqa: E712
+    new_h, old_h = headline(h, calls, gc, rb), headline(h_all, calls_all, gc_all, rb_all)
+
+    def ab(i):
+        return f"{new_h[i]}  (before A.8: {old_h[i]})" if str(new_h[i]) != str(old_h[i]) else str(new_h[i])
+    print("headline new:", new_h)
+    print("headline old:", old_h)
     facts = pd.DataFrame([
-        ("hli tests (experiment × timepoint × direction)", len(h)),
-        ("hli testable tests", int(h.testable.sum())),
-        ("hli tests with BH padj < 0.05: up / down", f"{int(((hs_.padj_bh < 0.05) & (hs_.direction == 'up')).sum())} / {int(((hs_.padj_bh < 0.05) & (hs_.direction == 'down')).sum())}"),
-        ("hli experiment calls: up / down / both / neither / not tested",
-         " / ".join(str(int((calls[(calls.set == 'hli')].drop_duplicates('experiment_id').experiment_call == c).sum()))
-                    for c in ["up", "down", "both", "neither", "not_tested"])),
-        ("hli gene × experiment × timepoint calls: up / down / ns / not measured",
-         " / ".join(str(int((gc.call == c).sum())) for c in ["up", "down", "ns", "not_measured"])),
-        ("Testable hli tests with empirical p (random sets) ≤ 0.05", int((rb[rb.testable == True].empirical_p_random <= 0.05).sum())),
+        ("Experiments counted (A.8: Coculture HOT1A3 (2016) excluded)", f"{n_exp}  (before A.8: {n_exp_all})"),
+        ("hli tests (experiment × timepoint × direction)", ab(0)),
+        ("hli testable tests", ab(1)),
+        ("hli tests with BH padj < 0.05: up / down", ab(2)),
+        ("hli experiment calls: up / down / both / neither / not tested", ab(3)),
+        ("hli gene × experiment × timepoint calls: up / down / ns / not measured", ab(4)),
+        ("Testable hli tests with empirical p (random sets) ≤ 0.05", ab(5)),
         ("BH recompute (statsmodels) max |Δ| over 13 sets", f"{qcbh[qcbh.check.str.startswith('bh_')].max_abs_diff.max():.1e}"),
         ("Reference rows vs methods control_tests: max |Δ padj|", f"{qcbh[qcbh.check == 'reference_vs_methods:padj_bh'].max_abs_diff.iloc[0]:.1e}"),
         ("Random sets vs methods: max |Δ p|", f"{qcbh[qcbh.check == 'random_sets_vs_methods:pvalue'].max_abs_diff.iloc[0]:.1e}"),
@@ -351,6 +374,9 @@ response, otherwise unclear; 4 h / 16 h pair (flagged genome-wide) shown as cont
 exponential; day 18 N stress from the control side); its experiment-level call stays one row ("day 11 non-stress; day 18 N stress
 from the control side; see A.3–A.6"). PRO99-lowN starvation labels add "vs the same culture in exponential growth (day 11)".
 Labels and grouping only; no test changed.</p>
+<p class="note">Decision A.8: Coculture HOT1A3 (2016) is dropped (unreliable table). It is left out of every figure, every
+exploration and the counts below (each changed count shows its value before A.8); its rows stay in the part A tables, marked
+"{dov.DROPPED_NOTE}". No test, p-value or BH correction was recomputed.</p>
 <h2>What this milestone asked</h2>{codefine()}
 <h2>Run facts</h2>{table(facts)}
 <h2>Pages</h2><ul><li><a href="hli_heatmaps.html">hli heatmaps</a> — gene-level and set-level heatmaps, hli tests, random baseline, gene calls</li>
@@ -360,7 +386,7 @@ Labels and grouping only; no test changed.</p>
 <h2>QC</h2>{table(qcbh)}<p class="note">hli coverage per experiment × timepoint:</p>{table(cov)}
 <p class="note">Sign distribution of full DE tables:</p>{table(sign)}<p class="note">DE row checks:</p>{table(qcde)}
 <h2>Files</h2><ul>{''.join(f'<li><a href="{f}">{html.escape(f)}</a></li>' for f in files)}</ul>"""
-    (REP / "summary.html").write_text(page("Analysis summary", "Analysis part A (MED4): hli scored in 29 experiments; run facts, QC and links (no interpretation).", body), encoding="utf-8")
+    (REP / "summary.html").write_text(page("Analysis summary", f"Analysis part A (MED4): hli scored in {n_exp_all} experiments ({n_exp} after dropping the 2016 coculture, A.8); run facts, QC and links (no interpretation).", body), encoding="utf-8")
     print("wrote", sorted(p.name for p in REP.glob("*.html")))
 
 

@@ -61,7 +61,7 @@ def read(p):
     """Read a CSV; display overrides (A.3-A.6: labels and grouping only) applied in memory."""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import display_overrides as dov
-    return dov.apply(pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""]))
+    return dov.drop(dov.apply(pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""])))   # A.8: 2016 coculture dropped
 
 
 def main():

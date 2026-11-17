@@ -1,4 +1,4 @@
-"""Size and taxonomic spread of the 14 Cyanorak hli ortholog groups (researcher curiosity question).
+"""Size, taxonomic and clade (KG organism.clade) spread of the 14 Cyanorak hli ortholog groups (researcher curiosity question).
 
 Writes analysis/data/og_conservation.csv: per group, MED4 members, total genes, organisms,
 and the organism list; plus the D cluster of the MED4 members (twin-rule clusters).
@@ -17,7 +17,15 @@ assert r["total_matching"] == len(r["results"]), "truncated"
 df = pd.DataFrame(r["results"])
 gcol = "group_id"
 ocol = "organism_name" if "organism_name" in df.columns else "organism"
-n_org_kg = len(list_organisms(limit=None)["results"]) if True else None
+ORGS = list_organisms(limit=None)["results"]
+n_org_kg = len(ORGS)
+CLADE = {o["organism_name"]: (o.get("clade") or "none") for o in ORGS}
+
+def ecotype(org):
+    c = CLADE.get(org, "none")
+    if "Prochlorococcus" not in org:
+        return "non-Prochlorococcus"
+    return "HL" if c.startswith("HL") else "LL" if c.startswith("LL") else "Pro clade unknown"
 clus = pd.read_csv(HERE / "data" / "explore_D_gene_clusters.csv")[["locus_tag", "cluster"]]
 rows = []
 for g, sub in df.groupby(gcol):
@@ -30,6 +38,10 @@ for g, sub in df.groupby(gcol):
                      n_prochlorococcus=sum("Prochlorococcus" in o for o in orgs),
                      n_synechococcus=sum("Synechococcus" in o for o in orgs),
                      n_other=sum(("Prochlorococcus" not in o and "Synechococcus" not in o) for o in orgs),
+                     n_pro_HL=sum(ecotype(o) == "HL" for o in orgs),
+                     n_pro_LL=sum(ecotype(o) == "LL" for o in orgs),
+                     n_pro_clade_unknown=sum(ecotype(o) == "Pro clade unknown" for o in orgs),
+                     pro_clades=";".join(sorted({CLADE.get(o, "none") for o in orgs if "Prochlorococcus" in o})),
                      organisms="; ".join(orgs)))
 out = pd.DataFrame(rows).sort_values("n_organisms", ascending=False)
 out.to_csv(HERE / "data" / "og_conservation.csv", index=False, encoding="utf-8")

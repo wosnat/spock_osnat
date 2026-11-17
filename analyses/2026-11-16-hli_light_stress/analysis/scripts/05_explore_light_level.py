@@ -35,7 +35,7 @@ def main():
     import sys
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import display_overrides as dov   # A.3-A.6: labels and grouping only
-    t = dov.apply(pd.read_csv(DATA / "hli_tests.csv", encoding="utf-8", keep_default_na=False, na_values=[""]))
+    t = dov.drop(dov.apply(pd.read_csv(DATA / "hli_tests.csv", encoding="utf-8", keep_default_na=False, na_values=[""])))   # A.8
     t = t[(t.light_reading_group == "none") & t.set.isin([s for s, _ in SETS])].copy()
     t["flags"] = t["flags"].fillna("")
     t["status"] = np.select(
@@ -101,7 +101,7 @@ def main():
                                    label="too few significant genes (raw p)"),
                             Line2D([], [], marker="x", ls="", color=MUTED, label="not testable / descriptive (y=0)")],
                    fontsize=6.5, frameon=False, loc="upper right")
-    fig.suptitle("Light level vs set-level result, non-light stress and non-stress experiments (18 experiments, MED4)",
+    fig.suptitle(f"Light level vs set-level result, non-light stress and non-stress experiments ({t.experiment_id.nunique()} experiments, MED4; 2016 coculture dropped, A.8)",
                  fontsize=9.5, x=0.01, y=1.06, ha="left")
     fig.text(0.01, -0.04, "Cross-study comparison: light level is confounded with platform, design and stress type. "
              "x jittered ±0.9 for visibility. Dotted lines: padj = 0.05. Treatment vs control (no flip).",

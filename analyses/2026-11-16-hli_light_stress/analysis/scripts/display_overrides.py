@@ -57,3 +57,56 @@ def apply(df: pd.DataFrame) -> pd.DataFrame:
     if not has_tp:
         d["display_note"] = d.experiment_id.map(EXP_NOTE).fillna("")
     return d
+
+
+# ---- A.8: Coculture HOT1A3 (2016) is dropped from every exploration display and computation and from the
+# part A heatmaps / set bands / per-experiment call figures. Part A tables keep its rows, marked with DROPPED_NOTE.
+COCULT16 = "10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq"
+DROPPED_NOTE = "dropped: unreliable table (A.8)"
+DROPPED = {COCULT16: DROPPED_NOTE}
+
+
+def drop(df: pd.DataFrame) -> pd.DataFrame:
+    """Rows of DROPPED experiments removed (A.8). Frames without experiment_id are returned unchanged."""
+    if "experiment_id" not in df.columns:
+        return df
+    return df[~df.experiment_id.isin(DROPPED)].copy()
+
+
+def mark(df: pd.DataFrame) -> pd.DataFrame:
+    """Adds column 'dropped' = DROPPED_NOTE for DROPPED experiments, '' otherwise (part A tables keep the rows)."""
+    if "experiment_id" not in df.columns:
+        return df
+    d = df.copy()
+    d["dropped"] = d.experiment_id.map(DROPPED).fillna("")
+    return d
+
+
+def resemblance_without_dropped(data_dir, alpha=0.05):
+    """resemblance.csv recounted in memory without DROPPED experiments (A.8), using the same scope rules as
+    02_light_readings.py on the raw hli_tests.csv (no display overrides, so only A.8 changes the counts).
+    resemblance.csv on disk is not rewritten. Returns (new, old) frames with identical keys."""
+    import numpy as np
+    from pathlib import Path
+    data_dir = Path(data_dir)
+    old = pd.read_csv(data_dir / "resemblance.csv", encoding="utf-8", keep_default_na=False, na_values=[""])
+    t = pd.read_csv(data_dir / "hli_tests.csv", encoding="utf-8", keep_default_na=False, na_values=[""])
+    t = t[~t.experiment_id.isin(DROPPED)]
+    tt = t[t.testable == True]  # noqa: E712
+    rows = []
+    for r in old.itertuples():
+        if r.scope_type == "light_reading_group":
+            m = tt.light_reading_group == r.scope
+        elif r.scope_type == "nonlight_stress_type":
+            m = (tt.group == "nonlight_stress") & (tt.stress_type == r.scope)
+        else:
+            m = tt.group == r.scope
+        g = tt[m & (tt.set == r.set)]
+        sig = g[g.padj_bh < alpha]
+        n = len(g)
+        nu, nd = int((sig.direction == "up").sum()), int((sig.direction == "down").sum())
+        rows.append(dict(set=r.set, set_role=r.set_role, scope_type=r.scope_type, scope=r.scope, n_testable=n,
+                         n_sig_up=nu, n_sig_down=nd, frac_sig_any=(nu + nd) / n if n else np.nan,
+                         frac_sig_up=nu / n if n else np.nan, frac_sig_down=nd / n if n else np.nan,
+                         n_experiments=g.experiment_id.nunique()))
+    return pd.DataFrame(rows), old

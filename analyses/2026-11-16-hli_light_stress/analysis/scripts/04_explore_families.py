@@ -54,7 +54,7 @@ def read(p):
     import sys as _s
     _s.path.insert(0, str(Path(__file__).resolve().parent))
     import display_overrides as dov
-    return dov.apply(pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""]))
+    return dov.drop(dov.apply(pd.read_csv(p, encoding="utf-8", keep_default_na=False, na_values=[""])))   # A.8: 2016 coculture dropped
 
 
 def save(fig, stem):

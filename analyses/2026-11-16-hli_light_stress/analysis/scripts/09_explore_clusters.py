@@ -129,7 +129,7 @@ def match_labels(ref, other):
 
 def main():
     import display_overrides as dov   # A.3-A.6: labels and grouping only
-    gc = dov.apply(pd.read_csv(DATA / "hli_gene_calls.csv", encoding="utf-8", keep_default_na=False, na_values=[""]))
+    gc = dov.drop(dov.apply(pd.read_csv(DATA / "hli_gene_calls.csv", encoding="utf-8", keep_default_na=False, na_values=[""])))   # A.8
     import twin_rule   # critic #1: absent twin in significant-only tables -> not defined
     gc_raw = gc.copy()
     gc = twin_rule.recode_gene_calls(gc)

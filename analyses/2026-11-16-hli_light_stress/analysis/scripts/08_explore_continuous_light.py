@@ -1,6 +1,6 @@
 """Exploration B2: light-level views restricted to the continuous-light experiments.
 
-The 18 experiments with light_reading_group == 'none' (non-light stress and non-stress; both arms at the
+The 17 experiments (18 minus the dropped 2016 coculture, A.8) with light_reading_group == 'none' (non-light stress and non-stress; both arms at the
 same light). Asserts that all 18 have light_condition 'continuous light'. Columns ordered by
 light_treatment_umol (low -> high), one block per light level. Reuses the drawing functions of
 analysis/scripts/03_figures.py unchanged (titles and the key are adjusted at save time).
@@ -21,13 +21,14 @@ spec = importlib.util.spec_from_file_location("figs", HERE / "03_figures.py")
 figs = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(figs)
 DATA, FIG = figs.DATA, figs.FIG
-SUFFIX = " — continuous-light experiments only (18, light_reading_group none), ordered by light level"
+SUFFIX = " — continuous-light experiments only (17, light_reading_group none; 2016 coculture dropped, A.8), ordered by light level"
 
 
 def main():
     ex = pd.read_csv(DATA.parents[1] / "methods" / "data" / "experiments.csv", encoding="utf-8")
-    cl = ex[ex.light_reading_group == "none"]
-    assert len(cl) == 18, len(cl)
+    import display_overrides as dov   # A.8: 2016 coculture dropped
+    cl = dov.drop(ex[ex.light_reading_group == "none"])
+    assert len(cl) == 17, len(cl)
     assert (cl.light_condition_raw == "continuous light").all(), cl.light_condition_raw.unique()
     assert (cl.light_treatment_umol == cl.light_control_umol).all()
     keep = set(cl.experiment_id)
@@ -48,7 +49,7 @@ def main():
     def save(fig, stem):
         ax = fig.axes[0]
         ttl = ax.get_title(loc="left")
-        ttl = ttl.replace("across 29 experiments, ", "across 18 experiments, ").replace(
+        ttl = ttl.replace(
             ", columns ordered by treatment-arm light level (block label, µmol photons m⁻² s⁻¹)", "")
         ttl = ttl.replace(", columns ordered by treatment-arm light level", "").replace(
             ", ordered by treatment-arm light level", "")
