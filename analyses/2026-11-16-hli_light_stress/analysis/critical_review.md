@@ -28,3 +28,33 @@ Reviewer: `critic`, cold read of analysis/. Trusted inputs: proposal, decisions_
 | 10 | Note | Coculture 2016 down call is cited without its anomaly (82% of log2FC negative; hli down to −14). | Accept | **Fix.** Cross-reference the anomaly. |
 | 11 | Note | "Columns group by response, not experiment" has no null baseline. | Accept | **Soften** to "columns mix experiments". |
 | 12 | Note | Day 18 percentages rest on 2–5 defined genes. | Accept | **Fix.** Show counts next to percentages. |
+
+## Researcher decisions on the first pass
+
+- #1, #2: approved and fixed (Run 7).
+- #10: coculture 2016 dropped (A.8).
+- All other findings fixed as proposed.
+
+## Delta pass (data-integrity + interpretation)
+
+No Blocker. The pass confirmed against the files:
+- twin pairs and the 54 recoded cells;
+- that the rule code touches only the one-twin-listed case;
+- new cluster membership and robustness;
+- the Run 7 per-cluster counts;
+- collapsed ORA 21 → 19;
+- the summary.html headline counts;
+- the coculture 2016 facts;
+- conservation tiers vs the KG clade field.
+
+| # | Severity | Finding | Disposition |
+|---|---|---|---|
+| D1 | Concern | D5 read-off "15–45%" is wrong for PMM1317 (2%) and TX50_RS09730 (6%); the "Pattern" line overstates. | **Fixed wording.** |
+| D2 | Concern | "Conserved = quiet" is confounded with copy number, with ns-by-absence in significant-only arrays, with twin-shrunk denominators, and with the clustering itself. | **Fixed.** Caveat added. RNA-seq-only and array-only % per gene are being added to D5. |
+| D3 | Concern | The twin rule was applied to 2 RNA-seq tables (pone.0165375) where twins differ. | **Fixing:** rule restricted to microarray tables; rerun. |
+| D4 | Concern | Collapsed ORA merged pairs in RNA-seq tables where they differ, so "extended light 16 h lost" is not a fair twin result. | **Fixing:** collapse restricted to microarray tables; rerun. |
+| D5 | Concern | A-table non-stress row was pre-A.8. | **Fixed:** 13/40, 14/40 \| 3/34, 0/34. |
+| D6 | Note | "C2/C4 split was a twin artifact" is too strong; C2 is not robust to correlation distance. | **Fixed wording.** |
+| D7 | Note | Repeated-value counts misquoted. | **Fixed:** 18 values ≥10 times, 403 genes. |
+| D8 | Note | "HL plus some LL" should be "patchy across HL and LL". | **Fixed.** |
+| D9 | Note | padj not recomputed after A.8. | **Fixing:** footnote, and a check that no call flips. |

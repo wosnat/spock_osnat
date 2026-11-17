@@ -168,7 +168,7 @@ The light levels are tied to study, platform and stress type. The p-values treat
   - C2 = 7 single-copy genes (PMM1390, TX50_RS09730, PMM1482, PMM0064, PMM0093, PMM0471, PMM1317).
   - C3 = PMM0689, PMM0690.
   - C1 = PMM1128.
-  - **The old C2/C4 split was a twin artifact.**
+  - **The old C2/C4 split was largely a twin artifact.** All 4 pairs re-joined, and PMM1384 and PMM1385 moved with them. C2 membership is not robust to correlation distance: PMM1390, TX50_RS09730, PMM0689, PMM0690 and PMM1128 join C4 there.
   - Robustness: correlation distance 16/23 (was 12/23); no-Steglich 19/23 (was 18/23).
 - **Per cluster:**
   - C4 is up in alternative N 13/16, light onset 28/45, CO2 19/31, N 50/112, iron 7/27 and phage 14/72. It is down in iron re-added 7/9, air vs t0 7/11 and day-18 control side 4/5 (= higher under stress). It is 0/39 in phage dark, 0/13 in P and 0/13 in salt.
@@ -181,7 +181,7 @@ The light levels are tied to study, platform and stress type. The p-values treat
 - **Coculture 2016 check** (`check_coculture2016_*.csv`; Aharonovich & Sher 2016, RNA-seq Rockhopper, coculture vs Pro99 axenic, 20 h, exponential):
   - 82% of genome log2FC values are negative; median −1.46; 515 genes have |log2FC| > 5.
   - 291 genes with |log2FC| > 5 are called ns at padj ≥ 0.99.
-  - Many values repeat exactly (−10.345 and −8.234, ~30 genes each), the signature of zero or near-zero counts in one arm.
+  - 18 distinct values each repeat ≥10 times (403 genes; e.g. −8.234 ×31), the signature of zero or near-zero counts in one arm.
   - hli median −4.96 (29.8th genome percentile).
 - **D4:** response vs time with all experiments (cluster % panels, point area = n defined; gene panels), deterministic dodge (≤1 point coincides). D3 now uses the same dodge and size encoding.
 - **A families refreshed (critic #4).** Day 11 and day 18 of the 2025 coculture have their own scopes. Twin rule applied. Multi-copy has 14 genes in 5 CK groups; single-copy has 9 genes in 9 CK groups.
@@ -200,7 +200,7 @@ The light levels are tied to study, platform and stress type. The p-values treat
   | Phosphorus; salt | 0/14; 0/14 | 0; 0 | 0/9; 0/8 | 1/9; 0 |
   | Day 18 (down = higher under stress) | 0/6 | 5/6 | 2/9 | 2/9 |
   | Day 11 (both exponential) | 2/6 | 0/6 | 0/9 | 0/9 |
-  | Other non-stress / relief | 13/54 | 19/54 | 3/42 | 4/42 |
+  | Other non-stress / relief (after A.8) | 13/40 | 14/40 | 3/34 | 0/34 |
 
   This supersedes the earlier A table and the earlier "Iron: only C4" line.
 
@@ -211,9 +211,9 @@ The KG holds 123 organisms. In these 14 groups the organism counts reach at most
 - **Core picocyanobacterial (95–96 organisms):** CK_00000050 (PMM0093), CK_00001058 (PMM1482), CK_00001414 (PMM0471) and CK_00001313 (PMM0064). Each is present in 42–43 *Prochlorococcus*, 50 *Synechococcus* and 3 *Cyanobium*. All four are single-copy in MED4, and all sit in cluster C2 (the quiet / schedule group).
 - CK_00002025 and CK_00002026 are multi-copy in MED4 (3 each), in clusters C4 and C3.
 - **Prochlorococcus-wide (42–43 organisms, HL and LL clades):** CK_00002025 and CK_00002026.
-- **Prochlorococcus, partial:** CK_00002661, CK_00002332, CK_00002168 and CK_00003573. These are present in HL strains plus some LL strains (`n_pro_LL` 7–14).
+- **Prochlorococcus, partial:** CK_00002661, CK_00002332, CK_00002168 and CK_00003573. These are patchy across both HL and LL (HL 12–23, LL 7–14).
 - **HL Prochlorococcus only (21–23 organisms, `n_pro_LL` = 0):** CK_00002103, CK_00043616, CK_00003510 and CK_00003421. Clade comes from the KG `organism.clade` field. (Corrected: an earlier version of this entry inferred HL from strain names.)
-- **Pattern:** the conserved, single-copy hli are the ones that respond little to stress. The broad stress responders (C4) are *Prochlorococcus*-specific, expanded multi-copy groups. [KG counts; the link to response is exploratory]
+- **Pattern:** the 4 picocyanobacteria-wide hli (all single-copy) respond little to stress, as do 2 of the *Prochlorococcus*-only single-copy genes (PMM1317, TX50_RS09730). The broad stress responders (C4) are in *Prochlorococcus*-specific, expanded multi-copy groups. Conservation is confounded with copy number and with array coding (see Run 8). [KG counts; the link to response is exploratory]
 
 ## Run 8 (kg-coder): A.8 drop coculture 2016; A.9 conservation strip and D5
 
@@ -229,6 +229,6 @@ The KG holds 123 organisms. In these 14 groups the organism counts reach at most
 - **A.9:** a grey 4-tier ortholog-group breadth strip, using the KG `organism.clade` field, on D1, D2/D3 companions and D4. New figure D5 (`explore_D5_conservation.csv`).
 - **D5 read-off** (% of defined stress + light-onset cells called up; `explore_D5_conservation.csv`):
   - the 4 picocyanobacteria-wide single-copy genes are at 0–2% up;
-  - genes in *Prochlorococcus*-only groups are at about 15–45% up, highest in the *Prochlorococcus*-wide multi-copy groups;
+  - 17 of the 19 genes in *Prochlorococcus*-only groups are at 16–44% up. PMM1317 (2%) and TX50_RS09730 (6%) are as quiet as the core genes;
   - % down is at most 17%, and highest in the conserved genes.
-  - Exploratory; seen after clustering.
+  - Exploratory; seen after clustering. **Confounded:** tier 1 is all single-copy and tier 2 all multi-copy. Most of the core genes' quiet cells are ns-by-absence in significant-only arrays. The twin rule shrinks twin-gene denominators. The tiers are partly circular with the clustering. RNA-seq-only percentages: pending rerun.
