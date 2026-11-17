@@ -1,0 +1,9 @@
+experiment_id,label,timepoint
+10.1038/ismej.2015.36_carbon_ambient_co2_no_o2_med4_microarray,"CO2: ambient, no O2",max across 70min-24h
+10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray,CO2: low,max across 70min-24h
+10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray,"CO2: low, no O2",max across 70min-24h
+10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,acclimated
+10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,max across 70min-24h
+10.1038/ismej.2011.49_iron_rescue_med4_microarray,Iron re-added,R (rescue: 70h vs 48h)
+10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,Cyanate as N source,steady state
+10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,Urea as N source,steady state

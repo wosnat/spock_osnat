@@ -111,3 +111,16 @@ The light levels are tied to study, platform and stress type, so this is suggest
 - **Scope:** the 18 non-light-reading experiments, all asserted to be continuous light with equal light in both arms. They are ordered by light level: 10, 17.5, 20, 27, 30, 50, 55, 60 and 90 µmol.
 - **New figures:** gene heatmap, set band and call grid (`explore_B2_*`), plus an interactive section B2 in `explore.html`.
 - **Other changes:** the B1 subtitle overlap is fixed (data byte-identical). No values were recomputed.
+
+## Run 4 (kg-coder): D, hli response groups (researcher request)
+
+- **Value:** published call (+1 / 0 / −1; NaN = not measured / not testable). Fold change and rank were rejected: they are not comparable across platforms and are missing in significant-only tables. Gene distance = 1 − agreement over shared cells (≥10); average linkage; K = 4 (cut 0.205). 61 columns (Lindell 2–8 h all-NaN and pooled "days 60+89" dropped).
+- **Clusters:**
+  - C1: 5 single-copy genes (PMM0064, PMM0093, PMM0471, PMM1317, PMM1482). Up mainly at schedule extension and light onset, otherwise quiet or down.
+  - C2: 9 genes, mixed. Up in nitrogen limitation (47% of cells).
+  - C3: 2 genes (PMM0689, PMM0690). Up in N and CO2.
+  - C4: 7 multi-copy genes. Up at light onset, CO2 (71%), N (42%), iron (33%) and phage 1 h; down in extended light and in iron re-added / air vs time 0 / constant dark.
+- **Robustness:** correlation distance agrees for 12/23 genes (it merges C2–C4); dropping the Steglich columns agrees for 18/23. C1 versus the rest is the stable split; C2/C3/C4 boundaries are soft.
+- **Caveat:** all of C4 is multi-copy and 4 members share a CK group, so cross-hybridisation or multi-mapping may contribute.
+- **D2/D3:** small multiples vs time (log h) and vs light level, coloured by stress type with hover. 8 timepoint labels are not times (CO2 "max across", steady state, acclimated, rescue), so carbon and salt are absent from D2.
+- **Anomaly:** coculture 2016 20 h has hli log2FC down to −14 (median −5), including some genes called ns at padj 1. This dominates the y range.
