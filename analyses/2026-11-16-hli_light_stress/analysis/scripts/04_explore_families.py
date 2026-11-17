@@ -43,7 +43,10 @@ SCOPES = [("light_reading_group", "light_onset", "Light onset"),
           ("nonlight_stress_type", "carbon", "CO2"), ("nonlight_stress_type", "iron", "Iron"),
           ("nonlight_stress_type", "nitrogen", "Nitrogen"), ("nonlight_stress_type", "phosphorus", "Phosphorus"),
           ("nonlight_stress_type", "salt", "Salt"), ("nonlight_stress_type", "viral", "Phage, light"),
-          ("group", "nonstress_possible_relief", "Non-stress")]
+          ("timepoint_override", "N stress, control side (down = higher under stress)", "N stress,\ncontrol side"),
+          ("group", "nonstress_possible_relief", "Non-stress"),
+          ("timepoint_override", "coculture, both exponential", "Cocult. both\nexponential")]
+COCULT25 = "10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq"   # A.3-A.6, critic #4
 
 
 def read(p):
@@ -68,11 +71,16 @@ def summarise(g):
 
 
 def in_scope(df, st, sc):
+    """Coculture 2025 day 18 and day 11 each have their own scope and are left out of the pooled scopes."""
+    cc = df.experiment_id == COCULT25
+    if st == "timepoint_override":
+        tp = "day 18" if sc.startswith("N stress") else "day 11"
+        return cc & (df.timepoint == tp)
     if st == "light_reading_group":
         return df.light_reading_group == sc
     if st == "nonlight_stress_type":
-        return (df.group == "nonlight_stress") & (df.stress_type == sc)
-    return df.group == sc
+        return (df.group == "nonlight_stress") & (df.stress_type == sc) & ~cc
+    return (df.group == sc) & ~cc
 
 
 def main():
@@ -172,7 +180,7 @@ def main():
 
     # ---- A2: multi vs single copy, fraction up / down per scope (diverging bars)
     cc = sc_df[sc_df.family_type == "copy_class"].set_index(["family", "scope_type", "scope"])
-    fig, ax = plt.subplots(figsize=(10, 4.2))
+    fig, ax = plt.subplots(figsize=(12, 4.4))
     x = np.arange(len(SCOPES))
     w = 0.36
     nm = {c: (sum(1 for g in size.index if copy_class[g] == c), int(sum(size[g] for g in size.index if copy_class[g] == c)))

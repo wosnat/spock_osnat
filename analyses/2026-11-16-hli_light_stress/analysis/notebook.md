@@ -164,7 +164,7 @@ The light levels are tied to study, platform and stress type. The p-values treat
 - **Twin pairs:** exactly 4 detected, the ones the critic named: PMM0815/1396, PMM0816/1397, PMM0817/1398, PMM0818/1399. They are identical in the Lindell phage array (8/8) plus salt or coculture 2016, and differ in N-depleted and extended light/dark RNA-seq.
 - **Twin rule:** in significant-only tables, the unlisted twin is NaN, not ns. 54 cells recoded (iron 12; Steglich ×6, CO2 ×2, iron re-added 4 each; others 2).
 - **Clusters under the rule** (supersede Run 4/5 clusters):
-  - C4 = all 13 multi-copy genes.
+  - C4 = 13 of the 14 multi-copy genes (the 14th, PMM0690, is in C3 with single-copy PMM0689).
   - C2 = 7 single-copy genes (PMM1390, TX50_RS09730, PMM1482, PMM0064, PMM0093, PMM0471, PMM1317).
   - C3 = PMM0689, PMM0690.
   - C1 = PMM1128.
@@ -184,3 +184,22 @@ The light levels are tied to study, platform and stress type. The p-values treat
   - Many values repeat exactly (−10.345 and −8.234, ~30 genes each), the signature of zero or near-zero counts in one arm.
   - hli median −4.96 (29.8th genome percentile).
 - **D4:** response vs time with all experiments (cluster % panels, point area = n defined; gene panels), deterministic dodge (≤1 point coincides). D3 now uses the same dodge and size encoding.
+- **A families refreshed (critic #4).** Day 11 and day 18 of the 2025 coculture have their own scopes. Twin rule applied. Multi-copy has 14 genes in 5 CK groups; single-copy has 9 genes in 9 CK groups.
+
+  | Scope | Multi up | Multi down | Single up | Single down |
+  |---|---|---|---|---|
+  | Light onset | 32/50 | 0/50 | 6/45 | 0/45 |
+  | Schedule extension | 8/48 | 24/48 | 12/36 | 5/36 |
+  | CO2 | 21/34 | 0/34 | 1/27 | 2/27 |
+  | Nitrogen | 32/84 | 0/84 | 16/93 | 5/93 |
+  | Iron | 7/30 | 0/30 | 0/27 | 0/27 |
+  | Phage (light) | 14/180 | 0/180 | 0/117 | 0/117 |
+  | Constant dark vs light | 0/124 | 7/124 | 0/81 | 0/81 |
+  | DCMU | 0/10 | 3/10 | 0/9 | 0/9 |
+  | Phage dark | 0/42 | 0/42 | 0/27 | 2/27 |
+  | Phosphorus; salt | 0/14; 0/14 | 0; 0 | 0/9; 0/8 | 1/9; 0 |
+  | Day 18 (down = higher under stress) | 0/6 | 5/6 | 2/9 | 2/9 |
+  | Day 11 (both exponential) | 2/6 | 0/6 | 0/9 | 0/9 |
+  | Other non-stress / relief | 13/54 | 19/54 | 3/42 | 4/42 |
+
+  This supersedes the earlier A table and the earlier "Iron: only C4" line.
