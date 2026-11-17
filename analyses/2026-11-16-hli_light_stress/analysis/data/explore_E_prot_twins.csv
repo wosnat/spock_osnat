@@ -1,0 +1,9 @@
+pair,contrast,a_quantified,b_quantified,log2fc_a,log2fc_b,identical
+PMM0815/PMM1396,HL 100 vs LL 20,False,False,,,False
+PMM0815/PMM1396,ML 60 vs LL 20,False,False,,,False
+PMM0816/PMM1397,HL 100 vs LL 20,False,False,,,False
+PMM0816/PMM1397,ML 60 vs LL 20,False,False,,,False
+PMM0817/PMM1398,HL 100 vs LL 20,False,False,,,False
+PMM0817/PMM1398,ML 60 vs LL 20,False,False,,,False
+PMM0818/PMM1399,HL 100 vs LL 20,False,False,,,False
+PMM0818/PMM1399,ML 60 vs LL 20,False,False,,,False

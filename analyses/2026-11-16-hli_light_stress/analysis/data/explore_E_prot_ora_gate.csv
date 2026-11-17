@@ -1,0 +1,3 @@
+contrast,n_quantified,n_sig_up,n_sig_down,table_full,ora_run_up,ora_run_down,note
+HL 100 vs LL 20,179,3,3,True,False,False,ORA run only with >= 10 significant proteins in a direction (A.11)
+ML 60 vs LL 20,178,6,4,True,False,False,ORA run only with >= 10 significant proteins in a direction (A.11)

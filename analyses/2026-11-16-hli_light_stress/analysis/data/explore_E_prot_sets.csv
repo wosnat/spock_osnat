@@ -1,0 +1,11 @@
+contrast,set,set_label,set_size,n_quantified,n_up,n_down,n_ns
+HL 100 vs LL 20,hli,hli,23,0,0,0,0
+HL 100 vs LL 20,photosystem_I,PSI,17,5,0,2,3
+HL 100 vs LL 20,photosystem_II,PSII,31,6,0,0,6
+HL 100 vs LL 20,ribosomal_proteins,Ribosomal,61,13,0,0,13
+HL 100 vs LL 20,co2_fixation,CO2 fixation,22,9,0,0,9
+ML 60 vs LL 20,hli,hli,23,0,0,0,0
+ML 60 vs LL 20,photosystem_I,PSI,17,5,0,0,5
+ML 60 vs LL 20,photosystem_II,PSII,31,6,1,0,5
+ML 60 vs LL 20,ribosomal_proteins,Ribosomal,61,13,0,1,12
+ML 60 vs LL 20,co2_fixation,CO2 fixation,22,9,0,0,9

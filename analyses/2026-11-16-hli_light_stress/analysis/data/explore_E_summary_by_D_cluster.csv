@@ -1,0 +1,5 @@
+D_cluster,n_genes,n_in_diel_cluster,n_with_stated_peak,median_stated_peak_h,peaks,diel_cluster_mix,not_in_diel_cluster,n_waldbauer,median_amplitude
+1,1,1,0,,,diel 17 (1),,0,not available (no hli gene in Waldbauer 2012)
+2,7,6,4,16.65,15.8 22.4 17.5 12.5,diel 1 (1) | diel 3 (1) | diel 4 (1) | diel 5 (1) | diel 9 (1) | diel 12 (1),TX50_RS09730,0,not available (no hli gene in Waldbauer 2012)
+3,2,2,0,,,diel 11 (1) | diel 17 (1),,0,not available (no hli gene in Waldbauer 2012)
+4,13,9,2,21.0,21 21,diel 8 (2) | diel 10 (6) | diel 17 (1),PMM0815 PMM0816 PMM1399 PMM1398,0,not available (no hli gene in Waldbauer 2012)

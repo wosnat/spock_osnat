@@ -8,3 +8,5 @@
 - [pitfall] I asked the researcher for the lowN control arm before checking the experiment node, which already partly answered it. (analysis)
 - [pitfall] I labelled hli groups "HL-only" from strain names before checking `list_organisms`, which has a `clade` field (HLI–HLIV, LLI–LLIV). The researcher pointed it out. (analysis)
 - [kg] The publication title for 10.1128/JB.01097-06 (Steglich et al. 2006) reads "...Light Sensing in Prochlorococcus/H17188" in the KG, which looks like an encoding error in the strain name. It is cited as stored. (analysis)
+- [kg] Zinser 2009 diel microarray (10.1371/journal.pone.0005135) is listed as an experiment, but it has no expression rows (gene_count 0). Only its Mfuzz clusters are loaded, and their phase text mixes time origins ("h after onset of dark" vs day-part labels; cluster 1 uses "the paper's time scale"). Cluster sizes sum to 1697, while total_gene_count is 1756. (analysis)
+- [kg] Pandhal 2007 HL vs LL iTRAQ: the table description says ~15 proteins are significant, but the KG holds 6. (analysis)

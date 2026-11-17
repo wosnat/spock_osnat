@@ -253,6 +253,89 @@ absent genes as not significant; the twin rule (arrays only) reduces twin-gene d
     return html_, f"window.addEventListener('load',()=>{{dmult({json.dumps(spec)});}});"
 
 
+E_JS = r"""
+function ephase(spec){const ink='#1f1f1d',mut='#6b6b66',rule='#eeede9',L=230,R=330,T=30,rh=22,pw=480;
+ const rows=spec.rows,H=T+rows.length*rh+50,Wd=L+pw+R;const X=v=>L+v/24*pw;const tips=[];
+ let s=`<svg width="${Wd}" height="${H}" xmlns="http://www.w3.org/2000/svg" font-family="system-ui" font-size="12">`;
+ [0,4,8,12,16,20,24].forEach(v=>{s+=`<line x1="${X(v)}" x2="${X(v)}" y1="${T}" y2="${T+rows.length*rh}" stroke="${rule}"/><text x="${X(v)}" y="${T+rows.length*rh+16}" text-anchor="middle" fill="${mut}">${v}</text>`});
+ s+=`<text x="${X(12)}" y="${T+rows.length*rh+36}" text-anchor="middle" fill="${mut}">stated cluster peak, h after onset of dark (KG cluster text)</text>`;
+ rows.forEach((r,i)=>{const y=T+i*rh+rh/2;if(i>0&&rows[i-1].D!==r.D)s+=`<line x1="${L-150}" x2="${L+pw}" y1="${y-rh/2}" y2="${y-rh/2}" stroke="${ink}"/>`;
+  if(i===0||rows[i-1].D!==r.D)s+=`<text x="8" y="${y+4}" font-weight="bold" fill="${ink}">C${r.D}</text>`;
+  s+=`<rect x="${L-44}" y="${y-8}" width="10" height="16" fill="${r.grey}"/><text x="${L-52}" y="${y+4}" text-anchor="end" fill="${ink}">${esc(r.g)}</text>`;
+  const k=tips.length;tips.push(r.tip);
+  if(r.x!==null){const rr=4+6*r.ms;s+=`<g class="ep" data-i="${k}"><circle cx="${X(r.x)}" cy="${y}" r="${rr}" fill="${r.multi?ink:'#fff'}" stroke="${ink}" stroke-width="1.5"/><circle cx="${X(r.x)}" cy="${y}" r="11" fill="transparent"/></g>`}
+  s+=`<g class="ep" data-i="${k}"><text x="${L+pw+12}" y="${y+4}" fill="${r.inc?ink:mut}">${esc(r.lab)}</text></g>`});
+ s+='</svg>';const host=document.getElementById(spec.el);host.innerHTML=s;hov(host,'g.ep',tips)}
+"""
+
+
+def section_e():
+    """Section E (exploratory): diel sources (Zinser 2009 Mfuzz clusters; Zinser DE and Waldbauer 2012 metrics: no hli data)
+    and the Pandhal 2007 iTRAQ proteomics (A.11). From 22_explore_diel_pull.py, 22_explore_diel_figs.py, 23_explore_proteomics.py."""
+    g = br.read("explore_E_hli_diel.csv")
+    sm = br.read("explore_E_summary_by_D_cluster.csv")
+    cla = br.read("explore_E_diel_clusters_all.csv")
+    calls = br.read("explore_E_kg_calls.csv")
+    pm = br.read("explore_E_prot_experiments.csv")
+    ps = br.read("explore_E_prot_sets.csv")
+    pg = br.read("explore_E_prot_ora_gate.csv")
+    ph = br.read("explore_E_prot_hli.csv")
+    rows = []
+    for r in g.itertuples():
+        inc = bool(r.in_diel_cluster)
+        dyn = r.expression_dynamics if isinstance(r.expression_dynamics, str) else "no phase in KG"
+        lab = (f"diel {int(r.diel_cluster)}: {dyn}" if inc else "not in a diel cluster")
+        if inc and int(r.diel_cluster) == 1:
+            lab = "diel 1: midday (8.3 h, other scale)"
+        tip = (f"<b>{r.locus_tag}</b> · {r.ck_group} · {r.copy_class}-copy · cluster C{r.D_cluster}<br>"
+               + (f"Mfuzz diel cluster {int(r.diel_cluster)} ({int(r.diel_cluster_size)} genes), membership {r.membership_score:.2f}<br>"
+                  f"{br.html.escape(str(r.temporal_pattern)) if isinstance(r.temporal_pattern, str) else 'no temporal pattern in KG'}"
+                  if inc else "not a member of any diel cluster in the KG")
+               + f"<br>ortholog-group breadth: {r.tier_name} ({r.n_organisms} organisms)<br>Waldbauer 2012: not among its 312 genes")
+        rows.append(dict(g=r.locus_tag, D=int(r.D_cluster), grey=cons.TIER_GREY[int(r.tier)], multi=r.copy_class == "multi",
+                         x=None if pd.isna(r.stated_peak_h) else float(r.stated_peak_h),
+                         ms=0 if pd.isna(r.membership_score) else float(r.membership_score), inc=inc, lab=lab, tip=tip))
+    spec = dict(el="e1", rows=rows)
+    n_in = int(g.in_diel_cluster.sum())
+    html_ = f"""<h2>E. Diel cycle and the protein layer (exploratory)</h2>
+<p class="note">KG sources checked (call log below; every pull asserted no truncation):</p>
+<ul class="note"><li><b>Zinser 2009 diel microarray</b> (10.1371/journal.pone.0005135_diel_cycling_med4_microarray): the KG holds the
+experiment metadata (14:10 light:dark cycle, 232 µmol peak PAR, 50 time points at 2 h over 48 h, control "each time point vs mean
+expression") but <b>no expression rows</b> (gene_count 0; differential_expression_by_gene returns 0 rows for any gene). The planned
+genes × time-point heatmap (E2) cannot be drawn.</li>
+<li><b>Mfuzz diel clusters</b> of that experiment (18 clusters, 1,756 genes): {n_in} of 23 hli genes are members of a cluster; 5 are
+not (TX50_RS09730, PMM0815, PMM0816, PMM1398, PMM1399 — one member of each twin pair). The KG gives a phase only as cluster text
+("near X hours after onset of dark") for 9 clusters, and as "8.3 h in the paper's time scale" for cluster 1; clusters 2, 10–12, 14, 15
+and 17 have no phase text.</li>
+<li><b>Waldbauer 2012 paired diel metrics</b> (peak time, amplitude, lag, damping; 312 genes): none of the 23 hli genes is among the
+312.</li></ul>
+<p class="note">No light/dark shading: the KG gives the 14:10 cycle and states phases as "hours after onset of dark", but the clusters'
+own day-part labels do not fit that origin (cluster 13 at 3.4 h and 16 at 5.5 h are labelled "early morning", cluster 3 at 12.5 h
+"mid-day"), so the light and dark periods cannot be placed from KG fields alone.</p>
+<h3>E1. Stated diel-cluster phase per hli gene</h3>
+<p class="note">One row per gene in D1 order (cluster bands C1–C4); grey box = ortholog-group breadth tier. Point = the stated peak of the
+gene's diel cluster (a cluster value, not a per-gene measurement); filled = multi-copy, hollow = single-copy; size = membership score.
+Hover a point or label.</p>
+<div class="wrap" style="max-height:none" id="e1"></div>
+<p class="note">Download: <a href="../figures/explore_E1_diel_phase.png">PNG</a> · <a href="../figures/explore_E1_diel_phase.svg">SVG</a></p>
+<h3>E3. Diel cluster membership per hli gene</h3>
+{br.table(g[["locus_tag", "D_cluster", "copy_class", "tier_name", "in_diel_cluster", "diel_cluster", "membership_score", "diel_cluster_size", "expression_dynamics", "temporal_pattern", "stated_peak_h"]], "te3")}
+<p class="note">Per D cluster:</p>{br.table(sm, "te3s")}
+<p class="note">All 18 diel clusters as the KG states them:</p>{br.table(cla, "te3c")}
+<h3>E4. Proteomics, high and medium light vs low light (Pandhal 2007, iTRAQ; decision A.11)</h3>
+<p class="note">Both experiments: cultures acclimated to each light level (three serial sub-cultures, about 30 days), 12:12 L:D,
+harvested at mid-exponential; table scope "all detected genes" (all quantified proteins reported; 179 and 178 proteins). <b>No hli
+protein is quantified</b> in either contrast. Significant proteins: HL 3 up / 3 down; ML 6 up / 4 down, fewer than 10 per direction,
+so the Fisher over-representation test was not run (gate table below).</p>
+<img src="../figures/explore_E4_proteomics.png" alt="hli proteins (none quantified) and reference-set protein counts, HL and ML vs LL">
+{br.table(pm, "te4m")}
+<p class="note">Reference sets (counts of quantified proteins up / down / ns):</p>{br.table(ps, "te4s")}
+{br.table(pg, "te4g")}
+<p class="note">hli proteins quantified: {int(ph.quantified.sum())} of {len(ph)} gene × contrast cells.</p>
+<p class="note">KG call log:</p>{br.table(calls, "te0")}"""
+    return html_, E_JS + f"window.addEventListener('load',()=>{{ephase({json.dumps(spec)});}});"
+
+
 def section_d():
     """Section D (response groups): D1 interactive heatmap (cluster / category views), D2 cluster time courses,
     D3 cluster vs background light, each with a gene-level companion heatmap. Light theme, shared d_scheme colours."""
@@ -513,6 +596,7 @@ def main():
 
     cc = fsc[fsc.family_type == "copy_class"]
     d_html, d_js = section_d()
+    e_html, e_js = section_e()
     body = f"""<h1>Exploration: gene families, light level, timing</h1>
 <p class="lead">MED4, hli genes. Exploratory. Treatment vs control as stored in the KG (no flip); the same significance calls as the
 main analysis. Counts only; meanings are in the analysis notebook.</p>
@@ -562,8 +646,9 @@ Grey lines: ribosomal proteins.</p>
 <p class="note">Per time point, all sets:</p><div class="controls"><input id="fc" placeholder="filter (set, label)"></div>
 {br.table(tm, "tc2")}
 <p class="note">Time-label parsing (all experiment × time points; hours empty = kept off the time axis):</p>{br.table(tl, "tc3")}
-{d_html}"""
-    js = (d_js + f"const A1={json.dumps(a1)};wireGrid(A1,'ordA');"
+{d_html}
+{e_html}"""
+    js = (d_js + e_js + f"const A1={json.dumps(a1)};wireGrid(A1,'ordA');"
           f"const B2G={json.dumps(b2g)};const B2S={json.dumps(b2s)};grid(B2G,'light');grid(B2S,'light');"
           "filterTable('fa','ta3');filterTable('fa4','ta4');filterTable('fb','tb2');filterTable('fc','tc2');")
     (REP / "explore.html").write_text(br.page("Exploration", "Exploration of hli in MED4: gene families (copy class), background light level, and timing in time-course experiments.", body, js), encoding="utf-8")

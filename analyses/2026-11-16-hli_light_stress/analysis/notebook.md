@@ -251,3 +251,15 @@ The KG holds 123 organisms. In these 14 groups the organism counts reach at most
 - [x] `paper.md` Methods and Results are written; `paper.html` is rendered.
 - [x] `gaps_and_friction.md` is updated (KG culture-state gaps; the clade pitfall).
 - [ ] **Researcher approval.**
+
+## Run 10 (kg-coder): exploration E, diel cycle (A.10), and HL vs LL proteomics (A.11)
+
+- **Zinser 2009 diel microarray:** the KG has no expression rows (gene_count 0), so no time series is available.
+- **Waldbauer 2012 diel metrics:** cover 312 cycling genes, none of them hli.
+- **Zinser Mfuzz diel clusters:** 18 of 23 hli genes are assigned (`explore_E_hli_diel.csv`).
+  - The multi-copy C4 genes sit mostly in diel cluster 10 (6 genes; no phase stated in the KG) and cluster 8 (PMM1384, PMM1385; "21.0 h, night").
+  - The single-copy C2 genes are spread over 6 diel clusters (stated phases 12.5–22.4 h).
+  - In each twin pair exactly one member is clustered, consistent with one shared array signal.
+  - The KG's phase origin ("h after onset of dark") contradicts the clusters' own day-part labels, so phases are not placed on a light/dark axis.
+- **Reading (exploratory, weak):** the stress-responsive multi-copy genes share one diel pattern; the single-copy genes have diverse diel timing. The phase of the shared C4 pattern is not stated in the KG.
+- **Pandhal 2007 iTRAQ** (HL 100 / ML 60 vs LL 20 µE; acclimated; ~179 proteins): no hli protein quantified. Fewer than 10 significant proteins per direction, so no test was run. This check cannot inform question 1.

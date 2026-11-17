@@ -1,0 +1,7 @@
+derived_metric_id,name,metric_type,value_kind,rankable,unit,allowed_categories,organism_name,total_gene_count
+derived_metric:journal.pone.0043432:table_s2_waldbauer_diel_metrics:damping_ratio,Transcript:protein amplitude ratio,damping_ratio,numeric,True,,,Prochlorococcus MED4,312
+derived_metric:journal.pone.0043432:table_s2_waldbauer_diel_metrics:diel_amplitude_protein_log2,Protein amplitude (log2),diel_amplitude_protein_log2,numeric,True,log2,,Prochlorococcus MED4,312
+derived_metric:journal.pone.0043432:table_s2_waldbauer_diel_metrics:diel_amplitude_transcript_log2,Transcript amplitude (log2),diel_amplitude_transcript_log2,numeric,True,log2,,Prochlorococcus MED4,312
+derived_metric:journal.pone.0043432:table_s2_waldbauer_diel_metrics:peak_time_protein_h,Time of peak protein abundance (h),peak_time_protein_h,numeric,False,hours,,Prochlorococcus MED4,312
+derived_metric:journal.pone.0043432:table_s2_waldbauer_diel_metrics:peak_time_transcript_h,Time of peak transcript abundance (h),peak_time_transcript_h,numeric,False,hours,,Prochlorococcus MED4,312
+derived_metric:journal.pone.0043432:table_s2_waldbauer_diel_metrics:protein_transcript_lag_h,Protein-transcript lag (h),protein_transcript_lag_h,numeric,True,hours,,Prochlorococcus MED4,312
