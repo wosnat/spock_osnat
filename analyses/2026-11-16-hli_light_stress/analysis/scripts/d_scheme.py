@@ -110,7 +110,7 @@ def parse_hours(label):
 
 def up_defined(r) -> bool:
     """Is 'up or not' known for this gene cell? (not measured, or phosphate 0-24 h absent -> no)."""
-    if r["call"] == "not_measured":
+    if r["call"] in ("not_measured", "not_defined"):   # not_defined = twin rule (twin_rule.py)
         return False
     if r["experiment_id"] == PHOSPHATE and r["test_type"] == "descriptive" and r["call_source"] == "absent_from_significant_only_table":
         return False

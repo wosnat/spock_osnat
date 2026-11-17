@@ -158,3 +158,29 @@ The light levels are tied to study, platform and stress type. The p-values treat
 - **Not updated:**
   - `06_explore_timing.py` was not rerun (the KG is down), so the C labels lack the lowN suffix.
   - `resemblance.csv` and the part A aggregate tables keep the original grouping, with an annotation.
+
+## Run 7 (kg-coder): critic fixes #1–#2, coculture 2016 check, D4
+
+- **Twin pairs:** exactly 4 detected, the ones the critic named: PMM0815/1396, PMM0816/1397, PMM0817/1398, PMM0818/1399. They are identical in the Lindell phage array (8/8) plus salt or coculture 2016, and differ in N-depleted and extended light/dark RNA-seq.
+- **Twin rule:** in significant-only tables, the unlisted twin is NaN, not ns. 54 cells recoded (iron 12; Steglich ×6, CO2 ×2, iron re-added 4 each; others 2).
+- **Clusters under the rule** (supersede Run 4/5 clusters):
+  - C4 = all 13 multi-copy genes.
+  - C2 = 7 single-copy genes (PMM1390, TX50_RS09730, PMM1482, PMM0064, PMM0093, PMM0471, PMM1317).
+  - C3 = PMM0689, PMM0690.
+  - C1 = PMM1128.
+  - **The old C2/C4 split was a twin artifact.**
+  - Robustness: correlation distance 16/23 (was 12/23); no-Steglich 19/23 (was 18/23).
+- **Per cluster:**
+  - C4 is up in alternative N 13/16, light onset 28/45, CO2 19/31, N 50/112, iron 7/27 and phage 14/72. It is down in iron re-added 7/9, air vs t0 7/11 and day-18 control side 4/5 (= higher under stress). It is 0/39 in phage dark, 0/13 in P and 0/13 in salt.
+  - C2 (single-copy) is up mainly in schedule extension 11/28; N only 10/88; light onset 1/35.
+  - C3 is up at light onset 7/10, N 14/27 and CO2 3/6.
+- **Collapsed ORA** (`twin_collapsed_comparison*.csv`): 21 → 19 significant tests.
+  - Lost: extended light 16 h down; coculture 2016 down.
+  - Coculture 2016 experiment call: down → neither.
+  - Phage array 1 h survives (k 9 → 5, padj 1.1e-6). All light-onset, CO2, iron, iron re-added and air tests survive.
+- **Coculture 2016 check** (`check_coculture2016_*.csv`; Aharonovich & Sher 2016, RNA-seq Rockhopper, coculture vs Pro99 axenic, 20 h, exponential):
+  - 82% of genome log2FC values are negative; median −1.46; 515 genes have |log2FC| > 5.
+  - 291 genes with |log2FC| > 5 are called ns at padj ≥ 0.99.
+  - Many values repeat exactly (−10.345 and −8.234, ~30 genes each), the signature of zero or near-zero counts in one arm.
+  - hli median −4.96 (29.8th genome percentile).
+- **D4:** response vs time with all experiments (cluster % panels, point area = n defined; gene panels), deterministic dodge (≤1 point coincides). D3 now uses the same dodge and size encoding.

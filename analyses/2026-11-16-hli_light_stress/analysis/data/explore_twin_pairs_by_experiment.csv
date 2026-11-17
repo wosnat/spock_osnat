@@ -1,0 +1,24 @@
+gene_a,gene_b,experiment_id,n_shared,n_identical,n_differ,label
+PMM0815,PMM1396,10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,1,0,1,Coculture HOT1A3 (2016)
+PMM0815,PMM1396,10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,3,0,3,"N-depleted (RNA-seq, top 50%)"
+PMM0815,PMM1396,10.1038/nature06130_viral_phage_infected_med4_microarray,8,8,0,"Phage infection (array, up-only)"
+PMM0815,PMM1396,10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,1,1,0,Low salinity 28 psu
+PMM0816,PMM1397,10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,1,0,1,Coculture HOT1A3 (2016)
+PMM0816,PMM1397,10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,3,0,3,"N-depleted (RNA-seq, top 50%)"
+PMM0816,PMM1397,10.1038/nature06130_viral_phage_infected_med4_microarray,8,8,0,"Phage infection (array, up-only)"
+PMM0816,PMM1397,10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,1,1,0,Low salinity 28 psu
+PMM0816,PMM1397,10.64898/2026.04.15.718746_extended_darkness_med4,2,0,2,Extended darkness
+PMM0816,PMM1397,10.64898/2026.04.15.718746_extended_light_med4,2,0,2,Extended light
+PMM0817,PMM1398,10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,1,0,1,Coculture HOT1A3 (2016)
+PMM0817,PMM1398,10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,3,0,3,"N-depleted (RNA-seq, top 50%)"
+PMM0817,PMM1398,10.1038/nature06130_viral_phage_infected_med4_microarray,8,8,0,"Phage infection (array, up-only)"
+PMM0817,PMM1398,10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected,1,0,1,Const dark vs light (phage)
+PMM0817,PMM1398,10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,1,1,0,Low salinity 28 psu
+PMM0817,PMM1398,10.64898/2026.04.15.718746_extended_darkness_med4,2,0,2,Extended darkness
+PMM0817,PMM1398,10.64898/2026.04.15.718746_extended_light_med4,2,0,2,Extended light
+PMM0818,PMM1399,10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq,1,1,0,Coculture HOT1A3 (2016)
+PMM0818,PMM1399,10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,3,0,3,"N-depleted (RNA-seq, top 50%)"
+PMM0818,PMM1399,10.1038/nature06130_viral_phage_infected_med4_microarray,8,8,0,"Phage infection (array, up-only)"
+PMM0818,PMM1399,10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,1,0,1,Low salinity 28 psu
+PMM0818,PMM1399,10.64898/2026.04.15.718746_extended_darkness_med4,2,0,2,Extended darkness
+PMM0818,PMM1399,10.64898/2026.04.15.718746_extended_light_med4,2,0,2,Extended light

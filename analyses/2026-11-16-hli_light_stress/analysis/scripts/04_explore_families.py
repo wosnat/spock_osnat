@@ -61,7 +61,7 @@ def save(fig, stem):
 
 
 def summarise(g):
-    meas = g[g.call != "not_measured"]
+    meas = g[g.call.isin(["up", "down", "ns"])]   # not measured / twin-rule not defined excluded
     n, nu, nd = len(meas), int((meas.call == "up").sum()), int((meas.call == "down").sum())
     return dict(n_genes=len(g), n_measured=n, n_up=nu, n_down=nd, frac_up=nu / n if n else np.nan,
                 frac_down=nd / n if n else np.nan, net_share=(nu - nd) / n if n else np.nan)
@@ -81,6 +81,8 @@ def main():
     size = grp.groupby("ck_group").locus_tag.nunique()
     copy_class = {g: ("multi_copy" if n >= 2 else "single_copy") for g, n in size.items()}
     gc = read(DATA / "hli_gene_calls.csv")
+    import twin_rule   # critic #1: absent twin in significant-only tables -> not defined
+    gc = twin_rule.recode_gene_calls(gc)
     gc["ck"] = gc.ck_group.str.split(":").str[-1]
     gc["copy_class"] = gc.ck.map(copy_class)
     assert gc.copy_class.notna().all()

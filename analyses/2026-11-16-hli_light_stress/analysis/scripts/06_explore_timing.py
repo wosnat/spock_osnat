@@ -66,6 +66,9 @@ def read(p):
 
 def main():
     ex = kg_io.load_experiments()
+    tp_ = pd.read_csv(DATA / "explore_twin_pairs.csv", encoding="utf-8")   # from 12_twin_pairs.py
+    global TWINS
+    TWINS = list(zip(tp_.gene_a, tp_.gene_b))
     sets = kg_io.load_gene_sets()
     set_names = ["hli"] + kg_io.COMPARISON_SETS
     t = read(DATA / "hli_tests.csv")
@@ -88,8 +91,17 @@ def main():
             bg, _ = hs.main_background(exp.test_type if exp.test_type != "descriptive" else "sound",
                                        gu.at["up", "measured_genes"], genome)
             calls = hs.gene_calls_from_background(gu.at["up", "sig_genes"], gu.at["down", "sig_genes"], bg)
+            # twin rule (critic #1): in a significant-only table, an absent twin of a listed twin is not defined
+            listed = set(gu.at["up", "measured_genes"])
+            hli_calls = dict(calls)
+            if _ == "genome_assumption":
+                for a_, b_ in TWINS:
+                    for x, y in ((a_, b_), (b_, a_)):
+                        if x in listed and y not in listed:
+                            hli_calls.pop(y, None)
             for s in set_names:
-                c = [calls[x] for x in sets[s] if x in calls]
+                cs = hli_calls if s == "hli" else calls
+                c = [cs[x] for x in sets[s] if x in cs]
                 n = len(c)
                 ru, rd = tidx.loc[(e, tp, s, "up")], tidx.loc[(e, tp, s, "down")]
                 rows.append(dict(experiment_id=e, label=exp.label, label_detailed=exp.label_detailed,

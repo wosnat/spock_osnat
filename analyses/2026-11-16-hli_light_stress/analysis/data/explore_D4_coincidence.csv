@@ -1,0 +1,32 @@
+view,panel,max_coincident
+cluster,C1 pct_up,1
+cluster,C1 pct_down,1
+cluster,C2 pct_up,1
+cluster,C2 pct_down,1
+cluster,C3 pct_up,1
+cluster,C3 pct_down,1
+cluster,C4 pct_up,1
+cluster,C4 pct_down,1
+gene,PMM0064,1
+gene,PMM0093,1
+gene,PMM0471,1
+gene,PMM0689,1
+gene,PMM0690,1
+gene,PMM0815,1
+gene,PMM0816,1
+gene,PMM0817,1
+gene,PMM0818,1
+gene,PMM1118,1
+gene,PMM1128,1
+gene,PMM1135,1
+gene,PMM1317,1
+gene,PMM1384,1
+gene,PMM1385,1
+gene,PMM1390,1
+gene,PMM1396,1
+gene,PMM1397,1
+gene,PMM1398,1
+gene,PMM1399,1
+gene,PMM1404,1
+gene,PMM1482,1
+gene,TX50_RS09730,1

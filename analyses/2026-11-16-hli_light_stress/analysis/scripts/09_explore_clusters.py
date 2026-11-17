@@ -67,7 +67,7 @@ def strip_colour(cat):
 
 
 def code(r):
-    if r["call"] == "not_measured":
+    if r["call"] in ("not_measured", "not_defined"):   # not_defined = twin rule
         return np.nan
     if r["up_only"] in (True, "True") and r["call"] != "up":
         return np.nan
@@ -130,6 +130,9 @@ def match_labels(ref, other):
 def main():
     import display_overrides as dov   # A.3-A.6: labels and grouping only
     gc = dov.apply(pd.read_csv(DATA / "hli_gene_calls.csv", encoding="utf-8", keep_default_na=False, na_values=[""]))
+    import twin_rule   # critic #1: absent twin in significant-only tables -> not defined
+    gc_raw = gc.copy()
+    gc = twin_rule.recode_gene_calls(gc)
     gc = gc[~((gc.experiment_id == POOLED[0]) & (gc.timepoint == POOLED[1]))].copy()
     gc["value"] = [code(r) for r in gc.to_dict("records")]
     gc["col"] = gc.experiment_id + "|" + gc.timepoint
@@ -140,7 +143,12 @@ def main():
     M = M.drop(columns=empty)
     genes = M.index.tolist()
     ck = gc.drop_duplicates("locus_tag").set_index("locus_tag")["ck"]
-    M.to_csv(DATA / "explore_D_matrix.csv", encoding="utf-8")
+    M.to_csv(DATA / "explore_D_matrix_twinrule.csv", encoding="utf-8")
+    gr = gc_raw[~((gc_raw.experiment_id == POOLED[0]) & (gc_raw.timepoint == POOLED[1]))].copy()
+    gr["value"] = [code(r) for r in gr.to_dict("records")]
+    gr["col"] = gr.experiment_id + "|" + gr.timepoint
+    gr.pivot(index="locus_tag", columns="col", values="value").drop(columns=empty, errors="ignore").to_csv(
+        DATA / "explore_D_matrix.csv", encoding="utf-8")   # pre-rule matrix, for reference
     X = M.values
 
     Da = dist_agreement(X)
@@ -256,6 +264,7 @@ def main():
     for (c, cat), g in g2.groupby(["cluster", "category"]):
         v = g.value.dropna()
         rows.append(dict(cluster=c, category=cat, n_genes=g.locus_tag.nunique(), n_measured_cells=len(v),
+                         n_up=int((v == 1).sum()), n_down=int((v == -1).sum()),
                          pct_up=100 * (v == 1).mean() if len(v) else np.nan,
                          pct_down=100 * (v == -1).mean() if len(v) else np.nan))
     pd.DataFrame(rows).to_csv(DATA / "explore_D_cluster_summary.csv", index=False, encoding="utf-8")

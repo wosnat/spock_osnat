@@ -62,16 +62,18 @@ function dmult(spec){
  const W=nc*pw,H=Math.ceil(spec.panels.length/nc)*ph;let s=`<svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg" font-family="system-ui" font-size="10">`;
  const fx=spec.logx?Math.log10:(v=>v);
  spec.panels.forEach((p,k)=>{const ox=(k%nc)*pw,oy=Math.floor(k/nc)*ph,iw=pw-m.l-m.r,ih=ph-m.t-m.b;
-  const xmin=p.xmin??spec.xmin,xmax=p.xmax??spec.xmax,X=v=>ox+m.l+(fx(v)-fx(xmin))/(fx(xmax)-fx(xmin))*iw,Y=v=>oy+m.t+(1-(v+100)/200)*ih;
+  const xmin=p.xmin??spec.xmin,xmax=p.xmax??spec.xmax,X=v=>ox+m.l+(fx(v)-fx(xmin))/(fx(xmax)-fx(xmin))*iw,ylo=spec.ylo??-100,yhi=spec.yhi??100,Y=v=>oy+m.t+(1-(v-ylo)/(yhi-ylo))*ih;
+  if(spec.band)s+=`<rect x="${X(spec.band[0])}" y="${oy+m.t}" width="${X(spec.band[1])-X(spec.band[0])}" height="${ih}" fill="#f3f2ef"/><line x1="${X(spec.band[0])}" x2="${X(spec.band[0])}" y1="${oy+m.t}" y2="${oy+m.t+ih}" stroke="${mut}" stroke-dasharray="3,2"/>`;
   s+=`<rect x="${ox+m.l}" y="${oy+6}" width="${iw}" height="18" fill="${p.colour}"/><text x="${ox+m.l+5}" y="${oy+19}" fill="${p.headerInk||'white'}" font-weight="bold">${esc(p.title)}</text>`;
   s+=`<rect x="${ox+m.l}" y="${oy+m.t}" width="${iw}" height="${ih}" fill="none" stroke="${p.border||rule}" stroke-width="${p.border?1.5:1}"/>`;
-  [-100,-50,0,50,100].forEach(v=>{s+=`<line x1="${ox+m.l}" x2="${ox+m.l+iw}" y1="${Y(v)}" y2="${Y(v)}" stroke="${v===0?mut:'#eeede9'}"/>`;
-    s+=`<text x="${ox+m.l-4}" y="${Y(v)+3}" text-anchor="end" fill="${mut}" font-size="9">${Math.abs(v)}</text>`});
-  s+=`<text x="${ox+m.l-30}" y="${Y(55)}" fill="${mut}" font-size="8" transform="rotate(-90 ${ox+m.l-30} ${Y(55)})">up %</text><text x="${ox+m.l-30}" y="${Y(-25)}" fill="${mut}" font-size="8" transform="rotate(-90 ${ox+m.l-30} ${Y(-25)})">down %</text>`;
-  (p.xticks||spec.xticks).forEach(v=>{s+=`<text x="${X(v)}" y="${oy+m.t+ih+13}" text-anchor="middle" fill="${mut}" font-size="9">${v===0.1&&spec.logx?0:v}</text>`});
+  (spec.yticks||[[-100,'100'],[-50,'50'],[0,'0'],[50,'50'],[100,'100']]).forEach(([v,l])=>{s+=`<line x1="${ox+m.l}" x2="${ox+m.l+iw}" y1="${Y(v)}" y2="${Y(v)}" stroke="${v===0?mut:'#eeede9'}"/>`;
+    s+=`<text x="${ox+m.l-4}" y="${Y(v)+3}" text-anchor="end" fill="${mut}" font-size="9">${l}</text>`});
+  if(!spec.yticks)s+=`<text x="${ox+m.l-30}" y="${Y(55)}" fill="${mut}" font-size="8" transform="rotate(-90 ${ox+m.l-30} ${Y(55)})">up %</text><text x="${ox+m.l-30}" y="${Y(-25)}" fill="${mut}" font-size="8" transform="rotate(-90 ${ox+m.l-30} ${Y(-25)})">down %</text>`;
+  (p.xticks||spec.xticks).forEach(v=>{const lab=(spec.xticklabels&&spec.xticklabels[String(v)])??(v===0.1&&spec.logx?0:v);s+=`<text x="${X(v)}" y="${oy+m.t+ih+13}" text-anchor="middle" fill="${mut}" font-size="9">${lab}</text>`});
   s+=`<text x="${ox+m.l+iw/2}" y="${oy+ph-6}" text-anchor="middle" fill="${mut}" font-size="9">${esc(spec.xlab)}</text>`;
   (spec.series[k]||[]).forEach(se=>{if(se.line&&se.pts.length>1)s+=`<polyline points="${se.pts.map(q=>X(q.x)+','+Y(q.y)).join(' ')}" fill="none" stroke="${ink}" stroke-width="1.3" stroke-dasharray="${se.dash}"/>`;
-    se.pts.forEach(q=>{const i=tips.length;tips.push(q.tip);s+=`<g class="mp" data-i="${i}" fill="${q.fill}" stroke="${q.stroke}" stroke-width="1">${SYM[q.m](X(q.x),Y(q.y),4)}<circle cx="${X(q.x)}" cy="${Y(q.y)}" r="8" fill="transparent" stroke="none"/></g>`});
+    se.pts.forEach(q=>{const i=tips.length;tips.push(q.tip);if(q.bar)s+=`<line x1="${X(q.bar[0])}" x2="${X(q.bar[1])}" y1="${Y(q.y)}" y2="${Y(q.y)}" stroke="${q.fill}" stroke-width="1.5" opacity="0.6"/>`;
+      const rr=q.r||4;s+=`<g class="mp" data-i="${i}" fill="${q.fill}" fill-opacity="${q.alpha??1}" stroke="${q.stroke}" stroke-width="1">${SYM[q.m](X(q.x),Y(q.y),rr)}<circle cx="${X(q.x)}" cy="${Y(q.y)}" r="${Math.max(7,rr+2)}" fill="transparent" stroke="none"/></g>`});
     if(se.label&&se.pts.length){const q=se.pts[se.pts.length-1];s+=`<text x="${X(q.x)+7}" y="${Y(se.ly??q.y)+3}" fill="${ink}" font-size="9">${se.label}</text>`}})});
  s+='</svg>';const host=document.getElementById(spec.el);host.innerHTML=s;hov(host,'g.mp',tips)}
 function dview(v){document.getElementById('d1a').style.display=v==='cluster'?'':'none';document.getElementById('d1b').style.display=v==='category'?'':'none'}
@@ -108,6 +110,85 @@ def legend_html(types_present=None, clusters=None):
                    + " · filled marker = % up (above 0), open marker = % down (below 0)</div>")
     out.append("</div>")
     return chr(10).join(out)
+
+
+
+def section_d4(cl, ks):
+    """D4: response vs time over ALL experiment x time points (cluster panels, gene panels); from 14_explore_D4.py."""
+    cp = br.read("explore_D4_cluster_points.csv")
+    gp = br.read("explore_D4_gene_points.csv")
+    co = br.read("explore_D4_coincidence.csv")
+    info = cl.set_index("locus_tag")
+    RANGE = (1.17, 24.0)
+
+    def hrs(r):
+        if r.x_kind == "range":
+            return "max across 70 min–24 h (plotted at the geometric mean, 5.3 h; bar = range)"
+        if r.x_kind == "steady":
+            return "steady state / acclimated (no time; right-hand band)"
+        return f"{r.x_base:g} h" if r.x_base != 0.3 else "0 h (drawn at the left edge)"
+
+    def note(r):
+        return ("<br><i>N stress, control side: down = higher in the N-starving control</i>" if r.type == "N stress, control side" else "")
+
+    panels, series = [], []
+    for k in ks:
+        d = cp[cp.cluster == k]
+        panels.append(dict(title=f"C{k} ({int((cl.cluster == k).sum())} genes)", colour="#ffffff", headerInk="#1f1f1d", border="#1f1f1d"))
+        ser = []
+        for r in d.itertuples():
+            c, mk = ds.TYPES[(r.family, r.type)]
+            for yc, nd in (("pct_up", r.n_up_defined), ("pct_down", r.n_down_defined)):
+                y = getattr(r, yc)
+                if pd.isna(y):
+                    continue
+                tip = (f"<b>{br.html.escape(r.label_detailed)}</b><br>time point: {br.html.escape(r.timepoint)} — {hrs(r)}"
+                       f"<br>category: {r.family} — {r.type}<br>cluster C{k}: up {r.n_up} of {r.n_up_defined} defined, down {r.n_down} "
+                       f"of {r.n_down_defined} defined<br>up: {r.genes_up or '—'}<br>down: {r.genes_down or '—'}{note(r)}")
+                pt = dict(x=float(r.x), y=float(y), m=mk, fill=c, stroke="white", alpha=0.7, r=float(1.6 * np.sqrt(max(nd, 1)) + 1.2), tip=tip)
+                if r.x_kind == "range":
+                    pt["bar"] = [RANGE[0] * r.x / r.x_base, RANGE[1] * r.x / r.x_base]
+                ser.append(dict(line=False, pts=[pt]))
+        series.append(ser)
+    common = dict(logx=True, xmin=0.2, xmax=16000, xticks=[0.3, 1, 10, 100, 1000, 9000],
+                  xticklabels={"0.3": "0", "9000": "steady"}, band=[4000, 16000], xlab="hours since treatment start (log)")
+    d4a = dict(el="d4a", panels=panels, series=series, nc=4, pw=310, **common)
+    genes = cl.locus_tag.tolist()
+    gpan, gser = [], []
+    for g in genes:
+        gpan.append(dict(title=f"C{info.at[g, 'cluster']} · {g} · {info.at[g, 'ck_group']} ({info.at[g, 'copy_class']})", colour="#ffffff",
+                         headerInk="#1f1f1d", border="#1f1f1d"))
+        ser = []
+        for r in gp[gp.locus_tag == g].itertuples():
+            c, mk = ds.TYPES[(r.family, r.type)]
+            tip = (f"<b>{g}</b> ({br.html.escape(r.ck_group)}, C{info.at[g, 'cluster']})<br>{br.html.escape(r.label_detailed)}"
+                   f"<br>time point: {br.html.escape(r.timepoint)} — {hrs(r)}<br>category: {r.family} — {r.type}"
+                   f"<br>call: <b>{r.call}</b> · log2FC {br.p_(r.log2fc)} · padj {br.p_(r.padj)}{note(r)}")
+            ser.append(dict(line=False, pts=[dict(x=float(r.x), y=float(r.y), m=mk, fill=c, stroke="white", alpha=0.85, r=3.6, tip=tip)]))
+        gser.append(ser)
+    d4b = dict(el="d4b", panels=gpan, series=gser, nc=4, pw=310, ph=210, ylo=-1.5, yhi=1.5,
+               yticks=[[-1, "down"], [0, "ns"], [1, "up"]], **common)
+    present = set(zip(cp.family, cp.type))
+    size_key = ('<div class="legend-d"><b>point area</b> (cluster panels) = genes with a defined call: ' + " ".join(
+        f'<span style="white-space:nowrap;margin-right:10px"><svg width="{2 * int(1.6 * n ** 0.5 + 1.2) + 4}" height="24" '
+        f'style="vertical-align:middle"><circle cx="{int(1.6 * n ** 0.5 + 1.2) + 2}" cy="12" r="{1.6 * n ** 0.5 + 1.2:.1f}" '
+        f'fill="#6b6b66" fill-opacity="0.7" stroke="white"/></svg> {n}</span>' for n in (1, 3, 5, 9, 13)) + "</div>")
+    html_ = f"""<h3>D4. Response vs time, all experiments</h3>
+<p class="note">Every experiment × time point, including single-time-point experiments. x = hours since treatment start (log):
+Steglich 45 min = 0.75 h; coculture 2025 day 11 = 264 h and day 18 = 432 h; lowN axenic day 14 = 336 h; coculture 2016 = 20 h;
+iron re-added "R (70h vs 48h)" = 70 h; 0 h is drawn at the left edge. "max across 70 min–24 h" (CO2 and air): a bar from 1.17 to 24 h
+with the point at the geometric mean. "steady state" / "acclimated": the shaded band on the right (no time). Points sharing an x
+are dodged by a fixed log-x step (ordered by category); in the gene panels they are also dodged vertically by category within
+the up / ns / down rows. Max points still coinciding after dodging: {int(co[co.view == 'cluster'].max_coincident.max())} (cluster panels),
+{int(co[co.view == 'gene'].max_coincident.max())} (gene panels). Twin rule applied. Coculture 2025 day 18 (marker ✖,
+"N stress, control side"): down = higher in the N-starving control. Hover any point.</p>
+{legend_html(present)}{size_key}
+<p class="note">(a) Gene clusters: % of each cluster's genes up (above 0) and down (below 0), same −100…+100 axis.</p>
+<div class="wrap" style="max-height:none" id="d4a"></div>
+<p class="note">(b) Genes (D1 cluster order): published call, up / ns / down; undefined cells omitted.</p>
+<div class="wrap" style="max-height:none" id="d4b"></div>
+<p class="note">Download: <a href="../figures/explore_D4_clusters.png">clusters</a> · <a href="../figures/explore_D4_genes.png">genes</a></p>"""
+    return html_, f"window.addEventListener('load',()=>{{dmult({json.dumps(d4a)});dmult({json.dumps(d4b)});}});"
 
 
 def section_d():
@@ -214,8 +295,11 @@ def section_d():
                                                  for tp in tps], cells=cc, left=270, top=56, lb=70, cw=26, title=f"{er.label} · {er.type}"))
     # D3: cluster panels vs background light
     lc = cr[cr.continuous_light == True].copy()  # noqa: E712
-    rng = np.random.default_rng(5)
-    lc["xj"] = lc.light_umol + rng.uniform(-1.5, 1.5, len(lc))
+    import importlib.util as _iu
+    _sp = _iu.spec_from_file_location("traj10", HERE / "10_explore_gene_trajectories.py")
+    _t10 = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_t10)
+    lc = _t10.dodge_light(lc)   # same deterministic dodge as the static D3
     panels3, series3 = [], []
     for k in ks:
         d = lc[lc.cluster == k]
@@ -227,7 +311,9 @@ def section_d():
             for yc in ("pct_up", "pct_down"):
                 y = getattr(r, yc)
                 if not pd.isna(y):
-                    ser.append(dict(line=False, pts=[dict(x=float(r.xj), y=float(y), m=mk, fill=c, stroke="white", tip=resp_tip(r))]))
+                    nd = r.n_up_defined if yc == "pct_up" else r.n_down_defined
+                    ser.append(dict(line=False, pts=[dict(x=float(r.xj), y=float(y), m=mk, fill=c, stroke="white", alpha=0.7,
+                                                          r=float(1.6 * np.sqrt(max(nd, 1)) + 1.2), tip=resp_tip(r))]))
         series3.append(ser)
     d3 = dict(el="d3", panels=panels3, series=series3, logx=False, xmin=0, xmax=100, xticks=[0, 20, 40, 60, 80, 100], nc=4,
               pw=300, xlab="background light, µmol photons m⁻² s⁻¹ (both arms)")
@@ -249,6 +335,7 @@ def section_d():
                '<span style="background:#2a78d6;padding:0 8px"></span> down <span style="background:#d9d8d4;padding:0 8px"></span> '
                'not significant <span style="background:repeating-linear-gradient(45deg,#b5b4ae 0 1px,#fff 1px 4px);padding:0 8px;'
                'border:1px solid #e4e3df"></span> not defined</div>')
+    d4_html, d4_js = section_d4(cl, ks)
     html_ = f"""<h2>D. Response groups of the 23 hli genes</h2>
 <p class="note">Value per gene × experiment-time point = published call (up, down, not significant). Not defined (hatched): not measured;
 non-significant genes in the up-only phage array; phosphate 0–24 h genes absent from a table filtered at 48 h. Pooled "days 60+89" and the
@@ -285,13 +372,15 @@ Time points not on a time axis (not a time):</p>{br.table(unp, "td4")}
 <p class="note">One panel per gene cluster; each point = one experiment × time point, % of the cluster's genes up (above 0) and down (below 0);
 colour + marker = category; same −100…+100 axis. Cells are acclimated to the background light before the treatment, and DE measures
 change vs a control at that same light, so light level here is context, not a treatment; cross-study, so platform, design and stress are
-confounded. x jittered ±1.5. Hover any point.</p>
+confounded. Points sharing a light level are dodged by fixed 1.4 µmol steps (ordered by category); point area = genes with a defined call
+(1 · 3 · 5 · 9 · 13 genes: see the static figure key). Hover any point.</p>
 {legend_html(present3)}
 <div class="wrap" style="max-height:none" id="d3"></div>
 <p class="note">Gene-level companion: genes (cluster order) × continuous-light experiment-time points ordered by light level.</p>{callkey}
 <div class="wrap" style="max-height:none" id="d3c"></div>
-<p class="note">Download: <a href="../figures/explore_D3_cluster_light.png">clusters vs light</a> · <a href="../figures/explore_D3_gene_light.png">gene-level heatmap</a></p>"""
-    js_ = D_JS + (f"dheat({json.dumps(d1a)});dheat({json.dumps(d1b)});dmult({json.dumps(d2)});"
+<p class="note">Download: <a href="../figures/explore_D3_cluster_light.png">clusters vs light</a> · <a href="../figures/explore_D3_gene_light.png">gene-level heatmap</a></p>
+{d4_html}"""
+    js_ = D_JS + d4_js + (f"dheat({json.dumps(d1a)});dheat({json.dumps(d1b)});dmult({json.dumps(d2)});"
                   + "".join(f"dheat({json.dumps(c)});" for c in comp2)
                   + f"dmult({json.dumps(d3)});dheat({json.dumps(d3c)});")
     return html_, js_

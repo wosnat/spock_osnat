@@ -1,0 +1,5 @@
+gene_a,gene_b,n_shared,n_identical,n_differ,experiments_identical,experiments_differ
+PMM0815,PMM1396,13,9,4,"Phage infection (array, up-only) (8/8) | Low salinity 28 psu (1/1)","Coculture HOT1A3 (2016) (1/1) | N-depleted (RNA-seq, top 50%) (3/3)"
+PMM0816,PMM1397,17,9,8,"Phage infection (array, up-only) (8/8) | Low salinity 28 psu (1/1)","Coculture HOT1A3 (2016) (1/1) | N-depleted (RNA-seq, top 50%) (3/3) | Extended darkness (2/2) | Extended light (2/2)"
+PMM0817,PMM1398,18,9,9,"Phage infection (array, up-only) (8/8) | Low salinity 28 psu (1/1)","Coculture HOT1A3 (2016) (1/1) | N-depleted (RNA-seq, top 50%) (3/3) | Const dark vs light (phage) (1/1) | Extended darkness (2/2) | Extended light (2/2)"
+PMM0818,PMM1399,17,9,8,"Coculture HOT1A3 (2016) (1/1) | Phage infection (array, up-only) (8/8)","N-depleted (RNA-seq, top 50%) (3/3) | Low salinity 28 psu (1/1) | Extended darkness (2/2) | Extended light (2/2)"

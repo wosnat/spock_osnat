@@ -75,8 +75,22 @@ def cluster_handles(ks):
                    label=f"C{k}") for k in ks]
 
 
+def dodge_light(df):
+    """Deterministic dodge for points sharing a light level: fixed 1.4 umol steps ordered by category then experiment."""
+    d = df.sort_values(["light_umol", "type_rank", "label", "timepoint_order"]).copy()
+    d["xj"] = d.light_umol.astype(float)
+    for lv, g in d.groupby("light_umol"):
+        keys = g[["experiment_id", "timepoint"]].drop_duplicates().apply(tuple, axis=1).tolist()
+        n = len(keys)
+        off = {k: (i - (n - 1) / 2) * 1.4 for i, k in enumerate(keys)}
+        d.loc[g.index, "xj"] = [lv + off[(e, t)] for e, t in zip(g.experiment_id, g.timepoint)]
+    return d.sort_index()
+
+
 def main():
     gc = read(DATA / "hli_gene_calls.csv")
+    import twin_rule   # critic #1: absent twin in significant-only tables -> not defined
+    gc = twin_rule.recode_gene_calls(gc)
     gc = gc[~((gc.experiment_id == ds.POOLED[0]) & (gc.timepoint == ds.POOLED[1]))].copy()
     cl = read(DATA / "explore_D_gene_clusters.csv").sort_values("leaf_order")
     cmap = dict(zip(cl.locus_tag, cl.cluster))
@@ -221,17 +235,16 @@ def main():
 
     # ---- D3: cluster response vs background light (continuous-light experiments)
     lc = cr[cr.continuous_light].copy()
-    rng = np.random.default_rng(5)
-    lc["xj"] = lc.light_umol + rng.uniform(-1.5, 1.5, len(lc))
+    lc = dodge_light(lc)   # deterministic dodge (no random jitter)
     fig, axes = plt.subplots(1, len(ks), figsize=(3.4 * len(ks) + 2.8, 3.8), sharey=True, squeeze=False)
     for ax, k in zip(axes.flat, ks):
         d = lc[lc.cluster == k]
         for r in d.itertuples():
             c, m = ds.TYPES[(r.family, r.type)]
             if not np.isnan(r.pct_up):
-                ax.plot(r.xj, r.pct_up, marker=m, ms=5, color=c, mec="white", mew=0.5, ls="")
+                ax.scatter(r.xj, r.pct_up, s=14 * r.n_up_defined, marker=m, color=c, alpha=0.7, edgecolors="white", linewidths=0.6)
             if not np.isnan(r.pct_down):
-                ax.plot(r.xj, r.pct_down, marker=m, ms=5, color=c, mec="white", mew=0.5, ls="")
+                ax.scatter(r.xj, r.pct_down, s=14 * r.n_down_defined, marker=m, color=c, alpha=0.7, edgecolors="white", linewidths=0.6)
         ax.set_ylim(-105, 105)
         ax.set_yticks(YT)
         ax.set_yticklabels([str(abs(v)) for v in YT], fontsize=6.5)
@@ -246,13 +259,17 @@ def main():
             ax.spines[sp].set_color(INK)
     axes[0, 0].set_ylabel("% of cluster genes\n← down · up →", fontsize=7)
     present3 = set(zip(lc.family, lc.type))
-    fig.legend(handles=family_handles(present3), loc="center left", bbox_to_anchor=(1.0, 0.5), fontsize=7, frameon=False,
+    size_h = [plt.scatter([], [], s=14 * n, color=MUTED, alpha=0.7, edgecolors="white", label=f"{n} genes defined")
+              for n in (1, 3, 5, 9, 13)]
+    fig.legend(handles=family_handles(present3) + [Line2D([], [], ls="", label=" "), Line2D([], [], ls="", label="POINT AREA")]
+               + size_h, loc="center left", bbox_to_anchor=(1.0, 0.5), fontsize=7, frameon=False,
                title="Category", title_fontsize=7)
     fig.suptitle("hli gene clusters vs background light: % of each cluster's genes called up (above 0) and down (below 0), "
                  "per experiment × time point, 18 continuous-light experiments", fontsize=9.5, x=0.01, ha="left")
     fig.text(0.01, -0.1, "Cells are acclimated to the background light before the treatment, and DE measures change vs a control at "
              "that same light, so light level here is context, not a treatment. Cross-study: platform, design and stress are "
-             "confounded.\nSame y axis (−100 to +100 %) in every panel; x jittered ±1.5. Treatment vs control as stored (no flip).",
+             "confounded.\nSame y axis (−100 to +100 %) in every panel; points sharing a light level are dodged by fixed 1.4 µmol steps "
+             "(ordered by category); point area = genes with a defined call. Treatment vs control as stored (no flip).",
              fontsize=6.5, color=MUTED)
     fig.tight_layout(rect=(0, 0.0, 1, 0.92))
     save(fig, FIG / "explore_D3_cluster_light")
