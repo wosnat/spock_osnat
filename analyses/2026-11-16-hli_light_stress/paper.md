@@ -42,6 +42,10 @@ All computations are scripts in the analysis folder; figures and tables are gene
 
 ## Results
 
+![Fig. 1. Published significance calls for the 23 MED4 hli genes (rows, ordered by Cyanorak ortholog group) in 28 transcriptome experiments × time points (columns), grouped by light reading and experiment type. Orange, significantly up; blue, significantly down; grey, not significant; hatched, not measured. "d" marks descriptive tables or time points with no set-level test. Calls are shown as published, before the paralog-twin correction; in significant-only tables a gene absent from the table is shown as not significant.](analysis/figures/hli_gene_heatmap_by_group.png)
+
+![Fig. 2. Number of set-level tests significant up (left half of each cell) and down (right half) per gene set and experiment group (BH padj < 0.05); n is the number of testable tests. hli is the only set that goes up at light onset, and it goes up across CO2, iron, nitrogen and phage stress.](analysis/figures/aggregate_by_scope.png)
+
 **Light onset.** All four testable 45-min light shifts (blue, red and white at 13 µmol photons m⁻² s⁻¹; white at 55) induced *hli* (per-experiment BH padj 5e-8 to 2e-10). In each, 8–11 of the 11 *hli* genes in the table were up, spanning 5–8 ortholog groups. No reference set went up at light onset; photosystem I went down in 2 of 6 light-onset tests. The green-light shift had too few changed genes to test. DCMU was tested at gene level only: three *hli* genes went down.
 
 **Other light contrasts.** Constant darkness vs constant light, with or without phage, gave no set-level *hli* change. The two schedule-extension experiments (extended light, extended darkness) are dominated by genome-wide responses (over 30% of genes significant at two of four time points).
@@ -63,12 +67,18 @@ All computations are scripts in the analysis folder; figures and tables are gene
 - **Iron starvation:** 0 of 19 up at 12 h, 6 of 19 at 48 h.
 - **Long-term low-nitrogen coculture:** peaked at day 31 and declined by day 89.
 
+![Fig. 3. Share of measured hli genes significantly up (orange) and down (blue) over time in the MED4 time-course experiments, with ribosomal-protein genes (grey) for reference. Filled points, set-level BH padj < 0.05; open points, not testable; dashed lines, descriptive tables. Each panel has its own time axis.](analysis/figures/explore_C1_timing.png)
+
 **Two groups of *hli* genes (exploratory).** Clustering the per-gene calls separated 13 of the 14 multi-copy genes (cluster C4) from most single-copy genes (C2, 7 genes). Before the paralog correction, the multi-copy genes had split into two clusters; that split largely reflected which member of each pair a study listed.
 - **C4 (multi-copy):** up at light onset (28 of 45 defined cells), under CO2 limitation (19/31), nitrogen stress (50/112), iron starvation (7/27) and phage infection (14/74). Down when stress was relieved (iron re-added 7/9; air vs time 0 7/11). Unchanged in phosphate, salt and phage-in-the-dark experiments.
 - **C2 (single-copy):** responded mainly in schedule extension (11 of 28 cells up); rarely to stress (nitrogen 10/88) or light onset (1/35).
 - **Robustness:** cluster membership held for 16 of 23 genes under a correlation distance and 19 of 23 without the light-onset arrays. C2's membership was the least stable.
 
+![Fig. 4. Exploratory clustering of the 23 hli genes by their per-experiment calls (+1 up, 0 not significant, −1 down; hatched, undefined), after the paralog-twin correction. Genes are clustered by average linkage on 1 − call agreement; columns are clustered the same way. The grey strip gives the breadth of each gene's ortholog group.](analysis/figures/explore_D1_clustered_heatmap.png)
+
 **Conservation (exploratory).** The four *hli* genes whose ortholog groups span high- and low-light *Prochlorococcus*, *Synechococcus* and *Cyanobium* were the least responsive: median 2% of stress and light-onset calls up, 7% on RNA-seq alone. Genes in *Prochlorococcus*-wide groups (all multi-copy) had a median of 32% up, 37% on RNA-seq. Two *Prochlorococcus*-only single-copy genes (PMM1317, TX50_RS09730) were also quiet. Conservation here is confounded with copy number, and the pattern was noticed after clustering.
+
+![Fig. 5. Exploratory: ortholog-group breadth vs response for each MED4 hli gene. x, number of KG organisms carrying the gene's Cyanorak group; y, percentage of the gene's defined calls up (a) or down (b) across non-light stress and light onset. Marker shape, cluster (Fig. 4); filled, multi-copy; hollow, single-copy. Grey squares mark the breadth tier.](analysis/figures/explore_D5_conservation.png)
 
 **Background light.** *hli* induction strength correlated with the background light of the study (Spearman ρ = 0.46, p = 0.015). Ribosomal-protein repression correlated similarly (ρ = 0.48, p = 0.05). The 28 tests come from 15 experiments at 7 light levels, so the p-values are pseudo-replicated. Cells were acclimated to that light, and each comparison is against a control at the same light. We therefore do not read light level as a driver of the *hli* response.
 
