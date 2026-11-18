@@ -80,7 +80,7 @@ Every file is written for one reader. Write it for that reader, and don't make t
    ```
    analyses/<slug>/
      overview.html         # the researcher's page; starts with the question and the step map, updated as each step closes
-     paper.md              # skeleton with empty section headers: Question, Background, Methods, Results, Discussion, References
+     paper.md              # skeleton with empty section headers: Abstract, Question, Background, Methods, Results, Discussion, References, Supplementary information
      gaps_and_friction.md  # header only; entries added as friction occurs
      .gitignore            # per-analysis (template below)
      proposal.md           # empty; written after the five Plan steps are agreed

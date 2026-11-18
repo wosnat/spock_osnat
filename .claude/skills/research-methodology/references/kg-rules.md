@@ -20,6 +20,9 @@ Clearly separate KG-derived findings from literature context:
   it were a KG reference
 - If the user needs literature support, say so — this system is
   a KG explorer, not a literature review tool
+- Paper citations from outside the KG come only from a web search the
+  researcher authorised, for background and discussion — never data (see
+  [SKILL.md Rule 1](../SKILL.md))
 
 ## Scoping: what to verify
 

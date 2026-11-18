@@ -82,6 +82,50 @@ Applied on top of dataviz's mark specs and anti-patterns:
 - **Captions state what is plotted, from which experiments, and n.** A caption is
   description, not interpretation (Rule 9).
 
+## Paper figures — a separate set, made for the storyline
+
+The figures made while exploring are drafts for the researcher. **They are not
+the paper's figures.** Once the storyline is agreed (see
+[research-notebook.md — paper.md growth pattern](research-notebook.md#papermd-growth-pattern)),
+make a paper figure set from one script, one figure per Results claim, in the
+order the paper cites them. *(hli light stress: the first paper figures were
+analysis figures; they were redesigned over about seven rounds because they were
+inconsistent and hard to read.)*
+
+- **Readable at print size.** Fixed width (7.2 in full page, 3.5 in one column),
+  text at least 8 pt at that size, checked in code (below). Panels lettered (a, b).
+- **One look across the set.** Same colours, fonts, label style and legend
+  placement in every figure. Run the dataviz validator on *every* palette —
+  annotation strips, tiers and categories too, not only up/down. Prefer a bar or
+  a number to a shade when the reader must compare values (four similar greys
+  were unreadable).
+- **Ordered by meaning.** Rows and columns follow the story (condition, group,
+  time), not a clustering order, unless the clustering is the point. Long labels
+  are split (experiment | time point) rather than shrunk.
+- **Context the reader needs is drawn, not implied:** reference lines (e.g. the
+  number of genomes available), group brackets and family labels.
+- **Understandable from the caption alone.** First sentence: what the figure
+  shows, in words. Then each panel: what is plotted, the encoding, the
+  experiments and n.
+- **Look before showing.** Render each PNG at print size and `paper.html`, and
+  look: overlapping labels, text too small, colours that cannot be told apart.
+
+```python
+import matplotlib.text
+
+PAGE_W, COL_W, MIN_PT = 7.2, 3.5, 8
+
+def check_figure(fig, width=PAGE_W, min_pt=MIN_PT) -> None:
+    """Call before save_figure: fails on a figure that will not read in print.
+    Size the figure at the final width; bbox_inches="tight" then only trims margins."""
+    fig.canvas.draw()  # tick labels exist only after a draw
+    w, _ = fig.get_size_inches()
+    assert abs(w - width) < 0.01, f"figure width {w:.2f} in, expected {width}"
+    small = [t.get_text() for t in fig.findobj(matplotlib.text.Text)
+             if t.get_text().strip() and t.get_visible() and t.get_fontsize() < min_pt]
+    assert not small, f"text below {min_pt} pt: {small[:5]}"
+```
+
 ## Milestone reports — `<milestone>/reports/` and the analysis `index.html`
 
 **What they are.** Self-contained HTML pages that let the researcher look at a

@@ -28,6 +28,13 @@ knowledge only for:
 When the KG is insufficient, say so explicitly and flag it as a gap.
 Do not fill gaps with assumptions, web searches, or general knowledge.
 
+**One exception: literature citations for the paper.** Background and
+Discussion claims about prior knowledge need citations the KG may not hold.
+With the researcher's authorisation, a web search may find them — for
+citations only, never for data — logged in `decisions_log.md` and listed
+apart from the KG data sources. See
+[research-notebook.md — paper.md growth](references/research-notebook.md#papermd-growth-pattern).
+
 See [KG rules](references/kg-rules.md) for common gaps, scoping
 checks, and when to use MCP vs Python API.
 
