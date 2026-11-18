@@ -20,3 +20,16 @@ Reviewer: `critic`, cold read of paper.md (Discussion) and evaluation/. Trusted 
 | V12 | Note | Tolonen's "hli10" might be PMM1390 (unverified; the KG lacks the numbering). | Left as is; the row already says we cannot tell which three. Numbering gap logged earlier (gaps_and_friction.md). |
 | V13 | Note | Q2 conclusion strength is right. | No change. |
 | V14 | Note | Follow-up "stress in darkness" would not separate the readings, since darkness stops growth. | **Fixed:** follow-up 1 now crosses stress with two or more acclimated light intensities; follow-up 2 added for steady light level. |
+
+## Delta pass (interpretation)
+
+No Blocker. V1–V11 and V14 confirmed in the text; spot-checks held except one count.
+
+| # | Severity | Finding | Disposition |
+|---|---|---|---|
+| W1 | Concern | Thompson 2016: seven responders were down in the dark at 0.5 h (infected), not four; four is the KG-linked subset. | **Fixed** in both places. |
+| W2 | Concern | "Responders correspond to the Bhaya/Lindell types" maps unverified designations, untagged; beyond A.14's background use. | **Fixed:** tagged [interpretation], "resembles", "we have not mapped their gene designations onto ours". |
+| W3 | Note | Lindell 2004 expansion claim beyond the notebook summary. | Kept: the abstract states "phage may be mediating the expansion of the hli gene family" (web search, A.14). |
+| W4 | Note | Thompson 2016 reading partial (uninfected: no change). | **Fixed:** "Agrees for infected cells; no change detected in uninfected cells". |
+| W5 | Note | PMM0689 "as strong as induced genes" too broad. | **Fixed:** magnitudes per light. |
+| W6 | Note | 55 µmol called "dim". | **Fixed:** "dim (13) or moderate (55)". |
