@@ -28,7 +28,7 @@ def main():
     ex = pd.read_csv(DATA.parents[1] / "methods" / "data" / "experiments.csv", encoding="utf-8")
     import display_overrides as dov   # A.8: 2016 coculture dropped
     cl = dov.drop(ex[ex.light_reading_group == "none"])
-    assert len(cl) == 17, len(cl)
+    assert len(cl) == 16, len(cl)   # 17 before A.13 dropped phosphate
     assert (cl.light_condition_raw == "continuous light").all(), cl.light_condition_raw.unique()
     assert (cl.light_treatment_umol == cl.light_control_umol).all()
     keep = set(cl.experiment_id)

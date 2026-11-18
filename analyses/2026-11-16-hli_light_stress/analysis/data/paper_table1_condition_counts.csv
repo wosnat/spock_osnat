@@ -12,7 +12,6 @@ quiet,1,light onset,2,5,0,5
 quiet,1,nitrogen,6,14,0,14
 quiet,1,phage,0,13,0,5
 quiet,1,phage in the dark,0,3,0,3
-quiet,1,phosphorus,0,1,0,1
 quiet,1,salt,0,1,0,1
 quiet,1,schedule extension,0,4,0,4
 quiet,2,DCMU,0,7,0,7
@@ -28,7 +27,6 @@ quiet,2,light onset,1,35,0,35
 quiet,2,nitrogen,10,88,8,88
 quiet,2,phage,0,91,0,35
 quiet,2,phage in the dark,0,21,0,21
-quiet,2,phosphorus,0,11,1,11
 quiet,2,salt,0,6,0,6
 quiet,2,schedule extension,11,28,4,28
 responders,3,DCMU,0,2,0,2
@@ -44,7 +42,6 @@ responders,3,light onset,7,10,0,10
 responders,3,nitrogen,14,27,0,27
 responders,3,phage,0,26,0,10
 responders,3,phage in the dark,0,6,2,6
-responders,3,phosphorus,0,2,0,2
 responders,3,salt,0,2,0,2
 responders,3,schedule extension,1,8,3,8
 responders,4,DCMU,0,9,3,9
@@ -60,6 +57,5 @@ responders,4,light onset,28,45,0,45
 responders,4,nitrogen,50,112,0,112
 responders,4,phage,14,169,0,65
 responders,4,phage in the dark,0,39,0,39
-responders,4,phosphorus,0,13,0,13
 responders,4,salt,0,13,0,13
 responders,4,schedule extension,8,44,22,44

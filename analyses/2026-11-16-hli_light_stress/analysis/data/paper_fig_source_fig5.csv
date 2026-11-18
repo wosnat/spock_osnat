@@ -1,32 +1,31 @@
 panel,set,direction,experiment_id,label,timepoint,light_umol,x_plotted,padj_bh,neg_log10_padj,significant,spearman_rho,spearman_p,n_tests
-a,hli,up,10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,acclimated,10.0,10.0,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",1h,17.5,14.5,2.2250212143246894e-12,11.652665843909912,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",2h,17.5,15.7,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",3h,17.5,16.9,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",4h,17.5,18.1,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",5h,17.5,19.3,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",7h,17.5,20.5,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 11,20.0,16.4,0.0682000653067625,1.1662152094732423,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 18,20.0,17.6,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic,N starvation lowN (axenic),day 14,20.0,18.8,0.0118592171353389,1.925943979186274,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 18,20.0,20.0,0.0393890184997759,1.4046248408573236,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 31,20.0,21.2,0.0007720540627774,3.1123522873018,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 60,20.0,22.4,0.0033051837297136,2.4808043937931785,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 89,20.0,23.6,0.9128152665679528,0.0396171050811046,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/ismej.2011.49_iron_rescue_med4_microarray,Iron re-added,R (rescue: 70h vs 48h),27.0,25.2,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,12h,27.0,26.4,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,24h,27.0,27.6,0.4417963942884788,0.3547778329349487,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,48h,27.0,28.8,3.0158072748391988e-05,4.520596415503925,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,48h,30.0,30.0,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,Cyanate as N source,steady state,50.0,47.0,1.966010746234967e-12,11.706414112639289,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),12h,50.0,48.2,0.1547449593726415,0.8103834886878163,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),24h,50.0,49.4,0.0018354390900698,2.7362600231924104,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),48h,50.0,50.6,1.966010746234967e-12,11.706414112639289,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),6h,50.0,51.8,0.4417963942884788,0.3547778329349487,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,Urea as N source,steady state,50.0,53.0,1.3018617125049687e-10,9.885435145326689,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,max across 70min-24h,60.0,58.8,1.0,0.0,False,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray,CO2: low,max across 70min-24h,60.0,60.0,8.398582818439507e-10,9.075793990849592,True,0.4549697987278824,0.0149906946773759,28
-a,hli,up,10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray,"CO2: low, no O2",max across 70min-24h,60.0,61.2,2.7071872705882047e-10,9.567481700723777,True,0.4549697987278824,0.0149906946773759,28
+a,hli,up,10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,acclimated,10.0,10.0,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",1h,17.5,14.5,2.2250212143246894e-12,11.652665843909912,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",2h,17.5,15.7,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",3h,17.5,16.9,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",4h,17.5,18.1,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",5h,17.5,19.3,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",7h,17.5,20.5,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 11,20.0,16.4,0.0682000653067625,1.1662152094732423,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 18,20.0,17.6,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic,N starvation lowN (axenic),day 14,20.0,18.8,0.0118592171353389,1.925943979186274,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 18,20.0,20.0,0.0393890184997759,1.4046248408573236,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 31,20.0,21.2,0.0007720540627774,3.1123522873018,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 60,20.0,22.4,0.0033051837297136,2.4808043937931785,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),day 89,20.0,23.6,0.9128152665679528,0.0396171050811046,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/ismej.2011.49_iron_rescue_med4_microarray,Iron re-added,R (rescue: 70h vs 48h),27.0,25.2,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,12h,27.0,26.4,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,24h,27.0,27.6,0.4417963942884788,0.3547778329349487,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,48h,27.0,28.8,3.0158072748391988e-05,4.520596415503925,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,Cyanate as N source,steady state,50.0,47.0,1.966010746234967e-12,11.706414112639289,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),12h,50.0,48.2,0.1547449593726415,0.8103834886878163,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),24h,50.0,49.4,0.0018354390900698,2.7362600231924104,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),48h,50.0,50.6,1.966010746234967e-12,11.706414112639289,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),6h,50.0,51.8,0.4417963942884788,0.3547778329349487,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,Urea as N source,steady state,50.0,53.0,1.3018617125049687e-10,9.885435145326689,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,max across 70min-24h,60.0,58.8,1.0,0.0,False,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray,CO2: low,max across 70min-24h,60.0,60.0,8.398582818439507e-10,9.075793990849592,True,0.4856730740214333,0.0102232630353592,27
+a,hli,up,10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray,"CO2: low, no O2",max across 70min-24h,60.0,61.2,2.7071872705882047e-10,9.567481700723777,True,0.4856730740214333,0.0102232630353592,27
 b,ribosomal_proteins,down,10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,Low salinity 28 psu,acclimated,10.0,10.0,1.0,0.0,False,0.4828914321800586,0.0495954540579737,17
 b,ribosomal_proteins,down,10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),day 18,20.0,17.0,1.0,0.0,False,0.4828914321800586,0.0495954540579737,17
 b,ribosomal_proteins,down,10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic,N starvation lowN (axenic),day 14,20.0,18.2,9.760438030152691e-15,14.01053069157414,True,0.4828914321800586,0.0495954540579737,17

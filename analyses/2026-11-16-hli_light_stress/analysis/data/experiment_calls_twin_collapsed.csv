@@ -37,8 +37,8 @@ experiment_id,set,direction,n_timepoints,n_testable,n_sig_timepoints,p_exp_bonfe
 10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,hli,down,5,4,0,1.0,1.0,sig at 0 of 4,up,
 10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,hli,up,3,0,0,,,sig at 0 of 0,not_tested,
 10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,hli,down,3,0,0,,,sig at 0 of 0,not_tested,
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,hli,up,5,1,0,1.0,1.0,sig at 0 of 1,neither,
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,hli,down,5,0,0,,,sig at 0 of 0,neither,
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,hli,up,5,1,0,1.0,1.0,sig at 0 of 1,neither,"dropped: 34-gene filtered table, hli not assessable (A.13)"
+10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,hli,down,5,0,0,,,sig at 0 of 0,neither,"dropped: 34-gene filtered table, hli not assessable (A.13)"
 10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,hli,up,1,1,0,1.0,1.0,sig at 0 of 1,neither,
 10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq,hli,down,1,1,0,1.0,1.0,sig at 0 of 1,neither,
 10.1038/nature06130_viral_phage_infected_med4_microarray,hli,up,8,6,1,1.163050209992322e-06,3.578616030745606e-06,sig at 1 of 6,up,

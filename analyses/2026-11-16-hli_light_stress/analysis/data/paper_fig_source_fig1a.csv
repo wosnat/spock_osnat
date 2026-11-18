@@ -59,16 +59,6 @@ Nitrogen,stress,photosystem_II,PSII,up,9,0,3,15
 Nitrogen,stress,photosystem_II,PSII,down,9,3,3,15
 Nitrogen,stress,co2_fixation,CO2 fixation,up,9,2,3,15
 Nitrogen,stress,co2_fixation,CO2 fixation,down,9,5,3,15
-Phosphorus,stress,hli,hli,up,1,0,1,5
-Phosphorus,stress,hli,hli,down,0,0,0,5
-Phosphorus,stress,ribosomal_proteins,Ribosomal,up,1,0,1,5
-Phosphorus,stress,ribosomal_proteins,Ribosomal,down,0,0,0,5
-Phosphorus,stress,photosystem_I,PSI,up,1,0,1,5
-Phosphorus,stress,photosystem_I,PSI,down,0,0,0,5
-Phosphorus,stress,photosystem_II,PSII,up,1,0,1,5
-Phosphorus,stress,photosystem_II,PSII,down,0,0,0,5
-Phosphorus,stress,co2_fixation,CO2 fixation,up,1,0,1,5
-Phosphorus,stress,co2_fixation,CO2 fixation,down,0,0,0,5
 Salt,stress,hli,hli,up,1,0,1,1
 Salt,stress,hli,hli,down,1,0,1,1
 Salt,stress,ribosomal_proteins,Ribosomal,up,1,0,1,1

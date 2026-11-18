@@ -6,7 +6,6 @@ experiment_id,label,group,stress_type,light_condition_raw,light_treatment_umol,l
 10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),nonlight_stress,nitrogen,continuous light,20.0,20.0
 10.1038/ismej.2011.49_iron_rescue_med4_microarray,Iron re-added,nonstress_possible_relief,iron,continuous light,27.0,27.0
 10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,nonlight_stress,iron,continuous light,27.0,27.0
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,nonlight_stress,phosphorus,continuous light,30.0,30.0
 10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray,Cyanate as N source,nonstress_possible_relief,nitrogen,continuous light,50.0,50.0
 10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray,N deprivation (array),nonlight_stress,nitrogen,continuous light,50.0,50.0
 10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray,Urea as N source,nonstress_possible_relief,nitrogen,continuous light,50.0,50.0

@@ -49,7 +49,7 @@ FONT_LOG = {}
 # scopes (Fig 1a rows): d_scheme type -> scope
 SCOPES = [("Light onset", "light / dark", "Light\nonset"), ("Schedule ext.", "light / dark", "Sched.\next."),
           ("Const. dark/light", "light / dark", "Dark/\nlight"), ("CO2", "stress", "CO2"), ("Iron", "stress", "Iron"),
-          ("Nitrogen", "stress", "N"), ("Phosphorus", "stress", "P"), ("Salt", "stress", "Salt"),
+          ("Nitrogen", "stress", "N"), ("Salt", "stress", "Salt"),  # Phosphorus dropped (A.13)
           ("Phage (light)", "stress", "Phage\nlight"), ("Phage (dark)", "light / dark", "Phage\ndark"),
           ("Relief", "non-stress", "Relief"), ("N source", "non-stress", "N\nsource"),
           ("Coculture d11", "non-stress", "Cocult\nd11")]

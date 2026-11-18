@@ -67,7 +67,10 @@ def apply(df: pd.DataFrame) -> pd.DataFrame:
 # part A heatmaps / set bands / per-experiment call figures. Part A tables keep its rows, marked with DROPPED_NOTE.
 COCULT16 = "10.1038/ismej.2016.70_coculture_alteromonas_hot1a3_med4_rnaseq"
 DROPPED_NOTE = "dropped: unreliable table (A.8)"
-DROPPED = {COCULT16: DROPPED_NOTE}
+# A.13: phosphate starvation (Martiny 2006) is dropped too: the KG table is a 34-gene subset (q < 0.05 at 48 h);
+# 22 of 23 hli genes are absent, so hli is undefined at 0-24 h and only weakly defined at 48 h.
+PHOSPHATE = "10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray"
+DROPPED = {COCULT16: DROPPED_NOTE, PHOSPHATE: "dropped: 34-gene filtered table, hli not assessable (A.13)"}
 
 
 def drop(df: pd.DataFrame) -> pd.DataFrame:

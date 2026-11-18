@@ -6,6 +6,5 @@ experiment_id,label,label_detailed,family,type,n_timepoints
 10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture,N starvation lowN (coculture),"N starvation lowN (coculture), vs the same culture in exponential growth (day 11), PRO99-lowN",stress,nitrogen,4
 10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq,"N-depleted (RNA-seq, top 50%)","N-depleted (RNA-seq, top 50%)",stress,nitrogen,3
 10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light,Iron starvation,Iron starvation,stress,iron,3
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,Phosphate starvation,stress,phosphorus,5
 10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)","Phage infection (array, up-only)",stress,phage,8
 10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),Phage lysate (light),stress,phage,5

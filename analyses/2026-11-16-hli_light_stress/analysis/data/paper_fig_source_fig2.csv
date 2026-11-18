@@ -27,35 +27,30 @@
 10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq|3h,0.0,0.0,,,0.0,0.0,-1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S26,N-depl top50 3h
 10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light|24h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S27,Fe starv 24h
 10.1038/ismej.2015.36_carbon_ambient_co2_no_o2_med4_microarray|max across 70min-24h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S28,CO2 amb noO2 max
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S29,Phage dark 2.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S30,Phage dark 4.5h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|48h,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S31,P starv 48h
-10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq|acclimated,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S32,Low salt accl
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S33,Phage light 8.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S34,Phage light 4.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S35,Phage light 2.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S36,Phage light 1.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S37,Phage dark 8.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S38,Const dark+ph 8.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S39,Const dark+ph 4.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S40,Const dark+ph 2.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S41,Const dark+ph 1.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S42,Const dark 8.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S43,Const dark 4.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S44,Const dark 2.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S45,Const dark 1.5h
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|3h,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S46,N depr arr 3h
-10.1128/JB.01097-06_light_stress_green_light_13_umol_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S47,Green 13 45 min
-10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light|12h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S48,Fe starv 12h
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|0h,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S49,N depr arr 0h
-10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture|day 89,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,,,,,,,0.0,,0.0,,S50,lowN cocult d89
-10.1128/JB.01097-06_light_stress_dcmu_white_light_13_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,-1.0,-1.0,,-1.0,0.0,,0.0,,S51,DCMU 45 min
-10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray|max across 70min-24h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,-1.0,-1.0,-1.0,0.0,-1.0,-1.0,0.0,,0.0,-1.0,0.0,-1.0,,S52,Air vs t0 max
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|0.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,-1.0,-1.0,0.0,0.0,0.0,0.0,-1.0,-1.0,-1.0,-1.0,S53,Const dark+ph 0.5h
-10.1038/ismej.2011.49_iron_rescue_med4_microarray|R (rescue: 70h vs 48h),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,-1.0,,-1.0,-1.0,-1.0,,-1.0,-1.0,,0.0,,S54,Fe re-added R
-10.64898/2026.04.15.718746_extended_light_med4|14h,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,,-1.0,-1.0,-1.0,-1.0,,-1.0,-1.0,-1.0,-1.0,S55,Ext light 14h
-10.1038/nature06130_viral_phage_infected_med4_microarray|1h,,,,,,,,,,,,,1.0,1.0,1.0,1.0,1.0,1.0,1.0,,1.0,,1.0,S56,Phage arr 1h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|0h,,,,0.0,,,,,,,,,,,,,,,,,,,,S57,P starv 0h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|12h,,,,0.0,,,,,,,,,,,,,,,,,,,,S58,P starv 12h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|24h,,,,0.0,,,,,,,,,,,,,,,,,,,,S59,P starv 24h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|4h,,,,0.0,,,,,,,,,,,,,,,,,,,,S60,P starv 4h
+10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq|acclimated,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S29,Low salt accl
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S30,Phage light 8.5h
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S31,Phage light 4.5h
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S32,Phage light 2.5h
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S33,Phage light 1.5h
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S34,Phage dark 8.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S35,Const dark+ph 8.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S36,Const dark+ph 4.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S37,Const dark+ph 2.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S38,Const dark+ph 1.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S39,Const dark 8.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S40,Const dark 4.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S41,Const dark 2.5h
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S42,Const dark 1.5h
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|3h,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S43,N depr arr 3h
+10.1128/JB.01097-06_light_stress_green_light_13_umol_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S44,Green 13 45 min
+10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light|12h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S45,Fe starv 12h
+10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|0h,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S46,N depr arr 0h
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S47,Phage dark 2.5h
+10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S48,Phage dark 4.5h
+10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture|day 89,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,,,,,,,0.0,,0.0,,S49,lowN cocult d89
+10.1128/JB.01097-06_light_stress_dcmu_white_light_13_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,-1.0,-1.0,,-1.0,0.0,,0.0,,S50,DCMU 45 min
+10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray|max across 70min-24h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,-1.0,-1.0,-1.0,0.0,-1.0,-1.0,0.0,,0.0,-1.0,0.0,-1.0,,S51,Air vs t0 max
+10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|0.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,-1.0,-1.0,0.0,0.0,0.0,0.0,-1.0,-1.0,-1.0,-1.0,S52,Const dark+ph 0.5h
+10.1038/ismej.2011.49_iron_rescue_med4_microarray|R (rescue: 70h vs 48h),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,-1.0,,-1.0,-1.0,-1.0,,-1.0,-1.0,,0.0,,S53,Fe re-added R
+10.64898/2026.04.15.718746_extended_light_med4|14h,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,,-1.0,-1.0,-1.0,-1.0,,-1.0,-1.0,-1.0,-1.0,S54,Ext light 14h
+10.1038/nature06130_viral_phage_infected_med4_microarray|1h,,,,,,,,,,,,,1.0,1.0,1.0,1.0,1.0,1.0,1.0,,1.0,,1.0,S55,Phage arr 1h

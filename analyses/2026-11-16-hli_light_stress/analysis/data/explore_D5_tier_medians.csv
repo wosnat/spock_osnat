@@ -1,5 +1,5 @@
 tier,tier_name,n_genes,n_multi_copy,n_single_copy,median_pct_up_pooled,median_pct_down_pooled,median_pct_up_rnaseq,median_pct_down_rnaseq,median_pct_up_array,median_pct_down_array
-1,"picocyanobacteria-wide (Pro HL + LL, Syn, Cyanobium)",4,0,4,2.4390243902439024,6.0606060606060606,6.666666666666667,6.904761904761905,0.0,0.0
-2,Prochlorococcus-wide (HL + LL),6,6,0,31.964285714285715,3.0303030303030303,36.66666666666667,6.666666666666667,34.61538461538461,0.0
-3,"Prochlorococcus, partial (HL + some LL)",8,6,2,20.282413350449296,0.0,22.22222222222222,0.0,13.461538461538462,0.0
-4,HL Prochlorococcus only,5,2,3,19.51219512195122,0.0,22.22222222222222,0.0,10.0,0.0
+1,"picocyanobacteria-wide (Pro HL + LL, Syn, Cyanobium)",4,0,4,2.5,6.25,6.666666666666667,6.904761904761905,0.0,0.0
+2,Prochlorococcus-wide (HL + LL),6,6,0,32.84313725490196,3.125,36.66666666666667,6.666666666666667,36.0,0.0
+3,"Prochlorococcus, partial (HL + some LL)",8,6,2,21.11111111111111,0.0,22.22222222222222,0.0,14.0,0.0
+4,HL Prochlorococcus only,5,2,3,20.0,0.0,22.22222222222222,0.0,11.11111111111111,0.0

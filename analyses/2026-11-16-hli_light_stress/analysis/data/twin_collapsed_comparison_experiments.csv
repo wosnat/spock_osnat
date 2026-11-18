@@ -41,8 +41,6 @@ experiment_id,label,direction,padj_exp_bh_orig,experiment_call_orig,padj_exp_bh_
 10.1038/nature06130_viral_phage_infected_med4_microarray,"Phage infection (array, up-only)",up,8.343829553717585e-12,up,3.578616030745606e-06,up,False
 10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),down,1.0,neither,1.0,neither,False
 10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light,Phage lysate (light),up,,neither,,neither,False
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,down,,neither,,neither,False
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray,Phosphate starvation,up,1.0,neither,1.0,neither,False
 10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,down,1.2350141071925427e-06,down,3.00635041163076e-07,down,False
 10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray,Air vs time 0,up,1.0,down,1.0,down,False
 10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq,Coculture HOT1A3 vs axenic (2025),down,0.0987106208387352,neither,0.0987106208387352,neither,False

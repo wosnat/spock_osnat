@@ -7,7 +7,7 @@ ck_group,CK_00000050,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00000050,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
 ck_group,CK_00000050,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00000050,1,nonlight_stress_type,nitrogen,11,11,1,0,0.09090909090909091,0.0
-ck_group,CK_00000050,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00000050,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00000050,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00000050,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00000050,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
@@ -21,7 +21,7 @@ ck_group,CK_00001058,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00001058,1,nonlight_stress_type,carbon,3,3,0,2,0.0,0.6666666666666666
 ck_group,CK_00001058,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00001058,1,nonlight_stress_type,nitrogen,11,11,0,3,0.0,0.2727272727272727
-ck_group,CK_00001058,1,nonlight_stress_type,phosphorus,1,1,0,1,0.0,1.0
+ck_group,CK_00001058,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00001058,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00001058,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00001058,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
@@ -35,7 +35,7 @@ ck_group,CK_00001313,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00001313,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
 ck_group,CK_00001313,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00001313,1,nonlight_stress_type,nitrogen,11,11,0,1,0.0,0.09090909090909091
-ck_group,CK_00001313,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00001313,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00001313,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00001313,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00001313,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,1,0,1.0,0.0
@@ -49,7 +49,7 @@ ck_group,CK_00001414,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00001414,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
 ck_group,CK_00001414,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00001414,1,nonlight_stress_type,nitrogen,11,11,0,1,0.0,0.09090909090909091
-ck_group,CK_00001414,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00001414,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00001414,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00001414,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00001414,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,1,0,1.0,0.0
@@ -63,7 +63,7 @@ ck_group,CK_00002025,3,light_reading_group,phage_dark,3,9,0,0,0.0,0.0
 ck_group,CK_00002025,3,nonlight_stress_type,carbon,3,9,6,0,0.6666666666666666,0.0
 ck_group,CK_00002025,3,nonlight_stress_type,iron,3,9,1,0,0.1111111111111111,0.0
 ck_group,CK_00002025,3,nonlight_stress_type,nitrogen,11,33,15,0,0.45454545454545453,0.0
-ck_group,CK_00002025,3,nonlight_stress_type,phosphorus,1,3,0,0,0.0,0.0
+ck_group,CK_00002025,3,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00002025,3,nonlight_stress_type,salt,1,3,0,0,0.0,0.0
 ck_group,CK_00002025,3,nonlight_stress_type,viral,13,39,2,0,0.05128205128205128,0.0
 ck_group,CK_00002025,3,timepoint_override,"N stress, control side (down = higher under stress)",1,3,0,3,0.0,1.0
@@ -77,7 +77,7 @@ ck_group,CK_00002026,3,light_reading_group,phage_dark,3,9,0,0,0.0,0.0
 ck_group,CK_00002026,3,nonlight_stress_type,carbon,3,7,5,0,0.7142857142857143,0.0
 ck_group,CK_00002026,3,nonlight_stress_type,iron,3,6,3,0,0.5,0.0
 ck_group,CK_00002026,3,nonlight_stress_type,nitrogen,11,17,6,0,0.35294117647058826,0.0
-ck_group,CK_00002026,3,nonlight_stress_type,phosphorus,1,3,0,0,0.0,0.0
+ck_group,CK_00002026,3,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00002026,3,nonlight_stress_type,salt,1,3,0,0,0.0,0.0
 ck_group,CK_00002026,3,nonlight_stress_type,viral,13,39,5,0,0.1282051282051282,0.0
 ck_group,CK_00002026,3,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,1,0.0,1.0
@@ -91,7 +91,7 @@ ck_group,CK_00002103,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00002103,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
 ck_group,CK_00002103,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00002103,1,nonlight_stress_type,nitrogen,11,5,1,0,0.2,0.0
-ck_group,CK_00002103,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00002103,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00002103,1,nonlight_stress_type,salt,1,0,0,0,,
 ck_group,CK_00002103,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00002103,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,1,0.0,1.0
@@ -105,7 +105,7 @@ ck_group,CK_00002168,4,light_reading_group,phage_dark,3,12,0,0,0.0,0.0
 ck_group,CK_00002168,4,nonlight_stress_type,carbon,3,10,6,0,0.6,0.0
 ck_group,CK_00002168,4,nonlight_stress_type,iron,3,9,2,0,0.2222222222222222,0.0
 ck_group,CK_00002168,4,nonlight_stress_type,nitrogen,11,22,9,0,0.4090909090909091,0.0
-ck_group,CK_00002168,4,nonlight_stress_type,phosphorus,1,4,0,0,0.0,0.0
+ck_group,CK_00002168,4,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00002168,4,nonlight_stress_type,salt,1,4,0,0,0.0,0.0
 ck_group,CK_00002168,4,nonlight_stress_type,viral,13,52,3,0,0.057692307692307696,0.0
 ck_group,CK_00002168,4,timepoint_override,"N stress, control side (down = higher under stress)",1,2,0,1,0.0,0.5
@@ -119,7 +119,7 @@ ck_group,CK_00002332,2,light_reading_group,phage_dark,3,6,0,0,0.0,0.0
 ck_group,CK_00002332,2,nonlight_stress_type,carbon,3,4,2,0,0.5,0.0
 ck_group,CK_00002332,2,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00002332,2,nonlight_stress_type,nitrogen,11,6,1,0,0.16666666666666666,0.0
-ck_group,CK_00002332,2,nonlight_stress_type,phosphorus,1,2,0,0,0.0,0.0
+ck_group,CK_00002332,2,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00002332,2,nonlight_stress_type,salt,1,2,0,0,0.0,0.0
 ck_group,CK_00002332,2,nonlight_stress_type,viral,13,26,2,0,0.07692307692307693,0.0
 ck_group,CK_00002332,2,timepoint_override,"N stress, control side (down = higher under stress)",1,0,0,0,,
@@ -133,7 +133,7 @@ ck_group,CK_00002661,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00002661,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
 ck_group,CK_00002661,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00002661,1,nonlight_stress_type,nitrogen,11,11,0,0,0.0,0.0
-ck_group,CK_00002661,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00002661,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00002661,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00002661,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00002661,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
@@ -147,7 +147,7 @@ ck_group,CK_00003421,1,light_reading_group,phage_dark,3,3,0,2,0.0,0.666666666666
 ck_group,CK_00003421,1,nonlight_stress_type,carbon,3,3,1,0,0.3333333333333333,0.0
 ck_group,CK_00003421,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00003421,1,nonlight_stress_type,nitrogen,11,11,5,0,0.45454545454545453,0.0
-ck_group,CK_00003421,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00003421,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00003421,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00003421,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00003421,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,1,0.0,1.0
@@ -161,7 +161,7 @@ ck_group,CK_00003510,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00003510,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
 ck_group,CK_00003510,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00003510,1,nonlight_stress_type,nitrogen,11,11,4,0,0.36363636363636365,0.0
-ck_group,CK_00003510,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00003510,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00003510,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00003510,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00003510,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
@@ -175,7 +175,7 @@ ck_group,CK_00003573,1,light_reading_group,phage_dark,3,3,0,0,0.0,0.0
 ck_group,CK_00003573,1,nonlight_stress_type,carbon,3,3,0,0,0.0,0.0
 ck_group,CK_00003573,1,nonlight_stress_type,iron,3,3,0,0,0.0,0.0
 ck_group,CK_00003573,1,nonlight_stress_type,nitrogen,11,11,5,0,0.45454545454545453,0.0
-ck_group,CK_00003573,1,nonlight_stress_type,phosphorus,1,1,0,0,0.0,0.0
+ck_group,CK_00003573,1,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00003573,1,nonlight_stress_type,salt,1,1,0,0,0.0,0.0
 ck_group,CK_00003573,1,nonlight_stress_type,viral,13,13,0,0,0.0,0.0
 ck_group,CK_00003573,1,timepoint_override,"N stress, control side (down = higher under stress)",1,1,0,0,0.0,0.0
@@ -189,7 +189,7 @@ ck_group,CK_00043616,2,light_reading_group,phage_dark,3,6,0,0,0.0,0.0
 ck_group,CK_00043616,2,nonlight_stress_type,carbon,3,4,2,0,0.5,0.0
 ck_group,CK_00043616,2,nonlight_stress_type,iron,3,3,1,0,0.3333333333333333,0.0
 ck_group,CK_00043616,2,nonlight_stress_type,nitrogen,11,6,1,0,0.16666666666666666,0.0
-ck_group,CK_00043616,2,nonlight_stress_type,phosphorus,1,2,0,0,0.0,0.0
+ck_group,CK_00043616,2,nonlight_stress_type,phosphorus,0,0,0,0,,
 ck_group,CK_00043616,2,nonlight_stress_type,salt,1,2,0,0,0.0,0.0
 ck_group,CK_00043616,2,nonlight_stress_type,viral,13,26,2,0,0.07692307692307693,0.0
 ck_group,CK_00043616,2,timepoint_override,"N stress, control side (down = higher under stress)",1,0,0,0,,
@@ -203,7 +203,7 @@ copy_class,multi_copy,14,light_reading_group,phage_dark,3,42,0,0,0.0,0.0
 copy_class,multi_copy,14,nonlight_stress_type,carbon,3,34,21,0,0.6176470588235294,0.0
 copy_class,multi_copy,14,nonlight_stress_type,iron,3,30,7,0,0.23333333333333334,0.0
 copy_class,multi_copy,14,nonlight_stress_type,nitrogen,11,84,32,0,0.38095238095238093,0.0
-copy_class,multi_copy,14,nonlight_stress_type,phosphorus,1,14,0,0,0.0,0.0
+copy_class,multi_copy,14,nonlight_stress_type,phosphorus,0,0,0,0,,
 copy_class,multi_copy,14,nonlight_stress_type,salt,1,14,0,0,0.0,0.0
 copy_class,multi_copy,14,nonlight_stress_type,viral,13,182,14,0,0.07692307692307693,0.0
 copy_class,multi_copy,14,timepoint_override,"N stress, control side (down = higher under stress)",1,6,0,5,0.0,0.8333333333333334
@@ -217,7 +217,7 @@ copy_class,single_copy,9,light_reading_group,phage_dark,3,27,0,2,0.0,0.074074074
 copy_class,single_copy,9,nonlight_stress_type,carbon,3,27,1,2,0.037037037037037035,0.07407407407407407
 copy_class,single_copy,9,nonlight_stress_type,iron,3,27,0,0,0.0,0.0
 copy_class,single_copy,9,nonlight_stress_type,nitrogen,11,93,16,5,0.17204301075268819,0.053763440860215055
-copy_class,single_copy,9,nonlight_stress_type,phosphorus,1,9,0,1,0.0,0.1111111111111111
+copy_class,single_copy,9,nonlight_stress_type,phosphorus,0,0,0,0,,
 copy_class,single_copy,9,nonlight_stress_type,salt,1,8,0,0,0.0,0.0
 copy_class,single_copy,9,nonlight_stress_type,viral,13,117,0,0,0.0,0.0
 copy_class,single_copy,9,timepoint_override,"N stress, control side (down = higher under stress)",1,9,2,2,0.2222222222222222,0.2222222222222222

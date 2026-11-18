@@ -43,12 +43,12 @@ def main():
     oc["experiment_call_A8"] = [calls.get((e, s), "not_tested") for e, s in zip(oc.experiment_id, oc.set)]
     eflips = oc[oc.experiment_call != oc.experiment_call_A8]
     out = pd.DataFrame([
-        dict(check="test-level calls (all 13 sets), BH without 2016", n_compared=int(r.testable.sum()), n_flips=len(flips),
+        dict(check="test-level calls (all 13 sets), BH without dropped experiments (A.8, A.13)", n_compared=int(r.testable.sum()), n_flips=len(flips),
              max_abs_delta_padj=float(np.nanmax(np.abs(r.padj_bh_A8 - r.padj_bh)))),
         dict(check="test-level calls, hli only", n_compared=int(r[r.set == "hli"].testable.sum()),
              n_flips=int((flips.set == "hli").sum()),
              max_abs_delta_padj=float(np.nanmax(np.abs((r.padj_bh_A8 - r.padj_bh)[r.set == "hli"])))),
-        dict(check="experiment calls (all sets), recomputed without 2016", n_compared=len(oc), n_flips=len(eflips),
+        dict(check="experiment calls (all sets), recomputed without dropped experiments (A.8, A.13)", n_compared=len(oc), n_flips=len(eflips),
              max_abs_delta_padj=np.nan)])
     out.to_csv(DATA / "qc_A8_bh_recompute.csv", index=False, encoding="utf-8")
     pd.set_option("display.width", 220)
