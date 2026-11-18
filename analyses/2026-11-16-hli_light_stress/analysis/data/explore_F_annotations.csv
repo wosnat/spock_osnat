@@ -1,0 +1,615 @@
+locus_tag,group,cluster,kind,mode,source,term_id,term_name,level,is_informative,evidence
+PMM0064,quiet,2,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0093,quiet,2,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1128,quiet,1,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1317,quiet,2,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1390,quiet,2,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1482,quiet,2,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0689,responder,3,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0690,responder,3,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0815,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0816,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0817,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0818,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1118,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1135,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1384,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1385,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1396,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1397,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1398,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1399,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM1404,responder,4,data_coverage,details,details:annotation_state,informative_multi,informative_multi,,,
+PMM0471,quiet,2,data_coverage,details,details:annotation_state,informative_single,informative_single,,,
+TX50_RS09730,quiet,2,data_coverage,details,details:annotation_state,informative_single,informative_single,,,
+PMM0064,quiet,2,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM0093,quiet,2,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM0471,quiet,2,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1128,quiet,1,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1317,quiet,2,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1390,quiet,2,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1482,quiet,2,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM0689,responder,3,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM0690,responder,3,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM0817,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM0818,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1118,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1135,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1384,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1385,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1396,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1397,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM1404,responder,4,data_coverage,details,details:boolean_metric_types_observed,expressed_above_background,expressed_above_background,,,
+PMM0093,quiet,2,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM1128,quiet,1,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM1390,quiet,2,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM0689,responder,3,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM0690,responder,3,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM0818,responder,4,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM1118,responder,4,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM1135,responder,4,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM1384,responder,4,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM1399,responder,4,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM1404,responder,4,data_coverage,details,details:boolean_metric_types_observed,has_primary_tss,has_primary_tss,,,
+PMM0689,responder,3,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM0690,responder,3,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM0817,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM0818,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM1118,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM1135,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM1384,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM1385,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM1396,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM1397,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM1404,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_no_o2_shock,rapid_recovery_low_co2_no_o2_shock,,,
+PMM0689,responder,3,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM0690,responder,3,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM0817,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM0818,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM1118,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM1135,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM1384,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM1385,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM1396,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM1397,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM1404,responder,4,data_coverage,details,details:boolean_metric_types_observed,rapid_recovery_low_co2_shock,rapid_recovery_low_co2_shock,,,
+PMM0689,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM0690,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM0817,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM0818,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM1118,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM1135,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM1384,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM1385,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM1396,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM1397,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM1404,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_high_light_shock,expression_change_high_light_shock,,,
+PMM0689,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM0690,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM0817,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM0818,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM1118,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM1135,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM1384,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM1385,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM1396,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM1397,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM1404,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_no_o2_shock,expression_change_low_co2_no_o2_shock,,,
+PMM0689,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM0690,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM0817,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM0818,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM1118,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM1135,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM1384,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM1385,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM1396,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM1397,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM1404,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_change_low_co2_shock,expression_change_low_co2_shock,,,
+PMM0064,quiet,2,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0093,quiet,2,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0471,quiet,2,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1128,quiet,1,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1317,quiet,2,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1390,quiet,2,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1482,quiet,2,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0689,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0690,responder,3,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0815,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0816,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0817,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0818,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1118,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1135,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1384,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1385,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1396,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1397,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1398,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1399,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM1404,responder,4,data_coverage,details,details:categorical_metric_types_observed,expression_level_class,expression_level_class,,,
+PMM0064,quiet,2,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0093,quiet,2,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0471,quiet,2,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1128,quiet,1,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1317,quiet,2,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1390,quiet,2,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1482,quiet,2,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0689,responder,3,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0690,responder,3,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0815,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0816,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0817,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0818,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1118,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1135,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1384,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1385,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1396,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1397,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1398,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1399,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM1404,responder,4,data_coverage,details,details:categorical_metric_types_observed,pangenome_membership,pangenome_membership,,,
+PMM0064,quiet,2,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM0093,quiet,2,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM0471,quiet,2,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1128,quiet,1,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1317,quiet,2,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1390,quiet,2,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1482,quiet,2,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM0690,responder,3,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM0817,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM0818,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1118,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1135,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1384,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1385,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1396,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1397,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM1404,responder,4,data_coverage,details,details:cluster_types,decay_pattern,decay_pattern,,,
+PMM0064,quiet,2,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM0093,quiet,2,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM0471,quiet,2,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1128,quiet,1,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1317,quiet,2,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1390,quiet,2,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1482,quiet,2,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM0689,responder,3,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM0690,responder,3,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM0817,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM0818,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1118,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1135,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1384,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1385,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1396,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1397,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1404,responder,4,data_coverage,details,details:cluster_types,diel,diel,,,
+PMM1128,quiet,1,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1390,quiet,2,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+TX50_RS09730,quiet,2,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM0689,responder,3,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM0690,responder,3,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM0816,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM0817,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM0818,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1118,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1135,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1384,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1385,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1397,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1398,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1399,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1404,responder,4,data_coverage,details,details:cluster_types,genomic_island,genomic_island,,,
+PMM1128,quiet,1,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1390,quiet,2,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1482,quiet,2,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM0689,responder,3,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM0690,responder,3,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM0815,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM0816,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM0817,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM0818,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1118,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1135,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1384,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1385,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1396,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1397,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1398,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1399,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM1404,responder,4,data_coverage,details,details:cluster_types,time_course,time_course,,,
+PMM0064,quiet,2,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0093,quiet,2,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0471,quiet,2,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1128,quiet,1,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1317,quiet,2,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1390,quiet,2,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1482,quiet,2,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+TX50_RS09730,quiet,2,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0689,responder,3,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0690,responder,3,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0815,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0816,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0817,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0818,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1118,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1135,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1384,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1385,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1396,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1397,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1398,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1399,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM1404,responder,4,annotation,details,details:gene_category,Stress response and adaptation,Stress response and adaptation,,,
+PMM0093,quiet,2,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM1128,quiet,1,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM1390,quiet,2,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM0689,responder,3,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM0690,responder,3,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM0818,responder,4,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM1118,responder,4,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM1135,responder,4,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM1384,responder,4,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM1399,responder,4,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM1404,responder,4,data_coverage,details,details:numeric_metric_types_observed,antisense_tss_count,antisense_tss_count,,,
+PMM0064,quiet,2,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM0093,quiet,2,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM0471,quiet,2,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1128,quiet,1,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1317,quiet,2,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1390,quiet,2,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1482,quiet,2,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM0689,responder,3,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM0690,responder,3,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM0817,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM0818,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1118,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1135,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1384,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1385,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1396,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1397,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM1404,responder,4,data_coverage,details,details:numeric_metric_types_observed,expression_at_t0_log2,expression_at_t0_log2,,,
+PMM0093,quiet,2,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM1128,quiet,1,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM1390,quiet,2,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM0689,responder,3,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM0690,responder,3,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM0818,responder,4,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM1118,responder,4,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM1135,responder,4,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM1384,responder,4,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM1399,responder,4,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM1404,responder,4,data_coverage,details,details:numeric_metric_types_observed,internal_tss_count,internal_tss_count,,,
+PMM0093,quiet,2,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM1390,quiet,2,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM0690,responder,3,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM0818,responder,4,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM1118,responder,4,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM1135,responder,4,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM1384,responder,4,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM1399,responder,4,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM1404,responder,4,data_coverage,details,details:numeric_metric_types_observed,minus10_element_score,minus10_element_score,,,
+PMM0064,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM0093,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM0471,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1128,quiet,1,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1317,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1390,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1482,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM0689,responder,3,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM0690,responder,3,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM0817,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM0818,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1118,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1135,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1384,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1385,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1396,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1397,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM1404,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_decay_time_min,rna_decay_time_min,,,
+PMM0064,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM0093,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM0471,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1128,quiet,1,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1317,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1390,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1482,quiet,2,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM0689,responder,3,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM0690,responder,3,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM0817,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM0818,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1118,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1135,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1384,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1385,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1396,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1397,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM1404,responder,4,data_coverage,details,details:numeric_metric_types_observed,rna_half_life_min,rna_half_life_min,,,
+PMM0093,quiet,2,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM1390,quiet,2,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM0690,responder,3,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM0818,responder,4,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM1118,responder,4,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM1135,responder,4,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM1384,responder,4,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM1399,responder,4,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM1404,responder,4,data_coverage,details,details:numeric_metric_types_observed,tss_distance_to_cds,tss_distance_to_cds,,,
+PMM1482,quiet,2,annotation,details,details:subcellular_localization,CytoplasmicMembrane,CytoplasmicMembrane,,,
+TX50_RS09730,quiet,2,annotation,details,details:subcellular_localization,CytoplasmicMembrane,CytoplasmicMembrane,,,
+PMM0689,responder,3,annotation,details,details:subcellular_localization,CytoplasmicMembrane,CytoplasmicMembrane,,,
+PMM0816,responder,4,annotation,details,details:subcellular_localization,CytoplasmicMembrane,CytoplasmicMembrane,,,
+PMM1397,responder,4,annotation,details,details:subcellular_localization,CytoplasmicMembrane,CytoplasmicMembrane,,,
+PMM0064,quiet,2,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM0471,quiet,2,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1128,quiet,1,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1317,quiet,2,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1390,quiet,2,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+TX50_RS09730,quiet,2,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM0689,responder,3,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM0816,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM0817,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM0818,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1118,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1135,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1384,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1385,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1397,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1398,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM1399,responder,4,annotation,leaf,cog_category,cog.category:S,Function unknown,0.0,False,family_inferred
+PMM0064,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0093,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0471,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1128,quiet,1,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1317,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1390,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1482,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+TX50_RS09730,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0689,responder,3,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0690,responder,3,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0815,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0816,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0817,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0818,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1118,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1135,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1384,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1385,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1396,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1397,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1398,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1399,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM1404,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:D.1.2,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Light,2.0,True,curated
+PMM0093,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:D.1.7,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification > Trace metals,2.0,True,curated
+PMM0064,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0093,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0471,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1128,quiet,1,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1317,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1390,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1482,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+TX50_RS09730,quiet,2,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0689,responder,3,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0690,responder,3,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0815,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0816,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0817,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0818,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1118,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1135,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1384,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1385,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1396,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1397,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1398,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1399,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM1404,responder,4,annotation,leaf,cyanorak_role,cyanorak.role:J,Photosynthesis and respiration,0.0,True,curated
+PMM0064,quiet,2,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0093,quiet,2,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1128,quiet,1,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1317,quiet,2,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1390,quiet,2,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1482,quiet,2,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0689,responder,3,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0690,responder,3,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0815,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0816,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0817,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0818,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1118,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1135,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1384,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1385,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1396,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1397,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1398,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1399,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM1404,responder,4,annotation,leaf,go_bp,go:0009644,response to high light intensity,6.0,True,curated
+PMM0064,quiet,2,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0093,quiet,2,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1128,quiet,1,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1317,quiet,2,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1390,quiet,2,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1482,quiet,2,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0689,responder,3,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0690,responder,3,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0815,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0816,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0817,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0818,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1118,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1135,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1384,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1385,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1396,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1397,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1398,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1399,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM1404,responder,4,annotation,leaf,go_cc,go:0016020,membrane,2.0,True,curated
+PMM0689,responder,3,annotation,leaf,interpro,interpro:IPR022796,Chlorophyll A-B binding protein,0.0,True,signature
+PMM0064,quiet,2,annotation,leaf,interpro,interpro:IPR063966,High light-inducible protein HliA-D-like,0.0,True,signature
+PMM1482,quiet,2,annotation,leaf,interpro,interpro:IPR063966,High light-inducible protein HliA-D-like,0.0,True,signature
+PMM0817,responder,4,annotation,leaf,interpro,interpro:IPR063966,High light-inducible protein HliA-D-like,0.0,True,signature
+PMM1135,responder,4,annotation,leaf,interpro,interpro:IPR063966,High light-inducible protein HliA-D-like,0.0,True,signature
+PMM1398,responder,4,annotation,leaf,interpro,interpro:IPR063966,High light-inducible protein HliA-D-like,0.0,True,signature
+PMM0064,quiet,2,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0093,quiet,2,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1317,quiet,2,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1390,quiet,2,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1482,quiet,2,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0689,responder,3,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0815,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0816,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,family_inferred
+PMM0817,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0818,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1118,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1135,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1384,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1396,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1397,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,family_inferred
+PMM1398,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1399,responder,4,annotation,leaf,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0064,quiet,2,annotation,leaf,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM1482,quiet,2,annotation,leaf,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM0817,responder,4,annotation,leaf,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM1135,responder,4,annotation,leaf,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM1398,responder,4,annotation,leaf,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM1482,quiet,2,annotation,leaf,subcellular_localization,psortb_CytoplasmicMembrane,Cytoplasmic membrane,0.0,True,
+TX50_RS09730,quiet,2,annotation,leaf,subcellular_localization,psortb_CytoplasmicMembrane,Cytoplasmic membrane,0.0,True,
+PMM0689,responder,3,annotation,leaf,subcellular_localization,psortb_CytoplasmicMembrane,Cytoplasmic membrane,0.0,True,
+PMM0816,responder,4,annotation,leaf,subcellular_localization,psortb_CytoplasmicMembrane,Cytoplasmic membrane,0.0,True,
+PMM1397,responder,4,annotation,leaf,subcellular_localization,psortb_CytoplasmicMembrane,Cytoplasmic membrane,0.0,True,
+PMM0064,quiet,2,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0093,quiet,2,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0471,quiet,2,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1128,quiet,1,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1317,quiet,2,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1390,quiet,2,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1482,quiet,2,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+TX50_RS09730,quiet,2,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0689,responder,3,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0690,responder,3,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0815,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0816,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0817,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0818,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1118,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1135,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1384,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1385,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1396,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1397,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1398,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1399,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1404,responder,4,annotation,leaf,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0064,quiet,2,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0093,quiet,2,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0471,quiet,2,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1128,quiet,1,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1317,quiet,2,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1390,quiet,2,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1482,quiet,2,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+TX50_RS09730,quiet,2,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0689,responder,3,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0690,responder,3,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0815,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0816,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0817,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0818,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1118,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1135,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1384,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1385,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1396,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1397,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1398,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1399,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM1404,responder,4,annotation,rollup_L1,cyanorak_role,cyanorak.role:D.1,Cellular processes > Adaptation/acclimation to atypical conditions and detoxification,1.0,True,curated
+PMM0064,quiet,2,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0093,quiet,2,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1128,quiet,1,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1317,quiet,2,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1390,quiet,2,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1482,quiet,2,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0689,responder,3,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0690,responder,3,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0815,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0816,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0817,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0818,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1118,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1135,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1384,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1385,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1396,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1397,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1398,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1399,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM1404,responder,4,annotation,rollup_L1,go_bp,go:0050896,response to stimulus,1.0,True,curated
+PMM0064,quiet,2,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0093,quiet,2,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1128,quiet,1,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1317,quiet,2,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1390,quiet,2,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1482,quiet,2,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0689,responder,3,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0690,responder,3,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0815,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0816,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0817,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0818,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1118,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1135,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1384,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1385,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1396,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1397,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1398,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1399,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM1404,responder,4,annotation,rollup_L1,go_cc,go:0110165,cellular anatomical structure,1.0,True,curated
+PMM0064,quiet,2,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0093,quiet,2,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1317,quiet,2,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1390,quiet,2,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1482,quiet,2,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0689,responder,3,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0815,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0816,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,family_inferred
+PMM0817,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0818,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1118,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1135,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1384,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1396,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1397,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,family_inferred
+PMM1398,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM1399,responder,4,annotation,rollup_L1,pfam,pfam:PF00504,Chlorophyll A-B binding protein,1.0,True,curated
+PMM0064,quiet,2,annotation,rollup_L1,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM1482,quiet,2,annotation,rollup_L1,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM0817,responder,4,annotation,rollup_L1,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM1135,responder,4,annotation,rollup_L1,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM1398,responder,4,annotation,rollup_L1,pfam,pfam:PF31213,PF31213,1.0,True,signature
+PMM0064,quiet,2,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0093,quiet,2,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0471,quiet,2,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1128,quiet,1,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1317,quiet,2,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1390,quiet,2,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1482,quiet,2,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+TX50_RS09730,quiet,2,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0689,responder,3,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0690,responder,3,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0815,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0816,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0817,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM0818,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1118,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1135,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1384,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1385,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1396,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1397,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1398,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1399,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
+PMM1404,responder,4,annotation,rollup_L1,tigr_role,tigr.role:149,Cellular processes / Adaptations to atypical conditions,1.0,True,curated
