@@ -8,8 +8,8 @@ One colour scheme: orange #eb6834 = up, blue #2a78d6 = down; sequential ramps mi
 mid-grey -> blue (% down); family colours (d_scheme.FAMILY_ANCHOR) only in header strips / label patches;
 conservation tiers = the 4 greys of conservation.py; clusters in ink.
 
-Writes figures/paper_fig1, paper_fig2, paper_fig3, paper_fig4, paper_figS1 (.png, .svg);
-data/paper_fig_source_fig1a.csv, _fig1b, _fig2, _fig3a, _fig3b, _fig4, _figS1.csv, data/paper_figS1_column_key.csv.
+Writes figures/paper_fig1..paper_fig5 (.png, .svg): 3 = all calls, clustered (was S1); 4 = conservation; 5 = light level.
+data/paper_fig_source_fig1a.csv, _fig1b, _fig2, _fig3, _fig4, _fig5.csv, data/paper_fig3_row_key.csv.
 
 Run from the repo root:
     PYTHONUTF8=1 uv run python analyses/2026-11-16-hli_light_stress/analysis/scripts/20_paper_figures.py
@@ -46,7 +46,7 @@ plt.rcParams.update({"font.size": 8, "axes.labelsize": 9, "xtick.labelsize": 8, 
                      "xtick.major.width": 0.6, "ytick.major.width": 0.6})
 FONT_LOG = {}
 
-# scopes (Fig 1a rows, Fig 3a columns): d_scheme type -> scope
+# scopes (Fig 1a rows): d_scheme type -> scope
 SCOPES = [("Light onset", "light / dark", "Light\nonset"), ("Schedule ext.", "light / dark", "Sched.\next."),
           ("Const. dark/light", "light / dark", "Dark/\nlight"), ("CO2", "stress", "CO2"), ("Iron", "stress", "Iron"),
           ("Nitrogen", "stress", "N"), ("Phosphorus", "stress", "P"), ("Salt", "stress", "Salt"),
@@ -331,134 +331,67 @@ def fig2():
     return pd.DataFrame(src)
 
 
-# ------------------------------------------------------------------ Fig 3
-def fig3():
-    pts = rd("explore_D_trajectory_points.csv")
-    for c in ("up_defined", "down_defined"):
-        pts[c] = pts[c].astype(str) == "True"
-    pts["scope"] = pts.type.map(TYPE_SCOPE)
-    cl = rd("explore_D_gene_clusters.csv").sort_values("leaf_order")
-    cg = cons.by_gene().set_index("locus_tag")
-    genes = cl.locus_tag.tolist()
-    rows = []
-    for g in genes:
-        for sc, fam, _ in SCOPES:
-            d = pts[(pts.locus_tag == g) & (pts.scope == sc)]
-            ud, dd = d[d.up_defined], d[d.down_defined]
-            rows.append(dict(locus_tag=g, cluster=int(cl.set_index("locus_tag").at[g, "cluster"]), scope=sc,
-                             n_up=int((ud.call == "up").sum()), n_up_defined=len(ud),
-                             pct_up=100 * (ud.call == "up").mean() if len(ud) else np.nan,
-                             n_down=int((dd.call == "down").sum()), n_down_defined=len(dd),
-                             pct_down=100 * (dd.call == "down").mean() if len(dd) else np.nan))
-    a = pd.DataFrame(rows)
-    a.to_csv(DATA / "paper_fig_source_fig3a.csv", index=False, encoding="utf-8")
+# ------------------------------------------------------------------ Fig 4 (conservation; exploratory)
+def fig_cons():
+    """One bar per gene: % of its defined stress + light-onset calls that are up, grouped by ortholog-group tier."""
     d5 = rd("explore_D5_conservation.csv")
-    d5[["locus_tag", "cluster", "copy_class", "tier", "tier_name", "n_organisms", "xj", "n_up", "n_up_defined", "pct_up",
-        "n_up_rnaseq", "n_up_defined_rnaseq", "pct_up_rnaseq", "n_up_array", "n_up_defined_array", "pct_up_array"]].to_csv(
-        DATA / "paper_fig_source_fig3b.csv", index=False, encoding="utf-8")
-
-    nr, nc = len(genes), len(SCOPES)
-    rh = 0.205
-    ha = 0.62 + nr * rh + 1.0
-    hb = 2.55
-    H = ha + hb
-    assert H <= 9, H
+    cols = ["locus_tag", "cluster", "copy_class", "tier", "tier_name", "n_organisms", "n_up", "n_up_defined", "pct_up",
+            "n_up_rnaseq", "n_up_defined_rnaseq", "pct_up_rnaseq", "n_up_array", "n_up_defined_array", "pct_up_array"]
+    d5 = d5[cols].sort_values(["tier", "pct_up", "locus_tag"], ascending=[True, False, True]).reset_index(drop=True)
+    med = d5.groupby("tier").agg(n=("locus_tag", "size"), median_pct_up=("pct_up", "median"),
+                                 median_pct_up_rnaseq=("pct_up_rnaseq", "median"),
+                                 org_min=("n_organisms", "min"), org_max=("n_organisms", "max"))
+    d5.merge(med, left_on="tier", right_index=True).to_csv(DATA / "paper_fig_source_fig4.csv", index=False, encoding="utf-8")
+    # layout: tier header row + gene rows, gap between tiers
+    items, y = [], 0.0
+    for t_, g in d5.groupby("tier", sort=True):
+        items.append(("h", t_, y)); y += 0.85
+        for r in g.itertuples():
+            items.append(("g", r, y)); y += 1.0
+        y += 0.35
+    rh = 0.19
+    top, bot = 0.15, 1.0
+    H = top + y * rh + bot
     fig = plt.figure(figsize=(W, H))
-    gl = 2.05
-    gw = W - gl - 0.12
-    ax = axin(fig, gl, H - 0.62 - nr * rh, gw, nr * rh, H)
-    ai = a.set_index(["locus_tag", "scope"])
-    for i, g in enumerate(genes):
-        for j, (sc, fam, _) in enumerate(SCOPES):
-            r = ai.loc[(g, sc)]
-            for k, (pc, nd, cmap) in enumerate((("pct_up", "n_up_defined", UPMAP), ("pct_down", "n_down_defined", DNMAP))):
-                x0 = j + 0.5 * k
-                if r[nd] == 0:
-                    ax.add_patch(Rectangle((x0 + 0.02, i + 0.06), 0.46, 0.88, facecolor="white", edgecolor="#d9d8d4",
-                                           hatch="////", lw=0.4))
-                else:
-                    ax.add_patch(Rectangle((x0 + 0.02, i + 0.06), 0.46, 0.88, facecolor=cmap(r[pc] / 100), edgecolor="none"))
-    for j in range(1, nc):
-        ax.axvline(j, color="white", lw=1.6)
-    cls = cl.cluster.tolist()
-    for i in range(1, nr):
-        if cls[i] != cls[i - 1]:
-            ax.axhline(i, color=INK, lw=0.9)
-    ax.set_xlim(0, nc)
-    ax.set_ylim(nr, 0)
-    ax.set_xticks(np.arange(nc) + 0.5)
-    ax.set_xticklabels([s2 for _, _, s2 in SCOPES], linespacing=0.95)
-    ax.xaxis.tick_top()
-    ax.tick_params(axis="x", length=0, pad=8)
-    for j, (sc, fam, _) in enumerate(SCOPES):
-        ax.add_patch(Rectangle((j + 0.04, -0.28), 0.92, 0.18, facecolor=FAM[fam], clip_on=False))
-    ax.set_yticks(np.arange(nr) + 0.5)
-    ax.set_yticklabels(genes)
-    ax.tick_params(axis="y", length=0, pad=30)
-    clean(ax, keep=())
-    # row annotations: copy (filled / hollow square), tier grey, cluster bracket
-    tr = ax.get_yaxis_transform()
-    for i, g in enumerate(genes):
-        multi = cl.set_index("locus_tag").at[g, "copy_class"] == "multi"
-        ax.plot(-0.032, i + 0.5, marker="s", ms=5.5, mfc=INK if multi else "white", mec=INK, mew=0.8,
-                transform=tr, clip_on=False)
-        ax.add_patch(Rectangle((-0.022, i + 0.1), 0.016, 0.8, facecolor=cons.TIER_GREY[int(cg.at[g, "tier"])],
-                               transform=tr, clip_on=False))
-    s0 = 0
-    xb = -0.262
-    for i in range(1, nr + 1):
-        if i == nr or cls[i] != cls[s0]:
-            ax.plot([xb, xb], [s0 + 0.15, i - 0.15], color=INK, lw=1.0, transform=tr, clip_on=False)
-            ax.text(xb - 0.012, (s0 + i) / 2, f"C{cls[s0]}", ha="right", va="center", fontsize=8, fontweight="bold",
-                    transform=tr)
-            s0 = i
-    letter(fig, 0.05, 0.05, "a", H)
-    # legends under the heatmap: ramps, copy, tier
-    lb = H - 0.62 - nr * rh - 0.5
-    for k, (cmap, lab) in enumerate(((UPMAP, "% of defined cells up"), (DNMAP, "% down"))):
-        cax = axin(fig, gl + k * 1.55, lb, 1.1, 0.1, H)
-        cax.imshow(np.linspace(0, 1, 100)[None, :], aspect="auto", cmap=cmap, extent=(0, 100, 0, 1))
-        cax.set_yticks([])
-        cax.set_xticks([0, 50, 100])
-        cax.tick_params(length=2, pad=1)
-        cax.set_title(lab, fontsize=8, pad=2, loc="left")
+    gl = 1.75
+    ax = axin(fig, gl, bot, 4.0, y * rh, H)
+    for kind, r, yy in items:
+        if kind == "h":
+            m = med.loc[r]
+            lo, hi = int(m.org_min), int(m.org_max)
+            orgs = f"{lo}" if lo == hi else f"{lo}–{hi}"
+            ax.add_patch(Rectangle((-0.42, yy + 0.05), 0.012, 0.6, transform=ax.get_yaxis_transform(),
+                                   facecolor=cons.TIER_GREY[int(r)], clip_on=False))
+            ax.text(-0.39, yy + 0.35, f"{cons.TIER_NAME[int(r)]}  ·  {orgs} organisms  ·  median {m.median_pct_up:.0f}% up",
+                    transform=ax.get_yaxis_transform(), ha="left", va="center", fontsize=8, fontweight="bold")
+            continue
+        yc = yy + 0.5
+        ax.barh(yc, r.pct_up, height=0.62, color=UP, edgecolor="none")
+        ax.text(r.pct_up + 0.8, yc, f"{int(r.n_up)}/{int(r.n_up_defined)}", va="center", ha="left", fontsize=8, color=MUTED)
+        multi = r.copy_class == "multi"
+        tr = ax.get_yaxis_transform()
+        ax.text(-0.39, yc, r.locus_tag, transform=tr, ha="left", va="center", fontsize=8)
+        ax.text(-0.10, yc, f"C{int(r.cluster)}", transform=tr, ha="right", va="center", fontsize=8, color=MUTED)
+        ax.plot(-0.045, yc, marker="s", ms=5, mfc=INK if multi else "white", mec=INK, mew=0.8, transform=tr, clip_on=False)
+    ax.set_ylim(y, -0.1)
+    ax.set_xlim(0, 50)
+    ax.set_yticks([])
+    ax.set_xticks([0, 10, 20, 30, 40, 50])
+    ax.set_xlabel("% of the gene's defined stress and light-onset calls that are up")
+    ax.grid(axis="x", color="#e6e5e1", lw=0.6)
+    ax.set_axisbelow(True)
+    clean(ax, keep=("bottom",))
     fig.legend(handles=[Line2D([], [], marker="s", ls="", mfc=INK, mec=INK, label="multi-copy"),
-                        Line2D([], [], marker="s", ls="", mfc="white", mec=INK, label="single-copy"),
-                        Patch(facecolor="white", edgecolor="#b5b4ae", hatch="////", label="not defined")],
-               loc="lower left", bbox_to_anchor=((gl + 3.05) / W, (lb - 0.17) / H), ncol=1, frameon=False, fontsize=8,
-               handletextpad=0.3, labelspacing=0.2)
-    fig.text((gl - 0.05) / W, (lb - 0.42) / H, "ortholog-group breadth:", ha="right", va="center", fontsize=8)
-    fig.legend(handles=[Patch(facecolor=cons.TIER_GREY[t_], label=cons.TIER_SHORT[t_]) for t_ in cons.TIER_NAME],
-               loc="center left", bbox_to_anchor=((gl - 0.1) / W, (lb - 0.42) / H), ncol=4, frameon=False, fontsize=8,
-               handletextpad=0.3, columnspacing=1.0)
-    # ---- b: conservation vs % up (pooled filled, RNA-seq-only hollow companion)
-    ax = axin(fig, 0.75, 0.48, 4.6, hb - 0.85, H)
-    for r in d5.itertuples():
-        m = ds.CLUSTER_STYLE[int(r.cluster)][1]
-        ax.plot(r.xj - 0.35, r.pct_up, marker=m, ms=5.5, color=INK, ls="", zorder=3)
-        ax.plot(r.xj + 0.35, r.pct_up_rnaseq, marker=m, ms=5.5, mfc="white", mec=INK, mew=0.9, ls="", zorder=3)
-        ax.plot([r.xj - 0.35, r.xj + 0.35], [r.pct_up, r.pct_up_rnaseq], color=NSG, lw=0.6, zorder=2)
-        ax.add_patch(Rectangle((r.xj - 0.45, -9), 0.9, 4.5, facecolor=cons.TIER_GREY[int(r.tier)], edgecolor="none"))
-    ax.set_xlim(15, 101)
-    ax.set_ylim(-11, 62)
-    ax.set_yticks([0, 20, 40, 60])
-    ax.set_xticks([21, 30, 43, 60, 80, 96])
-    ax.set_xlabel("organisms in the gene's ortholog group")
-    ax.set_ylabel("% of defined cells up\n(stress + light onset)")
-    ax.axhline(0, color=MUTED, lw=0.5)
-    clean(ax)
-    ks = sorted(d5.cluster.unique())
-    ax.legend(handles=[Line2D([], [], marker=ds.CLUSTER_STYLE[int(k_)][1], ls="", color=INK, ms=5.5, label=f"C{k_}") for k_ in ks]
-              + [Line2D([], [], marker="o", ls="", color=INK, ms=5.5, label="all platforms"),
-                 Line2D([], [], marker="o", ls="", mfc="white", mec=INK, ms=5.5, label="RNA-seq only")],
-              loc="upper left", bbox_to_anchor=(1.02, 1.0), frameon=False, fontsize=8, ncol=1, handletextpad=0.3,
-              labelspacing=0.3)
-    letter(fig, 0.05, ha + 0.02, "b", H)
-    save(fig, "paper_fig3")
-    return a, d5
+                        Line2D([], [], marker="s", ls="", mfc="white", mec=INK, label="single-copy")],
+               loc="lower left", bbox_to_anchor=(0.01, 0.0), ncol=2, frameon=False, fontsize=8,
+               handletextpad=0.4, columnspacing=1.5)
+    fig.text(0.99, 0.02, "C1–C4: gene cluster (Fig. 3); numbers: up / defined calls", ha="right", va="bottom", fontsize=8,
+             color=MUTED)
+    save(fig, "paper_fig4")
+    return d5, med
 
 
-# ------------------------------------------------------------------ Fig 4
+# ------------------------------------------------------------------ Fig 5 (light level)
 def fig4():
     ll = rd("explore_light_level.csv")
     ll["testable"] = ll.testable.astype(str) == "True"
@@ -499,12 +432,12 @@ def fig4():
                         Line2D([], [], marker="o", ls="", mfc="white", mec=NSG, label="not significant"),
                         Line2D([], [], color=MUTED, ls="--", label="padj = 0.05")],
                loc="lower left", bbox_to_anchor=(0.0, 0.0), ncol=2, frameon=False, fontsize=8, columnspacing=1.5)
-    pd.DataFrame(src).to_csv(DATA / "paper_fig_source_fig4.csv", index=False, encoding="utf-8")
-    save(fig, "paper_fig4")
+    pd.DataFrame(src).to_csv(DATA / "paper_fig_source_fig5.csv", index=False, encoding="utf-8")
+    save(fig, "paper_fig5")
     return pd.DataFrame(src)
 
 
-# ------------------------------------------------------------------ Fig S1
+# ------------------------------------------------------------------ Fig 3 (all calls, clustered)
 def figS1():
     M = pd.read_csv(DATA / "explore_D_matrix_twinrule.csv", encoding="utf-8", index_col=0)
     co = rd("explore_D_column_order.csv").sort_values("order")
@@ -515,9 +448,9 @@ def figS1():
     co["row_label"] = [s.replace("Cocult", "Cocult.")[:22] for s in co.short]
     key = co[["code", "row_label", "col", "experiment_id", "label", "label_detailed", "timepoint", "family", "type",
               "col_cluster", "n_defined_genes"]]
-    key.to_csv(DATA / "paper_figS1_column_key.csv", index=False, encoding="utf-8")
+    key.to_csv(DATA / "paper_fig3_row_key.csv", index=False, encoding="utf-8")
     Mo = M.loc[genes, co.col]
-    Mo.T.assign(code=co.code.values, row_label=co.row_label.values).to_csv(DATA / "paper_fig_source_figS1.csv",
+    Mo.T.assign(code=co.code.values, row_label=co.row_label.values).to_csv(DATA / "paper_fig_source_fig3.csv",
                                                                           encoding="utf-8")
     nr, nc = len(co), len(genes)
     H = 10.0
@@ -589,14 +522,14 @@ def figS1():
                + [Patch(facecolor=cons.TIER_GREY[t_], label=cons.TIER_SHORT[t_]) for t_ in cons.TIER_NAME],
                loc="lower left", bbox_to_anchor=(0.01, 0.45 / H), ncol=6, frameon=False,
                fontsize=8, handletextpad=0.4, columnspacing=0.9)
-    save(fig, "paper_figS1")
+    save(fig, "paper_fig3")
     return co
 
 
 def main():
     a1, b1 = fig1()
     s2 = fig2()
-    a3, d5 = fig3()
+    d5, med = fig_cons()
     s4 = fig4()
     co = figS1()
     pd.set_option("display.width", 250)
@@ -608,7 +541,8 @@ def main():
           .to_string(index=False))
     print(s4.groupby("panel").agg(n=("significant", "size"), n_sig=("significant", "sum"), rho=("spearman_rho", "first"),
                                   p=("spearman_p", "first")).to_string())
-    print("S1 rows (experiment x time point):", len(co))
+    print("Fig 3 rows (experiment x time point):", len(co))
+    print(med.to_string())
 
 
 if __name__ == "__main__":
