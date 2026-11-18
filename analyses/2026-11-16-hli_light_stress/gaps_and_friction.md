@@ -15,3 +15,43 @@
 - [api] gene_ontology_terms rollup mode raises ValueError without `level`. (analysis)
 - [kg] Publication 'discusses' edges spread one sentence over more genes than it names: Tolonen 2006 'three hli genes' sentence on 10 MED4 + 8 MIT9313 genes; Bagby 2015 'six hli genes' sentence on 13 MED4 genes; Thompson 2016 lists 7 hli numbers, 6 locus tags linked. Gene-level source comparison is approximate. (evaluation)
 - [kg] hli gene names: most MED4 hli genes carry the bare name 'hli'; PMM1317 is 'hli6' and PMM1128 'hli15', which may not follow the numbering in Steglich 2006 (their hli6–9 operon), so paper-numbered hli genes cannot be mapped to locus tags from names. (evaluation)
+
+## Assessment of the research skills (template 0.2.0-alpha.2)
+
+This analysis was also a test of the recently changed skills: the five-step Plan dialog, exploratory vs control-validated modes, `decisions_log.md`, `proposal-critic`, and the evaluation comparison with other studies (fcdc825). It ran in exploratory mode, MED4 only, with part B dropped for time.
+
+### What worked
+- **`decisions_log.md`.** It was the backbone of the analysis. Fourteen analysis-phase decisions (A.1–A.14) record who decided what and why, including corrections (A.12 corrects A.5) and drops (A.8, A.13). Every late question could be traced back.
+- **Critic passes, especially delta passes.** Every pass found something real:
+  - the paralog-twin artifact that created a false cluster split;
+  - wrong notebook generalisations ("C1 never up", "all 13 multi-copy");
+  - the twin rule wrongly applied to RNA-seq;
+  - "quiet" genes that respond (PMM1128, PMM1390);
+  - "change in light rather than light level", which no contrast supports;
+  - "independent" support that re-read the same arrays;
+  - a 4-vs-7 gene miscount.
+
+  Without the delta passes, the paper would have shipped with two Blocker-level over-claims.
+- **kg-coder run manifests** with a "candidate anomalies" section. These surfaced the coculture-2016 table defects, statement spreading in the KG `discusses` edges, and missing protein IDs, without the main thread reading raw output.
+- **Exploratory mode.** It fitted the question, and the labels held through to the paper.
+- **The evaluation's source-study comparison** (new). It produced a useful table and exposed KG mapping limits. The critic's framing, "re-reading the source's own data, not replication", should become part of the method itself.
+
+### What to update, and where
+
+| # | Problem in this analysis | Evidence | Where to update |
+|---|---|---|---|
+| 1 | Culture states were asked of the researcher, then wrongly logged as KG gaps; the KG `design_notes` already held them. | A.3–A.5, then the A.12 correction | `SKILL.md` Rule 8, "Design comparability": replace "The KG doesn't hold every culture state — ask the researcher" with "read `list_experiments(verbose=True)` `design_notes` first; ask only for what is missing, and say what the notes already state". Also `kg-rules.md` "Scoping: what to verify". |
+| 2 | HL/LL was inferred from strain names. | Researcher correction; pitfall above | `kg-rules.md` / `gene-identity.md` "Ortholog cluster rules": use the `list_organisms` `clade` field for ecotype; never parse names. |
+| 3 | Unusable tables were found only in the analysis milestone: a 34-gene filtered phosphate table, and a coculture table with 82% negative log2FC and repeated values. | A.8, A.13 | `step-protocol.md` Plan step 4 / `anti-hallucination.md` 3.4: in the spike, per experiment, check (a) how many target genes are present in the table (a count, which is free to look at) and (b) table sanity: sign fraction, repeated identical values, large \|FC\| called ns. This extends 3.4 beyond "sign lost". |
+| 4 | Identical paralogs share one microarray probe, and significant-only tables list one twin. Coding the other twin "ns" created false clusters; applying the fix to RNA-seq was wrong. | Critic #1, D3, D4 | `gene-identity.md` "Paralog handling": add a twin rule. Detect identical log2FC across a pair on arrays; mark the unlisted twin undefined in significant-only array tables; RNA-seq untouched; collapse pairs in a set-level sensitivity check. |
+| 5 | Paper figures were first illegible and inconsistent; prose was too terse; Results followed the analysis chronology, not the argument; a dense table was hard to read; greys were too similar. | Researcher feedback, five rounds | `figures-and-reports.md` and `research-notebook.md` (paper.md): a dedicated page-width paper figure set (7.2 in, text ≥ 8 pt, one colour scheme shared with the reports); order Results by the question (set level → which genes → when), merging overlapping groupings into one section; prefer a figure or infographic over a multi-row table; run `validate_palette` on annotation-strip palettes (tiers, categories), not only up/down; light theme by default for reports. |
+| 6 | The analysis milestone grew without bound. About ten explorations (A–F, conservation, diel, proteomics, annotations) and repeated "approve?" questions meant three critic passes over one milestone. | Notebook runs 4–10 | `step-protocol.md` "explore" / GATE E: after the first critic pass, offer to close the milestone and move further explorations to evaluation (or a follow-up analysis), each with a short delta pass, so approval is not held hostage by exploration. |
+| 7 | The main thread repeatedly over-reached in interpretation: "therefore" from a contrast that cannot support it, "independent" support from the same data, "explains" for a partial split. | Critic V1, V2, E4 | `step-protocol.md` decide gate (author self-check before the critic): for each "therefore / explains / independent / all / none", name the contrast or file that supports it. The critic should not be the first line of defence. |
+| 8 | Comparison with source studies: the KG `discusses` edges spread one sentence over more genes than it names, and gene names do not follow paper numbering. Agreement is consistency, not replication. | Evaluation V2, V4, V5; KG gaps above | `step-protocol.md` evaluation / `critical-review` evaluation lens: state that source comparisons re-read the source's own data; list every linked gene, including ones that disagree; report magnitudes when they exist. |
+| 9 | Rule 1 forbids web search, but background citations (HLIP function, family expansion) cannot come from the KG. The researcher authorised a web search. | A.14 | `SKILL.md` Rule 1 / `kg-rules.md` "Separating KG from literature": allow researcher-authorised web search for background citations only; log it in `decisions_log.md`; list those references separately from KG data sources; never take data from them. |
+| 10 | "All code in the repo": data and figure code was there, but figure edits were drafted in scratch files and spliced in; script 20 silently depends on script 24's output. | Researcher request | `artifacts.md`: figure and data code lives in `scripts/`, with run order stated in docstrings (or a `run_all` list); scratch is only for one-off text edits. |
+| 11 | On Windows, inline bash heredocs with quotes and backslashes failed several times. | Session friction | `python-api-guide.md` / `kg-coder.md`: on Windows write scripts with the Write tool and run them; avoid inline heredoc Python for anything with quotes. |
+| 12 | A hard-coded experiment count assertion in a script broke when an experiment was dropped. | Script 08 (17 → 16) | `kg-coder.md`: derive counts from data, or assert against a named list with the reason. |
+
+### Not tested in this analysis
+Control-validated mode; the plain-language "look now or wait" question; discovery milestones; the `proposal-critic` beyond one proposal pass; part B (cross-strain).
