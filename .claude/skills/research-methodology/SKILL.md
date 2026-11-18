@@ -191,11 +191,15 @@ assumptions; and the terminal action is **begin the Run phase**, not
 
 - **Exploratory** — "show me what the KG has on X". Agree the scope and
   the deliverables (which overviews, which maps); there is no framing.
-  Every result is labelled exploratory. An idea that emerges (a
-  mechanism, a link between pathways) becomes a *suggested follow-up
-  analysis*, not something to build evidence for inside this one.
-  *(Amino-acid pathways: an atlas request drifted into "evidence visuals"
-  for a carbon–nitrogen mechanism, with no framing behind them.)*
+  Every result is labelled exploratory. A pattern that emerges from the
+  results (a gene grouping, a link between pathways) may be pursued here
+  when the researcher wants it — check it, write down what it predicts,
+  and test it if the KG has the data (see Run, below). What is not done is building persuasion for a
+  mechanism the data did not raise: that becomes a *suggested follow-up
+  analysis*. *(Amino-acid pathways: an atlas request drifted into
+  "evidence visuals" for a carbon–nitrogen mechanism, with no framing
+  behind them. hli light stress: an unplanned responder / quiet gene split
+  found in clustering became the paper's best finding.)*
 - **Control-validated** — "does X happen under Y?". The method must give
   the expected result on positive and negative controls before it is
   applied to the target. The full framing below applies. Order in the
@@ -395,13 +399,17 @@ Two rules keep this from quietly breaking the skill's guarantees:
   what they mean — that is what preserves the anomaly-catch (a heatmap
   narrated "all 5 UP" while the data file shows them negative).
 
-**Every finding carries one of two labels, and is put in perspective.**
-At the evaluation milestone, each finding in `paper.md` is marked either
+**Every finding carries a label, and is put in perspective.**
+At the evaluation milestone, each finding in `paper.md` is marked
 **tested as planned** (read through the proposal's decision rule, on data
 not looked at before the plan was set) or **exploratory** (everything else:
 seen during planning, found during exploration, or changed after the
 results were seen). An exploratory analysis is exploratory throughout and
-says so once. And because bringing many papers together is one of Spock's
+says so once. A finding that *emerged* from the results — a pattern no plan
+asked for — is welcome and exploratory. Its prediction is written down; if
+KG data not used to find it exists, the researcher decides whether it is
+tested here or in a follow-up, and a test run here is *tested as planned*.
+See [step-protocol.md — explore](references/step-protocol.md#explore-phase-run-milestones). And because bringing many papers together is one of Spock's
 strengths, the evaluation also places each finding against the other KG
 experiments that bear on it: agrees, disagrees, or can't tell, and why. See
 [research-notebook.md — paper.md growth](references/research-notebook.md#papermd-growth-pattern).

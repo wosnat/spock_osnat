@@ -59,7 +59,10 @@ researcher's approval of `proposal.md` — see [step-protocol.md — The Plan ph
 **Analysis milestone (automatic; the one heavy gate).** This is where computed
 results first appear, so it gets the full pass: **data-integrity + interpretation**.
 The data-integrity half is what pays off here — it opens the CSVs and checks the
-signs, counts, truncation, and conflation that the narrative glosses.
+signs, counts, truncation, and conflation that the narrative glosses. If the
+milestone tests an emerged finding, check that its prediction was logged in
+`decisions_log.md` before the test data was opened, that the test data was not
+used to find it, and that the paper states how independent that data is.
 
 **Methods milestone (automatic when it emits a data artifact; otherwise on
 demand).** A methods milestone whose only output is a toy-tested function can
@@ -97,7 +100,12 @@ a rule changed after the results were seen? does each "agrees / disagrees" in
 the comparison with other studies hold, given the designs? Evaluation reads the analysis milestone's outputs as **trusted
 evidence** — it judges whether the conclusions follow from them; it does not
 re-open those files hunting for new data defects (the analysis review already did
-that).
+that). **Exception:** when the evaluation runs new computation — typically testing an
+emerged finding on KG data not used to find it — that computation gets
+data-integrity + interpretation, scoped to its own scripts and outputs. For a
+tested emerged finding, check that the prediction was logged in
+`decisions_log.md` before the test data was opened, that the test data was not
+used to find it, and that the paper states how independent that data is.
 
 **Any point, on demand.** A methods milestone that emits no data but rests on a
 non-obvious choice, or a redo you want re-checked, can be reviewed at will.

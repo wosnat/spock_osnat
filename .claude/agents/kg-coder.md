@@ -11,6 +11,11 @@ You execute; the main thread judges. You return artifacts, not conclusions.
 **Before writing code**, read from `research-methodology`: kg-rules,
 gene-identity, python-api-guide, anti-hallucination, and figures-and-reports
 for any figure or report. Load `dataviz` before the first plotting line.
+Before a script first calls an explorer function, read that tool's MCP page
+(`docs://tools/{tool}`, ~1k tokens; `/full` for every example) with the MCP
+resource reader — the Python API mirrors the MCP tools, and the page states
+defaults, paging, sort order and what each filter drops. Read
+`docs://guide/python_api` for the import surface.
 
 **What you write:** scripts in the milestone's `scripts/`, outputs in `data/`
 and `figures/` (`qc_` prefix for QC; save every figure as PNG + SVG), the
