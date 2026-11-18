@@ -482,6 +482,35 @@ def fig_groups():
 
 
 # ------------------------------------------------------------------ Fig 2 (all calls, sorted by condition)
+# short experiment names and time labels for the row labels (experiment named once; time in its own column)
+EXP_ROW = {
+    "Blue 13 vs dark": "Blue, 13 µmol", "Green 13 vs dark": "Green, 13 µmol", "High white 55 vs dark": "White, 55 µmol",
+    "Red 13 vs dark": "Red, 13 µmol", "White 13 vs dark": "White, 13 µmol",
+    "Extended darkness": "Extended dark", "Extended light": "Extended light",
+    "Const dark vs light (no phage)": "Dark vs light", "Const dark vs light (phage)": "Dark vs light, phage",
+    "Phage lysate (dark)": "Phage lysate", "DCMU + white 13 vs white 13": "DCMU in light",
+    "CO2: ambient, no O2": "Ambient CO2, no O2", "CO2: low": "Low CO2", "CO2: low, no O2": "Low CO2, no O2",
+    "Iron starvation": "Iron starvation", "N deprivation (array)": "N removal, array",
+    "N starvation lowN (axenic)": "Low-N, axenic", "N starvation lowN (coculture)": "Low-N, coculture",
+    "N-depleted (RNA-seq, top 50%)": "N removal, RNA-seq",
+    "Coculture HOT1A3 vs axenic (2025)": "Coculture vs axenic",
+    "Phage infection (array, up-only)": "Phage infection", "Phage lysate (light)": "Phage lysate",
+    "Low salinity 28 psu": "Low salinity", "Iron re-added": "Iron re-added", "Air vs time 0": "Air vs time 0",
+    "Cyanate as N source": "Cyanate", "Urea as N source": "Urea"}
+FAMILY_LABEL = {"light / dark": "Light / dark", "stress": "Stress", "non-stress": "Non-stress"}
+CONS_STACK = [("n_pro_HL", "HL Prochlorococcus", "#e3a800"), ("n_pro_LL", "LL Prochlorococcus", "#55554f"),
+              ("n_syn_other", "Synechococcus, Cyanobium", "#c2c1ba")]
+
+
+def time_label(tp):
+    t = str(tp).replace(" post-inoculation", "")
+    t = {"max across 70min-24h": "peak", "steady state": "steady", "acclimated": "accl.",
+         "R (rescue: 70h vs 48h)": "rescue"}.get(t, t)
+    if t.startswith("day "):
+        return "d" + t[4:]
+    return t.replace("h", " h") if t.endswith("h") and "min" not in t else t
+
+
 def fig_calls():
     M = pd.read_csv(DATA / "explore_D_matrix_twinrule.csv", encoding="utf-8", index_col=0)
     co = rd("explore_D_column_order.csv")
@@ -495,22 +524,28 @@ def fig_calls():
     assert not missing, missing
     co["trank"] = [trank[(f, t)] for f, t in zip(co.family, co.type)]
     co = co.sort_values(["trank", "label", "timepoint_order"]).reset_index(drop=True)
-    co["row_label"] = [s.replace("Cocult", "Cocult.")[:22] for s in co.short]
+    assert set(co.label) <= set(EXP_ROW), set(co.label) - set(EXP_ROW)
+    co["exp_row"] = co.label.map(EXP_ROW)
+    co["time_row"] = co.timepoint.map(time_label)
+    co["row_label"] = co.exp_row + " | " + co.time_row
     cl = gene_order()
     genes = cl.locus_tag.tolist()
     d5 = rd("explore_D5_conservation.csv").set_index("locus_tag")
-    co[["row_label", "col", "experiment_id", "label", "label_detailed", "timepoint", "family", "type", "col_cluster",
-        "n_defined_genes"]].to_csv(DATA / "paper_fig2_row_key.csv", index=False, encoding="utf-8")
+    d5["n_syn_other"] = d5.n_synechococcus + d5.n_other
+    co[["row_label", "exp_row", "time_row", "col", "experiment_id", "label", "label_detailed", "timepoint", "family",
+        "type", "col_cluster", "n_defined_genes"]].to_csv(DATA / "paper_fig2_row_key.csv", index=False, encoding="utf-8")
     Mo = M.loc[genes, co.col]
     Mo.T.assign(row_label=co.row_label.values, type=co.type.values).to_csv(DATA / "paper_fig_source_fig2.csv",
                                                                           encoding="utf-8")
+    d5.loc[genes, ["n_organisms", "n_pro_HL", "n_pro_LL", "n_synechococcus", "n_other"]].to_csv(
+        DATA / "paper_fig_source_fig2_conservation.csv", encoding="utf-8")
     nr, nc = len(co), len(genes)
     rh = 0.148
-    gl = 1.6
-    cw = (W - gl - 1.35) / nc
-    bot = 0.55
+    gl = 2.45
+    cw = (W - gl - 1.25) / nc
+    bot = 0.75
     hh = nr * rh
-    annot = 2.0
+    annot = 2.05
     H = bot + hh + annot
     fig = plt.figure(figsize=(W, H))
     ax = axin(fig, gl, bot, nc * cw, hh, H)
@@ -524,10 +559,23 @@ def fig_calls():
             else:
                 ax.add_patch(Rectangle((j + 0.05, i + 0.08), 0.9, 0.84, facecolor=colour[v], edgecolor="none"))
     tr_ = co.trank.tolist()
+    exps = co.label.tolist()
+    tr = ax.get_yaxis_transform()
+    aw = nc * cw
+
+    def fx(inch):   # inches left of the heatmap -> axes fraction
+        return -inch / aw
+
+    # row separators: family (thick), condition (thin ink), experiment (thin grey, also through the label columns)
     for i in range(1, nr):
-        if tr_[i] != tr_[i - 1]:
-            fam_change = co.family[i] != co.family[i - 1]
-            ax.axhline(i, color=INK, lw=1.2 if fam_change else 0.5)
+        if co.family[i] != co.family[i - 1]:
+            ax.axhline(i, color=INK, lw=1.3)
+        elif tr_[i] != tr_[i - 1]:
+            ax.axhline(i, color=INK, lw=0.6)
+        if exps[i] != exps[i - 1]:
+            ax.plot([fx(2.0), 0], [i, i], color="#b5b4ae", lw=0.5, transform=tr, clip_on=False)
+            if tr_[i] == tr_[i - 1]:
+                ax.axhline(i, color="#8f8e88", lw=0.5, ls=(0, (2, 2)))
     grp = cl.group.tolist()
     ncl = cl.cluster.tolist()
     for j in range(1, nc):
@@ -537,14 +585,28 @@ def fig_calls():
             ax.axvline(j, color=INK, lw=0.5, ls=(0, (2, 2)))
     ax.set_xlim(0, nc)
     ax.set_ylim(nr, 0)
-    ax.set_yticks(np.arange(nr) + 0.5)
-    ax.set_yticklabels(co.row_label)
-    ax.tick_params(axis="y", length=0, pad=10)
+    ax.set_yticks([])
     ax.set_xticks([])
     clean(ax, keep=())
-    tr = ax.get_yaxis_transform()
-    for i, f in enumerate(co.family):
-        ax.add_patch(Rectangle((-0.028, i + 0.12), 0.016, 0.76, facecolor=FAM[f], transform=tr, clip_on=False))
+    # label columns: experiment name once per experiment (first row), time in its own column
+    s0 = 0
+    for i in range(1, nr + 1):
+        if i == nr or exps[i] != exps[s0]:
+            ax.text(fx(0.58), s0 + 0.5, co.exp_row[s0], transform=tr, ha="right", va="center", fontsize=8)
+            s0 = i
+    for i in range(nr):
+        ax.text(fx(0.04), i + 0.5, co.time_row[i], transform=tr, ha="right", va="center", fontsize=8, color=MUTED)
+    # family strips + labels at the far left
+    s0 = 0
+    fams = co.family.tolist()
+    for i in range(1, nr + 1):
+        if i == nr or fams[i] != fams[s0]:
+            ax.add_patch(Rectangle((fx(2.1), s0 + 0.1), 0.08 / aw, i - s0 - 0.2, facecolor=FAM[fams[s0]], transform=tr,
+                                   clip_on=False))
+            ax.text(fx(2.14), (s0 + i) / 2, FAMILY_LABEL[fams[s0]], transform=tr, rotation=90, ha="right", va="center",
+                    fontsize=9, fontweight="bold")
+            s0 = i
+    # condition labels at the right
     s0 = 0
     for i in range(1, nr + 1):
         if i == nr or tr_[i] != tr_[s0]:
@@ -563,19 +625,23 @@ def fig_calls():
         a1.plot(j + 0.5, 0.5, marker="s", ms=5, mfc=INK if multi else "white", mec=INK, mew=0.7)
     a1.set_xlim(0, nc); a1.set_ylim(0, 1); a1.axis("off")
     fig.text((gl - 0.08) / W, (y0 + 0.13) / H, "■ multi-copy  □ single", ha="right", va="center", fontsize=8)
-    a2 = ax_strip(0.3, 0.42)
+    a2 = ax_strip(0.3, 0.45)
     for j, g in enumerate(genes):
-        a2.bar(j + 0.5, d5.at[g, "n_organisms"], width=0.7, color=MUTED, edgecolor="none")
+        base = 0
+        for col, _, colr in CONS_STACK:
+            v = d5.at[g, col]
+            a2.bar(j + 0.5, v, bottom=base, width=0.72, color=colr, edgecolor="white", lw=0.3)
+            base += v
     a2.set_xlim(0, nc); a2.set_ylim(0, 100)
     a2.set_yticks([0, 50, 100]); a2.tick_params(axis="y", length=2, pad=1)
     a2.set_xticks([])
     clean(a2, keep=("left",))
-    fig.text((gl - 0.3) / W, (y0 + 0.51) / H, "organisms with\northolog group", ha="right", va="center", fontsize=8)
-    a3 = ax_strip(0.78, 0.75)
+    fig.text((gl - 0.3) / W, (y0 + 0.53) / H, "conserved in\n(no. of genomes)", ha="right", va="center", fontsize=8)
+    a3 = ax_strip(0.82, 0.75)
     for j, g in enumerate(genes):
         a3.text(j + 0.5, 0.0, g, rotation=90, ha="center", va="bottom", fontsize=8)
     a3.set_xlim(0, nc); a3.set_ylim(0, 1); a3.axis("off")
-    a4 = ax_strip(1.58, 0.38)
+    a4 = ax_strip(1.62, 0.38)
     for gname in ("responders", "quiet"):
         js = [j for j in range(nc) if grp[j] == gname]
         a4.plot([min(js) + 0.15, max(js) + 0.85], [0.35, 0.35], color=INK, lw=1.2)
@@ -585,10 +651,13 @@ def fig_calls():
     a4.set_xlim(0, nc); a4.set_ylim(0, 1); a4.axis("off")
     fig.legend(handles=[Patch(facecolor=UP, label="up"), Patch(facecolor=DOWN, label="down"),
                         Patch(facecolor="#d9d8d4", label="not significant"),
-                        Patch(facecolor="white", edgecolor="#b5b4ae", hatch="////", label="not defined")]
-               + [Patch(facecolor=FAM[f], label=f) for f in ds.FAMILY_ORDER],
-               loc="lower left", bbox_to_anchor=(0.01, 0.0), ncol=7, frameon=False, fontsize=8, columnspacing=0.9,
+                        Patch(facecolor="white", edgecolor="#b5b4ae", hatch="////", label="not defined")],
+               loc="lower left", bbox_to_anchor=(0.01, 0.27 / H), ncol=4, frameon=False, fontsize=8, columnspacing=1.0,
                handletextpad=0.35, handlelength=1.2)
+    fig.text(0.02, 0.13 / H, "conserved in:", ha="left", va="center", fontsize=8)
+    fig.legend(handles=[Patch(facecolor=c_, label=l_) for _, l_, c_ in CONS_STACK],
+               loc="center left", bbox_to_anchor=(0.95 / W, 0.13 / H), ncol=3, frameon=False, fontsize=8,
+               handletextpad=0.35, handlelength=1.2, columnspacing=1.0)
     save(fig, "paper_fig2")
     return co
 
