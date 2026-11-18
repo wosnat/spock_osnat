@@ -1,0 +1,124 @@
+organism_name,organism_type,clade,category,gene_count
+Alteromonas,treatment,none,other,0
+Alteromonas (MarRef v6),reference_proteome_match,none,other,4305
+Alteromonas macleodii 83-1,genome_strain,none,other,4060
+Alteromonas macleodii AD45,genome_strain,none,other,3929
+Alteromonas macleodii ATCC27126,genome_strain,none,other,3834
+Alteromonas macleodii BGP6,genome_strain,none,other,4063
+Alteromonas macleodii BS11,genome_strain,none,other,3741
+Alteromonas macleodii EZ55,genome_strain,none,other,4136
+Alteromonas macleodii HOT1A3,genome_strain,none,other,4028
+Alteromonas macleodii MIT1002,genome_strain,none,other,4028
+Alteromonas mediterranea AltDE,genome_strain,none,other,3817
+Alteromonas mediterranea AltDE1,genome_strain,none,other,4238
+Cyanobium NS01,genome_strain,5.2,other in hli groups,2975
+Cyanobium PCC6307,genome_strain,5.2,other in hli groups,3425
+Cyanobium PCC7001,genome_strain,5.2,other in hli groups,2929
+Escherichia coli,treatment,none,other,0
+Marinobacter (MarRef v6),reference_proteome_match,none,other,4240
+Meiothermus ruber,genome_strain,none,other,2884
+Synechococcus WH8102,genome_strain,III,Synechococcus,2830
+Synechococcus PCC 7002,genome_strain,none,Synechococcus,3207
+Prochlorococcus AS9601,genome_strain,HLII,HL,1945
+Prochlorococcus EQPAC1,genome_strain,HLI,HL,1990
+Prochlorococcus GP2,genome_strain,HLII,HL,1913
+Prochlorococcus HNLC1,genome_strain,HLIV,HL,2137
+Prochlorococcus HNLC2,genome_strain,HLIII,HL,1886
+Prochlorococcus LG,genome_strain,LLII,LL,2027
+Prochlorococcus MED4,genome_strain,HLI,HL,1973
+Prochlorococcus MIT0601,genome_strain,LLIII,LL,1956
+Prochlorococcus MIT0602,genome_strain,LLII,LL,2026
+Prochlorococcus MIT0603,genome_strain,LLII,LL,2047
+Prochlorococcus MIT0604,genome_strain,HLII,HL,2111
+Prochlorococcus MIT0701,genome_strain,LLIV,LL,3203
+Prochlorococcus MIT0702,genome_strain,LLIV,LL,3189
+Prochlorococcus MIT0703,genome_strain,LLIV,LL,3185
+Prochlorococcus MIT0801,genome_strain,LLI,LL,2330
+Prochlorococcus MIT1314,genome_strain,HLII,HL,1883
+Prochlorococcus MIT1327,genome_strain,LLIV,LL,2452
+Prochlorococcus MIT9107,genome_strain,HLII,HL,2010
+Prochlorococcus MIT9116,genome_strain,HLII,HL,1997
+Prochlorococcus MIT9123,genome_strain,HLII,HL,2031
+Prochlorococcus MIT9201,genome_strain,HLII,HL,2028
+Prochlorococcus MIT9202,genome_strain,HLII,HL,2005
+Prochlorococcus MIT9211,genome_strain,LLIII,LL,1888
+Prochlorococcus MIT9215,genome_strain,HLII,HL,2022
+Prochlorococcus MIT9301,genome_strain,HLII,HL,1926
+Prochlorococcus MIT9302,genome_strain,HLII,HL,2047
+Prochlorococcus MIT9303,genome_strain,LLIV,LL,3091
+Prochlorococcus MIT9311,genome_strain,HLII,HL,2019
+Prochlorococcus MIT9312,genome_strain,HLII,HL,1970
+Prochlorococcus MIT9313,genome_strain,LLIV,LL,2906
+Prochlorococcus MIT9314,genome_strain,HLII,HL,2017
+Prochlorococcus MIT9321,genome_strain,HLII,HL,1984
+Prochlorococcus MIT9322,genome_strain,HLII,HL,1988
+Prochlorococcus MIT9401,genome_strain,HLII,HL,2004
+Prochlorococcus MIT9515,genome_strain,HLI,HL,1945
+Prochlorococcus NATL1A,genome_strain,LLI,LL,2221
+Prochlorococcus NATL2A,genome_strain,LLI,LL,2210
+Prochlorococcus PAC1,genome_strain,LLI,LL,2317
+Prochlorococcus RSP50,genome_strain,HLI,HL,1870
+Prochlorococcus SB,genome_strain,HLII,HL,1950
+Prochlorococcus SS2,genome_strain,LLII,LL,2039
+Prochlorococcus SS35,genome_strain,LLII,LL,2025
+Prochlorococcus SS51,genome_strain,LLII,LL,2030
+Prochlorococcus SS52,genome_strain,LLII,LL,2041
+Prochlorococcus marinus subsp. marinus CCMP1375 (SS120),genome_strain,LLII,LL,1959
+Pseudomonas putida KT2440,genome_strain,none,other,5487
+Ruegeria pomeroyi DSS-3,genome_strain,none,other,4368
+Shewanella sp. W3-18-1,genome_strain,none,other,4058
+Synechococcus A15-127,genome_strain,WPC1,Synechococcus,2876
+Synechococcus A15-24,genome_strain,III,Synechococcus,2764
+Synechococcus A15-28,genome_strain,III,Synechococcus,2814
+Synechococcus A15-44,genome_strain,II,Synechococcus,3209
+Synechococcus A15-60,genome_strain,VII,Synechococcus,3084
+Synechococcus A15-62,genome_strain,II,Synechococcus,2826
+Synechococcus A18-25c,genome_strain,VII,Synechococcus,3051
+Synechococcus A18-40,genome_strain,III,Synechococcus,2831
+Synechococcus A18-46.1,genome_strain,III,Synechococcus,2956
+Synechococcus BIOS-E4-1,genome_strain,CRD1,Synechococcus,4456
+Synechococcus BIOS-U3-1,genome_strain,CRD1,Synechococcus,3460
+Synechococcus BMK-MC-1,genome_strain,V,Synechococcus,3096
+Synechococcus BOUM118,genome_strain,III,Synechococcus,2789
+Synechococcus CB0101,genome_strain,5.2,Synechococcus,3056
+Synechococcus CB0205,genome_strain,5.2,Synechococcus,2799
+Synechococcus CC9311,genome_strain,I,Synechococcus,3038
+Synechococcus CC9605,genome_strain,II,Synechococcus,2919
+Synechococcus CC9616,genome_strain,EnvC,Synechococcus,3272
+Synechococcus CC9902,genome_strain,IV,Synechococcus,2463
+Synechococcus KORDI-100,genome_strain,UC-A,Synechococcus,3116
+Synechococcus KORDI-49,genome_strain,WPC1,Synechococcus,2722
+Synechococcus KORDI-52,genome_strain,II,Synechococcus,2896
+Synechococcus M16.1,genome_strain,II,Synechococcus,2543
+Synechococcus MEDNS5,genome_strain,VI,Synechococcus,2750
+Synechococcus MINOS11,genome_strain,5.3,Synechococcus,2709
+Synechococcus MITS9220,genome_strain,CRD1,Synechococcus,3080
+Synechococcus MVIR-18-1,genome_strain,I,Synechococcus,3047
+Synechococcus NOUM97013,genome_strain,VII,Synechococcus,2949
+Synechococcus PROS-7-1,genome_strain,VI,Synechococcus,2865
+Synechococcus PROS-9-1,genome_strain,I,Synechococcus,2771
+Synechococcus PROS-U-1,genome_strain,II,Synechococcus,3147
+Synechococcus RCC307,genome_strain,5.3,Synechococcus,2575
+Synechococcus ROS8604,genome_strain,I,Synechococcus,3787
+Synechococcus RS9902,genome_strain,II,Synechococcus,2983
+Synechococcus RS9907,genome_strain,II,Synechococcus,3004
+Synechococcus RS9909,genome_strain,VIII,Synechococcus,2849
+Synechococcus RS9915,genome_strain,III,Synechococcus,2902
+Synechococcus RS9916,genome_strain,IX,Synechococcus,2926
+Synechococcus RS9917,genome_strain,VIII,Synechococcus,2799
+Synechococcus SYN20,genome_strain,I,Synechococcus,3416
+Synechococcus TAK9802,genome_strain,II,Synechococcus,2700
+Synechococcus WH5701,genome_strain,5.2,Synechococcus,3353
+Synechococcus WH7803,genome_strain,V,Synechococcus,2590
+Synechococcus WH7805,genome_strain,VI,Synechococcus,2909
+Synechococcus WH8016,genome_strain,I,Synechococcus,3067
+Synechococcus WH8101,genome_strain,VIII,Synechococcus,2938
+Synechococcus WH8103,genome_strain,III,Synechococcus,2876
+Synechococcus WH8109,genome_strain,II,Synechococcus,2681
+Synechococcus elongatus PCC 7942,genome_strain,none,Synechococcus,2717
+Synechococcus elongatus UTEX 2973,genome_strain,none,Synechococcus,2714
+Synechococcus sp. BL107,genome_strain,IV,Synechococcus,2567
+Thalassiosira pseudonana,treatment,none,other,0
+Thermosynechococcus vestitus BP-1,genome_strain,none,other,2449
+Vibrio parahaemolyticus,treatment,none,other,0
+Phage,treatment,none,other,0

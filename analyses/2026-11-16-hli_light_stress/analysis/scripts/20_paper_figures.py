@@ -545,7 +545,7 @@ def fig_calls():
     cw = (W - gl - 1.25) / nc
     bot = 0.75
     hh = nr * rh
-    annot = 2.05
+    annot = 2.3
     H = bot + hh + annot
     fig = plt.figure(figsize=(W, H))
     ax = axin(fig, gl, bot, nc * cw, hh, H)
@@ -625,23 +625,32 @@ def fig_calls():
         a1.plot(j + 0.5, 0.5, marker="s", ms=5, mfc=INK if multi else "white", mec=INK, mew=0.7)
     a1.set_xlim(0, nc); a1.set_ylim(0, 1); a1.axis("off")
     fig.text((gl - 0.08) / W, (y0 + 0.13) / H, "■ multi-copy  □ single", ha="right", va="center", fontsize=8)
-    a2 = ax_strip(0.3, 0.45)
+    # KG reference totals (written by 15_og_conservation.py): genomes per category
+    kc = rd("kg_organism_categories.csv")
+    n_hl = int((kc.category == "HL").sum())
+    n_pro = n_hl + int((kc.category == "LL").sum())
+    n_all = n_pro + int(kc.category.isin(["Synechococcus", "other in hli groups"]).sum())
+    a2 = ax_strip(0.3, 0.7)
     for j, g in enumerate(genes):
         base = 0
         for col, _, colr in CONS_STACK:
             v = d5.at[g, col]
             a2.bar(j + 0.5, v, bottom=base, width=0.72, color=colr, edgecolor="white", lw=0.3)
             base += v
-    a2.set_xlim(0, nc); a2.set_ylim(0, 100)
+    for v_, lab_ in ((n_hl, f"all HL Pro ({n_hl})"), (n_pro, f"all Pro ({n_pro})"),
+                     (n_all, f"all picocyano. ({n_all})")):
+        a2.axhline(v_, color=INK, lw=0.6, ls=(0, (2, 2)), zorder=3)
+        a2.text(nc + 0.3, v_, lab_, ha="left", va="center", fontsize=8)
+    a2.set_xlim(0, nc); a2.set_ylim(0, n_all + 4)
     a2.set_yticks([0, 50, 100]); a2.tick_params(axis="y", length=2, pad=1)
     a2.set_xticks([])
     clean(a2, keep=("left",))
-    fig.text((gl - 0.3) / W, (y0 + 0.53) / H, "conserved in\n(no. of genomes)", ha="right", va="center", fontsize=8)
-    a3 = ax_strip(0.82, 0.75)
+    fig.text((gl - 0.3) / W, (y0 + 0.65) / H, "conserved in\n(no. of genomes)", ha="right", va="center", fontsize=8)
+    a3 = ax_strip(1.07, 0.75)
     for j, g in enumerate(genes):
         a3.text(j + 0.5, 0.0, g, rotation=90, ha="center", va="bottom", fontsize=8)
     a3.set_xlim(0, nc); a3.set_ylim(0, 1); a3.axis("off")
-    a4 = ax_strip(1.62, 0.38)
+    a4 = ax_strip(1.87, 0.38)
     for gname in ("responders", "quiet"):
         js = [j for j in range(nc) if grp[j] == gname]
         a4.plot([min(js) + 0.15, max(js) + 0.85], [0.35, 0.35], color=INK, lw=1.2)

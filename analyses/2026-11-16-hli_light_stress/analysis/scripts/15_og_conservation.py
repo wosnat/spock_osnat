@@ -46,4 +46,18 @@ for g, sub in df.groupby(gcol):
 out = pd.DataFrame(rows).sort_values("n_organisms", ascending=False)
 out.to_csv(HERE / "data" / "og_conservation.csv", index=False, encoding="utf-8")
 print("organisms in KG:", n_org_kg)
+# KG reference totals (Fig 2 context): genomes per category, same classification as the per-group counts
+others_in_groups = sorted({o for s in out.organisms for o in s.split("; ")
+                           if "Prochlorococcus" not in o and "Synechococcus" not in o})
+tot = []
+for o in ORGS:
+    name = o["organism_name"]
+    cat = (ecotype(name) if "Prochlorococcus" in name else "Synechococcus" if "Synechococcus" in name
+           else "other in hli groups" if name in others_in_groups else "other")
+    tot.append(dict(organism_name=name, organism_type=o.get("organism_type"), clade=CLADE.get(name), category=cat,
+                    gene_count=o.get("gene_count")))
+tot = pd.DataFrame(tot)
+tot.to_csv(HERE / "data" / "kg_organism_categories.csv", index=False, encoding="utf-8")
+print("non-Pro/Syn organisms in hli groups:", others_in_groups)
+print(tot.groupby(["category", "organism_type"], dropna=False).size().to_string())
 print(out.drop(columns=["organisms"]).to_string(index=False))
