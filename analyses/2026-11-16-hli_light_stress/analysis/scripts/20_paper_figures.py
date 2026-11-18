@@ -8,8 +8,8 @@ One colour scheme: orange #eb6834 = up, blue #2a78d6 = down; sequential ramps mi
 mid-grey -> blue (% down); family colours (d_scheme.FAMILY_ANCHOR) only in header strips / label patches;
 conservation tiers = the 4 greys of conservation.py; clusters in ink.
 
-Writes figures/paper_fig1..paper_fig5 (.png, .svg): 3 = all calls, clustered (was S1); 4 = conservation; 5 = light level.
-data/paper_fig_source_fig1a.csv, _fig1b, _fig2, _fig3, _fig4, _fig5.csv, data/paper_fig3_row_key.csv.
+Writes figures/paper_fig1..paper_fig5 (.png, .svg): 1 = set level; 2 = all calls, clustered; 3 = conservation;
+4 = timing; 5 = light level. data/paper_fig_source_fig1a.csv, _fig1b, _fig2 .. _fig5.csv, data/paper_fig2_row_key.csv.
 
 Run from the repo root:
     PYTHONUTF8=1 uv run python analyses/2026-11-16-hli_light_stress/analysis/scripts/20_paper_figures.py
@@ -250,7 +250,7 @@ def fig1():
     return a, b
 
 
-# ------------------------------------------------------------------ Fig 2
+# ------------------------------------------------------------------ Fig 4 (timing)
 FIG2 = [("Phage infection (array, up-only)", "h", [1, 2, 4, 6, 8]), ("N deprivation (array)", "h", [0, 6, 12, 24, 48]),
         ("Iron starvation", "h", [12, 24, 48]), ("N starvation lowN (coculture)", "d", [18, 31, 60, 89]),
         ("N-depleted (RNA-seq, top 50%)", "h", [3, 12, 24]), ("Phage lysate (light)", "h", [0.5, 2.5, 4.5, 8.5])]
@@ -326,12 +326,12 @@ def fig2():
                         Line2D([], [], marker="o", ls="", mfc="white", mec=INK, ms=4.5, label="not testable"),
                         Line2D([], [], color=INK, lw=1.2, ls=(0, (3, 2)), label="descriptive table")],
                loc="lower left", bbox_to_anchor=(0.02, 0.0), ncol=3, frameon=False, fontsize=8, columnspacing=1.2)
-    pd.DataFrame(src).to_csv(DATA / "paper_fig_source_fig2.csv", index=False, encoding="utf-8")
-    save(fig, "paper_fig2")
+    pd.DataFrame(src).to_csv(DATA / "paper_fig_source_fig4.csv", index=False, encoding="utf-8")
+    save(fig, "paper_fig4")
     return pd.DataFrame(src)
 
 
-# ------------------------------------------------------------------ Fig 4 (conservation; exploratory)
+# ------------------------------------------------------------------ Fig 3 (conservation; exploratory)
 def fig_cons():
     """One bar per gene: % of its defined stress + light-onset calls that are up, grouped by ortholog-group tier."""
     d5 = rd("explore_D5_conservation.csv")
@@ -341,7 +341,7 @@ def fig_cons():
     med = d5.groupby("tier").agg(n=("locus_tag", "size"), median_pct_up=("pct_up", "median"),
                                  median_pct_up_rnaseq=("pct_up_rnaseq", "median"),
                                  org_min=("n_organisms", "min"), org_max=("n_organisms", "max"))
-    d5.merge(med, left_on="tier", right_index=True).to_csv(DATA / "paper_fig_source_fig4.csv", index=False, encoding="utf-8")
+    d5.merge(med, left_on="tier", right_index=True).to_csv(DATA / "paper_fig_source_fig3.csv", index=False, encoding="utf-8")
     # layout: tier header row + gene rows, gap between tiers
     items, y = [], 0.0
     for t_, g in d5.groupby("tier", sort=True):
@@ -385,9 +385,9 @@ def fig_cons():
                         Line2D([], [], marker="s", ls="", mfc="white", mec=INK, label="single-copy")],
                loc="lower left", bbox_to_anchor=(0.01, 0.0), ncol=2, frameon=False, fontsize=8,
                handletextpad=0.4, columnspacing=1.5)
-    fig.text(0.99, 0.02, "C1–C4: gene cluster (Fig. 3); numbers: up / defined calls", ha="right", va="bottom", fontsize=8,
+    fig.text(0.99, 0.02, "C1–C4: gene cluster (Fig. 2); numbers: up / defined calls", ha="right", va="bottom", fontsize=8,
              color=MUTED)
-    save(fig, "paper_fig4")
+    save(fig, "paper_fig3")
     return d5, med
 
 
@@ -437,7 +437,7 @@ def fig4():
     return pd.DataFrame(src)
 
 
-# ------------------------------------------------------------------ Fig 3 (all calls, clustered)
+# ------------------------------------------------------------------ Fig 2 (all calls, clustered)
 def figS1():
     M = pd.read_csv(DATA / "explore_D_matrix_twinrule.csv", encoding="utf-8", index_col=0)
     co = rd("explore_D_column_order.csv").sort_values("order")
@@ -448,9 +448,9 @@ def figS1():
     co["row_label"] = [s.replace("Cocult", "Cocult.")[:22] for s in co.short]
     key = co[["code", "row_label", "col", "experiment_id", "label", "label_detailed", "timepoint", "family", "type",
               "col_cluster", "n_defined_genes"]]
-    key.to_csv(DATA / "paper_fig3_row_key.csv", index=False, encoding="utf-8")
+    key.to_csv(DATA / "paper_fig2_row_key.csv", index=False, encoding="utf-8")
     Mo = M.loc[genes, co.col]
-    Mo.T.assign(code=co.code.values, row_label=co.row_label.values).to_csv(DATA / "paper_fig_source_fig3.csv",
+    Mo.T.assign(code=co.code.values, row_label=co.row_label.values).to_csv(DATA / "paper_fig_source_fig2.csv",
                                                                           encoding="utf-8")
     nr, nc = len(co), len(genes)
     H = 10.0
@@ -522,7 +522,7 @@ def figS1():
                + [Patch(facecolor=cons.TIER_GREY[t_], label=cons.TIER_SHORT[t_]) for t_ in cons.TIER_NAME],
                loc="lower left", bbox_to_anchor=(0.01, 0.45 / H), ncol=6, frameon=False,
                fontsize=8, handletextpad=0.4, columnspacing=0.9)
-    save(fig, "paper_fig3")
+    save(fig, "paper_fig2")
     return co
 
 
@@ -541,7 +541,7 @@ def main():
           .to_string(index=False))
     print(s4.groupby("panel").agg(n=("significant", "size"), n_sig=("significant", "sum"), rho=("spearman_rho", "first"),
                                   p=("spearman_p", "first")).to_string())
-    print("Fig 3 rows (experiment x time point):", len(co))
+    print("Fig 2 rows (experiment x time point):", len(co))
     print(med.to_string())
 
 

@@ -1,61 +1,24 @@
-,PMM1128,PMM1390,TX50_RS09730,PMM1482,PMM0064,PMM0093,PMM0471,PMM1317,PMM0689,PMM0690,PMM1118,PMM1384,PMM1135,PMM0815,PMM0817,PMM1397,PMM0818,PMM0816,PMM1396,PMM1404,PMM1399,PMM1385,PMM1398,code,row_label
-10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq|day 18,0.0,0.0,-1.0,0.0,1.0,0.0,1.0,0.0,-1.0,-1.0,0.0,-1.0,-1.0,,,,,,,-1.0,,-1.0,,S01,Cocult. 2025 d18
-10.64898/2026.04.15.718746_extended_light_med4|16h,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,-1.0,0.0,-1.0,-1.0,-1.0,,-1.0,-1.0,-1.0,-1.0,,-1.0,-1.0,-1.0,-1.0,S02,Ext light 16h
-10.64898/2026.04.15.718746_extended_darkness_med4|2h,0.0,1.0,0.0,-1.0,1.0,1.0,0.0,0.0,0.0,-1.0,1.0,0.0,0.0,,0.0,0.0,0.0,0.0,,-1.0,1.0,0.0,0.0,S03,Ext dark 2h
-10.64898/2026.04.15.718746_extended_darkness_med4|4h,0.0,1.0,1.0,-1.0,1.0,1.0,0.0,-1.0,1.0,-1.0,1.0,1.0,0.0,,0.0,0.0,1.0,0.0,,-1.0,1.0,1.0,1.0,S04,Ext dark 4h
-10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture|day 31,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,,,,,,,1.0,,1.0,,S05,lowN cocult d31
-10.1038/ismej.2015.36_carbon_low_co2_0004_co2_med4_microarray|max across 70min-24h,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,,1.0,1.0,1.0,,1.0,1.0,,1.0,,S06,CO2 low max
-10.1038/ismej.2015.36_carbon_low_co2_and_no_med4_microarray|max across 70min-24h,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,,1.0,1.0,1.0,,1.0,1.0,,1.0,,S07,CO2 low noO2 max
-10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light|48h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,,1.0,1.0,1.0,,0.0,1.0,,0.0,,S08,Fe starv 48h
-10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture|day 18,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,,,,,,,0.0,,0.0,,S09,lowN cocult d18
-10.1128/JB.01097-06_light_stress_blue_light_13_umol_med4_microarray|45 min,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,,1.0,1.0,1.0,,1.0,1.0,,0.0,,S10,Blue 13 45 min
-10.1128/JB.01097-06_light_stress_high_white_light_55_med4_microarray|45 min,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,,1.0,1.0,1.0,,1.0,1.0,,0.0,,S11,Hi white 55 45 min
-10.1128/JB.01097-06_light_stress_red_light_13_umol_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,,1.0,1.0,1.0,,1.0,1.0,,0.0,,S12,Red 13 45 min
-10.1128/JB.01097-06_light_stress_white_light_13_umol_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0.0,1.0,,1.0,1.0,1.0,,1.0,1.0,,0.0,,S13,White 13 45 min
-10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture|day 60,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,,,,,,,1.0,,1.0,,S14,lowN cocult d60
-10.1038/msb4100087_growth_medium_growth_on_cyanate_as_med4_microarray|steady state,0.0,1.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,1.0,,1.0,1.0,1.0,,1.0,1.0,,1.0,,S15,Cyanate ss
-10.1038/msb4100087_growth_medium_growth_on_urea_as_med4_microarray|steady state,0.0,1.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,1.0,1.0,,1.0,1.0,0.0,,0.0,1.0,,1.0,,S16,Urea ss
-10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_axenic|day 14,1.0,1.0,1.0,-1.0,-1.0,0.0,-1.0,0.0,1.0,1.0,1.0,1.0,1.0,,,,,,,1.0,,1.0,,S17,lowN ax d14
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|48h,0.0,1.0,,0.0,0.0,0.0,0.0,0.0,1.0,1.0,,1.0,0.0,,1.0,1.0,1.0,,1.0,1.0,,1.0,,S18,N depr arr 48h
-10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq|12h,1.0,1.0,,0.0,0.0,0.0,0.0,0.0,1.0,,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,S19,N-depl top50 12h
-10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq|24h,1.0,1.0,,0.0,0.0,0.0,-1.0,-1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,S20,N-depl top50 24h
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|24h,0.0,1.0,,0.0,0.0,0.0,0.0,0.0,1.0,1.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,1.0,,0.0,,S21,N depr arr 24h
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|12h,0.0,1.0,,-1.0,0.0,0.0,0.0,0.0,1.0,1.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S22,N depr arr 12h
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|6h,0.0,1.0,,-1.0,0.0,0.0,0.0,0.0,0.0,1.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S23,N depr arr 6h
-10.1101/2025.11.24.690089_coculture_alteromonas_hot1a3_med4_rnaseq|day 11,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,,,,,,1.0,,1.0,,S24,Cocult. 2025 d11
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|0.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,S25,Phage light 0.5h
-10.1038/ismej.2017.88_nitrogen_stress_ndepleted_pro99_medium_med4_rnaseq|3h,0.0,0.0,,,0.0,0.0,-1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S26,N-depl top50 3h
-10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light|24h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S27,Fe starv 24h
-10.1038/ismej.2015.36_carbon_ambient_co2_no_o2_med4_microarray|max across 70min-24h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S28,CO2 amb noO2 max
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S29,Phage dark 2.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S30,Phage dark 4.5h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|48h,0.0,0.0,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S31,P starv 48h
-10.3389/fmicb.2022.1038136_salt_low_salinity_acclimation_28_med4_rnaseq|acclimated,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S32,Low salt accl
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S33,Phage light 8.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S34,Phage light 4.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S35,Phage light 2.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_light|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S36,Phage light 1.5h
-10.1371/journal.pone.0165375_viral_phage_phm2_lysate_med4_rnaseq_dark|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S37,Phage dark 8.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S38,Const dark+ph 8.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S39,Const dark+ph 4.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S40,Const dark+ph 2.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S41,Const dark+ph 1.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|8.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S42,Const dark 8.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|4.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S43,Const dark 4.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|2.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S44,Const dark 2.5h
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_dark|1.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,S45,Const dark 1.5h
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|3h,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S46,N depr arr 3h
-10.1128/JB.01097-06_light_stress_green_light_13_umol_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S47,Green 13 45 min
-10.1038/ismej.2011.49_iron_iron_starvation_med4_med4_microarray_light|12h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S48,Fe starv 12h
-10.1038/msb4100087_nitrogen_nitrogen_deprivation_med4_med4_microarray|0h,0.0,0.0,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,0.0,,0.0,0.0,0.0,,0.0,0.0,,0.0,,S49,N depr arr 0h
-10.1101/2025.11.24.690089_growth_state_pro99lown_nutrient_starvation_med4_rnaseq_coculture|day 89,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,,,,,,,0.0,,0.0,,S50,lowN cocult d89
-10.1128/JB.01097-06_light_stress_dcmu_white_light_13_med4_microarray|45 min,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,,0.0,-1.0,-1.0,,-1.0,0.0,,0.0,,S51,DCMU 45 min
-10.1038/ismej.2015.36_carbon_air_0036_co2_21_med4_microarray|max across 70min-24h,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,-1.0,-1.0,-1.0,0.0,-1.0,-1.0,0.0,,0.0,-1.0,0.0,-1.0,,S52,Air vs t0 max
-10.1371/journal.pone.0165375_light_stress_constant_dark_med4_rnaseq_infected|0.5h post-inoculation,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,-1.0,-1.0,0.0,0.0,0.0,0.0,-1.0,-1.0,-1.0,-1.0,S53,Const dark+ph 0.5h
-10.1038/ismej.2011.49_iron_rescue_med4_microarray|R (rescue: 70h vs 48h),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,-1.0,,-1.0,-1.0,-1.0,,-1.0,-1.0,,0.0,,S54,Fe re-added R
-10.64898/2026.04.15.718746_extended_light_med4|14h,0.0,-1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,-1.0,0.0,0.0,,-1.0,-1.0,-1.0,-1.0,,-1.0,-1.0,-1.0,-1.0,S55,Ext light 14h
-10.1038/nature06130_viral_phage_infected_med4_microarray|1h,,,,,,,,,,,,,1.0,1.0,1.0,1.0,1.0,1.0,1.0,,1.0,,1.0,S56,Phage arr 1h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|0h,,,,0.0,,,,,,,,,,,,,,,,,,,,S57,P starv 0h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|12h,,,,0.0,,,,,,,,,,,,,,,,,,,,S58,P starv 12h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|24h,,,,0.0,,,,,,,,,,,,,,,,,,,,S59,P starv 24h
-10.1073/pnas.0601301103_phosphorus_phosphate_starvation_med4_microarray|4h,,,,0.0,,,,,,,,,,,,,,,,,,,,S60,P starv 4h
+locus_tag,cluster,copy_class,tier,tier_name,n_organisms,n_up,n_up_defined,pct_up,n_up_rnaseq,n_up_defined_rnaseq,pct_up_rnaseq,n_up_array,n_up_defined_array,pct_up_array,n,median_pct_up,median_pct_up_rnaseq,org_min,org_max
+PMM0064,2,single,1,"picocyanobacteria-wide (Pro HL + LL, Syn, Cyanobium)",95,1,41,2.4390243902439024,1,15,6.666666666666667,0,26,0.0,4,2.4390243902439024,6.666666666666667,95,96
+PMM0093,2,single,1,"picocyanobacteria-wide (Pro HL + LL, Syn, Cyanobium)",96,1,41,2.4390243902439024,1,15,6.666666666666667,0,26,0.0,4,2.4390243902439024,6.666666666666667,95,96
+PMM0471,2,single,1,"picocyanobacteria-wide (Pro HL + LL, Syn, Cyanobium)",96,1,41,2.4390243902439024,1,15,6.666666666666667,0,26,0.0,4,2.4390243902439024,6.666666666666667,95,96
+PMM1482,2,single,1,"picocyanobacteria-wide (Pro HL + LL, Syn, Cyanobium)",96,0,44,0.0,0,14,0.0,0,30,0.0,4,2.4390243902439024,6.666666666666667,95,96
+PMM1135,4,multi,2,Prochlorococcus-wide (HL + LL),42,18,41,43.90243902439025,8,15,53.333333333333336,10,26,38.46153846153846,6,31.964285714285715,36.66666666666667,42,43
+PMM1404,4,multi,2,Prochlorococcus-wide (HL + LL),43,15,41,36.58536585365854,6,15,40.0,9,26,34.61538461538461,6,31.964285714285715,36.66666666666667,42,43
+PMM0690,3,multi,2,Prochlorococcus-wide (HL + LL),43,13,40,32.5,3,14,21.428571428571427,10,26,38.46153846153846,6,31.964285714285715,36.66666666666667,42,43
+PMM0817,4,multi,2,Prochlorococcus-wide (HL + LL),42,11,35,31.428571428571427,2,9,22.22222222222222,9,26,34.61538461538461,6,31.964285714285715,36.66666666666667,42,43
+PMM1385,4,multi,2,Prochlorococcus-wide (HL + LL),43,9,41,21.951219512195124,6,15,40.0,3,26,11.538461538461538,6,31.964285714285715,36.66666666666667,42,43
+PMM1398,4,multi,2,Prochlorococcus-wide (HL + LL),42,4,19,21.05263157894737,3,9,33.333333333333336,1,10,10.0,6,31.964285714285715,36.66666666666667,42,43
+PMM0818,4,multi,3,"Prochlorococcus, partial (HL + some LL)",29,11,35,31.428571428571427,2,9,22.22222222222222,9,26,34.61538461538461,8,20.282413350449296,22.22222222222222,23,36
+PMM1118,4,multi,3,"Prochlorococcus, partial (HL + some LL)",29,11,35,31.428571428571427,4,15,26.666666666666668,7,20,35.0,8,20.282413350449296,22.22222222222222,23,36
+PMM1396,4,multi,3,"Prochlorococcus, partial (HL + some LL)",30,10,35,28.571428571428573,2,9,22.22222222222222,8,26,30.76923076923077,8,20.282413350449296,22.22222222222222,23,36
+PMM1399,4,multi,3,"Prochlorococcus, partial (HL + some LL)",29,4,19,21.05263157894737,3,9,33.333333333333336,1,10,10.0,8,20.282413350449296,22.22222222222222,23,36
+PMM1384,4,multi,3,"Prochlorococcus, partial (HL + some LL)",29,8,41,19.51219512195122,5,15,33.333333333333336,3,26,11.538461538461538,8,20.282413350449296,22.22222222222222,23,36
+PMM1390,2,single,3,"Prochlorococcus, partial (HL + some LL)",23,7,41,17.073170731707318,3,15,20.0,4,26,15.384615384615383,8,20.282413350449296,22.22222222222222,23,36
+PMM0815,4,multi,3,"Prochlorococcus, partial (HL + some LL)",30,3,19,15.789473684210526,2,9,22.22222222222222,1,10,10.0,8,20.282413350449296,22.22222222222222,23,36
+PMM1317,2,single,3,"Prochlorococcus, partial (HL + some LL)",36,1,41,2.4390243902439024,1,15,6.666666666666667,0,26,0.0,8,20.282413350449296,22.22222222222222,23,36
+PMM1397,4,multi,4,HL Prochlorococcus only,22,11,35,31.428571428571427,2,9,22.22222222222222,9,26,34.61538461538461,5,19.51219512195122,22.22222222222222,21,23
+PMM0689,3,single,4,HL Prochlorococcus only,21,11,41,26.82926829268293,4,15,26.666666666666668,7,26,26.923076923076923,5,19.51219512195122,22.22222222222222,21,23
+PMM1128,1,single,4,HL Prochlorococcus only,21,8,41,19.51219512195122,6,15,40.0,2,26,7.6923076923076925,5,19.51219512195122,22.22222222222222,21,23
+PMM0816,4,multi,4,HL Prochlorococcus only,22,3,19,15.789473684210526,2,9,22.22222222222222,1,10,10.0,5,19.51219512195122,22.22222222222222,21,23
+TX50_RS09730,2,single,4,HL Prochlorococcus only,23,2,31,6.451612903225806,1,11,9.090909090909092,1,20,5.0,5,19.51219512195122,22.22222222222222,21,23

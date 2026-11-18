@@ -1,0 +1,65 @@
+group,cluster,type,n_up,n_up_defined,n_down,n_down_defined
+quiet,1,DCMU,0,1,0,1
+quiet,1,"N stress, control side",0,1,0,1
+quiet,1,air vs time 0,0,1,0,1
+quiet,1,alternative N source,0,2,0,2
+quiet,1,carbon (CO2),0,3,0,3
+quiet,1,"coculture, both exponential",0,1,0,1
+quiet,1,constant dark vs light,0,9,0,9
+quiet,1,iron,0,3,0,3
+quiet,1,iron re-added,0,1,0,1
+quiet,1,light onset,2,5,0,5
+quiet,1,nitrogen,6,14,0,14
+quiet,1,phage,0,13,0,5
+quiet,1,phage in the dark,0,3,0,3
+quiet,1,phosphorus,0,1,0,1
+quiet,1,salt,0,1,0,1
+quiet,1,schedule extension,0,4,0,4
+quiet,2,DCMU,0,7,0,7
+quiet,2,"N stress, control side",2,7,1,7
+quiet,2,air vs time 0,1,7,0,7
+quiet,2,alternative N source,2,12,0,12
+quiet,2,carbon (CO2),0,21,2,21
+quiet,2,"coculture, both exponential",0,7,0,7
+quiet,2,constant dark vs light,0,63,0,63
+quiet,2,iron,0,21,0,21
+quiet,2,iron re-added,0,7,0,7
+quiet,2,light onset,1,35,0,35
+quiet,2,nitrogen,10,88,8,88
+quiet,2,phage,0,91,0,35
+quiet,2,phage in the dark,0,21,0,21
+quiet,2,phosphorus,0,11,1,11
+quiet,2,salt,0,6,0,6
+quiet,2,schedule extension,11,28,4,28
+responders,3,DCMU,0,2,0,2
+responders,3,"N stress, control side",0,2,2,2
+responders,3,air vs time 0,0,2,0,2
+responders,3,alternative N source,0,4,0,4
+responders,3,carbon (CO2),3,6,0,6
+responders,3,"coculture, both exponential",0,2,0,2
+responders,3,constant dark vs light,0,18,0,18
+responders,3,iron,0,6,0,6
+responders,3,iron re-added,0,2,0,2
+responders,3,light onset,7,10,0,10
+responders,3,nitrogen,14,27,0,27
+responders,3,phage,0,26,0,10
+responders,3,phage in the dark,0,6,2,6
+responders,3,phosphorus,0,2,0,2
+responders,3,salt,0,2,0,2
+responders,3,schedule extension,1,8,3,8
+responders,4,DCMU,0,9,3,9
+responders,4,"N stress, control side",0,5,4,5
+responders,4,air vs time 0,0,11,7,11
+responders,4,alternative N source,13,16,0,16
+responders,4,carbon (CO2),19,31,0,31
+responders,4,"coculture, both exponential",2,5,0,5
+responders,4,constant dark vs light,0,117,7,117
+responders,4,iron,7,27,0,27
+responders,4,iron re-added,0,9,7,9
+responders,4,light onset,28,45,0,45
+responders,4,nitrogen,50,112,0,112
+responders,4,phage,14,169,0,65
+responders,4,phage in the dark,0,39,0,39
+responders,4,phosphorus,0,13,0,13
+responders,4,salt,0,13,0,13
+responders,4,schedule extension,8,44,22,44
