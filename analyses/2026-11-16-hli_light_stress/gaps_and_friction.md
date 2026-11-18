@@ -55,3 +55,20 @@ This analysis was also a test of the recently changed skills: the five-step Plan
 
 ### Not tested in this analysis
 Control-validated mode; the plain-language "look now or wait" question; discovery milestones; the `proposal-critic` beyond one proposal pass; part B (cross-strain).
+
+### Should recurring code become a shared library?
+
+Yes, but in two places, and only for code that has proved itself. Rule 5 says not to re-wrap what the explorer package ships. Generic KG operations therefore belong upstream in `multiomics_explorer`. Template-level helpers (reports, paper, figure frame) belong in the template's `scripts/` or in a `recipes/` skill, which is still empty. Promote a function after it has been rewritten in two or more analyses, with its toy tests carried along. Do not promote something from one analysis's one-off.
+
+| Candidate | Written here as | Generic problem it solves | Home |
+|---|---|---|---|
+| Table sanity and coverage check | `methods/02_sign_and_spot_check.py`, `analysis/11_check_coculture2016.py`, the phosphate coverage check | Per experiment: target-gene presence, sign fraction, repeated identical values, large \|FC\| called ns, `table_scope` semantics. Used in the Plan spike (assessment item 3). | **explorer** (a `de_table_qc` tool or utility); the template's step-protocol calls it |
+| Gene × contrast call matrix with `table_scope` semantics | `methods/01_build_lists.py` (`gene_calls_from_background`), `analysis/09_explore_clusters.py` `code()` | up / ns / down / undefined per gene and time point; significant-only absence → ns; up-only tables → undefined for non-up; filtered subsets → undefined outside the filter | **explorer** utility (the semantics are KG knowledge) |
+| Identical-paralog (shared-probe) detection and rule | `twin_rule.py`, `12_twin_pairs.py`, `13_twin_collapsed_ora.py` | Detect pairs with identical log2FC on arrays; mark the unlisted twin undefined in significant-only array tables; collapsed sensitivity check | **explorer** utility, plus a `gene-identity.md` rule |
+| Gene-set ORA across all experiments × time points × directions | `analysis/01_score_hli.py` around `fisher_ora` | Per-experiment calls with flags (too few, genome-wide, approximate) and BH families | Check `pathway_enrichment` first; if a custom set is not covered, add a **recipe** (protocol + thin script), not a new library |
+| Ortholog-group breadth by clade | `15_og_conservation.py`, `conservation.py` | Per homolog group: genomes by HL / LL / Syn / other from the `list_organisms` `clade` field, plus KG totals | **explorer** (`genes_by_homolog_group` could return clade counts) |
+| References from KG publications | `21_references.py` | Reference list and in-text cite keys for paper.md | **template** `scripts/` (next to `build_paper.py`) |
+| Paper figure frame | `20_paper_figures.py` helpers (`axin`, `save` with min-font and width asserts, `letter`) and `d_scheme.py` | Page-width figures, ≥ 8 pt check, one colour scheme shared with reports | **template** `scripts/` or the `figures-and-reports.md` reference, as a small module |
+| Display overrides and dropped experiments | `display_overrides.py` | Researcher-supplied relabels and drops applied to every table without rewriting data | **recipe** (pattern doc); too analysis-specific for a library |
+
+Not worth promoting: the exploration scripts (04–10, 14, 17, 22–25) and the report builders specific to this analysis.
