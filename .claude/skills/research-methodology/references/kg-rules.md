@@ -34,6 +34,10 @@ Before diving into analysis, confirm the KG has what you need:
 - Are the needed organisms present? (`list_organisms`)
 - Are there experiments for the conditions of interest?
   (`list_experiments`)
+- How was each experiment designed? (`list_experiments(verbose=True)`:
+  `design_notes` record arm matching, reference-culture state, sampling
+  days and separate runs — read them before asking the researcher or
+  logging a design gap)
 - Are relevant publications available? (`list_publications`)
 - Is the gene set complete? (check `total_matching` vs `returned`)
 - Document any gaps: "The KG does not contain [X] data for [Y]"

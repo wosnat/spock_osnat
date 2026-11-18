@@ -19,8 +19,9 @@ For **which** interface to use (browse in MCP vs extract in Python), see
 ## Where to run scripts
 
 - **Run from the template repo root (your clone).** The explorer is
-  installed into this project's venv by `uv sync`. Use `uv run script.py`
-  or `.venv/bin/python script.py`.
+  installed into this project's venv by `uv sync`. Use `uv run python
+  script.py` — it works on every OS (the venv interpreter is
+  `.venv/bin/python` on Linux/Mac but `.venv\Scripts\python.exe` on Windows).
 - **Do not** use `uv run --directory /path/to/multiomics_explorer` — that
   runs in the wrong environment. There is no sibling explorer clone in the
   template model; the explorer lives in your venv.

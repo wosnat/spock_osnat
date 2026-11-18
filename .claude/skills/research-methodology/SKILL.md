@@ -79,6 +79,20 @@ discipline (where to run, verify-before-script, API-over-Cypher, common
 gotchas). The API contract itself — imports, return shapes, `to_dataframe` —
 is owned by the explorer and served at `docs://guide/python_api`.
 
+**Running code — the main thread too, and on Windows.** Many researchers run
+Spock on Windows 11 (Git Bash), so these hold for every quick check, not only
+for the coding subagent:
+- Write Python to a file (the milestone's `scripts/`, or `spike/` in the
+  Plan) with the Write tool, then `uv run python <file>`. Never a shell
+  heredoc or a `python -c "..."` carrying quotes, prose, `$` or backslashes —
+  quoting breaks in Git Bash.
+- `uv run python`, not `.venv/bin/python` (on Windows it is
+  `.venv\Scripts\python.exe`); `uv run` works everywhere.
+- `encoding="utf-8"` on every file read and write; add `-X utf8` when a script
+  prints non-ASCII (arrows, Greek letters, µ) — the Windows console is cp1252.
+- Paths through `pathlib`, relative to the repo root; no hard-coded `/tmp` or
+  backslashes in code.
+
 **Call the highest-level tool that answers the question; don't reinvent or
 re-wrap what the package ships.** Before building any scoring/statistics
 utility, check the package's analysis surface (e.g. `pathway_enrichment` runs
@@ -289,7 +303,12 @@ time*. Every framing states, specifically:
   arm is compared against and that reference sample's physiological
   state (growth phase, nutrient status, sampling day); whether contrasts
   share samples or one fitted model; and what it can and cannot confirm.
-  The KG doesn't hold every culture state — **ask the researcher**. A
+  Read the KG first: `list_experiments(verbose=True)` `design_notes`
+  often record how arms are matched, the reference culture's state and
+  sampling day, and separate runs. **Ask the researcher only for what
+  the notes do not hold**, saying what they already state; mark those
+  cells researcher-supplied. *(hli light stress: culture states were
+  asked for and logged as KG gaps, though `design_notes` held them.)* A
   comparable metric over incomparable designs is the recurring hole
   (an FDR family size, then a late-decline "early" reference and
   contrasts that were one fitted model).
