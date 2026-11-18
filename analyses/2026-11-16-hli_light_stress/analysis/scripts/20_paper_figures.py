@@ -392,7 +392,7 @@ TYPE_ORDER = [("light / dark", "light onset", "Light onset"), ("light / dark", "
 COND = [("light onset", "Light onset", "up"), ("carbon (CO2)", "CO2 limitation", "up"),
         ("nitrogen", "N limitation", "up"), ("iron", "Iron starvation", "up"),
         ("alternative N source", "Urea / cyanate", "up"), ("phage", "Phage, light", "up"),
-        ("schedule extension", "Schedule extended", "up"), ("iron re-added", "Iron re-added", "down"),
+        ("iron re-added", "Iron re-added", "down"),  # schedule extension dropped: pooled up-calls mix opposite light meanings (review E4)
         ("air vs time 0", "Air vs time 0", "down")]
 
 
