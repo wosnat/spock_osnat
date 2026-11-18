@@ -24,4 +24,4 @@
 - [x] Background citations from web search (A.14), listed separately; no "[ref needed]" left.
 - [x] Interpretation critic run, plus a delta pass: Blockers V1 and V2 fixed; delta W1–W6 fixed (critical_review.md).
 - [x] paper.html and index.html rebuilt; all code in the repo.
-- [ ] **Researcher approval.**
+- [x] **Researcher approval** (2026-11-18).
