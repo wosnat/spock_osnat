@@ -1,4 +1,4 @@
-"""Paper Table 1: the two hli gene groups (exploratory) and how cluster, copy number and ortholog-group breadth line up.
+"""Paper Fig 3 inputs (formerly Table 1): the two hli gene groups (exploratory) and how cluster, copy number and ortholog-group breadth line up.
 
 Groups: responders = clusters C3 + C4; quiet = C1 + C2 (cluster calls from explore_D_gene_clusters.csv via
 explore_D5_conservation.csv). Per-group condition counts are summed from explore_D_cluster_response.csv.

@@ -1,0 +1,19 @@
+condition,type,direction,group,n,n_defined,pct
+Light onset,light onset,up,responders,35,55,63.63636363636363
+Light onset,light onset,up,quiet,3,40,7.5
+CO2 limitation,carbon (CO2),up,responders,22,37,59.45945945945946
+CO2 limitation,carbon (CO2),up,quiet,0,24,0.0
+N limitation,nitrogen,up,responders,64,139,46.0431654676259
+N limitation,nitrogen,up,quiet,16,102,15.686274509803921
+Iron starvation,iron,up,responders,7,33,21.21212121212121
+Iron starvation,iron,up,quiet,0,24,0.0
+Urea / cyanate,alternative N source,up,responders,13,20,65.0
+Urea / cyanate,alternative N source,up,quiet,2,14,14.285714285714286
+"Phage, light",phage,up,responders,14,195,7.17948717948718
+"Phage, light",phage,up,quiet,0,104,0.0
+Schedule extended,schedule extension,up,responders,9,52,17.307692307692307
+Schedule extended,schedule extension,up,quiet,11,32,34.375
+Iron re-added,iron re-added,down,responders,7,11,63.63636363636363
+Iron re-added,iron re-added,down,quiet,0,8,0.0
+Air vs time 0,air vs time 0,down,responders,7,13,53.84615384615385
+Air vs time 0,air vs time 0,down,quiet,0,8,0.0
