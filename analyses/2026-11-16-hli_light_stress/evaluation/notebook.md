@@ -15,3 +15,13 @@
 - Discussion written: Q1 (yes, specific; change in light, not level; DCMU down hints redox signal [interpretation]); Q2 (broad, but every inducing stress was in the light; the only dark stress (phage lysate) lacks the 0.5 h point, so no test; light/sink-imbalance reading [interpretation]; follow-up = stress in darkness); two kinds of hli genes; comparison table; caveats; follow-ups.
 - Background citations (A.14): He 2001 (Synechocystis hli mutants die in high light; Hli up in high light and N limitation, some in S deprivation and cold), Havaux 2003 (heat dissipation), Bhaya 2002 (MED4 >2x hli genes, recent duplications), Lindell 2004 (phage hli group with Pro multi-copy types). Venue of Havaux 2003 (BBA 1557:21–33) from bibliographic record; confirm if needed.
 - Evaluation critic: 2 Blockers (V1 change-vs-level claim; V2 non-independent Steglich support) and 8 Concerns, all wording; all fixed in the Discussion rewrite (evaluation/critical_review.md). Delta pass next.
+
+## Decide gate
+- [x] Discussion answers both questions at the strength the data allow (Q1: responds to a shift into light, steady light level open; Q2: broad, not shown to be unrelated to light).
+- [x] Responders vs quiet carried through (researcher request); boundary genes and circularity stated.
+- [x] Source-study comparison in a table, re-reading not replication stated; script and data in evaluation/.
+- [x] Caveats in one list; exploratory labels in Results and Discussion.
+- [x] Background citations from web search (A.14), listed separately; no "[ref needed]" left.
+- [x] Interpretation critic run, plus a delta pass: Blockers V1 and V2 fixed; delta W1–W6 fixed (critical_review.md).
+- [x] paper.html and index.html rebuilt; all code in the repo.
+- [ ] **Researcher approval.**
