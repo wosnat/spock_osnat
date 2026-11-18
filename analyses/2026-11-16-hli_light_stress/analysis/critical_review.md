@@ -58,3 +58,23 @@ No Blocker. The pass confirmed against the files:
 | D7 | Note | Repeated-value counts misquoted. | **Fixed:** 18 values ≥10 times, 403 genes. |
 | D8 | Note | "HL plus some LL" should be "patchy across HL and LL". | **Fixed.** |
 | D9 | Note | padj not recomputed after A.8. | **Fixed:** footnote added; 0 flips (`qc_A8_bh_recompute.csv`). |
+
+## Delta pass 2 (data-integrity + interpretation): commits 15e5e08..d955db2
+
+Scope: A.10–A.13, explorations E and F, the restructured paper Results (groups, Figs 2–3), and the Background and Methods edits. No Blocker. The reviewer re-derived every paper number it checked, and all of them matched the files: condition counts, group and tier medians, robustness 16 and 21, light-level ρ, 27 comparisons from 10 publications, 55 rows, domain and arrangement counts, and the 25/45/101 genome totals. A.12 matches the KG design_notes; A.13 is applied consistently.
+
+| # | Severity | Finding | Disposition |
+|---|---|---|---|
+| E1 | Concern | The "quiet" group holds two responsive genes: PMM1128 (20% up, 40% on RNA-seq; N 6/14) and PMM1390 (17.5%). The groups overlap on % up (quiet 0–20, responders 16.7–45). | **Deferred to evaluation** (paper rewrite): name PMM1128 and PMM1390 as intermediate and drop "rarely / mostly do not" for the whole group. |
+| E2 | Concern | The robustness failures cross the responder/quiet line. Correlation distance moves PMM1128, PMM1390 and TX50_RS09730 to responders; without Steglich, PMM1390 and TX50_RS09730 move. Two-group agreement is 20/23 and 21/23. | **Deferred to evaluation**: report the two-group agreement, name the movers, soften "divide the genes in almost the same way". |
+| E3 | Concern | The "four views" are not independent. Twin pairs share array probes, tandem blocks are likely co-transcribed, and identical-copy status is a subset of multi-copy by definition. | **Deferred to evaluation**: recast as one genomic feature (multi-copy, often tandem, Pro-restricted) that correlates with the clustering, with the circularity stated. |
+| E4 | Concern | Schedule extension does not split by group: 6/13 responders follow the pattern, PMM0690 and PMM1404 go the opposite way, and quiet PMM1390 follows it. Pooled up-calls mix opposite light meanings (Fig 3b). | **Deferred to evaluation**: reword "explain" as "help read" and give the exceptions; split or drop schedule extension in Fig 3b. |
+| E5 | Concern | The 2025 coculture batch confound (separate axenic run) is not stated as a caveat; "ran out of nitrogen" is an inference. | **Deferred to evaluation** (caveats section and Methods wording). |
+| E6 | Note | The dark-phage claim ignored PMM0689 (2/6 down). | **Fixed:** "rarely in the dark-phage experiment (2 of 45 calls down, both PMM0689)". |
+| E7 | Note | "11 hli genes on the array" should be "listed in the study's table". | **Fixed.** |
+| E8 | Note | `qc_A8_bh_recompute.csv` labels were stale; BH family includes dropped tables. | **Fixed:** script 18 rerun (0 flips). Methods sentence deferred to evaluation. |
+| E9 | Note | Exploration F: the paper reports the null length result but not the nominal charged-fraction hit; the "Light" role is near-tautological. | **Deferred to evaluation** (report both as an uncorrected screen, or drop). |
+| E10 | Note | The timing and light-level Results sections are not labelled exploratory, and the time-course method is missing from Methods. | **Deferred to evaluation.** |
+| E11 | Note | The Exploration E diel "shared pattern" partly reflects shared probes. | Notebook only; not used in the paper. Qualify if promoted. |
+
+Researcher approved the analysis milestone on 2026-11-18. The deferred items are the first tasks of the evaluation milestone.

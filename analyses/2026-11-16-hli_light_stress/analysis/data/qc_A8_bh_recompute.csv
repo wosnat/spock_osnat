@@ -1,4 +1,4 @@
 check,n_compared,n_flips,max_abs_delta_padj
-"test-level calls (all 13 sets), BH without 2016",793,0,0.3593603792083218
+"test-level calls (all 13 sets), BH without dropped experiments (A.8, A.13)",793,0,0.3593603792083218
 "test-level calls, hli only",61,0,0.011715820943673516
-"experiment calls (all sets), recomputed without 2016",351,0,
+"experiment calls (all sets), recomputed without dropped experiments (A.8, A.13)",351,0,

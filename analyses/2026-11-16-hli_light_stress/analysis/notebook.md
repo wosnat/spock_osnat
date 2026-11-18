@@ -250,7 +250,7 @@ The KG holds 123 organisms. In these 14 groups the organism counts reach at most
 - [x] Researcher design facts and decisions A.3–A.9 are recorded in `decisions_log.md`.
 - [x] `paper.md` Methods and Results are written; `paper.html` is rendered.
 - [x] `gaps_and_friction.md` is updated (KG culture-state gaps; the clade pitfall).
-- [ ] **Researcher approval.**
+- [x] **Researcher approval** (2026-11-18). Delta critic pass 2: no Blocker; Concerns E1–E5 and Notes E8–E10 deferred to the evaluation paper rewrite (critical_review.md).
 
 ## Run 10 (kg-coder): exploration E, diel cycle (A.10), and HL vs LL proteomics (A.11)
 
