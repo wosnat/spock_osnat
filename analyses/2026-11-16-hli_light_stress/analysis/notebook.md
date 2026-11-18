@@ -150,7 +150,7 @@ The light levels are tied to study, platform and stress type. The p-values treat
 - **2025 coculture split:**
   - day 11 → non-stress "coculture, both exponential";
   - day 18 → stress "N stress, control side" (down = higher in the starving control).
-- **lowN series labels** now say "vs the same culture in exponential growth (day 11), PRO99-lowN".
+- **lowN series labels** now say "vs the same culture in exponential growth (day 11), PRO99-lowN". *Superseded by A.12: the axenic series' reference is its own day 7 (separate repeat run), per the KG design_notes; the coculture-vs-axenic labels now name axenic day 7 / day 14.*
 - **Day 18 per cluster:**
   - C2, C3 and C4 are 60%, 100% and 67% down, i.e. higher in the starving control.
   - C1 is 40% up (2 of 5: PMM0064 and PMM0471 higher in coculture). C2 is 3 of 5 down, C3 2 of 2, C4 2 of 3.
