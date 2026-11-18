@@ -1,0 +1,3 @@
+tool,args,total_matching,returned
+list_publications,"publication_dois=12 DOIs, verbose=True",12,12
+discussed_by_publication,"publication_dois=12 DOIs, verbose=True, all kinds",476,476
