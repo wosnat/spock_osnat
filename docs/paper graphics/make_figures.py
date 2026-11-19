@@ -243,6 +243,56 @@ def icon(s, kind, x, y, c):
 ICONS_1B = ["database", "lock", "scales", "magnifier", "bars", "code"]
 
 
+# ---------------------------------------------------------------- Figure 1 (cards)
+# The new Figure 1: six safeguards in research-stage order. Quotes are verbatim from
+# .claude/ (checked by check_quotes.py; [brackets] = editorial insertion, … = elision).
+# No card is red: red is reserved for the danger line. Orange is the frame (researcher).
+CARDS = [
+    dict(stage="Plan", title="Look it up", danger="guessing",
+         gloss="facts recalled, not looked up",
+         quote="Every claim traces to a KG query. Never take data from memory.",
+         source="skills/research-methodology/SKILL.md",
+         how="Each finding is tagged: from the KG, interpretation, or a gap.",
+         icon="kg_lookup", color=BLUE),
+    dict(stage="Plan", title="Scope first", danger="the plan outruns the data",
+         gloss="criteria set for data that can't deliver them",
+         quote="… a throwaway test … of what the data and annotations can actually tell apart.",
+         source="skills/research-methodology/references/plan-phase.md",
+         how="Data, annotations and controls are checked before the criteria are set.",
+         icon="bars", color=TEAL),
+    dict(stage="Plan", title="Pre-register the test", danger="a test that can't fail",
+         gloss="any outcome can pass",
+         quote="Without both [positive and negative controls], a true null and a blind method "
+               "look the same.",
+         source="skills/research-methodology/references/plan-phase.md",
+         how="Controls and decision rule fixed before the answer is seen (Fig. 2B).",
+         icon="clipboard_lock", color=SLATE),
+    dict(stage="Build", title="Check the computation",
+         danger="silent errors in method or statistics",
+         gloss="tests pass, real data breaks it",
+         quote="Toy tests catch logic errors; only an independent path catches wrong calls, "
+               "defaults, filters and paging.",
+         source="skills/research-methodology/references/research-notebook.md",
+         how="Toy data, an independent answer and a code review; correct background and "
+             "multiple-testing correction.",
+         icon="flask_check", color=AQUA_TXT),
+    dict(stage="Analyse", title="Separate the roles", danger="grading your own work",
+         gloss="the author misses their own holes",
+         quote="You execute; the main thread judges. You return artifacts, not conclusions.",
+         source="agents/kg-coder.md",
+         how="One AI runs the code, another judges the output, a third, new to the work, "
+             "reviews.",
+         icon="roles", color=VIOLET),
+    dict(stage="Write up", title="Claims match evidence", danger="narrative fabrication",
+         gloss="the wording outruns the evidence",
+         quote="‘All’, ‘every’, ‘none’, ‘primarily’ need a query against the data file, "
+               "not a glance at a heatmap.",
+         source="skills/research-methodology/SKILL.md",
+         how="Numbers first, interpretation after; each finding set against other KG studies.",
+         icon="scales", color=OCHRE),
+]
+
+
 def figure1b():
     s = SVG(960, 706)
     xr, wr = 12, 300          # problem column
