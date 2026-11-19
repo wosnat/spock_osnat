@@ -1,6 +1,6 @@
 # Spock paper graphics — draft captions
 
-Figures are sized for A4 text width: 170 mm wide, ~94–123 mm tall,
+Figures are sized for A4 text width: 170 mm wide, ~88–123 mm tall,
 with text ≥ 6.5 pt at that size.
 
 Regenerate: `uv run python "docs/paper graphics/make_figures.py"` then
@@ -13,7 +13,7 @@ references/plan-phase.md, references/research-notebook.md) and `.claude/agents/k
 `uv run python -X utf8 "docs/paper graphics/check_quotes.py"` names the card whose quote no
 longer matches; update it in `CARDS` in `make_figures.py`.
 
-## Figure 1 — fig1_concepts_cards_a / fig1_concepts_cards_b (a: terse danger line; b: with a gloss)
+## Figure 1 — fig1_concepts_cards (six safeguard cards)
 
 **How Spock guards AI-assisted research against hallucination and bias.** Six safeguards, in
 the order they act across the research process (Figure 2A): planning, building the method,

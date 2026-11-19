@@ -250,45 +250,40 @@ ICONS_1B = ["database", "lock", "scales", "magnifier", "bars", "code"]
 CARDS = [
     dict(stage="Plan", title="Look it up", danger="guessing",
          gloss="facts recalled, not looked up",
-         quote="Every claim traces to a KG query. Never take data from memory.",
+         quote="Never take data from memory.",
          source="skills/research-methodology/SKILL.md",
          how="Each finding is tagged: from the KG, interpretation, or a gap.",
          icon="kg_lookup", color=BLUE),
     dict(stage="Plan", title="Scope first", danger="the plan outruns the data",
          gloss="criteria set for data that can't deliver them",
-         quote="… a throwaway test … of what the data and annotations can actually tell apart.",
+         quote="… a throwaway test … of what the data … can actually tell apart.",
          source="skills/research-methodology/references/plan-phase.md",
-         how="Data, annotations and controls are checked before the criteria are set.",
+         how="Done before any criteria are set; it can send the approach back.",
          icon="bars", color=TEAL),
     dict(stage="Plan", title="Pre-register the test", danger="a test that can't fail",
          gloss="any outcome can pass",
-         quote="Without both kinds [positive and negative controls], a true null and a blind method "
-               "look the same.",
+         quote="Without both kinds [of controls], a true null and a blind method look the same.",
          source="skills/research-methodology/references/plan-phase.md",
-         how="Controls and decision rule fixed before the answer is seen (Fig. 2B).",
+         how="Fixed, with the decision rule, before the answer is seen (Fig. 2B).",
          icon="clipboard_lock", color=SLATE),
     dict(stage="Build", title="Check the computation",
-         danger="silent errors in method or statistics",
+         danger="silent errors",
          gloss="tests pass, real data breaks it",
-         quote="Toy tests catch logic errors; only an independent path catches wrong calls, "
-               "defaults, filters and paging.",
+         quote="Toy tests catch logic errors; only an independent path catches wrong calls …",
          source="skills/research-methodology/references/research-notebook.md",
-         how="Toy data, an independent answer and a code review; correct background and "
-             "multiple-testing correction.",
+         how="Plus a code review; correct background and multiple-testing correction.",
          icon="flask_check", color=AQUA_TXT),
     dict(stage="Analyse", title="Separate the roles", danger="grading your own work",
          gloss="the author misses their own holes",
-         quote="You execute; the main thread judges. You return artifacts, not conclusions.",
+         quote="You execute; the main thread judges.",
          source="agents/kg-coder.md",
-         how="One AI runs the code, another judges the output, a third, new to the work, "
-             "reviews.",
+         how="A third AI, new to the work, re-checks each claim.",
          icon="roles", color=VIOLET),
     dict(stage="Write up", title="Claims match evidence", danger="narrative fabrication",
          gloss="the wording outruns the evidence",
-         quote="‘All’, ‘every’, ‘none’, ‘primarily’ need a query against the data file, "
-               "not a glance at a heatmap.",
+         quote="‘All’, ‘every’, ‘none’ … need a query against the data file.",
          source="skills/research-methodology/SKILL.md",
-         how="Numbers first, interpretation after; each finding set against other KG studies.",
+         how="Numbers before interpretation; findings set against other KG studies.",
          icon="scales", color=OCHRE),
 ]
 
@@ -332,9 +327,10 @@ def _card_layout(card, variant, w):
     inner = w - 32
     danger = f"against: {card['danger']}" + (f" — {card['gloss']}" if variant == "b" else "")
     blocks = dict(
-        danger=wrap(danger, inner, 13),
-        quote=wrap(f"“{card['quote']}”", inner, 14),
-        how=wrap(card["how"], inner, 13),
+        # k: average glyph width / size, measured on the render (regular 0.45, italic 0.48)
+        danger=wrap(danger, inner, 13, k=0.46),
+        quote=wrap(f"“{card['quote']}”", inner, 14, k=0.5),
+        how=wrap(card["how"], inner, 13, k=0.46),
     )
     h = (20 + 24                                   # stage tag, title
          + 20 + len(blocks["danger"]) * 13 * 1.28  # danger line(s)
@@ -346,7 +342,7 @@ def _card_layout(card, variant, w):
 
 def figure1_cards(variant):
     """New Figure 1: six safeguard cards (3 x 2) inside the researcher's frame.
-    variant 'a' = terse danger line; 'b' = danger line with a gloss."""
+    variant 'a' = terse danger line (chosen); 'b' = danger line with a gloss (not rendered)."""
     W, fx, fw = 960, 12, 936            # canvas; frame x and width
     cols, gap, pad = 3, 12, 16
     cw = (fw - 2 * pad - (cols - 1) * gap) / cols
@@ -383,9 +379,14 @@ def figure1_cards(variant):
             s.rect(x, y, cw, h, stroke="none", fill=c)
             s.rect(x + 4, y, cw - 4, h, stroke="none", fill=tint(c, 0.06))
             s.rect(x, y, cw, h, stroke=c, fill="none", sw=1.5)
-            s.text(tx, y + 20, card["stage"].upper(), size=13, weight="bold", fill=INK2)
-            icon_cards(s, card["icon"], x + cw - 38, y + 10, c)
-            assert len(wrap(card["title"], cw - 32 - 30, 17)) == 1, card["title"]
+            assert MIN_FONT == 13      # stage tag sits at the font floor; lighter, not smaller
+            s.add(f'<text x="{tx}" y="{y + 20}" font-size="13" letter-spacing="1.2" '
+                  f'fill="{INK2}">{escape(card["stage"].upper())}</text>')
+            k = 1.45                   # icons enlarged from their 24-unit grid
+            s.add(f'<g transform="translate({x + cw - 14 - 24 * k},{y + 12}) scale({k})">')
+            icon_cards(s, card["icon"], 0, 0, c)
+            s.add('</g>')
+            assert len(wrap(card["title"], cw - 32 - 24 * k - 6, 17)) == 1, card["title"]
             s.text(tx, y + 44, card["title"], size=17, weight="bold", fill=c)
             yy = y + 64
             for ln in blocks["danger"]:
@@ -393,7 +394,7 @@ def figure1_cards(variant):
                 yy += 13 * 1.28
             yy += 6
             for ln in blocks["quote"]:
-                s.text(tx, yy, ln, size=14)
+                s.text(tx, yy, ln, size=14, style="italic")
                 yy += 14 * 1.28
             s.add(f'<path d="M{tx},{yy - 6} H{x + cw - 16}" stroke="{tint(c, 0.4)}" '
                   f'stroke-width="1"/>')
@@ -404,7 +405,7 @@ def figure1_cards(variant):
             assert yy - 13 * 1.28 + 8 <= y + h + 0.5, (card["title"], yy, y + h)
         y += h + gap
 
-    s.save(f"fig1_concepts_cards_{variant}.svg")
+    s.save("fig1_concepts_cards.svg")
 
 
 def figure1b():
@@ -1599,7 +1600,6 @@ def figure3():
 
 if __name__ == "__main__":
     figure1_cards("a")
-    figure1_cards("b")
     figure1()
     figure1b()
     figure1c()

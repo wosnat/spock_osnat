@@ -112,3 +112,12 @@ the quote sources (the skill, the agent definitions).
 
 Exact colours per safeguard (one colour each, from the existing palette), card
 and font sizes, icon drawing details, caption wording.
+
+## Researcher decisions after the first render (2026-11-19)
+
+- Danger line: terse (variant a); the gloss variant is not rendered.
+- Quotes in italic (overrides "roman" above); stage tag lighter (regular weight, letter-spaced,
+  grey; 13 units is the font floor, so it cannot be smaller); icons enlarged ×1.45.
+- Less text per card: each quote cut to one verbatim fragment, and the line below it adds what
+  the quote does not say. Card 4's danger shortened to "silent errors". Current wording lives in
+  `CARDS` in `make_figures.py` (checked by `check_quotes.py`).
