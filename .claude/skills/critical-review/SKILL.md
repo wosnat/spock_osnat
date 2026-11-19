@@ -5,203 +5,124 @@ description: Use before the researcher sees a claim-bearing artifact of a resear
 
 # Critical review
 
-Dispatch a fresh-context critic to challenge a research milestone **before** it is
-presented at the decide gate. This skill owns when the critic runs and with which lens; the research-methodology references point here. The critic never sees your session history — it
-reads the milestone's artifacts cold, so it cannot inherit the narrative you
-anchored on while doing the work. That detachment is the point: the failure modes
-the methodology keeps hitting (a heatmap narrated "all 5 are UP" when the data
-file says otherwise; a difference-of-trajectories narrated as "coculture vs
-axenic" when each arm is starvation-vs-its-own-baseline) survive precisely because
-the author is committed to the story. A reviewer reading only the data files is
-not.
+A fresh-context critic challenges an artifact **before** the researcher sees it.
+It never sees your session; it reads the files cold, so it can't inherit the
+story you anchored on. That is the point: the errors this methodology keeps
+making — "all 5 are UP" over a data file that says otherwise; two
+starvation-vs-own-baseline arms narrated as "coculture vs axenic" — survive
+because the author believes the story. The review sharpens the researcher's
+approval; it doesn't replace it. This skill owns when the critic runs and with
+which lens; the research-methodology references point here.
 
-This does not replace the researcher's decide-gate approval — it sharpens it.
-The critic's findings, where any exist, become part of the state you present.
-
-## Keep it light — three rules that bound the cost
-
-1. **Match the lens to what the milestone produces.** Don't run every dimension on
-   every milestone.
-2. **Review only this milestone's own files.** The proposal and earlier milestones
-   already passed their own review — treat their outputs as trusted inputs, not as
-   things to re-audit.
-3. **Write an artifact only when there are findings.** A clean milestone gets one
-   line in `notebook.md`, not a file.
+**Keep it light:** match the lens to what the artifact produces; review only
+its own files (earlier phases are trusted inputs, never re-audited); write a
+file only when there are findings.
 
 ## When it runs, and with which lens
 
-**Proposal (automatic; interpretation only).** The proposal is the
-highest-leverage artifact — a flaw in the framing propagates through all three
-Run milestones and is the most expensive to unwind — so it is reviewed before the
-Run phase begins. Its lens is **interpretation only**: there is no data yet, so
-there is nothing to integrity-check; the critic weighs the framing's testability,
-controls, confounders, and whether the statistics decision, the positive and
-negative controls and the decision rule fit the question (for an exploratory
-proposal: whether the scope and deliverables match the question).
+| Artifact | When | Lens | Agent |
+|---|---|---|---|
+| `proposal.md` | close of the Plan, and every delta pass before approval | interpretation | `proposal-critic` |
+| methods milestone | automatic when it emits a data file later milestones read; otherwise on demand | data-integrity + interpretation | `critic` |
+| analysis milestone | automatic — the heavy gate | data-integrity + interpretation | `critic` |
+| evaluation milestone | automatic | interpretation (plus data-integrity on any new computation) | `critic` |
+| any of the above | a **delta pass** when claims grew after the pass | as above, over the new work only | fresh agent |
 
-**During the Plan phase the critic must not open the result the plan will test.**
-In three analyses it did exactly that while spot-checking: ntcA's own fold
-change, the 12 target genes of a coverage check, and the calls of all 26
-control genes — and in one it wrote and ran a script despite being read-only.
-So the proposal is reviewed by the **`proposal-critic`** agent
-(`.claude/agents/proposal-critic.md`), which has no shell, cannot write files,
-and has only experiment-level and annotation KG tools. A check it cannot run is
-reported as unverified, and the author runs it on non-target genes or
-experiment-level counts. Use `proposal-critic` for the first proposal pass and
-every delta pass before the Plan approval commit. Invoke it especially when the framing rests on a judgment call that
-is not self-evidently sound: a **non-obvious combining key** (e.g. mapping
-disjoint strains onto shared ortholog groups), a **derived or constructed
-comparison**, or **controls whose validity is not obvious** (is the positive
-control really independent? is the negative control the contrast it is labelled
-as?). The proposal review sits alongside the author's own self-review and the
-researcher's approval of `proposal.md` — see [plan-phase.md — Closing the Plan](../research-methodology/references/plan-phase.md#closing-the-plan).
+**Proposal.** A framing flaw propagates through all three milestones, so it is
+reviewed before the Run. The critic weighs testability, confounders, and
+whether the statistics decision, controls and decision rule fit the question
+(for an exploratory proposal: whether scope and deliverables match it) — most of
+all where the framing rests on a judgment call: a non-obvious combining key
+(disjoint strains mapped onto shared ortholog groups), a constructed comparison,
+or controls whose validity isn't obvious (is the positive control independent?
+is the negative control the contrast it's labelled as?). **It must not open the
+result the plan will test** — in three analyses a Plan-phase critic did, and once
+ran a script while read-only. So it is `proposal-critic`: no shell, no file
+writes, experiment-level and annotation KG tools only. A check it can't run is
+reported unverified, and you run it on non-target genes or experiment-level
+counts. The Plan's close is in
+[plan-phase.md — Closing the Plan](../research-methodology/references/plan-phase.md#closing-the-plan).
 
-**Analysis milestone (automatic; the one heavy gate).** This is where computed
-results first appear, so it gets the full pass: **data-integrity + interpretation**.
-The data-integrity half is what pays off here — it opens the CSVs and checks the
-signs, counts, truncation, and conflation that the narrative glosses. If the
-milestone tests an emerged finding, apply the emerged-finding check below.
+**Analysis.** Where computed results first appear, so the data-integrity half
+pays off: it opens the CSVs and checks signs, counts, truncation and
+conflation that the narrative glosses.
 
-**Methods milestone (automatic when it emits a data artifact; otherwise on
-demand).** A methods milestone whose only output is a toy-tested function can
-wait for the analysis pass. But when the method includes **constructing the
-entity set** — a parts list, a curated candidate set, a classification table —
-that file carries claims (substrate labels, confidence flags, class assignments)
-and every downstream score inherits them. Then it gets the full
-**data-integrity + interpretation** lens, on the same footing as the analysis
-milestone. Do not skip it because the milestone is labelled "methods": the errors
-this catches are exactly the ones no later pass will, because later milestones
-read the parts list as a *trusted input*.
+**Methods.** A toy-tested function alone can wait for the analysis pass. But a
+method that *constructs the entity set* — a parts list, candidate set,
+classification table — emits a file whose labels, flags and classes every later
+milestone reads as a trusted input, so no later pass will catch its errors. It
+gets the full lens. *(Alteromonas coculture: a soluble PTS phosphocarrier sat in
+the candidate set as a confident sugar importer, and a carrier count 30% high had
+already reached `paper.md`.)*
 
-**Delta pass (expected, not exceptional).** A critic pass is point-in-time, and
-the **explore** phase runs *after* it by construction — the researcher asks for
-follow-on analyses, and new scripts, figures and conclusions land during decide.
-**If a milestone's claims materially expand after its pass, re-run the critic
-over the delta before closing.** **The proposal gets delta passes too:** the Plan
-phase closes on a design review with the researcher, which usually changes the
-framing after the proposal critic ran — re-run it over the changed sections, with
-the earlier proposal as a trusted input. *(N-import coculture: two Plan-phase
-delta passes, about 70k tokens each, found one Blocker and five Concerns in the
-additions.)* Tell the re-dispatch which prior files are
-already-reviewed (list them as trusted inputs) so it reviews only the new work,
-not the whole milestone again. Treat a milestone that explored after its pass and
-closed without a delta pass as having closed unreviewed work — the clean first
-verdict does not cover what came after it.
-
-**Evaluation milestone (automatic; light).** Evaluation produces conclusions, not
-new computation, so a data-integrity sweep has little to bite. Run **interpretation
-only**: is each conclusion earned by the analysis milestone's results? are caveats
-honest? is anything over-claimed, causal-from-correlational, or compared across
-platforms? is each finding's label right — nothing marked *tested as planned*
-that `decisions_log.md` lists as seen before the plan was set, or that rests on
-a rule changed after the results were seen? does each "agrees / disagrees" in
-the comparison with other studies hold, given the designs? does a comparison
-with a source study claim replication or independence where it only re-reads
-that study's own data, or drop linked genes that disagree? Evaluation reads the analysis milestone's outputs as **trusted
-evidence** — it judges whether the conclusions follow from them; it does not
-re-open those files hunting for new data defects (the analysis review already did
-that). **Exception:** when the evaluation runs new computation — typically testing an
-emerged finding on KG data not used to find it — that computation gets
-data-integrity + interpretation, scoped to its own scripts and outputs.
+**Evaluation.** Conclusions, not new computation, so interpretation only: is
+each conclusion earned by the analysis results? Caveats honest? Anything
+over-claimed, causal from correlational, or compared across platforms? Is each
+label right — nothing *tested as planned* that `decisions_log.md` lists as seen
+before the plan was set, or that rests on a rule changed after the results? Does
+each "agrees / disagrees" with other studies hold, given the designs? Does a
+comparison with a source study claim replication or independence where it only
+re-reads that study's data, or drop linked genes that disagree? New computation
+here (typically testing an emerged finding) also gets data-integrity, scoped to
+its own scripts and outputs.
 
 **Emerged-finding check** (analysis or evaluation, whenever a finding no plan
 asked for is tested): the prediction was logged in `decisions_log.md` before the
 test data was opened, the test data was not used to find it, and the paper
 states how independent that data is.
 
-**Any point, on demand.** A methods milestone that emits no data but rests on a
-non-obvious choice, or a redo you want re-checked, can be reviewed at will.
+**Delta pass — expected, not exceptional.** Explore runs after the critic by
+construction, and the Plan's design review changes the framing after its pass.
+When claims materially grow, re-dispatch over the new work, listing the
+already-reviewed files as trusted inputs. A milestone that grew after its pass
+and closes without a delta pass closes unreviewed work. *(N-import: two Plan
+delta passes found one Blocker and five Concerns in the additions; Alteromonas
+coculture: a delta pass after a clean analysis review found a figure caveat
+citing the wrong module's number, inverting its meaning.)*
 
-**Not run by a subagent:** routine **methodology compliance** (locus tags present,
-computations in scripts, results tabled not paraphrased, decide-gate checklist
-populated). These are mechanical self-checks — they belong in the author's
-decide-gate checklist ([step-protocol.md](../research-methodology/references/step-protocol.md)),
-not a fresh-context dispatch.
+**Not the critic's job:** routine compliance — locus tags present, computations
+scripted, tables not paraphrase, checklist filled. That is the author's
+decide-gate checklist.
 
 ## How to dispatch
 
-**1. Identify the folder under review and the analysis root** (e.g.
-`analyses/<name>/analysis/` under `analyses/<name>/`; for a framing review, the
-proposal files at the analysis root).
+1. **Identify** the analysis root and the folder under review (for the
+   proposal, `proposal.md` at the root).
+2. **Dispatch a fresh agent** — `proposal-critic` for the proposal, `critic`
+   otherwise — filling the template in [critical-reviewer.md](critical-reviewer.md).
+   Never continue an earlier critic; one that remembers the last pass isn't
+   reading cold. If `proposal-critic` isn't available, use `critic` and add:
+   "Do not open expression values or any other data that answers the question;
+   do not run shell commands that write files." If `critic` isn't available,
+   use a `general-purpose` agent.
 
-**2. Dispatch the `critic` agent** (`.claude/agents/critic.md` — it cannot edit
-files; fall back to a `general-purpose` subagent if it isn't available) — or, for
-a proposal, the **`proposal-critic`** agent — filling the template at
-[critical-reviewer.md](critical-reviewer.md). If `proposal-critic` isn't
-available, use `critic` and add to the prompt: "Do not open expression values or
-any other data that answers the question; do not run shell commands that write
-files." Dispatch a fresh
-critic for every pass, delta passes included — never continue an earlier one; a
-critic that remembers the last pass is no longer reading cold.
+   Placeholders: `{ANALYSIS_ROOT}`; `{REVIEW_FOLDER}` (the only files in scope);
+   `{REVIEW_NAME}` ("the analysis milestone"); `{REVIEW_INTENT}` (one or two
+   plain sentences: what it set out to do and its main judgment calls);
+   `{REVIEW_LENS}` (from the table; for other on-demand runs, data files →
+   include data-integrity); `{TRUSTED_INPUTS}` (earlier outputs it builds on —
+   e.g. the analysis `data/` for an evaluation review; empty for the proposal).
+3. **Record the result.** Findings → copy them verbatim into
+   `critical_review.md` in the reviewed folder (`proposal_critical_review.md`
+   for the proposal), each with your disposition: fixed (what changed),
+   disputed (the file and number that show the critic is wrong), or deferred
+   (why it can wait) — or *awaiting the researcher* when the fix is their
+   design choice, updated once they decide; commit it. Clean → no file; one line in `notebook.md` (or
+   `decisions_log.md`): `Critical review: clean (<lens>)`.
+4. **Act before presenting.** A **Blocker** is resolved — fixed, or disputed with
+   a file-and-number, never "I'm confident" — before the milestone closes or the
+   Run begins; for a design Blocker, the researcher's decision, applied, resolves it. A **Concern** is addressed or deferred with a reason. A **Note** is
+   recorded, fixed if cheap. A refutation without a file-and-number is itself
+   something to dispute.
+5. **Present** the dispositions with the decide-gate state. For the proposal,
+   bring each finding as *"the reviewer noticed X; I suggest Y, because Z"*, with
+   the choice it opens — never a silent fix followed by a question about one of
+   its details.
 
-Placeholders:
-- `{ANALYSIS_ROOT}` — path to the analysis directory
-- `{REVIEW_FOLDER}` — path to the folder under review (the **only** files in review
-  scope); for a framing review, `proposal.md` at the analysis root
-- `{REVIEW_NAME}` — what is under review (e.g. "the analysis milestone")
-- `{REVIEW_INTENT}` — one or two plain-language sentences on what this milestone set
-  out to do and the main judgment calls it made (the co-define agreement, or the
-  proposal's framing)
-- `{REVIEW_LENS}` — which dimensions to apply: `interpretation only` for the
-  proposal and the evaluation milestone; `data-integrity + interpretation` for the
-  analysis milestone and for a methods milestone that emitted a data artifact; for
-  other on-demand runs, choose by what was produced (data files → include
-  data-integrity; conclusions only → interpretation only)
-- `{TRUSTED_INPUTS}` — prior output files this artifact builds on, which the critic
-  reads as evidence but does **not** re-audit (e.g. the analysis milestone's data/
-  for an evaluation review; the methods milestone's data artifact for an analysis
-  review). Empty for the proposal, and for an analysis milestone whose methods
-  milestone emitted no data file.
+## Never
 
-**3. Handle the result by what it found:**
-- **Findings exist** → write the critic's findings verbatim to a
-  `critical_review.md` in the review folder (for the proposal, whose files sit at
-  the analysis root, use `proposal_critical_review.md`), each with your
-  **disposition**: fixed (what changed), disputed (why the critic is wrong, with
-  the file-and-number that proves it), or deferred (why it can wait). Commit it
-  with the phase.
-- **Clean** → no file. Add one line to the milestone's `notebook.md` (or
-  `decisions_log.md` for the proposal):
-  `Critical review: clean (data-integrity + interpretation)` or `(interpretation)`
-  — so the clean verdict sits with the decide-gate checklist, not floating elsewhere.
-
-**4. Act before presenting:**
-- **Blocker** — must be resolved (fixed or disputed with a specific data
-  citation, not "I'm confident") before the milestone closes.
-- **Concern** — address or explicitly defer with a reason.
-- **Note** — record; fix if cheap.
-- **Push back when the critic is wrong.** It read the artifacts cold and may have
-  missed context — but disputing requires a file-and-number, not confidence.
-
-**5. Present to the researcher** alongside the decide-gate state: the
-`critical_review.md` with your dispositions (or the one-line clean note). For a
-proposal, bring each finding as *"the reviewer noticed X; I suggest Y, because
-Z"*, with the choice it opens — not as a silent fix followed by a question about
-one of its details.
-
-## What the critic is told NOT to do
-
-- **Not to review anything outside `{REVIEW_FOLDER}`.** Trusted inputs are read for
-  evidence, never re-audited.
-- **Not to redo the analysis.** It spot-checks the milestone's claims against the
-  milestone's files; it does not re-run the method.
-- **Not to manufacture findings.** Every finding cites a specific file, the
-  literal column name, and the number. "Unverified — check X" beats a confident
-  guess. A clean dimension is a valid verdict.
-- **Not to rewrite anything.** It reports; the author dispositions.
-
-## Red flags
-
-**Never:**
-- Skip the proposal review because "the plan is obvious," the analysis-milestone
-  review because "the result is obvious," or a data-emitting methods review
-  because "methods is only code."
-- Close a milestone that grew after its critic pass without a delta pass over the
-  new work.
-- Start the Run phase, or close a milestone, with an unresolved Blocker.
-- Re-audit an already-reviewed proposal or earlier milestone as part of a later
-  milestone's review.
-- Let the critic's confidence substitute for the data — a refutation without a
-  file-and-number citation is itself a finding to dispute.
-
-See the template at [critical-reviewer.md](critical-reviewer.md).
+- Skip a review because "the plan is obvious", "the result is obvious" or
+  "methods is only code".
+- Close a milestone that grew after its pass without a delta pass.
+- Start the Run, or close a milestone, with an unresolved Blocker.
+- Re-audit an earlier, already-reviewed phase as part of a later review.

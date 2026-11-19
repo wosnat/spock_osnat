@@ -106,18 +106,20 @@ researcher rewrote it over a dozen rounds — "no narrative … too low-level".)
 
 1. **Findings table first** — one row per question or route, one column per
    reference or condition, a short verdict per cell, and a last column:
-   **tested as planned** or **exploratory**.
+   **tested as planned** or **exploratory** (omitted in an exploratory
+   analysis, which says so once in Methods).
 2. **Numbered plain-language meanings**, one per pattern, each a sentence or two
    an outsider could restate.
 3. **Comparison with other studies** — a short table: each finding against the
    other KG experiments or publications that bear on it (via
    `list_publications`): **agrees / disagrees / can't tell**, and why (design,
    platform, time point, strain, gene not measured). "Can't tell" is common and
-   valid. KG data only; any reading of why studies differ is worded as
+   valid; a split result gives the counts ("agrees for 14 of 18 linked genes;
+   4 not up") rather than one verdict. KG data only; any reading of why studies differ is worded as
    interpretation. A comparison with the study that produced the data re-reads
    that study's own data: call it consistency, not replication. List every gene
    the KG links to the source's statement, including those that disagree, and
-   give magnitudes where the source has them — publication links can spread one
+   give the source's magnitudes where the KG holds them — publication links can spread one
    sentence over more genes than it names, and gene names may not follow the
    paper's numbering. *(hli light stress: a "three hli genes" sentence was
    linked to 18 genes.)*

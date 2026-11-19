@@ -2,8 +2,9 @@
 
 ## What the KG provides
 
-- log2FC and padj from the original DESeq2 analysis
-- Per-study statistics — do not combine p-values across studies
+- log2FC and padj as each source study computed them (DESeq2, Rockhopper,
+  Goldenspike, …) — per-study statistics; never combine or compare p-values
+  across studies
 - Precomputed summary counts (gene counts, significant counts)
 
 ## What you must compute in scripts
@@ -113,6 +114,8 @@ include an example for those too.
 - Expression data from different platforms (microarray, RNA-seq)
   or different statistical tests (Goldenspike, Rockhopper, DESeq2)
   are NOT directly comparable
+- Never compare p-values across studies — designs, sample sizes and
+  power differ. Use direction and rough magnitude, with the caveat
 
 ## Cross-omics comparison (RNA vs protein)
 
@@ -142,20 +145,5 @@ discordance — it is biologically real, not an error:
   follow-up: post-transcriptional regulation is a real and
   important biological signal in this system.
 
-## Cross-study p-value comparison
-
-P-values from different studies have different designs, sample
-sizes, and statistical power. They are not comparable:
-- Never compare p-values across studies
-- Compare effect sizes (log2FC) across studies if needed, but
-  note the caveat
-- For cross-study claims, use direction and rough magnitude,
-  not precise p-value ranking
-
-## Summary statistics
-
-Summary statistics must be computed in scripts over complete data,
-not eyeballed from MCP output:
-- If you report a summary statistic, cite the script that computed it
-- For quick estimates in chat, explicitly say "rough estimate from
-  the top N results" and never present as a finding
+Summary statistics come from scripts over complete data — see
+[anti-hallucination.md 3.2](anti-hallucination.md#32-fabricated-summary-statistics).

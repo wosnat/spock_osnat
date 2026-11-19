@@ -22,8 +22,8 @@ reports what it would do; it calls no KG tools and writes no files.
 subagent per case, Sonnet is enough), or with the CLI from the skill folder:
 `claude plugin eval .` (real, billed runs).
 
-Baseline 2026-11-19 (after the restructure): 29 of 30 checks. The miss ("Abstract
-written last") was a dropped line in step-protocol.md, fixed but not re-run.
+Baseline 2026-11-19: 30 of 30 checks (the first run missed "Abstract written
+last", a line the restructure dropped; fixed and re-run).
 Each run also lists anything it found unclear — read those; they found most of
 the gaps so far.
 
