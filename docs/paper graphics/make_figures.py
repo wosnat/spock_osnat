@@ -172,7 +172,7 @@ def figure1():
     s.text((xr + xc + wc) / 2, y + 28, "Throughout: the researcher agrees each step's scope "
            "and approves it; the assistant never closes a step alone.",
            size=14, weight="bold", fill=INK, anchor="middle")
-    s.save("fig1_concepts.svg")
+    s.save("drafts/fig1_concepts.svg")
 
 
 # ---------------------------------------------------------------- Figure 1b
@@ -276,7 +276,7 @@ def figure1b():
     s.text((xr + xc + wc) / 2, y + 28, "Throughout: the researcher agrees each step's scope "
            "and approves it; the assistant never closes a step alone.",
            size=14, weight="bold", fill=INK, anchor="middle")
-    s.save("fig1b_concepts.svg")
+    s.save("drafts/fig1b_concepts.svg")
 
 
 # ---------------------------------------------------------------- Figure 1c
@@ -354,7 +354,7 @@ def figure1c():
     s.text((xr + xc + wc) / 2, y + 27, "Throughout: the researcher agrees each step's scope "
            "and approves it; the assistant never closes a step alone.",
            size=14, weight="bold", fill=INK, anchor="middle")
-    s.save("fig1c_concepts.svg")
+    s.save("drafts/fig1c_concepts.svg")
 
 
 # ---------------------------------------------------------------- Figure 1e
@@ -590,7 +590,7 @@ def figure2f():
     s.rect(12, 606, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
     s.text(W / 2, 625, "The researcher's gates (orange) open and close every step; "
            "no agent closes a step alone.", size=13, weight="bold", anchor="middle")
-    s.save("fig2f_process_swimlanes.svg")
+    s.save("drafts/fig2f_process_swimlanes.svg")
 
 
 # ---------------------------------------------------------------- Figure 2g
@@ -708,7 +708,7 @@ def figure2g():
     s.rect(12, 388, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
     s.text(W / 2, 407, "The researcher's gates (orange) open and close every step; "
            "the AI never closes a step alone.", size=13, weight="bold", anchor="middle")
-    s.save("fig2g_process_simple.svg")
+    s.save("drafts/fig2g_process_simple.svg")
 
 
 # ---------------------------------------------------------------- Figure 2h
@@ -990,7 +990,7 @@ def figure2():
         s.rect(lx, 606, 14, 14, stroke="none", fill=c, rx=3)
         s.text(lx + 20, 618, label, size=14, fill=INK2)
         lx += 20 + len(label) * 7.2 + 24
-    s.save("fig2_process.svg")
+    s.save("drafts/fig2_process.svg")
 
 
 # ---------------------------------------------------------------- Figure 2b
@@ -1087,7 +1087,7 @@ def figure2b():
         ty = y + rh / 2 + 5 - (len(lines) - 1) * 8.5
         for j, ln in enumerate(lines):
             s.text(x + 9, ty + j * 17, ln, size=14)
-    s.save("fig2b_concepts_workflow.svg")
+    s.save("drafts/fig2b_concepts_workflow.svg")
 
 
 # ---------------------------------------------------------------- Figure 2c
@@ -1158,7 +1158,7 @@ def figure2c():
     s.arrow([(xr, y), (xr, y + 32), (xl, y + 32), (xl, y + 2)], INK2, sw=1.8)
     s.text((xl + xr) / 2, y + 22, "each step approved by the researcher and committed; "
            "corrections loop back openly", size=13, fill=INK2, anchor="middle", style="italic")
-    s.save("fig2c_flow_concepts.svg")
+    s.save("drafts/fig2c_flow_concepts.svg")
 
 
 # ---------------------------------------------------------------- Figure 2d
@@ -1267,7 +1267,7 @@ def figure2d():
            "changes only by a recorded reopen.", size=13, fill=INK2, anchor="middle",
            style="italic")
     s.h = int(y + 26)
-    s.save("fig2d_concepts_in_flow.svg")
+    s.save("drafts/fig2d_concepts_in_flow.svg")
 
 
 # ---------------------------------------------------------------- Figure 2e
@@ -1352,7 +1352,7 @@ def figure2e():
     s.text((12 + R) / 2, y + 12, "Corrections loop back openly; the locked framing changes "
            "only by a recorded reopen.", size=13, fill=INK2, anchor="middle", style="italic")
     s.h = int(y + 26)
-    s.save("fig2e_concepts_two_rows.svg")
+    s.save("drafts/fig2e_concepts_two_rows.svg")
 
 
 # ---------------------------------------------------------------- Figure 3

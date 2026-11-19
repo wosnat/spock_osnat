@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Render each fig*.svg here to a true-size PDF (170 mm wide = A4 text width, vector)
+# Render each fig*.svg here (or in the folder given as $1) to a true-size PDF (170 mm wide = A4 text width, vector)
 # and a ~350 dpi PNG, using headless Chrome.
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 CHROME="${CHROME:-/c/Program Files/Google/Chrome/Application/chrome.exe}"
 WIDTH_MM=170
-cd "$HERE"
+cd "$HERE/${1:-.}"; HERE="$(pwd)"   # optional arg: a subfolder, e.g. drafts
 for svg in fig*.svg; do
   base="${svg%.svg}"
   dims=$(grep -o 'width="[0-9]*" height="[0-9]*"' "$svg" | head -1 | grep -o '[0-9]*')
