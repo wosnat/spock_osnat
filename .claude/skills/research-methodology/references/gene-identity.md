@@ -39,6 +39,10 @@ Genes in the same ortholog cluster are NOT interchangeable:
   membership
 - If a gene has no expression data, say so — don't substitute
   a cluster-mate's data
+- Group strains by ecotype from the `clade` field of `list_organisms`
+  (HLI–HLIV, LLI–LLIV, …), never from the strain name. *(hli light
+  stress: groups were labelled "HL-only" from strain names until the
+  researcher pointed to the `clade` field.)*
 
 See [Anti-hallucination — Ortholog cluster conflation](anti-hallucination.md#12-ortholog-cluster-conflation)
 for a concrete failure example.

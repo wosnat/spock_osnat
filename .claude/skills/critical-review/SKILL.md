@@ -97,7 +97,9 @@ honest? is anything over-claimed, causal-from-correlational, or compared across
 platforms? is each finding's label right — nothing marked *tested as planned*
 that `decisions_log.md` lists as seen before the plan was set, or that rests on
 a rule changed after the results were seen? does each "agrees / disagrees" in
-the comparison with other studies hold, given the designs? Evaluation reads the analysis milestone's outputs as **trusted
+the comparison with other studies hold, given the designs? does a comparison
+with a source study claim replication or independence where it only re-reads
+that study's own data, or drop linked genes that disagree? Evaluation reads the analysis milestone's outputs as **trusted
 evidence** — it judges whether the conclusions follow from them; it does not
 re-open those files hunting for new data defects (the analysis review already did
 that). **Exception:** when the evaluation runs new computation — typically testing an

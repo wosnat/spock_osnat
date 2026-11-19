@@ -34,7 +34,8 @@ These are version-matched to the installed explorer; don't reconstruct
 tool behavior from memory.
 
 Before diving into analysis, confirm the KG has what you need:
-- Are the needed organisms present? (`list_organisms`)
+- Are the needed organisms present? (`list_organisms`; its `clade`
+  field gives the ecotype — don't parse strain names)
 - Are there experiments for the conditions of interest?
   (`list_experiments`)
 - How was each experiment designed? (`list_experiments(verbose=True)`:

@@ -30,6 +30,9 @@ what you returned.
   never a shell heredoc or a long `python -c` with prose in it (quoting breaks).
 - Open files with `encoding="utf-8"` explicitly; Windows defaults differ.
 - Locus tags in every table. Read `total_matching`, not `len(results)`.
+- Derive counts from the data. Don't hard-code an expected count in an
+  assert; if a count must be pinned, assert against a named list with the
+  reason in a comment (a dropped experiment broke `assert n == 17`).
 
 **Return a run-manifest**, factual only:
 1. What ran — each script with its command line.

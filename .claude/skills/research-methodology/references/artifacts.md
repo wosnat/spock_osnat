@@ -122,6 +122,8 @@ Scripts must be:
 - Documented at the top (purpose, inputs, outputs)
 - Deterministic (seeded if random)
 - Have clear I/O — no hardcoded absolute paths; arguments via CLI
+- In the repo: every data file, figure and paper figure is made by a script in a milestone's `scripts/`. Edit that script and re-run it; don't draft figure changes in scratch files and splice them in. Scratch is for one-off text edits only.
+- Run order stated: numbered names follow it, and a script that reads another script's output names that script in its docstring (or the milestone keeps a `run_all.py` list). *(hli light stress: script 20 silently depended on script 24's output.)*
 
 ### Script naming
 
