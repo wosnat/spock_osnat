@@ -262,7 +262,7 @@ CARDS = [
          icon="bars", color=TEAL),
     dict(stage="Plan", title="Pre-register the test", danger="a test that can't fail",
          gloss="any outcome can pass",
-         quote="Without both [positive and negative controls], a true null and a blind method "
+         quote="Without both kinds [positive and negative controls], a true null and a blind method "
                "look the same.",
          source="skills/research-methodology/references/plan-phase.md",
          how="Controls and decision rule fixed before the answer is seen (Fig. 2B).",
@@ -393,7 +393,7 @@ def figure1_cards(variant):
                 yy += 13 * 1.28
             yy += 6
             for ln in blocks["quote"]:
-                s.text(tx, yy, ln, size=14, style="italic")
+                s.text(tx, yy, ln, size=14)
                 yy += 14 * 1.28
             s.add(f'<path d="M{tx},{yy - 6} H{x + cw - 16}" stroke="{tint(c, 0.4)}" '
                   f'stroke-width="1"/>')

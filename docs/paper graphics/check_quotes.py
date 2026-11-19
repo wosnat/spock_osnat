@@ -2,7 +2,8 @@
 
 Whitespace is collapsed, markdown emphasis (* and `) is dropped, and quote marks are
 normalised (‘’“” and ' all count as "). A quote is split on [editorial insertions] and
-on "…"; each remaining part must appear in the card's source file. A sentence-final
+on "…"; each remaining part must appear in the card's source file, in order (each part
+after the end of the previous one); a quote with no checkable text fails. A sentence-final
 period on the last part is ignored (the quote may stop mid-sentence in the source).
 
 Run:  uv run python -X utf8 "docs/paper graphics/check_quotes.py"
@@ -34,14 +35,27 @@ def parts(quote):
     return out
 
 
+def in_order(ps, src):
+    """Parts not found in src at or after the end of the previous part's match."""
+    if not ps:
+        return ["<no checkable text in quote>"]
+    missing, pos = [], 0
+    for p in ps:
+        i = src.find(p, pos)
+        if i < 0:
+            missing.append(p)
+        else:
+            pos = i + len(p)
+    return missing
+
+
 def main():
     texts = {p.relative_to(CLAUDE).as_posix(): norm(p.read_text(encoding="utf-8"))
              for p in CLAUDE.rglob("*.md") if "evals" not in p.relative_to(CLAUDE).parts}
     bad = 0
     for card in CARDS:
         src = texts.get(card["source"])
-        missing = ["<source file not found>"] if src is None else \
-            [p for p in parts(card["quote"]) if p not in src]
+        missing = ["<source file not found>"] if src is None else in_order(parts(card["quote"]), src)
         if missing:
             bad += 1
             print(f"MISS {card['title']}  ({card['source']}): " + " | ".join(missing))
