@@ -600,7 +600,7 @@ def figure1e():
     s.text((xr + xc + wc) / 2, y + 27, "Throughout: the researcher approves every plan and "
            "every stage; the AI never moves on alone.",
            size=14, weight="bold", fill=INK, anchor="middle")
-    s.save("fig1e_concepts.svg")
+    s.save("drafts/fig1e_concepts.svg")
 
 
 # ---------------------------------------------------------------- Figure 2f

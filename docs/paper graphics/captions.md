@@ -1,6 +1,6 @@
 # Spock paper graphics — draft captions
 
-Figures are sized for A4 text width: 170 mm wide, ~110–123 mm tall (Figure 1e, with seven rows, is ~146 mm),
+Figures are sized for A4 text width: 170 mm wide, ~94–123 mm tall,
 with text ≥ 6.5 pt at that size.
 
 Regenerate: `uv run python "docs/paper graphics/make_figures.py"` then
@@ -8,31 +8,39 @@ Regenerate: `uv run python "docs/paper graphics/make_figures.py"` then
 ~350 dpi PNG). Each figure ships as SVG (editable), PDF and PNG.
 
 Quoted text is verbatim from `.claude/skills/research-methodology/` (SKILL.md,
-references/step-protocol.md) and `.claude/agents/kg-coder.md`; "…" marks an elision and [square brackets] an editorial substitution. If the
-skill text changes, update the quotes in `make_figures.py`.
+references/plan-phase.md, references/research-notebook.md) and `.claude/agents/kg-coder.md`;
+"…" marks an elision and [square brackets] an editorial insertion. If the skill text changes,
+`uv run python -X utf8 "docs/paper graphics/check_quotes.py"` names the card whose quote no
+longer matches; update it in `CARDS` in `make_figures.py`.
 
-## Figure 1e — fig1e_concepts (Figure 1c aligned with Figure 2h)
+## Figure 1 — fig1_concepts_cards_a / fig1_concepts_cards_b (a: terse danger line; b: with a gloss)
 
-**How Spock counters threats to validity in AI-assisted research.** Left: seven ways an
-AI-assisted analysis can go wrong, labelled with the stage of the process (Figure 2A) where
-each arises. Right: the safeguard that counters it, quoted from the instructions Spock gives
-the AI ([brackets] mark an editorial substitution), with how it is enforced. The safeguard
-names and icons are the same as in Figure 2. Data come from a knowledge graph (KG); anything
-the researcher adds from elsewhere is labelled, and gaps are flagged rather than filled from
-memory. Before the success criteria are set,
-a quick test checks what the data and annotations can actually tell apart. The criteria,
-including positive and negative controls and a decision rule, are fixed in the plan before
-the result is scored (Figure 2B): the controls must pass, then the method is frozen, then the
-targets are scored once. Anything seen before the plan was set is reported as exploratory.
-Success criteria apply to analyses that test something against controls; an exploratory
-analysis agrees its scope instead and labels all its results exploratory. In the final
-write-up, each finding is labelled as tested as planned or exploratory. Each method is first tested
-on small hand-computed examples, and a method that builds its own gene set is also checked
-against an independent answer key and random samples of its output. Running the code, judging its output and reviewing the
-claims are done by separate AI agents, the reviewer starting with no knowledge of the work.
-Claims are checked against the data before general words such as "all" are used, and
-interpretation comes only after the numbers. All computation is in saved scripts, and every
-version is kept. Throughout, the researcher approves every plan and every stage.
+**How Spock guards AI-assisted research against hallucination and bias.** Six safeguards, in
+the order they act across the research process (Figure 2A): planning, building the method,
+analysis and write-up. Each card names the safeguard, the danger it counters (red), a verbatim
+quote from the instructions Spock gives the AI, and, below the line, what Spock does in
+practice. **Look it up:** values, gene identities, the meaning of tools and fields, and the
+absence of data all come from a knowledge graph (KG) query; gaps are flagged, not filled from
+memory. **Scope first:** before any success criteria are set, a quick test checks what the
+data, annotations and candidate controls can actually tell apart, and may send the approach
+back; big questions are split into smaller analyses. **Pre-register the test:** genes that
+must respond, genes that must not, and how every outcome will be read are fixed before the
+answer is seen (Figure 2B), and the AI that reviews the plan cannot open the results. Anything
+outside the plan is reported as exploratory; an unplanned pattern is tested only through a
+prediction recorded first, on data not used to find it; and no confirmatory claim is made on
+data that were already published. **Check the computation:** each method is tested on toy data
+in the real file format, then on one real case against an answer built another way, by someone
+other than its author, and its code is reviewed afresh. Statistics run in scripts, with the
+package's own pipeline, the correct background gene set and multiple-testing correction, and
+effect sizes are not compared across measurement platforms. **Separate the roles:** the coding
+AI returns files, not conclusions; the main AI judges from those files; and a reviewer AI with
+no prior context re-checks every claim. **Claims match evidence:** numbers come before
+interpretation; words such as "therefore", "all" or "independent" each need a contrast, a file
+and a number; and each finding is set against the other studies in the KG. The orange frame is
+the researcher, who approves every step: the AI never moves on alone, and every version of the
+work is kept. Quotes are verbatim from `.claude/skills/research-methodology/` (SKILL.md,
+references/plan-phase.md, references/research-notebook.md) and `.claude/agents/kg-coder.md`.
+
 ## Figure 2h — fig2h_process_framing (Figure 2g in plain language, plus the frozen plan)
 
 **The Spock research process, and what the plan fixes in advance.** **(A)** The researcher

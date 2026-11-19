@@ -146,3 +146,26 @@ fixed or rebutted with data before the researcher sees the work. The researcher 
 approves, or asks for another iteration or a redo. If the data contradict the locked plan,
 the plan is reopened on the record rather than silently changed. Every iteration and
 approval is committed and never amended. Badges mark where each safeguard of Figure 1 acts.
+
+## Figure 1e — fig1e_concepts (Figure 1c aligned with Figure 2h)
+
+**How Spock counters threats to validity in AI-assisted research.** Left: seven ways an
+AI-assisted analysis can go wrong, labelled with the stage of the process (Figure 2A) where
+each arises. Right: the safeguard that counters it, quoted from the instructions Spock gives
+the AI ([brackets] mark an editorial substitution), with how it is enforced. The safeguard
+names and icons are the same as in Figure 2. Data come from a knowledge graph (KG); anything
+the researcher adds from elsewhere is labelled, and gaps are flagged rather than filled from
+memory. Before the success criteria are set,
+a quick test checks what the data and annotations can actually tell apart. The criteria,
+including positive and negative controls and a decision rule, are fixed in the plan before
+the result is scored (Figure 2B): the controls must pass, then the method is frozen, then the
+targets are scored once. Anything seen before the plan was set is reported as exploratory.
+Success criteria apply to analyses that test something against controls; an exploratory
+analysis agrees its scope instead and labels all its results exploratory. In the final
+write-up, each finding is labelled as tested as planned or exploratory. Each method is first tested
+on small hand-computed examples, and a method that builds its own gene set is also checked
+against an independent answer key and random samples of its output. Running the code, judging its output and reviewing the
+claims are done by separate AI agents, the reviewer starting with no knowledge of the work.
+Claims are checked against the data before general words such as "all" are used, and
+interpretation comes only after the numbers. All computation is in saved scripts, and every
+version is kept. Throughout, the researcher approves every plan and every stage.
