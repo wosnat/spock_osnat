@@ -44,7 +44,7 @@ and the research arc: a **Plan** (a five-step dialog with the researcher, ending
 a reviewed `proposal.md`) and a **Run** of three milestones — `methods/` →
 `analysis/` → `evaluation/` — each going co-define → do → show → explore → decide,
 with execution delegated to the `kg-coder` agent and a fresh-context critic
-(`critical-review` skill) before the researcher sees results.
+(`critical-review` skill) before the researcher approves a milestone.
 
 The process lives in the skill, not here — start at
 `.claude/skills/research-methodology/SKILL.md`; the Plan is in

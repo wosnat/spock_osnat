@@ -1,8 +1,7 @@
 # Critical reviewer — subagent prompt template
 
 Fill the placeholders and dispatch as the template's `critic` agent
-(`.claude/agents/critic.md`), or `proposal-critic` for a proposal; fall back to
-`general-purpose` if it isn't loaded. The text
+(`.claude/agents/critic.md`), or `proposal-critic` for a proposal; if one isn't loaded, follow the fallback in the critical-review SKILL.md. The text
 below is the subagent's entire instruction. It must NOT be given your session
 history — a cold read is the point.
 
@@ -134,8 +133,9 @@ checks — those are the author's decide-gate checklist, not your job.
 - **A clean verdict is valid.** If you cannot find a real problem, say so —
   do not invent one to look thorough.
 
-You may use the `multiomics-kg` MCP tools and `run_cypher` to spot-check a single
-claim (re-resolve a gene to its locus tag, confirm a result is not truncated,
+**Run-phase reviews only** (a proposal review has only the tools its agent
+allows, and never opens the data that answers the question): you may use the
+`multiomics-kg` MCP tools and `run_cypher` to spot-check a single claim (re-resolve a gene to its locus tag, confirm a result is not truncated,
 verify a publication via `list_publications`, check a sign distribution). Spot-
 check — do not reproduce the analysis. If the KG is unreachable, note it and
 proceed with file-based checks.

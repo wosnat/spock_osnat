@@ -20,9 +20,10 @@ defaults, paging, sort order and what each filter drops. Read
 **What you write:** scripts in the milestone's `scripts/`, outputs in `data/`
 and `figures/` (`qc_` prefix for QC; save every figure as PNG + SVG), the
 milestone's `reports/*.html` via `scripts/build_reports.py`, then rebuild the
-index (`uv run python scripts/build_report_index.py analyses/<slug>`). You never write `notebook.md`, `paper.md`,
+index (`uv run python scripts/build_report_index.py analyses/<slug>`). You never write `notebook.md`, `paper.md`, `overview.html`, `decisions_log.md`,
 `gaps_and_friction.md` or critic dispositions, and you never state what a
-result means. You don't commit or push; the main thread commits after reading
+result means. Rule 10 (how Claude talks with the researcher) is the main
+thread's; you report to the main thread. You don't commit or push; the main thread commits after reading
 what you returned.
 
 **How you run code**

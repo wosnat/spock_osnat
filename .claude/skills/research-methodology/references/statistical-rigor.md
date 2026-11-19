@@ -9,11 +9,12 @@
 
 ## What you must compute in scripts
 
-- Enrichment analysis (Fisher's exact, hypergeometric) with proper
-  background set from the KG
+- Enrichment: call `pathway_enrichment` (DE results) or `cluster_enrichment`
+  (clusters), choosing their `background`; the primitives below are for a
+  custom gene list the tools don't cover
 - Multiple testing correction when comparing across conditions
 - Effect size reporting (not just significance)
-- Volcano plots, heatmaps with proper clustering
+- Volcano plots and heatmaps (row order by meaning — [figures-and-reports.md](figures-and-reports.md))
 
 ### Enrichment: background set construction
 
@@ -34,7 +35,7 @@ p-values — it's the most common enrichment error.
 |----------|---------------|---------------|
 | "Are nitrogen-responsive genes enriched for GO term X?" | All genes tested in the experiment | `differential_expression_by_gene(organism=..., experiment_ids=[...], limit=None)` — use all returned locus tags, not just significant ones |
 | "Are genes in cluster Y enriched for function X?" | All genes in the organism's genome | `genes_by_function("*", organism=..., limit=None)` — returns all annotated genes |
-| "Is ontology term X over-represented in my gene set?" | All genes with any annotation in that ontology | `genes_by_ontology(term_id=<root_term>, organism=..., limit=None)` |
+| "Is ontology term X over-represented in my gene set?" | All genes with any annotation in that ontology | `background="annotated"` in the enrichment tools; by hand, `genes_by_ontology(ontology=..., term_ids=[<root>], organism=..., max_gene_set_size=None, limit=None)` — the default size cap drops a root term |
 
 **Common mistakes:**
 - Using only significant genes as background (guarantees
@@ -71,9 +72,9 @@ upregulated genes (Fisher's exact p = X, BH-corrected q = Y,
 Always report: fold enrichment, raw p-value, corrected q-value,
 counts (k/K from n/N), and the background set definition.
 
-## Worked examples in specs
+## Worked examples for formulas
 
-Every formula in a spec must include at least one worked example
+Every formula in the proposal or a methods module must include at least one worked example
 with concrete numbers showing input → computation → output.
 
 Shorthand like "reference direction as expected sign" is not

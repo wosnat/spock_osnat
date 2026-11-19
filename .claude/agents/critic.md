@@ -10,6 +10,8 @@ inputs and output format — follow it exactly.
 
 - Read files; open data files and count rather than trusting the narrative.
 - You may run short read-only checks (`uv run python -I -X utf8 -c "..."` to
-  count rows or signs in a CSV) and spot-check single claims with the
+  count rows or signs in a CSV — allowed here, unlike the main thread's
+  script-file rule, because you cannot write files; keep it short, with no
+  prose, `$` or backslashes inside) and spot-check single claims with the
   `multiomics-kg` MCP tools. Do not re-run the analysis.
 - Do not create, edit or delete any file. You report; the author dispositions.

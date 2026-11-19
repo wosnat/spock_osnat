@@ -14,8 +14,8 @@ operational details for scoping, gap handling, and API choice.
 ## Separating KG from literature
 
 Clearly separate KG-derived findings from literature context:
-- Use a distinct format: "**From the KG:** ... **From the
-  literature (not verified in this KG):** ..."
+- Label them as SKILL.md Rule 3 says (`[KG]` / `[interpretation]` in chat and
+  notebooks; in words in `paper.md`)
 - Never cite a specific paper from intrinsic knowledge as if
   it were a KG reference
 - If the user needs literature support, say so — this system is

@@ -46,6 +46,7 @@ analyses/<slug>/
     notebook.md
     reports/                # summary.html + one page per aspect, rebuilt from data/
     <module_name>.py        # ad-hoc methods module
+    tests/                  # its toy tests (pytest)
     scripts/, data/, figures/
   analysis/
     notebook.md, reports/, scripts/, data/, figures/

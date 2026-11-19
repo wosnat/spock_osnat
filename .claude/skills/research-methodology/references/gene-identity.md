@@ -54,5 +54,5 @@ Gene function claims must come from `gene_overview`,
 training data. If intrinsic knowledge disagrees with the KG
 annotation, report the KG annotation and note the discrepancy.
 
-Prefix intrinsic knowledge with: "Based on general knowledge
-(not from this KG)..."
+Label anything from your own knowledge as SKILL.md Rule 3 says (`[interpretation]`
+in chat and notebooks; in words in `paper.md`).

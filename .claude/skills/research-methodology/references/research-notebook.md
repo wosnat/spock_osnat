@@ -65,7 +65,7 @@ final rewrite.
 |---|---|
 | Abstract | evaluation, last — 150–200 words: question, approach, findings, meaning |
 | Question, Background | Plan |
-| Methods | Plan (framing) + methods; updated at analysis for anything added |
+| Methods | methods milestone (the proposal's framing + the implementation); updated at analysis for anything added |
 | Results | analysis, after its storyline is agreed |
 | Discussion | evaluation, its storyline agreed the same way |
 | References | every phase that cites |

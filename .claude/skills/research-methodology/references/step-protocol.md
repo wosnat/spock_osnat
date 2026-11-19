@@ -91,7 +91,8 @@ kg-coder does the agreed work. Scripts in `scripts/`, outputs in `data/` and
 - **methods:** implement the approach as an ad-hoc module and verify it as in
   [research-notebook.md — Verifying the method](research-notebook.md#verifying-the-method)
   (toy tests in the real file format, then one small real example checked
-  against an answer built independently through MCP calls; four layers when the
+  against an answer built independently through MCP calls — by the main thread
+  or a fresh agent, not by kg-coder, which wrote the module; four layers when the
   method builds the entity set). **Nothing in the Run phase restricts looking at
   data.** Settle method choices — thresholds, backgrounds, reading rules — on
   reference or control sets first so they don't bend toward the target; that is
@@ -110,6 +111,9 @@ kg-coder does the agreed work. Scripts in `scripts/`, outputs in `data/` and
 Populate `notebook.md` from what kg-coder returned
 ([format](research-notebook.md#notebookmd)). The summary tables shown in chat
 are the same tables in the notebook: real numbers, copied, not paraphrased.
+Results shared with the researcher during show and explore are working
+material, marked "not yet reviewed"; the critic runs before the milestone is
+presented for approval at decide.
 
 ## explore
 
@@ -157,8 +161,7 @@ and ask in one line: test it here, or a follow-up? A deferred one goes into
 3. **Update `paper.md`.** Agree the storyline of this milestone's section with
    the researcher first, then write it — at analysis the Results and paper
    figures; at evaluation the Discussion, then the Abstract, last
-   ([research-notebook.md — paper.md](research-notebook.md#papermd)). Rebuild
-   `reports/` (`scripts/build_reports.py`), then from the repo root
+   ([research-notebook.md — paper.md](research-notebook.md#papermd)). Rebuild `reports/` (`<milestone>/scripts/build_reports.py`), then from the repo root
    `uv run python scripts/build_report_index.py analyses/<slug>` and
    `uv run python scripts/build_paper.py analyses/<slug>`. Check `summary.html`'s
    findings table against `notebook.md`.
@@ -209,10 +212,10 @@ Each gate exists because its failure happened.
   before the previous approval commit exists. If asked to run two in one go,
   do — but each gets its own decide and approval commit. *(Notebooks written
   afterwards lost the reasoning.)*
-- **C — reviewed before shown.** Don't present a claim-bearing artifact until
-  its critic pass has run and every Blocker is resolved; a milestone that grew
-  after its pass gets a delta pass. If the researcher asks to see a result
-  earlier, show it marked "not yet reviewed". Schedule and lenses:
+- **C — reviewed before approval.** Don't present a milestone (or the proposal)
+  for approval until its critic pass has run and every Blocker is resolved or
+  brought to the researcher as a decision; a milestone that grew
+  after its pass gets a delta pass. Anything shown earlier is marked "not yet reviewed". Schedule and lenses:
   [critical-review](../../critical-review/SKILL.md).
 - **D — tables, not paraphrase.** Don't close a milestone whose notebook
   Results are prose where a table belongs.

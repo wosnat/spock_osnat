@@ -71,8 +71,7 @@ asked for is tested): the prediction was logged in `decisions_log.md` before the
 test data was opened, the test data was not used to find it, and the paper
 states how independent that data is.
 
-**Delta pass — expected, not exceptional.** Explore runs after the critic by
-construction, and the Plan's design review changes the framing after its pass.
+**Delta pass — expected, not exceptional.** Explore often continues after the critic pass, and the Plan's design review changes the framing after its pass.
 When claims materially grow, re-dispatch over the new work, listing the
 already-reviewed files as trusted inputs. A milestone that grew after its pass
 and closes without a delta pass closes unreviewed work. *(N-import: two Plan
