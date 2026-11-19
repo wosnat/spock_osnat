@@ -1,6 +1,6 @@
 # Spock paper graphics — draft captions
 
-Figures are sized for A4 text width: 170 mm wide, ~88–123 mm tall,
+Figures are sized for A4 text width: 170 mm wide, ~94–123 mm tall,
 with text ≥ 6.5 pt at that size.
 
 Regenerate: `uv run python "docs/paper graphics/make_figures.py"` then
