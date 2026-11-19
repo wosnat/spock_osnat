@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: plan-close-critic-findings
+expected_outcome: |
+  Self-reviews proposal.md against decisions_log.md, dispatches proposal-critic (not critic) via critical-review, records findings with dispositions in proposal_critical_review.md, brings each finding to the researcher as 'the reviewer noticed X; I suggest Y, because Z' without fixing silently first, resolves the Blocker, runs a delta pass over what changed, and makes the approval commit only when the researcher approves with no further design change.

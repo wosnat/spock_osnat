@@ -54,7 +54,7 @@ disjoint strains onto shared ortholog groups), a **derived or constructed
 comparison**, or **controls whose validity is not obvious** (is the positive
 control really independent? is the negative control the contrast it is labelled
 as?). The proposal review sits alongside the author's own self-review and the
-researcher's approval of `proposal.md` — see [step-protocol.md — The Plan phase](../research-methodology/references/step-protocol.md).
+researcher's approval of `proposal.md` — see [plan-phase.md — Closing the Plan](../research-methodology/references/plan-phase.md#closing-the-plan).
 
 **Analysis milestone (automatic; the one heavy gate).** This is where computed
 results first appear, so it gets the full pass: **data-integrity + interpretation**.

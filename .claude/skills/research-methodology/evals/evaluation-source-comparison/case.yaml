@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: evaluation-source-comparison
+expected_outcome: |
+  Agrees the Discussion storyline before writing; opens with a findings table (labels) and numbered meanings, then a comparison with other studies (agrees / disagrees / can't tell), then caveats in their own section; Abstract last. Calls the Steglich comparison consistency, not replication, lists all 18 linked genes including the 4 that disagree, and notes the KG link spreads one sentence over more genes than it names. Background citations come from list_publications or an authorised web search, never memory.

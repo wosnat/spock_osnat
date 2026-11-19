@@ -75,7 +75,7 @@ Every file is written for one reader. Write it for that reader, and don't make t
 **Who:** Claude proposes the slug; the user approves or counter-proposes.
 **When:** at the start of the Plan phase, before any folder or file is written.
 
-1. **Propose a slug** based on the user's initial prompt. Confirm with the user before writing anything — no scaffold exists until the slug is confirmed.
+1. **Propose a slug** based on the user's initial prompt, as a default in the first message ("I'll call it `<slug>`; change it?"). Write nothing until the researcher has replied — their reply either accepts it or names another.
 2. **Create the minimal scaffold:**
    ```
    analyses/<slug>/

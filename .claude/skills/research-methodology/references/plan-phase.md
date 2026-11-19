@@ -198,8 +198,10 @@ One section per step, each with a numbered table: `#`, decision, decided by
 facts the step relies on come before its table, tagged `[KG]`. Open questions
 sit at the bottom until settled; caveats that emerge get their own section and
 carry into `paper.md`. What the researcher chose to look at early is recorded
-here without comment. Run-phase decisions go in the milestone's `notebook.md`;
-established facts here are read before any Run-phase exploration.
+here without comment. Run-phase decisions go in the milestone's `notebook.md`,
+but the log stays open in the Run phase for one thing: an emerged finding's
+moment and prediction ([step-protocol.md — explore](step-protocol.md#explore)).
+Its established facts are read before any Run-phase exploration.
 
 ## Brainstorming overrides
 

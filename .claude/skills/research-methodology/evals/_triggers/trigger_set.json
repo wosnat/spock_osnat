@@ -1,0 +1,16 @@
+[
+ {"skill":"research-methodology","should_trigger":true,"query":"ok I want to start a new analysis - do the genes MED4 induces in coculture with Alteromonas overlap with its phosphate starvation response? lets plan it"},
+ {"skill":"research-methodology","should_trigger":true,"query":"which MED4 genes go up under high light in the KG? give me locus tags"},
+ {"skill":"research-methodology","should_trigger":true,"query":"is ntcA differentially expressed in coculture with Alteromonas at day 18?"},
+ {"skill":"research-methodology","should_trigger":true,"query":"look at analyses/2026-11-16-hli_light_stress and tell me whether the responder / quiet split would likely hold in MIT9313 too"},
+ {"skill":"research-methodology","should_trigger":true,"query":"brainstorm with me: I think urea uptake genes are regulated differently in LL vs HL Prochlorococcus strains"},
+ {"skill":"research-methodology","should_trigger":true,"query":"how many experiments in the KG have proteomics for Prochlorococcus?"},
+ {"skill":"research-methodology","should_trigger":false,"query":"the preflight script fails with a unicode error on my windows machine, can you fix scripts/preflight.sh"},
+ {"skill":"research-methodology","should_trigger":false,"query":"update the README so the install section says uv 0.5 or later is needed"},
+ {"skill":"research-methodology","should_trigger":false,"query":"in scripts/build_report_index.py rename the function that writes the html to write_index and update its callers"},
+ {"skill":"critical-review","should_trigger":true,"query":"the analysis milestone of analyses/2026-11-16-hli_light_stress is done - before I show it to the researcher, get a fresh-eyes review of its claims against the data files"},
+ {"skill":"critical-review","should_trigger":true,"query":"I finished writing proposal.md for the ntcA analysis; run the reviewer on it before we approve the plan"},
+ {"skill":"critical-review","should_trigger":true,"query":"we added three new explorations to the hli evaluation milestone after the critic ran - do the delta review before I approve"},
+ {"skill":"critical-review","should_trigger":false,"query":"review my uncommitted changes to scripts/build_paper.py for bugs before I commit"},
+ {"skill":"critical-review","should_trigger":false,"query":"can you give me feedback on the wording of the README intro paragraph"}
+]

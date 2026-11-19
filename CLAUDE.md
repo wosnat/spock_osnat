@@ -38,81 +38,17 @@ a research chat.
 ## Research methodology
 
 **Load the `research-methodology` skill BEFORE invoking
-`superpowers:brainstorming` for the Plan phase of an analysis.** It contains the
-KG usage rules, gene-identity rules, anti-hallucination patterns,
-scripts-over-chat-reasoning, and the Plan→Run research arc. Loading after the
-plan is committed means retrofitting.
+`superpowers:brainstorming` for the Plan phase of an analysis** — loading it after
+the plan is committed means retrofitting. It holds the KG and gene-identity rules
+and the research arc: a **Plan** (a five-step dialog with the researcher, ending in
+a reviewed `proposal.md`) and a **Run** of three milestones — `methods/` →
+`analysis/` → `evaluation/` — each going co-define → do → show → explore → decide,
+with execution delegated to the `kg-coder` agent and a fresh-context critic
+(`critical-review` skill) before the researcher sees results.
 
-### The research arc: Plan, then Run
-
-Every analysis is two phases:
-
-**Plan** — one grounded `superpowers:brainstorming` conversation, walked through
-with the researcher in five steps, each ending with a "so far" summary they
-confirm and recorded in `decisions_log.md`:
-1. **Clarify and size the question** — what it is for, the mode (*exploratory*:
-   scope and deliverables, no framing; or *control-validated*: the full framing),
-   and whether to split a question that is too big into smaller analyses
-2. **Show what the KG holds** — publications, experiments, organisms, data types,
-   coverage, as tables or plots (a decision tree when many experiments must be sorted)
-3. **Agree the general approach**
-4. **Check that the approach can work** — throwaway tests in `spike/`, required when
-   the method builds its own gene set or mixes platforms
-5. **Set the framing** — hypothesis, approach, statistics plan (the specific test or a
-   reasoned "none"), positive and negative controls (each with its expected result),
-   a decision rule for every reading of the target, and design comparability (per
-   experiment: what each arm is compared against and that reference's
-   physiological state, shared samples or models, what it can confirm)
-
-Then `proposal.md` is written as the record of what was agreed, reviewed by the
-`proposal-critic`, its findings brought to the researcher with recommendations, a
-delta critic pass over what changed, and an approval commit. Looking at data during
-planning is free; the one exception is a plain-language question before showing the
-data that answers the question, in control-validated mode.
-
-**Run** — three milestones, each in its own folder; every iteration committed, each
-milestone closed by an approval commit, and a push requested when the analysis is done:
-- **methods** — ad-hoc Python module implementing the approach the proposal
-  committed to; toy-tested (`superpowers:test-driven-development`)
-- **analysis** — run the method; produce scored outputs, figures, tables
-- **evaluation** — assess against the framing; harvest caveats; finalize paper
-
-`proposal.md` is the plan (locked at the end of the Plan phase). The Run
-milestones execute against it. The Plan phase collapses onto brainstorming; the
-Run phase is the project's own iterate loop (it is not `executing-plans`, which
-assumes a locked, pre-specified plan).
-
-### Run-milestone rhythm: co-define → do → show → explore → decide
-
-Each Run milestone advances through **co-define → do → show → explore → decide**,
-with two researcher gates: agreement at **co-define** (before the work) and
-approval at **decide** (after it). The **decide** phase produces a minimal
-`notebook.md` checklist and pauses for explicit researcher approval before
-committing. Execution (KG queries, scripts) is delegated to a coding subagent
-(`superpowers:subagent-driven-development`) that returns artifacts, not
-conclusions; the main thread owns `notebook.md` and all judgment. Use the
-`kg-coder` agent for that role and continue it across the milestone. Figures use
-the `dataviz` skill; each milestone produces HTML reports (`<milestone>/reports/`,
-listed in the analysis's `index.html`); and `paper.md` is paper-ready prose for the
-eventual paper's reader, rendered with its figures as `paper.html`. See
-`.claude/skills/research-methodology/references/step-protocol.md` for commit
-timing, the decide-gate checklist, hard gates, and the delegation rules.
-
-### Just-in-time formalization, with enumeration
-
-Terms, predictions, metrics, stability checks, decisions, and caveats enter the
-analysis **only when the data demands them** — but within what the plan *does*
-commit to, be concrete (a vague-but-approved plan forces redos). If you find
-yourself listing things the analysis might need before the data has arrived, stop.
-
-On-demand tools that remain available: `superpowers:verification-before-completion`,
-`superpowers:systematic-debugging`, `superpowers:requesting-code-review`, and the
-`critical-review` skill — a fresh-context critic that challenges a claim-bearing
-artifact against its own files (automatic on the proposal before the Run phase,
-interpretation-only; at the analysis milestone — and at a methods milestone that
-emits a data file — with a data-integrity + interpretation lens; at the
-evaluation milestone with interpretation only; as a delta pass whenever a
-milestone's claims grow after its first pass; and on demand at any point).
+The process lives in the skill, not here — start at
+`.claude/skills/research-methodology/SKILL.md`; the Plan is in
+`references/plan-phase.md`, the Run in `references/step-protocol.md`.
 
 ## MCP server & credentials
 

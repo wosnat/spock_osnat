@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: plan-start-control-validated
+expected_outcome: |
+  Reads plan-phase.md before step 1. Opens with the arc as a plain-language to-do list, asks one question, proposes the folder name as a default, and asks the mode in plain words. Proposes control-validated mode. Asks 'look now or wait?' only before showing the ntcA targets' values in the coculture comparison; treats the N-starvation reference as control data that is free to look at.

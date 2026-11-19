@@ -145,7 +145,8 @@ either way the prediction is logged before the test data is opened. A test run
 here is *tested as planned*, and the paper says where the prediction came from
 and how independent the test data is. If the researcher asks to close the
 milestone while such a finding is open, log the moment and the prediction first
-and ask in one line: test it here, or a follow-up?
+and ask in one line: test it here, or a follow-up? A deferred one goes into
+`paper.md` as a suggested follow-up, naming the data its test needs.
 
 ## decide
 
@@ -154,7 +155,8 @@ and ask in one line: test it here, or a follow-up?
 2. **Update `overview.html`**: where we are, this milestone's decisions and
    findings, links to its reports.
 3. **Update `paper.md`.** Agree the storyline of this milestone's section with
-   the researcher first, then write it
+   the researcher first, then write it — at analysis the Results and paper
+   figures; at evaluation the Discussion, then the Abstract, last
    ([research-notebook.md — paper.md](research-notebook.md#papermd)). Rebuild
    `reports/` (`scripts/build_reports.py`), then from the repo root
    `uv run python scripts/build_report_index.py analyses/<slug>` and

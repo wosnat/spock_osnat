@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: exploratory-atlas
+expected_outcome: |
+  Chooses exploratory mode; agrees scope and deliverables with no framing (no controls or decision rule required); asks no 'look now or wait?' question; every result is exploratory, stated once in Methods; a mechanism the data did not raise becomes a suggested follow-up rather than something the analysis builds evidence for.

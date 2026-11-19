@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: analysis-decide-emerged-finding
+expected_outcome: |
+  Treats the cluster as an emerged, exploratory finding; before closing logs the moment and the prediction in decisions_log.md and asks whether to test it here or as a follow-up; check results go to the notebook's Surprises. Checks its own claim words before dispatching the critic with the data-integrity + interpretation lens, including the emerged-finding check. Commits iterations and makes the approved commit only on explicit approval.
