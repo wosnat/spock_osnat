@@ -135,7 +135,9 @@ milestone; ask before pushing. **Read
 
 Superpowers skills at the beats where they fit: toy-testing a method →
 `test-driven-development`; something breaks or surprises →
-`systematic-debugging`; before calling a milestone done →
+`systematic-debugging`; reading the methods module and statistics scripts
+before the critic → `requesting-code-review` (step-protocol, decide);
+before calling a milestone done →
 `verification-before-completion` (the decide-gate checklist). The Run loop is
 not `executing-plans`, which assumes a locked plan of small tasks.
 

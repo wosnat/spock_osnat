@@ -209,6 +209,54 @@ synthetic input, expected output by hand, compare, log it in
   paging. Log it as a QC-gate line. *(hli light stress: the spot checks re-used
   the same API, so a shared misuse would have passed.)*
 
+### Code review
+
+Tests and output checks miss code that is wrong in a way that still runs. *(A
+`bool("False")` that passed 27 tests; offset paging that swapped rows while every
+count matched; a paralog rule written for arrays applied to RNA-seq.)* So the
+code gets read, by a fresh agent — not kg-coder, which wrote it — through
+`superpowers:requesting-code-review`, before the critic:
+- **always** for the methods module, at the methods milestone;
+- for any **analysis-milestone script that computes statistics, scores, clusters or
+  calls** itself rather than through the module (not plotting or report
+  scripts).
+
+The reviewer reads the code against the proposal and the data, and checks:
+- **Explorer calls** against each tool's `docs://tools/{tool}` page: defaults,
+  paging and sort order, what each filter drops, `limit=None`, counts from
+  `total_matching`, `table_scope` handled per experiment.
+- **Logic against the proposal**: the method computes what the framing says —
+  the right contrast, direction, background, threshold, and set of experiments.
+- **Every library call whose defaults change the result.** For each call that
+  moves, joins, drops, tests or groups data: what its defaults are, what it does
+  with missing values, duplicates and ties, and whether the rows going in and out
+  are the rows intended — checked with counts, not by reading. Examples by kind
+  of work, not a complete list:
+  - *tables* (pandas, Excel readers): row counts before and after every `merge`
+    (`validate=` where a key should be unique) and what an inner merge drops;
+    `groupby` dropping NaN keys by default; index alignment in arithmetic; types
+    as read (numbers stored as text, `"n/a"`, `"False"`, header and merged rows
+    in Excel); which row `drop_duplicates` / `sort_values` keep.
+  - *statistics* (scipy, statsmodels): the 2×2 table's orientation and the
+    `alternative`; the multiple-testing method and the *family* it corrects over
+    (per experiment, per direction, overall — matching the plan); `nan_policy`;
+    `ddof`; Pearson vs Spearman as the plan says.
+  - *clustering and reduction* (scikit-learn, `scipy.cluster`): scaling before
+    distances; metric and linkage; `random_state`; how the number of clusters
+    was chosen; cluster labels are arbitrary between runs.
+  - *numbers* (numpy): NaN through sums and means; log of zero or negatives;
+    floating-point equality as a test.
+  - *sequences* (biopython): 0- vs 1-based coordinates, strand.
+  - *figures* (matplotlib, seaborn): the values drawn are the data file's; a
+    diverging colour scale is centred at zero; `clustermap` reorders rows.
+- **Reading rules**: sign conventions (log2FC direction, which arm is the
+  numerator), units, and identical values that signal a shared probe or a
+  copied table.
+
+Each finding gets a disposition, as with the critic; the review is logged as a
+QC-gate line ("Code review: methods module — 3 findings, all fixed"). It
+replaces nothing: the critic still checks the outputs.
+
 **When the method builds the entity set, verify in four layers** before scaling
 or handing it on, each logged as a QC-gate line. Layers 2 and 3 are done by
 someone other than the module's author.
@@ -217,7 +265,7 @@ someone other than the module's author.
 |---|---|---|
 | 1. Real-format fixtures | toy inputs as the file actually arrives | parsing traps (`bool("False")`, `"n/a"` read as NaN) |
 | 2. Pilot vs an independent answer key | for one organism or a few systems, build the answer through MCP calls alone and diff | wrong API defaults, rule gaps (57 vs 86 BRITE genes; `fadD` called a transporter) |
-| 3. API-usage review | read how the module calls each explorer function against its source and `docs://` pages | paging, sorting and filter behaviour no count sees (offset paging swapped rows while every count passed) |
+| 3. API-usage review | the code review above, run before scaling, at full depth on every explorer call (its source as well as its `docs://` page) | paging, sorting and filter behaviour no count sees (offset paging swapped rows while every count passed) |
 | 4. Bin sample | a random sample of each bin before its rule is approved | rules that read right but fill bins wrongly (a "Medium" tier of helicases) |
 
 The researcher sees layer 4's samples at the decide gate: a rule is approved on

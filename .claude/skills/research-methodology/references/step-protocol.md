@@ -92,8 +92,8 @@ kg-coder does the agreed work. Scripts in `scripts/`, outputs in `data/` and
   [research-notebook.md — Verifying the method](research-notebook.md#verifying-the-method)
   (toy tests in the real file format, then one small real example checked
   against an answer built independently through MCP calls — by the main thread
-  or a fresh agent, not by kg-coder, which wrote the module; four layers when the
-  method builds the entity set). **Nothing in the Run phase restricts looking at
+  or a fresh agent, not by kg-coder, which wrote the module; a code review at
+  decide; four layers when the method builds the entity set). **Nothing in the Run phase restricts looking at
   data.** Settle method choices — thresholds, backgrounds, reading rules — on
   reference or control sets first so they don't bend toward the target; that is
   an order of work, not a blind, and a target value seen while debugging is not
@@ -169,7 +169,12 @@ and ask in one line: test it here, or a follow-up? A deferred one goes into
    the notebook points to has an entry; and a critic finding that exposed
    something the framing didn't anticipate is friction too, not only a
    disposition.
-5. **Check your own claims, then run the critic.** For each *therefore,
+5. **Code review, then your own claims, then the critic.** First, at methods
+   always and at analysis for scripts that compute statistics, scores or clusters themselves, a
+   fresh agent reviews the code — explorer calls, logic against the proposal,
+   library defaults (pandas, scipy, scikit-learn, …)
+   ([research-notebook.md — Code review](research-notebook.md#code-review)); fix
+   or dispose of its findings and log a QC-gate line. Then, for each *therefore,
    explains, shows, independent, all, none, never, only* in `notebook.md` and
    `paper.md`, name the contrast, file and number behind it; weaken or cut the
    word where you can't. The critic is not the first line of defence. *(hli
