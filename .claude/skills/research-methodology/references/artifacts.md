@@ -6,13 +6,13 @@ Research questions produce files, not chat messages. Chat is for reasoning and d
 
 1. [When to create an analysis directory](#when-to-create-an-analysis-directory)
 2. [Directory structure per analysis](#directory-structure-per-analysis)
-3. [Scaffold creation](#scaffold-creation)
+3. [Scaffold](#scaffold)
 4. [Per-milestone folders](#per-milestone-folders)
-5. [paper.md and gaps_and_friction.md](#papermd-and-gaps_and_frictionmd)
-6. [Data and figure conventions](#data-and-figure-conventions)
-7. [Git tracking](#git-tracking)
-8. [Log verbosity](#log-verbosity)
-9. [References](#references)
+5. [Data and figure conventions](#data-and-figure-conventions)
+6. [Git tracking](#git-tracking)
+7. [Log verbosity](#log-verbosity)
+
+What goes *in* `notebook.md`, `paper.md` (including References) and `gaps_and_friction.md` is in [research-notebook.md](research-notebook.md); `decisions_log.md` in [plan-phase.md](plan-phase.md#how-the-dialog-reads-decisions_logmd).
 
 ## When to create an analysis directory
 
@@ -70,7 +70,7 @@ Every file is written for one reader. Write it for that reader, and don't make t
 
 **`overview.html`** is the researcher's front page, the persistent form of the "so far" summary. It holds, in plain words and small tables: a one-line map of where the analysis is (Plan steps, then methods, analysis, evaluation); the question and the mode; the plan (what is compared, controls with their expected results, the decision rule — or, for an exploratory analysis, the scope and deliverables); decisions so far with who made them; open questions; and, once results exist, the findings table with links to each milestone's `summary.html`. Claude writes it (it is prose, so no script generates it), keeps it self-contained (inline CSS, no network fetch, opens by double-click), and updates it when each Plan step closes and at each milestone's decide phase. It carries `<meta http-equiv="refresh" content="30">` so an open tab picks up each update. Claude opens it in the browser when it is first created and links it in every message that updates it — see [SKILL.md Rule 10](../SKILL.md). `index.html` lists it first. *(Before this rule, two analyses had a hand-requested `proposal_overview.html`; the index lists that too.)*
 
-## Scaffold creation
+## Scaffold
 
 **Who:** Claude proposes the slug; the user approves or counter-proposes.
 **When:** at the start of the Plan phase, before any folder or file is written.
@@ -86,8 +86,8 @@ Every file is written for one reader. Write it for that reader, and don't make t
      proposal.md           # empty; written after the five Plan steps are agreed
      decisions_log.md      # header only; one section per Plan step, filled as the dialog goes
    ```
-3. **Run the Plan-phase dialog** in its five steps (see [SKILL.md Rule 8 — Plan](../SKILL.md)). `decisions_log.md` fills as each step closes; `spike/` is created only if step 4 runs; `proposal.md` is written once all five steps are agreed.
-4. **Commit as you go:** the scaffold is the first iteration commit; each Plan step and each design-review round is another. **At Plan-phase approval:** `paper.md`'s Question and Background sections are populated and the Plan approval commit lands (see [step-protocol.md — Commit structure](step-protocol.md#commit-structure)).
+3. **Run the Plan-phase dialog** in its five steps (see [plan-phase.md](plan-phase.md)). `decisions_log.md` fills as each step closes; `spike/` is created only if step 4 runs; `proposal.md` is written once all five steps are agreed.
+4. **Commit as you go:** the scaffold is the first iteration commit; each Plan step and each design-review round is another. **At Plan-phase approval:** `paper.md`'s Question and Background sections are populated and the Plan approval commit lands (see [step-protocol.md — Commits](step-protocol.md#commits)).
 
 Run-milestone folders (`methods/`, `analysis/`, `evaluation/`) are created **progressively** — each folder (and its `scripts/` / `data/` / `figures/` subfolders as needed) is created when that milestone begins, not pre-created at scaffold time. This avoids empty folders cluttering the analysis during work in progress.
 
@@ -99,13 +99,13 @@ Each Run-milestone folder contains:
 - **`data/`** — script outputs (CSV/TSV); inputs from prior milestones referenced by relative path
 - **`figures/`** — static PNG/SVG outputs, made with the `dataviz` skill (see [figures-and-reports.md](figures-and-reports.md))
 - **`reports/`** — the milestone's HTML reports: a required `summary.html` plus one page per aspect, self-contained, built by `scripts/build_reports.py` from `data/` and listed in the analysis's `index.html` (see [figures-and-reports.md](figures-and-reports.md#milestone-reports--milestonereports-and-the-analysis-indexhtml))
-- **`critical_review.md`** — at the analysis and evaluation milestones, at a methods milestone that emits a data artifact, and after a delta pass; **only when the critic found something**: its findings plus the author's disposition for each (a clean review is a one-line note in `notebook.md`, not a file). See the `critical-review` skill and [step-protocol.md GATE C](step-protocol.md)
+- **`critical_review.md`** — at the analysis and evaluation milestones, at a methods milestone that emits a data artifact, and after a delta pass; **only when the critic found something**: its findings plus the author's disposition for each (a clean review is a one-line note in `notebook.md`, not a file). See the `critical-review` skill
 
 The Plan phase has no milestone folder — it produces `proposal.md` + `decisions_log.md` at the analysis root (plus `proposal_critical_review.md` when the proposal critic found something), because it is a conversation, not a computation.
 
 ### spike/ (Plan step 4 only)
 
-`spike/` holds the throwaway checks of Plan step 4 — can the approach work? — with its own `scripts/`, `data/` and, if useful, `figures/`. It is committed for the record but **never read by the Run phase**: anything the method needs is rebuilt properly in `methods/`. Its findings are summarised as facts in `decisions_log.md`. It checks what the data and annotations can tell apart (annotation depth and recall, control coverage, a random sample per group, distribution shape per experiment); it does not open the data that answers the question without the researcher's OK (see [SKILL.md — Looking at the data](../SKILL.md)). Analyses that predate this rule may also have a `spike/` from ad-hoc pilots.
+`spike/` holds the throwaway checks of Plan step 4 — can the approach work? — with its own `scripts/`, `data/` and, if useful, `figures/`. It is committed for the record but **never read by the Run phase**: anything the method needs is rebuilt properly in `methods/`. Its findings are summarised as facts in `decisions_log.md`. It checks what the data and annotations can tell apart (annotation depth and recall, control coverage, a random sample per group, distribution shape per experiment); it does not open the data that answers the question without the researcher's OK (see [plan-phase.md — Looking at the data](plan-phase.md#looking-at-the-data-before-the-plan-is-set)). Analyses that predate this rule may also have a `spike/` from ad-hoc pilots.
 
 ### QC artifacts
 
@@ -113,7 +113,7 @@ QC artifacts live in the same `scripts/` / `data/` / `figures/` subfolders with 
 
 ### Methods module (methods milestone only)
 
-`methods/<module_name>.py` holds the ad-hoc method module (scoring function, enrichment utility, etc.). Subsequent milestones import from it by relative path. See [research-notebook.md — Code lifecycle](research-notebook.md) for the methodology-first → productization-later pattern.
+`methods/<module_name>.py` holds the ad-hoc method module (scoring function, enrichment utility, etc.). Subsequent milestones import from it by relative path. How it is verified: [research-notebook.md — Verifying the method](research-notebook.md#verifying-the-method).
 
 ### Script requirements
 
@@ -130,12 +130,6 @@ Scripts must be:
 - **Pipeline scripts (numbered within the milestone):** `01_select_experiments.py`, `02_compute_scores.py`
 - **QC scripts:** `qc_<what_is_checked>.py`
 - **Ad-hoc exploration scripts:** `explore_<what>.py` — kept in `scripts/` for reproducibility even if one-off
-
-## paper.md and gaps_and_friction.md
-
-Both live at the analysis root. Content rules are in [research-notebook.md](research-notebook.md):
-- `paper.md` — paper-ready writeup for the eventual paper's reader (no internal vocabulary or file paths), skeleton sections from day 1, populated during the Plan phase and each milestone's decide phase
-- `gaps_and_friction.md` — transitional friction log, distinct from decisions (which live in milestone notebooks or `proposal.md`)
 
 ## Data and figure conventions
 
@@ -189,9 +183,3 @@ Each milestone's scripts should emit enough diagnostic output to verify the mile
 A log that says "N genes built" is insufficient. A log that shows the filter funnel (how many started → passed each filter → final count), marker gene traces, and classification edge cases is sufficient.
 
 Scripts with `--explore` or `--verbose` flags should write their diagnostic output to the log file as well as stdout. The log is the persistent record; stdout is for the interactive session.
-
-## References
-
-References (publications cited in the analysis) live in **`paper.md`'s References section**, not a separate file. Every reference must be resolved through `list_publications` and cited by DOI — never from intrinsic knowledge (see [anti-hallucination.md — Category 5.2](anti-hallucination.md#52-publication-attribution-from-training-knowledge)).
-
-KG version, tool versions, statistical software, and Python package versions go in `paper.md`'s Methods section.

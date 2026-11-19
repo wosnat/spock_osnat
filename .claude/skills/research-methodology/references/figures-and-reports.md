@@ -86,7 +86,7 @@ Applied on top of dataviz's mark specs and anti-patterns:
 
 The figures made while exploring are drafts for the researcher. **They are not
 the paper's figures.** Once the storyline is agreed (see
-[research-notebook.md — paper.md growth pattern](research-notebook.md#papermd-growth-pattern)),
+[research-notebook.md — paper.md](research-notebook.md#papermd)),
 make a paper figure set from one script, one figure per Results claim, in the
 order the paper cites them. *(hli light stress: the first paper figures were
 analysis figures; they were redesigned over about seven rounds because they were
@@ -163,7 +163,7 @@ analyses/<slug>/
   line">`.** The index is built from these two tags.
 - The evaluation `summary.html` is the analysis's conclusion page: its findings
   table is the conclusion's findings table, followed by the numbered meanings
-  (see [research-notebook.md — paper.md growth pattern](research-notebook.md#papermd-growth-pattern)).
+  (see [research-notebook.md — paper.md](research-notebook.md#papermd)).
 
 **Iterate in place.** Reports change many times inside a milestone, as the
 researcher asks for follow-ups. Rebuild the page; don't keep `_v2` copies or

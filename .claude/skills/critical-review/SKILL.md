@@ -1,12 +1,12 @@
 ---
 name: critical-review
-description: Use before the researcher sees a claim-bearing artifact of a research analysis — the proposal at the close of the Plan phase (and again after the design review changes it), the analysis and evaluation milestones at their decide phase, the methods milestone when it emits a data artifact, and any milestone whose claims expanded after its earlier pass — plus on demand at any point. Dispatches a fresh-context critic that re-checks the artifact's own claims against its own files. The proposal gets interpretation only; the analysis and data-emitting methods milestones get data-integrity + interpretation; the evaluation milestone gets interpretation only. The critic reviews only that artifact's files; earlier phases are trusted inputs, not re-audited.
+description: Use before the researcher sees a claim-bearing artifact of a research analysis — the proposal at the close of the Plan phase, and the methods (when it emits a data file), analysis and evaluation milestones at their decide phase — again as a delta pass whenever that artifact's claims grow, and on demand. Dispatches a fresh-context critic that re-checks the artifact's claims against its own files.
 ---
 
 # Critical review
 
 Dispatch a fresh-context critic to challenge a research milestone **before** it is
-presented at the decide gate. The critic never sees your session history — it
+presented at the decide gate. This skill owns when the critic runs and with which lens; the research-methodology references point here. The critic never sees your session history — it
 reads the milestone's artifacts cold, so it cannot inherit the narrative you
 anchored on while doing the work. That detachment is the point: the failure modes
 the methodology keeps hitting (a heatmap narrated "all 5 are UP" when the data
@@ -60,9 +60,7 @@ researcher's approval of `proposal.md` — see [step-protocol.md — The Plan ph
 results first appear, so it gets the full pass: **data-integrity + interpretation**.
 The data-integrity half is what pays off here — it opens the CSVs and checks the
 signs, counts, truncation, and conflation that the narrative glosses. If the
-milestone tests an emerged finding, check that its prediction was logged in
-`decisions_log.md` before the test data was opened, that the test data was not
-used to find it, and that the paper states how independent that data is.
+milestone tests an emerged finding, apply the emerged-finding check below.
 
 **Methods milestone (automatic when it emits a data artifact; otherwise on
 demand).** A methods milestone whose only output is a toy-tested function can
@@ -104,10 +102,12 @@ evidence** — it judges whether the conclusions follow from them; it does not
 re-open those files hunting for new data defects (the analysis review already did
 that). **Exception:** when the evaluation runs new computation — typically testing an
 emerged finding on KG data not used to find it — that computation gets
-data-integrity + interpretation, scoped to its own scripts and outputs. For a
-tested emerged finding, check that the prediction was logged in
-`decisions_log.md` before the test data was opened, that the test data was not
-used to find it, and that the paper states how independent that data is.
+data-integrity + interpretation, scoped to its own scripts and outputs.
+
+**Emerged-finding check** (analysis or evaluation, whenever a finding no plan
+asked for is tested): the prediction was logged in `decisions_log.md` before the
+test data was opened, the test data was not used to find it, and the paper
+states how independent that data is.
 
 **Any point, on demand.** A methods milestone that emits no data but rests on a
 non-obvious choice, or a redo you want re-checked, can be reviewed at will.
