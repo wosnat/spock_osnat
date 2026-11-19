@@ -293,6 +293,120 @@ CARDS = [
 ]
 
 
+def icon_cards(s, kind, x, y, c):
+    """24x24 icons for the Figure 1 cards; falls back to icon() for the shared kinds."""
+    g = f'fill="none" stroke="{c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
+    if kind == "kg_lookup":       # database + magnifier: look it up in the KG
+        s.add(f'<g {g}><ellipse cx="{x + 9}" cy="{y + 5}" rx="7.5" ry="3"/>'
+              f'<path d="M{x + 1.5},{y + 5} V{y + 18} a7.5,3 0 0 0 9,2.9"/>'
+              f'<path d="M{x + 16.5},{y + 5} V{y + 9}"/>'
+              f'<path d="M{x + 1.5},{y + 11.5} a7.5,3 0 0 0 9,2.9"/></g>'
+              f'<circle cx="{x + 16}" cy="{y + 15}" r="5" fill="#fff" stroke="{c}" '
+              f'stroke-width="2"/>'
+              f'<path d="M{x + 19.5},{y + 18.5} L{x + 23.5},{y + 22.5}" fill="none" '
+              f'stroke="{c}" stroke-width="3" stroke-linecap="round"/>')
+    elif kind == "clipboard_lock":  # the plan, locked
+        s.add(f'<g {g}><rect x="{x + 3}" y="{y + 3}" width="16" height="20" rx="2"/>'
+              f'<rect x="{x + 7}" y="{y + 1}" width="8" height="4" rx="1" fill="#fff"/>'
+              f'<path d="M{x + 7},{y + 10} H{x + 15} M{x + 7},{y + 14} H{x + 11}"/>'
+              f'<path d="M{x + 16},{y + 15} V{y + 13} a3,3 0 0 1 6,0 V{y + 15}" fill="#fff"/></g>'
+              f'<rect x="{x + 14}" y="{y + 15}" width="10" height="8" rx="1.5" fill="{c}"/>')
+    elif kind == "flask_check":     # the computation, checked
+        s.add(f'<g {g}><path d="M{x + 6},{y + 2} H{x + 14} M{x + 8},{y + 2} V{y + 9} '
+              f'L{x + 2},{y + 21} a1.5,1.5 0 0 0 1.4,2 H{x + 12} M{x + 12},{y + 2} V{y + 9} '
+              f'L{x + 14},{y + 13}"/></g>'
+              f'<circle cx="{x + 18}" cy="{y + 18}" r="6" fill="{c}"/>'
+              f'<path d="M{x + 15},{y + 18} L{x + 17.2},{y + 20.2} L{x + 21},{y + 15.8}" '
+              f'fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" '
+              f'stroke-linejoin="round"/>')
+    elif kind == "roles":           # three figures: runs, judges, reviews
+        for cx in (x + 4, x + 12, x + 20):
+            s.add(f'<g {g}><circle cx="{cx}" cy="{y + 8}" r="3"/>'
+                  f'<path d="M{cx - 4},{y + 21} V{y + 17} a4,4 0 0 1 8,0 V{y + 21}"/></g>')
+    else:
+        icon(s, kind, x, y, c)
+
+
+def _card_layout(card, variant, w):
+    """Text blocks and total height of one card; w = card width."""
+    inner = w - 32
+    danger = f"against: {card['danger']}" + (f" — {card['gloss']}" if variant == "b" else "")
+    blocks = dict(
+        danger=wrap(danger, inner, 13),
+        quote=wrap(f"“{card['quote']}”", inner, 14),
+        how=wrap(card["how"], inner, 13),
+    )
+    h = (20 + 24                                   # stage tag, title
+         + 20 + len(blocks["danger"]) * 13 * 1.28  # danger line(s)
+         + 6 + len(blocks["quote"]) * 14 * 1.28    # quote
+         + 12 + len(blocks["how"]) * 13 * 1.28     # rule + how line(s)
+         + 8)
+    return blocks, h
+
+
+def figure1_cards(variant):
+    """New Figure 1: six safeguard cards (3 x 2) inside the researcher's frame.
+    variant 'a' = terse danger line; 'b' = danger line with a gloss."""
+    W, fx, fw = 960, 12, 936            # canvas; frame x and width
+    cols, gap, pad = 3, 12, 16
+    cw = (fw - 2 * pad - (cols - 1) * gap) / cols
+    fy = 22                             # frame top (labels sit on it)
+    rows = [CARDS[i:i + cols] for i in range(0, len(CARDS), cols)]
+    lays = [[_card_layout(c, variant, cw) for c in row] for row in rows]
+    rh = [max(h for _, h in row) for row in lays]
+    H = fy + 26 + sum(rh) + gap * (len(rows) - 1) + 26 + 22
+    s = SVG(W, round(H))
+
+    fh = H - fy - 22
+    s.rect(fx, fy, fw, fh, stroke=ORANGE, fill=BG, rx=18, sw=2.5)
+
+    def pill(x, y, txt, anchor):
+        tw = len(txt) * 14 * 0.52 + 24
+        x0 = x if anchor == "start" else x - tw
+        s.rect(x0, y - 13, tw, 26, stroke=ORANGE, fill=tint(ORANGE, 0.14), rx=13, sw=1.5)
+        s.text(x0 + tw / 2, y + 5, txt, size=14, weight="bold", anchor="middle")
+
+    pill(fx + 22, fy, "The researcher approves every step; the AI never moves on alone", "start")
+    pill(fx + fw - 22, fy + fh, "Everything is on the record", "end")
+    note = "quotes: Spock’s instructions to the AI"
+    nw = len(note) * 13 * 0.5 + 14
+    s.rect(fx + fw - 22 - nw, fy - 9, nw, 18, stroke="none", fill=BG, rx=0)
+    s.text(fx + fw - 22 - nw / 2, fy + 4.5, note, size=13, fill=INK2, anchor="middle",
+           style="italic")
+
+    y = fy + 26
+    for row, lay, h in zip(rows, lays, rh):
+        for i, (card, (blocks, _)) in enumerate(zip(row, lay)):
+            x, c = fx + pad + i * (cw + gap), card["color"]
+            tx = x + 16
+            # thick left edge that follows the rounded corners: colour, tint over it, outline
+            s.rect(x, y, cw, h, stroke="none", fill=c)
+            s.rect(x + 4, y, cw - 4, h, stroke="none", fill=tint(c, 0.06))
+            s.rect(x, y, cw, h, stroke=c, fill="none", sw=1.5)
+            s.text(tx, y + 20, card["stage"].upper(), size=13, weight="bold", fill=INK2)
+            icon_cards(s, card["icon"], x + cw - 38, y + 10, c)
+            assert len(wrap(card["title"], cw - 32 - 30, 17)) == 1, card["title"]
+            s.text(tx, y + 44, card["title"], size=17, weight="bold", fill=c)
+            yy = y + 64
+            for ln in blocks["danger"]:
+                s.text(tx, yy, ln, size=13, fill=RED_TXT)
+                yy += 13 * 1.28
+            yy += 6
+            for ln in blocks["quote"]:
+                s.text(tx, yy, ln, size=14, style="italic")
+                yy += 14 * 1.28
+            s.add(f'<path d="M{tx},{yy - 6} H{x + cw - 16}" stroke="{tint(c, 0.4)}" '
+                  f'stroke-width="1"/>')
+            yy += 12
+            for ln in blocks["how"]:
+                s.text(tx, yy, ln, size=13, fill=INK)
+                yy += 13 * 1.28
+            assert yy - 13 * 1.28 + 8 <= y + h + 0.5, (card["title"], yy, y + h)
+        y += h + gap
+
+    s.save(f"fig1_concepts_cards_{variant}.svg")
+
+
 def figure1b():
     s = SVG(960, 706)
     xr, wr = 12, 300          # problem column
@@ -1484,6 +1598,8 @@ def figure3():
 
 
 if __name__ == "__main__":
+    figure1_cards("a")
+    figure1_cards("b")
     figure1()
     figure1b()
     figure1c()
