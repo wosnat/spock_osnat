@@ -1061,7 +1061,185 @@ def figure2h():
     s.rect(12, 584, W - 24, 28, stroke="none", fill=tint(ORANGE, 0.14), rx=14)
     s.text(W / 2, 603, "The researcher approves every plan and every stage; the AI never "
            "moves on alone.", size=14, weight="bold", anchor="middle")
-    s.save("fig2h_process_framing.svg")
+    s.save("drafts/fig2h_process_framing.svg")
+
+
+# ---------------------------------------------------------------- Figure 2 (safeguards)
+# The process (Plan -> Run) with each AI step wearing the Figure 1 card it carries, plus
+# panel B: what "Pre-register the test" fixes. Spec:
+# docs/superpowers/specs/2026-11-22-paper-process-figure-design.md
+def card(title):
+    """The Figure 1 card with this title (colour, icon, title stay in one place)."""
+    return {c["title"]: c for c in CARDS}[title]
+
+
+def figure2_safeguards():
+    W = 960
+    BW, BH, GAP = 112, 136, 10          # AI box width / height, gap between boxes
+    AY = 172                            # AI box top
+    PLAN_X = [64 + i * (BW + GAP) for i in range(4)]
+    BAR_X = PLAN_X[-1] + BW + 10
+    RUN_X = [BAR_X + 32 + i * (BW + GAP) for i in range(3)]
+    assert RUN_X[-1] + BW <= W - 12
+
+    # panel B layout first, so the canvas height is known
+    by = 384
+    bx, bw = 40, W - 12 - 40
+    ncol = 4
+    colw = (bw - 32) / ncol
+    items = [(h, wrap(f"“{f}”", colw - 24, 14, k=0.48)) for h, f in FRAMING]
+    rows = [items[i:i + ncol] for i in range(0, len(items), ncol)]
+    rowh = [18 + max(len(L) for _, L in r) * 18 + 8 for r in rows]
+    bh = 58 + sum(rowh) + 38
+    s = SVG(W, round(by + bh + 12))
+
+    def vtext(x, y, t, c, size=14):
+        s.add(f'<text x="0" y="0" font-size="{size}" font-weight="bold" fill="{c}" '
+              f'text-anchor="middle" transform="translate({x},{y}) rotate(-90)">'
+              f'{escape(t)}</text>')
+
+    def label(x, y, t, anchor="start", fill=INK2):
+        s.text(x, y, t, size=13, fill=fill, anchor=anchor, style="italic")
+
+    def ring(x, y):                     # "on the record" (Fig 1's frame colour)
+        s.add(f'<circle cx="{x}" cy="{y}" r="5" fill="#fff" stroke="{ORANGE}" '
+              f'stroke-width="2.4"/>')
+
+    def card_box(x, y, w, h, c):        # Fig 1 card treatment: thick left edge, tint, outline
+        s.rect(x, y, w, h, stroke="none", fill=c, rx=8)
+        s.rect(x + 4, y, w - 4, h, stroke="none", fill=tint(c, 0.06), rx=8)
+        s.rect(x, y, w, h, stroke=c, fill="none", sw=1.5, rx=8)
+
+    def ai_box(x, title, step):
+        cd = card(title)
+        c = cd["color"]
+        card_box(x, AY, BW, BH, c)
+        k = 1.1
+        s.add(f'<g transform="translate({x + BW / 2 + 2 - 12 * k},{AY + 9}) scale({k})">')
+        icon_cards(s, cd["icon"], 0, 0, c)
+        s.add("</g>")
+        cx, inner = x + BW / 2 + 2, BW - 16
+        tl = wrap(cd["title"], inner, 14, k=0.56)
+        assert len(tl) <= 2, tl
+        ty = AY + 54 + (2 - len(tl)) * 8.5
+        for i, ln in enumerate(tl):
+            s.text(cx, ty + i * 17, ln, size=14, weight="bold", fill=c, anchor="middle")
+        s.add(f'<path d="M{x + 12},{AY + 82} H{x + BW - 8}" stroke="{tint(c, 0.4)}"/>')
+        sl = wrap(step, inner, 13, k=0.48)
+        assert len(sl) <= 3, sl
+        for i, ln in enumerate(sl):
+            s.text(cx, AY + 100 + i * 16, ln, size=13, anchor="middle")
+
+    def r_box(x, y, w, h, lines):       # researcher step (Fig 1's orange pill colours)
+        s.rect(x, y, w, h, stroke=ORANGE, fill=tint(ORANGE, 0.14), rx=8)
+        y0 = y + h / 2 - (len(lines) - 1) * 13 * 0.62 + 13 * 0.36
+        for i, ln in enumerate(lines):
+            s.text(x + w / 2, y0 + i * 13 * 1.24, ln, size=13, anchor="middle")
+
+    def diamond(cx, cy, hw=40, hh=26):
+        s.add(f'<polygon points="{cx},{cy - hh} {cx + hw},{cy} {cx},{cy + hh} {cx - hw},{cy}" '
+              f'fill="{tint(ORANGE, 0.14)}" stroke="{ORANGE}" stroke-width="1.6"/>')
+        s.text(cx, cy + 4.5, "approve?", size=13, weight="bold", anchor="middle")
+
+    # ================= panel A
+    s.text(14, 31, "A", size=18, weight="bold")
+    px0, px1 = PLAN_X[0], PLAN_X[-1] + BW
+    rx0, rx1 = RUN_X[0], W - 12
+    s.rect(px0, 10, px1 - px0, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text((px0 + px1) / 2, 30, "1 · Plan the study", size=14, weight="bold", anchor="middle")
+    s.rect(rx0, 10, rx1 - rx0, 30, stroke="none", fill=tint(INK2, 0.15), rx=6)
+    s.text((rx0 + rx1) / 2, 30, "2 · Run it ×3: build the method, analyse, evaluate", size=14,
+           weight="bold", anchor="middle")
+    LANE_END = 348
+    for name, c, y, h in [("Researcher", ORANGE, 50, 100), ("AI", INK2, 150, LANE_END - 150)]:
+        s.rect(12, y, W - 24, h, stroke="none", fill=tint(c, 0.06), rx=0)
+        s.add(f'<line x1="12" y1="{y + h}" x2="{W - 12}" y2="{y + h}" stroke="{LINE}"/>')
+        s.add(f'<rect x="12" y="{y}" width="4" height="{h}" fill="{c}"/>')
+        vtext(38, y + h / 2, name, c)
+    s.rect(BAR_X, 50, 22, LANE_END - 50, stroke="none", fill=INK, rx=4)
+    vtext(BAR_X + 15, (50 + LANE_END) / 2, "PLAN FROZEN", "#fff", size=13)
+
+    def mid(x):
+        return x + BW / 2
+    ym = AY + BH / 2
+    # plan
+    for x, (t, step) in zip(PLAN_X, [
+            ("Look it up", "Show what the KG holds"),
+            ("Scope first", "Check the approach can work"),
+            ("Pre-register the test", "Fix controls and decision rule (B)"),
+            ("Separate the roles", "Fresh AI reviews the plan")]):
+        ai_box(x, t, step)
+    for a, b in zip(PLAN_X, PLAN_X[1:]):
+        s.arrow([(a + BW, ym), (b - 1, ym)])
+    r_box(PLAN_X[0], 76, BW, 46, ["Research", "question"])
+    s.arrow([(mid(PLAN_X[0]), 122), (mid(PLAN_X[0]), AY - 2)])
+    pa = mid(PLAN_X[3])
+    diamond(pa, 100)
+    s.arrow([(pa, AY), (pa, 128)])
+    s.arrow([(pa - 40, 100), (mid(PLAN_X[2]), 100), (mid(PLAN_X[2]), AY - 2)], dash="5 3")
+    label((pa - 40 + mid(PLAN_X[2])) / 2, 92, "revise", anchor="middle")
+    s.arrow([(pa + 40, 100), (BAR_X - 2, 100)], INK, sw=2)
+    ring((pa + 40 + BAR_X) / 2, 113)
+
+    # run
+    for x, (t, step) in zip(RUN_X, [
+            ("Check the computation", "Coding AI runs it, returns files"),
+            ("Claims match evidence", "Main AI reads files, judges"),
+            ("Separate the roles", "Fresh AI re-checks claims")]):
+        ai_box(x, t, step)
+    s.arrow([(RUN_X[0] + BW, ym), (RUN_X[1] - 1, ym)])
+    r_box(RUN_X[0], 76, BW, 46, ["Agree what this", "stage does"])
+    s.arrow([(mid(RUN_X[0]), 122), (mid(RUN_X[0]), AY - 2)])
+    r_box(RUN_X[1], 76, BW, 46, ["Explore the", "results together"])
+    s.arrow([(mid(RUN_X[1]), AY), (mid(RUN_X[1]), 124)])
+    xe = RUN_X[2] + 22
+    s.arrow([(RUN_X[1] + BW, 99), (xe, 99), (xe, AY - 2)])
+    ra = mid(RUN_X[2]) + 14
+    diamond(ra, 100, hw=36)
+    s.arrow([(ra, AY), (ra, 128)])
+    s.arrow([(ra, 74), (ra, 62), (mid(RUN_X[0]), 62), (mid(RUN_X[0]), 74)], dash="5 3")
+    label((ra + mid(RUN_X[0])) / 2, 57, "no: revise or redo this stage", anchor="middle")
+    s.arrow([(ra + 36, 100), (W - 13, 100)], INK, sw=2)
+    ring(ra + 36 + 6, 113)
+
+    # reopen: results contradict the frozen plan
+    yr = AY + BH + 14
+    s.arrow([(mid(RUN_X[1]), AY + BH), (mid(RUN_X[1]), yr), (mid(PLAN_X[2]), yr),
+             (mid(PLAN_X[2]), AY + BH + 2)], INK, dash="2 3", sw=1.6)
+    label(W - 20, yr + 17, "results contradict the plan → plan reopened, change recorded",
+          anchor="end", fill=INK)
+    ring(PLAN_X[0] + 6, 364)
+    s.text(PLAN_X[0] + 18, 368.5, "every approval is saved: everything is on the record",
+           size=13, fill=INK2)
+
+    # ================= panel B: what "Pre-register the test" fixes
+    pr = card("Pre-register the test")
+    c = pr["color"]
+    s.text(14, by + 24, "B", size=18, weight="bold")
+    card_box(bx, by, bw, bh, c)
+    k = 1.25
+    s.add(f'<g transform="translate({bx + 16},{by + 12}) scale({k})">')
+    icon_cards(s, pr["icon"], 0, 0, c)
+    s.add("</g>")
+    s.text(bx + 56, by + 34, pr["title"], size=17, weight="bold", fill=c)
+    s.text(bx + 56 + len(pr["title"]) * 17 * 0.47 + 10, by + 34,
+           "— what the plan fixes before the result is seen", size=14, fill=INK2)
+    y = by + 58
+    for row, h in zip(rows, rowh):
+        for i, (head, lines) in enumerate(row):
+            x = bx + 16 + i * colw
+            s.rect(x, y - 1, 12, 12, stroke=c, fill="#fff", rx=2, sw=1.5)
+            s.add(f'<path d="M{x + 2.5},{y + 5} L{x + 5},{y + 8} L{x + 9.5},{y + 2}" fill="none" '
+                  f'stroke="{c}" stroke-width="1.8" stroke-linecap="round"/>')
+            s.text(x + 20, y + 10, head, size=14, weight="bold")
+            for j, ln in enumerate(lines):
+                s.text(x + 20, y + 28 + j * 18, ln, size=14, style="italic")
+        y += h
+    s.add(f'<path d="M{bx + 16},{y} H{bx + bw - 16}" stroke="{tint(c, 0.4)}"/>')
+    s.text(bx + 16, y + 24, "Run order:", size=14, weight="bold")
+    s.text(bx + 92, y + 24, f"“{FRAMING_FOOTER}”", size=14, style="italic")
+    assert y + 24 + 10 <= by + bh, (y, by + bh)
+    s.save("fig2_process_safeguards.svg")
 
 
 # ---------------------------------------------------------------- Figure 2
@@ -1619,6 +1797,7 @@ def figure3():
 
 if __name__ == "__main__":
     figure1_cards("a")
+    figure2_safeguards()
     figure1()
     figure1b()
     figure1c()

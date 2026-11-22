@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="616" viewBox="0 0 960 616" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="m0b7f99" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7f99"/></marker><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="m4a5a6c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5a6c"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="m8a6200" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a6200"/></marker><marker id="mb0397a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0397a"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><text x="14" y="31" font-size="18" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">A</text>
+<rect x="64" y="10" width="478" height="30" rx="6" fill="#e5e5e4" stroke="none" stroke-width="1.5"/>
+<text x="303.0" y="30" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">1 · Plan the study</text>
+<rect x="584" y="10" width="364" height="30" rx="6" fill="#e5e5e4" stroke="none" stroke-width="1.5"/>
+<text x="766.0" y="30" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">2 · Run it ×3: build the method, analyse, evaluate</text>
+<rect x="12" y="50" width="936" height="100" rx="0" fill="#fef6f3" stroke="none" stroke-width="1.5"/>
+<line x1="12" y1="150" x2="948" y2="150" stroke="#c9c8c2"/>
+<rect x="12" y="50" width="4" height="100" fill="#eb6834"/>
+<text x="0" y="0" font-size="14" font-weight="bold" fill="#eb6834" text-anchor="middle" transform="translate(38,100.0) rotate(-90)">Researcher</text>
+<rect x="12" y="150" width="936" height="198" rx="0" fill="#f5f5f4" stroke="none" stroke-width="1.5"/>
+<line x1="12" y1="348" x2="948" y2="348" stroke="#c9c8c2"/>
+<rect x="12" y="150" width="4" height="198" fill="#52514e"/>
+<text x="0" y="0" font-size="14" font-weight="bold" fill="#52514e" text-anchor="middle" transform="translate(38,249.0) rotate(-90)">AI</text>
+<rect x="552" y="50" width="22" height="298" rx="4" fill="#0b0b0b" stroke="none" stroke-width="1.5"/>
+<text x="0" y="0" font-size="13" font-weight="bold" fill="#fff" text-anchor="middle" transform="translate(567,199.0) rotate(-90)">PLAN FROZEN</text>
+<rect x="64" y="172" width="112" height="136" rx="8" fill="#2a78d6" stroke="none" stroke-width="1.5"/>
+<rect x="68" y="172" width="108" height="136" rx="8" fill="#f2f7fd" stroke="none" stroke-width="1.5"/>
+<rect x="64" y="172" width="112" height="136" rx="8" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<g transform="translate(108.8,181) scale(1.1)">
+<g fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="5" rx="7.5" ry="3"/><path d="M1.5,5 V18 a7.5,3 0 0 0 9,2.9"/><path d="M16.5,5 V9"/><path d="M1.5,11.5 a7.5,3 0 0 0 9,2.9"/></g><circle cx="16" cy="15" r="5" fill="#fff" stroke="#2a78d6" stroke-width="2"/><path d="M19.5,18.5 L23.5,22.5" fill="none" stroke="#2a78d6" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="122.0" y="234.5" font-size="14" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="middle">Look it up</text>
+<path d="M76,254 H168" stroke="#aac9ef"/>
+<text x="122.0" y="272" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Show what the</text>
+<text x="122.0" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">KG holds</text>
+<rect x="186" y="172" width="112" height="136" rx="8" fill="#0b7f99" stroke="none" stroke-width="1.5"/>
+<rect x="190" y="172" width="108" height="136" rx="8" fill="#f0f7f9" stroke="none" stroke-width="1.5"/>
+<rect x="186" y="172" width="112" height="136" rx="8" fill="none" stroke="#0b7f99" stroke-width="1.5"/>
+<g transform="translate(230.8,181) scale(1.1)">
+<g fill="#0b7f99"><rect x="3" y="13" width="4.5" height="8"/><rect x="10" y="7" width="4.5" height="14"/><rect x="17" y="2" width="4.5" height="19"/></g><path d="M1,22.5 H23" fill="none" stroke="#0b7f99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="244.0" y="234.5" font-size="14" font-weight="bold" font-style="normal" fill="#0b7f99" text-anchor="middle">Scope first</text>
+<path d="M198,254 H290" stroke="#9dccd6"/>
+<text x="244.0" y="272" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Check the</text>
+<text x="244.0" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">approach can</text>
+<text x="244.0" y="304" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">work</text>
+<rect x="308" y="172" width="112" height="136" rx="8" fill="#4a5a6c" stroke="none" stroke-width="1.5"/>
+<rect x="312" y="172" width="108" height="136" rx="8" fill="#f4f5f6" stroke="none" stroke-width="1.5"/>
+<rect x="308" y="172" width="112" height="136" rx="8" fill="none" stroke="#4a5a6c" stroke-width="1.5"/>
+<g transform="translate(352.8,181) scale(1.1)">
+<g fill="none" stroke="#4a5a6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="16" height="20" rx="2"/><rect x="7" y="1" width="8" height="4" rx="1" fill="#fff"/><path d="M7,10 H15 M7,14 H11"/><path d="M16,15 V13 a3,3 0 0 1 6,0 V15" fill="#fff"/></g><rect x="14" y="15" width="10" height="8" rx="1.5" fill="#4a5a6c"/>
+</g>
+<text x="366.0" y="226.0" font-size="14" font-weight="bold" font-style="normal" fill="#4a5a6c" text-anchor="middle">Pre-register</text>
+<text x="366.0" y="243.0" font-size="14" font-weight="bold" font-style="normal" fill="#4a5a6c" text-anchor="middle">the test</text>
+<path d="M320,254 H412" stroke="#b7bdc4"/>
+<text x="366.0" y="272" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Fix controls</text>
+<text x="366.0" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">and decision</text>
+<text x="366.0" y="304" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">rule (B)</text>
+<rect x="430" y="172" width="112" height="136" rx="8" fill="#6250d6" stroke="none" stroke-width="1.5"/>
+<rect x="434" y="172" width="108" height="136" rx="8" fill="#f6f4fd" stroke="none" stroke-width="1.5"/>
+<rect x="430" y="172" width="112" height="136" rx="8" fill="none" stroke="#6250d6" stroke-width="1.5"/>
+<g transform="translate(474.8,181) scale(1.1)">
+<g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="8" r="3"/><path d="M0,21 V17 a4,4 0 0 1 8,0 V21"/></g>
+<g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M8,21 V17 a4,4 0 0 1 8,0 V21"/></g>
+<g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="8" r="3"/><path d="M16,21 V17 a4,4 0 0 1 8,0 V21"/></g>
+</g>
+<text x="488.0" y="226.0" font-size="14" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="middle">Separate the</text>
+<text x="488.0" y="243.0" font-size="14" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="middle">roles</text>
+<path d="M442,254 H534" stroke="#c0b9ef"/>
+<text x="488.0" y="272" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Fresh AI</text>
+<text x="488.0" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">reviews the</text>
+<text x="488.0" y="304" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">plan</text>
+<path d="M176,240.0 L185,240.0" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M298,240.0 L307,240.0" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M420,240.0 L429,240.0" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<rect x="64" y="76" width="112" height="46" rx="8" fill="#fceae3" stroke="#eb6834" stroke-width="1.5"/>
+<text x="120.0" y="95.62" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Research</text>
+<text x="120.0" y="111.74000000000001" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">question</text>
+<path d="M120.0,122 L120.0,170" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<polygon points="486.0,74 526.0,100 486.0,126 446.0,100" fill="#fceae3" stroke="#eb6834" stroke-width="1.6"/>
+<text x="486.0" y="104.5" font-size="13" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">approve?</text>
+<path d="M486.0,172 L486.0,128" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M446.0,100 L364.0,100 L364.0,170" fill="none" stroke="#52514e" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#m52514e)"/>
+<text x="405.0" y="92" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">revise</text>
+<path d="M526.0,100 L550,100" fill="none" stroke="#0b0b0b" stroke-width="2" marker-end="url(#m0b0b0b)"/>
+<circle cx="539.0" cy="113" r="5" fill="#fff" stroke="#eb6834" stroke-width="2.4"/>
+<rect x="584" y="172" width="112" height="136" rx="8" fill="#0d7a53" stroke="none" stroke-width="1.5"/>
+<rect x="588" y="172" width="108" height="136" rx="8" fill="#f0f7f5" stroke="none" stroke-width="1.5"/>
+<rect x="584" y="172" width="112" height="136" rx="8" fill="none" stroke="#0d7a53" stroke-width="1.5"/>
+<g transform="translate(628.8,181) scale(1.1)">
+<g fill="none" stroke="#0d7a53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6,2 H14 M8,2 V9 L2,21 a1.5,1.5 0 0 0 1.4,2 H12 M12,2 V9 L14,13"/></g><circle cx="18" cy="18" r="6" fill="#0d7a53"/><path d="M15,18 L17.2,20.2 L21,15.8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="642.0" y="226.0" font-size="14" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="middle">Check the</text>
+<text x="642.0" y="243.0" font-size="14" font-weight="bold" font-style="normal" fill="#0d7a53" text-anchor="middle">computation</text>
+<path d="M596,254 H688" stroke="#9ecaba"/>
+<text x="642.0" y="272" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Coding AI runs</text>
+<text x="642.0" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">it, returns</text>
+<text x="642.0" y="304" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">files</text>
+<rect x="706" y="172" width="112" height="136" rx="8" fill="#8a6200" stroke="none" stroke-width="1.5"/>
+<rect x="710" y="172" width="108" height="136" rx="8" fill="#f8f6f0" stroke="none" stroke-width="1.5"/>
+<rect x="706" y="172" width="112" height="136" rx="8" fill="none" stroke="#8a6200" stroke-width="1.5"/>
+<g transform="translate(750.8,181) scale(1.1)">
+<g fill="none" stroke="#8a6200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12,3 V22 M7,22 H17 M3,6 H21 M3,6 L0,14 M3,6 L6,14 M21,6 L18,14 M21,6 L24,14"/><path d="M0,14 a3,2.5 0 0 0 6,0 Z M18,14 a3,2.5 0 0 0 6,0 Z" fill="#8a6200"/></g>
+</g>
+<text x="764.0" y="226.0" font-size="14" font-weight="bold" font-style="normal" fill="#8a6200" text-anchor="middle">Claims match</text>
+<text x="764.0" y="243.0" font-size="14" font-weight="bold" font-style="normal" fill="#8a6200" text-anchor="middle">evidence</text>
+<path d="M718,254 H810" stroke="#d0c099"/>
+<text x="764.0" y="272" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Main AI reads</text>
+<text x="764.0" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">files, judges</text>
+<rect x="828" y="172" width="112" height="136" rx="8" fill="#6250d6" stroke="none" stroke-width="1.5"/>
+<rect x="832" y="172" width="108" height="136" rx="8" fill="#f6f4fd" stroke="none" stroke-width="1.5"/>
+<rect x="828" y="172" width="112" height="136" rx="8" fill="none" stroke="#6250d6" stroke-width="1.5"/>
+<g transform="translate(872.8,181) scale(1.1)">
+<g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="8" r="3"/><path d="M0,21 V17 a4,4 0 0 1 8,0 V21"/></g>
+<g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M8,21 V17 a4,4 0 0 1 8,0 V21"/></g>
+<g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="8" r="3"/><path d="M16,21 V17 a4,4 0 0 1 8,0 V21"/></g>
+</g>
+<text x="886.0" y="226.0" font-size="14" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="middle">Separate the</text>
+<text x="886.0" y="243.0" font-size="14" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="middle">roles</text>
+<path d="M840,254 H932" stroke="#c0b9ef"/>
+<text x="886.0" y="272" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Fresh AI</text>
+<text x="886.0" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">re-checks</text>
+<text x="886.0" y="304" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">claims</text>
+<path d="M696,240.0 L705,240.0" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<rect x="584" y="76" width="112" height="46" rx="8" fill="#fceae3" stroke="#eb6834" stroke-width="1.5"/>
+<text x="640.0" y="95.62" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Agree what this</text>
+<text x="640.0" y="111.74000000000001" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">stage does</text>
+<path d="M640.0,122 L640.0,170" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<rect x="706" y="76" width="112" height="46" rx="8" fill="#fceae3" stroke="#eb6834" stroke-width="1.5"/>
+<text x="762.0" y="95.62" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">Explore the</text>
+<text x="762.0" y="111.74000000000001" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">results together</text>
+<path d="M762.0,172 L762.0,124" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M818,99 L850,99 L850,170" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<polygon points="898.0,74 934.0,100 898.0,126 862.0,100" fill="#fceae3" stroke="#eb6834" stroke-width="1.6"/>
+<text x="898.0" y="104.5" font-size="13" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">approve?</text>
+<path d="M898.0,172 L898.0,128" fill="none" stroke="#52514e" stroke-width="1.8" marker-end="url(#m52514e)"/>
+<path d="M898.0,74 L898.0,62 L640.0,62 L640.0,74" fill="none" stroke="#52514e" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#m52514e)"/>
+<text x="769.0" y="57" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">no: revise or redo this stage</text>
+<path d="M934.0,100 L947,100" fill="none" stroke="#0b0b0b" stroke-width="2" marker-end="url(#m0b0b0b)"/>
+<circle cx="940.0" cy="113" r="5" fill="#fff" stroke="#eb6834" stroke-width="2.4"/>
+<path d="M762.0,308 L762.0,322 L364.0,322 L364.0,310" fill="none" stroke="#0b0b0b" stroke-width="1.6" stroke-dasharray="2 3" marker-end="url(#m0b0b0b)"/>
+<text x="940" y="339" font-size="13" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="end">results contradict the plan → plan reopened, change recorded</text>
+<circle cx="70" cy="364" r="5" fill="#fff" stroke="#eb6834" stroke-width="2.4"/>
+<text x="82" y="368.5" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">every approval is saved: everything is on the record</text>
+<text x="14" y="408" font-size="18" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">B</text>
+<rect x="40" y="384" width="908" height="220" rx="8" fill="#4a5a6c" stroke="none" stroke-width="1.5"/>
+<rect x="44" y="384" width="904" height="220" rx="8" fill="#f4f5f6" stroke="none" stroke-width="1.5"/>
+<rect x="40" y="384" width="908" height="220" rx="8" fill="none" stroke="#4a5a6c" stroke-width="1.5"/>
+<g transform="translate(56,396) scale(1.25)">
+<g fill="none" stroke="#4a5a6c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="16" height="20" rx="2"/><rect x="7" y="1" width="8" height="4" rx="1" fill="#fff"/><path d="M7,10 H15 M7,14 H11"/><path d="M16,15 V13 a3,3 0 0 1 6,0 V15" fill="#fff"/></g><rect x="14" y="15" width="10" height="8" rx="1.5" fill="#4a5a6c"/>
+</g>
+<text x="96" y="418" font-size="17" font-weight="bold" font-style="normal" fill="#4a5a6c" text-anchor="start">Pre-register the test</text>
+<text x="273.78999999999996" y="418" font-size="14" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">— what the plan fixes before the result is seen</text>
+<rect x="56.0" y="441" width="12" height="12" rx="2" fill="#fff" stroke="#4a5a6c" stroke-width="1.5"/>
+<path d="M58.5,447 L61.0,450 L65.5,444" fill="none" stroke="#4a5a6c" stroke-width="1.8" stroke-linecap="round"/>
+<text x="76.0" y="452" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Hypothesis</text>
+<text x="76.0" y="470" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“in prose”</text>
+<rect x="275.0" y="441" width="12" height="12" rx="2" fill="#fff" stroke="#4a5a6c" stroke-width="1.5"/>
+<path d="M277.5,447 L280.0,450 L284.5,444" fill="none" stroke="#4a5a6c" stroke-width="1.8" stroke-linecap="round"/>
+<text x="295.0" y="452" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Approach</text>
+<text x="295.0" y="470" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“how, and why”</text>
+<rect x="494.0" y="441" width="12" height="12" rx="2" fill="#fff" stroke="#4a5a6c" stroke-width="1.5"/>
+<path d="M496.5,447 L499.0,450 L503.5,444" fill="none" stroke="#4a5a6c" stroke-width="1.8" stroke-linecap="round"/>
+<text x="514.0" y="452" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Statistics plan</text>
+<text x="514.0" y="470" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“test(s) and thresholds”</text>
+<rect x="713.0" y="441" width="12" height="12" rx="2" fill="#fff" stroke="#4a5a6c" stroke-width="1.5"/>
+<path d="M715.5,447 L718.0,450 L722.5,444" fill="none" stroke="#4a5a6c" stroke-width="1.8" stroke-linecap="round"/>
+<text x="733.0" y="452" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Positive controls</text>
+<text x="733.0" y="470" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“must show the expected</text>
+<text x="733.0" y="488" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">effect”</text>
+<rect x="56.0" y="503" width="12" height="12" rx="2" fill="#fff" stroke="#4a5a6c" stroke-width="1.5"/>
+<path d="M58.5,509 L61.0,512 L65.5,506" fill="none" stroke="#4a5a6c" stroke-width="1.8" stroke-linecap="round"/>
+<text x="76.0" y="514" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Negative controls</text>
+<text x="76.0" y="532" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“should not score”</text>
+<rect x="275.0" y="503" width="12" height="12" rx="2" fill="#fff" stroke="#4a5a6c" stroke-width="1.5"/>
+<path d="M277.5,509 L280.0,512 L284.5,506" fill="none" stroke="#4a5a6c" stroke-width="1.8" stroke-linecap="round"/>
+<text x="295.0" y="514" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Decision rule</text>
+<text x="295.0" y="532" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“every reading … named in</text>
+<text x="295.0" y="550" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">advance”</text>
+<rect x="494.0" y="503" width="12" height="12" rx="2" fill="#fff" stroke="#4a5a6c" stroke-width="1.5"/>
+<path d="M496.5,509 L499.0,512 L503.5,506" fill="none" stroke="#4a5a6c" stroke-width="1.8" stroke-linecap="round"/>
+<text x="514.0" y="514" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Design comparability</text>
+<text x="514.0" y="532" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“what each arm is compared</text>
+<text x="514.0" y="550" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">against”</text>
+<path d="M56,566 H932" stroke="#b7bdc4"/>
+<text x="56" y="590" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Run order:</text>
+<text x="132" y="590" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“controls pass → method frozen → targets scored once, last.”</text></svg>
