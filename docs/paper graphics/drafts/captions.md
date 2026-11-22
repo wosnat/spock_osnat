@@ -196,3 +196,16 @@ detect anything. In this example the decision rule was committed and approved, a
 added. While checking the revision, the AI reviewer looked up one result value; only the
 controls changed after that, the change was disclosed, and the plan was re-approved. Every
 version is kept.
+
+## Figure 3 — fig3_agents
+
+**Multi-agent design.** The main Claude thread, loaded with the research-methodology skill,
+owns all judgment. It reads the real data files, writes the notebook and paper, commits each
+round, and is the only agent that talks to the researcher. Execution is delegated to a
+kg-coder subagent. It is kept alive across a milestone, preloads the same domain rules, and
+queries the knowledge graph and writes scripts, data and figures. It returns a factual
+run-manifest and never interprets or commits. Claim-bearing artifacts are reviewed by a critic
+subagent that starts from a fresh context on every pass. The critic is read-only, sees only
+the current milestone's files, and applies a lens matched to the work. The main thread
+records a disposition for each of its findings. Splitting doing from judging means no single
+agent both produces a result and vouches for it.

@@ -6,6 +6,7 @@ Sized for HALF AN A4 PAGE: canvas 960 units wide, printed at 170 mm text width
 Fig 1  fig1_concepts_cards.svg - six safeguard cards (danger, verbatim quote, how).
 Fig 2  fig2_process_safeguards.svg - the process (Plan -> Run) with each AI step drawn as the
                            Figure 1 card it carries; B = what "Pre-register the test" fixes.
+Fig S1 figS1_agents.svg   - supplementary: which AI may do what (.claude/agents/).
 
 Colours: dataviz reference palette (light). Role encoding fixed across figures:
   researcher = orange, kg-coder = aqua, critic = violet, KG = blue, commits / discipline = ink.
@@ -1813,12 +1814,109 @@ def figure3():
     s.text(480, 435, "Doing and judging are split: the coder cannot conclude, the critic cannot "
            "edit, and only the main thread speaks to the researcher.", size=14, weight="bold",
            anchor="middle")
-    s.save("fig3_agents.svg")
+    s.save("drafts/fig3_agents.svg")
+
+# ---------------------------------------------------------------- Supplementary Figure S1
+# How Spock's AIs are wired, for technical reviewers (sources: .claude/agents/*.md,
+# references/research-notebook.md "Code review", references/step-protocol.md). Same visual
+# language as Figures 1-2: researcher orange, KG blue, record ring orange; helper AIs neutral.
+def figureS1():
+    W, H = 960, 500
+    s = SVG(W, H)
+
+    def box(x, y, w, h, title, sub, bullets, c, tc=None, size=14):
+        s.rect(x, y, w, h, stroke=c, fill=tint(c, 0.07), sw=1.8, rx=8)
+        s.text(x + 12, y + 22, title, size=16, weight="bold", fill=tc or c)
+        yy = y + 22
+        if sub:
+            tw = len(title) * 16 * 0.55
+            s.text(x + 12 + tw + 8, y + 22, sub, size=13, fill=INK2)
+        yy += size + 6
+        for b in bullets:
+            for k, ln in enumerate(wrap(b, w - 34, size, k=0.46)):
+                s.text(x + 14, yy, "•" if k == 0 else "", size=size)
+                s.text(x + 26, yy, ln, size=size)
+                yy += size * 1.3
+            yy += 2
+        assert yy - size * 1.3 <= y + h - 6, (title, yy, y + h)
+
+    # researcher and main AI
+    box(12, 160, 118, 160, "Researcher", None, ["owns the question", "agrees each step",
+                                                "approves"], ORANGE, size=13)
+    box(176, 20, 210, 420, "Main AI", None,
+        ["Claude + the research-methodology skill", "owns all judgment",
+         "reads the real data files", "writes notebook and paper",
+         "records a response to every finding", "commits each approved step",
+         "the only voice to the researcher"], INK, INK)
+    s.arrow([(132, 240), (174, 240)], ORANGE, both=True, sw=2)
+    s.text(153, 230, "dialog", size=13, fill=ORANGE_TXT, anchor="middle")
+
+    # helper AIs: plan reviewer, then the run-stage helpers in the order they act
+    AX, AW, AH, AG = 520, 262, 98, 8
+    agents = [
+        ("proposal-critic", "plan reviewer",
+         ["fresh context; read-only",
+          "limited KG tools: cannot open the results"],
+         "plan", "findings", "reads"),
+        ("kg-coder", "coding AI",
+         ["kept across a stage; same rules", "writes scripts, data, figures",
+          "never interprets or commits"],
+         "task", "facts only", "writes"),
+        ("code reviewer", "fresh AI",
+         ["not the code's author", "reads method and statistics code against the plan "
+          "and the data"],
+         "code", "findings", "reads"),
+        ("critic", "stage reviewer",
+         ["fresh context every pass", "cannot edit; checks claims against the files"],
+         "scope + lens", "findings", "reads"),
+    ]
+    for i, (name, sub, bullets, out, back, io) in enumerate(agents):
+        y = 20 + i * (AH + AG)
+        box(AX, y, AW, AH, name, sub, bullets, INK2, INK, size=13)
+        s.arrow([(388, y + 34), (AX - 2, y + 34)], INK2, sw=1.8)
+        s.text(453, y + 27, out, size=13, fill=INK2, anchor="middle")
+        s.arrow([(AX - 2, y + 66), (388, y + 66)], INK2, sw=1.8)
+        s.text(453, y + 84, back, size=13, fill=INK2, anchor="middle", style="italic")
+        s.arrow([(AX + AW + 2, y + AH / 2), (820, y + AH / 2)], INK2, sw=1.6,
+                both=(io == "writes"))
+        s.text(801, y + AH / 2 - 8, io, size=13, fill=INK2, anchor="middle")
+
+    # shared: files + git (on the record) and the KG (Look it up)
+    s.rect(824, 20, 124, 420, stroke=LINE, fill="#f5f5f3", rx=8)
+    s.text(886, 46, "Shared", size=15, weight="bold", fill=INK2, anchor="middle")
+    s.rect(834, 64, 104, 160, stroke=ORANGE, fill=BG, rx=8)
+    s.text(886, 98, "Files", size=16, weight="bold", anchor="middle")
+    s.text(886, 118, "+ git", size=14, anchor="middle")
+    s.add(f'<circle cx="886" cy="146" r="7" fill="#fff" stroke="{ORANGE}" stroke-width="2.6"/>')
+    for j, ln in enumerate(["every approval", "saved: on the", "record"]):
+        s.text(886, 176 + j * 16, ln, size=13, fill=INK2, anchor="middle")
+    kg = card("Look it up")
+    s.rect(834, 240, 104, 186, stroke=BLUE, fill=tint(BLUE, 0.08), rx=8)
+    s.add('<g transform="translate(870,252) scale(1.3)">')
+    icon_cards(s, kg["icon"], 0, 0, BLUE)
+    s.add("</g>")
+    for j, ln in enumerate(["Knowledge", "graph"]):
+        s.text(886, 310 + j * 19, ln, size=16, weight="bold", fill=BLUE, anchor="middle")
+    for j, ln in enumerate(["the only data", "source; MCP +", "Python API"]):
+        s.text(886, 360 + j * 16, ln, size=13, fill=INK2, anchor="middle")
+
+    # the Separate-the-roles message, in Figure 1's colour and icon
+    sr = card("Separate the roles")
+    s.rect(12, 452, W - 24, 36, stroke="none", fill=tint(sr["color"], 0.1), rx=18)
+    s.add('<g transform="translate(28,457) scale(1.05)">')
+    icon_cards(s, sr["icon"], 0, 0, sr["color"])
+    s.add("</g>")
+    msg = ("Separate the roles: the coder cannot conclude, the reviewers cannot edit, "
+           "only the main AI speaks to the researcher.")
+    assert 62 + len(msg) * 14 * 0.5 <= W - 24, len(msg)
+    s.text(62, 475, msg, size=14, weight="bold", fill=sr["color"])
+    s.save("figS1_agents.svg")
 
 
 if __name__ == "__main__":
     figure1_cards("a")
     figure2_safeguards()
+    figureS1()
     figure1()
     figure1b()
     figure1c()

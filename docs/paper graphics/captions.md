@@ -67,15 +67,19 @@ and the run order the skill prescribes. Positive controls show the data
 can reveal an effect at all; negative controls show what "no effect" looks like. Methods are
 settled on the controls first; the targets are scored once, last.
 
-## Figure 3 — fig3_agents
+## Supplementary Figure S1 — figS1_agents (how Spock's AIs are wired; for technical reviewers)
 
-**Multi-agent design.** The main Claude thread, loaded with the research-methodology skill,
-owns all judgment. It reads the real data files, writes the notebook and paper, commits each
-round, and is the only agent that talks to the researcher. Execution is delegated to a
-kg-coder subagent. It is kept alive across a milestone, preloads the same domain rules, and
-queries the knowledge graph and writes scripts, data and figures. It returns a factual
-run-manifest and never interprets or commits. Claim-bearing artifacts are reviewed by a critic
-subagent that starts from a fresh context on every pass. The critic is read-only, sees only
-the current milestone's files, and applies a lens matched to the work. The main thread
-records a disposition for each of its findings. Splitting doing from judging means no single
-agent both produces a result and vouches for it.
+**Which AI may do what.** The main AI (Claude with the research-methodology skill) owns all
+judgment: it reads the real data files, writes the notebook and paper, records a response to
+every reviewer finding, commits each approved step, and is the only AI that talks to the
+researcher, who agrees each step and approves it. Work is delegated to helper AIs, each defined
+in `.claude/agents/` and started for one purpose. The plan reviewer (`proposal-critic`) starts
+with no context, cannot edit, and has only the knowledge graph's experiment and annotation
+tools, so it cannot open the result the plan will test. The coding AI (`kg-coder`) is kept
+across a stage, loads the same domain rules, writes scripts, data and figures, and returns a
+factual run-manifest; it never interprets or commits. A fresh code reviewer, not the code's
+author, reads the method and statistics code against the plan and the data. The stage reviewer
+(`critic`) starts with no context on every pass, cannot edit, and checks each claim against the
+files. All work lives in files under git, where every approval is saved (ring, as in Figures 1
+and 2); the knowledge graph (KG) is the only data source. Splitting doing from judging is
+Figure 1's *Separate the roles*: no single AI both produces a result and vouches for it.
