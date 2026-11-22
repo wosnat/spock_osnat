@@ -17,7 +17,7 @@ HERE = Path(__file__).resolve().parent
 CLAUDE = HERE.parents[1] / ".claude"
 sys.path.insert(0, str(HERE))
 
-from make_figures import CARDS  # noqa: E402
+from make_figures import CARDS, FRAMING, FRAMING_FOOTER, FRAMING_SOURCE  # noqa: E402
 
 QUOTE_MARKS = str.maketrans({"‘": '"', "’": '"', "“": '"', "”": '"', "'": '"'})
 
@@ -61,6 +61,14 @@ def main():
             print(f"MISS {card['title']}  ({card['source']}): " + " | ".join(missing))
         else:
             print(f"OK   {card['title']}")
+    src = texts.get(FRAMING_SOURCE)
+    for head, frag in FRAMING + [("footer", FRAMING_FOOTER)]:   # Fig 2B; each on its own
+        missing = ["<source file not found>"] if src is None else in_order(parts(frag), src)
+        if missing:
+            bad += 1
+            print(f"MISS B: {head}: " + " | ".join(missing))
+        else:
+            print(f"OK   B: {head}")
     return 1 if bad else 0
 
 

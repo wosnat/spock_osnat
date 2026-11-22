@@ -293,6 +293,20 @@ CARDS = [
 ]
 
 
+# Figure 2B: what "Pre-register the test" fixes. The skill's Framing headings, each with a few
+# verbatim words (checked by check_quotes.py against FRAMING_SOURCE; … = elision).
+FRAMING_SOURCE = "skills/research-methodology/references/plan-phase.md"
+FRAMING = [
+    ("Hypothesis", "in prose"),
+    ("Approach", "how, and why"),
+    ("Statistics plan", "test(s) and thresholds"),
+    ("Positive controls", "must show the expected effect"),
+    ("Negative controls", "should not score"),
+    ("Decision rule", "every reading … named in advance"),
+    ("Design comparability", "what each arm is compared against"),
+]
+FRAMING_FOOTER = "controls pass → method frozen → targets scored once, last."
+
 def icon_cards(s, kind, x, y, c):
     """24x24 icons for the Figure 1 cards; falls back to icon() for the shared kinds."""
     g = f'fill="none" stroke="{c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
