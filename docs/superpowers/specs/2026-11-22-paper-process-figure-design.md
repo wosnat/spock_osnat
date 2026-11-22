@@ -47,18 +47,18 @@ No legend is needed beyond what Fig 1 already teaches.
 ## Panel B — what "Pre-register the test" fixes (agreed: keep; the concepts, not the example)
 Panel B expands the **Pre-register the test** box of panel A, styled as that card (slate,
 clipboard-lock icon, card title), linked visually to its box in A. It lists the seven things
-a framing states (`references/plan-phase.md`, Framing), general, no urea details:
+a framing states (`references/plan-phase.md`, Framing): the skill's own headings, each with a
+few **verbatim** words (checked like Fig 1's quotes), kept short:
 
-- **Hypothesis** — in plain words
-- **Approach** — how, and why it answers the question
-- **Statistics plan** — the test and thresholds, or "descriptive", with the reason
-- **Positive controls** — must show the effect if the method works
-- **Negative controls** — must not, with their expected score stated
-- **Decision rule** — every reading of the target named in advance, with its threshold
-- **Fair comparison** — what each experiment is compared against
+- **Hypothesis** — "in prose"
+- **Approach** — "how, and why"
+- **Statistics plan** — "test(s) and thresholds"
+- **Positive controls** — "must show the expected effect"
+- **Negative controls** — "should not score"
+- **Decision rule** — "every reading … named in advance"
+- **Design comparability** — "what each arm is compared against"
 
-Plus one footer line for the run order: controls first, method frozen, targets scored once,
-last. Wording above is a draft; the builder checks each line against the skill.
+Footer, verbatim: "controls pass → method frozen → targets scored once, last."
 
 ## My calls (check these)
 - Figure 1 card 3 keeps "(Fig. 2B)".
