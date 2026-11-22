@@ -85,7 +85,7 @@ class SVG:
         markers = "".join(
             f'<marker id="m{c.lstrip("#")}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" '
             f'markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" '
-            f'fill="{c}"/></marker>' for c in self.colors)
+            f'fill="{c}"/></marker>' for c in sorted(self.colors))
         svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}" height="{self.h}" '
                f'viewBox="0 0 {self.w} {self.h}" font-family="{FONT}"><defs>{markers}</defs>'
                f'<rect width="100%" height="100%" fill="{BG}"/>' + "\n".join(self.parts) + "</svg>")
@@ -268,7 +268,7 @@ CARDS = [
          how="Controls and decision rule fixed before the answer is seen (Fig. 2B).",
          icon="clipboard_lock", color=SLATE),
     dict(stage="Build", title="Check the computation",
-         danger="silent errors in method or statistics",
+         danger="silent errors",
          gloss="tests pass, real data breaks it",
          quote="Toy tests catch logic errors; only an independent path catches wrong calls, "
                "defaults, filters and paging.",
@@ -285,7 +285,7 @@ CARDS = [
          icon="roles", color=VIOLET),
     dict(stage="Write up", title="Claims match evidence", danger="narrative fabrication",
          gloss="the wording outruns the evidence",
-         quote="‘All’, ‘every’, ‘none’, ‘primarily’ need a query against the data file, "
+         quote="[Words like] ‘every’, ‘none’ … need a query against the data file, "
                "not a glance at a heatmap.",
          source="skills/research-methodology/SKILL.md",
          how="Numbers first, interpretation after; each finding set against other KG studies.",

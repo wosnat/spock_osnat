@@ -18,9 +18,9 @@ multiple-testing specifics, worked incidents) goes to the caption or paper text.
 | 1 | Plan | Look it up | guessing | "Every claim traces to a KG query. Never take data from memory." (SKILL.md Rule 1) | database + magnifier |
 | 2 | Plan | Scope first | the plan outruns the data | "… a throwaway test … of what the data and annotations can actually tell apart." (plan-phase.md, step 4) | bars |
 | 3 | Plan | Pre-register the test | a test that can't fail | "Without both [positive and negative controls], a true null and a blind method look the same." (plan-phase.md, Framing) | clipboard + lock |
-| 4 | Build | Check the computation | silent errors in method or statistics | "Toy tests catch logic errors; only an independent path catches wrong calls, defaults, filters and paging." (research-notebook.md, Verifying the method) | flask + check |
+| 4 | Build | Check the computation | silent errors | "Toy tests catch logic errors; only an independent path catches wrong calls, defaults, filters and paging." (research-notebook.md, Verifying the method) | flask + check |
 | 5 | Analyse | Separate the roles | grading your own work | "You execute; the main thread judges. You return artifacts, not conclusions." (agents/kg-coder.md) | three figures |
-| 6 | Write up | Claims match evidence | narrative fabrication | "'All', 'every', 'none', 'primarily' need a query against the data file, not a glance at a heatmap." (SKILL.md Rule 9) | balance |
+| 6 | Write up | Claims match evidence | narrative fabrication | "[Words like] 'every', 'none' … need a query against the data file, not a glance at a heatmap." (SKILL.md Rule 9) | balance |
 
 Card 2 is the danger researchers feel most with Claude: it runs ahead of the
 data. It and card 3 sit side by side — both slow the AI down before anything is
