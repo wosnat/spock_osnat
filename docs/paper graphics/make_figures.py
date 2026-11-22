@@ -2179,9 +2179,208 @@ def figure_kg():
     s.save("figKG_questions.svg")
 
 
+# ---------------------------------------------------------------- Overview figure
+# Spock's parts and how they fit (draft "Spock as a concept"). One red "against:" line per
+# part names the bias it answers. KG counts from release 0.1.0-alpha.9 (kg_release_info).
+KG_RELEASE = "0.1.0-alpha.9"
+
+
+def figure_overview_detailed():
+    """Spock's three parts as large icons joined like a system, details as callouts.
+    KG counts: release KG_RELEASE (kg_release_info)."""
+    import math
+    W, H, Y = 960, 520, 204
+    s = SVG(W, H)
+    s.text(12, 28, "Spock: an AI research assistant grounded in a knowledge graph", size=20,
+           weight="bold")
+    KG_C, MID_C, RES_C = (150, Y, 70), (455, Y, 80), (830, Y, 70)
+    spans = []                             # (x0, y0, x1, y1) of every pill, for overlap checks
+
+    def pill(px, py, t, c):
+        w = len(t) * 13 * 0.47 + 22
+        s.rect(px - w / 2, py - 12, w, 24, stroke=tint(c, 0.5), fill=BG, rx=12, sw=1.3)
+        s.text(px, py + 4.5, t, size=13, anchor="middle")
+        box = (px - w / 2, py - 12, px + w / 2, py + 12)
+        for o in spans:
+            assert box[2] <= o[0] or box[0] >= o[2] or box[3] <= o[1] or box[1] >= o[3], (t, o)
+        assert 4 <= box[0] and box[2] <= W - 4, t
+        spans.append(box)
+
+    def stack(px, py, items, c, target=None):
+        """Pills stacked downward from (px, py); one leader from the last pill to target."""
+        if target:
+            tx, ty, r = target
+            ly = py + (len(items) - 1) * 32 + 12
+            d = math.hypot(px - tx, ly - ty)
+            ex, ey = tx + (px - tx) * (r + 3) / d, ty + (ly - ty) * (r + 3) / d
+            s.add(f'<path d="M{px},{ly} L{ex:.1f},{ey:.1f}" stroke="{tint(c, 0.5)}" '
+                  f'stroke-width="1.4"/>')
+        for k, t in enumerate(items):
+            pill(px, py + k * 32, t, c)
+
+    def part(c, color, title, instead, tcolor=None):
+        x, y, r = c
+        s.add(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{tint(color, 0.12)}" stroke="{color}" '
+              f'stroke-width="2"/>')
+        s.text(x, y + r + 28, title, size=17, weight="bold", fill=tcolor or color,
+               anchor="middle")
+        s.text(x, y + r + 47, f"instead of {instead}", size=13, fill=INK2, anchor="middle",
+               style="italic")
+
+    def label(x, y, t, c):
+        s.text(x, y, t, size=13, fill=c, anchor="middle", style="italic")
+
+    # links between the parts
+    s.add(f'<path d="M{KG_C[0] + KG_C[2]},{Y} H{MID_C[0] - MID_C[2]}" stroke="{BLUE}" '
+          f'stroke-width="3"/>')
+    label((KG_C[0] + KG_C[2] + MID_C[0] - MID_C[2]) / 2, Y - 10, "queries", BLUE)
+    s.add(f'<path d="M{MID_C[0] + MID_C[2]},{Y} H{RES_C[0] - RES_C[2]}" stroke="{ORANGE}" '
+          f'stroke-width="3"/>')
+    label((MID_C[0] + MID_C[2] + RES_C[0] - RES_C[2]) / 2, Y - 10, "dialog", ORANGE_TXT)
+
+    # knowledge graph
+    part(KG_C, BLUE, "Knowledge graph", "one paper’s story")
+    x, y = KG_C[0], KG_C[1]
+    nodes = [(x - 30, y - 16), (x + 22, y - 30), (x + 34, y + 16), (x - 18, y + 28), (x + 2, y - 2)]
+    for a, b in ((0, 1), (1, 2), (2, 3), (3, 0), (0, 4), (4, 2), (1, 4)):
+        s.add(f'<path d="M{nodes[a][0]},{nodes[a][1]} L{nodes[b][0]},{nodes[b][1]}" '
+              f'stroke="{BLUE}" stroke-width="2.2"/>')
+    for nx, ny in nodes:
+        s.add(f'<circle cx="{nx}" cy="{ny}" r="8" fill="{BLUE}"/>')
+    stack(130, 64, ["123 organisms · 330,531 genes", "340 experiments · 60 papers"], BLUE, KG_C)
+    stack(150, 360, ["published tables, not narratives", "grows with a lab’s own data"], BLUE)
+
+    # the AI agent and its research protocol (the harness)
+    part(MID_C, VIOLET, "AI agent + protocol", "an AI that guesses and agrees")
+    x, y = MID_C[0], MID_C[1]
+    s.rect(x - 40, y - 46, 80, 46, stroke=INK, fill=BG, rx=8, sw=2)
+    s.text(x, y - 18, "AI agent", size=14, weight="bold", anchor="middle")
+    s.rect(x - 24, y + 8, 48, 44, stroke=VIOLET, fill=BG, rx=3, sw=2)
+    for j, w in enumerate((32, 32, 22)):
+        s.add(f'<path d="M{x - 16},{y + 19 + j * 10} H{x - 16 + w}" stroke="{VIOLET}" '
+              f'stroke-width="2"/>')
+    stack(370, 64, ["Claude Code", "connector: the KG’s tools"], VIOLET, MID_C)
+    stack(580, 64, ["rules learned from failures", "plan, then run; a 2nd AI reviews"],
+          VIOLET, MID_C)
+
+    # researcher in charge
+    part(RES_C, ORANGE, "Researcher in charge", "answers no one can check", INK)
+    x, y = RES_C[0], RES_C[1]
+    s.add(f'<circle cx="{x}" cy="{y - 18}" r="20" fill="{ORANGE}"/>'
+          f'<path d="M{x - 36},{y + 40} a36,34 0 0 1 72,0 Z" fill="{ORANGE}"/>')
+    stack(830, 64, ["asks the question", "approves every step"], ORANGE, RES_C)
+    stack(830, 360, ["explores the results with the AI", "decides what the results mean"], ORANGE)
+
+    # the record, below the dialog: the agent writes it, the researcher reviews it
+    rx, ry = 606, 318
+    wy = Y + 34                            # writes: elbow out of the agent, down onto the record
+    s.arrow([(MID_C[0] + math.sqrt(MID_C[2] ** 2 - 34 ** 2), wy), (rx + 30, wy),
+             (rx + 30, ry - 4)], INK2, sw=2)
+    label(rx - 12, wy - 8, "writes", INK2)
+    vx = 708                               # reviews: elbow out of the researcher, onto the record
+    s.arrow([(RES_C[0] - math.sqrt(RES_C[2] ** 2 - 34 ** 2), wy), (vx, wy), (vx, ry + 40),
+             (rx + 84, ry + 40)], ORANGE, sw=2, dash="5 4")
+    s.text(vx + 8, wy + 22, "reviews", size=13, fill=ORANGE_TXT, style="italic")
+    for k in range(3):
+        s.rect(rx + k * 10, ry + k * 10, 56, 68, stroke=ORANGE, fill=BG, rx=4, sw=1.8)
+        for j in range(3):
+            s.add(f'<path d="M{rx + k * 10 + 10},{ry + k * 10 + 18 + j * 12} '
+                  f'H{rx + k * 10 + (46 if j < 2 else 34)}" stroke="{tint(ORANGE, 0.5)}" '
+                  f'stroke-width="2"/>')
+    s.add(f'<circle cx="{rx + 12}" cy="{ry + 84}" r="6" fill="#fff" stroke="{ORANGE}" '
+          f'stroke-width="2.4"/>')
+    s.text(rx + 38, ry + 116, "The record", size=17, weight="bold", anchor="middle")
+    stack(rx + 38, ry + 140, ["plan · code · data · figures · paper",
+                              "in git: the files remember"], ORANGE)
+    assert ry + 140 + 32 + 12 + 6 <= H
+    s.save("drafts/figOV_overview_detailed.svg")
+
+def figure_overview():
+    """First figure: Spock's three parts and the record, one line each, with a pointer to the
+    figure that expands each part. Detail lives in those figures (detailed draft:
+    figure_overview_detailed)."""
+    import math
+    W, H, Y = 960, 400, 132
+    s = SVG(W, H)
+    s.text(12, 28, "Spock: an AI research assistant grounded in a knowledge graph", size=20,
+           weight="bold")
+    KG_C, MID_C, RES_C = (150, Y, 70), (455, Y, 80), (830, Y, 70)
+
+    def part(c, color, title, line, fig, tcolor=None, extra=None):
+        x, y, r = c
+        s.add(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{tint(color, 0.12)}" stroke="{color}" '
+              f'stroke-width="2"/>')
+        s.text(x, y + r + 28, title, size=17, weight="bold", fill=tcolor or color,
+               anchor="middle")
+        s.text(x, y + r + 48, line, size=14, anchor="middle")
+        yy = y + r + 68
+        for ln in extra or []:             # KG sizes (release KG_RELEASE)
+            s.text(x, yy, ln, size=13, fill=INK2, anchor="middle")
+            yy += 18
+        yy += 2 if extra else 0
+        s.text(x, yy, fig, size=13, fill=INK2, anchor="middle", style="italic")
+
+    def label(x, y, t, c):
+        s.text(x, y, t, size=13, fill=c, anchor="middle", style="italic")
+
+    s.add(f'<path d="M{KG_C[0] + KG_C[2]},{Y} H{MID_C[0] - MID_C[2]}" stroke="{BLUE}" '
+          f'stroke-width="3"/>')
+    label((KG_C[0] + KG_C[2] + MID_C[0] - MID_C[2]) / 2, Y - 10, "queries", BLUE)
+    s.add(f'<path d="M{MID_C[0] + MID_C[2]},{Y} H{RES_C[0] - RES_C[2]}" stroke="{ORANGE}" '
+          f'stroke-width="3"/>')
+    label((MID_C[0] + MID_C[2] + RES_C[0] - RES_C[2]) / 2, Y - 10, "dialog", ORANGE_TXT)
+
+    part(KG_C, BLUE, "Knowledge graph", "published results of 60 papers", "Figure 2",
+         extra=["340 experiments · 123 organisms", "330,531 genes"])
+    x, y = KG_C[0], KG_C[1]
+    nodes = [(x - 30, y - 16), (x + 22, y - 30), (x + 34, y + 16), (x - 18, y + 28), (x + 2, y - 2)]
+    for a, b in ((0, 1), (1, 2), (2, 3), (3, 0), (0, 4), (4, 2), (1, 4)):
+        s.add(f'<path d="M{nodes[a][0]},{nodes[a][1]} L{nodes[b][0]},{nodes[b][1]}" '
+              f'stroke="{BLUE}" stroke-width="2.2"/>')
+    for nx, ny in nodes:
+        s.add(f'<circle cx="{nx}" cy="{ny}" r="8" fill="{BLUE}"/>')
+
+    part(MID_C, VIOLET, "AI agent + protocol", "rules and a plan it must follow", "Figures 3–4")
+    x, y = MID_C[0], MID_C[1]
+    s.rect(x - 40, y - 46, 80, 46, stroke=INK, fill=BG, rx=8, sw=2)
+    s.text(x, y - 18, "AI agent", size=14, weight="bold", anchor="middle")
+    s.rect(x - 24, y + 8, 48, 44, stroke=VIOLET, fill=BG, rx=3, sw=2)
+    for j, w in enumerate((32, 32, 22)):
+        s.add(f'<path d="M{x - 16},{y + 19 + j * 10} H{x - 16 + w}" stroke="{VIOLET}" '
+              f'stroke-width="2"/>')
+
+    part(RES_C, ORANGE, "Researcher in charge", "asks, explores, decides", "Figure 4", INK)
+    x, y = RES_C[0], RES_C[1]
+    s.add(f'<circle cx="{x}" cy="{y - 18}" r="20" fill="{ORANGE}"/>'
+          f'<path d="M{x - 36},{y + 40} a36,34 0 0 1 72,0 Z" fill="{ORANGE}"/>')
+
+    # the record: the agent writes it, the researcher reviews it
+    rx, ry = 606, Y + 104
+    wy = Y + 34
+    s.arrow([(MID_C[0] + math.sqrt(MID_C[2] ** 2 - 34 ** 2), wy), (rx + 30, wy),
+             (rx + 30, ry - 4)], INK2, sw=2)
+    label(rx - 12, wy - 8, "writes", INK2)
+    vx = 708
+    s.arrow([(RES_C[0] - math.sqrt(RES_C[2] ** 2 - 34 ** 2), wy), (vx, wy), (vx, ry + 40),
+             (rx + 84, ry + 40)], ORANGE, sw=2, dash="5 4")
+    s.text(vx + 8, wy + 22, "reviews", size=13, fill=ORANGE_TXT, style="italic")
+    for k in range(3):
+        s.rect(rx + k * 10, ry + k * 10, 56, 68, stroke=ORANGE, fill=BG, rx=4, sw=1.8)
+        for j in range(3):
+            s.add(f'<path d="M{rx + k * 10 + 10},{ry + k * 10 + 18 + j * 12} '
+                  f'H{rx + k * 10 + (46 if j < 2 else 34)}" stroke="{tint(ORANGE, 0.5)}" '
+                  f'stroke-width="2"/>')
+    s.text(rx + 38, ry + 116, "The record", size=17, weight="bold", anchor="middle")
+    s.text(rx + 38, ry + 136, "every step on file", size=14, anchor="middle")
+    assert ry + 136 + 12 <= H
+    s.save("figOV_overview.svg")
+
+
 if __name__ == "__main__":
     figure1_cards("a")
     figure_kg()
+    figure_overview()
+    figure_overview_detailed()
     figure2_safeguards()
     figureS1()
     figure1()

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="400" viewBox="0 0 960 400" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="m0b7f99" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7f99"/></marker><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="m4a5a6c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5a6c"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="m8a6200" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a6200"/></marker><marker id="mb0397a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0397a"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><text x="12" y="28" font-size="20" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">Spock: an AI research assistant grounded in a knowledge graph</text>
+<path d="M220,132 H375" stroke="#2a78d6" stroke-width="3"/>
+<text x="297.5" y="122" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="middle">queries</text>
+<path d="M535,132 H760" stroke="#eb6834" stroke-width="3"/>
+<text x="647.5" y="122" font-size="13" font-weight="normal" font-style="italic" fill="#b4461a" text-anchor="middle">dialog</text>
+<circle cx="150" cy="132" r="70" fill="#e5effa" stroke="#2a78d6" stroke-width="2"/>
+<text x="150" y="230" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="middle">Knowledge graph</text>
+<text x="150" y="250" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">published results of 60 papers</text>
+<text x="150" y="270" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">340 experiments · 123 organisms</text>
+<text x="150" y="288" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">330,531 genes</text>
+<text x="150" y="308" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">Figure 2</text>
+<path d="M120,116 L172,102" stroke="#2a78d6" stroke-width="2.2"/>
+<path d="M172,102 L184,148" stroke="#2a78d6" stroke-width="2.2"/>
+<path d="M184,148 L132,160" stroke="#2a78d6" stroke-width="2.2"/>
+<path d="M132,160 L120,116" stroke="#2a78d6" stroke-width="2.2"/>
+<path d="M120,116 L152,130" stroke="#2a78d6" stroke-width="2.2"/>
+<path d="M152,130 L184,148" stroke="#2a78d6" stroke-width="2.2"/>
+<path d="M172,102 L152,130" stroke="#2a78d6" stroke-width="2.2"/>
+<circle cx="120" cy="116" r="8" fill="#2a78d6"/>
+<circle cx="172" cy="102" r="8" fill="#2a78d6"/>
+<circle cx="184" cy="148" r="8" fill="#2a78d6"/>
+<circle cx="132" cy="160" r="8" fill="#2a78d6"/>
+<circle cx="152" cy="130" r="8" fill="#2a78d6"/>
+<circle cx="455" cy="132" r="80" fill="#eceafa" stroke="#6250d6" stroke-width="2"/>
+<text x="455" y="240" font-size="17" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="middle">AI agent + protocol</text>
+<text x="455" y="260" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">rules and a plan it must follow</text>
+<text x="455" y="280" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">Figures 3–4</text>
+<rect x="415" y="86" width="80" height="46" rx="8" fill="#ffffff" stroke="#0b0b0b" stroke-width="2"/>
+<text x="455" y="114" font-size="14" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">AI agent</text>
+<rect x="431" y="140" width="48" height="44" rx="3" fill="#ffffff" stroke="#6250d6" stroke-width="2"/>
+<path d="M439,151 H471" stroke="#6250d6" stroke-width="2"/>
+<path d="M439,161 H471" stroke="#6250d6" stroke-width="2"/>
+<path d="M439,171 H461" stroke="#6250d6" stroke-width="2"/>
+<circle cx="830" cy="132" r="70" fill="#fdede7" stroke="#eb6834" stroke-width="2"/>
+<text x="830" y="230" font-size="17" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">Researcher in charge</text>
+<text x="830" y="250" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">asks, explores, decides</text>
+<text x="830" y="270" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">Figure 4</text>
+<circle cx="830" cy="114" r="20" fill="#eb6834"/><path d="M794,172 a36,34 0 0 1 72,0 Z" fill="#eb6834"/>
+<path d="M527.4154679609267,166 L636,166 L636,232" fill="none" stroke="#52514e" stroke-width="2" marker-end="url(#m52514e)"/>
+<text x="594" y="158" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">writes</text>
+<path d="M768.8117658368866,166 L708,166 L708,276 L690,276" fill="none" stroke="#eb6834" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#meb6834)"/>
+<text x="716" y="188" font-size="13" font-weight="normal" font-style="italic" fill="#b4461a" text-anchor="start">reviews</text>
+<rect x="606" y="236" width="56" height="68" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.8"/>
+<path d="M616,254 H652" stroke="#f5b49a" stroke-width="2"/>
+<path d="M616,266 H652" stroke="#f5b49a" stroke-width="2"/>
+<path d="M616,278 H640" stroke="#f5b49a" stroke-width="2"/>
+<rect x="616" y="246" width="56" height="68" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.8"/>
+<path d="M626,264 H662" stroke="#f5b49a" stroke-width="2"/>
+<path d="M626,276 H662" stroke="#f5b49a" stroke-width="2"/>
+<path d="M626,288 H650" stroke="#f5b49a" stroke-width="2"/>
+<rect x="626" y="256" width="56" height="68" rx="4" fill="#ffffff" stroke="#eb6834" stroke-width="1.8"/>
+<path d="M636,274 H672" stroke="#f5b49a" stroke-width="2"/>
+<path d="M636,286 H672" stroke="#f5b49a" stroke-width="2"/>
+<path d="M636,298 H660" stroke="#f5b49a" stroke-width="2"/>
+<text x="644" y="352" font-size="17" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="middle">The record</text>
+<text x="644" y="372" font-size="14" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">every step on file</text></svg>

@@ -98,3 +98,16 @@ switched on in the coculture. The last card shows what every link carries: the p
 log2 fold change, adjusted p-value and rank, and the table they came from. Tags name what each
 walk uses. The figure is
 illustrative: no result is claimed, and the values shown are invented.
+
+## Figure Overview (number TBD, likely Figure 1) — Spock at a glance
+
+`figOV_overview` (svg / pdf / png)
+
+**Spock: an AI research assistant grounded in a knowledge graph.** Spock has three parts. The
+knowledge graph (blue) holds the published results of 60 papers (340 experiments, 123
+organisms, 330,531 genes; KG release 0.1.0-alpha.9) and is the AI's only data source. The AI
+agent works under a research protocol (violet): rules learned from past failures and a plan it
+must follow. The researcher (orange) asks the question, explores the results with the AI and
+decides what they mean. The agent writes every step to files (the record), which the
+researcher reviews. Figure 2 shows what the knowledge graph makes possible, Figure 3 the
+protocol's safeguards and Figure 4 the research process.
