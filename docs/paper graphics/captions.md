@@ -41,32 +41,31 @@ the researcher, who approves every step: the AI never moves on alone, and every 
 work is kept. Quotes are verbatim from `.claude/skills/research-methodology/` (SKILL.md,
 references/plan-phase.md, references/research-notebook.md) and `.claude/agents/kg-coder.md`.
 
-## Figure 2h — fig2h_process_framing (Figure 2g in plain language, plus the frozen plan)
+## Figure 2 — fig2_process_safeguards (the process, with Figure 1's safeguards on it)
 
-**The Spock research process, and what the plan fixes in advance.** **(A)** The researcher
-poses a question. The AI assistant shows what the knowledge graph (KG) holds and checks what
-the data and annotations can actually show, then sets the success criteria with the
-researcher (panel B). Looking at the data during planning is free; the one exception is the
-result the plan will test, which the researcher may still choose to see, after which it is
-reported as exploratory. A second AI, new to the work, reviews
-the plan, and the researcher revises it until they approve it. The plan is then frozen. The
-work runs in three stages: building and testing the method, the analysis, and the
-evaluation. Each stage follows the same loop. The researcher agrees what the stage will do. A
-coding AI runs the analysis code and returns output files, not conclusions. The main AI
-reads the files and judges what they show, and a second AI, new to the work, re-checks the
-claims against the files. Only then does the researcher see the stage and approve it, or ask
-for a revision or a redo. If the results contradict the frozen plan, the plan is reopened and
-the change is recorded, never made silently. Every version is saved and never overwritten.
-Badges and line styles are explained in the legend below panel A. **(B)** The six things a
-plan must fix before the result is scored, on a small worked example: does a gene that controls
-nitrogen use switch on when marine bacteria (*Prochlorococcus*) are fed urea instead of
-ammonium? The positive control (genes for using urea must switch on) shows the data can reveal
-an effect at all; the negative control (growth genes must stay flat) shows what "no effect"
-looks like. Without both, a null result cannot be told apart from an experiment that could not
-detect anything. In this example the decision rule was committed and approved, and a further control was
-added. While checking the revision, the AI reviewer looked up one result value; only the
-controls changed after that, the change was disclosed, and the plan was re-approved. Every
-version is kept.
+**Where each safeguard acts in the Spock research process.** **(A)** The researcher (orange,
+as in Figure 1's frame) poses a question and approves every step; the AI assistant does the
+work. Each AI step is drawn as the Figure 1 card it carries. In the plan: the AI shows what the
+knowledge graph (KG) holds (*Look it up*); checks with a throwaway test that the approach can
+work, which may send the approach back (*Scope first*); fixes the controls and decision rule
+(*Pre-register the test*, panel B); and a second AI, new to the work and unable to open the
+results, reviews the plan (*Separate the roles*). The researcher approves or asks for a
+revision, and the plan is then frozen. In an overview, where nothing is being tested, there is
+no framing and every result is reported as exploratory. The work then runs in three stages:
+building and testing the method, the analysis, and the evaluation, each through the same loop.
+The researcher agrees what the stage will do. A coding AI runs the code and returns files, not
+conclusions; the method is tested on toy data and against an answer built another way
+(*Check the computation*). The main AI reads the files and judges what they show, numbers
+before interpretation (*Claims match evidence*). The researcher and the AI explore the results
+together; a pattern nobody planned for is tested only through a prediction recorded first.
+Before the researcher sees the stage, the method and statistics code is reviewed and a fresh AI re-checks every claim
+against the files (*Separate the roles*); the researcher then approves, or asks for a revision
+or a redo. If the results contradict the frozen plan, the plan is reopened and the change
+recorded, never made silently. Every approval is saved and never overwritten (rings).
+**(B)** What the plan fixes before the result is seen: the seven parts of a framing, each with
+a few words quoted from the skill (`references/plan-phase.md`). Positive controls show the data
+can reveal an effect at all; negative controls show what "no effect" looks like. Methods are
+settled on the controls first; the targets are scored once, last.
 
 ## Figure 3 — fig3_agents
 

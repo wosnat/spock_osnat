@@ -169,3 +169,30 @@ claims are done by separate AI agents, the reviewer starting with no knowledge o
 Claims are checked against the data before general words such as "all" are used, and
 interpretation comes only after the numbers. All computation is in saved scripts, and every
 version is kept. Throughout, the researcher approves every plan and every stage.
+
+## Figure 2h — fig2h_process_framing (Figure 2g in plain language, plus the frozen plan)
+
+**The Spock research process, and what the plan fixes in advance.** **(A)** The researcher
+poses a question. The AI assistant shows what the knowledge graph (KG) holds and checks what
+the data and annotations can actually show, then sets the success criteria with the
+researcher (panel B). Looking at the data during planning is free; the one exception is the
+result the plan will test, which the researcher may still choose to see, after which it is
+reported as exploratory. A second AI, new to the work, reviews
+the plan, and the researcher revises it until they approve it. The plan is then frozen. The
+work runs in three stages: building and testing the method, the analysis, and the
+evaluation. Each stage follows the same loop. The researcher agrees what the stage will do. A
+coding AI runs the analysis code and returns output files, not conclusions. The main AI
+reads the files and judges what they show, and a second AI, new to the work, re-checks the
+claims against the files. Only then does the researcher see the stage and approve it, or ask
+for a revision or a redo. If the results contradict the frozen plan, the plan is reopened and
+the change is recorded, never made silently. Every version is saved and never overwritten.
+Badges and line styles are explained in the legend below panel A. **(B)** The six things a
+plan must fix before the result is scored, on a small worked example: does a gene that controls
+nitrogen use switch on when marine bacteria (*Prochlorococcus*) are fed urea instead of
+ammonium? The positive control (genes for using urea must switch on) shows the data can reveal
+an effect at all; the negative control (growth genes must stay flat) shows what "no effect"
+looks like. Without both, a null result cannot be told apart from an experiment that could not
+detect anything. In this example the decision rule was committed and approved, and a further control was
+added. While checking the revision, the AI reviewer looked up one result value; only the
+controls changed after that, the change was disclosed, and the plan was re-approved. Every
+version is kept.

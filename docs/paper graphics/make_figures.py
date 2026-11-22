@@ -3,9 +3,9 @@
 Sized for HALF AN A4 PAGE: canvas 960 units wide, printed at 170 mm text width
 (1 unit ~ 0.177 mm). Font floor 13 units (~6.5 pt); body 14-16 (~7-8 pt).
 
-Fig 1  fig1_concepts.svg - threats to validity in AI-assisted research, each paired with
-                           the Spock concept that counters it (verbatim skill excerpts).
-Fig 2  fig2_process.svg  - the research arc: Plan -> Run, gates, critic passes.
+Fig 1  fig1_concepts_cards.svg - six safeguard cards (danger, verbatim quote, how).
+Fig 2  fig2_process_safeguards.svg - the process (Plan -> Run) with each AI step drawn as the
+                           Figure 1 card it carries; B = what "Pre-register the test" fixes.
 
 Colours: dataviz reference palette (light). Role encoding fixed across figures:
   researcher = orange, kg-coder = aqua, critic = violet, KG = blue, commits / discipline = ink.
