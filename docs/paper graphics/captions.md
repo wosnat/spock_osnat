@@ -15,9 +15,7 @@ longer matches; update it in `CARDS` in `make_figures.py`.
 
 ## Figure 1 — fig1_concepts_cards (six safeguard cards)
 
-**How Spock guards AI-assisted research against hallucination and bias.** Six safeguards, in
-the order they act across the research process (Figure 2A): planning, building the method,
-analysis and write-up. Each card names the safeguard, the danger it counters (red), a verbatim
+**How Spock guards AI-assisted research against hallucination and bias.** Six safeguards, labelled by the stage where each first matters; Figure 2A shows where each acts in the research process. Each card names the safeguard, the danger it counters (red), a verbatim
 quote from the instructions Spock gives the AI, and, below the line, what Spock does in
 practice. **Look it up:** values, gene identities, the meaning of tools and fields, and the
 absence of data all come from a knowledge graph (KG) query; gaps are flagged, not filled from
@@ -47,9 +45,9 @@ references/plan-phase.md, references/research-notebook.md) and `.claude/agents/k
 as in Figure 1's frame) poses a question and approves every step; the AI assistant does the
 work. Each AI step is drawn as the Figure 1 card it carries. In the plan: the AI shows what the
 knowledge graph (KG) holds (*Look it up*); checks with a throwaway test that the approach can
-work, which may send the approach back (*Scope first*); fixes the controls and decision rule
+work, which may send the approach back (*Scope first*); and, with the researcher, fixes the controls and decision rule
 (*Pre-register the test*, panel B); and a second AI, new to the work and unable to open the
-results, reviews the plan (*Separate the roles*). The researcher approves or asks for a
+results, reviews the plan (*Separate the roles*). Each plan step is a short dialog that the researcher confirms before the next. The researcher approves or asks for a
 revision, and the plan is then frozen. In an overview, where nothing is being tested, there is
 no framing and every result is reported as exploratory. The work then runs in three stages:
 building and testing the method, the analysis, and the evaluation, each through the same loop.
@@ -58,7 +56,7 @@ conclusions; the method is tested on toy data and against an answer built anothe
 (*Check the computation*). The main AI reads the files and judges what they show, numbers
 before interpretation (*Claims match evidence*). The researcher and the AI explore the results
 together; a pattern nobody planned for is tested only through a prediction recorded first.
-Before the researcher sees the stage, the method and statistics code is reviewed and a fresh AI re-checks every claim
+Before the stage is presented for approval, the method and statistics code is reviewed and a fresh AI re-checks every claim
 against the files (*Separate the roles*); the researcher then approves, or asks for a revision
 or a redo. If the results contradict the frozen plan, the plan is reopened and the change
 recorded, never made silently. Every approval is saved and never overwritten (rings).
