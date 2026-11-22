@@ -252,7 +252,8 @@ ICONS_1B = ["database", "lock", "scales", "magnifier", "bars", "code"]
 CARDS = [
     dict(stage="Plan", title="Look it up", danger="guessing",
          gloss="facts recalled, not looked up",
-         quote="Every claim traces to a KG query. Never take data from memory.",
+         quote="Never take data from memory … When the KG can’t answer, say so and log it "
+               "as a gap.",
          source="skills/research-methodology/SKILL.md",
          how="Each finding is tagged: from the KG, interpretation, or a gap.",
          icon="kg_lookup", color=BLUE),
