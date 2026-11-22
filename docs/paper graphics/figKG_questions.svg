@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="780" viewBox="0 0 960 780" font-family="Helvetica, Arial, 'Segoe UI', sans-serif"><defs><marker id="m0b0b0b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b0b0b"/></marker><marker id="m0b7f99" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0b7f99"/></marker><marker id="m0d7a53" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0d7a53"/></marker><marker id="m1baf7a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1baf7a"/></marker><marker id="m2a78d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2a78d6"/></marker><marker id="m3f9d4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3f9d4a"/></marker><marker id="m4a5a6c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5a6c"/></marker><marker id="m52514e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52514e"/></marker><marker id="m6250d6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6250d6"/></marker><marker id="m8a6200" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8a6200"/></marker><marker id="m9a6a3a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9a6a3a"/></marker><marker id="mb0397a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0397a"/></marker><marker id="me34948" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e34948"/></marker><marker id="meb6834" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#eb6834"/></marker></defs><rect width="100%" height="100%" fill="#ffffff"/><text x="12" y="28" font-size="20" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">How the knowledge graph counters bias</text>
+<text x="414.20000000000005" y="28" font-size="16" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">— questions no single paper can answer</text>
+<g transform="translate(0,40)">
+<circle cx="300" cy="38" r="18" fill="#3f9d4a"/>
+<text x="272" y="36" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="end">phytoplankton</text>
+<text x="272" y="53" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="end">makes food from light</text>
+<rect x="638.0" y="26.0" width="44" height="24" rx="12.0" fill="#9a6a3a" stroke="none" stroke-width="1.5"/>
+<text x="692" y="36" font-size="15" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">partner bacterium</text>
+<text x="692" y="53" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">lives on what it releases</text>
+<path d="M324,31 L632,31" fill="none" stroke="#0d7a53" stroke-width="2.4" marker-end="url(#m0d7a53)"/>
+<text x="480.0" y="23" font-size="13" font-weight="normal" font-style="normal" fill="#0d7a53" text-anchor="middle">sugars, amino acids…</text>
+<path d="M632,46 L324,46" fill="none" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#m52514e)"/>
+<text x="480.0" y="64" font-size="13" font-weight="normal" font-style="italic" fill="#52514e" text-anchor="middle">…and something back?</text>
+<text x="12" y="88" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">Each question is a short walk along named links:</text>
+<rect x="324" y="77" width="65.80000000000001" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="327" y="88" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="start">changed in</text>
+<polygon points="416,89 421,80 426,89" fill="#52514e"/>
+<text x="430" y="88" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">switched on in the coculture</text>
+<rect x="624" y="77" width="14" height="14" rx="7" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.6"/>
+<text x="644" y="88" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">gene</text>
+<rect x="686" y="77" width="18" height="14" rx="3" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<text x="710" y="88" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">study (one published table)</text>
+<rect x="12.0" y="104" width="304.0" height="306" rx="8" fill="#2a78d6" stroke="none" stroke-width="1.5"/>
+<rect x="16.0" y="104" width="300.0" height="306" rx="8" fill="#f2f7fd" stroke="none" stroke-width="1.5"/>
+<rect x="12.0" y="104" width="304.0" height="306" rx="8" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="28.0" y="124" font-size="13" letter-spacing="1.2" fill="#52514e">ACROSS STUDIES</text>
+<text x="28.0" y="146" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">One partner, or any?</text>
+<text x="28.0" y="168" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“Does the bacterium react to this</text>
+<text x="28.0" y="185.92000000000002" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">phytoplankton, or to any phytoplankton?”</text>
+<path d="M110.0,271.84000000000003 L188.0,225.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<rect x="183.0" y="213.84" width="118" height="24" rx="4" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<text x="242.0" y="230.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">with partner A</text>
+<path d="M110.0,271.84000000000003 L188.0,271.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<rect x="183.0" y="259.84000000000003" width="118" height="24" rx="4" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<text x="242.0" y="276.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">with partner B</text>
+<path d="M110.0,271.84000000000003 L188.0,317.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<rect x="183.0" y="305.84000000000003" width="118" height="24" rx="4" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<text x="242.0" y="322.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">with partner C</text>
+<rect x="113.1" y="264.84000000000003" width="65.80000000000001" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="146.0" y="275.84000000000003" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="middle">changed in</text>
+<rect x="50.0" y="259.84000000000003" width="60" height="24" rx="12" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.6"/>
+<text x="80.0" y="276.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">genes</text>
+<path d="M28.0,341.84000000000003 H300.0" stroke="#aac9ef" stroke-width="1"/>
+<text x="28.0" y="357.84000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">Shared by all partners, or unique to one.</text>
+<text x="28.0" y="378.48" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: one experiment read as the rule</text>
+<rect x="328.0" y="104" width="304.0" height="306" rx="8" fill="#2a78d6" stroke="none" stroke-width="1.5"/>
+<rect x="332.0" y="104" width="300.0" height="306" rx="8" fill="#f2f7fd" stroke="none" stroke-width="1.5"/>
+<rect x="328.0" y="104" width="304.0" height="306" rx="8" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="344.0" y="124" font-size="13" letter-spacing="1.2" fill="#52514e">ACROSS ORGANISMS</text>
+<text x="344.0" y="146" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">In other strains too?</text>
+<text x="344.0" y="168" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“Do other strains switch on the same</text>
+<text x="344.0" y="185.92000000000002" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">(ortholog) genes?”</text>
+<path d="M374.0,271.84000000000003 L464.0,271.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M464.0,271.84000000000003 L524.0,229.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M464.0,271.84000000000003 L524.0,313.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<rect x="346.0" y="259.84000000000003" width="56" height="24" rx="12" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.6"/>
+<text x="374.0" y="276.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">gene</text>
+<polygon points="402.0,258.84000000000003 407.0,249.84000000000003 412.0,258.84000000000003" fill="#9a6a3a"/>
+<rect x="423.0" y="259.84000000000003" width="82" height="24" rx="12" fill="#f0f0ee" stroke="#52514e" stroke-width="1.6"/>
+<text x="464.0" y="276.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">orthologs</text>
+<rect x="393.08" y="244.84000000000003" width="53.84" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="420.0" y="255.84000000000003" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="middle">ortholog</text>
+<rect x="496.0" y="217.84" width="56" height="24" rx="12" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.6"/>
+<text x="524.0" y="234.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">gene</text>
+<polygon points="555.0,230.84 560.0,221.84 565.0,230.84" fill="#9a6a3a"/>
+<text x="570.0" y="234.34" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">strain 2</text>
+<rect x="496.0" y="301.84000000000003" width="56" height="24" rx="12" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.6"/>
+<text x="524.0" y="318.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">gene</text>
+<text x="570.0" y="318.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">strain 3</text>
+<path d="M344.0,341.84000000000003 H616.0" stroke="#aac9ef" stroke-width="1"/>
+<text x="344.0" y="357.84000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">The same response across strains, or one</text>
+<text x="344.0" y="374.48" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">strain’s quirk.</text>
+<text x="344.0" y="395.12" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: one strain standing for all</text>
+<rect x="644.0" y="104" width="304.0" height="306" rx="8" fill="#2a78d6" stroke="none" stroke-width="1.5"/>
+<rect x="648.0" y="104" width="300.0" height="306" rx="8" fill="#f2f7fd" stroke="none" stroke-width="1.5"/>
+<rect x="644.0" y="104" width="304.0" height="306" rx="8" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="660.0" y="124" font-size="13" letter-spacing="1.2" fill="#52514e">BEYOND THE PAPER</text>
+<text x="660.0" y="146" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">What was overlooked?</text>
+<text x="660.0" y="168" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“Which genes react strongly, but no</text>
+<text x="660.0" y="185.92000000000002" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">paper mentions them?”</text>
+<path d="M778.0,281.84000000000003 L700.0,237.84" fill="none" stroke="#c9c8c2" stroke-width="1.4"/>
+<path d="M778.0,281.84000000000003 L860.0,237.84" fill="none" stroke="#c9c8c2" stroke-width="1.4"/>
+<path d="M778.0,281.84000000000003 L688.0,287.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.4"/>
+<path d="M778.0,281.84000000000003 L874.0,291.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.4"/>
+<path d="M778.0,281.84000000000003 L722.0,329.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.4"/>
+<path d="M778.0,281.84000000000003 L840.0,331.84000000000003" fill="none" stroke="#c9c8c2" stroke-width="1.4"/>
+<path d="M778.0,213.84 L700.0,237.84" fill="none" stroke="#52514e" stroke-width="1.3" stroke-dasharray="3 3"/>
+<path d="M778.0,213.84 L860.0,237.84" fill="none" stroke="#52514e" stroke-width="1.3" stroke-dasharray="3 3"/>
+<rect x="754.0" y="201.84" width="48" height="22" rx="3" fill="#f0f0ee" stroke="#52514e" stroke-width="1.4"/>
+<text x="778.0" y="217.84" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">paper</text>
+<rect x="820.0" y="202.84" width="35.900000000000006" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="823.0" y="213.84" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="start">names</text>
+<rect x="687.0" y="229.84" width="26" height="16" rx="8" fill="#9a6a3a" stroke="#9a6a3a" stroke-width="1.4"/>
+<rect x="847.0" y="229.84" width="26" height="16" rx="8" fill="#9a6a3a" stroke="#9a6a3a" stroke-width="1.4"/>
+<rect x="675.0" y="279.84000000000003" width="26" height="16" rx="8" fill="#f3ede7" stroke="#9a6a3a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="861.0" y="283.84000000000003" width="26" height="16" rx="8" fill="#f3ede7" stroke="#9a6a3a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="709.0" y="321.84000000000003" width="26" height="16" rx="8" fill="#f3ede7" stroke="#9a6a3a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="827.0" y="323.84000000000003" width="26" height="16" rx="8" fill="#f3ede7" stroke="#9a6a3a" stroke-width="1.2" stroke-dasharray="3 2"/>
+<rect x="753.75" y="269.84000000000003" width="48.5" height="24" rx="4" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<text x="778.0" y="286.34000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">study</text>
+<rect x="745.1" y="300.84000000000003" width="65.80000000000001" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="778.0" y="311.84000000000003" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="middle">changed in</text>
+<path d="M660.0,341.84000000000003 H932.0" stroke="#aac9ef" stroke-width="1"/>
+<text x="660.0" y="357.84000000000003" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">Pale: genes no paper names, new candidates to</text>
+<text x="660.0" y="374.48" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">study.</text>
+<text x="660.0" y="395.12" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: the paper’s narrative</text>
+<rect x="12.0" y="422" width="304.0" height="306" rx="8" fill="#2a78d6" stroke="none" stroke-width="1.5"/>
+<rect x="16.0" y="422" width="300.0" height="306" rx="8" fill="#f2f7fd" stroke="none" stroke-width="1.5"/>
+<rect x="12.0" y="422" width="304.0" height="306" rx="8" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="28.0" y="442" font-size="13" letter-spacing="1.2" fill="#52514e">ACROSS DATA TYPES</text>
+<text x="28.0" y="464" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">From molecules to genes</text>
+<text x="28.0" y="486" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“A molecule builds up in the water: who</text>
+<text x="28.0" y="503.92" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">releases it, and who takes it up?”</text>
+<path d="M178.0,537.84 L178.0,589.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M178.0,589.84 L178.0,641.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<circle cx="56.0" cy="537.84" r="10" fill="#3f9d4a"/>
+<rect x="112.0" y="525.84" width="132" height="24" rx="12" fill="#dcedde" stroke="#3f9d4a" stroke-width="1.6"/>
+<text x="178.0" y="542.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">release gene</text>
+<polygon points="248.0,538.84 253.0,529.84 258.0,538.84" fill="#3f9d4a"/>
+<rect x="100.0" y="569.84" width="156" height="40" rx="6" fill="#e2f0f3" stroke="#0b7f99" stroke-width="1.6"/>
+<text x="178.0" y="586.84" font-size="13" font-weight="bold" font-style="normal" fill="#0b7f99" text-anchor="middle">molecule</text>
+<text x="178.0" y="602.84" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="middle">measured in the water</text>
+<rect x="44.0" y="634.84" width="24" height="14" rx="7.0" fill="#9a6a3a" stroke="none" stroke-width="1.5"/>
+<rect x="112.0" y="629.84" width="132" height="24" rx="12" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.6"/>
+<text x="178.0" y="646.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">uptake gene</text>
+<polygon points="248.0,642.84 253.0,633.84 258.0,642.84" fill="#9a6a3a"/>
+<rect x="184.0" y="553.84" width="35.900000000000006" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="187.0" y="564.84" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="start">moves</text>
+<rect x="184.0" y="613.84" width="35.900000000000006" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="187.0" y="624.84" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="start">moves</text>
+<path d="M28.0,659.84 H300.0" stroke="#aac9ef" stroke-width="1"/>
+<text x="28.0" y="675.84" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">Two organisms, genes and molecules, in one</text>
+<text x="28.0" y="692.48" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">walk.</text>
+<text x="28.0" y="713.12" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: claims resting on one kind of data</text>
+<rect x="328.0" y="422" width="304.0" height="306" rx="8" fill="#2a78d6" stroke="none" stroke-width="1.5"/>
+<rect x="332.0" y="422" width="300.0" height="306" rx="8" fill="#f2f7fd" stroke="none" stroke-width="1.5"/>
+<rect x="328.0" y="422" width="304.0" height="306" rx="8" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="344.0" y="442" font-size="13" letter-spacing="1.2" fill="#52514e">BY FUNCTION</text>
+<text x="344.0" y="464" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">What do they do?</text>
+<text x="344.0" y="486" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“Which kinds of genes react: uptake,</text>
+<text x="344.0" y="503.92" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">nutrient use…?”</text>
+<path d="M368.0,541.84 L472.0,559.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M368.0,589.84 L472.0,559.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M368.0,589.84 L472.0,619.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M368.0,637.84 L472.0,619.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M472.0,559.84 L572.0,589.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<path d="M472.0,619.84 L572.0,589.84" fill="none" stroke="#c9c8c2" stroke-width="1.8"/>
+<rect x="355.0" y="533.84" width="26" height="16" rx="8" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.4"/>
+<rect x="355.0" y="581.84" width="26" height="16" rx="8" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.4"/>
+<rect x="355.0" y="629.84" width="26" height="16" rx="8" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.4"/>
+<rect x="433.0" y="547.84" width="78" height="24" rx="12" fill="#f0f0ee" stroke="#52514e" stroke-width="1.6"/>
+<text x="472.0" y="564.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">uptake</text>
+<rect x="420.0" y="607.84" width="104" height="24" rx="12" fill="#f0f0ee" stroke="#52514e" stroke-width="1.6"/>
+<text x="472.0" y="624.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">nutrient use</text>
+<rect x="535.0" y="577.84" width="74" height="24" rx="12" fill="#f0f0ee" stroke="#52514e" stroke-width="1.6"/>
+<text x="572.0" y="594.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">pathway</text>
+<rect x="397.12" y="520.84" width="77.76" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="436.0" y="531.84" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="middle">has function</text>
+<rect x="516.07" y="544.84" width="47.86" height="15" rx="3" fill="#ffffff" stroke="none" stroke-width="1.5"/>
+<text x="540.0" y="555.84" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="middle">part of</text>
+<path d="M344.0,659.84 H616.0" stroke="#aac9ef" stroke-width="1"/>
+<text x="344.0" y="675.84" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">The response summed up by function, e.g.</text>
+<text x="344.0" y="692.48" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">mostly uptake.</text>
+<text x="344.0" y="713.12" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: a story built from hand-picked genes</text>
+<rect x="644.0" y="422" width="304.0" height="306" rx="8" fill="#2a78d6" stroke="none" stroke-width="1.5"/>
+<rect x="648.0" y="422" width="300.0" height="306" rx="8" fill="#f2f7fd" stroke="none" stroke-width="1.5"/>
+<rect x="644.0" y="422" width="304.0" height="306" rx="8" fill="none" stroke="#2a78d6" stroke-width="1.5"/>
+<text x="660.0" y="442" font-size="13" letter-spacing="1.2" fill="#52514e">TRACED TO SOURCE</text>
+<text x="660.0" y="464" font-size="17" font-weight="bold" font-style="normal" fill="#2a78d6" text-anchor="start">Where does it come from?</text>
+<text x="660.0" y="486.0" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“How big is the change, how sure is</text>
+<text x="660.0" y="503.92" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">it, and which table says so?”</text>
+<path d="M700.0,551.84 L880.0,551.84" fill="none" stroke="#2a78d6" stroke-width="3"/>
+<rect x="660.0" y="539.84" width="56" height="24" rx="12" fill="#ede4dc" stroke="#9a6a3a" stroke-width="1.6"/>
+<text x="688.0" y="556.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">gene</text>
+<rect x="867.75" y="539.84" width="48.5" height="24" rx="4" fill="#ffffff" stroke="#52514e" stroke-width="1.6"/>
+<text x="892.0" y="556.34" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="middle">study</text>
+<rect x="682.0" y="573.84" width="244.0" height="78" rx="6" fill="#f0f6fc" stroke="#2a78d6" stroke-width="1.4"/>
+<path d="M790.0,555.84 V573.84" stroke="#2a78d6" stroke-width="1.4"/>
+<text x="696.0" y="591.84" font-size="13" font-weight="normal" font-style="italic" fill="#2a78d6" text-anchor="start">changed in</text>
+<text x="696.0" y="608.84" font-size="13" font-weight="bold" font-style="normal" fill="#0b0b0b" text-anchor="start">log2FC 2.6 · padj 0.001</text>
+<text x="696.0" y="625.84" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">rank 12 among all genes</text>
+<text x="696.0" y="642.84" font-size="13" font-weight="normal" font-style="normal" fill="#52514e" text-anchor="start">from Table S2 of the paper</text>
+<path d="M660.0,659.84 H932.0" stroke="#aac9ef" stroke-width="1"/>
+<text x="660.0" y="675.84" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">Any claim traces back to a published</text>
+<text x="660.0" y="692.48" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">table.</text>
+<text x="660.0" y="713.12" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: claims without numbers</text>
+</g></svg>

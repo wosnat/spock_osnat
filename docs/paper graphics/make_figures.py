@@ -1913,8 +1913,275 @@ def figureS1():
     s.save("figS1_agents.svg")
 
 
+# ---------------------------------------------------------------- KG figure (questions)
+# What the KG makes possible: five ILLUSTRATIVE questions on a cross-feeding story, each a
+# short walk along named links (spec: docs/superpowers/specs/2026-11-22-paper-kg-figure-design.md).
+# No real result is claimed: each card shows the shape of an answer. General audience: no
+# species, strain or gene names. Cards are KG blue; organisms: phytoplankton green,
+# partner bacterium brown; molecules teal.
+PHYTO, BACT = "#3f9d4a", "#9a6a3a"
+KG_QUESTIONS = [
+    dict(title="One partner, or any?", tag="across studies",
+         q="Does the bacterium react to this phytoplankton, or to any phytoplankton?",
+         a="Shared by all partners, or unique to one.",
+         against="one experiment read as the rule"),
+    dict(title="In other strains too?", tag="across organisms",
+         q="Do other strains switch on the same (ortholog) genes?",
+         a="The same response across strains, or one strain’s quirk.",
+         against="one strain standing for all"),
+    dict(title="What was overlooked?", tag="beyond the paper",
+         q="Which genes react strongly, but no paper mentions them?",
+         a="Pale: genes no paper names, new candidates to study.",
+         against="the paper’s narrative"),
+    dict(title="From molecules to genes", tag="across data types",
+         q="A molecule builds up in the water: who releases it, and who takes it up?",
+         a="Two organisms, genes and molecules, in one walk.",
+         against="claims resting on one kind of data"),
+    dict(title="What do they do?", tag="by function",
+         q="Which kinds of genes react: uptake, nutrient use…?",
+         a="The response summed up by function, e.g. mostly uptake.",
+         against="a story built from hand-picked genes"),
+]
+
+
+def figure_kg():
+    W = 960
+    cols, gap, x0 = 3, 12, 12
+    cw = (W - 2 * x0 - (cols - 1) * gap) / cols
+    inner = cw - 32
+    SY = 104                              # cards start below the story strip
+    DH = 128                              # drawing area height
+    # card height from the longest texts
+    def blocks(cq):
+        return (wrap(f"“{cq['q']}”", inner, 14, k=0.48), wrap(cq["a"], inner, 13, k=0.46),
+                wrap(f"against: {cq['against']}", inner, 13, k=0.46))
+    nq = max(len(blocks(c)[0]) for c in KG_QUESTIONS)
+    na = max(len(blocks(c)[1]) for c in KG_QUESTIONS)
+    nr = max(len(blocks(c)[2]) for c in KG_QUESTIONS)
+    CH = round(44 + nq * 14 * 1.28 + 20 + DH + 16 + na * 13 * 1.28 + 4 + nr * 13 * 1.28 + 8)
+    TOP = 40                              # figure title band
+    H = TOP + SY + 2 * CH + gap + 12
+    s = SVG(W, H)
+    s.colors |= {PHYTO, BACT}
+    title = "How the knowledge graph counters bias"
+    s.text(x0, 28, title, size=20, weight="bold")
+    s.text(x0 + len(title) * 20 * 0.53 + 10, 28, "— questions no single paper can answer",
+           size=16, fill=INK2)
+    s.add(f'<g transform="translate(0,{TOP})">')
+
+    def line(pts, c=LINE, sw=1.8, dash=None):
+        d = f' stroke-dasharray="{dash}"' if dash else ""
+        s.add(f'<path d="M' + " L".join(f"{x},{y}" for x, y in pts) +
+              f'" fill="none" stroke="{c}" stroke-width="{sw}"{d}/>')
+
+    def link(x, y, t, anchor="middle"):  # a named link: KG blue italic, on a white chip
+        tw = len(t) * 13 * 0.46 + 6
+        lx = x - tw / 2 if anchor == "middle" else (x if anchor == "start" else x - tw)
+        s.rect(lx, y - 11, tw, 15, stroke="none", fill=BG, rx=3)
+        s.text(x if anchor != "start" else x + 3, y, t, size=13, fill=BLUE, anchor=anchor,
+               style="italic")
+
+    def pill(cx, cy, t, c, fill=None, tc=INK, w=None, dash=None, bold=False):
+        w = w or len(t) * 13 * 0.5 + 18
+        s.rect(cx - w / 2, cy - 12, w, 24, stroke=c, fill=fill or tint(c, 0.18), rx=12,
+               sw=1.6, dash=dash)
+        s.text(cx, cy + 4.5, t, size=13, fill=tc, anchor="middle",
+               weight="bold" if bold else "normal")
+        return w
+
+    def study(cx, cy, t="study", w=None):
+        w = w or len(t) * 13 * 0.5 + 16
+        s.rect(cx - w / 2, cy - 12, w, 24, stroke=INK2, fill=BG, rx=4, sw=1.6)
+        s.text(cx, cy + 4.5, t, size=13, anchor="middle")
+
+    def up(x, y, c):                       # ▲ = switched on in the coculture
+        s.add(f'<polygon points="{x},{y + 5} {x + 5},{y - 4} {x + 10},{y + 5}" fill="{c}"/>')
+
+    def phyto(cx, cy, r=9):
+        s.add(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{PHYTO}"/>')
+
+    def bact(cx, cy, w=22, h=13):
+        s.rect(cx - w / 2, cy - h / 2, w, h, stroke="none", fill=BACT, rx=h / 2)
+
+    # ---- story strip
+    px, bx, sy = 300, 660, 38
+    phyto(px, sy, 18)
+    s.text(px - 28, sy - 2, "phytoplankton", size=15, weight="bold", anchor="end")
+    s.text(px - 28, sy + 15, "makes food from light", size=13, fill=INK2, anchor="end")
+    bact(bx, sy, 44, 24)
+    s.text(bx + 32, sy - 2, "partner bacterium", size=15, weight="bold")
+    s.text(bx + 32, sy + 15, "lives on what it releases", size=13, fill=INK2)
+    s.arrow([(px + 24, sy - 7), (bx - 28, sy - 7)], AQUA_TXT, sw=2.4)
+    s.text((px + bx) / 2, sy - 15, "sugars, amino acids…", size=13, fill=AQUA_TXT,
+           anchor="middle")
+    s.arrow([(bx - 28, sy + 8), (px + 24, sy + 8)], INK2, sw=1.5, dash="5 4")
+    s.text((px + bx) / 2, sy + 26, "…and something back?", size=13, fill=INK2,
+           anchor="middle", style="italic")
+    # key
+    ky = 88
+    s.text(x0, ky, "Each question is a short walk along named links:", size=13, fill=INK2)
+    kx = x0 + 312
+    link(kx, ky, "changed in", anchor="start")
+    up(kx + 92, ky - 4, INK2)
+    s.text(kx + 106, ky, "switched on in the coculture", size=13, fill=INK2)
+    s.rect(kx + 300, ky - 11, 14, 14, stroke=BACT, fill=tint(BACT, 0.18), rx=7, sw=1.6)
+    s.text(kx + 320, ky, "gene", size=13, fill=INK2)
+    s.rect(kx + 362, ky - 11, 18, 14, stroke=INK2, fill=BG, rx=3, sw=1.6)
+    s.text(kx + 386, ky, "study (one published table)", size=13, fill=INK2)
+    assert kx + 386 + len("study (one published table)") * 13 * 0.46 <= W - 12
+
+    # ---- the drawings, in local coordinates (ox, oy) = top-left of the drawing area
+    def draw1(ox, oy):
+        gx, gy = ox + 52, oy + DH / 2
+        ys = [oy + 18, oy + DH / 2, oy + DH - 18]
+        for i, yy in enumerate(ys):
+            line([(gx + 30, gy), (ox + 160, yy)])
+            study(ox + 214, yy, f"with partner {'ABC'[i]}", w=118)
+        link(ox + 118, oy + DH / 2 + 4, "changed in")
+        pill(gx, gy, "genes", BACT, w=60)
+
+    def draw2(ox, oy):
+        gy = oy + DH / 2
+        line([(ox + 30, gy), (ox + 120, gy)])
+        line([(ox + 120, gy), (ox + 180, oy + 22)])
+        line([(ox + 120, gy), (ox + 180, oy + DH - 22)])
+        pill(ox + 30, gy, "gene", BACT, w=56)
+        up(ox + 2 + 56, gy - 18, BACT)
+        pill(ox + 120, gy, "orthologs", INK2, fill="#f0f0ee", w=82)
+        link(ox + 76, gy - 16, "ortholog")
+        for yy, lab, on in ((oy + 22, "strain 2", True), (oy + DH - 22, "strain 3", False)):
+            pill(ox + 180, yy, "gene", BACT, w=56)
+            if on:
+                up(ox + 211, yy - 4, BACT)
+            s.text(ox + 226, yy + 4.5, lab, size=13, fill=INK2)
+
+    def draw3(ox, oy):
+        cx, cy = ox + 118, oy + DH / 2 + 10
+        pts = [(ox + 40, oy + 30), (ox + 200, oy + 30), (ox + 28, cy + 6), (ox + 214, cy + 10),
+               (ox + 62, oy + DH - 6), (ox + 180, oy + DH - 4)]
+        named = {0, 1}
+        for x, y in pts:
+            line([(cx, cy), (x, y)], sw=1.4)
+        # the paper names only two of them
+        line([(ox + 118, oy + 6), (ox + 40, oy + 30)], INK2, sw=1.3, dash="3 3")
+        line([(ox + 118, oy + 6), (ox + 200, oy + 30)], INK2, sw=1.3, dash="3 3")
+        s.rect(ox + 94, oy - 6, 48, 22, stroke=INK2, fill="#f0f0ee", rx=3, sw=1.4)
+        s.text(ox + 118, oy + 10, "paper", size=13, anchor="middle")
+        link(ox + 160, oy + 6, "names", anchor="start")
+        for i, (x, y) in enumerate(pts):
+            if i in named:
+                s.rect(x - 13, y - 8, 26, 16, stroke=BACT, fill=BACT, rx=8, sw=1.4)
+            else:
+                s.rect(x - 13, y - 8, 26, 16, stroke=BACT, fill=tint(BACT, 0.12), rx=8,
+                       sw=1.2, dash="3 2")
+        study(cx, cy)
+        link(cx, cy + 30, "changed in")
+
+    def draw4(ox, oy):
+        mx = ox + 150
+        y1, y2, y3 = oy + 12, oy + DH / 2, oy + DH - 12
+        line([(mx, y1), (mx, y2)])
+        line([(mx, y2), (mx, y3)])
+        phyto(ox + 28, y1, 10)
+        pill(mx, y1, "release gene", PHYTO, w=132)
+        up(mx + 70, y1 - 4, PHYTO)
+        s.rect(mx - 78, y2 - 20, 156, 40, stroke=TEAL, fill=tint(TEAL, 0.12), rx=6, sw=1.6)
+        s.text(mx, y2 - 3, "molecule", size=13, weight="bold", fill=TEAL, anchor="middle")
+        s.text(mx, y2 + 13, "measured in the water", size=13, fill=INK2, anchor="middle")
+        bact(ox + 28, y3, 24, 14)
+        pill(mx, y3, "uptake gene", BACT, w=132)
+        up(mx + 70, y3 - 4, BACT)
+        link(mx + 6, (y1 + 12 + y2 - 20) / 2 + 5, "moves", anchor="start")
+        link(mx + 6, (y2 + 20 + y3 - 12) / 2 + 5, "moves", anchor="start")
+
+    def draw5(ox, oy):
+        gs = [oy + 16, oy + DH / 2, oy + DH - 16]
+        f1, f2 = (ox + 128, oy + 34), (ox + 128, oy + DH - 34)
+        pw = (ox + 228, oy + DH / 2)
+        for i, gy in enumerate(gs):
+            for f in ((f1,) if i == 0 else (f1, f2) if i == 1 else (f2,)):
+                line([(ox + 24, gy), f])
+        line([f1, pw]); line([f2, pw])
+        for gy in gs:
+            s.rect(ox + 11, gy - 8, 26, 16, stroke=BACT, fill=tint(BACT, 0.18), rx=8, sw=1.4)
+        pill(*f1, "uptake", INK2, fill="#f0f0ee", w=78)
+        pill(*f2, "nutrient use", INK2, fill="#f0f0ee", w=104)
+        pill(*pw, "pathway", INK2, fill="#f0f0ee", w=74)
+        link(ox + 92, oy + 6, "has function")
+        link(ox + 196, oy + 30, "part of")
+
+    def draw6(ox, oy):
+        gy = oy + 26
+        line([(ox + 40, gy), (ox + 220, gy)], BLUE, sw=3)
+        pill(ox + 28, gy, "gene", BACT, w=56)
+        study(ox + 232, gy)
+        s.rect(ox + 22, gy + 22, inner - 28, 78, stroke=BLUE, fill=tint(BLUE, 0.07), rx=6, sw=1.4)
+        s.add(f'<path d="M{ox + 130},{gy + 4} V{gy + 22}" stroke="{BLUE}" stroke-width="1.4"/>')
+        rows = [("changed in", BLUE, "italic", "normal"),
+                ("log2FC 2.6 · padj 0.001", INK, "normal", "bold"),
+                ("rank 12 among all genes", INK, "normal", "normal"),
+                ("from Table S2 of the paper", INK2, "normal", "normal")]
+        for j, (t, c, st, wt) in enumerate(rows):
+            s.text(ox + 36, gy + 40 + j * 17, t, size=13, fill=c, style=st, weight=wt)
+
+    draws = [draw1, draw2, draw3, draw4, draw5]
+
+    def card_frame(x, y, c):
+        s.rect(x, y, cw, CH, stroke="none", fill=c)
+        s.rect(x + 4, y, cw - 4, CH, stroke="none", fill=tint(c, 0.06))
+        s.rect(x, y, cw, CH, stroke=c, fill="none", sw=1.5)
+
+    for i in range(6):
+        x = x0 + (i % cols) * (cw + gap)
+        y = SY + (i // cols) * (CH + gap)
+        tx = x + 16
+        if i < 5:
+            cq = KG_QUESTIONS[i]
+            qb, ab, rb = blocks(cq)
+            card_frame(x, y, BLUE)
+            s.add(f'<text x="{tx}" y="{y + 20}" font-size="13" letter-spacing="1.2" '
+                  f'fill="{INK2}">{escape(cq["tag"].upper())}</text>')
+            assert len(cq["title"]) * 17 * 0.55 <= inner, cq["title"]
+            s.text(tx, y + 42, cq["title"], size=17, weight="bold", fill=BLUE)
+            yy = y + 64
+            for ln in qb:
+                s.text(tx, yy, ln, size=14, style="italic")
+                yy += 14 * 1.28
+            dy = y + 44 + nq * 14 * 1.28 + 24
+            draws[i](tx, dy)
+            yy = dy + DH + 14
+            s.add(f'<path d="M{tx},{yy - 8} H{x + cw - 16}" stroke="{tint(BLUE, 0.4)}" '
+                  f'stroke-width="1"/>')
+            yy += 8
+            for ln in ab:
+                s.text(tx, yy, ln, size=13)
+                yy += 13 * 1.28
+            yy += 4
+            for ln in rb:
+                s.text(tx, yy, ln, size=13, fill=RED_TXT)
+                yy += 13 * 1.28
+            assert yy - 13 * 1.28 + 8 <= y + CH + 0.5, (cq["title"], yy, y + CH)
+        else:                              # the sixth slot: what every link carries
+            card_frame(x, y, BLUE)
+            s.add(f'<text x="{tx}" y="{y + 20}" font-size="13" letter-spacing="1.2" '
+                  f'fill="{INK2}">TRACED TO SOURCE</text>')
+            s.text(tx, y + 42, "Where does it come from?", size=17, weight="bold", fill=BLUE)
+            yy = s.para(tx, y + 64, "“How big is the change, how sure is it, and which table "
+                        "says so?”", inner, size=14, style="italic")
+            draw6(tx, y + 44 + nq * 14 * 1.28 + 24)
+            yy = y + 44 + nq * 14 * 1.28 + 24 + DH + 14
+            s.add(f'<path d="M{tx},{yy - 8} H{x + cw - 16}" stroke="{tint(BLUE, 0.4)}" '
+                  f'stroke-width="1"/>')
+            yy = s.para(tx, yy + 8, "Any claim traces back to a published table.", inner,
+                        size=13) + 4
+            s.text(tx, yy, "against: claims without numbers", size=13, fill=RED_TXT)
+    s.add("</g>")
+    s.save("figKG_questions.svg")
+
+
 if __name__ == "__main__":
     figure1_cards("a")
+    figure_kg()
     figure2_safeguards()
     figureS1()
     figure1()

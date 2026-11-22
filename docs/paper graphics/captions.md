@@ -83,3 +83,18 @@ author, reads the method and statistics code against the plan and the data. The 
 files. All work lives in files under git, where every approval is saved (ring, as in Figures 1
 and 2); the knowledge graph (KG) is the only data source. Splitting doing from judging is
 Figure 1's *Separate the roles*: no single AI both produces a result and vouches for it.
+
+## Figure KG (number TBD) — what the knowledge graph makes possible
+
+`figKG_questions` (svg / pdf / png)
+
+**How the knowledge graph counters bias.** Six questions about cross-feeding between
+phytoplankton and a partner bacterium, each answered by a short walk along named links in the
+KG. The graph is drawn from the published result tables of many studies. Each card gives the
+question, the walk that answers it, the kind of answer it returns, and (red) the bias the answer
+guards against. Card 4 runs across both organisms: a molecule measured in the culture water,
+the phytoplankton genes that release it and the bacterial genes that take it up. ▲, a gene
+switched on in the coculture. The last card shows what every link carries: the published
+log2 fold change, adjusted p-value and rank, and the table they came from. Tags name what each
+walk uses. The figure is
+illustrative: no result is claimed, and the values shown are invented.
