@@ -52,7 +52,7 @@
 <rect x="28.0" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="#0d7a53" stroke="none" stroke-width="1.5"/>
 <rect x="32.0" y="253.68" width="289.3333333333333" height="210.32" rx="8" fill="#f0f7f5" stroke="none" stroke-width="1.5"/>
 <rect x="28.0" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="none" stroke="#0d7a53" stroke-width="1.5"/>
-<text x="44.0" y="273.68" font-size="13" letter-spacing="1.2" fill="#52514e">BUILD</text>
+<text x="44.0" y="273.68" font-size="13" letter-spacing="1.2" fill="#52514e">RUN</text>
 <g transform="translate(272.5333333333333,265.68) scale(1.45)">
 <g fill="none" stroke="#0d7a53" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6,2 H14 M8,2 V9 L2,21 a1.5,1.5 0 0 0 1.4,2 H12 M12,2 V9 L14,13"/></g><circle cx="18" cy="18" r="6" fill="#0d7a53"/><path d="M15,18 L17.2,20.2 L21,15.8" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
@@ -65,35 +65,35 @@
 <text x="44.0" y="406.08000000000004" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">Toy data, an independent answer and a code</text>
 <text x="44.0" y="422.72" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">review; correct background and</text>
 <text x="44.0" y="439.36" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">multiple-testing correction.</text>
-<rect x="333.3333333333333" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="#6250d6" stroke="none" stroke-width="1.5"/>
-<rect x="337.3333333333333" y="253.68" width="289.3333333333333" height="210.32" rx="8" fill="#f6f4fd" stroke="none" stroke-width="1.5"/>
-<rect x="333.3333333333333" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="none" stroke="#6250d6" stroke-width="1.5"/>
-<text x="349.3333333333333" y="273.68" font-size="13" letter-spacing="1.2" fill="#52514e">ANALYSE</text>
+<rect x="333.3333333333333" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="#8a6200" stroke="none" stroke-width="1.5"/>
+<rect x="337.3333333333333" y="253.68" width="289.3333333333333" height="210.32" rx="8" fill="#f8f6f0" stroke="none" stroke-width="1.5"/>
+<rect x="333.3333333333333" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="none" stroke="#8a6200" stroke-width="1.5"/>
+<text x="349.3333333333333" y="273.68" font-size="13" letter-spacing="1.2" fill="#52514e">RUN</text>
 <g transform="translate(577.8666666666667,265.68) scale(1.45)">
+<g fill="none" stroke="#8a6200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12,3 V22 M7,22 H17 M3,6 H21 M3,6 L0,14 M3,6 L6,14 M21,6 L18,14 M21,6 L24,14"/><path d="M0,14 a3,2.5 0 0 0 6,0 Z M18,14 a3,2.5 0 0 0 6,0 Z" fill="#8a6200"/></g>
+</g>
+<text x="349.3333333333333" y="297.68" font-size="17" font-weight="bold" font-style="normal" fill="#8a6200" text-anchor="start">Claims match evidence</text>
+<text x="349.3333333333333" y="317.68" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: narrative fabrication</text>
+<text x="349.3333333333333" y="340.32" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“[Words like] ‘every’, ‘none’ … need</text>
+<text x="349.3333333333333" y="358.24" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">a query against the data file, not a</text>
+<text x="349.3333333333333" y="376.16" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">glance at a heatmap.”</text>
+<path d="M349.3333333333333,388.08000000000004 H610.6666666666666" stroke="#d0c099" stroke-width="1"/>
+<text x="349.3333333333333" y="406.08000000000004" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">Numbers first, interpretation after; each</text>
+<text x="349.3333333333333" y="422.72" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">finding set against other KG studies.</text>
+<rect x="638.6666666666666" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="#6250d6" stroke="none" stroke-width="1.5"/>
+<rect x="642.6666666666666" y="253.68" width="289.3333333333333" height="210.32" rx="8" fill="#f6f4fd" stroke="none" stroke-width="1.5"/>
+<rect x="638.6666666666666" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="none" stroke="#6250d6" stroke-width="1.5"/>
+<text x="654.6666666666666" y="273.68" font-size="13" letter-spacing="1.2" fill="#52514e">RUN</text>
+<g transform="translate(883.2,265.68) scale(1.45)">
 <g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="8" r="3"/><path d="M0,21 V17 a4,4 0 0 1 8,0 V21"/></g>
 <g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M8,21 V17 a4,4 0 0 1 8,0 V21"/></g>
 <g fill="none" stroke="#6250d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="8" r="3"/><path d="M16,21 V17 a4,4 0 0 1 8,0 V21"/></g>
 </g>
-<text x="349.3333333333333" y="297.68" font-size="17" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="start">Separate the roles</text>
-<text x="349.3333333333333" y="317.68" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: grading your own work</text>
-<text x="349.3333333333333" y="340.32" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“You execute; the main thread judges.</text>
-<text x="349.3333333333333" y="358.24" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">You return artifacts, not</text>
-<text x="349.3333333333333" y="376.16" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">conclusions.”</text>
-<path d="M349.3333333333333,388.08000000000004 H610.6666666666666" stroke="#c0b9ef" stroke-width="1"/>
-<text x="349.3333333333333" y="406.08000000000004" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">One AI runs the code, another judges the</text>
-<text x="349.3333333333333" y="422.72" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">output, a third, new to the work, reviews.</text>
-<rect x="638.6666666666666" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="#8a6200" stroke="none" stroke-width="1.5"/>
-<rect x="642.6666666666666" y="253.68" width="289.3333333333333" height="210.32" rx="8" fill="#f8f6f0" stroke="none" stroke-width="1.5"/>
-<rect x="638.6666666666666" y="253.68" width="293.3333333333333" height="210.32" rx="8" fill="none" stroke="#8a6200" stroke-width="1.5"/>
-<text x="654.6666666666666" y="273.68" font-size="13" letter-spacing="1.2" fill="#52514e">WRITE UP</text>
-<g transform="translate(883.2,265.68) scale(1.45)">
-<g fill="none" stroke="#8a6200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12,3 V22 M7,22 H17 M3,6 H21 M3,6 L0,14 M3,6 L6,14 M21,6 L18,14 M21,6 L24,14"/><path d="M0,14 a3,2.5 0 0 0 6,0 Z M18,14 a3,2.5 0 0 0 6,0 Z" fill="#8a6200"/></g>
-</g>
-<text x="654.6666666666666" y="297.68" font-size="17" font-weight="bold" font-style="normal" fill="#8a6200" text-anchor="start">Claims match evidence</text>
-<text x="654.6666666666666" y="317.68" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: narrative fabrication</text>
-<text x="654.6666666666666" y="340.32" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“[Words like] ‘every’, ‘none’ … need</text>
-<text x="654.6666666666666" y="358.24" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">a query against the data file, not a</text>
-<text x="654.6666666666666" y="376.16" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">glance at a heatmap.”</text>
-<path d="M654.6666666666666,388.08000000000004 H916.0" stroke="#d0c099" stroke-width="1"/>
-<text x="654.6666666666666" y="406.08000000000004" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">Numbers first, interpretation after; each</text>
-<text x="654.6666666666666" y="422.72" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">finding set against other KG studies.</text></svg>
+<text x="654.6666666666666" y="297.68" font-size="17" font-weight="bold" font-style="normal" fill="#6250d6" text-anchor="start">Separate the roles</text>
+<text x="654.6666666666666" y="317.68" font-size="13" font-weight="normal" font-style="normal" fill="#b3261e" text-anchor="start">against: grading your own work</text>
+<text x="654.6666666666666" y="340.32" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">“You execute; the main thread judges.</text>
+<text x="654.6666666666666" y="358.24" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">You return artifacts, not</text>
+<text x="654.6666666666666" y="376.16" font-size="14" font-weight="normal" font-style="italic" fill="#0b0b0b" text-anchor="start">conclusions.”</text>
+<path d="M654.6666666666666,388.08000000000004 H916.0" stroke="#c0b9ef" stroke-width="1"/>
+<text x="654.6666666666666" y="406.08000000000004" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">One AI runs the code, another judges the</text>
+<text x="654.6666666666666" y="422.72" font-size="13" font-weight="normal" font-style="normal" fill="#0b0b0b" text-anchor="start">output, a third, new to the work, reviews.</text></svg>

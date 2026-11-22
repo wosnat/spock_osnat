@@ -15,7 +15,8 @@ longer matches; update it in `CARDS` in `make_figures.py`.
 
 ## Figure 1 — fig1_concepts_cards (six safeguard cards)
 
-**How Spock guards AI-assisted research against hallucination and bias.** Six safeguards, labelled by the stage where each first matters; Figure 2A shows where each acts in the research process. Each card names the safeguard, the danger it counters (red), a verbatim
+**How Spock guards AI-assisted research against hallucination and bias.** Six safeguards, labelled by the phase of the research process where each sits in Figure 2A
+(plan or run) and in the same left-to-right order. Each card names the safeguard, the danger it counters (red), a verbatim
 quote from the instructions Spock gives the AI, and, below the line, what Spock does in
 practice. **Look it up:** values, gene identities, the meaning of tools and fields, and the
 absence of data all come from a knowledge graph (KG) query; gaps are flagged, not filled from
@@ -30,11 +31,11 @@ data that were already published. **Check the computation:** each method is test
 in the real file format, then on one real case against an answer built another way, by someone
 other than its author, and its code is reviewed afresh. Statistics run in scripts, with the
 package's own pipeline, the correct background gene set and multiple-testing correction, and
-effect sizes are not compared across measurement platforms. **Separate the roles:** the coding
-AI returns files, not conclusions; the main AI judges from those files; and a reviewer AI with
-no prior context re-checks every claim. **Claims match evidence:** numbers come before
+effect sizes are not compared across measurement platforms. **Claims match evidence:** numbers come before
 interpretation; words such as "therefore", "all" or "independent" each need a contrast, a file
-and a number; and each finding is set against the other studies in the KG. The orange frame is
+and a number; and each finding is set against the other studies in the KG. **Separate the roles:** the coding
+AI returns files, not conclusions; the main AI judges from those files; and a reviewer AI with
+no prior context re-checks the claims against the files. The orange frame is
 the researcher, who approves every step: the AI never moves on alone, and every version of the
 work is kept. Quotes are verbatim from `.claude/skills/research-methodology/` (SKILL.md,
 references/plan-phase.md, references/research-notebook.md) and `.claude/agents/kg-coder.md`.
@@ -47,21 +48,22 @@ work. Each AI step is drawn as the Figure 1 card it carries. In the plan: the AI
 knowledge graph (KG) holds (*Look it up*); checks with a throwaway test that the approach can
 work, which may send the approach back (*Scope first*); and, with the researcher, fixes the controls and decision rule
 (*Pre-register the test*, panel B); and a second AI, new to the work and unable to open the
-results, reviews the plan (*Separate the roles*). Each plan step is a short dialog that the researcher confirms before the next. The researcher approves or asks for a
+results, reviews the plan (*Separate the roles*). Each plan step is a short dialog that the researcher confirms before the next (orange
+two-way arrows). The researcher approves or asks for a
 revision, and the plan is then frozen. In an overview, where nothing is being tested, there is
 no framing and every result is reported as exploratory. The work then runs in three stages:
 building and testing the method, the analysis, and the evaluation, each through the same loop.
 The researcher agrees what the stage will do. A coding AI runs the code and returns files, not
-conclusions; the method is tested on toy data and against an answer built another way
-(*Check the computation*). The main AI reads the files and judges what they show, numbers
+conclusions; the method is tested on toy data and against an answer built another way, by
+someone other than the coding AI (*Check the computation*). The main AI reads the files and judges what they show, numbers
 before interpretation (*Claims match evidence*). The researcher and the AI explore the results
 together; a pattern nobody planned for is tested only through a prediction recorded first.
-Before the stage is presented for approval, the method and statistics code is reviewed and a fresh AI re-checks every claim
-against the files (*Separate the roles*); the researcher then approves, or asks for a revision
+Before the stage is presented for approval, the method and statistics code is reviewed and a fresh AI re-checks the claims against the files (*Separate the roles*); the researcher then approves, or asks for a revision
 or a redo. If the results contradict the frozen plan, the plan is reopened and the change
 recorded, never made silently. Every approval is saved and never overwritten (rings).
-**(B)** What the plan fixes before the result is seen: the seven parts of a framing, each with
-a few words quoted from the skill (`references/plan-phase.md`). Positive controls show the data
+**(B)** What the plan fixes before the result is seen, drawn as the frozen plan: the seven
+parts of a framing, each with a few words quoted from the skill (`references/plan-phase.md`),
+and the run order the skill prescribes. Positive controls show the data
 can reveal an effect at all; negative controls show what "no effect" looks like. Methods are
 settled on the controls first; the targets are scored once, last.
 

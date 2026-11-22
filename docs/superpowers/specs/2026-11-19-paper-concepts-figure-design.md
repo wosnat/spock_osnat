@@ -120,3 +120,8 @@ and font sizes, icon drawing details, caption wording.
   grey; 13 units is the font floor, so it cannot be smaller); icons enlarged ×1.45.
 - Card text stays as in the tables above: a trial with shortened quotes and lines read as
   fragmented and lost the points, and was reverted.
+
+## Update 2026-11-22: aligned with the new Figure 2
+Stage tags are now the phases of Figure 2A: PLAN (cards 1–3) and RUN (cards 4–6), and the last
+two cards are swapped (Claims match evidence, then Separate the roles), so the cards read in the
+same order as the AI steps in Figure 2A. See `2026-11-22-paper-process-figure-design.md`.

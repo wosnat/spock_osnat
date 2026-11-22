@@ -20,6 +20,7 @@ OUT = Path(__file__).parent
 INK, INK2, LINE, BG = "#0b0b0b", "#52514e", "#c9c8c2", "#ffffff"
 BLUE, ORANGE, AQUA, VIOLET, RED = "#2a78d6", "#eb6834", "#1baf7a", "#6250d6", "#e34948"
 AQUA_TXT = "#0d7a53"  # aqua darkened for text on white
+ORANGE_TXT = "#b4461a"  # orange darkened for text on its tint
 MAGENTA, OCHRE = "#b0397a", "#8a6200"  # Fig 1 concepts 5-6 (no role meaning)
 FONT = "Helvetica, Arial, 'Segoe UI', sans-serif"
 MIN_FONT = 13
@@ -267,7 +268,7 @@ CARDS = [
          source="skills/research-methodology/references/plan-phase.md",
          how="Controls and decision rule fixed before the answer is seen (Fig. 2B).",
          icon="clipboard_lock", color=SLATE),
-    dict(stage="Build", title="Check the computation",
+    dict(stage="Run", title="Check the computation",
          danger="silent errors",
          gloss="tests pass, real data breaks it",
          quote="Toy tests catch logic errors; only an independent path catches wrong calls, "
@@ -276,20 +277,20 @@ CARDS = [
          how="Toy data, an independent answer and a code review; correct background and "
              "multiple-testing correction.",
          icon="flask_check", color=AQUA_TXT),
-    dict(stage="Analyse", title="Separate the roles", danger="grading your own work",
-         gloss="the author misses their own holes",
-         quote="You execute; the main thread judges. You return artifacts, not conclusions.",
-         source="agents/kg-coder.md",
-         how="One AI runs the code, another judges the output, a third, new to the work, "
-             "reviews.",
-         icon="roles", color=VIOLET),
-    dict(stage="Write up", title="Claims match evidence", danger="narrative fabrication",
+    dict(stage="Run", title="Claims match evidence", danger="narrative fabrication",
          gloss="the wording outruns the evidence",
          quote="[Words like] ‘every’, ‘none’ … need a query against the data file, "
                "not a glance at a heatmap.",
          source="skills/research-methodology/SKILL.md",
          how="Numbers first, interpretation after; each finding set against other KG studies.",
          icon="scales", color=OCHRE),
+    dict(stage="Run", title="Separate the roles", danger="grading your own work",
+         gloss="the author misses their own holes",
+         quote="You execute; the main thread judges. You return artifacts, not conclusions.",
+         source="agents/kg-coder.md",
+         how="One AI runs the code, another judges the output, a third, new to the work, "
+             "reviews.",
+         icon="roles", color=VIOLET),
 ]
 
 
@@ -1084,13 +1085,8 @@ def figure2_safeguards():
 
     # panel B layout first, so the canvas height is known
     by = 384
-    bx, bw = 40, W - 12 - 40
-    ncol = 4
-    colw = (bw - 32) / ncol
-    items = [(h, wrap(f"“{f}”", colw - 24, 14, k=0.48)) for h, f in FRAMING]
-    rows = [items[i:i + ncol] for i in range(0, len(items), ncol)]
-    rowh = [18 + max(len(L) for _, L in r) * 18 + 8 for r in rows]
-    bh = 58 + sum(rowh) + 38
+    bx, shw, RH = 40, 600, 25         # sheet x, width, row height
+    bh = 34 + len(FRAMING) * RH + 10
     s = SVG(W, round(by + bh + 12))
 
     def vtext(x, y, t, c, size=14):
@@ -1131,6 +1127,7 @@ def figure2_safeguards():
             s.text(cx, AY + 100 + i * 16, ln, size=13, anchor="middle")
 
     def r_box(x, y, w, h, lines):       # researcher step (Fig 1's orange pill colours)
+        assert all(len(ln) * 13 * 0.45 <= w - 10 for ln in lines), lines  # 0.45: measured
         s.rect(x, y, w, h, stroke=ORANGE, fill=tint(ORANGE, 0.14), rx=8)
         y0 = y + h / 2 - (len(lines) - 1) * 13 * 0.62 + 13 * 0.36
         for i, ln in enumerate(lines):
@@ -1172,6 +1169,11 @@ def figure2_safeguards():
     for a, b in zip(PLAN_X, PLAN_X[1:]):
         s.arrow([(a + BW, ym), (b - 1, ym)])
     r_box(PLAN_X[0], 76, BW, 46, ["Research", "question"])
+    for x in PLAN_X[:3]:                # each plan step is a dialog the researcher confirms
+        s.arrow([(x + 26, 142), (x + 26, AY - 2)], ORANGE, sw=1.6, both=True)
+    s.text(PLAN_X[1] + 6, 120, "a dialog: the researcher", size=13, fill=ORANGE_TXT, style="italic")
+    s.text(PLAN_X[1] + 6, 136, "confirms each step", size=13, fill=ORANGE_TXT,
+           style="italic")
     s.arrow([(mid(PLAN_X[0]), 122), (mid(PLAN_X[0]), AY - 2)])
     pa = mid(PLAN_X[3])
     diamond(pa, 100)
@@ -1197,8 +1199,8 @@ def figure2_safeguards():
     ra = mid(RUN_X[2]) + 14
     diamond(ra, 100, hw=36)
     s.arrow([(ra, AY), (ra, 128)])
-    s.arrow([(ra, 74), (ra, 62), (mid(RUN_X[0]), 62), (mid(RUN_X[0]), 74)], dash="5 3")
-    label((ra + mid(RUN_X[0])) / 2, 57, "no: revise or redo this stage", anchor="middle")
+    s.arrow([(ra, 74), (ra, 70), (mid(RUN_X[0]), 70), (mid(RUN_X[0]), 74)], dash="5 3")
+    label((ra + mid(RUN_X[0])) / 2, 64, "no: revise or redo this stage", anchor="middle")
     s.arrow([(ra + 36, 100), (W - 13, 100)], INK, sw=2)
     ring(ra + 36 + 6, 113)
 
@@ -1206,39 +1208,58 @@ def figure2_safeguards():
     yr = AY + BH + 14
     s.arrow([(mid(RUN_X[1]), AY + BH), (mid(RUN_X[1]), yr), (mid(PLAN_X[2]), yr),
              (mid(PLAN_X[2]), AY + BH + 2)], INK, dash="2 3", sw=1.6)
+    s.add(f'<path d="M{BAR_X},{yr} H{BAR_X + 22}" stroke="#fff" stroke-width="1.6" '
+          f'stroke-dasharray="2 3"/>')
     label(W - 20, yr + 17, "results contradict the plan → plan reopened, change recorded",
           anchor="end", fill=INK)
     ring(PLAN_X[0] + 6, 364)
     s.text(PLAN_X[0] + 18, 368.5, "every approval is saved: everything is on the record",
            size=13, fill=INK2)
 
-    # ================= panel B: what "Pre-register the test" fixes
+    # ================= panel B: the plan as a locked sheet (what "Pre-register the test" fixes)
     pr = card("Pre-register the test")
     c = pr["color"]
     s.text(14, by + 24, "B", size=18, weight="bold")
-    card_box(bx, by, bw, bh, c)
-    k = 1.25
-    s.add(f'<g transform="translate({bx + 16},{by + 12}) scale({k})">')
-    icon_cards(s, pr["icon"], 0, 0, c)
+    s.rect(bx, by, shw, bh, stroke=c, fill="#fff", rx=8, sw=1.5)
+    s.rect(bx, by, shw, 34, stroke="none", fill=c, rx=8)
+    s.rect(bx, by + 20, shw, 14, stroke="none", fill=c, rx=0)
+    s.add(f'<g transform="translate({bx + 12},{by + 6}) scale(0.92)">')
+    icon_cards(s, pr["icon"], 0, 0, "#fff")
     s.add("</g>")
-    s.text(bx + 56, by + 34, pr["title"], size=17, weight="bold", fill=c)
-    s.text(bx + 56 + len(pr["title"]) * 17 * 0.47 + 10, by + 34,
-           "— what the plan fixes before the result is seen", size=14, fill=INK2)
-    y = by + 58
-    for row, h in zip(rows, rowh):
-        for i, (head, lines) in enumerate(row):
-            x = bx + 16 + i * colw
-            s.rect(x, y - 1, 12, 12, stroke=c, fill="#fff", rx=2, sw=1.5)
-            s.add(f'<path d="M{x + 2.5},{y + 5} L{x + 5},{y + 8} L{x + 9.5},{y + 2}" fill="none" '
-                  f'stroke="{c}" stroke-width="1.8" stroke-linecap="round"/>')
-            s.text(x + 20, y + 10, head, size=14, weight="bold")
-            for j, ln in enumerate(lines):
-                s.text(x + 20, y + 28 + j * 18, ln, size=14, style="italic")
-        y += h
-    s.add(f'<path d="M{bx + 16},{y} H{bx + bw - 16}" stroke="{tint(c, 0.4)}"/>')
-    s.text(bx + 16, y + 24, "Run order:", size=14, weight="bold")
-    s.text(bx + 92, y + 24, f"“{FRAMING_FOOTER}”", size=14, style="italic")
-    assert y + 24 + 10 <= by + bh, (y, by + bh)
+    s.text(bx + 44, by + 23, pr["title"], size=16, weight="bold", fill="#fff")
+    sub = "— the plan, before the result is seen"
+    sx = bx + 44 + len(pr["title"]) * 16 * 0.47 + 8
+    assert sx + len(sub) * 14 * 0.5 <= bx + shw - 12
+    s.text(sx, by + 23, sub, size=14, fill="#fff")
+    stamp_l = bx + shw - 150
+    for i, (head, frag) in enumerate(FRAMING):
+        yy = by + 34 + i * RH
+        s.text(bx + 16, yy + 18, head, size=14, weight="bold")
+        assert bx + 196 + (len(frag) + 2) * 14 * 0.48 <= stamp_l, frag
+        s.text(bx + 196, yy + 18, f"“{frag}”", size=14, style="italic")
+        if i < len(FRAMING) - 1:
+            s.add(f'<path d="M{bx + 16},{yy + RH} H{bx + shw - 16}" stroke="{tint(c, 0.25)}"/>')
+    scx, scy = bx + shw - 82, by + 34 + 3.5 * RH
+    s.add(f'<g transform="rotate(-10 {scx} {scy})">'
+          f'<rect x="{scx - 62}" y="{scy - 20}" width="124" height="40" rx="6" fill="#fff" '
+          f'fill-opacity="0.85" stroke="{c}" stroke-width="3"/>'
+          f'<text x="{scx}" y="{scy + 7}" font-size="20" font-weight="bold" fill="{c}" '
+          f'text-anchor="middle" letter-spacing="3">FROZEN</text></g>')
+    # run order: the skill's sentence, split into its three steps
+    x0, x1 = bx + shw + 36, W - 12
+    s.text((x0 + x1) / 2, by + 18, "Run order", size=14, weight="bold", anchor="middle")
+    steps = [t.strip().rstrip(".") for t in FRAMING_FOOTER.split("→")]
+    shades = [c, "#6b7888", "#8c97a4"]
+    ch, cy = 52, by + 30
+    for t, f in zip(steps, shades):
+        xm = (x0 + x1) / 2
+        s.add(f'<polygon points="{x0},{cy} {x1},{cy} {x1},{cy + ch - 12} {xm},{cy + ch} '
+              f'{x0},{cy + ch - 12}" fill="{f}"/>')
+        assert len(t) * 14 * 0.55 <= x1 - x0 - 16, t
+        s.text(xm, cy + (ch - 12) / 2 + 5, t, size=14, weight="bold", fill="#fff",
+               anchor="middle")
+        cy += ch + 4
+    assert cy <= by + bh + 4, (cy, by + bh)
     s.save("fig2_process_safeguards.svg")
 
 

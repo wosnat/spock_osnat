@@ -73,3 +73,12 @@ Footer, verbatim: "controls pass → method frozen → targets scored once, last
 
 ## Left to the builder
 Exact box widths, wrapping and arrow routing; exact box wording within the meaning above.
+
+## Changes after the first build (2026-11-22, agreed with the researcher)
+- **Panel B display:** the plan as a locked sheet: a slate header with the card's icon and
+  title, seven rows (heading + verbatim fragment), a "FROZEN" stamp, and the run order as three
+  chevrons on the right (the skill's sentence split at its arrows). Content unchanged.
+- **Plan steps are a dialog:** orange two-way arrows join the researcher lane to the first three
+  plan steps, labelled "a dialog: the researcher confirms each step".
+- **Figure 1 matches Figure 2A:** stage tags are PLAN / RUN (Fig 2A's phases), and cards 5 and 6
+  are swapped to Fig 2A's order (Claims match evidence, then Separate the roles).
